@@ -64,7 +64,7 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
         <a class="tool" href="../plant-companions/"><span class="icon">🌱</span><b>Plant Companions</b><span>Saved pairings and quick companion guidance.</span><span class="meta" id="compMeta">0 saved</span></a>
         <a class="tool" href="../plant-identifier/"><span class="icon">🔎</span><b>Plant / Pest / Disease Identifier</b><span>Garden-health screening, photo reference and saved reports.</span><span class="meta" id="healthMeta">0 saved reports</span></a>
         <a class="tool" href="../harvest-checker/"><span class="icon">🧺</span><b>Harvest Checker</b><span>Readiness guidance and saved harvest checks.</span><span class="meta" id="harvestMeta">0 saved</span></a>
-        <a class="tool" id="seed-starting-card-v1" href="../seed-starting/"><span class="icon">🌱</span><b>Seed Starting & Succession</b><span>Seed inventory, trays, germination, transplant timing and succession rounds.</span><span class="meta" id="seedMeta">0 seeds · 0 trays</span></a><a class="tool" href="../garden-calculator/"><span class="icon">🧮</span><b>Garden Calculator</b><span>Soil, mulch, bed, spacing and garden measurement calculations.</span><span class="meta">Open calculator</span></a>
+        <a class="tool" id="seed-starting-card-v1" href="../seed-starting/"><span class="icon">🌱</span><b>Seed Starting & Succession</b><span>Seed inventory, trays, germination, transplant timing and succession rounds.</span><span class="meta" id="seedMeta">0 seeds · 0 trays</span></a><a class="tool" id="garden-journal-card-v1" href="../garden-journal/"><span class="icon">📓</span><b>Garden Journal & Logs</b><span>Watering, feeding, soil, observations, treatments and follow-up history.</span><span class="meta" id="journalMeta">0 entries</span></a><a class="tool" href="../garden-calculator/"><span class="icon">🧮</span><b>Garden Calculator</b><span>Soil, mulch, bed, spacing and garden measurement calculations.</span><span class="meta">Open calculator</span></a>
       </div></div>
     </section>
 
@@ -83,7 +83,7 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
         <button data-go="../garden-library/">Find a Plant</button>
         <button data-go="../harvest-checker/">Check Harvest</button>
         <button data-go="../plant-companions/">Check Companions</button>
-        <button data-go="../seasonal-calendar/">What Now?</button><button data-go="../seed-starting/">Start Seeds</button>
+        <button data-go="../seasonal-calendar/">What Now?</button><button data-go="../seed-starting/">Start Seeds</button><button data-go="../garden-journal/">Log Garden Care</button>
       </div></div>
     </section>
 
@@ -105,7 +105,7 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
     <section class="card">
       <div class="cardhead"><div><h2>Coming Next</h2><p>The next systems that will connect here.</p></div></div>
       <div class="body">
-        <div class="feeditem"><small>Connected Build</small><b>Seed Starting + Succession + Tray Tracker</b><span>Seed inventory, active trays, planted cells, due tasks and succession rounds now feed directly into My Garden.</span></div><div class="feeditem"><small>Next Build</small><b>Garden Journal & Logs</b><span>Watering, feeding, soil amendments, observations, pest and disease treatments, and general garden notes will become the next connected My Garden system.</span></div>
+        <div class="feeditem"><small>Connected Build</small><b>Seed Starting + Succession + Tray Tracker</b><span>Seed inventory, active trays, planted cells, due tasks and succession rounds now feed directly into My Garden.</span></div><div class="feeditem"><small>Connected Build</small><b>Garden Journal & Logs</b><span>Watering, feeding, soil amendments, observations, treatment history and follow-up tasks now feed into My Garden.</span></div><div class="feeditem"><small>Next Build</small><b>Harvest & Garden Records</b><span>Detailed harvest history, yields, varieties, dates, photos, notes and seasonal comparisons are next.</span></div>
         <div class="section-note">My Garden is local-first right now. It reads the saved data already created by your Perennial tools on this device. Cloud account sync remains a later step when a dedicated Perennial backend is connected.</div>
       </div>
     </section>
@@ -124,7 +124,7 @@ const companions=J("phg-companion-saved",[]);
 const harvests=J("phg-harvest-saved",[]);
 const lastHarvest=J("phg-harvest-last",{});
 const plans=J("phgGardenPlans",[]);
-const health=J("phgGardenHealthReports",[]);\nconst seedSystem=J("phgSeedSystemV1",{seeds:[],trays:[],successions:[]});
+const health=J("phgGardenHealthReports",[]);\nconst seedSystem=J("phgSeedSystemV1",{seeds:[],trays:[],successions:[]});\nconst gardenJournal=J("phgGardenJournalV1",{entries:[]});
 const shelf=J("phgGardenLibraryShelfV1",{plants:[],terms:[],resources:[]});
 const libProfile=J("phgGardenLibraryProfileV1",{});
 const notes=J("phgGardenLibraryPlantNotesV1",{});
@@ -159,8 +159,8 @@ function refreshStats(){
  document.getElementById("compMeta").textContent=(Array.isArray(cp)?cp.length:0)+" saved";
  document.getElementById("healthMeta").textContent=hr.length+" saved report"+(hr.length===1?"":"s");
  document.getElementById("harvestMeta").textContent=hv.length+" saved";
- document.getElementById("calendarMeta").textContent=ca.zone?("Zone "+String(ca.zone).toUpperCase()+" · "+(ca.focus||"Seasonal plan")):"Open calendar";\n const ss=J("phgSeedSystemV1",seedSystem),activeTrays=(ss.trays||[]).filter(t=>t.stage!=="Transplanted").length;document.getElementById("seedMeta").textContent=(ss.seeds||[]).length+" seeds · "+activeTrays+" active trays";
- renderPlans(pl);renderHealth(hr);renderActivity({pl,hr,hv,cp,z,ca,last:lastHarvest,ss});renderPlants(sh);
+ document.getElementById("calendarMeta").textContent=ca.zone?("Zone "+String(ca.zone).toUpperCase()+" · "+(ca.focus||"Seasonal plan")):"Open calendar";\n const ss=J("phgSeedSystemV1",seedSystem),activeTrays=(ss.trays||[]).filter(t=>t.stage!=="Transplanted").length;document.getElementById("seedMeta").textContent=(ss.seeds||[]).length+" seeds · "+activeTrays+" active trays";\n const gj=J("phgGardenJournalV1",gardenJournal),dueJ=(gj.entries||[]).filter(e=>e.followDate&&!e.followComplete&&e.followDate<=new Date().toISOString().slice(0,10)).length;document.getElementById("journalMeta").textContent=(gj.entries||[]).length+" entries"+(dueJ?" · "+dueJ+" due":"");
+ renderPlans(pl);renderHealth(hr);renderActivity({pl,hr,hv,cp,z,ca,last:lastHarvest,ss,gj});renderPlants(sh);
 }
 function renderPlans(pl){const box=document.getElementById("savedPlans");box.innerHTML=pl.length?pl.slice(0,4).map(x=>'<div class="feeditem"><small>Garden Plan</small><b>'+escapeHtml(x.name||"Saved Layout")+'</b><span>'+(x.date?new Date(x.date).toLocaleDateString():"Saved on this device")+'</span></div>').join(""):feedEmpty("No garden layouts saved yet.")}
 function renderHealth(hr){const box=document.getElementById("healthReports");box.innerHTML=hr.length?hr.slice(0,4).map(x=>'<div class="feeditem"><small>'+escapeHtml(x.mode||"Garden Health")+'</small><b>'+escapeHtml(x.plant||"Unnamed plant")+'</b><span>'+escapeHtml((x.matches||[]).slice(0,2).join(" · ")||"Screening report")+'</span></div>').join(""):feedEmpty("No garden-health reports saved yet.")}
@@ -177,7 +177,7 @@ function renderActivity(d){
  if(d.hr[0])a.push({t:d.hr[0].date||"",k:"Garden Health",b:d.hr[0].plant||"Saved report",s:(d.hr[0].matches||[]).slice(0,2).join(" · ")});
  if(d.hv[0])a.push({t:d.hv[0].date||d.hv[0].savedAt||"",k:"Harvest",b:d.hv[0].crop||d.last.crop||"Saved harvest",s:d.hv[0].stage||d.last.stage||"Harvest Checker"});
  if(d.z.zone)a.push({t:"",k:"Growing Zone",b:"Zone "+String(d.z.zone).toUpperCase(),s:d.z.zip?("ZIP "+d.z.zip):"USDA zone saved"});
- if(d.ca.zone)a.push({t:"",k:"Seasonal Calendar",b:"Zone "+String(d.ca.zone).toUpperCase(),s:d.ca.focus||"Seasonal preferences saved"});\n if(d.ss&&((d.ss.seeds||[]).length||(d.ss.trays||[]).length)){const at=(d.ss.trays||[]).filter(t=>t.stage!=="Transplanted").length;a.push({t:"",k:"Seed Starting",b:(d.ss.seeds||[]).length+" seed varieties",s:at+" active trays · "+(d.ss.successions||[]).reduce((n,p)=>n+(p.rounds||[]).length,0)+" succession rounds"});}
+ if(d.ca.zone)a.push({t:"",k:"Seasonal Calendar",b:"Zone "+String(d.ca.zone).toUpperCase(),s:d.ca.focus||"Seasonal preferences saved"});\n if(d.ss&&((d.ss.seeds||[]).length||(d.ss.trays||[]).length)){const at=(d.ss.trays||[]).filter(t=>t.stage!=="Transplanted").length;a.push({t:"",k:"Seed Starting",b:(d.ss.seeds||[]).length+" seed varieties",s:at+" active trays · "+(d.ss.successions||[]).reduce((n,p)=>n+(p.rounds||[]).length,0)+" succession rounds"});}\n if(d.gj&&(d.gj.entries||[]).length){const e=(d.gj.entries||[]).slice().sort((x,y)=>((y.date||"")+" "+(y.time||"")).localeCompare((x.date||"")+" "+(x.time||"")))[0];a.push({t:e.created||e.date||"",k:"Garden Journal",b:e.target||"Garden entry",s:(e.type||"note")+" · "+(e.notes||"").slice(0,80)});}
  a.sort((x,y)=>(y.t||"").localeCompare(x.t||""));
  const box=document.getElementById("activityFeed");box.innerHTML=a.length?a.slice(0,7).map(x=>'<div class="feeditem"><small>'+escapeHtml(x.k)+'</small><b>'+escapeHtml(x.b)+'</b><span>'+escapeHtml(x.s||"")+(x.t?" · "+new Date(x.t).toLocaleDateString():"")+'</span></div>').join(""):feedEmpty("Your saved activity from connected Perennial tools will appear here.");
 }
