@@ -13,22 +13,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect USDA PLANTS API config
+      - name: Extract USDA API config and PlantsService methods
         run: |
           python - <<'PY'
           import urllib.request,re,json
-          js=urllib.request.urlopen(urllib.request.Request("https://plants.sc.egov.usda.gov/main.js",headers={"User-Agent":"Mozilla/5.0"}),timeout=40).read().decode("utf-8","replace")
-          needles=["getPlantsAPIUrl","plantsAPI","fetchPlantProfile","PlantProfile/get","getCharacteristics","characteristicSearchResults","serviceUrl"]
-          out={}
-          for n in needles:
-            arr=[];start=0
-            while True:
-              i=js.find(n,start)
-              if i<0:break
-              arr.append(js[max(0,i-1800):min(len(js),i+5000)])
-              if len(arr)>=20:break
-              start=i+len(n)
-            out[n]=arr
+          def get(url):
+            return urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"}),timeout=40).read().decode("utf-8","replace")
+          config=json.loads(get("https://plants.sc.egov.usda.gov/assets/config.json"))
+          js=get("https://plants.sc.egov.usda.gov/main.js")
+          out={"config":config}
+          # Extract service module source chunks by webpack module labels.
+          mods={}
+          for label in ["./src/app/services/plants.service.ts","./src/app/plant-profile/services/plant-profile.service.ts","./src/app/services/fetch.service.ts"]:
+            i=js.find(label)
+            if i>=0:
+              j=js.find("/***/ })",i)
+              if j<0:j=min(len(js),i+50000)
+              mods[label]=js[i:min(len(js),j+100)]
+          # Collect endpoint-like string concatenations in these modules.
+          compact={}
+          for k,s in mods.items():
+            arr=[]
+            for line in s.splitlines():
+              if "serviceUrl" in line or "this.http." in line or "PlantProfile/" in line or "characteristic" in line.lower():
+                arr.append(line.strip())
+            compact[k]=arr[:500]
+          out["modules"]=compact
           open("data/garden-library/usda_api_diagnostic.json","w").write(json.dumps(out,indent=2))
           PY
       - name: Commit diagnostic
@@ -36,5 +46,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/garden-library/usda_api_diagnostic.json
-          git diff --cached --quiet || git commit -m "Inspect USDA PLANTS API configuration"
+          git diff --cached --quiet || git commit -m "Extract USDA PLANTS API config and methods"
           git push
