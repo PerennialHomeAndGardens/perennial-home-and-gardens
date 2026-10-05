@@ -1,0 +1,66 @@
+name: Build Plant Identifier homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-plant-identifier-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Plant Identifier homepage promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-plant-identifier-home-v1"
+          if marker not in h:
+              section=r'''
+          <section id="plant-identifier" class="phg-plant-identifier-home-v1" aria-label="Plant Pest and Disease Identifier">
+            <div class="phg-pi-inner">
+              <div class="phg-pi-copy">
+                <div class="phg-pi-kicker">Perennial Garden App</div>
+                <h2>Plant, Pest &amp; Disease Identifier</h2>
+                <p class="phg-pi-lead">Take or upload a garden photo, record symptoms, and narrow likely plant-health problems with a guided screening tool built around trusted Extension and USDA resources.</p>
+                <div class="phg-pi-tags"><span>Camera Upload</span><span>Pest Screening</span><span>Disease Screening</span><span>Plant Traits</span><span>Saved Reports</span></div>
+                <a class="phg-pi-open" href="tools/plant-identifier/">OPEN GARDEN IDENTIFIER →</a>
+              </div>
+              <div class="phg-pi-preview">
+                <div class="phg-pi-top">Garden Identifier <strong>📷</strong></div>
+                <div class="phg-pi-row"><b>What do you see?</b><span>Spots · Wilt · Holes · Webbing</span></div>
+                <div class="phg-pi-row"><b>Where?</b><span>Leaves · Stems · Roots · Fruit</span></div>
+                <div class="phg-pi-result"><small>SCREENING RESULT</small><strong>Likely matches ranked by observations</strong></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-plant-identifier-home-v1">
+          .phg-plant-identifier-home-v1{padding:72px 20px;background:linear-gradient(180deg,#fffaf2 0%,#eef3e8 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-pi-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+          .phg-pi-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-pi-copy h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,62px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-pi-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-pi-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-pi-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-pi-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}.phg-pi-open:hover{transform:translateY(-3px)}
+          .phg-pi-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:18px;box-shadow:0 20px 45px rgba(45,63,39,.12)}
+          .phg-pi-top{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:13px 14px;display:flex;justify-content:space-between;margin-bottom:10px}.phg-pi-row{font-family:Georgia,serif;border:1px solid #e4ddd2;background:#fffaf3;border-radius:13px;padding:11px 12px;margin-top:8px;color:#2f4931}.phg-pi-row b,.phg-pi-row span{display:block}.phg-pi-row span{margin-top:4px;font-size:11px;color:#71806a}.phg-pi-result{margin-top:10px;background:#eaf0e5;border:1px solid #cbd8c3;border-radius:13px;padding:12px;color:#2f4931}.phg-pi-result small{display:block;letter-spacing:.09em;color:#71806a;margin-bottom:4px}
+          @media(max-width:800px){.phg-plant-identifier-home-v1{padding:48px 14px}.phg-pi-inner{grid-template-columns:1fr}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1: h=h[:idx]+section+h[idx:]
+              else: h=h.replace("</body>",section+"</body>",1)
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit homepage identifier section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Plant Pest Disease Identifier homepage experience"
+          git push
