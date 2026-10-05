@@ -1,0 +1,68 @@
+name: Build Seed Starting homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-seed-starting-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Seed Starting homepage promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-seed-starting-home-v1"
+          if marker not in h:
+              section=r'''
+          <section id="seed-starting" class="phg-seed-starting-home-v1" aria-label="Seed Starting Succession and Tray Tracker">
+            <div class="phg-ss-inner">
+              <div class="phg-ss-copy">
+                <div class="phg-ss-kicker">Perennial Garden App</div>
+                <h2>Seed Starting, Succession &amp; Tray Tracker</h2>
+                <p class="phg-ss-lead">Track seed inventory, trays and cells, germination, potting-up, transplant dates and repeat sowings so your garden stays productive through the season.</p>
+                <div class="phg-ss-tags"><span>Seed Inventory</span><span>Tray Tracker</span><span>Germination</span><span>Transplants</span><span>Succession Rounds</span><span>My Garden Connected</span></div>
+                <a class="phg-ss-open" href="tools/seed-starting/">OPEN SEED SYSTEM →</a>
+              </div>
+              <div class="phg-ss-preview">
+                <div class="phg-ss-top">SEED SYSTEM <strong>🌱</strong></div>
+                <div class="phg-ss-stats"><div><b>18</b><span>Seeds</span></div><div><b>4</b><span>Trays</span></div><div><b>144</b><span>Cells</span></div></div>
+                <div class="phg-ss-row"><b>Tray A · Tomato</b><span>Germination watch</span></div>
+                <div class="phg-ss-row"><b>Lettuce Round 3</b><span>Succession due</span></div>
+                <div class="phg-ss-row"><b>Peppers</b><span>Transplant soon</span></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-seed-starting-home-v1">
+          .phg-seed-starting-home-v1{padding:72px 20px;background:linear-gradient(180deg,#eef3e8 0%,#fffaf2 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-ss-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+          .phg-ss-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-ss-copy h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,62px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-ss-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-ss-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-ss-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-ss-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}.phg-ss-open:hover{transform:translateY(-3px)}
+          .phg-ss-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:16px;box-shadow:0 20px 45px rgba(45,63,39,.12)}.phg-ss-top{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:12px 13px;display:flex;justify-content:space-between}
+          .phg-ss-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:9px 0}.phg-ss-stats div{background:#eef3e9;border:1px solid #d6dfd0;border-radius:11px;padding:9px;text-align:center}.phg-ss-stats b{display:block;font:500 22px Georgia;color:#315238}.phg-ss-stats span{font:9px Georgia;color:#71806a;text-transform:uppercase}
+          .phg-ss-row{font-family:Georgia,serif;display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #e4ddd2;background:#fffaf3;border-radius:13px;padding:11px 12px;margin-top:7px;color:#2f4931}.phg-ss-row span{font-size:10px;color:#71806a}
+          @media(max-width:800px){.phg-seed-starting-home-v1{padding:48px 14px}.phg-ss-inner{grid-template-columns:1fr}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1: h=h[:idx]+section+h[idx:]
+              else: h=h.replace("</body>",section+"</body>",1)
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit Seed Starting homepage section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Seed Starting Succession and Tray Tracker homepage experience"
+          git push
