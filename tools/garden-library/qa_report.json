@@ -90,8 +90,8 @@
     },
     {
       "id": "resource-012",
-      "url": "https://ext.vt.edu/lawn-garden/home-gardening.html",
-      "status": 404,
+      "url": "https://ext.vt.edu/lawn-garden.html",
+      "status": 200,
       "error": null
     },
     {
@@ -283,13 +283,13 @@
     {
       "id": "resource-044",
       "url": "https://awaytogarden.com/category/podcast/",
-      "status": 202,
+      "status": 404,
       "error": null
     },
     {
       "id": "resource-045",
       "url": "https://joegardener.com/podcast/",
-      "status": 202,
+      "status": 200,
       "error": null
     },
     {
