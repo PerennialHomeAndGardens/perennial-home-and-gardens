@@ -69,7 +69,17 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 .phg-care-note{margin-top:10px;font-size:11px;color:#746960;line-height:1.45}.phg-safety{background:#fff8ea;border:1px solid #e6d4ae;border-radius:13px;padding:10px 12px;margin-top:10px;color:#68583f;font-size:12px;line-height:1.45}
 @media(max-width:600px){.phg-care-grid{grid-template-columns:1fr}}
 </style>
-</head>
+
+<style id="phg-phase6-resource-v1">
+.phg-resource-controls{display:none;max-width:1160px;margin:0 auto 14px;padding:0 18px}
+.phg-resource-controls.active{display:block}.phg-resource-search{display:grid;grid-template-columns:1fr auto;gap:9px;background:#315236;padding:16px;border-radius:18px 18px 0 0}
+.phg-resource-search input{width:100%;border:1px solid #ffffff44;background:#fffdf8;color:#35291f;border-radius:12px;padding:12px 14px;font:inherit;outline:none}.phg-resource-search button{border:0;border-radius:12px;background:#e8d2ab;color:#2d241d;padding:0 16px;font-weight:bold;cursor:pointer}
+.phg-resource-filterbar{display:flex;gap:7px;flex-wrap:wrap;padding:12px 14px;background:#fffdf8;border:1px solid #ded5c9;border-top:0;border-radius:0 0 18px 18px}
+.phg-resource-filter{border:1px solid #d6cab9;background:#fffaf3;color:#4d4037;border-radius:999px;padding:7px 10px;cursor:pointer;font:12px Georgia,serif}.phg-resource-filter.active,.phg-resource-filter:hover{background:#dfe9d8;border-color:#afc0a4;color:#29482c}
+.phg-resource-count{margin-left:auto;align-self:center;color:#72675f;font-size:12px}.resources .resource{position:relative}.phg-save-resource{position:absolute;top:10px;right:10px;border:1px solid #d8cebf;background:#fffaf2;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:17px;line-height:1}.phg-save-resource.saved{background:#315936;color:#fff;border-color:#315936}
+.resource .phg-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.resource .phg-tags span{font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6e7e68;background:#eef3e8;border-radius:999px;padding:4px 6px}.phg-resource-empty{grid-column:1/-1;text-align:center;padding:30px;border:1px dashed #d7cbbb;border-radius:15px;color:#6c6259;background:#fffdf8}
+@media(max-width:620px){.phg-resource-controls{padding-left:9px;padding-right:9px}.phg-resource-search{grid-template-columns:1fr}.phg-resource-search button{height:42px}.phg-resource-count{width:100%;margin-left:0}}
+</style></head>
 <body>
 <div class="topnote">Perennial Home &amp; Gardens • The Garden Library</div>
 <header><div class="bar"><div class="left"><a class="navbtn" href="../../#garden-library">← Garden Library</a></div><div class="brand"><strong>Perennial Home &amp; Gardens</strong><span>Plan it. Grow it. Live it.</span></div><div class="right"><a class="navbtn" href="../../">Home</a></div></div></header>
@@ -156,6 +166,14 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 </section>
 
 <section class="resource-head"><span class="eyebrow">Beyond the Dictionary</span><h2>Garden Resource Center</h2><p>Curated gateways to reliable plant information, open biodiversity literature, university gardening tools and botanical collections. External resources open in a new tab so your Perennial Library stays open.</p></section>
+
+<section class="phg-resource-controls" id="phgResourceControls" aria-label="Garden resource directory search">
+  <div class="phg-resource-search">
+    <input id="phgResourceSearch" placeholder="Search books, databases, podcasts, native plants, soil, gardens…">
+    <button id="phgResourceSearchBtn">Search Resources</button>
+  </div>
+  <div class="phg-resource-filterbar" id="phgResourceFilters"></div>
+</section>
 <section class="resources">
 <article class="resource"><span class="rtype">Plant Database</span><h3>USDA PLANTS Database</h3><p>Standardized U.S. plant names, taxonomy, symbols, distribution, characteristics, images and plant guides.</p><a href="https://plants.sc.egov.usda.gov/home/" target="_blank" rel="noopener">Explore USDA PLANTS →</a></article>
 <article class="resource"><span class="rtype">Scientific Terminology</span><h3>NAL Agricultural Thesaurus</h3><p>USDA National Agricultural Library concepts, definitions, synonyms and broader/narrower scientific relationships.</p><a href="https://lod.nal.usda.gov/nalt/" target="_blank" rel="noopener">Explore NALT →</a></article>
@@ -202,9 +220,11 @@ init();
     const glossary=document.querySelector(".glossary");
     const resourceHead=document.querySelector(".resource-head");
     const resources=document.querySelector(".resources");
+    const resourceControls=document.getElementById("phgResourceControls");
     if(glossary) glossary.style.display=m==="terms"?"block":"none";
     if(resourceHead) resourceHead.style.display=m==="resources"?"block":"none";
     if(resources) resources.style.display=m==="resources"?"grid":"none";
+    if(resourceControls) resourceControls.classList.toggle("active",m==="resources");
   }
   document.querySelectorAll(".phg-modebtn").forEach(b=>b.onclick=()=>mode(b.dataset.mode));
 
@@ -392,6 +412,61 @@ init();
   // Default first visit to Plants; hash for glossary terms switches to Terms.
   let hash=location.hash.replace("#","");
   if(hash && !hash.startsWith("plant-")) mode("terms"); else mode("plants");
+})();
+</script>
+
+<script id="phg-phase6-resource-js">
+(function(){
+  let R=[],resourceCategory="All",savedOnly=false;
+  const rs=id=>document.getElementById(id);
+  const savedKey="phgGardenLibrarySavedResources";
+  function savedSet(){try{return new Set(JSON.parse(localStorage.getItem(savedKey)||"[]"))}catch(e){return new Set()}}
+  function writeSaved(set){localStorage.setItem(savedKey,JSON.stringify([...set]))}
+  function resourceMatches(r){
+    const q=(rs("phgResourceSearch")?.value||"").trim().toLowerCase();
+    const catok=resourceCategory==="All"||r.category===resourceCategory;
+    const saveok=!savedOnly||savedSet().has(r.id);
+    const blob=[r.title,r.category,r.description,...(r.tags||[])].join(" ").toLowerCase();
+    return catok&&saveok&&(!q||blob.includes(q));
+  }
+  function buildFilters(){
+    const box=rs("phgResourceFilters"); if(!box)return;
+    const cats=["All",...new Set(R.map(r=>r.category))];
+    box.innerHTML="";
+    cats.forEach(c=>{
+      const b=document.createElement("button");b.className="phg-resource-filter"+(resourceCategory===c&&!savedOnly?" active":"");b.textContent=c;
+      b.onclick=()=>{resourceCategory=c;savedOnly=false;buildFilters();renderResources()};box.appendChild(b);
+    });
+    const saved=document.createElement("button");saved.className="phg-resource-filter"+(savedOnly?" active":"");saved.textContent="★ Saved";
+    saved.onclick=()=>{savedOnly=!savedOnly;buildFilters();renderResources()};box.appendChild(saved);
+    const count=document.createElement("span");count.id="phgResourceCount";count.className="phg-resource-count";box.appendChild(count);
+  }
+  function renderResources(){
+    const grid=document.querySelector(".resources"); if(!grid)return;
+    const list=R.filter(resourceMatches), saved=savedSet();
+    const count=rs("phgResourceCount"); if(count)count.textContent=list.length+" resource"+(list.length===1?"":"s");
+    grid.innerHTML="";
+    if(!list.length){grid.innerHTML='<div class="phg-resource-empty"><b>No matching resources.</b><br>Try another keyword or category.</div>';return}
+    list.forEach(r=>{
+      const a=document.createElement("article");a.className="resource";
+      const tags=(r.tags||[]).slice(0,4).map(t=>'<span>'+t+'</span>').join("");
+      a.innerHTML='<button class="phg-save-resource '+(saved.has(r.id)?"saved":"")+'" title="Save resource" aria-label="Save resource">'+(saved.has(r.id)?"★":"☆")+'</button>'+
+        '<span class="rtype">'+r.category+'</span><h3>'+r.title+'</h3><p>'+r.description+'</p>'+
+        '<div class="phg-tags">'+tags+'</div><a href="'+r.url+'" target="_blank" rel="noopener">Open Resource →</a>';
+      a.querySelector(".phg-save-resource").onclick=e=>{
+        e.preventDefault();e.stopPropagation();
+        const s=savedSet(); if(s.has(r.id))s.delete(r.id); else s.add(r.id); writeSaved(s);renderResources();buildFilters();
+      };
+      grid.appendChild(a);
+    });
+  }
+  const search=rs("phgResourceSearch"), btn=rs("phgResourceSearchBtn");
+  if(search)search.oninput=renderResources;
+  if(btn)btn.onclick=renderResources;
+  if(search)search.addEventListener("keydown",e=>{if(e.key==="Enter")renderResources()});
+  fetch("resource_index.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{R=data;buildFilters();renderResources()}).catch(()=>{
+    const grid=document.querySelector(".resources");if(grid)grid.innerHTML='<div class="phg-resource-empty">The Garden Resource Directory is temporarily unavailable.</div>';
+  });
 })();
 </script>
 </body></html>
