@@ -1,0 +1,372 @@
+{
+  "phase": "10",
+  "status": "pass",
+  "counts": {
+    "glossaryTerms": 270,
+    "plantProfiles": 2703,
+    "resources": 56,
+    "usdaEnrichedProfiles": 635,
+    "extensionEnrichedProfiles": 838,
+    "searchableCoreRecords": 3029
+  },
+  "duplicates": {
+    "htmlIds": [],
+    "glossaryTerms": [],
+    "glossaryIds": [],
+    "resourceIds": [],
+    "plantIds": []
+  },
+  "schemaChecks": {
+    "glossaryMissingDefinition": 0,
+    "resourcesMissingUrl": 0,
+    "profilesMissingScientificName": 0
+  },
+  "resourceLinkChecks": [
+    {
+      "id": "resource-001",
+      "url": "https://plants.sc.egov.usda.gov/home",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-002",
+      "url": "https://wfoplantlist.org/plant-list",
+      "status": null,
+      "error": "URLError"
+    },
+    {
+      "id": "resource-003",
+      "url": "https://plants.ces.ncsu.edu/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-004",
+      "url": "https://www.missouribotanicalgarden.org/plantfinder/plantfindersearch.aspx",
+      "status": null,
+      "error": "URLError"
+    },
+    {
+      "id": "resource-005",
+      "url": "https://www.wildflower.org/plants/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-006",
+      "url": "http://bonap.net/Napa/Genus/Traditional/County",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-007",
+      "url": "https://powo.science.kew.org/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-008",
+      "url": "https://www.itis.gov/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-009",
+      "url": "https://extension.umd.edu/programs/environment-natural-resources/program-areas/home-and-garden-information-center",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-010",
+      "url": "https://gardening.ces.ncsu.edu/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-011",
+      "url": "https://extension.psu.edu/home-gardening",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-012",
+      "url": "https://ext.vt.edu/lawn-garden/home-gardening.html",
+      "status": null,
+      "error": "TimeoutError"
+    },
+    {
+      "id": "resource-013",
+      "url": "https://gardening.cals.cornell.edu/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-014",
+      "url": "https://njaes.rutgers.edu/home-lawn-garden/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-015",
+      "url": "https://extension.umn.edu/yard-and-garden",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-016",
+      "url": "https://hortnews.extension.iastate.edu/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-017",
+      "url": "https://www.biodiversitylibrary.org/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-018",
+      "url": "https://field.biodiversitylibrary.org/subject/Text-books",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-019",
+      "url": "https://archive.org/search?query=subject%3A%22Gardening%22",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-020",
+      "url": "https://www.gutenberg.org/ebooks/search/?query=gardening",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-021",
+      "url": "https://www.nal.usda.gov/collections/digital-collections",
+      "status": 404,
+      "error": null
+    },
+    {
+      "id": "resource-022",
+      "url": "https://catalog.hathitrust.org/Search/Home?lookfor=gardening&type=all",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-023",
+      "url": "https://www.pollinator.org/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-024",
+      "url": "https://xerces.org/pollinator-conservation",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-025",
+      "url": "https://www.nwf.org/Garden-for-Wildlife",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-026",
+      "url": "https://www.audubon.org/native-plants",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-027",
+      "url": "https://nativeplantfinder.nwf.org/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-028",
+      "url": "https://mdflora.org/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-029",
+      "url": "https://websoilsurvey.nrcs.usda.gov/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-030",
+      "url": "https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soils/soil-health",
+      "status": null,
+      "error": "TimeoutError"
+    },
+    {
+      "id": "resource-031",
+      "url": "https://cwmi.css.cornell.edu/composting.htm",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-032",
+      "url": "https://extension.umd.edu/programs/environment-natural-resources/program-areas/home-and-garden-information-center/gardening-resources/yard-and-landscape/soil-compost-and-fertilizer",
+      "status": 404,
+      "error": null
+    },
+    {
+      "id": "resource-033",
+      "url": "https://www.usbg.gov/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-034",
+      "url": "https://www.usna.usda.gov/",
+      "status": null,
+      "error": "URLError"
+    },
+    {
+      "id": "resource-035",
+      "url": "https://www.missouribotanicalgarden.org/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-036",
+      "url": "https://www.nybg.org/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-037",
+      "url": "https://www.chicagobotanic.org/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-038",
+      "url": "https://mortonarb.org/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-039",
+      "url": "https://lod.nal.usda.gov/nalt/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-040",
+      "url": "https://scholar.google.com/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-041",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-042",
+      "url": "https://agris.fao.org/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-043",
+      "url": "https://www.nal.usda.gov/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-044",
+      "url": "https://awaytogarden.com/category/podcast/",
+      "status": 202,
+      "error": null
+    },
+    {
+      "id": "resource-045",
+      "url": "https://joegardener.com/podcast/",
+      "status": 202,
+      "error": null
+    },
+    {
+      "id": "resource-046",
+      "url": "https://www.bbc.co.uk/programmes/b006qp2f",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-047",
+      "url": "https://www.cultivatingplace.com/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-048",
+      "url": "https://www.youtube.com/@UniversityofMarylandExtension",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-049",
+      "url": "https://www.youtube.com/@USDA_NRCS",
+      "status": 404,
+      "error": null
+    },
+    {
+      "id": "resource-050",
+      "url": "https://www.youtube.com/@NCStateExtension",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-051",
+      "url": "https://garden.org/apps/calendar/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "id": "resource-052",
+      "url": "https://www.johnnyseeds.com/growers-library/growing-center.html",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-053",
+      "url": "https://gardening.cals.cornell.edu/garden-guidance/foodgarden/vegetable-growing-guides/",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-054",
+      "url": "https://extension.umn.edu/growing-systems/high-tunnels",
+      "status": 404,
+      "error": null
+    },
+    {
+      "id": "resource-055",
+      "url": "https://extension.psu.edu/forage-and-food-crops/vegetables/high-tunnel-production",
+      "status": 200,
+      "error": null
+    },
+    {
+      "id": "resource-056",
+      "url": "https://www.nrcs.usda.gov/programs-initiatives/eqip-high-tunnel-initiative",
+      "status": null,
+      "error": "TimeoutError"
+    }
+  ],
+  "requiredMarkers": {
+    "phg-phase3-plants-v1": true,
+    "phg-phase4-enrichment-v1": true,
+    "phg-phase5-care-v1": true,
+    "phg-phase6-resource-v1": true,
+    "phg-phase7-unified-search-v1": true,
+    "phg-phase8-my-library-v1": true,
+    "phg-phase9-account-v1": true,
+    "phg-phase10-qa-v1": true
+  }
+}
