@@ -3,219 +3,211 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Garden Planner & Map My Garden | Perennial Home & Gardens</title>
-<meta name="description" content="A full-screen, scale-aware 2D garden planner with plant spacing, companion guidance, sun and shade mapping, water planning, structures, beds, paths, and saved layouts.">
+<title>Garden Planner Generation 2 | Perennial Home & Gardens</title>
+<meta name="description" content="A full-screen, true-to-scale 2D garden planner with an expanded plant catalog, mature-spread visuals, companion overlays, seasonal sun and shade, water planning, beds, structures and saved layouts.">
 <style>
-:root{--green:#23472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--brown:#6b5747;--line:#d9cfbf;--gold:#d8bd89;--soft:#edf3e9;--warn:#fff4d9;--bad:#9a4e43;--panel:320px}
+:root{--green:#23472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#d9cfbf;--gold:#d8bd89;--soft:#edf3e9;--warn:#fff4d9;--bad:#9a4e43;--panel:320px}
 *{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#e9eee5;color:#302b26;font-family:Georgia,serif}
-button,input,select{font:inherit}button{cursor:pointer}
-#app{height:100%;display:grid;grid-template-rows:auto auto 1fr}
-.top{background:#1f3824;color:#f3f6ef;padding:7px 12px;font-size:10px;text-align:center;letter-spacing:.08em;text-transform:uppercase}
-.header{height:56px;background:#fffdf8f3;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:8px 10px;z-index:20}
-.brand{min-width:180px}.brand strong{display:block;color:var(--green);font-size:19px}.brand span{font-size:8px;text-transform:uppercase;letter-spacing:.14em;color:#776b61}
-.header-actions{display:flex;gap:6px;align-items:center;margin-left:auto}.pill{border:1px solid #cad5c4;background:#fff;color:var(--green);border-radius:999px;padding:7px 10px;font-size:10px;font-weight:bold}.pill.primary{background:var(--green2);color:#fff;border-color:var(--green2)}
-.workspace{position:relative;min-height:0;display:grid;grid-template-columns:var(--panel) 1fr var(--panel);overflow:hidden}
-.panel{background:#fffdf8;border-right:1px solid var(--line);min-height:0;overflow:auto;z-index:12}.panel.right{border-left:1px solid var(--line);border-right:0}
-.panel-head{position:sticky;top:0;background:#fffdf8;z-index:2;padding:13px;border-bottom:1px solid #e7dfd4}.panel-head h2{font-size:20px;margin:0;color:var(--green);font-weight:500}.panel-head p{font-size:11px;color:#72685f;line-height:1.35;margin:4px 0 0}
-.section{padding:12px;border-bottom:1px solid #eee6dc}.section h3{font-size:13px;color:#3c5b40;margin:0 0 8px}.field{margin:8px 0}.field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#776b61;font-weight:bold;margin-bottom:4px}.field input,.field select{width:100%;border:1px solid #d9cebf;background:#fff;border-radius:9px;padding:8px;font-size:12px}
-.library-tabs{display:flex;gap:5px;flex-wrap:wrap}.tab{border:1px solid #d6ccbd;background:#fffaf2;border-radius:999px;padding:6px 8px;font-size:9px;color:#5c4e43}.tab.active{background:#315936;color:#fff;border-color:#315936}
-.palette{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.tool{position:relative;border:1px solid #dfd5c7;background:#fff;border-radius:12px;padding:9px 6px;text-align:center;min-height:70px}.tool:hover{border-color:#aebda6;transform:translateY(-1px)}.tool .ico{display:block;font-size:25px;line-height:1.1}.tool b{display:block;font-size:10px;color:#36533a;margin-top:5px}.tool small{font-size:8px;color:#7a7066}
-.canvas-wrap{position:relative;overflow:hidden;background:#dfe7da;touch-action:none}
-#gardenSvg{width:100%;height:100%;display:block;background:#eef3e9;touch-action:none}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
+#app{height:100%;display:grid;grid-template-rows:auto auto 1fr}.top{background:#1f3824;color:#f3f6ef;padding:7px 12px;font-size:10px;text-align:center;letter-spacing:.08em;text-transform:uppercase}
+.header{height:58px;background:#fffdf8f3;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px;padding:8px 10px;z-index:20}.brand{min-width:205px}.brand strong{display:block;color:var(--green);font-size:19px}.brand span{font-size:8px;text-transform:uppercase;letter-spacing:.14em;color:#776b61}
+.header-actions{display:flex;gap:5px;align-items:center;margin-left:auto}.pill{border:1px solid #cad5c4;background:#fff;color:var(--green);border-radius:999px;padding:7px 9px;font-size:9px;font-weight:bold}.pill.primary{background:var(--green2);color:#fff;border-color:var(--green2)}
+.workspace{position:relative;min-height:0;display:grid;grid-template-columns:var(--panel) 1fr var(--panel);overflow:hidden}.panel{background:#fffdf8;border-right:1px solid var(--line);min-height:0;overflow:auto;z-index:12}.panel.right{border-left:1px solid var(--line);border-right:0}
+.panel-head{position:sticky;top:0;background:#fffdf8;z-index:4;padding:12px;border-bottom:1px solid #e7dfd4}.panel-head h2{font-size:19px;margin:0;color:var(--green);font-weight:500}.panel-head p{font-size:10px;color:#72685f;line-height:1.4;margin:4px 0 0}
+.section{padding:11px;border-bottom:1px solid #eee6dc}.section h3{font-size:12px;color:#3c5b40;margin:0 0 7px}.field{margin:7px 0}.field label{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.07em;color:#776b61;font-weight:bold;margin-bottom:4px}.field input,.field select{width:100%;border:1px solid #d9cebf;background:#fff;border-radius:9px;padding:8px;font-size:11px}
+.searchbox{position:relative}.searchbox input{padding-right:28px}.searchCount{font-size:8px;color:#756a60;margin-top:4px}
+.library-tabs{display:flex;gap:5px;flex-wrap:wrap}.tab{border:1px solid #d6ccbd;background:#fffaf2;border-radius:999px;padding:6px 7px;font-size:8px;color:#5c4e43}.tab.active{background:#315936;color:#fff;border-color:#315936}
+.palette{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.tool{position:relative;border:1px solid #dfd5c7;background:#fff;border-radius:12px;padding:8px 5px;text-align:center;min-height:68px;overflow:hidden}.tool:hover{border-color:#aebda6;transform:translateY(-1px)}.tool .ico{display:grid;place-items:center;height:34px;font-size:24px;line-height:1}.tool svg{width:34px;height:34px}.tool b{display:block;font-size:9px;color:#36533a;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tool small{font-size:7px;color:#7a7066;display:block}
+.canvas-wrap{position:relative;overflow:hidden;background:#dfe7da;touch-action:none}#gardenSvg{width:100%;height:100%;display:block;background:#eef3e9;touch-action:none}
 #gardenSvg .grid-minor{stroke:#d9e2d4;stroke-width:.03}#gardenSvg .grid-major{stroke:#bccab6;stroke-width:.05}.garden-boundary{fill:#f8f3e8;stroke:#284d2e;stroke-width:.12}
-.obj{cursor:grab}.obj.selected .selectbox{display:block}.selectbox{display:none;fill:none;stroke:#bd7d3d;stroke-width:.11;stroke-dasharray:.3 .18;pointer-events:none}.obj text{font-family:Georgia,serif;paint-order:stroke;stroke:#fff;stroke-width:.07;stroke-linejoin:round}.shadow{fill:#3e5d5e;opacity:.18;pointer-events:none}.sunzone{opacity:.20;stroke-width:.05;stroke-dasharray:.18 .12}.sun-full{fill:#f7d765;stroke:#bb9933}.sun-part{fill:#9cc778;stroke:#608650}.sun-shade{fill:#668296;stroke:#485f70}
-.floatbar{position:absolute;left:50%;top:10px;transform:translateX(-50%);display:flex;gap:5px;background:#fffdf8eF;border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:0 8px 24px #28392722;z-index:6}.floatbar button{width:31px;height:31px;border:0;border-radius:50%;background:#f1eee7;color:#35553a;font-weight:bold}.floatbar .zoomtxt{font-size:9px;align-self:center;color:#72685e;padding:0 3px}
-.teach{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);max-width:min(760px,90%);background:#203824ed;color:#edf3e9;padding:9px 12px;border-radius:13px;font-size:10px;line-height:1.35;z-index:6;box-shadow:0 8px 22px #2038243d}
-.inspect-empty{padding:18px 12px;color:#766b61;font-size:12px;line-height:1.5}.inspect-title{font-size:19px;color:var(--green);margin:0 0 5px}.meta{font-size:10px;color:#776d63}.ins-actions{display:flex;gap:6px;flex-wrap:wrap}.mini{border:1px solid #d5cabb;background:#fffaf2;color:#4b5f4b;border-radius:999px;padding:6px 8px;font-size:9px;font-weight:bold}.mini.danger{color:#8f473d}
-.compat{margin-top:10px}.compat h4{margin:0 0 6px;font-size:12px}.compat-row{border-radius:10px;padding:7px 8px;margin:5px 0;font-size:10px;line-height:1.35}.good{background:#e9f3e6;border:1px solid #c7dbc1;color:#355638}.avoid{background:#fff0ec;border:1px solid #e7c1b8;color:#7d453d}.neutral{background:#f3f1ea;border:1px solid #ddd6ca;color:#665d54}
-.lesson{margin-top:10px;padding:9px;background:#f7efd9;border:1px solid #ead7ac;border-radius:11px;font-size:10px;line-height:1.4;color:#5e503e}.lesson b{color:#4e422f}
-.sun-controls{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center}.sun-controls input{width:100%}
-.saved-list{display:grid;gap:6px}.saved-item{border:1px solid #ddd3c5;background:#fff;border-radius:10px;padding:8px;font-size:10px;display:flex;justify-content:space-between;gap:8px;align-items:center}.saved-item button{border:0;background:#e9efe4;color:#34543a;border-radius:999px;padding:5px 7px;font-size:8px}
-.mobile-toggle{display:none}
-.modal{position:fixed;inset:0;background:#1d2b1f99;z-index:50;display:none;place-items:center;padding:15px}.modal.show{display:grid}.modalbox{width:min(620px,96vw);max-height:90vh;overflow:auto;background:#fffdf8;border-radius:22px;padding:20px;box-shadow:0 24px 70px #0005}.modalbox h2{color:var(--green);margin:0 0 8px}.modalbox p{font-size:12px;line-height:1.5;color:#665d54}.close{float:right;border:0;background:#eee7dc;border-radius:50%;width:32px;height:32px}
-@media(max-width:980px){:root{--panel:280px}.workspace{grid-template-columns:var(--panel) 1fr}.panel.right{position:absolute;right:0;top:0;bottom:0;width:var(--panel);transform:translateX(100%);transition:.2s;box-shadow:-10px 0 30px #0001}.panel.right.open{transform:none}.mobile-toggle{display:inline-block}}
-@media(max-width:720px){.top{display:none}.header{height:54px}.brand{min-width:0}.brand span{display:none}.brand strong{font-size:16px}.header-actions .pill:not(.primary){display:none}.workspace{display:block}.panel.left{position:absolute;left:0;top:0;bottom:0;width:min(86vw,330px);transform:translateX(-100%);transition:.2s;box-shadow:10px 0 30px #0002;z-index:18}.panel.left.open{transform:none}.canvas-wrap{position:absolute;inset:0}.mobile-toggle{display:inline-block}.floatbar{top:8px}.teach{bottom:8px;font-size:9px}.palette{grid-template-columns:repeat(2,1fr)}}
+.obj{cursor:grab}.obj.selected .selectbox{display:block}.selectbox{display:none;fill:none;stroke:#bd7d3d;stroke-width:.11;stroke-dasharray:.3 .18;pointer-events:none}.obj text{font-family:Georgia,serif;paint-order:stroke;stroke:#fff;stroke-width:.06;stroke-linejoin:round}
+.shadow{fill:#3e5d5e;opacity:.17;pointer-events:none}.sunzone{opacity:.20;stroke-width:.05;stroke-dasharray:.18 .12}.sun-full{fill:#f7d765;stroke:#bb9933}.sun-part{fill:#9cc778;stroke:#608650}.sun-shade{fill:#668296;stroke:#485f70}
+.spacing-ring{fill:none;stroke:#668c59;stroke-width:.05;stroke-dasharray:.16 .12;opacity:.72;pointer-events:none}.comp-good{stroke:#53864e;stroke-width:.09;stroke-dasharray:.18 .11;opacity:.85}.comp-bad{stroke:#a45449;stroke-width:.10;stroke-dasharray:.15 .10;opacity:.9}.water-line{stroke:#4b8da5;stroke-width:.13;stroke-linecap:round;opacity:.86}.water-range{fill:#78b7cf;opacity:.12;stroke:#4b8da5;stroke-width:.05;stroke-dasharray:.16 .1}.plant-canopy{filter:drop-shadow(0 .06px .08px rgba(30,50,30,.25))}
+.floatbar{position:absolute;left:50%;top:9px;transform:translateX(-50%);display:flex;gap:4px;background:#fffdf8ef;border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:0 8px 24px #28392722;z-index:6}.floatbar button{height:30px;min-width:30px;border:0;border-radius:999px;background:#f1eee7;color:#35553a;font-weight:bold;font-size:9px;padding:0 8px}.floatbar button.on{background:#315936;color:#fff}.floatbar .zoomtxt{font-size:8px;align-self:center;color:#72685e;padding:0 3px}
+.teach{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);max-width:min(820px,92%);background:#203824ed;color:#edf3e9;padding:8px 11px;border-radius:13px;font-size:9px;line-height:1.35;z-index:6;box-shadow:0 8px 22px #2038243d}
+.north{position:absolute;right:10px;top:10px;background:#fffdf8eF;border:1px solid var(--line);border-radius:50%;width:48px;height:48px;display:grid;place-items:center;z-index:5;font-size:11px;color:#315936;box-shadow:0 6px 20px #0001}.north:before{content:"↑";position:absolute;top:4px;font-size:18px;font-weight:bold}.north span{margin-top:15px}
+.inspect-empty{padding:18px 12px;color:#766b61;font-size:11px;line-height:1.5}.inspect-title{font-size:18px;color:var(--green);margin:0 0 5px}.meta{font-size:9px;color:#776d63}.ins-actions{display:flex;gap:5px;flex-wrap:wrap}.mini{border:1px solid #d5cabb;background:#fffaf2;color:#4b5f4b;border-radius:999px;padding:6px 7px;font-size:8px;font-weight:bold}.mini.danger{color:#8f473d}
+.compat{margin-top:9px}.compat h4{margin:0 0 5px;font-size:11px}.compat-row{border-radius:10px;padding:6px 7px;margin:4px 0;font-size:9px;line-height:1.35}.good{background:#e9f3e6;border:1px solid #c7dbc1;color:#355638}.avoid{background:#fff0ec;border:1px solid #e7c1b8;color:#7d453d}.neutral{background:#f3f1ea;border:1px solid #ddd6ca;color:#665d54}.lesson{margin-top:9px;padding:8px;background:#f7efd9;border:1px solid #ead7ac;border-radius:11px;font-size:9px;line-height:1.4;color:#5e503e}.lesson b{color:#4e422f}
+.sun-controls{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center}.sun-controls input{width:100%}.toggles{display:grid;grid-template-columns:1fr 1fr;gap:5px}.toggle{border:1px solid #d5cbbb;background:#fffaf2;border-radius:10px;padding:7px;font-size:8px;color:#405b43}.toggle.on{background:#dfead9;border-color:#abc09f}
+.saved-list{display:grid;gap:6px}.saved-item{border:1px solid #ddd3c5;background:#fff;border-radius:10px;padding:8px;font-size:9px;display:flex;justify-content:space-between;gap:8px;align-items:center}.saved-item button{border:0;background:#e9efe4;color:#34543a;border-radius:999px;padding:5px 7px;font-size:8px}
+.alerts{display:grid;gap:5px}.alert{padding:7px;border-radius:9px;font-size:8px;line-height:1.35}.alert.warn{background:#fff3db;border:1px solid #e8d0a4;color:#6c552f}.alert.bad{background:#fff0ed;border:1px solid #e3bbb3;color:#7e443b}.alert.good{background:#eaf3e6;border:1px solid #c6dac0;color:#355638}
+.mobile-toggle{display:none}.modal{position:fixed;inset:0;background:#1d2b1f99;z-index:50;display:none;place-items:center;padding:15px}.modal.show{display:grid}.modalbox{width:min(680px,96vw);max-height:90vh;overflow:auto;background:#fffdf8;border-radius:22px;padding:20px;box-shadow:0 24px 70px #0005}.modalbox h2{color:var(--green);margin:0 0 8px}.modalbox p,.modalbox li{font-size:11px;line-height:1.5;color:#665d54}.close{float:right;border:0;background:#eee7dc;border-radius:50%;width:32px;height:32px}
+@media(max-width:980px){:root{--panel:285px}.workspace{grid-template-columns:var(--panel) 1fr}.panel.right{position:absolute;right:0;top:0;bottom:0;width:var(--panel);transform:translateX(100%);transition:.2s;box-shadow:-10px 0 30px #0001}.panel.right.open{transform:none}.mobile-toggle{display:inline-block}}
+@media(max-width:720px){.top{display:none}.header{height:54px}.brand{min-width:0}.brand span{display:none}.brand strong{font-size:15px}.header-actions .pill:not(.primary){display:none}.workspace{display:block}.panel.left{position:absolute;left:0;top:0;bottom:0;width:min(88vw,340px);transform:translateX(-100%);transition:.2s;box-shadow:10px 0 30px #0002;z-index:18}.panel.left.open{transform:none}.canvas-wrap{position:absolute;inset:0}.mobile-toggle{display:inline-block}.floatbar{top:7px}.teach{bottom:7px;font-size:8px}.palette{grid-template-columns:repeat(2,1fr)}.north{top:48px;width:40px;height:40px}}
 </style>
 </head>
 <body>
 <div id="app">
-<div class="top">Perennial Home & Gardens • Intelligent Garden Planning</div>
+<div class="top">Perennial Home & Gardens • Garden Planner Generation 2</div>
 <header class="header">
-  <button class="pill mobile-toggle" id="openLibrary">☰ Add</button>
-  <div class="brand"><strong>Garden Planner</strong><span>Map My Garden Space</span></div>
-  <div class="header-actions">
-    <button class="pill" id="newPlan">New</button><button class="pill" id="savePlan">Save</button><button class="pill" id="loadPlan">Layouts</button><button class="pill" id="exportPlan">Export</button><button class="pill" id="helpBtn">How it works</button><button class="pill primary" id="fitBtn">Fit Garden</button><button class="pill mobile-toggle" id="openInspector">Info</button>
-  </div>
+ <button class="pill mobile-toggle" id="openLibrary">☰ Add</button>
+ <div class="brand"><strong>Garden Planner Gen 2</strong><span>Map My Garden Space · Intelligent 2D Planning</span></div>
+ <div class="header-actions">
+  <a class="pill" href="../my-garden/" style="text-decoration:none">My Garden</a><button class="pill" id="newPlan">New</button><button class="pill" id="savePlan">Save</button><button class="pill" id="loadPlan">Layouts</button><button class="pill" id="exportPlan">Export</button><button class="pill" id="helpBtn">How it works</button><button class="pill primary" id="fitBtn">Fit Garden</button><button class="pill mobile-toggle" id="openInspector">Coach</button>
+ </div>
 </header>
 <div class="workspace">
-  <aside class="panel left" id="libraryPanel">
-    <div class="panel-head"><h2>Add to Your Garden</h2><p>Click an item and it appears in the center of the plan. Drag it into place. Objects are scaled in feet.</p></div>
-    <div class="section">
-      <div class="field"><label>Garden width (ft)</label><input id="gardenW" type="number" min="4" max="300" value="40"></div>
-      <div class="field"><label>Garden depth (ft)</label><input id="gardenH" type="number" min="4" max="300" value="30"></div>
-      <button class="mini" id="applySize">Apply Garden Size</button>
-    </div>
-    <div class="section"><div class="library-tabs" id="tabs"></div><div class="palette" id="palette"></div></div>
-    <div class="section">
-      <h3>Sun Map</h3>
-      <div class="field"><label>Time of day</label><div class="sun-controls"><input id="sunTime" type="range" min="7" max="19" step="1" value="14"><span id="sunTimeLabel">2 PM</span></div></div>
-      <div class="field"><label>Shadow strength</label><select id="shadowStrength"><option value="1">Normal</option><option value="1.4">Long shadows</option><option value=".65">Short shadows</option></select></div>
-      <div class="lesson"><b>Sun teaching:</b> “Full sun” generally means 6+ hours of direct sun. The moving shadows here are planning estimates, not a solar survey. Map observed full-sun, part-sun, and shade zones for best accuracy.</div>
-    </div>
-  </aside>
+ <aside class="panel left" id="libraryPanel">
+  <div class="panel-head"><h2>Add to Your Garden</h2><p>Choose a category or search the Garden Library catalog. Every placed item uses feet as the scale.</p></div>
+  <div class="section">
+   <div class="field"><label>Garden width (ft)</label><input id="gardenW" type="number" min="4" max="400" value="40"></div>
+   <div class="field"><label>Garden depth (ft)</label><input id="gardenH" type="number" min="4" max="400" value="30"></div>
+   <button class="mini" id="applySize">Apply Garden Size</button>
+  </div>
+  <div class="section">
+   <div class="field searchbox"><label>Search 2,700+ Library plants</label><input id="plantSearch" placeholder="Common or scientific name…"><div class="searchCount" id="plantSearchCount">Loading Garden Library plant catalog…</div></div>
+   <div class="library-tabs" id="tabs"></div><div class="palette" id="palette"></div>
+  </div>
+  <div class="section">
+   <h3>Sun & Season</h3>
+   <div class="field"><label>Season</label><select id="season"><option value="summer">Summer</option><option value="spring">Spring</option><option value="fall">Fall</option><option value="winter">Winter</option></select></div>
+   <div class="field"><label>Time of day</label><div class="sun-controls"><input id="sunTime" type="range" min="7" max="19" step="1" value="14"><span id="sunTimeLabel">2 PM</span></div></div>
+   <div class="field"><label>Garden orientation</label><select id="orientation"><option value="0">North at top</option><option value="90">East at top</option><option value="180">South at top</option><option value="270">West at top</option></select></div>
+   <div class="lesson"><b>Sun teaching:</b> Shadow length changes by season and time of day. This is a planning model, not a surveyed solar study. Use observed sun zones whenever possible.</div>
+  </div>
+  <div class="section">
+   <h3>Planning Layers</h3>
+   <div class="toggles"><button class="toggle on" id="togSpacing">Spacing</button><button class="toggle on" id="togComp">Companions</button><button class="toggle on" id="togWater">Water</button><button class="toggle on" id="togShade">Shadows</button></div>
+  </div>
+ </aside>
 
-  <main class="canvas-wrap" id="canvasWrap">
-    <svg id="gardenSvg" xmlns="http://www.w3.org/2000/svg" aria-label="Scaled garden design canvas">
-      <defs><pattern id="minorGrid" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M 1 0 L 0 0 0 1" class="grid-minor" fill="none"/></pattern><pattern id="majorGrid" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#minorGrid)"/><path d="M 5 0 L 0 0 0 5" class="grid-major" fill="none"/></pattern></defs>
-      <rect id="boundary" class="garden-boundary" x="0" y="0" width="40" height="30"/>
-      <rect id="grid" x="0" y="0" width="40" height="30" fill="url(#majorGrid)" pointer-events="none"/>
-      <g id="sunLayer"></g><g id="shadowLayer"></g><g id="objectLayer"></g>
-    </svg>
-    <div class="floatbar"><button id="zoomOut">−</button><span class="zoomtxt" id="zoomLabel">100%</span><button id="zoomIn">+</button><button id="centerView">⌂</button></div>
-    <div class="teach" id="teachBar">Click a plant, bed, structure, water feature, or sun zone from the left. Every square represents 1 foot.</div>
-  </main>
+ <main class="canvas-wrap" id="canvasWrap">
+  <svg id="gardenSvg" xmlns="http://www.w3.org/2000/svg" aria-label="True-to-scale 2D garden design canvas">
+   <defs>
+    <pattern id="minorGrid" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M 1 0 L 0 0 0 1" class="grid-minor" fill="none"/></pattern>
+    <pattern id="majorGrid" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#minorGrid)"/><path d="M 5 0 L 0 0 0 5" class="grid-major" fill="none"/></pattern>
+   </defs>
+   <rect id="boundary" class="garden-boundary" x="0" y="0" width="40" height="30"/>
+   <rect id="grid" x="0" y="0" width="40" height="30" fill="url(#majorGrid)" pointer-events="none"/>
+   <g id="sunLayer"></g><g id="shadowLayer"></g><g id="waterLayer"></g><g id="companionLayer"></g><g id="spacingLayer"></g><g id="objectLayer"></g>
+  </svg>
+  <div class="floatbar"><button id="zoomOut">−</button><span class="zoomtxt" id="zoomLabel">100%</span><button id="zoomIn">+</button><button id="centerView">⌂</button><button id="quickComp" class="on">Comp</button><button id="quickWater" class="on">Water</button></div>
+  <div class="north"><span>N</span></div>
+  <div class="teach" id="teachBar">Search a plant or choose an object. Mature plant canopies are drawn to scale; one small grid square equals 1 foot.</div>
+ </main>
 
-  <aside class="panel right" id="inspector">
-    <div class="panel-head"><h2>Garden Coach</h2><p>Selection details, spacing, sun, companion guidance, water and teaching notes.</p></div>
-    <div id="inspectBody" class="inspect-empty">Select an item in the garden to see its measurements and garden guidance.</div>
-    <div class="section"><h3>Saved Layouts</h3><div class="saved-list" id="savedList"></div></div>
-  </aside>
+ <aside class="panel right" id="inspector">
+  <div class="panel-head"><h2>Garden Coach</h2><p>Spacing, sunlight, companion relationships, water reach and teaching notes for the selected item.</p></div>
+  <div id="inspectBody" class="inspect-empty">Select an item in the garden to see detailed guidance.</div>
+  <div class="section"><h3>Plan Alerts</h3><div class="alerts" id="alerts"></div></div>
+  <div class="section"><h3>Saved Layouts</h3><div class="saved-list" id="savedList"></div></div>
+ </aside>
 </div>
 </div>
 
-<div class="modal" id="helpModal"><div class="modalbox"><button class="close" id="closeHelp">×</button><h2>How this planner works</h2><p><b>1. Set your real garden size.</b> The canvas uses feet as its coordinate system, so a 4×8 raised bed is actually 4×8 on the plan.</p><p><b>2. Add objects.</b> Beds, plants, trees, structures, water, paths, compost, seating and sun zones appear in the middle. Drag them where they belong.</p><p><b>3. Teach the map about light.</b> Add Full Sun, Part Sun or Shade zones from the Sun category. The time slider also projects approximate moving shadows from trees, fences, sheds and greenhouses.</p><p><b>4. Select plants for guidance.</b> The Garden Coach shows mature spread, spacing, preferred light, water needs, and companion/avoid relationships. Nearby plants are checked automatically.</p><p><b>5. Save layouts.</b> Plans are stored on this device for now and can be exported as JSON for backup.</p><p><b>Accuracy note:</b> Companion relationships are practical guidance, not guarantees. Sun/shadow is an educational estimate. For precise solar exposure, observe the site through the season or use a professional solar survey.</p></div></div>
+<div class="modal" id="helpModal"><div class="modalbox"><button class="close" id="closeHelp">×</button><h2>Garden Planner Generation 2</h2>
+<p><b>True scale:</b> the garden, beds, structures and plant canopy circles all use feet. A plant with a 3-foot mature spread occupies a 3-foot-diameter footprint.</p>
+<p><b>Expanded plant catalog:</b> use search to pull plant names from the Perennial Garden Library. When detailed mature-spread data is not available, the planner uses a conservative planning footprint that you can edit in Garden Coach.</p>
+<p><b>Plant visuals:</b> plant symbols are top-down botanical vector canopies rather than identical circles. Their diameter still represents mature spread.</p>
+<p><b>Companion overlay:</b> green lines show nearby pairings in the curated companion set; red lines flag pairings generally better separated. Companion planting is secondary to light, airflow, soil, rotation and spacing.</p>
+<p><b>Seasonal shade:</b> trees, sheds, fences and greenhouses project estimated shadows that change with season, time and orientation.</p>
+<p><b>Water planning:</b> add spigots, rain barrels, sprinklers, drip lines and hose routes. Water sources display approximate reach so you can see which beds and plants may be inconvenient to irrigate.</p>
+<p><b>Save / export:</b> layouts remain local to this device under the existing Perennial plan storage and can be exported as JSON.</p></div></div>
 
 <script>
-const CATS={
+const STATIC={
  "Beds & Containers":[
-  {type:"bed",name:"4×8 Raised Bed",w:8,h:4,icon:"▭",kind:"bed"},
-  {type:"bed",name:"4×4 Raised Bed",w:4,h:4,icon:"□",kind:"bed"},
-  {type:"bed",name:"3×6 Raised Bed",w:6,h:3,icon:"▭",kind:"bed"},
-  {type:"container",name:"Large Pot",w:2,h:2,icon:"◉",kind:"container"},
-  {type:"container",name:"Grow Bag",w:1.5,h:1.5,icon:"●",kind:"container"},
-  {type:"container",name:"Half Barrel",w:2.5,h:2.5,icon:"◉",kind:"container"}
- ],
- "Plants":[
-  {type:"plant",name:"Tomato",spread:3,icon:"🍅",sun:"Full sun 6–8+ hrs",water:"Moderate / consistent",family:"Solanaceae"},
-  {type:"plant",name:"Pepper",spread:2,icon:"🌶️",sun:"Full sun 6–8+ hrs",water:"Moderate",family:"Solanaceae"},
-  {type:"plant",name:"Basil",spread:1.5,icon:"🌿",sun:"Full sun 6+ hrs",water:"Moderate",family:"Lamiaceae"},
-  {type:"plant",name:"Lettuce",spread:1,icon:"🥬",sun:"Full sun to part sun",water:"Even moisture",family:"Asteraceae"},
-  {type:"plant",name:"Carrot",spread:.35,icon:"🥕",sun:"Full sun 6+ hrs",water:"Even during germination",family:"Apiaceae"},
-  {type:"plant",name:"Cucumber",spread:3,icon:"🥒",sun:"Full sun 6–8+ hrs",water:"Moderate / consistent",family:"Cucurbitaceae"},
-  {type:"plant",name:"Beans",spread:1.5,icon:"🫘",sun:"Full sun 6+ hrs",water:"Moderate",family:"Fabaceae"},
-  {type:"plant",name:"Peas",spread:1.2,icon:"🫛",sun:"Full sun to part sun",water:"Moderate",family:"Fabaceae"},
-  {type:"plant",name:"Onion",spread:.45,icon:"🧅",sun:"Full sun 6+ hrs",water:"Moderate",family:"Amaryllidaceae"},
-  {type:"plant",name:"Garlic",spread:.5,icon:"🧄",sun:"Full sun 6+ hrs",water:"Moderate; reduce before harvest",family:"Amaryllidaceae"},
-  {type:"plant",name:"Strawberry",spread:1.2,icon:"🍓",sun:"Full sun 6–8+ hrs",water:"Even moisture",family:"Rosaceae"},
-  {type:"plant",name:"Cabbage",spread:2,icon:"🥬",sun:"Full sun 6+ hrs",water:"Consistent",family:"Brassicaceae"},
-  {type:"plant",name:"Radish",spread:.35,icon:"🔴",sun:"Full sun to part sun",water:"Even moisture",family:"Brassicaceae"},
-  {type:"plant",name:"Marigold",spread:1,icon:"🌼",sun:"Full sun 6+ hrs",water:"Moderate",family:"Asteraceae"},
-  {type:"plant",name:"Dill",spread:1.5,icon:"🌿",sun:"Full sun 6+ hrs",water:"Moderate",family:"Apiaceae"},
-  {type:"plant",name:"Sunflower",spread:2,icon:"🌻",sun:"Full sun 6–8+ hrs",water:"Moderate",family:"Asteraceae"},
-  {type:"plant",name:"Mint",spread:2,icon:"🌿",sun:"Full sun to part shade",water:"Moderate",family:"Lamiaceae"},
-  {type:"plant",name:"Yarrow",spread:2,icon:"✿",sun:"Full sun 6+ hrs",water:"Low once established",family:"Asteraceae"}
+  {type:"bed",name:"4×8 Raised Bed",w:8,h:4,icon:"▭",kind:"bed"},{type:"bed",name:"4×4 Raised Bed",w:4,h:4,icon:"□",kind:"bed"},{type:"bed",name:"3×6 Raised Bed",w:6,h:3,icon:"▭",kind:"bed"},
+  {type:"container",name:"Large Pot",w:2,h:2,icon:"◉",kind:"container"},{type:"container",name:"Grow Bag",w:1.5,h:1.5,icon:"●",kind:"container"},{type:"container",name:"Half Barrel",w:2.5,h:2.5,icon:"◉",kind:"container"}
  ],
  "Structures":[
-  {type:"structure",name:"Shed",w:8,h:10,height:9,icon:"🏠",kind:"shed"},
-  {type:"structure",name:"Greenhouse",w:8,h:12,height:8,icon:"⌂",kind:"greenhouse"},
-  {type:"structure",name:"Trellis",w:6,h:.5,height:6,icon:"♯",kind:"trellis"},
-  {type:"structure",name:"Fence Section",w:8,h:.35,height:6,icon:"▥",kind:"fence"},
-  {type:"structure",name:"Mature Tree",w:12,h:12,height:25,icon:"🌳",kind:"tree"},
-  {type:"structure",name:"Young Tree",w:7,h:7,height:12,icon:"🌱",kind:"tree"},
-  {type:"structure",name:"Compost Bin",w:3,h:3,height:3,icon:"♻️",kind:"compost"},
-  {type:"structure",name:"Bench",w:5,h:2,height:3,icon:"▰",kind:"bench"}
+  {type:"structure",name:"Shed",w:8,h:10,height:9,icon:"🏠",kind:"shed"},{type:"structure",name:"Greenhouse",w:8,h:12,height:8,icon:"⌂",kind:"greenhouse"},{type:"structure",name:"Trellis",w:6,h:.5,height:6,icon:"♯",kind:"trellis"},
+  {type:"structure",name:"Fence Section",w:8,h:.35,height:6,icon:"▥",kind:"fence"},{type:"structure",name:"Mature Tree",w:12,h:12,height:25,icon:"🌳",kind:"tree"},{type:"structure",name:"Young Tree",w:7,h:7,height:12,icon:"🌱",kind:"tree"},
+  {type:"structure",name:"Compost Bin",w:3,h:3,height:3,icon:"♻",kind:"compost"},{type:"structure",name:"Bench",w:5,h:2,height:3,icon:"▰",kind:"bench"}
  ],
  "Water":[
-  {type:"water",name:"Rain Barrel",w:2,h:2,icon:"🛢️",kind:"barrel"},
-  {type:"water",name:"Spigot",w:1,h:1,icon:"🚰",kind:"spigot"},
-  {type:"water",name:"Pond",w:8,h:5,icon:"💧",kind:"pond"},
-  {type:"water",name:"Drip Line",w:10,h:.25,icon:"⋯",kind:"drip"},
-  {type:"water",name:"Hose Route",w:12,h:.2,icon:"〰",kind:"hose"},
-  {type:"water",name:"Swale",w:12,h:2,icon:"≈",kind:"swale"}
+  {type:"water",name:"Rain Barrel",w:2,h:2,reach:25,icon:"◉",kind:"barrel"},{type:"water",name:"Spigot",w:1,h:1,reach:50,icon:"●",kind:"spigot"},{type:"water",name:"Sprinkler",w:1,h:1,reach:18,icon:"✣",kind:"sprinkler"},
+  {type:"water",name:"Pond",w:8,h:5,icon:"≈",kind:"pond"},{type:"water",name:"Drip Line",w:10,h:.25,icon:"···",kind:"drip"},{type:"water",name:"Hose Route",w:12,h:.2,icon:"∿",kind:"hose"},{type:"water",name:"Swale",w:12,h:2,icon:"≈",kind:"swale"}
  ],
  "Paths & Zones":[
-  {type:"path",name:"3 ft Path",w:10,h:3,icon:"▱",kind:"path"},
-  {type:"path",name:"Stepping Path",w:10,h:2,icon:"···",kind:"steps"},
-  {type:"sun",name:"Full Sun Zone",w:10,h:8,icon:"☀️",kind:"full"},
-  {type:"sun",name:"Part Sun Zone",w:10,h:8,icon:"⛅",kind:"part"},
-  {type:"sun",name:"Shade Zone",w:10,h:8,icon:"☁️",kind:"shade"}
+  {type:"path",name:"3 ft Path",w:10,h:3,icon:"▱",kind:"path"},{type:"path",name:"Stepping Path",w:10,h:2,icon:"···",kind:"steps"},
+  {type:"sun",name:"Full Sun Zone",w:10,h:8,icon:"☀",kind:"full"},{type:"sun",name:"Part Sun Zone",w:10,h:8,icon:"◐",kind:"part"},{type:"sun",name:"Shade Zone",w:10,h:8,icon:"☁",kind:"shade"}
  ]
 };
-
+const FEATURED=[
+ {type:"plant",name:"Tomato",scientific:"Solanum lycopersicum",spread:3,icon:"tomato",sun:"Full sun 6–8+ hrs",water:"Moderate / consistent",family:"Solanaceae"},
+ {type:"plant",name:"Pepper",scientific:"Capsicum annuum",spread:2,icon:"pepper",sun:"Full sun 6–8+ hrs",water:"Moderate",family:"Solanaceae"},
+ {type:"plant",name:"Basil",scientific:"Ocimum basilicum",spread:1.5,icon:"herb",sun:"Full sun 6+ hrs",water:"Moderate",family:"Lamiaceae"},
+ {type:"plant",name:"Lettuce",scientific:"Lactuca sativa",spread:1,icon:"rosette",sun:"Full sun to part sun",water:"Even moisture",family:"Asteraceae"},
+ {type:"plant",name:"Carrot",scientific:"Daucus carota",spread:.35,icon:"fine",sun:"Full sun 6+ hrs",water:"Even during germination",family:"Apiaceae"},
+ {type:"plant",name:"Cucumber",scientific:"Cucumis sativus",spread:3,icon:"vine",sun:"Full sun 6–8+ hrs",water:"Moderate / consistent",family:"Cucurbitaceae"},
+ {type:"plant",name:"Beans",scientific:"Phaseolus vulgaris",spread:1.5,icon:"leaf",sun:"Full sun 6+ hrs",water:"Moderate",family:"Fabaceae"},
+ {type:"plant",name:"Peas",scientific:"Pisum sativum",spread:1.2,icon:"vine",sun:"Full sun to part sun",water:"Moderate",family:"Fabaceae"},
+ {type:"plant",name:"Onion",scientific:"Allium cepa",spread:.45,icon:"grass",sun:"Full sun 6+ hrs",water:"Moderate",family:"Amaryllidaceae"},
+ {type:"plant",name:"Garlic",scientific:"Allium sativum",spread:.5,icon:"grass",sun:"Full sun 6+ hrs",water:"Moderate",family:"Amaryllidaceae"},
+ {type:"plant",name:"Strawberry",scientific:"Fragaria × ananassa",spread:1.2,icon:"trifoliate",sun:"Full sun 6–8+ hrs",water:"Even moisture",family:"Rosaceae"},
+ {type:"plant",name:"Cabbage",scientific:"Brassica oleracea",spread:2,icon:"rosette",sun:"Full sun 6+ hrs",water:"Consistent",family:"Brassicaceae"},
+ {type:"plant",name:"Radish",scientific:"Raphanus sativus",spread:.35,icon:"rosette",sun:"Full sun to part sun",water:"Even moisture",family:"Brassicaceae"},
+ {type:"plant",name:"Marigold",scientific:"Tagetes",spread:1,icon:"flower",sun:"Full sun 6+ hrs",water:"Moderate",family:"Asteraceae"},
+ {type:"plant",name:"Dill",scientific:"Anethum graveolens",spread:1.5,icon:"fine",sun:"Full sun 6+ hrs",water:"Moderate",family:"Apiaceae"},
+ {type:"plant",name:"Sunflower",scientific:"Helianthus annuus",spread:2,icon:"flower",sun:"Full sun 6–8+ hrs",water:"Moderate",family:"Asteraceae"},
+ {type:"plant",name:"Mint",scientific:"Mentha",spread:2,icon:"herb",sun:"Full sun to part shade",water:"Moderate",family:"Lamiaceae"},
+ {type:"plant",name:"Yarrow",scientific:"Achillea millefolium",spread:2,icon:"flower",sun:"Full sun 6+ hrs",water:"Low once established",family:"Asteraceae"},
+ {type:"plant",name:"Echinacea",scientific:"Echinacea purpurea",spread:2.5,icon:"flower",sun:"Full sun to part sun",water:"Low to moderate",family:"Asteraceae"},
+ {type:"plant",name:"Salvia",scientific:"Salvia",spread:2,icon:"herb",sun:"Full sun",water:"Low to moderate",family:"Lamiaceae"},
+ {type:"plant",name:"Creeping Thyme",scientific:"Thymus serpyllum",spread:1.5,icon:"mat",sun:"Full sun",water:"Low",family:"Lamiaceae"}
+];
 const COMP={
-Tomato:{good:["Basil","Marigold","Lettuce","Carrot","Onion","Garlic"],avoid:["Potato","Fennel","Corn"]},
-Basil:{good:["Tomato","Pepper","Marigold","Lettuce"],avoid:["Fennel","Rue"]},
-Pepper:{good:["Basil","Marigold","Lettuce","Onion"],avoid:["Fennel","Potato"]},
-Beans:{good:["Carrot","Cucumber","Corn","Marigold"],avoid:["Onion","Garlic","Fennel"]},
-Carrot:{good:["Lettuce","Onion","Tomato","Peas"],avoid:["Fennel","Dill"]},
-Lettuce:{good:["Carrot","Radish","Peas","Tomato"],avoid:["Fennel","Sunflower"]},
-Cucumber:{good:["Beans","Radish","Dill","Marigold"],avoid:["Potato","Fennel"]},
-Onion:{good:["Carrot","Lettuce","Tomato","Strawberry"],avoid:["Beans","Peas","Fennel"]},
-Garlic:{good:["Strawberry","Tomato","Lettuce"],avoid:["Beans","Peas","Fennel"]},
-Peas:{good:["Carrot","Radish","Lettuce","Cucumber"],avoid:["Onion","Garlic","Fennel"]},
-Radish:{good:["Lettuce","Carrot","Cucumber","Peas"],avoid:["Fennel","Hyssop"]},
-Cabbage:{good:["Dill","Onion","Lettuce","Marigold"],avoid:["Fennel","Strawberry"]},
-Strawberry:{good:["Onion","Garlic","Marigold"],avoid:["Cabbage","Fennel","Mint"]},
-Marigold:{good:["Tomato","Pepper","Cucumber","Beans"],avoid:["Fennel"]},
-Dill:{good:["Cucumber","Cabbage","Lettuce","Onion"],avoid:["Carrot","Fennel"]},
-Mint:{good:[],avoid:["Strawberry"]}
+Tomato:{good:["Basil","Marigold","Lettuce","Carrot","Onion","Garlic"],avoid:["Fennel","Potato"]},Basil:{good:["Tomato","Pepper","Marigold","Lettuce"],avoid:["Fennel"]},Pepper:{good:["Basil","Marigold","Lettuce","Onion"],avoid:["Fennel","Potato"]},
+Beans:{good:["Carrot","Cucumber","Marigold"],avoid:["Onion","Garlic"]},Carrot:{good:["Lettuce","Onion","Tomato","Peas"],avoid:["Dill"]},Lettuce:{good:["Carrot","Radish","Peas","Tomato"],avoid:["Sunflower"]},
+Cucumber:{good:["Beans","Radish","Dill","Marigold"],avoid:["Potato"]},Onion:{good:["Carrot","Lettuce","Tomato","Strawberry"],avoid:["Beans","Peas"]},Garlic:{good:["Strawberry","Tomato","Lettuce"],avoid:["Beans","Peas"]},
+Peas:{good:["Carrot","Radish","Lettuce","Cucumber"],avoid:["Onion","Garlic"]},Radish:{good:["Lettuce","Carrot","Cucumber","Peas"],avoid:[]},Cabbage:{good:["Dill","Onion","Lettuce","Marigold"],avoid:["Strawberry"]},
+Strawberry:{good:["Onion","Garlic","Marigold"],avoid:["Cabbage","Mint"]},Marigold:{good:["Tomato","Pepper","Cucumber","Beans"],avoid:[]},Dill:{good:["Cucumber","Cabbage","Lettuce","Onion"],avoid:["Carrot"]},Mint:{good:[],avoid:["Strawberry"]}
 };
-
-let garden={w:40,h:30,objects:[]},selected=null,zoom=1,panX=0,panY=0,idn=1;
-const svg=document.getElementById("gardenSvg"),objLayer=document.getElementById("objectLayer"),shadowLayer=document.getElementById("shadowLayer"),sunLayer=document.getElementById("sunLayer");
-const teach=document.getElementById("teachBar");
-const svgNS="http://www.w3.org/2000/svg";
-
-function renderTabs(){const tabs=document.getElementById("tabs");tabs.innerHTML="";Object.keys(CATS).forEach((c,i)=>{const b=document.createElement("button");b.className="tab"+(i===0?" active":"");b.textContent=c;b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderPalette(c)};tabs.appendChild(b)});renderPalette(Object.keys(CATS)[0])}
-function renderPalette(cat){const p=document.getElementById("palette");p.innerHTML="";CATS[cat].forEach(item=>{const b=document.createElement("button");b.className="tool";b.innerHTML='<span class="ico">'+item.icon+'</span><b>'+item.name+'</b><small>'+((item.spread?item.spread+" ft spread":(item.w+"×"+item.h+" ft")))+'</small>';b.onclick=()=>addItem(item);p.appendChild(b)})}
-function addItem(t){const o={...t,id:"o"+idn++,x:garden.w/2-(t.w||t.spread||2)/2,y:garden.h/2-(t.h||t.spread||2)/2,w:t.w||t.spread||2,h:t.h||t.spread||2,rot:0};garden.objects.push(o);selected=o.id;render();inspect(o);closeMobilePanels();teach.textContent=o.type==="plant"?"Plant footprint uses approximate mature spread. Drag it where you want it, then check companion and sun guidance.":"Added "+o.name+". Drag to place it precisely."}
-function el(tag,attrs={}){const e=document.createElementNS(svgNS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e}
-function render(){
- document.getElementById("boundary").setAttribute("width",garden.w);document.getElementById("boundary").setAttribute("height",garden.h);document.getElementById("grid").setAttribute("width",garden.w);document.getElementById("grid").setAttribute("height",garden.h);
- svg.setAttribute("viewBox","0 0 "+garden.w+" "+garden.h);renderSunZones();renderShadows();objLayer.innerHTML="";
- garden.objects.filter(o=>o.type!=="sun").forEach(o=>{const g=el("g",{class:"obj"+(selected===o.id?" selected":""),"data-id":o.id,transform:"translate("+o.x+" "+o.y+") rotate("+o.rot+" "+o.w/2+" "+o.h/2+")"});let shape;
-  if(o.type==="plant"){shape=el("circle",{cx:o.w/2,cy:o.h/2,r:Math.max(.15,o.w/2),fill:"#cde1bd",stroke:"#6f965f","stroke-width":".06"});g.appendChild(shape);const t=el("text",{x:o.w/2,y:o.h/2+.13,"text-anchor":"middle","font-size":Math.min(o.w*.58,.8)});t.textContent=o.icon;g.appendChild(t)}
-  else if(o.kind==="pond"||o.kind==="barrel"||o.kind==="spigot"){shape=el("ellipse",{cx:o.w/2,cy:o.h/2,rx:o.w/2,ry:o.h/2,fill:o.kind==="pond"?"#9fc9da":"#aac6d1",stroke:"#537f90","stroke-width":".07"});g.appendChild(shape)}
-  else {let fill=o.type==="bed"?"#8c684c":o.type==="container"?"#a67b55":o.type==="path"?"#c9c2b3":o.type==="water"?"#a5ccdb":o.kind==="greenhouse"?"#cde0d7":o.kind==="tree"?"#8ab36e":o.kind==="compost"?"#79634d":"#b7aa98";shape=el("rect",{x:0,y:0,width:o.w,height:o.h,rx:Math.min(.35,Math.min(o.w,o.h)/5),fill,stroke:"#4b5d48","stroke-width":".07"});g.appendChild(shape);const t=el("text",{x:o.w/2,y:o.h/2+.12,"text-anchor":"middle","font-size":Math.min(.55,Math.max(.24,Math.min(o.w,o.h)*.26)),fill:"#223326"});t.textContent=o.icon+" "+o.name;g.appendChild(t)}
-  g.appendChild(el("rect",{class:"selectbox",x:-.12,y:-.12,width:o.w+.24,height:o.h+.24,rx:.18}));g.addEventListener("pointerdown",startDrag);g.addEventListener("click",e=>{e.stopPropagation();selected=o.id;render();inspect(o)});objLayer.appendChild(g)
- }); updateZoomLabel();
+let libraryPlants=[],catalogReady=false,currentCat="Featured Plants",garden={w:40,h:30,objects:[]},selected=null,zoom=1,idn=1;
+let layers={spacing:true,companions:true,water:true,shade:true};
+const svg=document.getElementById("gardenSvg"),svgNS="http://www.w3.org/2000/svg";
+const objLayer=document.getElementById("objectLayer"),shadowLayer=document.getElementById("shadowLayer"),sunLayer=document.getElementById("sunLayer"),waterLayer=document.getElementById("waterLayer"),compLayer=document.getElementById("companionLayer"),spacingLayer=document.getElementById("spacingLayer"),teach=document.getElementById("teachBar");
+const $=id=>document.getElementById(id);
+function el(tag,a={}){const e=document.createElementNS(svgNS,tag);Object.entries(a).forEach(([k,v])=>e.setAttribute(k,v));return e}
+function plantSVG(kind="leaf"){const palettes={tomato:["#4f8b45","#69a858","#b94d3f"],pepper:["#4d8a4a","#73a965","#c64335"],herb:["#608f52","#7fae6d","#4e7944"],rosette:["#6d9c61","#8db97d","#5c8652"],fine:["#759b5b","#91b975","#d9d075"],vine:["#4f8a4d","#70a861","#d5c45a"],grass:["#6f9b58","#8db66d","#d8c25f"],trifoliate:["#56884d","#76a767","#d85b5c"],flower:["#568b4c","#78a965","#c77b9c"],mat:["#658b52","#85aa6b","#bc8bab"],leaf:["#5e8e52","#7cac68","#abc982"]};const p=palettes[kind]||palettes.leaf;let leaves="";for(let i=0;i<10;i++){const a=i*36*Math.PI/180,x=50+Math.cos(a)*24,y=50+Math.sin(a)*24,rot=i*36+18;leaves+=`<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="12" ry="7" fill="${i%2?p[0]:p[1]}" transform="rotate(${rot} ${x.toFixed(1)} ${y.toFixed(1)})"/>`}let center=kind==="flower"?`<circle cx="50" cy="50" r="15" fill="${p[2]}"/><circle cx="50" cy="50" r="7" fill="#7d6334"/>`:kind==="tomato"?'<circle cx="50" cy="50" r="12" fill="#c95345"/><circle cx="46" cy="47" r="3" fill="#e98372"/>':kind==="pepper"?'<ellipse cx="50" cy="51" rx="9" ry="15" fill="#c84236"/><rect x="48" y="32" width="4" height="8" rx="2" fill="#4d793f"/>':'<circle cx="50" cy="50" r="10" fill="'+p[1]+'"/>';return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="#eef5e9"/>${leaves}${center}</svg>`}
+function dataUri(svgText){return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svgText)}
+function guessIcon(name,family){const n=(name+" "+(family||"")).toLowerCase();if(/tomato/.test(n))return"tomato";if(/pepper|capsicum/.test(n))return"pepper";if(/thyme|mint|salvia|basil|lamiaceae/.test(n))return"herb";if(/sunflower|echinacea|yarrow|asteraceae|tagetes/.test(n))return"flower";if(/allium|onion|garlic/.test(n))return"grass";if(/cucumber|squash|melon|cucurbit/.test(n))return"vine";if(/carrot|dill|apiaceae/.test(n))return"fine";if(/strawberry|fragaria/.test(n))return"trifoliate";if(/lettuce|cabbage|radish|brassic/.test(n))return"rosette";return"leaf"}
+function guessSpread(p){const n=((p.displayName||"")+" "+(p.scientificName||"")+" "+(p.family||"")).toLowerCase();if(/tree|oak|maple|quercus|acer|malus|prunus|magnolia/.test(n))return 12;if(/shrub|hydrangea|viburnum|rosa /.test(n))return 5;if(/vine|cucumis|phaseolus|pisum/.test(n))return 3;if(/groundcover|thyme|sedum/.test(n))return 1.5;if(/lettuce|radish|allium|carrot/.test(n))return .75;return 2}
+function renderTabs(){const cats=["Featured Plants","Library Plants",...Object.keys(STATIC)];$("tabs").innerHTML="";cats.forEach((c,i)=>{const b=document.createElement("button");b.className="tab"+(c===currentCat?" active":"");b.textContent=c;b.onclick=()=>{currentCat=c;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));renderPalette()};$("tabs").appendChild(b)});renderPalette()}
+function toolCard(item){const b=document.createElement("button");b.className="tool";const icon=item.type==="plant"?'<span class="ico"><img style="width:34px;height:34px" src="'+dataUri(plantSVG(item.icon||guessIcon(item.name,item.family)))+'" alt=""></span>':'<span class="ico">'+item.icon+'</span>';b.innerHTML=icon+'<b title="'+item.name+'">'+item.name+'</b><small>'+(item.type==="plant"?(item.spread+" ft mature spread"):(item.w+"×"+item.h+" ft"))+'</small>';b.onclick=()=>addItem(item);return b}
+function renderPalette(){const p=$("palette");p.innerHTML="";let items=currentCat==="Featured Plants"?FEATURED:currentCat==="Library Plants"?searchLibrary($("plantSearch").value):STATIC[currentCat]||[];items.slice(0,30).forEach(x=>p.appendChild(toolCard(x)));$("plantSearchCount").textContent=currentCat==="Library Plants"?(catalogReady?(items.length+" matching Library plants; showing first 30."):"Loading Garden Library plant catalog…"):(catalogReady?libraryPlants.length.toLocaleString()+" Library plants available.":"Loading Garden Library plant catalog…")}
+function searchLibrary(q){q=(q||"").trim().toLowerCase();let a=libraryPlants;if(q)a=a.filter(p=>[(p.name||""),(p.scientific||""),(p.family||"")].join(" ").toLowerCase().includes(q));return a}
+$("plantSearch").addEventListener("input",()=>{currentCat="Library Plants";renderTabs()});
+async function loadCatalog(){try{const profiles=await fetch("../garden-library/plant_profiles.json").then(r=>r.json());libraryPlants=profiles.map(p=>({type:"plant",libraryId:p.id,name:p.displayName||p.commonName||p.scientificName,scientific:p.scientificName||"",family:p.family||"",spread:guessSpread(p),icon:guessIcon(p.displayName||p.scientificName,p.family),sun:"Check Garden Library profile",water:"Check Garden Library profile"})).filter(p=>p.name);catalogReady=true;renderPalette()}catch(e){$("plantSearchCount").textContent="Garden Library catalog unavailable; featured plants still work."}}
+function addItem(t){const w=t.w||t.spread||2,h=t.h||t.spread||2,o={...t,id:"o"+idn++,x:garden.w/2-w/2,y:garden.h/2-h/2,w,h,rot:0};garden.objects.push(o);selected=o.id;render();inspect(o);closeMobilePanels();teach.textContent=o.type==="plant"?o.name+" added at approximately "+o.w+" ft mature spread. Drag it into place and review Garden Coach.":"Added "+o.name+". Drag it into place."}
+function render(){["boundary","grid"].forEach(id=>{$(id).setAttribute("width",garden.w);$(id).setAttribute("height",garden.h)});svg.setAttribute("viewBox","0 0 "+garden.w+" "+garden.h);renderSunZones();renderShadows();renderWater();renderCompanions();renderSpacing();objLayer.innerHTML="";
+ garden.objects.filter(o=>o.type!=="sun").forEach(o=>{const g=el("g",{class:"obj"+(selected===o.id?" selected":""),"data-id":o.id,transform:"translate("+o.x+" "+o.y+") rotate("+o.rot+" "+o.w/2+" "+o.h/2+")"});if(o.type==="plant"){const img=el("image",{x:0,y:0,width:o.w,height:o.h,href:dataUri(plantSVG(o.icon||guessIcon(o.name,o.family))),class:"plant-canopy"});g.appendChild(img);const t=el("text",{x:o.w/2,y:o.h+.36,"text-anchor":"middle","font-size":Math.min(.42,Math.max(.2,o.w*.16)),fill:"#29462e"});t.textContent=o.name;g.appendChild(t)}
+ else if(o.kind==="pond"||["barrel","spigot","sprinkler"].includes(o.kind)){g.appendChild(el("ellipse",{cx:o.w/2,cy:o.h/2,rx:o.w/2,ry:o.h/2,fill:o.kind==="pond"?"#9fc9da":"#83b9ca",stroke:"#537f90","stroke-width":".07"}));const t=el("text",{x:o.w/2,y:o.h/2+.12,"text-anchor":"middle","font-size":Math.min(.5,o.w*.35),fill:"#274752"});t.textContent=o.icon;g.appendChild(t)}
+ else{let fill=o.type==="bed"?"#8c684c":o.type==="container"?"#a67b55":o.type==="path"?"#c9c2b3":o.type==="water"?"#a5ccdb":o.kind==="greenhouse"?"#cde0d7":o.kind==="tree"?"#8ab36e":o.kind==="compost"?"#79634d":"#b7aa98";g.appendChild(el("rect",{x:0,y:0,width:o.w,height:o.h,rx:Math.min(.35,Math.min(o.w,o.h)/5),fill,stroke:"#4b5d48","stroke-width":".07"}));const t=el("text",{x:o.w/2,y:o.h/2+.12,"text-anchor":"middle","font-size":Math.min(.5,Math.max(.22,Math.min(o.w,o.h)*.22)),fill:"#223326"});t.textContent=o.icon+" "+o.name;g.appendChild(t)}
+ g.appendChild(el("rect",{class:"selectbox",x:-.12,y:-.12,width:o.w+.24,height:o.h+.24,rx:.18}));g.addEventListener("pointerdown",startDrag);g.addEventListener("click",e=>{e.stopPropagation();selected=o.id;render();inspect(o)});objLayer.appendChild(g)});
+ updateZoomLabel();renderAlerts();
 }
-function renderSunZones(){sunLayer.innerHTML="";garden.objects.filter(o=>o.type==="sun").forEach(o=>{const r=el("rect",{x:o.x,y:o.y,width:o.w,height:o.h,rx:.25,class:"sunzone "+(o.kind==="full"?"sun-full":o.kind==="part"?"sun-part":"sun-shade"),"data-id":o.id});r.addEventListener("pointerdown",startDrag);r.addEventListener("click",e=>{e.stopPropagation();selected=o.id;render();inspect(o)});sunLayer.appendChild(r);const t=el("text",{x:o.x+o.w/2,y:o.y+.65,"text-anchor":"middle","font-size":".45",fill:"#334a3b"});t.textContent=o.name;sunLayer.appendChild(t)})}
-function renderShadows(){shadowLayer.innerHTML="";const hour=+document.getElementById("sunTime").value,strength=+document.getElementById("shadowStrength").value;document.getElementById("sunTimeLabel").textContent=((hour+11)%12+1)+" "+(hour<12?"AM":"PM");const angle=(hour-7)/12*Math.PI;const dx=Math.cos(angle)*-1,dy=Math.sin(angle)*.65+0.15;garden.objects.filter(o=>o.height&&["structure"].includes(o.type)).forEach(o=>{const len=Math.min(18,o.height*.55*strength*(1+Math.abs(hour-13)/5));const pts=[[o.x,o.y],[o.x+o.w,o.y],[o.x+o.w+dx*len,o.y+dy*len],[o.x+dx*len,o.y+dy*len]].map(p=>p.join(",")).join(" ");shadowLayer.appendChild(el("polygon",{points:pts,class:"shadow"}))})}
-let drag=null;
-function svgPoint(evt){const p=svg.createSVGPoint();p.x=evt.clientX;p.y=evt.clientY;const q=p.matrixTransform(svg.getScreenCTM().inverse());return{x:q.x,y:q.y}}
+function renderSunZones(){sunLayer.innerHTML="";garden.objects.filter(o=>o.type==="sun").forEach(o=>{const r=el("rect",{x:o.x,y:o.y,width:o.w,height:o.h,rx:.25,class:"sunzone "+(o.kind==="full"?"sun-full":o.kind==="part"?"sun-part":"sun-shade"),"data-id":o.id});r.addEventListener("pointerdown",startDrag);r.addEventListener("click",e=>{e.stopPropagation();selected=o.id;render();inspect(o)});sunLayer.appendChild(r);const t=el("text",{x:o.x+o.w/2,y:o.y+.6,"text-anchor":"middle","font-size":".4",fill:"#334a3b"});t.textContent=o.name;sunLayer.appendChild(t)})}
+function renderShadows(){shadowLayer.innerHTML="";if(!layers.shade)return;const hour=+$("sunTime").value,season=$("season").value,orient=+$("orientation").value;$("sunTimeLabel").textContent=((hour+11)%12+1)+" "+(hour<12?"AM":"PM");const seasonFactor={summer:.65,spring:1,fall:1.15,winter:1.65}[season],a=((hour-7)/12*Math.PI)+(orient*Math.PI/180),dx=-Math.cos(a),dy=.25+Math.sin(a)*.72;garden.objects.filter(o=>o.height&&o.type==="structure").forEach(o=>{const len=Math.min(24,o.height*.48*seasonFactor*(1+Math.abs(hour-13)/5));const pts=[[o.x,o.y],[o.x+o.w,o.y],[o.x+o.w+dx*len,o.y+dy*len],[o.x+dx*len,o.y+dy*len]].map(p=>p.join(",")).join(" ");shadowLayer.appendChild(el("polygon",{points:pts,class:"shadow"}))})}
+function renderSpacing(){spacingLayer.innerHTML="";if(!layers.spacing)return;garden.objects.filter(o=>o.type==="plant").forEach(o=>{spacingLayer.appendChild(el("circle",{cx:o.x+o.w/2,cy:o.y+o.h/2,r:o.w/2,class:"spacing-ring"}))})}
+function pairRel(a,b){const A=COMP[a.name];if(!A)return null;if((A.good||[]).includes(b.name))return"good";if((A.avoid||[]).includes(b.name))return"bad";return null}
+function renderCompanions(){compLayer.innerHTML="";if(!layers.companions)return;const plants=garden.objects.filter(o=>o.type==="plant");for(let i=0;i<plants.length;i++)for(let j=i+1;j<plants.length;j++){const a=plants[i],b=plants[j],rel=pairRel(a,b)||pairRel(b,a);if(!rel)continue;const dist=Math.hypot((a.x+a.w/2)-(b.x+b.w/2),(a.y+a.h/2)-(b.y+b.h/2));if(dist>8)continue;compLayer.appendChild(el("line",{x1:a.x+a.w/2,y1:a.y+a.h/2,x2:b.x+b.w/2,y2:b.y+b.h/2,class:rel==="good"?"comp-good":"comp-bad"}))}}
+function renderWater(){waterLayer.innerHTML="";if(!layers.water)return;garden.objects.filter(o=>o.type==="water").forEach(o=>{if(o.reach)waterLayer.appendChild(el("circle",{cx:o.x+o.w/2,cy:o.y+o.h/2,r:o.reach,class:"water-range"}));if(["drip","hose","swale"].includes(o.kind))waterLayer.appendChild(el("line",{x1:o.x,y1:o.y+o.h/2,x2:o.x+o.w,y2:o.y+o.h/2,class:"water-line"}))})}
+let drag=null;function svgPoint(evt){const p=svg.createSVGPoint();p.x=evt.clientX;p.y=evt.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())}
 function startDrag(e){e.preventDefault();const id=e.currentTarget.getAttribute("data-id"),o=garden.objects.find(x=>x.id===id);if(!o)return;selected=id;const p=svgPoint(e);drag={o,dx:p.x-o.x,dy:p.y-o.y};e.currentTarget.setPointerCapture?.(e.pointerId);render();inspect(o)}
-svg.addEventListener("pointermove",e=>{if(!drag)return;const p=svgPoint(e);drag.o.x=Math.max(0,Math.min(garden.w-drag.o.w,p.x-drag.dx));drag.o.y=Math.max(0,Math.min(garden.h-drag.o.h,p.y-drag.dy));render();inspect(drag.o)});
-svg.addEventListener("pointerup",()=>drag=null);svg.addEventListener("pointercancel",()=>drag=null);svg.addEventListener("click",()=>{selected=null;render();inspect(null)});
-function inspect(o){const box=document.getElementById("inspectBody");if(!o){box.className="inspect-empty";box.innerHTML="Select an item in the garden to see its measurements and garden guidance.";return}box.className="section";let html='<h3 class="inspect-title">'+o.icon+" "+o.name+'</h3><div class="meta">'+o.type.toUpperCase()+" · "+o.w.toFixed(2)+" × "+o.h.toFixed(2)+" ft</div>';
- html+='<div class="field"><label>Width / spread (ft)</label><input id="iw" type="number" step=".25" min=".2" value="'+o.w+'"></div><div class="field"><label>Depth / spread (ft)</label><input id="ih" type="number" step=".25" min=".2" value="'+o.h+'"></div><div class="field"><label>Rotation</label><input id="irot" type="number" step="15" value="'+(o.rot||0)+'"></div><div class="ins-actions"><button class="mini" id="updateObj">Update Size</button><button class="mini danger" id="deleteObj">Delete</button></div>';
- if(o.type==="plant"){const c=COMP[o.name]||{good:[],avoid:[]};const near=nearbyPlants(o);const goodNear=near.filter(n=>c.good.includes(n.name)),badNear=near.filter(n=>c.avoid.includes(n.name));html+='<div class="lesson"><b>Spacing:</b> This circle represents about '+o.w+' ft mature spread. Keep airflow and cultivar size in mind.</div><div class="lesson"><b>Light:</b> '+(o.sun||"Check plant profile")+'<br><b>Water:</b> '+(o.water||"Varies")+'</div><div class="compat"><h4>Companion quick sheet</h4>'+ (c.good.length?'<div class="compat-row good"><b>Good nearby:</b> '+c.good.join(", ")+'</div>':'')+(c.avoid.length?'<div class="compat-row avoid"><b>Usually separate:</b> '+c.avoid.join(", ")+'</div>':'')+(goodNear.length?'<div class="compat-row good">✓ Nearby match: '+goodNear.map(x=>x.name).join(", ")+'</div>':'')+(badNear.length?'<div class="compat-row avoid">⚠ Nearby conflict: '+badNear.map(x=>x.name).join(", ")+'</div>':'')+'<div class="compat-row neutral">Companion planting is secondary to light, spacing, soil, crop rotation and airflow.</div></div>';const zone=zoneAt(o.x+o.w/2,o.y+o.h/2);if(zone)html+='<div class="lesson"><b>Sun zone here:</b> '+zone.name+'. Compare this with the plant’s light needs.</div>'}
- if(o.type==="water")html+='<div class="lesson"><b>Water planning:</b> Place water sources where hoses or drip lines can reach beds without crossing major paths. Rain barrels work best where roof runoff can be safely captured.</div>';
- if(o.kind==="tree"||o.kind==="shed"||o.kind==="fence"||o.kind==="greenhouse")html+='<div class="lesson"><b>Shade:</b> This object projects an estimated shadow as the time slider moves. Actual shadow length changes with season and latitude.</div>';
- box.innerHTML=html;document.getElementById("updateObj").onclick=()=>{o.w=Math.max(.2,+document.getElementById("iw").value);o.h=Math.max(.2,+document.getElementById("ih").value);o.rot=+document.getElementById("irot").value||0;render();inspect(o)};document.getElementById("deleteObj").onclick=()=>{garden.objects=garden.objects.filter(x=>x.id!==o.id);selected=null;render();inspect(null)}
-}
-function nearbyPlants(o){const cx=o.x+o.w/2,cy=o.y+o.h/2;return garden.objects.filter(x=>x.type==="plant"&&x.id!==o.id).filter(x=>Math.hypot((x.x+x.w/2)-cx,(x.y+x.h/2)-cy)<Math.max(5,o.w*2.2))}
+svg.addEventListener("pointermove",e=>{if(!drag)return;const p=svgPoint(e);drag.o.x=Math.max(0,Math.min(garden.w-drag.o.w,p.x-drag.dx));drag.o.y=Math.max(0,Math.min(garden.h-drag.o.h,p.y-drag.dy));render();inspect(drag.o)});svg.addEventListener("pointerup",()=>drag=null);svg.addEventListener("pointercancel",()=>drag=null);svg.addEventListener("click",()=>{selected=null;render();inspect(null)});
+function nearPlants(o){const cx=o.x+o.w/2,cy=o.y+o.h/2;return garden.objects.filter(x=>x.type==="plant"&&x.id!==o.id).filter(x=>Math.hypot((x.x+x.w/2)-cx,(x.y+x.h/2)-cy)<Math.max(6,o.w*2.2))}
 function zoneAt(x,y){return garden.objects.find(o=>o.type==="sun"&&x>=o.x&&x<=o.x+o.w&&y>=o.y&&y<=o.y+o.h)}
-function setSize(){garden.w=Math.max(4,+document.getElementById("gardenW").value||40);garden.h=Math.max(4,+document.getElementById("gardenH").value||30);garden.objects.forEach(o=>{o.x=Math.min(o.x,Math.max(0,garden.w-o.w));o.y=Math.min(o.y,Math.max(0,garden.h-o.h))});render();teach.textContent="Garden resized to "+garden.w+" × "+garden.h+" feet. Every small grid square is 1 foot."}
-document.getElementById("applySize").onclick=setSize;
-document.getElementById("sunTime").oninput=renderShadows;document.getElementById("shadowStrength").onchange=renderShadows;
-document.getElementById("zoomIn").onclick=()=>{zoom=Math.min(2.2,zoom+.15);applyZoom()};document.getElementById("zoomOut").onclick=()=>{zoom=Math.max(.5,zoom-.15);applyZoom()};document.getElementById("centerView").onclick=()=>{zoom=1;applyZoom()};document.getElementById("fitBtn").onclick=()=>{zoom=1;applyZoom()};
-function applyZoom(){svg.style.transform="scale("+zoom+")";svg.style.transformOrigin="center";updateZoomLabel()}function updateZoomLabel(){document.getElementById("zoomLabel").textContent=Math.round(zoom*100)+"%"}
-function savePlan(){const key="phgGardenPlans";let a=[];try{a=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){};const name=prompt("Name this garden layout:", "My Garden "+new Date().toLocaleDateString());if(!name)return;a.unshift({id:Date.now(),name,date:new Date().toISOString(),garden:JSON.parse(JSON.stringify(garden))});localStorage.setItem(key,JSON.stringify(a.slice(0,20)));renderSaved();teach.textContent="Saved "+name+" on this device."}
-function renderSaved(){const box=document.getElementById("savedList");let a=[];try{a=JSON.parse(localStorage.getItem("phgGardenPlans")||"[]")}catch(e){};box.innerHTML=a.length?"":"<div class='meta'>No saved layouts yet.</div>";a.forEach(s=>{const d=document.createElement("div");d.className="saved-item";d.innerHTML="<span><b>"+s.name+"</b><br><small>"+new Date(s.date).toLocaleDateString()+"</small></span><button>Open</button>";d.querySelector("button").onclick=()=>{garden=s.garden;document.getElementById("gardenW").value=garden.w;document.getElementById("gardenH").value=garden.h;idn=1+Math.max(0,...garden.objects.map(o=>parseInt((o.id||"o0").replace(/\D/g,""))||0));render();teach.textContent="Opened "+s.name};box.appendChild(d)})}
-document.getElementById("savePlan").onclick=savePlan;document.getElementById("loadPlan").onclick=()=>{document.getElementById("inspector").classList.add("open");renderSaved()};document.getElementById("newPlan").onclick=()=>{if(confirm("Start a new plan? Unsaved changes will be lost.")){garden={w:40,h:30,objects:[]};selected=null;document.getElementById("gardenW").value=40;document.getElementById("gardenH").value=30;render();inspect(null)}};
-document.getElementById("exportPlan").onclick=()=>{const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),garden},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Perennial-Garden-Plan.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
-const help=document.getElementById("helpModal");document.getElementById("helpBtn").onclick=()=>help.classList.add("show");document.getElementById("closeHelp").onclick=()=>help.classList.remove("show");help.onclick=e=>{if(e.target===help)help.classList.remove("show")};
-function closeMobilePanels(){if(innerWidth<721){document.getElementById("libraryPanel").classList.remove("open");document.getElementById("inspector").classList.remove("open")}}
-document.getElementById("openLibrary").onclick=()=>document.getElementById("libraryPanel").classList.toggle("open");document.getElementById("openInspector").onclick=()=>document.getElementById("inspector").classList.toggle("open");
-renderTabs();renderSaved();render();
+function waterCovered(o){const cx=o.x+o.w/2,cy=o.y+o.h/2;return garden.objects.some(w=>w.type==="water"&&w.reach&&Math.hypot((w.x+w.w/2)-cx,(w.y+w.h/2)-cy)<=w.reach)}
+function inspect(o){const box=$("inspectBody");if(!o){box.className="inspect-empty";box.innerHTML="Select an item in the garden to see detailed guidance.";return}box.className="section";let html='<h3 class="inspect-title">'+o.name+'</h3><div class="meta">'+o.type.toUpperCase()+" · "+o.w.toFixed(2)+" × "+o.h.toFixed(2)+" ft</div><div class='field'><label>Width / mature spread (ft)</label><input id='iw' type='number' step='.25' min='.2' value='"+o.w+"'></div><div class='field'><label>Depth / mature spread (ft)</label><input id='ih' type='number' step='.25' min='.2' value='"+o.h+"'></div><div class='field'><label>Rotation</label><input id='irot' type='number' step='15' value='"+(o.rot||0)+"'></div><div class='ins-actions'><button class='mini' id='updateObj'>Update</button><button class='mini danger' id='deleteObj'>Delete</button></div>";
+ if(o.type==="plant"){const c=COMP[o.name]||{good:[],avoid:[]},near=nearPlants(o),good=near.filter(n=>(c.good||[]).includes(n.name)),bad=near.filter(n=>(c.avoid||[]).includes(n.name)),zone=zoneAt(o.x+o.w/2,o.y+o.h/2);html+='<div class="lesson"><b>Mature footprint:</b> approximately '+o.w+' ft across. Edit this size for your exact cultivar.</div><div class="lesson"><b>Light:</b> '+(o.sun||"Check Garden Library profile")+'<br><b>Water:</b> '+(o.water||"Varies by species and establishment.")+'</div><div class="compat"><h4>Companion quick sheet</h4>'+(c.good?.length?'<div class="compat-row good"><b>Often useful nearby:</b> '+c.good.join(", ")+'</div>':'')+(c.avoid?.length?'<div class="compat-row avoid"><b>Often better separated:</b> '+c.avoid.join(", ")+'</div>':'')+(good.length?'<div class="compat-row good">✓ Nearby compatible: '+good.map(x=>x.name).join(", ")+'</div>':'')+(bad.length?'<div class="compat-row avoid">⚠ Nearby conflict: '+bad.map(x=>x.name).join(", ")+'</div>':'')+'<div class="compat-row neutral">Companion guidance is secondary to correct light, spacing, soil, airflow and crop rotation.</div></div>';if(zone)html+='<div class="lesson"><b>Mapped sun zone:</b> '+zone.name+'. Compare with the plant’s actual light needs.</div>';html+='<div class="lesson"><b>Water reach:</b> '+(waterCovered(o)?"Within an approximate mapped water-source radius.":"No mapped water source currently reaches this plant.")+'</div>';if(o.libraryId)html+='<div class="actions"><a class="mini" href="../garden-library/#plant-'+encodeURIComponent(o.libraryId)+'" target="_blank" rel="noopener" style="text-decoration:none">Open Library Profile</a></div>'}
+ if(o.type==="water")html+='<div class="lesson"><b>Water planning:</b> '+(o.reach?"Approximate reach: "+o.reach+" ft. ":"")+"Use paths and hose/drip routes to minimize traffic through beds and avoid wetting foliage unnecessarily.</div>';
+ if(o.type==="structure"&&o.height)html+='<div class="lesson"><b>Shade model:</b> estimated shadow uses structure height, time, season and garden orientation. Actual site shade should still be observed.</div>';
+ box.innerHTML=html;$("updateObj").onclick=()=>{o.w=Math.max(.2,+$("iw").value);o.h=Math.max(.2,+$("ih").value);o.rot=+$("irot").value||0;render();inspect(o)};$("deleteObj").onclick=()=>{garden.objects=garden.objects.filter(x=>x.id!==o.id);selected=null;render();inspect(null)}
+}
+function renderAlerts(){const a=[];const plants=garden.objects.filter(o=>o.type==="plant");plants.forEach(p=>{if(p.x<0||p.y<0||p.x+p.w>garden.w||p.y+p.h>garden.h)a.push(["bad",p.name+" extends outside the garden boundary."]);if(!waterCovered(p)&&garden.objects.some(w=>w.type==="water"&&w.reach))a.push(["warn",p.name+" sits outside mapped water-source reach."]);const z=zoneAt(p.x+p.w/2,p.y+p.h/2);if(z&&z.kind==="shade"&&/full sun/i.test(p.sun||""))a.push(["warn",p.name+" prefers full sun but is centered in a mapped Shade Zone."])});const box=$("alerts");box.innerHTML=a.length?a.slice(0,12).map(x=>'<div class="alert '+x[0]+'">'+x[1]+'</div>').join(""):'<div class="alert good">No major planning alerts detected from the current map.</div>'}
+function setSize(){garden.w=Math.max(4,+$("gardenW").value||40);garden.h=Math.max(4,+$("gardenH").value||30);garden.objects.forEach(o=>{o.x=Math.min(o.x,Math.max(0,garden.w-o.w));o.y=Math.min(o.y,Math.max(0,garden.h-o.h))});render();teach.textContent="Garden resized to "+garden.w+" × "+garden.h+" ft. One small grid square equals 1 ft."}
+$("applySize").onclick=setSize;["sunTime","season","orientation"].forEach(id=>$(id).addEventListener("input",render));
+function bindToggle(id,key){$(id).onclick=()=>{layers[key]=!layers[key];$(id).classList.toggle("on",layers[key]);render()}}bindToggle("togSpacing","spacing");bindToggle("togComp","companions");bindToggle("togWater","water");bindToggle("togShade","shade");
+$("quickComp").onclick=()=>{$("togComp").click();$("quickComp").classList.toggle("on",layers.companions)};$("quickWater").onclick=()=>{$("togWater").click();$("quickWater").classList.toggle("on",layers.water)};
+$("zoomIn").onclick=()=>{zoom=Math.min(2.2,zoom+.15);applyZoom()};$("zoomOut").onclick=()=>{zoom=Math.max(.5,zoom-.15);applyZoom()};$("centerView").onclick=()=>{zoom=1;applyZoom()};$("fitBtn").onclick=()=>{zoom=1;applyZoom()};function applyZoom(){svg.style.transform="scale("+zoom+")";svg.style.transformOrigin="center";updateZoomLabel()}function updateZoomLabel(){$("zoomLabel").textContent=Math.round(zoom*100)+"%"}
+function savePlan(){const key="phgGardenPlans";let a=[];try{a=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){};const name=prompt("Name this garden layout:","My Garden "+new Date().toLocaleDateString());if(!name)return;a.unshift({id:Date.now(),name,date:new Date().toISOString(),version:2,garden:JSON.parse(JSON.stringify(garden)),settings:{season:$("season").value,orientation:$("orientation").value,layers}});localStorage.setItem(key,JSON.stringify(a.slice(0,30)));renderSaved();teach.textContent="Saved "+name+" on this device."}
+function renderSaved(){let a=[];try{a=JSON.parse(localStorage.getItem("phgGardenPlans")||"[]")}catch(e){};$("savedList").innerHTML=a.length?"":"<div class='meta'>No saved layouts yet.</div>";a.forEach(s=>{const d=document.createElement("div");d.className="saved-item";d.innerHTML="<span><b>"+s.name+"</b><br><small>"+new Date(s.date).toLocaleDateString()+" · "+(s.version===2?"Gen 2":"Legacy")+"</small></span><button>Open</button>";d.querySelector("button").onclick=()=>{garden=s.garden;$("gardenW").value=garden.w;$("gardenH").value=garden.h;if(s.settings){$("season").value=s.settings.season||"summer";$("orientation").value=s.settings.orientation||"0";layers={...layers,...s.settings.layers}}idn=1+Math.max(0,...garden.objects.map(o=>parseInt((o.id||"o0").replace(/D/g,""))||0));render();teach.textContent="Opened "+s.name};$("savedList").appendChild(d)})}
+$("savePlan").onclick=savePlan;$("loadPlan").onclick=()=>{$("inspector").classList.add("open");renderSaved()};$("newPlan").onclick=()=>{if(confirm("Start a new plan? Unsaved changes will be lost.")){garden={w:40,h:30,objects:[]};selected=null;$("gardenW").value=40;$("gardenH").value=30;render();inspect(null)}};$("exportPlan").onclick=()=>{const blob=new Blob([JSON.stringify({version:2,exportedAt:new Date().toISOString(),garden,settings:{season:$("season").value,orientation:$("orientation").value,layers}},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Perennial-Garden-Plan-Gen2.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+const help=$("helpModal");$("helpBtn").onclick=()=>help.classList.add("show");$("closeHelp").onclick=()=>help.classList.remove("show");help.onclick=e=>{if(e.target===help)help.classList.remove("show")};
+function closeMobilePanels(){if(innerWidth<721){$("libraryPanel").classList.remove("open");$("inspector").classList.remove("open")}}$("openLibrary").onclick=()=>$("libraryPanel").classList.toggle("open");$("openInspector").onclick=()=>$("inspector").classList.toggle("open");
+renderTabs();renderSaved();render();loadCatalog();
 </script>
-
-<style id="phg-my-garden-link-v1">
-.phg-my-garden-link{position:fixed;right:12px;bottom:12px;z-index:9999;text-decoration:none!important;background:#294f30;color:#fff!important;border:1px solid #ffffff44;border-radius:999px;padding:10px 13px;font:700 11px Georgia,serif;box-shadow:0 10px 28px #1b2f1d40}
-.phg-my-garden-link:hover{transform:translateY(-2px)}
-@media(max-width:620px){.phg-my-garden-link{right:8px;bottom:8px;padding:9px 11px;font-size:10px}}
-</style>
-<a class="phg-my-garden-link" href="../my-garden/" aria-label="Open My Garden dashboard">MY GARDEN</a>
 </body>
 </html>
