@@ -248,8 +248,8 @@
     "id": "resource-021",
     "title": "USDA National Agricultural Library Digital Collections",
     "category": "Free Books & Literature",
-    "description": "Digitized agricultural publications, reports, historical documents, and special collections.",
-    "url": "https://www.nal.usda.gov/collections/digital-collections",
+    "description": "National Agricultural Library collections, including NAL Digital Collections, agricultural history, USDA publications, special collections, and catalog access.",
+    "url": "https://www.nal.usda.gov/all-collections",
     "tags": [
       "USDA",
       "digital library",
@@ -380,8 +380,8 @@
     "id": "resource-032",
     "title": "University of Maryland Soil, Compost & Fertilizer",
     "category": "Soil & Compost",
-    "description": "Home-garden soil testing, soil improvement, compost, cover crop, and fertilizer guidance.",
-    "url": "https://extension.umd.edu/programs/environment-natural-resources/program-areas/home-and-garden-information-center/gardening-resources/yard-and-landscape/soil-compost-and-fertilizer",
+    "description": "University of Maryland Extension resources on soil testing, soil health, compost, amendments, cover crops, and fertilizer.",
+    "url": "https://extension.umd.edu/resources/yard-garden/soils-compost-and-fertilizer/soils-compost-and-fertilizer",
     "tags": [
       "Maryland",
       "soil",
@@ -585,8 +585,8 @@
     "id": "resource-049",
     "title": "USDA Natural Resources Conservation Service YouTube",
     "category": "Video Learning",
-    "description": "Videos on soils, conservation, pollinators, agriculture, water, and land stewardship.",
-    "url": "https://www.youtube.com/@USDA_NRCS",
+    "description": "Official USDA NRCS videos on soil health, conservation, high tunnels, pollinators, farming, water, and land stewardship.",
+    "url": "https://www.youtube.com/@TheUSDANRCS",
     "tags": [
       "video",
       "soil",
@@ -643,10 +643,10 @@
   },
   {
     "id": "resource-054",
-    "title": "University of Minnesota High Tunnels",
+    "title": "University of Minnesota Season Extension",
     "category": "Structures & Season Extension",
-    "description": "University Extension information on high tunnels, season extension, site selection, and production.",
-    "url": "https://extension.umn.edu/growing-systems/high-tunnels",
+    "description": "University Extension guidance on extending the growing season with row covers, low tunnels, high tunnels, and related techniques.",
+    "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/extending-the-growing-season",
     "tags": [
       "high tunnel",
       "season extension",
