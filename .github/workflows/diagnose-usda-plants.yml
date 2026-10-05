@@ -17,30 +17,33 @@ jobs:
         run: |
           python - <<'PY'
           import urllib.request,re,json
-          base="https://plants.sc.egov.usda.gov/"
-          req=urllib.request.Request(base+"main.js",headers={"User-Agent":"Mozilla/5.0"})
-          js=urllib.request.urlopen(req,timeout=30).read().decode("utf-8","replace")
-          pats=[
-            r'https?://[^"\'\\ ]+',
-            r'["\']([^"\']*(?:api|characteristic|plant-profile|plants)[^"\']*)["\']'
-          ]
-          found=[]
-          for pat in pats:
-            for m in re.findall(pat,js,re.I):
-              s=m if isinstance(m,str) else str(m)
-              if 4 < len(s) < 500:
-                found.append(s)
-          # Keep unique URL/API-ish strings.
-          seen=[]
-          for s in found:
-            if s not in seen: seen.append(s)
-          data={"bundle_len":len(js),"strings":seen[:5000]}
-          open("data/garden-library/usda_api_diagnostic.json","w").write(json.dumps(data,indent=2))
+          js=urllib.request.urlopen(urllib.request.Request("https://plants.sc.egov.usda.gov/main.js",headers={"User-Agent":"Mozilla/5.0"}),timeout=40).read().decode("utf-8","replace")
+          needles=["fetchPlantsSearchResults","CharacteristicSearchService","characteristics","apiUrl","baseUrl","environment","PlantProfileService","characteristic"]
+          snippets={}
+          for n in needles:
+            arr=[]
+            start=0
+            while True:
+              i=js.find(n,start)
+              if i<0: break
+              arr.append(js[max(0,i-1200):min(len(js),i+2400)])
+              if len(arr)>=25: break
+              start=i+len(n)
+            snippets[n]=arr
+          # Also collect strings that look like service routes, avoiding framework noise.
+          route_strings=[]
+          for m in re.finditer(r'["\']([^"\']{2,180})["\']',js):
+            s=m.group(1)
+            sl=s.lower()
+            if any(k in sl for k in ["/api/","characteristic","plantprofile","plant-profile","plant-search","plants/search","profile/"]):
+              if "\n" not in s and s not in route_strings:
+                route_strings.append(s)
+          open("data/garden-library/usda_api_diagnostic.json","w").write(json.dumps({"bundle_len":len(js),"routes":route_strings[:2000],"snippets":snippets},indent=2))
           PY
       - name: Commit diagnostic
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/garden-library/usda_api_diagnostic.json
-          git diff --cached --quiet || git commit -m "Inspect USDA PLANTS app API strings"
+          git diff --cached --quiet || git commit -m "Inspect USDA PLANTS service routes"
           git push
