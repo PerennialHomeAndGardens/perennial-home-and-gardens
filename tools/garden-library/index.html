@@ -115,6 +115,12 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 .phg-library-body{padding:20px}.phg-library-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.phg-library-tools button{border:1px solid #d4cabb;background:#fffaf2;border-radius:999px;padding:8px 11px;cursor:pointer;color:#4c4036;font-weight:bold}.phg-library-tools button.danger{color:#7b3f35}
 .phg-shelf-section{margin-top:22px}.phg-shelf-section h3{font:500 25px Georgia,serif;color:#29492e;margin:0 0 10px}.phg-shelf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.phg-shelf-item{position:relative;background:#fffdf8;border:1px solid #e2d8cb;border-radius:16px;padding:14px;min-height:145px}.phg-shelf-item small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#73806c;font-size:9px}.phg-shelf-item h4{font:500 19px Georgia,serif;color:#29492e;margin:5px 32px 5px 0}.phg-shelf-item p{font-size:12px;color:#6c6259;line-height:1.45;margin:0}.phg-shelf-item .open{display:inline-block;margin-top:10px;border:0;background:#315936;color:#fff;border-radius:999px;padding:7px 10px;cursor:pointer;font-weight:bold;font-size:11px}.phg-shelf-remove{position:absolute;top:9px;right:9px;width:30px;height:30px;border-radius:50%;border:1px solid #ddd1c2;background:#fffaf2;color:#715b4f;cursor:pointer}.phg-shelf-empty{grid-column:1/-1;border:1px dashed #d8cdbc;border-radius:14px;padding:18px;text-align:center;color:#74695f;background:#fffaf3}
 @media(max-width:800px){.phg-library-stats{grid-template-columns:repeat(2,1fr)}.phg-shelf-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.phg-library-panel{padding:0 9px}.phg-library-card{border-radius:18px}.phg-shelf-grid{grid-template-columns:1fr}}
+</style>
+<style id="phg-phase9-account-v1">
+.phg-account-box{margin:0 0 18px;background:#f6f0e5;border:1px solid #ddd1c0;border-radius:18px;padding:15px}
+.phg-account-row{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.phg-account-row h3{margin:0;color:#29492e;font:500 22px Georgia,serif}.phg-account-status{display:inline-flex;align-items:center;gap:7px;background:#fffdf8;border:1px solid #d8cdbd;border-radius:999px;padding:7px 10px;color:#61574f;font-size:11px;font-weight:bold}.phg-dot{width:8px;height:8px;border-radius:50%;background:#8b9b80}.phg-dot.local{background:#b98943}.phg-profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.phg-profile-grid label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#766a60;font-weight:bold}.phg-profile-grid input{width:100%;margin-top:5px;border:1px solid #d8cdbf;border-radius:10px;padding:10px;background:#fffdf8}.phg-account-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.phg-account-actions button{border:0;border-radius:999px;padding:9px 11px;font-weight:bold;cursor:pointer;background:#315936;color:#fff}.phg-account-actions button.secondary{background:#fffaf2;color:#35543a;border:1px solid #bfd0b8}.phg-account-note{margin-top:10px;color:#6d635a;font-size:11px;line-height:1.45}
+.phg-note-wrap{margin-top:10px}.phg-note-wrap textarea{width:100%;min-height:70px;border:1px solid #ddd2c3;border-radius:10px;padding:9px;background:#fffaf2;resize:vertical;font:12px/1.4 inherit}.phg-note-wrap button{margin-top:6px;border:0;border-radius:999px;background:#315936;color:#fff;padding:7px 9px;font-size:11px;font-weight:bold;cursor:pointer}
+@media(max-width:700px){.phg-profile-grid{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="topnote">Perennial Home &amp; Gardens • The Garden Library</div>
@@ -166,6 +172,24 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
       </div>
     </div>
     <div class="phg-library-body">
+
+      <div class="phg-account-box" id="phgAccountBox">
+        <div class="phg-account-row">
+          <div><h3>My Garden Profile</h3><div class="phg-account-note">Your Garden Library is currently saved locally on this device. The account-sync structure is prepared for Perennial cloud sync.</div></div>
+          <div class="phg-account-status"><span class="phg-dot local" id="phgSyncDot"></span><span id="phgSyncStatus">Local Mode</span></div>
+        </div>
+        <div class="phg-profile-grid">
+          <label>Display Name<input id="phgProfileName" placeholder="Optional"></label>
+          <label>Home Zone<input id="phgProfileZone" placeholder="Example: 7b"></label>
+          <label>Garden Location<input id="phgProfileLocation" placeholder="Example: Southern Maryland"></label>
+        </div>
+        <div class="phg-account-actions">
+          <button id="phgSaveProfile">Save Garden Profile</button>
+          <button id="phgRefreshLocal" class="secondary">Refresh Local Sync</button>
+          <button id="phgAccountSync" class="secondary" title="Requires a Perennial Supabase project">Cloud Sync Ready</button>
+        </div>
+        <div class="phg-account-note" id="phgAccountNote">Cross-device syncing is prepared but not activated until a dedicated Perennial Supabase project is created and connected.</div>
+      </div>
       <div class="phg-library-tools">
         <button id="phgPrintLibrary">Print My Library</button>
         <button id="phgExportLibrary">Export Saved List</button>
@@ -670,6 +694,7 @@ init();
 })();
 </script>
 
+<script src="account_sync_adapter.js"></script>
 <script id="phg-phase8-my-library-js">
 (function(){
   const shelfKey="phgGardenLibraryShelfV1", oldResourceKey="phgGardenLibrarySavedResources";
@@ -700,7 +725,8 @@ init();
   }
   function empty(msg){return '<div class="phg-shelf-empty">'+msg+'</div>'}
   function plantCard(p){
-    return '<article class="phg-shelf-item"><button class="phg-shelf-remove" data-remove="plants" data-id="'+p.id+'" aria-label="Remove">×</button><small>Plant · '+(p.family||"")+'</small><h4>'+(p.displayName||p.scientificName)+'</h4><p><em>'+p.scientificName+'</em></p><button class="open" data-open-plant="'+p.id+'">Open Plant →</button></article>';
+    const note=(window.PerennialLibrarySync?.getPlantNotes?.()[p.id]||"");
+    return '<article class="phg-shelf-item"><button class="phg-shelf-remove" data-remove="plants" data-id="'+p.id+'" aria-label="Remove">×</button><small>Plant · '+(p.family||"")+'</small><h4>'+(p.displayName||p.scientificName)+'</h4><p><em>'+p.scientificName+'</em></p><button class="open" data-open-plant="'+p.id+'">Open Plant →</button><div class="phg-note-wrap"><textarea data-plant-note="'+p.id+'" placeholder="Add a private garden note…">'+note.replace(/</g,"&lt;")+'</textarea><button data-save-note="'+p.id+'">Save Note</button></div></article>';
   }
   function termCard(t){
     return '<article class="phg-shelf-item"><button class="phg-shelf-remove" data-remove="terms" data-id="'+t.id+'" aria-label="Remove">×</button><small>Garden Term · '+t.category+'</small><h4>'+t.term+'</h4><p>'+t.definition+'</p><button class="open" data-open-term="'+slug(t.term)+'">Open Term →</button></article>';
@@ -721,6 +747,11 @@ init();
     document.querySelectorAll("[data-open-plant]").forEach(b=>b.onclick=()=>{location.hash="plant-"+b.dataset.openPlant;location.reload()});
     document.querySelectorAll("[data-open-term]").forEach(b=>b.onclick=()=>{location.hash=b.dataset.openTerm;location.reload()});
     document.querySelectorAll("[data-open-resource]").forEach(b=>b.onclick=()=>{const r=R.find(x=>x.id===b.dataset.openResource);if(r)window.open(r.url,"_blank","noopener")});
+    document.querySelectorAll("[data-save-note]").forEach(b=>b.onclick=()=>{
+      const id=b.dataset.saveNote,ta=document.querySelector('[data-plant-note="'+id+'"]');
+      window.PerennialLibrarySync?.savePlantNote?.(id,ta?.value||"");
+      b.textContent="Saved";setTimeout(()=>b.textContent="Save Note",1000);
+    });
     syncButtons();
   }
   document.addEventListener("phg:shelfchanged",render);
@@ -737,6 +768,27 @@ init();
     const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");
     a.href=URL.createObjectURL(blob);a.download="Perennial-Garden-Library-Saved.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
   };
+
+  function initAccountProfile(){
+    const sync=window.PerennialLibrarySync;if(!sync)return;
+    const p=sync.getProfile();
+    if($8("phgProfileName"))$8("phgProfileName").value=p.displayName||"";
+    if($8("phgProfileZone"))$8("phgProfileZone").value=p.homeZone||"";
+    if($8("phgProfileLocation"))$8("phgProfileLocation").value=p.locationLabel||"";
+    const state=sync.getState();
+    if($8("phgSyncStatus"))$8("phgSyncStatus").textContent=state.signedIn?"Cloud Synced":"Local Mode";
+    if($8("phgSaveProfile"))$8("phgSaveProfile").onclick=()=>{
+      sync.saveProfile({displayName:$8("phgProfileName").value.trim(),homeZone:$8("phgProfileZone").value.trim(),locationLabel:$8("phgProfileLocation").value.trim()});
+      $8("phgAccountNote").textContent="Garden profile saved on this device.";
+    };
+    if($8("phgRefreshLocal"))$8("phgRefreshLocal").onclick=async()=>{
+      const st=await sync.sync();$8("phgAccountNote").textContent="Local Garden Library refreshed at "+new Date(st.lastSync).toLocaleString()+".";
+    };
+    if($8("phgAccountSync"))$8("phgAccountSync").onclick=()=>{
+      $8("phgAccountNote").textContent="Cloud sync needs a dedicated Perennial Supabase project. The database schema and secure row-level policies are already prepared.";
+    };
+  }
+  initAccountProfile();
   Promise.all([
     fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[]),
     fetch("glossary.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[]),
