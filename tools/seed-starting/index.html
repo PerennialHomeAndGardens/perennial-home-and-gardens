@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seed Starting, Succession & Tray Tracker | Perennial Home & Gardens</title>
+<meta name="description" content="Plan seed starts, track trays and cells, record germination and potting-up, schedule transplants, and build succession rounds in one garden app.">
+<style>
+:root{--green:#24472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#ddd2c3;--soft:#edf3e8;--gold:#d7bc88;--muted:#74695f;--warn:#fff3d8;--danger:#91463d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f4efe7,#fbf8f1);color:#302b26;font-family:Georgia,serif}
+a{color:inherit}.topnote{background:#1f3824;color:#edf3e9;text-align:center;padding:7px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+header{position:sticky;top:0;z-index:40;background:#fffdf8f3;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.bar{max-width:1180px;margin:auto;padding:9px 13px;display:flex;align-items:center;gap:12px}.brand{flex:1}.brand strong{display:block;color:var(--green);font-size:22px}.brand span{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#766b61}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{border:1px solid #cbd8c4;background:#fff;border-radius:999px;padding:8px 10px;text-decoration:none;color:var(--green);font-size:10px;font-weight:bold}
+.hero{max-width:1160px;margin:auto;padding:42px 18px 20px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#6a7f60;font-weight:bold}.hero h1{font-size:clamp(40px,6vw,72px);line-height:.96;margin:8px 0;color:var(--green);font-weight:500}.hero p{max-width:900px;color:#665e56;font-size:16px;line-height:1.55;margin:11px 0}.badges{display:flex;gap:7px;flex-wrap:wrap}.badge{background:#e9efe4;border:1px solid #cbd7c4;border-radius:999px;padding:7px 10px;color:#446145;font-size:10px}
+.shell{max-width:1160px;margin:auto;padding:10px 18px 55px}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tab{border:1px solid #cfd8c9;background:#fffaf2;color:#38583c;border-radius:999px;padding:9px 12px;font-weight:bold;font-size:11px;cursor:pointer}.tab.active{background:#315936;color:#fff;border-color:#315936}
+.panel{display:none}.panel.active{display:block}.card{background:#fffdf8;border:1px solid #ddd3c5;border-radius:21px;box-shadow:0 14px 36px #253a2413;overflow:hidden;margin-bottom:15px}.cardhead{padding:16px 17px;border-bottom:1px solid #ebe3d8}.cardhead h2{margin:0;color:var(--green);font-size:25px;font-weight:500}.cardhead p{margin:4px 0 0;color:#746a61;font-size:11px;line-height:1.45}.body{padding:16px}
+.formgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#776c62;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:12px Georgia}.field textarea{min-height:70px;resize:vertical}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:999px;padding:8px 10px;font-weight:bold;font-size:10px;cursor:pointer;background:var(--green2);color:#fff}.btn.secondary{background:#fffaf2;color:var(--green);border:1px solid #c5d4be}.btn.danger{background:#fff1ee;color:var(--danger);border:1px solid #e3c2bb}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:15px}.stat{background:#fffdf8;border:1px solid #ddd3c6;border-radius:15px;padding:12px}.stat strong{display:block;color:#315236;font-size:25px}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#74695f}
+.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:820px}.table th,.table td{padding:9px 8px;border-bottom:1px solid #ebe4da;text-align:left;font-size:10px;vertical-align:top}.table th{text-transform:uppercase;letter-spacing:.06em;color:#6d7567;background:#f4f7f0;position:sticky;top:0}.status{display:inline-block;border-radius:999px;padding:5px 7px;font-size:9px;font-weight:bold;background:#edf2e9;color:#3f5d42}.status.warn{background:#fff0d1;color:#71582f}.status.done{background:#e2f0df;color:#35613c}.status.late{background:#fff0ed;color:#88473e}
+.empty{padding:18px;text-align:center;color:#786e64;border:1px dashed #d8cdbf;border-radius:13px;background:#fffaf4;font-size:11px}
+.traygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(28px,1fr));gap:4px;margin-top:10px}.cell{aspect-ratio:1;border:1px solid #cfd8c8;background:#eef4e9;border-radius:6px;display:grid;place-items:center;font-size:8px;color:#405c43;cursor:pointer;min-width:24px}.cell.germ{background:#cfe5c7}.cell.failed{background:#f2d4cf}.cell.emptycell{background:#f3efe8}.cell:hover{outline:2px solid #9eb794}
+.rounds{display:grid;gap:8px}.round{border:1px solid #ded4c6;border-radius:14px;padding:11px;background:#fffaf3}.round h4{margin:0;color:#355638;font-size:15px}.round small{display:block;color:#7a7067;margin-top:3px}.timeline{height:8px;background:#e9e4da;border-radius:999px;margin-top:8px;overflow:hidden}.timeline span{display:block;height:100%;background:#739567;border-radius:999px}
+.note{margin-top:10px;padding:10px;background:#f5efdc;border:1px solid #ead9b1;border-radius:12px;color:#5f523f;font-size:10px;line-height:1.45}
+.quickgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.quick{border:1px solid #ddd2c4;background:#fffaf2;border-radius:14px;padding:12px}.quick b{display:block;color:#35553a}.quick span{display:block;font-size:10px;color:#71675e;line-height:1.4;margin-top:4px}
+footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font-size:10px}.footerlinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}.footerlinks a{text-decoration:none}
+@media(max-width:900px){.formgrid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.bar{padding:8px 9px}.brand strong{font-size:17px}.brand span{display:none}.nav a:not(.garden){display:none}.hero{padding:30px 10px 14px}.shell{padding:8px 9px 42px}.formgrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.quickgrid{grid-template-columns:1fr}.card{border-radius:17px}}
+</style>
+</head>
+<body>
+<div class="topnote">Perennial Home & Gardens • Seed-to-Harvest Planning</div>
+<header><div class="bar"><div class="brand"><strong>Seed Starting & Succession</strong><span>Seed Inventory · Trays · Germination · Transplants · Succession Rounds</span></div><nav class="nav"><a class="garden" href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../seasonal-calendar/">Calendar</a><a href="../garden-planner/">Planner</a></nav></div></header>
+
+<section class="hero">
+ <div class="eyebrow">Build 2 • My Garden System</div>
+ <h1>Seed Starting, Succession & Tray Tracker</h1>
+ <p>Plan what to sow, track trays and cells, record germination and potting-up, schedule transplant dates, and build repeat sowings so harvests arrive in waves instead of all at once.</p>
+ <div class="badges"><span class="badge">Seed Inventory</span><span class="badge">Tray & Cell Tracking</span><span class="badge">Germination</span><span class="badge">Transplant Dates</span><span class="badge">Succession Rounds</span><span class="badge">My Garden Connected</span></div>
+</section>
+
+<main class="shell">
+<div class="stats">
+ <div class="stat"><strong id="sSeeds">0</strong><span>Seed varieties</span></div>
+ <div class="stat"><strong id="sTrays">0</strong><span>Active trays</span></div>
+ <div class="stat"><strong id="sCells">0</strong><span>Cells planted</span></div>
+ <div class="stat"><strong id="sRounds">0</strong><span>Succession rounds</span></div>
+ <div class="stat"><strong id="sDue">0</strong><span>Due / overdue</span></div>
+</div>
+
+<div class="tabs"><button class="tab active" data-tab="inventory">SEED INVENTORY</button><button class="tab" data-tab="trays">TRAY TRACKER</button><button class="tab" data-tab="succession">SUCCESSION PLANNER</button><button class="tab" data-tab="overview">OVERVIEW</button></div>
+
+<section class="panel active" id="inventory">
+ <div class="card"><div class="cardhead"><h2>Add Seed Variety</h2><p>Keep the packet details you actually use when planning starts and successions.</p></div><div class="body">
+  <div class="formgrid">
+   <div class="field"><label>Crop / plant</label><input id="seedCrop" placeholder="Tomato"></div>
+   <div class="field"><label>Variety</label><input id="seedVariety" placeholder="Cherokee Purple"></div>
+   <div class="field"><label>Seed year</label><input id="seedYear" type="number" min="2000" max="2100"></div>
+   <div class="field"><label>Quantity / packets</label><input id="seedQty" placeholder="1 packet / 40 seeds"></div>
+   <div class="field"><label>Days to maturity</label><input id="seedDTM" type="number" min="1" placeholder="80"></div>
+   <div class="field"><label>Start method</label><select id="seedMethod"><option>Indoor start</option><option>Direct sow</option><option>Either</option></select></div>
+   <div class="field"><label>Spacing (inches)</label><input id="seedSpacing" type="number" min="1" placeholder="24"></div>
+   <div class="field"><label>Source</label><input id="seedSource" placeholder="Seed company / saved seed"></div>
+  </div>
+  <div class="field"><label>Packet / planning notes</label><textarea id="seedNotes" placeholder="Light, depth, germination temperature, special instructions, saved seed notes…"></textarea></div>
+  <div class="actions"><button class="btn" id="addSeed">Add to Inventory</button></div>
+ </div></div>
+ <div class="card"><div class="cardhead"><h2>My Seeds</h2><p>Use inventory entries directly when creating trays and succession rounds.</p></div><div class="body"><div class="tablewrap"><table class="table"><thead><tr><th>Crop</th><th>Variety</th><th>Year</th><th>Method</th><th>DTM</th><th>Spacing</th><th>Source</th><th></th></tr></thead><tbody id="seedRows"></tbody></table></div><div id="seedEmpty" class="empty">No seeds added yet.</div></div></div>
+</section>
+
+<section class="panel" id="trays">
+ <div class="card"><div class="cardhead"><h2>Create Tray / Cell Block</h2><p>Create a tray, plug flat, soil block tray, or cell section and track what happens after sowing.</p></div><div class="body">
+  <div class="formgrid">
+   <div class="field"><label>Tray name</label><input id="trayName" placeholder="Tray A"></div>
+   <div class="field"><label>Seed variety</label><select id="traySeed"></select></div>
+   <div class="field"><label>Total cells</label><select id="trayCells"><option>6</option><option>12</option><option>18</option><option>24</option><option>32</option><option>36</option><option>50</option><option>72</option><option>98</option><option>128</option></select></div>
+   <div class="field"><label>Sow date</label><input id="traySow" type="date"></div>
+   <div class="field"><label>Target transplant</label><input id="trayTransplant" type="date"></div>
+   <div class="field"><label>Location</label><select id="trayLocation"><option>Grow lights</option><option>Sunny window</option><option>Greenhouse</option><option>Cold frame</option><option>Outdoors</option></select></div>
+   <div class="field"><label>Germination target (days)</label><input id="trayGermDays" type="number" min="1" value="7"></div>
+   <div class="field"><label>Notes</label><input id="trayNotes" placeholder="Heat mat, dome, bottom water…"></div>
+  </div>
+  <div class="actions"><button class="btn" id="addTray">Create Tray</button></div>
+ </div></div>
+ <div id="trayList"></div>
+</section>
+
+<section class="panel" id="succession">
+ <div class="card"><div class="cardhead"><h2>Create Succession Plan</h2><p>Repeat sowings by interval so harvest windows are spread over time.</p></div><div class="body">
+  <div class="formgrid">
+   <div class="field"><label>Seed variety</label><select id="succSeed"></select></div>
+   <div class="field"><label>First sow date</label><input id="succStart" type="date"></div>
+   <div class="field"><label>Interval</label><select id="succInterval"><option value="7">Every 7 days</option><option value="10">Every 10 days</option><option value="14">Every 14 days</option><option value="21">Every 21 days</option><option value="28">Every 28 days</option></select></div>
+   <div class="field"><label>Number of rounds</label><input id="succRounds" type="number" min="2" max="12" value="4"></div>
+   <div class="field"><label>Method</label><select id="succMethod"><option>Direct sow</option><option>Indoor start</option><option>Transplant</option></select></div>
+   <div class="field"><label>Bed / location</label><input id="succBed" placeholder="Bed 2 / south row"></div>
+  </div>
+  <div class="actions"><button class="btn" id="addSucc">Build Succession Rounds</button></div>
+  <div class="note">Teaching note: succession planting is not only for lettuce and radish. It can also mean staggered transplants, repeated flower sowings, repeat bean or corn plantings, or replacing a finished crop with the next seasonal crop.</div>
+ </div></div>
+ <div class="card"><div class="cardhead"><h2>Succession Schedule</h2><p>Each sowing round stays editable and visible as a separate event.</p></div><div class="body"><div class="rounds" id="succList"></div></div></div>
+</section>
+
+<section class="panel" id="overview">
+ <div class="card"><div class="cardhead"><h2>Seed-to-Garden Overview</h2><p>What needs attention now, what is coming next, and what has already progressed.</p></div><div class="body">
+  <div class="quickgrid">
+   <div class="quick"><b>Due to Sow</b><span id="dueSow">Nothing due yet.</span></div>
+   <div class="quick"><b>Germination Watch</b><span id="dueGerm">No germination checks due.</span></div>
+   <div class="quick"><b>Transplants Coming</b><span id="dueTrans">No transplants due.</span></div>
+  </div>
+  <div class="note">This app is connected to <b>My Garden</b>. Inventory totals, active trays, planted cells, succession rounds, and due items are stored on this device and summarized in the central dashboard.</div>
+ </div></div>
+</section>
+</main>
+
+<footer><div class="footerlinks"><a href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../seasonal-calendar/">Seasonal Calendar</a><a href="../garden-planner/">Garden Planner</a><a href="../garden-library/">Garden Library</a></div><div>© Perennial Home & Gardens</div></footer>
+
+<script>
+const KEY="phgSeedSystemV1";
+let state=load();
+function load(){try{return {...{seeds:[],trays:[],successions:[]},...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch(e){return {seeds:[],trays:[],successions:[]}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()}
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+function uid(p){return p+"-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)}
+function isoToday(){return new Date().toISOString().slice(0,10)}
+$("seedYear").value=new Date().getFullYear();$("traySow").value=isoToday();$("succStart").value=isoToday();
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id===b.dataset.tab));if(b.dataset.tab==="overview")renderOverview()});
+
+$("addSeed").onclick=()=>{
+ const crop=$("seedCrop").value.trim(),variety=$("seedVariety").value.trim();if(!crop){alert("Enter the crop or plant name.");return}
+ state.seeds.push({id:uid("seed"),crop,variety,year:$("seedYear").value,qty:$("seedQty").value.trim(),dtm:+$("seedDTM").value||null,method:$("seedMethod").value,spacing:+$("seedSpacing").value||null,source:$("seedSource").value.trim(),notes:$("seedNotes").value.trim(),created:new Date().toISOString()});
+ ["seedCrop","seedVariety","seedQty","seedDTM","seedSpacing","seedSource","seedNotes"].forEach(id=>$(id).value="");save();
+};
+function seedLabel(s){return s.crop+(s.variety?" — "+s.variety:"")}
+function fillSeedSelects(){["traySeed","succSeed"].forEach(id=>{const sel=$(id),old=sel.value;sel.innerHTML='<option value="">Choose from seed inventory</option>'+state.seeds.map(s=>'<option value="'+s.id+'">'+esc(seedLabel(s))+'</option>').join("");if(state.seeds.some(s=>s.id===old))sel.value=old})}
+function renderSeeds(){const body=$("seedRows"),empty=$("seedEmpty");body.innerHTML="";state.seeds.forEach(s=>{const tr=document.createElement("tr");tr.innerHTML='<td><b>'+esc(s.crop)+'</b></td><td>'+esc(s.variety||"—")+'</td><td>'+esc(s.year||"—")+'</td><td>'+esc(s.method)+'</td><td>'+(s.dtm||"—")+'</td><td>'+(s.spacing?s.spacing+' in':"—")+'</td><td>'+esc(s.source||"—")+'</td><td><button class="btn danger" data-del-seed="'+s.id+'">Delete</button></td>';body.appendChild(tr)});empty.style.display=state.seeds.length?"none":"block";document.querySelectorAll("[data-del-seed]").forEach(b=>b.onclick=()=>{if(confirm("Delete this seed inventory entry?")){state.seeds=state.seeds.filter(s=>s.id!==b.dataset.delSeed);save()}})}
+$("addTray").onclick=()=>{
+ const sid=$("traySeed").value;if(!sid){alert("Choose a seed variety from your inventory first.");return}
+ const cells=+$("trayCells").value,sow=$("traySow").value;if(!sow){alert("Enter the sow date.");return}
+ state.trays.push({id:uid("tray"),name:$("trayName").value.trim()||("Tray "+(state.trays.length+1)),seedId:sid,cells,sow,transplant:$("trayTransplant").value,location:$("trayLocation").value,germDays:+$("trayGermDays").value||7,notes:$("trayNotes").value.trim(),cellStates:Array(cells).fill("planted"),stage:"Sown",created:new Date().toISOString()});save();
+};
+function trayStatus(t){const today=new Date(isoToday()),sow=new Date(t.sow+"T12:00:00"),germ=new Date(sow);germ.setDate(germ.getDate()+t.germDays);const tx=t.transplant?new Date(t.transplant+"T12:00:00"):null;if(t.stage==="Transplanted")return["Transplanted","done"];if(tx&&today>tx)return["Transplant overdue","late"];if(tx&&Math.ceil((tx-today)/86400000)<=7)return["Transplant soon","warn"];if(today>=germ&&t.cellStates.every(x=>x==="planted"))return["Check germination","warn"];return[t.stage||"Sown",""]}
+function renderTrays(){const box=$("trayList");box.innerHTML=state.trays.length?"":"<div class='empty'>No trays created yet.</div>";state.trays.forEach(t=>{const s=state.seeds.find(x=>x.id===t.seedId),[label,cls]=trayStatus(t),germ=t.cellStates.filter(x=>x==="germ").length,failed=t.cellStates.filter(x=>x==="failed").length;const card=document.createElement("div");card.className="card";card.innerHTML='<div class="cardhead"><h2>'+esc(t.name)+'</h2><p>'+esc(s?seedLabel(s):"Seed entry removed")+' · Sown '+esc(t.sow)+' · '+esc(t.location)+'</p></div><div class="body"><span class="status '+cls+'">'+label+'</span><div class="note"><b>'+germ+'</b> germinated · <b>'+failed+'</b> failed · <b>'+t.cells+'</b> total cells. Tap cells to cycle: planted → germinated → failed → empty.</div><div class="traygrid">'+t.cellStates.map((v,i)=>'<button class="cell '+(v==="germ"?"germ":v==="failed"?"failed":v==="empty"?"emptycell":"")+'" data-cell="'+t.id+'" data-i="'+i+'">'+(v==="germ"?"✓":v==="failed"?"×":v==="empty"?"":"•")+'</button>').join("")+'</div><div class="actions"><button class="btn secondary" data-stage="'+t.id+'">Advance Stage</button><button class="btn secondary" data-pot="'+t.id+'">Record Pot-Up</button><button class="btn danger" data-del-tray="'+t.id+'">Delete Tray</button></div></div>';box.appendChild(card)});
+ document.querySelectorAll("[data-cell]").forEach(b=>b.onclick=()=>{const t=state.trays.find(x=>x.id===b.dataset.cell),i=+b.dataset.i,order=["planted","germ","failed","empty"];t.cellStates[i]=order[(order.indexOf(t.cellStates[i])+1)%order.length];save()});
+ document.querySelectorAll("[data-stage]").forEach(b=>b.onclick=()=>{const t=state.trays.find(x=>x.id===b.dataset.stage),st=["Sown","Germinating","Seedlings","Harden Off","Transplanted"],i=st.indexOf(t.stage);t.stage=st[Math.min(st.length-1,i+1)];save()});
+ document.querySelectorAll("[data-pot]").forEach(b=>b.onclick=()=>{const t=state.trays.find(x=>x.id===b.dataset.pot);t.pottedUp=new Date().toISOString();t.stage="Seedlings";save()});
+ document.querySelectorAll("[data-del-tray]").forEach(b=>b.onclick=()=>{if(confirm("Delete this tray?")){state.trays=state.trays.filter(x=>x.id!==b.dataset.delTray);save()}});
+}
+$("addSucc").onclick=()=>{
+ const sid=$("succSeed").value,start=$("succStart").value;if(!sid||!start){alert("Choose a seed variety and first sow date.");return}
+ const interval=+$("succInterval").value,count=+$("succRounds").value,method=$("succMethod").value,bed=$("succBed").value.trim(),seed=state.seeds.find(x=>x.id===sid),rounds=[];
+ for(let i=0;i<count;i++){const d=new Date(start+"T12:00:00");d.setDate(d.getDate()+interval*i);const harvest=new Date(d);if(seed?.dtm)harvest.setDate(harvest.getDate()+seed.dtm);rounds.push({n:i+1,sow:d.toISOString().slice(0,10),harvest:seed?.dtm?harvest.toISOString().slice(0,10):null,status:"Planned"})}
+ state.successions.push({id:uid("succ"),seedId:sid,start,interval,count,method,bed,rounds,created:new Date().toISOString()});save();
+};
+function renderSucc(){const box=$("succList");box.innerHTML=state.successions.length?"":"<div class='empty'>No succession plans yet.</div>";state.successions.forEach(plan=>{const seed=state.seeds.find(x=>x.id===plan.seedId);plan.rounds.forEach(r=>{const pct=Math.min(100,Math.max(5,Math.round((r.n/plan.count)*100)));const d=document.createElement("div");d.className="round";d.innerHTML='<h4>'+esc(seed?seedLabel(seed):"Seed entry removed")+' · Round '+r.n+'</h4><small>Sow '+r.sow+' · '+esc(plan.method)+(plan.bed?' · '+esc(plan.bed):'')+(r.harvest?' · Estimated harvest '+r.harvest:'')+'</small><div class="timeline"><span style="width:'+pct+'%"></span></div><div class="actions"><button class="btn secondary" data-done="'+plan.id+'" data-r="'+r.n+'">'+(r.status==="Sown"?"Mark Harvested":"Mark Sown")+'</button></div>';box.appendChild(d)})});document.querySelectorAll("[data-done]").forEach(b=>b.onclick=()=>{const p=state.successions.find(x=>x.id===b.dataset.done),r=p.rounds.find(x=>x.n===+b.dataset.r);r.status=r.status==="Planned"?"Sown":r.status==="Sown"?"Harvested":"Planned";save()})}
+function dueItems(){
+ const today=isoToday(),dueSows=[],germs=[],trans=[];
+ state.successions.forEach(p=>{const seed=state.seeds.find(x=>x.id===p.seedId);p.rounds.filter(r=>r.status==="Planned"&&r.sow<=today).forEach(r=>dueSows.push((seed?seedLabel(seed):"Succession")+" round "+r.n))});
+ state.trays.forEach(t=>{const seed=state.seeds.find(x=>x.id===t.seedId);const gd=new Date(t.sow+"T12:00:00");gd.setDate(gd.getDate()+t.germDays);if(gd.toISOString().slice(0,10)<=today&&t.cellStates.every(x=>x==="planted"))germs.push((seed?seedLabel(seed):t.name)+" in "+t.name);if(t.transplant&&t.transplant<=today&&t.stage!=="Transplanted")trans.push((seed?seedLabel(seed):t.name)+" from "+t.name)});
+ return{dueSows,germs,trans};
+}
+function renderOverview(){const d=dueItems();$("dueSow").textContent=d.dueSows.length?d.dueSows.join("; "):"Nothing due yet.";$("dueGerm").textContent=d.germs.length?d.germs.join("; "):"No germination checks due.";$("dueTrans").textContent=d.trans.length?d.trans.join("; "):"No transplants due."}
+function renderStats(){const d=dueItems(),cells=state.trays.reduce((n,t)=>n+t.cellStates.filter(x=>x!=="empty").length,0),rounds=state.successions.reduce((n,p)=>n+p.rounds.length,0);$("sSeeds").textContent=state.seeds.length;$("sTrays").textContent=state.trays.filter(t=>t.stage!=="Transplanted").length;$("sCells").textContent=cells;$("sRounds").textContent=rounds;$("sDue").textContent=d.dueSows.length+d.germs.length+d.trans.length}
+function renderAll(){fillSeedSelects();renderSeeds();renderTrays();renderSucc();renderOverview();renderStats()}
+renderAll();
+</script>
+</body>
+</html>
