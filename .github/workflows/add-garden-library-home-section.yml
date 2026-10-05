@@ -1,0 +1,79 @@
+name: Add Garden Library homepage section
+
+on:
+  push:
+    paths:
+      - .github/workflows/add-garden-library-home-section.yml
+
+permissions:
+  contents: write
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Garden Library promo section and nav routing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+
+          section_marker="phg-garden-library-home-v1"
+          if section_marker not in h:
+              section=r'''
+          <section id="garden-library" class="phg-library-home" style="padding:64px 20px;background:linear-gradient(180deg,#f8f3ea,#fffdf8);">
+            <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;">
+              <div>
+                <div style="font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6a815f;font-weight:bold;margin-bottom:10px;">Garden App</div>
+                <h2 style="font-family:Georgia,serif;font-size:clamp(38px,5vw,64px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500;">Garden Library</h2>
+                <p style="font-family:Georgia,serif;font-size:18px;line-height:1.6;color:#685f56;margin:0 0 18px;max-width:720px;">Search practical garden guides, save favorites, and move directly into related Perennial tools. Build a personal reference shelf for planning, planting, soil, perennials, harvesting, pests and garden structures.</p>
+                <a href="tools/garden-library/" style="display:inline-block;text-decoration:none;background:#315936;color:#fff;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);">OPEN GARDEN LIBRARY →</a>
+              </div>
+              <div style="background:#eef4e9;border:1px solid #cddac5;border-radius:26px;padding:22px;box-shadow:0 18px 40px rgba(45,63,39,.10);">
+                <div style="display:grid;gap:10px;">
+                  <div style="background:#fffdf8;border:1px solid #e0d8cd;border-radius:15px;padding:13px 14px;font-family:Georgia,serif;color:#2f4931;"><strong>Planning</strong><div style="font-size:13px;color:#6d635a;margin-top:4px;">Raised beds, frost timing, garden records</div></div>
+                  <div style="background:#fffdf8;border:1px solid #e0d8cd;border-radius:15px;padding:13px 14px;font-family:Georgia,serif;color:#2f4931;"><strong>Soil & Care</strong><div style="font-size:13px;color:#6d635a;margin-top:4px;">Compost, mulch, watering, maintenance</div></div>
+                  <div style="background:#fffdf8;border:1px solid #e0d8cd;border-radius:15px;padding:13px 14px;font-family:Georgia,serif;color:#2f4931;"><strong>Perennials & Harvest</strong><div style="font-size:13px;color:#6d635a;margin-top:4px;">Seasonal care, dividing, harvest readiness</div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-garden-library-home-v1">
+          @media(max-width:800px){.phg-library-home>div{grid-template-columns:1fr!important}.phg-library-home{padding:46px 14px!important}}
+          </style>
+          '''
+              # insert before footer if possible, otherwise before body close
+              idx=h.lower().rfind("<footer")
+              if idx!=-1:
+                  h=h[:idx]+section+h[idx:]
+              else:
+                  h=h.replace("</body>",section+"</body>",1)
+
+          nav_marker="phg-garden-library-nav-v2"
+          if nav_marker not in h:
+              js=r'''
+          <script id="phg-garden-library-nav-v2">
+          document.addEventListener("DOMContentLoaded",function(){
+            document.querySelectorAll("a,button").forEach(function(el){
+              var t=(el.textContent||"").replace(/\s+/g," ").trim().toUpperCase();
+              if(t==="GARDEN LIBRARY"){
+                if(el.tagName==="A") el.setAttribute("href","#garden-library");
+                el.onclick=function(e){e.preventDefault();var s=document.getElementById("garden-library");if(s){s.scrollIntoView({behavior:"smooth",block:"start"});} };
+              }
+            });
+          });
+          </script>
+          '''
+              h=h.replace("</body>",js+"</body>",1)
+
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit homepage Garden Library section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Garden Library homepage promo section"
+          git push
