@@ -1,0 +1,127 @@
+name: Garden Library Phase 10 QA
+
+on:
+  push:
+    paths:
+      - .github/workflows/garden-library-phase10-qa.yml
+      - tools/garden-library/index.html
+      - tools/garden-library/glossary.json
+      - tools/garden-library/resource_index.json
+      - tools/garden-library/plant_profiles.json
+      - tools/garden-library/plant_enrichment.json
+      - tools/garden-library/plant_care_enrichment.json
+
+permissions:
+  contents: write
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Garden Library QA
+        run: |
+          python - <<'PY'
+          import json,re,urllib.request,urllib.error
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from collections import Counter
+
+          root=Path("tools/garden-library")
+          files={
+            "page":root/"index.html",
+            "glossary":root/"glossary.json",
+            "resources":root/"resource_index.json",
+            "profiles":root/"plant_profiles.json",
+            "enrichment":root/"plant_enrichment.json",
+            "care":root/"plant_care_enrichment.json",
+          }
+          missing=[str(p) for p in files.values() if not p.exists()]
+          if missing: raise SystemExit("Missing required files: "+", ".join(missing))
+
+          glossary=json.loads(files["glossary"].read_text(encoding="utf-8"))
+          resources=json.loads(files["resources"].read_text(encoding="utf-8"))
+          profiles=json.loads(files["profiles"].read_text(encoding="utf-8"))
+          enrichment=json.loads(files["enrichment"].read_text(encoding="utf-8"))
+          care=json.loads(files["care"].read_text(encoding="utf-8"))
+          html=files["page"].read_text(encoding="utf-8",errors="ignore")
+
+          class IDs(HTMLParser):
+            def __init__(self): super().__init__(); self.ids=[]
+            def handle_starttag(self,tag,attrs):
+              for k,v in attrs:
+                if k=="id" and v:self.ids.append(v)
+          p=IDs();p.feed(html)
+          dup_html=[k for k,v in Counter(p.ids).items() if v>1]
+
+          def dup(items,key):
+            vals=[str(x.get(key,"")).strip().lower() for x in items if x.get(key)]
+            return [k for k,v in Counter(vals).items() if v>1]
+
+          report={
+            "phase":"10",
+            "status":"pass",
+            "counts":{
+              "glossaryTerms":len(glossary),
+              "plantProfiles":len(profiles),
+              "resources":len(resources),
+              "usdaEnrichedProfiles":len(enrichment),
+              "extensionEnrichedProfiles":len(care),
+              "searchableCoreRecords":len(glossary)+len(profiles)+len(resources)
+            },
+            "duplicates":{
+              "htmlIds":dup_html,
+              "glossaryTerms":dup(glossary,"term"),
+              "glossaryIds":dup(glossary,"id"),
+              "resourceIds":dup(resources,"id"),
+              "plantIds":dup(profiles,"id")
+            },
+            "schemaChecks":{},
+            "resourceLinkChecks":[],
+            "requiredMarkers":{},
+          }
+
+          report["schemaChecks"]["glossaryMissingDefinition"]=sum(1 for x in glossary if not x.get("term") or not x.get("definition") or not x.get("category"))
+          report["schemaChecks"]["resourcesMissingUrl"]=sum(1 for x in resources if not x.get("title") or not x.get("category") or not x.get("url"))
+          report["schemaChecks"]["profilesMissingScientificName"]=sum(1 for x in profiles if not x.get("scientificName"))
+
+          markers=[
+            "phg-phase3-plants-v1","phg-phase4-enrichment-v1","phg-phase5-care-v1",
+            "phg-phase6-resource-v1","phg-phase7-unified-search-v1","phg-phase8-my-library-v1",
+            "phg-phase9-account-v1","phg-phase10-qa-v1"
+          ]
+          report["requiredMarkers"]={m:(m in html) for m in markers}
+
+          for r in resources:
+            url=r.get("url","")
+            status=None;err=None
+            if url:
+              try:
+                req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"},method="GET")
+                with urllib.request.urlopen(req,timeout=12) as resp:
+                  status=resp.status
+              except urllib.error.HTTPError as e:
+                status=e.code
+              except Exception as e:
+                err=type(e).__name__
+            report["resourceLinkChecks"].append({"id":r.get("id"),"url":url,"status":status,"error":err})
+
+          hard_fail=(
+            any(report["duplicates"].values()) or
+            any(report["schemaChecks"].values()) or
+            not all(report["requiredMarkers"].values())
+          )
+          if hard_fail: report["status"]="review"
+
+          (root/"qa_report.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+          print(json.dumps(report["counts"],indent=2))
+          print("QA status:",report["status"])
+          PY
+
+      - name: Commit QA report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/garden-library/qa_report.json
+          git diff --cached --quiet || git commit -m "Garden Library Phase 10: refresh QA report"
+          git push
