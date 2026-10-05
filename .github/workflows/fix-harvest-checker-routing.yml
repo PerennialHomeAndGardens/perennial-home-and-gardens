@@ -1,0 +1,79 @@
+name: Fix Harvest Checker homepage routing
+
+on:
+  push:
+    paths:
+      - .github/workflows/fix-harvest-checker-routing.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix Harvest Checker card and CTA routing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-harvest-routing-fix-v2"
+          if marker not in h:
+              js=r'''
+          <script id="phg-harvest-routing-fix-v2">
+          document.addEventListener("DOMContentLoaded", function () {
+            const harvestUrl = "tools/harvest-checker/";
+
+            // Fix explicit Harvest Checker buttons/links.
+            document.querySelectorAll("a,button,[onclick]").forEach(function(el){
+              const t=(el.textContent||"").replace(/\s+/g," ").trim().toUpperCase();
+              if(t==="HARVEST CHECKER" || t.indexOf("OPEN HARVEST")!==-1){
+                if(el.tagName==="A") el.setAttribute("href", harvestUrl);
+                el.onclick=function(e){
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.location.href=harvestUrl;
+                  return false;
+                };
+              }
+            });
+
+            // Fix the homepage Harvest Checker card itself.
+            document.querySelectorAll("h1,h2,h3,h4,h5,h6,strong,b,span,p").forEach(function(label){
+              const t=(label.textContent||"").replace(/\s+/g," ").trim().toUpperCase();
+              if(t!=="HARVEST CHECKER") return;
+
+              let clickable=label.closest("a,button,[onclick]");
+              if(!clickable){
+                let n=label.parentElement;
+                for(let i=0;i<6 && n;i++,n=n.parentElement){
+                  if(n.matches && (n.matches("[role='button']") || /card|tool/i.test(n.className||""))){
+                    clickable=n; break;
+                  }
+                }
+              }
+              if(clickable){
+                if(clickable.tagName==="A") clickable.setAttribute("href",harvestUrl);
+                clickable.style.cursor="pointer";
+                clickable.addEventListener("click",function(e){
+                  e.preventDefault();
+                  e.stopImmediatePropagation();
+                  window.location.href=harvestUrl;
+                },true);
+              }
+            });
+          }, {once:true});
+          </script>
+          '''
+              h=h.replace("</body>",js+"</body>",1)
+              p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit routing fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Fix Harvest Checker homepage card routing"
+          git push
