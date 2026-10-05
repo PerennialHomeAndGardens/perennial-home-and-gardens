@@ -105,6 +105,16 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 .phg-unified-open{font-size:18px;color:#5e7659}.phg-unified-empty{text-align:center;padding:18px;color:#73685e}
 .phg-recent{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.phg-recent button{border:1px solid #ffffff33;background:#ffffff0c;color:#f5efe6;border-radius:999px;padding:5px 8px;font-size:10px;cursor:pointer}
 @media(max-width:620px){.phg-unified{padding:0 9px}.phg-unified-card{border-radius:18px;padding:15px}.phg-unified-search{grid-template-columns:1fr auto}.phg-unified-go{grid-column:1/-1;height:44px}.phg-unified-mic:hover:after{display:none}.phg-unified-result{grid-template-columns:auto 1fr}.phg-unified-open{display:none}}
+</style>
+<style id="phg-phase8-my-library-v1">
+.phg-save-current{margin-top:10px;border:1px solid #bfd0b8;background:#fffaf2;color:#35543a;border-radius:999px;padding:9px 12px;font-weight:bold;cursor:pointer}.phg-save-current.saved{background:#315936;color:#fff;border-color:#315936}
+.phg-library-panel{display:none;max-width:1160px;margin:0 auto 28px;padding:0 18px}.phg-library-panel.active{display:block}
+.phg-library-card{background:#ffffffdf;border:1px solid #dfd5c8;border-radius:28px;box-shadow:0 18px 48px #29362224;overflow:hidden}
+.phg-library-head{padding:22px;background:linear-gradient(#315236,#203622);color:#fff}.phg-library-head h2{margin:0 0 5px;font:500 32px Georgia,serif}.phg-library-head p{margin:0;color:#dbe7d5;line-height:1.5}
+.phg-library-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:16px}.phg-library-stat{background:#ffffff13;border:1px solid #ffffff2b;border-radius:13px;padding:10px}.phg-library-stat strong{display:block;font-size:24px}.phg-library-stat span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#dbe7d5}
+.phg-library-body{padding:20px}.phg-library-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.phg-library-tools button{border:1px solid #d4cabb;background:#fffaf2;border-radius:999px;padding:8px 11px;cursor:pointer;color:#4c4036;font-weight:bold}.phg-library-tools button.danger{color:#7b3f35}
+.phg-shelf-section{margin-top:22px}.phg-shelf-section h3{font:500 25px Georgia,serif;color:#29492e;margin:0 0 10px}.phg-shelf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.phg-shelf-item{position:relative;background:#fffdf8;border:1px solid #e2d8cb;border-radius:16px;padding:14px;min-height:145px}.phg-shelf-item small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#73806c;font-size:9px}.phg-shelf-item h4{font:500 19px Georgia,serif;color:#29492e;margin:5px 32px 5px 0}.phg-shelf-item p{font-size:12px;color:#6c6259;line-height:1.45;margin:0}.phg-shelf-item .open{display:inline-block;margin-top:10px;border:0;background:#315936;color:#fff;border-radius:999px;padding:7px 10px;cursor:pointer;font-weight:bold;font-size:11px}.phg-shelf-remove{position:absolute;top:9px;right:9px;width:30px;height:30px;border-radius:50%;border:1px solid #ddd1c2;background:#fffaf2;color:#715b4f;cursor:pointer}.phg-shelf-empty{grid-column:1/-1;border:1px dashed #d8cdbc;border-radius:14px;padding:18px;text-align:center;color:#74695f;background:#fffaf3}
+@media(max-width:800px){.phg-library-stats{grid-template-columns:repeat(2,1fr)}.phg-shelf-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.phg-library-panel{padding:0 9px}.phg-library-card{border-radius:18px}.phg-shelf-grid{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="topnote">Perennial Home &amp; Gardens • The Garden Library</div>
@@ -139,8 +149,34 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
   <button class="phg-modebtn active" data-mode="plants">PLANTS</button>
   <button class="phg-modebtn" data-mode="terms">GARDEN TERMS</button>
   <button class="phg-modebtn" data-mode="resources">RESOURCES</button>
+  <button class="phg-modebtn" data-mode="library">MY LIBRARY</button>
 </div>
 
+
+<section class="phg-library-panel" id="phgMyLibraryPanel">
+  <div class="phg-library-card">
+    <div class="phg-library-head">
+      <h2>My Garden Library</h2>
+      <p>Save plants, garden terms and trusted resources while you research. This free version saves on this device; account syncing can be added later.</p>
+      <div class="phg-library-stats">
+        <div class="phg-library-stat"><strong id="phgSavedPlantsCount">0</strong><span>Plants</span></div>
+        <div class="phg-library-stat"><strong id="phgSavedTermsCount">0</strong><span>Terms</span></div>
+        <div class="phg-library-stat"><strong id="phgSavedResourcesCount">0</strong><span>Resources</span></div>
+        <div class="phg-library-stat"><strong id="phgSavedTotalCount">0</strong><span>Total Saved</span></div>
+      </div>
+    </div>
+    <div class="phg-library-body">
+      <div class="phg-library-tools">
+        <button id="phgPrintLibrary">Print My Library</button>
+        <button id="phgExportLibrary">Export Saved List</button>
+        <button id="phgClearLibrary" class="danger">Clear Saved Library</button>
+      </div>
+      <section class="phg-shelf-section"><h3>Saved Plants</h3><div class="phg-shelf-grid" id="phgSavedPlants"></div></section>
+      <section class="phg-shelf-section"><h3>Saved Garden Terms</h3><div class="phg-shelf-grid" id="phgSavedTerms"></div></section>
+      <section class="phg-shelf-section"><h3>Saved Resources</h3><div class="phg-shelf-grid" id="phgSavedResources"></div></section>
+    </div>
+  </div>
+</section>
 <section class="phg-plant-panel active" id="phgPlantsPanel">
   <div class="phg-plant-app">
     <div class="phg-plant-head">
@@ -163,7 +199,7 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
               <dt>Verification</dt><dd id="phgVerification"></dd>
             </dl>
             <div class="phg-aliases" id="phgAliasesBox"><b>Historical / synonym names</b><div class="phg-aliaswrap" id="phgAliases"></div></div>
-            <div class="phg-audio"><button id="phgSpeakScientific">🔊 Hear scientific name</button><button class="secondary" id="phgSpeakSummary">🔊 Hear plant record</button></div>
+            <div class="phg-audio"><button id="phgSpeakScientific">🔊 Hear scientific name</button><button class="secondary" id="phgSpeakSummary">🔊 Hear plant record</button></div><button class="phg-save-current" id="phgSavePlant">☆ Save Plant</button>
             <div id="phgGrowSection">
               <h3 class="phg-grow-title">Growing &amp; Garden Information</h3>
               <div id="phgGrowGrid" class="phg-grow-grid"></div>
@@ -200,7 +236,7 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 <div class="viewer" id="viewer">
 <div class="viewer-grid">
 <div><div class="category" id="vCat"></div><h2 id="vTerm"></h2><div class="definition" id="vDef"></div>
-<div class="audio-actions"><button id="speakTerm">🔊 Hear pronunciation</button><button class="secondary" id="speakDef">🔊 Hear definition</button></div>
+<div class="audio-actions"><button id="speakTerm">🔊 Hear pronunciation</button><button class="secondary" id="speakDef">🔊 Hear definition</button></div><button class="phg-save-current" id="phgSaveTerm">☆ Save Term</button>
 <div class="related"><b>Related terms</b><div class="relwrap" id="related"></div></div>
 <div class="source-line">Terminology foundation references: <a href="https://research.fs.usda.gov/treesearch/5245" target="_blank" rel="noopener">USDA Forest Service Botanical Glossary</a> · <a href="https://lod.nal.usda.gov/nalt/" target="_blank" rel="noopener">NAL Agricultural Thesaurus</a></div>
 </div>
@@ -265,6 +301,7 @@ init();
   function mode(m){
     document.querySelectorAll(".phg-modebtn").forEach(b=>b.classList.toggle("active",b.dataset.mode===m));
     $("phgPlantsPanel").classList.toggle("active",m==="plants");
+    const myLibrary=document.getElementById("phgMyLibraryPanel");if(myLibrary)myLibrary.classList.toggle("active",m==="library");
     const glossary=document.querySelector(".glossary");
     const resourceHead=document.querySelector(".resource-head");
     const resources=document.querySelector(".resources");
@@ -630,6 +667,81 @@ init();
     $u("phgUnifiedStatus").textContent=(plants.length+terms.length+resources.length).toLocaleString()+" searchable library records";
     renderRecent();
   }).catch(()=>{$u("phgUnifiedStatus").textContent="The unified search index is temporarily unavailable."});
+})();
+</script>
+
+<script id="phg-phase8-my-library-js">
+(function(){
+  const shelfKey="phgGardenLibraryShelfV1", oldResourceKey="phgGardenLibrarySavedResources";
+  let P=[],T=[],R=[];
+  const $8=id=>document.getElementById(id);
+  function blank(){return {plants:[],terms:[],resources:[]}}
+  function loadShelf(){
+    let s=blank();try{s={...s,...JSON.parse(localStorage.getItem(shelfKey)||"{}")}catch(e){}
+    s.plants=Array.isArray(s.plants)?s.plants:[];s.terms=Array.isArray(s.terms)?s.terms:[];s.resources=Array.isArray(s.resources)?s.resources:[];
+    try{const old=JSON.parse(localStorage.getItem(oldResourceKey)||"[]");old.forEach(id=>{if(!s.resources.includes(id))s.resources.push(id)})}catch(e){}
+    return s;
+  }
+  function saveShelf(s){
+    localStorage.setItem(shelfKey,JSON.stringify(s));
+    localStorage.setItem(oldResourceKey,JSON.stringify(s.resources||[]));
+    document.dispatchEvent(new CustomEvent("phg:shelfchanged"));
+  }
+  function currentPlant(){const h=location.hash.replace("#plant-","");return P.find(x=>x.id===h)}
+  function slug(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+  function currentTerm(){const h=decodeURIComponent(location.hash.replace("#",""));return T.find(x=>slug(x.term)===h)}
+  function toggle(kind,id){
+    if(!id)return;const s=loadShelf(),a=s[kind];const i=a.indexOf(id);if(i>=0)a.splice(i,1);else a.push(id);saveShelf(s);render();
+  }
+  function syncButtons(){
+    const s=loadShelf(),p=currentPlant(),t=currentTerm(),pb=$8("phgSavePlant"),tb=$8("phgSaveTerm");
+    if(pb&&p){const yes=s.plants.includes(p.id);pb.textContent=yes?"★ Saved Plant":"☆ Save Plant";pb.classList.toggle("saved",yes);pb.onclick=()=>toggle("plants",p.id)}
+    if(tb&&t){const yes=s.terms.includes(t.id);tb.textContent=yes?"★ Saved Term":"☆ Save Term";tb.classList.toggle("saved",yes);tb.onclick=()=>toggle("terms",t.id)}
+  }
+  function empty(msg){return '<div class="phg-shelf-empty">'+msg+'</div>'}
+  function plantCard(p){
+    return '<article class="phg-shelf-item"><button class="phg-shelf-remove" data-remove="plants" data-id="'+p.id+'" aria-label="Remove">×</button><small>Plant · '+(p.family||"")+'</small><h4>'+(p.displayName||p.scientificName)+'</h4><p><em>'+p.scientificName+'</em></p><button class="open" data-open-plant="'+p.id+'">Open Plant →</button></article>';
+  }
+  function termCard(t){
+    return '<article class="phg-shelf-item"><button class="phg-shelf-remove" data-remove="terms" data-id="'+t.id+'" aria-label="Remove">×</button><small>Garden Term · '+t.category+'</small><h4>'+t.term+'</h4><p>'+t.definition+'</p><button class="open" data-open-term="'+slug(t.term)+'">Open Term →</button></article>';
+  }
+  function resourceCard(r){
+    return '<article class="phg-shelf-item"><button class="phg-shelf-remove" data-remove="resources" data-id="'+r.id+'" aria-label="Remove">×</button><small>Resource · '+r.category+'</small><h4>'+r.title+'</h4><p>'+r.description+'</p><button class="open" data-open-resource="'+r.id+'">Open Resource →</button></article>';
+  }
+  function render(){
+    const s=loadShelf(),ps=s.plants.map(id=>P.find(x=>x.id===id)).filter(Boolean),ts=s.terms.map(id=>T.find(x=>x.id===id)).filter(Boolean),rs=s.resources.map(id=>R.find(x=>x.id===id)).filter(Boolean);
+    if($8("phgSavedPlantsCount"))$8("phgSavedPlantsCount").textContent=ps.length;
+    if($8("phgSavedTermsCount"))$8("phgSavedTermsCount").textContent=ts.length;
+    if($8("phgSavedResourcesCount"))$8("phgSavedResourcesCount").textContent=rs.length;
+    if($8("phgSavedTotalCount"))$8("phgSavedTotalCount").textContent=ps.length+ts.length+rs.length;
+    if($8("phgSavedPlants"))$8("phgSavedPlants").innerHTML=ps.length?ps.map(plantCard).join(""):empty("No saved plants yet. Open a plant profile and choose Save Plant.");
+    if($8("phgSavedTerms"))$8("phgSavedTerms").innerHTML=ts.length?ts.map(termCard).join(""):empty("No saved garden terms yet. Open a term and choose Save Term.");
+    if($8("phgSavedResources"))$8("phgSavedResources").innerHTML=rs.length?rs.map(resourceCard).join(""):empty("No saved resources yet. Use the star on a Resource card.");
+    document.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>toggle(b.dataset.remove,b.dataset.id));
+    document.querySelectorAll("[data-open-plant]").forEach(b=>b.onclick=()=>{location.hash="plant-"+b.dataset.openPlant;location.reload()});
+    document.querySelectorAll("[data-open-term]").forEach(b=>b.onclick=()=>{location.hash=b.dataset.openTerm;location.reload()});
+    document.querySelectorAll("[data-open-resource]").forEach(b=>b.onclick=()=>{const r=R.find(x=>x.id===b.dataset.openResource);if(r)window.open(r.url,"_blank","noopener")});
+    syncButtons();
+  }
+  document.addEventListener("phg:shelfchanged",render);
+  const print=$8("phgPrintLibrary");if(print)print.onclick=()=>window.print();
+  const clear=$8("phgClearLibrary");if(clear)clear.onclick=()=>{if(confirm("Clear all saved plants, terms and resources from this device?")){saveShelf(blank());render()}};
+  const exp=$8("phgExportLibrary");if(exp)exp.onclick=()=>{
+    const s=loadShelf();
+    const data={
+      exportedAt:new Date().toISOString(),
+      plants:s.plants.map(id=>P.find(x=>x.id===id)).filter(Boolean).map(x=>({name:x.displayName,scientificName:x.scientificName,family:x.family})),
+      terms:s.terms.map(id=>T.find(x=>x.id===id)).filter(Boolean).map(x=>({term:x.term,category:x.category,definition:x.definition})),
+      resources:s.resources.map(id=>R.find(x=>x.id===id)).filter(Boolean).map(x=>({title:x.title,category:x.category,url:x.url}))
+    };
+    const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);a.download="Perennial-Garden-Library-Saved.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  };
+  Promise.all([
+    fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[]),
+    fetch("glossary.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[]),
+    fetch("resource_index.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[])
+  ]).then(([p,t,r])=>{P=p;T=t;R=r;render()});
 })();
 </script>
 </body></html>
