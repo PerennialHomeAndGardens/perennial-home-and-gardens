@@ -1,0 +1,307 @@
+name: Garden Library Phase 2 taxonomy verification
+
+on:
+  push:
+    paths:
+      - .github/workflows/garden-library-phase2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Phase 1 master CSV
+        run: |
+          mkdir -p data/garden-library/phase2
+          python - <<'PY'
+          from pathlib import Path
+          import urllib.request
+          # Phase 1 CSV is committed below by ChatGPT before this workflow is created.
+          p=Path("data/garden-library/phase1/usda_3000_plants_master.csv")
+          if not p.exists():
+              raise SystemExit("Phase 1 master CSV missing from repository")
+          print("Phase 1 records file:", p, p.stat().st_size)
+          PY
+
+      - name: Download World Flora Online 2026-06 backbone
+        run: |
+          python - <<'PY'
+          import urllib.request
+          url="https://zenodo.org/records/20782718/files/_DwC_backbone_R.zip?download=1"
+          print("Downloading", url)
+          urllib.request.urlretrieve(url, "/tmp/wfo.zip")
+          PY
+          unzip -q /tmp/wfo.zip -d /tmp/wfo
+          find /tmp/wfo -maxdepth 2 -type f | head -50
+
+      - name: Match USDA 1977 names to current WFO backbone
+        run: |
+          python - <<'PY'
+          import csv, json, re, unicodedata, xml.etree.ElementTree as ET
+          from pathlib import Path
+          from collections import Counter, defaultdict
+
+          PH1=Path("data/garden-library/phase1/usda_3000_plants_master.csv")
+          OUT=Path("data/garden-library/phase2")
+          OUT.mkdir(parents=True, exist_ok=True)
+
+          def norm(s):
+              s=(s or "").strip()
+              s=unicodedata.normalize("NFKD", s)
+              s="".join(c for c in s if not unicodedata.combining(c))
+              s=s.replace("×","x").replace(" X "," x ")
+              s=re.sub(r"\s+"," ",s)
+              return s.casefold()
+
+          def canonical_guess(s):
+              # Phase 1 names already omit authorship; retain ranks if present.
+              s=(s or "").strip()
+              s=re.sub(r"\s+"," ",s)
+              return s
+
+          # Locate Darwin Core meta.xml
+          metas=list(Path("/tmp/wfo").rglob("meta.xml"))
+          if not metas:
+              raise SystemExit("WFO meta.xml not found")
+          meta=metas[0]
+          root=ET.parse(meta).getroot()
+          ns={"dwc":"http://rs.tdwg.org/dwc/text/"}
+          core=root.find("dwc:core",ns)
+          if core is None:
+              # namespace-tolerant fallback
+              core=next((x for x in root if x.tag.endswith("core")),None)
+          if core is None:
+              raise SystemExit("No core element in Darwin Core archive")
+          files=next((x for x in core if x.tag.endswith("files")),None)
+          loc=next((x for x in files if x.tag.endswith("location")),None)
+          corefile=meta.parent/(loc.text.strip())
+          fields={}
+          id_index=None
+          for el in core:
+              tag=el.tag.rsplit("}",1)[-1]
+              if tag=="id":
+                  id_index=int(el.attrib.get("index","0"))
+              elif tag=="field":
+                  idx=int(el.attrib["index"])
+                  term=el.attrib.get("term","").rsplit("/",1)[-1]
+                  fields[term]=idx
+          delim=core.attrib.get("fieldsTerminatedBy","\t")
+          if delim=="\\t": delim="\t"
+          quote=core.attrib.get("fieldsEnclosedBy","")
+          ignore=int(core.attrib.get("ignoreHeaderLines","0"))
+
+          print("WFO core:",corefile)
+          print("Fields:", sorted(fields.keys())[:30], "...", len(fields))
+
+          want=["taxonID","acceptedNameUsageID","scientificName","acceptedNameUsage",
+                "scientificNameAuthorship","canonicalName","taxonRank","taxonomicStatus",
+                "family","genus","specificEpithet","infraspecificEpithet"]
+          idx={k:fields.get(k) for k in want}
+
+          by_name=defaultdict(list)
+          by_gs=defaultdict(list)
+          records_by_id={}
+
+          with corefile.open("r",encoding="utf-8",errors="replace",newline="") as f:
+              reader=csv.reader(f,delimiter=delim,quotechar=quote or '"')
+              for _ in range(ignore):
+                  next(reader,None)
+              for row in reader:
+                  def g(k):
+                      i=idx.get(k)
+                      return row[i].strip() if i is not None and i < len(row) else ""
+                  taxon_id = row[id_index].strip() if id_index is not None and id_index < len(row) else g("taxonID")
+                  sci=g("scientificName")
+                  canonical=g("canonicalName")
+                  if not canonical:
+                      # derive a conservative canonical form from genus/species/infra fields
+                      parts=[g("genus"),g("specificEpithet")]
+                      if g("infraspecificEpithet"): parts += [g("infraspecificEpithet")]
+                      canonical=" ".join(x for x in parts if x)
+                  rec={
+                      "wfo_id":taxon_id,
+                      "scientific_name":sci,
+                      "canonical_name":canonical,
+                      "authorship":g("scientificNameAuthorship"),
+                      "taxonomic_status":g("taxonomicStatus"),
+                      "accepted_id":g("acceptedNameUsageID"),
+                      "accepted_name":g("acceptedNameUsage"),
+                      "rank":g("taxonRank"),
+                      "family":g("family"),
+                      "genus":g("genus"),
+                      "species":g("specificEpithet"),
+                  }
+                  if taxon_id: records_by_id[taxon_id]=rec
+                  for key in {norm(canonical),norm(sci)}:
+                      if key: by_name[key].append(rec)
+                  if rec["genus"] and rec["species"]:
+                      by_gs[(norm(rec["genus"]),norm(rec["species"]))].append(rec)
+
+          # Resolve accepted name text when WFO supplies only accepted ID.
+          for rec in records_by_id.values():
+              if rec["accepted_id"] and not rec["accepted_name"] and rec["accepted_id"] in records_by_id:
+                  rec["accepted_name"]=records_by_id[rec["accepted_id"]].get("scientific_name","")
+
+          with PH1.open("r",encoding="utf-8-sig",newline="") as f:
+              rows=list(csv.DictReader(f))
+              base_fields=list(rows[0].keys()) if rows else []
+
+          extra=[
+            "verification_status","wfo_id","wfo_taxonomic_status","wfo_current_scientific_name",
+            "wfo_accepted_name","wfo_accepted_id","wfo_current_family","wfo_rank",
+            "match_method","match_confidence","taxonomy_changed","family_changed","phase2_notes",
+            "verification_source","verification_version"
+          ]
+          outrows=[]
+          unresolved=[]
+          counts=Counter()
+
+          accepted_statuses={"accepted","accepted name"}
+          synonym_tokens={"synonym","homotypicsynonym","heterotypicsynonym"}
+
+          for r in rows:
+              q=canonical_guess(r.get("scientific_name",""))
+              matches=by_name.get(norm(q),[])
+              method="exact_canonical"
+              confidence="1.00"
+
+              # Second exact path using genus + species, useful if rank/authorship formatting differs.
+              if not matches:
+                  bits=q.split()
+                  if len(bits)>=2:
+                      matches=by_gs.get((norm(bits[0]),norm(bits[1])),[])
+                      if matches:
+                          method="genus_species_exact"
+                          confidence="0.97"
+
+              # De-duplicate by WFO ID
+              uniq={m["wfo_id"]:m for m in matches if m.get("wfo_id")}
+              matches=list(uniq.values())
+
+              chosen=None
+              note=""
+              if len(matches)==1:
+                  chosen=matches[0]
+              elif len(matches)>1:
+                  # Prefer exact canonical name and species/infraspecific ranks.
+                  exact=[m for m in matches if norm(m["canonical_name"])==norm(q)]
+                  if len(exact)==1:
+                      chosen=exact[0]
+                  else:
+                      acc=[m for m in matches if norm(m["taxonomic_status"]) in accepted_statuses]
+                      if len(acc)==1:
+                          chosen=acc[0]
+                          note="Multiple WFO records matched; unique accepted record selected."
+                          confidence="0.92"
+                      else:
+                          note=f"Ambiguous: {len(matches)} WFO records matched."
+              
+              o=dict(r)
+              for k in extra:o[k]=""
+              o["verification_source"]="World Flora Online Plant List"
+              o["verification_version"]="2026-06"
+
+              if chosen:
+                  st=norm(chosen["taxonomic_status"])
+                  accepted_name=chosen["accepted_name"]
+                  current_name=accepted_name or chosen["scientific_name"]
+                  if st in accepted_statuses:
+                      v="verified_accepted"
+                      current_name=chosen["scientific_name"]
+                  elif any(tok in st.replace(" ","") for tok in synonym_tokens) or chosen["accepted_id"]:
+                      v="verified_synonym"
+                  else:
+                      v="matched_status_review"
+
+                  o["verification_status"]=v
+                  o["wfo_id"]=chosen["wfo_id"]
+                  o["wfo_taxonomic_status"]=chosen["taxonomic_status"]
+                  o["wfo_current_scientific_name"]=current_name
+                  o["wfo_accepted_name"]=accepted_name
+                  o["wfo_accepted_id"]=chosen["accepted_id"]
+                  o["wfo_current_family"]=chosen["family"]
+                  o["wfo_rank"]=chosen["rank"]
+                  o["match_method"]=method
+                  o["match_confidence"]=confidence
+                  o["taxonomy_changed"]="yes" if current_name and norm(current_name)!=norm(q) else "no"
+                  oldfam=(r.get("family") or "").strip()
+                  newfam=(chosen["family"] or "").strip()
+                  o["family_changed"]="yes" if oldfam and newfam and norm(oldfam)!=norm(newfam) else "no"
+                  o["phase2_notes"]=note
+                  counts[v]+=1
+                  if o["taxonomy_changed"]=="yes": counts["taxonomy_changed"]+=1
+                  if o["family_changed"]=="yes": counts["family_changed"]+=1
+              else:
+                  v="ambiguous" if matches else "unresolved"
+                  o["verification_status"]=v
+                  o["phase2_notes"]=note or "No exact/normalized WFO match. Manual review required; no current name was guessed."
+                  o["match_method"]=method if matches else ""
+                  o["match_confidence"]="0.00" if not matches else confidence
+                  counts[v]+=1
+                  unresolved.append(o)
+              outrows.append(o)
+
+          fields_out=base_fields+extra
+          with (OUT/"usda_3000_plants_phase2_verified.csv").open("w",encoding="utf-8-sig",newline="") as f:
+              w=csv.DictWriter(f,fieldnames=fields_out)
+              w.writeheader();w.writerows(outrows)
+          with (OUT/"phase2_unresolved_review.csv").open("w",encoding="utf-8-sig",newline="") as f:
+              w=csv.DictWriter(f,fieldnames=fields_out)
+              w.writeheader();w.writerows(unresolved)
+
+          # Application-ready current-name index: keep all source records but expose modern status.
+          app=[
+            {
+              "sourceScientificName":r["scientific_name"],
+              "commonNames":r["common_names"],
+              "sourceFamily":r["family"],
+              "sourceRecordType":r["record_type"],
+              "verificationStatus":r["verification_status"],
+              "currentScientificName":r["wfo_current_scientific_name"],
+              "currentFamily":r["wfo_current_family"],
+              "wfoId":r["wfo_id"],
+              "wfoStatus":r["wfo_taxonomic_status"],
+              "acceptedName":r["wfo_accepted_name"],
+              "taxonomyChanged":r["taxonomy_changed"],
+            } for r in outrows
+          ]
+          (OUT/"plant_index_phase2.json").write_text(json.dumps(app,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
+
+          summary={
+              "source_records":len(rows),
+              "verification_source":"World Flora Online Plant List",
+              "verification_version":"2026-06",
+              "verified_accepted":counts["verified_accepted"],
+              "verified_synonym":counts["verified_synonym"],
+              "matched_status_review":counts["matched_status_review"],
+              "ambiguous":counts["ambiguous"],
+              "unresolved":counts["unresolved"],
+              "taxonomy_changed":counts["taxonomy_changed"],
+              "family_changed":counts["family_changed"],
+              "verified_or_matched":counts["verified_accepted"]+counts["verified_synonym"]+counts["matched_status_review"],
+              "note":"Exact or normalized matching only. Unresolved names were not guessed."
+          }
+          (OUT/"phase2_summary.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
+          (OUT/"PHASE2-README.txt").write_text(
+              "Perennial Garden Library — Phase 2 Taxonomy Verification\n\n"
+              "Modern reference: World Flora Online Plant List, release 2026-06.\n"
+              "The Phase 1 USDA 1977 names were matched against the WFO backbone.\n"
+              "No unresolved name was automatically guessed. Exact canonical and genus/species matches were used.\n"
+              "Review phase2_unresolved_review.csv before treating those records as authoritative.\n\n"
+              + json.dumps(summary,indent=2),
+              encoding="utf-8"
+          )
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Commit Phase 2 outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/garden-library/phase2
+          git diff --cached --quiet || git commit -m "Garden Library Phase 2: verify USDA plant taxonomy with WFO 2026-06"
+          git push
