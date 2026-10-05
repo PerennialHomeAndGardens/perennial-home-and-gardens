@@ -91,8 +91,8 @@
     {
       "id": "resource-012",
       "url": "https://ext.vt.edu/lawn-garden/home-gardening.html",
-      "status": null,
-      "error": "TimeoutError"
+      "status": 404,
+      "error": null
     },
     {
       "id": "resource-013",
@@ -144,8 +144,8 @@
     },
     {
       "id": "resource-021",
-      "url": "https://www.nal.usda.gov/collections/digital-collections",
-      "status": 404,
+      "url": "https://www.nal.usda.gov/all-collections",
+      "status": 200,
       "error": null
     },
     {
@@ -210,8 +210,8 @@
     },
     {
       "id": "resource-032",
-      "url": "https://extension.umd.edu/programs/environment-natural-resources/program-areas/home-and-garden-information-center/gardening-resources/yard-and-landscape/soil-compost-and-fertilizer",
-      "status": 404,
+      "url": "https://extension.umd.edu/resources/yard-garden/soils-compost-and-fertilizer/soils-compost-and-fertilizer",
+      "status": 200,
       "error": null
     },
     {
@@ -259,7 +259,7 @@
     {
       "id": "resource-040",
       "url": "https://scholar.google.com/",
-      "status": 200,
+      "status": 403,
       "error": null
     },
     {
@@ -312,8 +312,8 @@
     },
     {
       "id": "resource-049",
-      "url": "https://www.youtube.com/@USDA_NRCS",
-      "status": 404,
+      "url": "https://www.youtube.com/@TheUSDANRCS",
+      "status": 200,
       "error": null
     },
     {
@@ -342,8 +342,8 @@
     },
     {
       "id": "resource-054",
-      "url": "https://extension.umn.edu/growing-systems/high-tunnels",
-      "status": 404,
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/extending-the-growing-season",
+      "status": 200,
       "error": null
     },
     {
