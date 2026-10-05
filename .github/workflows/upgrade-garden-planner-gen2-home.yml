@@ -1,0 +1,39 @@
+name: Upgrade Garden Planner homepage to Gen 2
+
+on:
+  push:
+    paths:
+      - .github/workflows/upgrade-garden-planner-gen2-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upgrade homepage Garden Planner copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          h=h.replace(
+            "Build a true-to-scale garden map with beds, plants, paths, trees, structures, water features, companion guidance, and movable sun and shade planning.",
+            "Build a true-to-scale garden map with an expanded Garden Library plant catalog, mature-spread plant visuals, companion overlays, seasonal sun and shade, irrigation reach, structures, beds and saved layouts."
+          )
+          h=h.replace(
+            '<div class="phg-gp-tags"><span>Scaled 2D Layout</span><span>Plant Spacing</span><span>Companion Coach</span><span>Sun &amp; Shade</span><span>Water Planning</span><span>Mobile Friendly</span></div>',
+            '<div class="phg-gp-tags"><span>2,700+ Plant Search</span><span>Mature-Spread Visuals</span><span>Companion Overlays</span><span>Seasonal Shade</span><span>Water Reach</span><span>Plan Alerts</span></div>'
+          )
+          h=h.replace("OPEN GARDEN PLANNER →","OPEN GARDEN PLANNER GEN 2 →")
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit homepage planner upgrade
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Build 7: upgrade Garden Planner homepage experience to Gen 2"
+          git push
