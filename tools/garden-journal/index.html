@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Garden Journal & Logs | Perennial Home & Gardens</title>
+<meta name="description" content="Track watering, feeding, soil amendments, observations, pest and disease treatments, garden notes, and follow-up tasks in one chronological garden journal.">
+<style>
+:root{--green:#24472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#ddd2c3;--soft:#edf3e8;--gold:#d7bc88;--muted:#74695f;--warn:#fff3d8;--danger:#91463d;--blue:#dfeaf0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f4efe7,#fbf8f1);color:#302b26;font-family:Georgia,serif}
+a{color:inherit}.topnote{background:#1f3824;color:#edf3e9;text-align:center;padding:7px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+header{position:sticky;top:0;z-index:40;background:#fffdf8f3;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.bar{max-width:1180px;margin:auto;padding:9px 13px;display:flex;align-items:center;gap:12px}.brand{flex:1}.brand strong{display:block;color:var(--green);font-size:22px}.brand span{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#766b61}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{border:1px solid #cbd8c4;background:#fff;border-radius:999px;padding:8px 10px;text-decoration:none;color:var(--green);font-size:10px;font-weight:bold}
+.hero{max-width:1160px;margin:auto;padding:42px 18px 20px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#6a7f60;font-weight:bold}.hero h1{font-size:clamp(40px,6vw,72px);line-height:.96;margin:8px 0;color:var(--green);font-weight:500}.hero p{max-width:900px;color:#665e56;font-size:16px;line-height:1.55;margin:11px 0}.badges{display:flex;gap:7px;flex-wrap:wrap}.badge{background:#e9efe4;border:1px solid #cbd7c4;border-radius:999px;padding:7px 10px;color:#446145;font-size:10px}
+.shell{max-width:1160px;margin:auto;padding:10px 18px 55px}.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:15px}.stat{background:#fffdf8;border:1px solid #ddd3c6;border-radius:15px;padding:12px}.stat strong{display:block;color:#315236;font-size:25px}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#74695f}
+.grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:15px}.card{background:#fffdf8;border:1px solid #ddd3c5;border-radius:21px;box-shadow:0 14px 36px #253a2413;overflow:hidden;margin-bottom:15px}.cardhead{padding:16px 17px;border-bottom:1px solid #ebe3d8}.cardhead h2{margin:0;color:var(--green);font-size:25px;font-weight:500}.cardhead p{margin:4px 0 0;color:#746a61;font-size:11px;line-height:1.45}.body{padding:16px}
+.typegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.typebtn{border:1px solid #d9cfbf;background:#fffaf2;border-radius:12px;padding:10px 6px;color:#405d43;font-size:10px;font-weight:bold}.typebtn span{display:block;font-size:22px;margin-bottom:4px}.typebtn.active{background:#315936;color:#fff;border-color:#315936}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.field{margin-top:9px}.field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#776c62;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:12px Georgia}.field textarea{min-height:86px;resize:vertical}
+.conditional{display:none}.conditional.show{display:block}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:999px;padding:8px 10px;font-weight:bold;font-size:10px;cursor:pointer;background:var(--green2);color:#fff}.btn.secondary{background:#fffaf2;color:var(--green);border:1px solid #c5d4be}.btn.danger{background:#fff1ee;color:var(--danger);border:1px solid #e3c2bb}
+.filters{display:grid;grid-template-columns:1.3fr .8fr .8fr;gap:8px}.filters input,.filters select{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:11px Georgia}
+.timeline{display:grid;gap:10px;margin-top:12px}.entry{position:relative;border:1px solid #ddd4c7;background:#fffaf4;border-radius:15px;padding:12px 12px 12px 46px}.entry .ico{position:absolute;left:12px;top:12px;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#e6eee2;font-size:14px}.entry small{display:block;text-transform:uppercase;letter-spacing:.07em;color:#7b7167;font-size:8px}.entry h4{margin:3px 0 4px;color:#355638;font-size:16px}.entry p{margin:4px 0;color:#665d54;font-size:10px;line-height:1.45}.entry .chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.chip{background:#edf2e9;border-radius:999px;padding:4px 6px;font-size:8px;color:#466148}.chip.warn{background:#fff0d1;color:#735a31}.chip.bad{background:#fff0ed;color:#85463d}.entry-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.empty{padding:18px;text-align:center;color:#786e64;border:1px dashed #d8cdbf;border-radius:13px;background:#fffaf4;font-size:11px}
+.followups{display:grid;gap:7px}.follow{border:1px solid #e0d6c8;background:#fffaf3;border-radius:12px;padding:9px}.follow b{display:block;color:#36573a;font-size:12px}.follow span{display:block;font-size:9px;color:#71675d;margin-top:3px}.follow.overdue{border-color:#e1b8b0;background:#fff1ee}
+.quick{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.quick div{border:1px solid #ded4c6;border-radius:12px;background:#fffaf4;padding:10px}.quick b{display:block;color:#355638;font-size:12px}.quick span{display:block;color:#71675e;font-size:9px;line-height:1.4;margin-top:4px}
+.note{margin-top:10px;padding:10px;background:#f5efdc;border:1px solid #ead9b1;border-radius:12px;color:#5f523f;font-size:10px;line-height:1.45}
+footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font-size:10px}.footerlinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}.footerlinks a{text-decoration:none}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.bar{padding:8px 9px}.brand strong{font-size:17px}.brand span{display:none}.nav a:not(.garden){display:none}.hero{padding:30px 10px 14px}.shell{padding:8px 9px 42px}.stats{grid-template-columns:repeat(2,1fr)}.typegrid{grid-template-columns:repeat(2,1fr)}.formgrid,.filters,.quick{grid-template-columns:1fr}.card{border-radius:17px}}
+@media print{header,.topnote,.hero,.leftcol,.filters,.entry-actions,footer{display:none!important}.grid{display:block}.card{border:0;box-shadow:none}.shell{padding:0}.timeline{gap:6px}}
+</style>
+</head>
+<body>
+<div class="topnote">Perennial Home & Gardens • Garden History & Care Records</div>
+<header><div class="bar"><div class="brand"><strong>Garden Journal & Logs</strong><span>Water · Feed · Soil · Observe · Treat · Remember</span></div><nav class="nav"><a class="garden" href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../plant-identifier/">Identifier</a><a href="../garden-planner/">Planner</a></nav></div></header>
+
+<section class="hero">
+ <div class="eyebrow">Build 3 • My Garden System</div>
+ <h1>Garden Journal & Logs</h1>
+ <p>Keep one chronological history of what happened in your garden: watering, fertilizer, soil amendments, observations, pest and disease treatments, and general notes — with follow-up dates so important garden work does not disappear into memory.</p>
+ <div class="badges"><span class="badge">Watering Log</span><span class="badge">Feeding & Fertilizer</span><span class="badge">Soil Amendments</span><span class="badge">Observations</span><span class="badge">Treatments</span><span class="badge">General Journal</span><span class="badge">Follow-up Reminders</span></div>
+</section>
+
+<main class="shell">
+<div class="stats">
+ <div class="stat"><strong id="stTotal">0</strong><span>Total entries</span></div>
+ <div class="stat"><strong id="stWater">0</strong><span>Watering</span></div>
+ <div class="stat"><strong id="stFeed">0</strong><span>Feeding / soil</span></div>
+ <div class="stat"><strong id="stObs">0</strong><span>Observations</span></div>
+ <div class="stat"><strong id="stTreat">0</strong><span>Treatments</span></div>
+ <div class="stat"><strong id="stDue">0</strong><span>Follow-ups due</span></div>
+</div>
+
+<div class="grid">
+ <div class="leftcol">
+  <section class="card">
+   <div class="cardhead"><h2>Add Journal Entry</h2><p>Choose the type first. The form adapts so you only see fields that matter.</p></div>
+   <div class="body">
+    <div class="typegrid" id="typeGrid"></div>
+    <div class="formgrid">
+      <div class="field"><label>Date</label><input id="entryDate" type="date"></div>
+      <div class="field"><label>Time</label><input id="entryTime" type="time"></div>
+      <div class="field"><label>Plant / crop / area</label><input id="entryTarget" placeholder="Tomatoes, Bed 2, apple tree…"></div>
+      <div class="field"><label>Garden location</label><input id="entryLocation" placeholder="North bed / greenhouse / patio"></div>
+    </div>
+
+    <div class="conditional" id="waterFields">
+      <div class="formgrid">
+       <div class="field"><label>Water amount</label><input id="waterAmount" placeholder="2 gal / 20 min drip"></div>
+       <div class="field"><label>Method</label><select id="waterMethod"><option>Hand watering</option><option>Drip irrigation</option><option>Soaker hose</option><option>Sprinkler</option><option>Rainfall</option><option>Bottom watering</option></select></div>
+      </div>
+    </div>
+
+    <div class="conditional" id="feedFields">
+      <div class="formgrid">
+       <div class="field"><label>Product / amendment</label><input id="feedProduct" placeholder="Compost, fish emulsion, 5-10-5…"></div>
+       <div class="field"><label>Amount / rate</label><input id="feedAmount" placeholder="1 cup / 2 tbsp per gal"></div>
+      </div>
+    </div>
+
+    <div class="conditional" id="treatFields">
+      <div class="formgrid">
+       <div class="field"><label>Problem / diagnosis</label><input id="treatProblem" placeholder="Aphids, powdery mildew, unknown leaf spot…"></div>
+       <div class="field"><label>Treatment / action</label><input id="treatAction" placeholder="Removed leaves, insecticidal soap, pruned…"></div>
+      </div>
+    </div>
+
+    <div class="conditional" id="obsFields">
+      <div class="formgrid">
+       <div class="field"><label>Observation type</label><select id="obsType"><option>Growth</option><option>Flowering</option><option>Fruit set</option><option>Color / foliage</option><option>Wildlife / pollinators</option><option>Weather response</option><option>Pest / disease symptom</option><option>Other</option></select></div>
+       <div class="field"><label>Severity / importance</label><select id="obsSeverity"><option>Normal</option><option>Watch</option><option>Concern</option><option>Urgent</option></select></div>
+      </div>
+    </div>
+
+    <div class="field"><label>Journal notes</label><textarea id="entryNotes" placeholder="What happened, what you noticed, what changed, or why you took this action…"></textarea></div>
+    <div class="formgrid">
+      <div class="field"><label>Follow-up date (optional)</label><input id="followDate" type="date"></div>
+      <div class="field"><label>Tags</label><input id="entryTags" placeholder="tomato, drought, bed-2"></div>
+    </div>
+    <div class="actions"><button class="btn" id="saveEntry">Save Journal Entry</button><button class="btn secondary" id="clearForm">Clear</button></div>
+   </div>
+  </section>
+
+  <section class="card">
+   <div class="cardhead"><h2>Follow-ups</h2><p>Anything you scheduled to re-check or repeat.</p></div>
+   <div class="body"><div id="followList" class="followups"></div></div>
+  </section>
+
+  <section class="card">
+   <div class="cardhead"><h2>Garden Pattern Snapshot</h2><p>A quick teaching summary from your own records.</p></div>
+   <div class="body"><div class="quick">
+     <div><b>Most logged area</b><span id="mostArea">Not enough data yet.</span></div>
+     <div><b>Most common activity</b><span id="mostType">Not enough data yet.</span></div>
+     <div><b>Recent care frequency</b><span id="recentFreq">No recent entries.</span></div>
+     <div><b>Treatment follow-through</b><span id="treatmentFollow">No treatment history yet.</span></div>
+   </div><div class="note">Teaching note: a journal becomes most valuable over time. Repeated watering, feeding, disease, and harvest records can reveal patterns that are hard to remember from one season to the next.</div></div>
+  </section>
+ </div>
+
+ <div>
+  <section class="card">
+   <div class="cardhead"><h2>Garden Timeline</h2><p>Search and filter your chronological garden history.</p></div>
+   <div class="body">
+    <div class="filters"><input id="search" placeholder="Search plant, bed, product, note, tag…"><select id="filterType"><option value="">All entry types</option></select><select id="filterRange"><option value="">All dates</option><option value="7">Last 7 days</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last year</option></select></div>
+    <div class="actions"><button class="btn secondary" id="printJournal">Print Journal</button><button class="btn secondary" id="exportJournal">Export Journal</button><button class="btn danger" id="clearJournal">Clear All</button></div>
+    <div class="timeline" id="timeline"></div>
+   </div>
+  </section>
+ </div>
+</div>
+</main>
+
+<footer><div class="footerlinks"><a href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../plant-identifier/">Garden Identifier</a><a href="../garden-library/">Garden Library</a><a href="../garden-planner/">Garden Planner</a></div><div>© Perennial Home & Gardens</div></footer>
+
+<script>
+const KEY="phgGardenJournalV1";
+const TYPES=[
+ {id:"watering",name:"Watering",icon:"💧"},
+ {id:"feeding",name:"Feeding",icon:"🧴"},
+ {id:"soil",name:"Soil / Amendment",icon:"🪱"},
+ {id:"observation",name:"Observation",icon:"👀"},
+ {id:"treatment",name:"Pest / Disease Treatment",icon:"🛡️"},
+ {id:"note",name:"General Note",icon:"📝"}
+];
+let currentType="watering",state=load();
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+function load(){try{return {...{entries:[]},...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch(e){return {entries:[]}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()}
+function uid(){return "j-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)}
+function today(){return new Date().toISOString().slice(0,10)}
+$("entryDate").value=today();$("entryTime").value=new Date().toTimeString().slice(0,5);
+
+function renderTypes(){
+ const box=$("typeGrid");box.innerHTML="";
+ TYPES.forEach(t=>{const b=document.createElement("button");b.className="typebtn"+(t.id===currentType?" active":"");b.innerHTML="<span>"+t.icon+"</span>"+t.name;b.onclick=()=>{currentType=t.id;renderTypes();updateConditionals()};box.appendChild(b)});
+ const ft=$("filterType");ft.innerHTML='<option value="">All entry types</option>'+TYPES.map(t=>'<option value="'+t.id+'">'+t.name+'</option>').join("");
+}
+function updateConditionals(){
+ ["waterFields","feedFields","treatFields","obsFields"].forEach(id=>$(id).classList.remove("show"));
+ if(currentType==="watering")$("waterFields").classList.add("show");
+ if(currentType==="feeding"||currentType==="soil")$("feedFields").classList.add("show");
+ if(currentType==="treatment")$("treatFields").classList.add("show");
+ if(currentType==="observation")$("obsFields").classList.add("show");
+}
+$("saveEntry").onclick=()=>{
+ const target=$("entryTarget").value.trim(),notes=$("entryNotes").value.trim();
+ if(!target&&!notes){alert("Add a plant/area or a journal note.");return}
+ const e={id:uid(),type:currentType,date:$("entryDate").value||today(),time:$("entryTime").value||"",target,location:$("entryLocation").value.trim(),notes,followDate:$("followDate").value,tags:$("entryTags").value.split(",").map(x=>x.trim()).filter(Boolean),created:new Date().toISOString()};
+ if(currentType==="watering"){e.amount=$("waterAmount").value.trim();e.method=$("waterMethod").value}
+ if(currentType==="feeding"||currentType==="soil"){e.product=$("feedProduct").value.trim();e.amount=$("feedAmount").value.trim()}
+ if(currentType==="treatment"){e.problem=$("treatProblem").value.trim();e.action=$("treatAction").value.trim();e.followedUp=false}
+ if(currentType==="observation"){e.observationType=$("obsType").value;e.severity=$("obsSeverity").value}
+ state.entries.unshift(e);clearForm(false);save();
+};
+function clearForm(resetDate=true){
+ ["entryTarget","entryLocation","entryNotes","followDate","entryTags","waterAmount","feedProduct","feedAmount","treatProblem","treatAction"].forEach(id=>{if($(id))$(id).value=""});
+ if(resetDate){$("entryDate").value=today();$("entryTime").value=new Date().toTimeString().slice(0,5)}
+}
+$("clearForm").onclick=()=>clearForm(true);
+
+function typeInfo(id){return TYPES.find(x=>x.id===id)||TYPES[5]}
+function filtered(){
+ const q=$("search").value.trim().toLowerCase(),ft=$("filterType").value,days=+$("filterRange").value||0,cut=days?new Date(Date.now()-days*86400000):null;
+ return state.entries.filter(e=>{
+  if(ft&&e.type!==ft)return false;
+  if(cut&&new Date(e.date+"T23:59:59")<cut)return false;
+  const blob=[e.target,e.location,e.notes,e.amount,e.method,e.product,e.problem,e.action,e.observationType,e.severity,...(e.tags||[])].join(" ").toLowerCase();
+  return !q||blob.includes(q);
+ }).sort((a,b)=>(b.date+" "+(b.time||"")).localeCompare(a.date+" "+(a.time||"")));
+}
+function detailText(e){
+ const bits=[];
+ if(e.type==="watering"){if(e.amount)bits.push(e.amount);if(e.method)bits.push(e.method)}
+ if(e.type==="feeding"||e.type==="soil"){if(e.product)bits.push(e.product);if(e.amount)bits.push(e.amount)}
+ if(e.type==="treatment"){if(e.problem)bits.push("Problem: "+e.problem);if(e.action)bits.push("Action: "+e.action)}
+ if(e.type==="observation"){if(e.observationType)bits.push(e.observationType);if(e.severity)bits.push(e.severity)}
+ return bits.join(" · ");
+}
+function renderTimeline(){
+ const box=$("timeline"),a=filtered();box.innerHTML=a.length?"":"<div class='empty'>No journal entries match these filters.</div>";
+ a.forEach(e=>{const t=typeInfo(e.type),d=document.createElement("article");d.className="entry";const chips=[...(e.tags||[])];if(e.followDate)chips.push("Follow-up "+e.followDate);if(e.type==="treatment"&&e.followedUp)chips.push("Follow-up completed");d.innerHTML='<div class="ico">'+t.icon+'</div><small>'+t.name+' · '+esc(e.date)+(e.time?' · '+esc(e.time):'')+'</small><h4>'+esc(e.target||"Garden note")+(e.location?' · '+esc(e.location):'')+'</h4>'+(detailText(e)?'<p><b>'+esc(detailText(e))+'</b></p>':'')+(e.notes?'<p>'+esc(e.notes)+'</p>':'')+(chips.length?'<div class="chips">'+chips.map(x=>'<span class="chip">'+esc(x)+'</span>').join("")+'</div>':'')+'<div class="entry-actions">'+(e.type==="treatment"?'<button class="btn secondary" data-follow="'+e.id+'">'+(e.followedUp?"Undo follow-up":"Mark follow-up done")+'</button>':'')+'<button class="btn danger" data-del="'+e.id+'">Delete</button></div>';box.appendChild(d)});
+ document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(confirm("Delete this journal entry?")){state.entries=state.entries.filter(e=>e.id!==b.dataset.del);save()}});
+ document.querySelectorAll("[data-follow]").forEach(b=>b.onclick=()=>{const e=state.entries.find(x=>x.id===b.dataset.follow);e.followedUp=!e.followedUp;save()});
+}
+function renderFollowups(){
+ const box=$("followList"),todayS=today(),items=state.entries.filter(e=>e.followDate&&!e.followComplete).sort((a,b)=>a.followDate.localeCompare(b.followDate));
+ box.innerHTML=items.length?"":"<div class='empty'>No follow-ups scheduled.</div>";
+ items.slice(0,10).forEach(e=>{const overdue=e.followDate<todayS,d=document.createElement("div");d.className="follow"+(overdue?" overdue":"");d.innerHTML='<b>'+typeInfo(e.type).icon+' '+esc(e.target||typeInfo(e.type).name)+'</b><span>'+(overdue?"Overdue: ":"Due: ")+esc(e.followDate)+(e.notes?" · "+esc(e.notes.slice(0,80)):"")+'</span><div class="actions"><button class="btn secondary" data-done-follow="'+e.id+'">Complete</button></div>';box.appendChild(d)});
+ document.querySelectorAll("[data-done-follow]").forEach(b=>b.onclick=()=>{const e=state.entries.find(x=>x.id===b.dataset.doneFollow);e.followComplete=true;e.followCompletedAt=new Date().toISOString();save()});
+}
+function stats(){
+ const c=id=>state.entries.filter(e=>e.type===id).length,due=state.entries.filter(e=>e.followDate&&!e.followComplete&&e.followDate<=today()).length;
+ $("stTotal").textContent=state.entries.length;$("stWater").textContent=c("watering");$("stFeed").textContent=c("feeding")+c("soil");$("stObs").textContent=c("observation");$("stTreat").textContent=c("treatment");$("stDue").textContent=due;
+}
+function patterns(){
+ if(!state.entries.length){$("mostArea").textContent="Not enough data yet.";$("mostType").textContent="Not enough data yet.";$("recentFreq").textContent="No recent entries.";$("treatmentFollow").textContent="No treatment history yet.";return}
+ const countBy=arr=>Object.entries(arr.reduce((o,v)=>(v&&(o[v]=(o[v]||0)+1),o),{})).sort((a,b)=>b[1]-a[1])[0];
+ const area=countBy(state.entries.map(e=>e.target||e.location).filter(Boolean));$("mostArea").textContent=area?area[0]+" · "+area[1]+" entries":"No target names recorded.";
+ const typ=countBy(state.entries.map(e=>e.type));$("mostType").textContent=typ?typeInfo(typ[0]).name+" · "+typ[1]+" entries":"No activity data.";
+ const recent=state.entries.filter(e=>new Date(e.date+"T23:59:59")>=new Date(Date.now()-30*86400000)).length;$("recentFreq").textContent=recent+" entries in the last 30 days.";
+ const tr=state.entries.filter(e=>e.type==="treatment");$("treatmentFollow").textContent=tr.length?(tr.filter(e=>e.followedUp||e.followComplete).length+" of "+tr.length+" treatments have recorded follow-up."):"No treatment history yet.";
+}
+["search","filterType","filterRange"].forEach(id=>$(id).addEventListener("input",renderTimeline));
+$("printJournal").onclick=()=>window.print();
+$("exportJournal").onclick=()=>{const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),entries:state.entries},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Perennial-Garden-Journal.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+$("clearJournal").onclick=()=>{if(confirm("Clear the entire Garden Journal on this device?")){state={entries:[]};save()}};
+function importIdentifierReports(){
+ const reports=(()=>{try{return JSON.parse(localStorage.getItem("phgGardenHealthReports")||"[]")}catch(e){return[]}})();
+ const imported=new Set(state.entries.filter(e=>e.sourceReportDate).map(e=>e.sourceReportDate));
+ let n=0;reports.forEach(r=>{if(r.date&&!imported.has(r.date)){state.entries.push({id:uid(),type:"observation",date:(r.date||"").slice(0,10)||today(),time:"",target:r.plant||"Garden health report",location:"",notes:"Identifier screening: "+((r.matches||[]).join("; ")||"No strong match")+"."+((r.notes||"")?" "+r.notes:""),followDate:"",tags:["identifier-report"],observationType:"Pest / disease symptom",severity:r.severity||"Watch",sourceReportDate:r.date,created:r.date||new Date().toISOString()});n++}});if(n)localStorage.setItem(KEY,JSON.stringify(state));
+}
+function renderAll(){renderTimeline();renderFollowups();stats();patterns()}
+renderTypes();updateConditionals();importIdentifierReports();renderAll();
+</script>
+</body>
+</html>
