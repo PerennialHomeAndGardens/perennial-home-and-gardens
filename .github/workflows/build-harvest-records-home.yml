@@ -1,0 +1,68 @@
+name: Build Harvest Records homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-harvest-records-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Harvest Records homepage promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-harvest-records-home-v1"
+          if marker not in h:
+              section=r'''
+          <section id="harvest-records" class="phg-harvest-records-home-v1" aria-label="Harvest and Garden Records">
+            <div class="phg-hr-inner">
+              <div class="phg-hr-copy">
+                <div class="phg-hr-kicker">Perennial Garden App</div>
+                <h2>Harvest &amp; Garden Records</h2>
+                <p class="phg-hr-lead">Turn every harvest into long-term garden knowledge with yield, quantity, quality, storage, variety and season-by-season production records.</p>
+                <div class="phg-hr-tags"><span>Yield Tracking</span><span>Crop Totals</span><span>Quality</span><span>Storage</span><span>Season Compare</span><span>My Garden Connected</span></div>
+                <a class="phg-hr-open" href="tools/harvest-records/">OPEN HARVEST RECORDS →</a>
+              </div>
+              <div class="phg-hr-preview">
+                <div class="phg-hr-top">HARVEST RECORDS <strong>🧺</strong></div>
+                <div class="phg-hr-stats"><div><b>23</b><span>Harvests</span></div><div><b>41.8</b><span>lb</span></div><div><b>8</b><span>Crops</span></div></div>
+                <div class="phg-hr-row"><b>Tomato · Cherokee Purple</b><span>8.4 lb</span></div>
+                <div class="phg-hr-row"><b>Green Beans</b><span>6.2 lb</span></div>
+                <div class="phg-hr-row"><b>Yarrow</b><span>26 stems</span></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-harvest-records-home-v1">
+          .phg-harvest-records-home-v1{padding:72px 20px;background:linear-gradient(180deg,#eef3e8 0%,#fffaf2 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-hr-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+          .phg-hr-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-hr-copy h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,62px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-hr-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-hr-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-hr-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-hr-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}.phg-hr-open:hover{transform:translateY(-3px)}
+          .phg-hr-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:16px;box-shadow:0 20px 45px rgba(45,63,39,.12)}.phg-hr-top{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:12px 13px;display:flex;justify-content:space-between}
+          .phg-hr-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:9px 0}.phg-hr-stats div{background:#eef3e9;border:1px solid #d6dfd0;border-radius:11px;padding:9px;text-align:center}.phg-hr-stats b{display:block;font:500 22px Georgia;color:#315238}.phg-hr-stats span{font:9px Georgia;color:#71806a;text-transform:uppercase}
+          .phg-hr-row{font-family:Georgia,serif;display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #e4ddd2;background:#fffaf3;border-radius:13px;padding:11px 12px;margin-top:7px;color:#2f4931}.phg-hr-row span{font-size:10px;color:#71806a}
+          @media(max-width:800px){.phg-harvest-records-home-v1{padding:48px 14px}.phg-hr-inner{grid-template-columns:1fr}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1: h=h[:idx]+section+h[idx:]
+              else: h=h.replace("</body>",section+"</body>",1)
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit Harvest Records homepage section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Harvest Records homepage experience"
+          git push
