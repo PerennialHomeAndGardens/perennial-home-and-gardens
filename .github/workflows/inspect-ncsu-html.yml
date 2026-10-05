@@ -1,0 +1,47 @@
+name: Inspect NCSU plant HTML
+
+on:
+  push:
+    paths:
+      - .github/workflows/inspect-ncsu-html.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q beautifulsoup4
+      - name: Inspect HTML structure
+        run: |
+          python - <<'PY'
+          import urllib.request,json,re
+          from bs4 import BeautifulSoup
+          url="https://plants.ces.ncsu.edu/plants/achillea-millefolium/"
+          req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+          html=urllib.request.urlopen(req,timeout=30).read().decode("utf-8","replace")
+          soup=BeautifulSoup(html,"html.parser")
+          out={"len":len(html),"title":soup.title.get_text(" ",strip=True) if soup.title else ""}
+          labels=["USDA Plant Hardiness Zone","Light","Soil Texture","Soil pH","Soil Drainage","Recommended Propagation Strategy","Wildlife Value","Edibility","Dimensions","Attracts","Resistance To Challenges","Particularly Resistant To","Country Or Region Of Origin","Life Cycle","Flower Bloom Time","Landscape Location","Landscape Theme","Design Feature","Poison Severity","Poison Symptoms","Toxic Principle"]
+          hits={}
+          for lab in labels:
+            node=soup.find(string=lambda s:s and lab.lower() in s.lower())
+            if node:
+              par=node.parent
+              hits[lab]={
+                "tag":par.name,
+                "parent":str(par.parent)[:5000],
+                "text":par.parent.get_text(" | ",strip=True)[:2000]
+              }
+          out["hits"]=hits
+          open("data/garden-library/ncsu_html_diagnostic.json","w").write(json.dumps(out,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/garden-library/ncsu_html_diagnostic.json
+          git diff --cached --quiet || git commit -m "Inspect NCSU plant HTML"
+          git push
