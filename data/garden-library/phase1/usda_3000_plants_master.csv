@@ -1,0 +1,1000 @@
+<PARSED TEXT FOR SHEET: 1 / 1 TABS
+TAB NAME: usda_3000_plants_master.csv>
+index,record_type,genus,family,scientific_name,authorship,common_names,synonym_of,synonym_target_raw,flags,source_pdf_page,source_raw
+0,accepted,Abelmoschus,Malvaceae,Abelmoschus esculentus,(L.) Moench,okra,,,,7,esculentus (L.) Moench--okra
+1,accepted,Abelmoschus,Malvaceae,Abelmoschus manihot,(L*) Medik.,,,,,7,manihot (L*) Medik.
+2,accepted,Abelmoschus,Malvaceae,Abelmoschus moschatus,Medik.,ambrette,,,,7,moschatus Medik.--ambrette
+3,synonym,Aberia,Flacourtiaceae,Aberia gardneri,,,Dovyalis hebecarpa,Dovyalis hebecarpa,,7,(gardneri Clos) = Dovyalis hebecarpa
+4,accepted,Abies,Pinaceae,Abies alba,Mill.,silver fir,,,,7,alba Mill.--silver fir
+5,accepted,Abies,Pinaceae,Abies balsamea,(L.) Mill.,balsam fir,,,,7,balsamea (L.) Mill.--balsam fir
+6,accepted,Abies,Pinaceae,Abies concolor,(Gord. & Glend.) Lindl. ex HiIdebr.,white fir,,,,7,concolor (Gord. & Glend.) Lindl. ex HiIdebr.--white fir
+7,accepted,Abies,Pinaceae,Abies grandis,(Dougl. ex D. Don) Lindl.,"grand fir, lowland white f.",,,,7,"grandis (Dougl. ex D. Don) Lindl.--grand fir, lowland white f."
+8,accepted,Abies,Pinaceae,Abies lasiocarpa,(Hook.) Nutt.,"subalpine fir, alpine f.",,,,7,"lasiocarpa (Hook.) Nutt.--subalpine fir, alpine f."
+9,accepted,Abies,Pinaceae,Abies magnifica,A. Murr.,California red fir,,,,7,magnifica A. Murr.--California red fir
+10,accepted,Abies,Pinaceae,Abies procera,Rehd.,noble fir,,,,7,procera Rehd.--noble fir
+11,accepted,Abrus,Fabaceae,Abrus precatorius,L.,"precatory bean, jequirity b., rosary pea, crab's-eyes",,,,7,"precatorius L.--precatory bean, jequirity b., rosary pea, crab's-eyes"
+12,synonym_unresolved,Abutilón,Malvaceae,Abutilón avicennae,,,,A. theophrasti,,7,(avicennae Gaertn.) A. theophrasti
+13,accepted,Abutilón,Malvaceae,Abutilón theophrasti,Medik.,"velvetleaf, China jute, butterprint",,,,8,"theophrasti Medik.--velvetleaf, China jute, butterprint"
+14,accepted,Acacia,Fabaceae,Acacia albida,Del.,apple-ring acacia,,,,8,albida Del.--apple-ring acacia
+15,synonym,Acacia,Fabaceae,Acacia arabica,,,Acacia nilotica,A. nilotica,,8,(arabica (Lam.) Willd.) = A. nilotica
+16,accepted,Acacia,Fabaceae,Acacia auriculiformis,A. Cunn. ex Benth.,,,,,8,auriculiformis A. Cunn. ex Benth.
+17,accepted,Acacia,Fabaceae,Acacia baileyana,F. v. Muell.,Cootamundra wattle,,,,8,baileyana F. v. Muell.--Cootamundra wattle
+18,accepted,Acacia,Fabaceae,Acacia berlandieri,Benth.,guajillo,,,,8,berlandieri Benth.--guajillo
+19,accepted,Acacia,Fabaceae,Acacia catechu,(L. £.) Willd.,"black cutch, catechu",,,,8,"catechu (L. £.) Willd.--black cutch, catechu"
+20,accepted,Acacia,Fabaceae,Acacia dealbata,Link,silver wattle,,,,8,dealbata Link--silver wattle
+21,accepted,Acacia,Fabaceae,Acacia decurrens,(Wendl.) Willd.-green wattle,,,,TN,8,decurrens (Wendl.) Willd.-green wattle-[TN]
+22,synonym,Acacia,Fabaceae,Acacia decurrens,,,Acacia meamsii,A. meamsii,,8,(decurrens (Wendl.) Willd. var. mollis Lindl.) = A. meamsii
+23,accepted,Acacia,Fabaceae,Acacia famesiana,(L.) Willd.,"huisache, sweet acacia, cassie",,,,8,"famesiana (L.) Willd.--huisache, sweet acacia, cassie"
+24,accepted,Acacia,Fabaceae,Acacia greggii,A. Gray,"catclaw acacia, catclaw",,,,8,"greggii A. Gray--catclaw acacia, catclaw"
+25,accepted,Acacia,Fabaceae,Acacia meamsii,De Wild.,black wattle--[TN],,,TN,8,meamsii De Wild.--black wattle--[TN]
+26,accepted,Acacia,Fabaceae,Acacia melanoxylon,R. Br.,blackwood,,,,8,melanoxylon R. Br.--blackwood
+27,accepted,Acacia,Fabaceae,Acacia nilotica,(L.) Del.,babul--[TN],,,TN,8,nilotica (L.) Del.--babul--[TN]
+28,accepted,Acacia,Fabaceae,Acacia pycnantha,Benth.,golden wattle,,,,8,pycnantha Benth.--golden wattle
+29,accepted,Acacia,Fabaceae,Acacia rehmanniana,Schinz,,,,,8,rehmanniana Schinz
+30,accepted,Acacia,Fabaceae,Acacia Senegal,"(L.) Willd.-gum arable (in part), Senegal gum. kher",,,,,8,"Senegal (L.) Willd.-gum arable (in part), Senegal gum. kher"
+31,accepted,Acacia,Fabaceae,Acacia seyal,Del.,shittim-wood,,,,8,seyal Del.--shittim-wood
+32,synonym,Acacia,Fabaceae,Acacia verek,,,Acacia Senegal,A. Senegal,,8,(verek Guill. & Perr.) = A. Senegal
+33,accepted,Acalypha,Euphorbiaceae,Acalypha hispida,Burm. £.,chenille copperleaf,,,,8,hispida Burm. £.--chenille copperleaf
+34,accepted,Acalypha,Euphorbiaceae,Acalypha rhomboidea,Raf.,rhombic copperleaf,,,,8,rhomboidea Raf.--rhombic copperleaf
+35,accepted,Acalypha,Euphorbiaceae,Acalypha virginica,L.,Virginia copperleaf,,,,8,virginica L.--Virginia copperleaf
+36,accepted,Acalypha,Euphorbiaceae,Acalypha wilkesiana,Muell.-Arg.,painted copperleaf,,,,8,wilkesiana Muell.-Arg.--painted copperleaf
+37,accepted,Acer,Aceraceae,Acer circinatum,Pursh,vine maple,,,,8,circinatum Pursh--vine maple
+38,accepted,Acer,Aceraceae,Acer macrophyllum,Pursh,bigleaf maple,,,,8,macrophyllum Pursh--bigleaf maple
+39,accepted,Acer,Aceraceae,Acer negundo,L.,"boxelder, box-elder, ash-leaved maple",,,,8,"negundo L.--boxelder, box-elder, ash-leaved maple"
+40,accepted,Acer,Aceraceae,Acer nigrum,Michx. f.,black maple,,,,8,nigrum Michx. f.--black maple
+41,accepted,Acer,Aceraceae,Acer pensylvanicum,L.,striped maple,,,,8,pensylvanicum L.--striped maple
+42,accepted,Acer,Aceraceae,Acer plátanoides,L.,Norway maple,,,,8,plátanoides L.--Norway maple
+43,accepted,Acer,Aceraceae,Acer pseudo-platanus,L.,sycamore maple,,,,8,pseudo-platanus L.--sycamore maple
+44,accepted,Acer,Aceraceae,Acer rubrum,L.,red maple,,,,8,rubrum L.--red maple
+45,accepted,Acer,Aceraceae,Acer saccharinum,L.,"silver maple, soft m., white m.",,,,8,"saccharinum L.--silver maple, soft m., white m."
+46,accepted,Acer,Aceraceae,Acer saccharum,Marsh.,"sugar maple, rock m., hard m.",,,,8,"saccharum Marsh.--sugar maple, rock m., hard m."
+47,accepted,Acer,Aceraceae,Acer spicatum,Lam.,mountain maple,,,,8,spicatum Lam.--mountain maple
+48,accepted,Achillea,Asteraceae,Achillea ageratifolia,(Sibth. & Sn.) Boiss.,[TN],,,TN,8,ageratifolia (Sibth. & Sn.) Boiss.--[TN]
+49,accepted,Achillea,Asteraceae,Achillea millefolium,L.,yarrow,,,,8,millefolium L.--yarrow
+50,synonym,Achras,Sapotaceae,Achras lúcuma,,,Pouteria sapota,Pouteria sapota,,8,(Achras lúcuma Blanco) = Pouteria sapota
+51,synonym,Achras,Sapotaceae,Achras mammosa,,,Pouteria sapota,Pouteria sapota,,8,(Achras mammosa L.) = Pouteria sapota
+52,synonym,Achras,Sapotaceae,Achras zapota,,,Manilkara zapota,Manilkara zapota,,8,(Achras zapota L.) = Manilkara zapota
+53,synonym,Achras,Sapotaceae,Achras zapotilla,,,Manilkara zapota,Manilkara zapota,,8,(Achras zapotilla (Jacq.) Nutt.) = Manilkara zapota
+54,accepted,Acioa,Chrysobalanaceae,Acioa barteri,Engler,,,,,9,barteri Engler
+55,synonym,Aconitum,Ranunculaceae,Aconitum lycoctonum,,,Aconitum vulparia,A. vulparia,,9,(lycoctonum auct.) = A. vulparia
+56,accepted,Aconitum,Ranunculaceae,Aconitum napellus,L.,"aconite, monkshood, friar's-cap",,,,9,"napellus L.--aconite, monkshood, friar's-cap"
+57,accepted,Aconitum,Ranunculaceae,Aconitum vulparia,Re ichenb • - -v/ol£sbane,[TN],,,TN,9,vulparia Re ichenb • - -v/ol£sbane - - [TN]
+58,accepted,Acorus,Araceae,Acorus calamus,L.,"sweetflag, calamus, flagroot",,,,9,"calamus L.--sweetflag, calamus, flagroot"
+59,accepted,Acroceras,Poaceae,Acroceras macrum,Stapf,Nile grass,,,,9,macrum Stapf--Nile grass
+60,accepted,Acroceras,Poaceae,Acroceras total,Mart.,"gru-gru palm, total p.",,,,9,"total Mart.--gru-gru palm, total p."
+61,accepted,Acroceras,Poaceae,Acroceras vinifera,Oerst.,,,,,9,vinifera Oerst.
+62,accepted,Actinidia,Actinidiaceae,Actinidia chinensis,"Planch,","Chinese-gooseberry, kiwi",,,,9,"chinensis Planch,--Chinese-gooseberry, kiwi"
+63,accepted,Adansonia,Bombacaceae,Adansonia digitata,"L,","baobab, monkey-bread",,,,9,"digitata L,--baobab, monkey-bread"
+64,accepted,Adenocarpus,Fabaceae,Adenocarpus decortleans,Boiss.,flatpod,,,,9,decortleans Boiss.--flatpod
+65,accepted,Adenostoma,Rosaceae,Adenostoma fasciculatum,Ffook. ^ Arn.,chamise,,,,9,fasciculatum Ffook. ^ Arn.--chamise
+66,synonym,Adhatoda,Acanthaceae,Adhatoda vasica,,,Justicia adhatoda,Justicia adhatoda L.,,9,(vasica Nees) = Justicia adhatoda L.
+67,accepted,Aechmea,Bromeliaceae,Aechmea chantinii,(Carr.) Baker,,,,,9,chantinii (Carr.) Baker
+68,accepted,Aechmea,Bromeliaceae,Aechmea orlandiana,L. B. Sm.,,,,,9,orlandiana L. B. Sm.
+69,accepted,Aegilops,Poaceae,Aegilops cylindrica,Host,jointed goatgrass,,,,9,cylindrica Host--jointed goatgrass
+70,accepted,Aegilops,Poaceae,Aegilops triuncialis,L.,barb goatgrass,,,,9,triuncialis L.--barb goatgrass
+71,accepted,Aegle,Rutaceae,Aegle marmelos,(L.) Corr.,"Indian bael, bael tree",,,,9,"marmelos (L.) Corr.--Indian bael, bael tree"
+72,accepted,Aegopodium,Apiaceae,Aegopodium podagraria,L.,"bishop's goutweed, goutweed",,,,9,"podagraria L.--bishop's goutweed, goutweed"
+73,accepted,Aerva,Amaranthaceae,Aerva lanata,(L.) Juss.,,,,,9,lanata (L.) Juss.
+74,accepted,Aeschynomene,Fabaceae,Aeschynomene americana,L.,joint-vetch,,,,9,americana L.--joint-vetch
+75,synonym,Aeschynomene,Fabaceae,Aeschynomene bispinosa,,,Sesbania bispinosa,Sesbania bispinosa,,10,(bispinosa Jacq.) = Sesbania bispinosa
+76,accepted,Aeschynomene,Fabaceae,Aeschynomene elaphroxylon,(Guill. & Perr.) Taub.,ambatch,,,,10,elaphroxylon (Guill. & Perr.) Taub.--ambatch
+77,accepted,Aesculus,Hippocastanaceae,Aesculus califomica,(Spach) Nutt •,Califomia buckeye,,,,10,califomica (Spach) Nutt •--Califomia buckeye
+78,accepted,Aesculus,Hippocastanaceae,Aesculus glabra,Wilid.,Ohio buckeye,,,,10,glabra Wilid.--Ohio buckeye
+79,accepted,Aesculus,Hippocastanaceae,Aesculus hippocastanum,L.,horsechestnut,,,,10,hippocastanum L.--horsechestnut
+80,accepted,Aesculus,Hippocastanaceae,Aesculus octandra,Marsh.,yellow buckeye,,,,10,octandra Marsh.--yellow buckeye
+81,accepted,Aesculus,Hippocastanaceae,Aesculus pavia,L.,red buckeye,,,,10,pavia L.--red buckeye
+82,accepted,Aesculus,Hippocastanaceae,Aesculus turbinata,Bl.,Japanese horsechestnut,,,,10,turbinata Bl.--Japanese horsechestnut
+83,synonym,Aframomum,Zingiberaceae,Aframomum granum-paradisi,,,Aframomum sceptrum,A. sceptrum,,10,(granum-paradisi K. Schum.) = A. sceptrum
+84,accepted,Aframomum,Zingiberaceae,Aframomum melegueta,K. Schum.,Melegueta-pepper,,,,10,melegueta K. Schum.--Melegueta-pepper
+85,accepted,Aframomum,Zingiberaceae,Aframomum sceptrum,(Oliv. & Ffenb.) K. Schum.,"grains-of-paradise, baboon-spice",,,,10,"sceptrum (Oliv. & Ffenb.) K. Schum.--grains-of-paradise, baboon-spice"
+86,accepted,Afzelia,Fabaceae,Afzelia africana,Sm. ex Pers.,,,,,10,africana Sm. ex Pers.
+87,accepted,Afzelia,Fabaceae,Afzelia bella,Harms,,,,,10,bella Harms
+88,accepted,Agapanthus,Amaryllidaceae,Agapanthus africanus,(L.) Hbffmgg.,lily-of-the-Nile,,,,10,africanus (L.) Hbffmgg.--lily-of-the-Nile
+89,accepted,Agathis,Araucariaceae,Agathis dammara,(Lamb.) L. C. Rich.,,,,,10,dammara (Lamb.) L. C. Rich.
+90,accepted,Agathosma,Rutaceae,Agathosma betulina,(Berg.) Pillans,buchu,,,,10,betulina (Berg.) Pillans--buchu
+91,accepted,Agathosma,Rutaceae,Agathosma crenulata,(L.) Pillans,buchu,,,,10,crenulata (L.) Pillans--buchu
+92,accepted,Agave,Agavaceae,Agave americana,L.,century-plant,,,,10,americana L.--century-plant
+93,accepted,Agave,Agavaceae,Agave atrovirens,Karw. ex Salm-Dyck,maguey,,,,10,atrovirens Karw. ex Salm-Dyck--maguey
+94,accepted,Agave,Agavaceae,Agave cántala,Roxb.,cántala,,,,10,cántala Roxb.--cántala
+95,accepted,Agave,Agavaceae,Agave fourcroydes,Lem.,henequén,,,,10,fourcroydes Lem.--henequén
+96,synonym_unresolved,Agave,Agavaceae,Agave heteracantha,,,,« A. xylonacantha,,10,(heteracantha Zuce.) « A. xylonacantha
+97,accepted,Agave,Agavaceae,Agave lecheguilla,Torr.,"lechuguilla, tula istle, Tampico fiber",,,,10,"lecheguilla Torr.--lechuguilla, tula istle, Tampico fiber"
+98,accepted,Agave,Agavaceae,Agave sisalana,Perr.,sisal,,,,10,sisalana Perr.--sisal
+99,accepted,Agave,Agavaceae,Agave xylonacantha,Salm-Dyck,,,,,10,xylonacantha Salm-Dyck
+100,accepted,Ageratum,Asteraceae,Ageratum houstonianum,Mill.,ageratum,,,,10,houstonianum Mill.--ageratum
+101,synonym,Ageratum,Asteraceae,Ageratum mexicanum,,,Ageratum houstonianum,A. houstonianum,,10,(mexicanum Sims) = A. houstonianum
+102,accepted,Aglaonema,Araceae,Aglaonema modestum,Schott ex Engl.,Chinese evergreen,,,,10,modestum Schott ex Engl.--Chinese evergreen
+103,accepted,Agropyron,Poaceae,Agropyron cristatum,(L.) Gaertn.,fairway crested wheatgrass,,,,10,cristatum (L.) Gaertn.--fairway crested wheatgrass
+104,accepted,Agropyron,Poaceae,Agropyron dasystachyum,(Hook.) Scribn.,thickspike wheatgrass,,,,10,dasystachyum (Hook.) Scribn.--thickspike wheatgrass
+105,accepted,Agropyron,Poaceae,Agropyron desertorum,"(Fisch, ex Link) Schult.",standard crested wheatgrass,,,,10,"desertorum (Fisch, ex Link) Schult.--standard crested wheatgrass"
+106,accepted,Agropyron,Poaceae,Agropyron elongatum,"(Host) Beauv,",tall wheatgrass,,,,11,"elongatum (Host) Beauv,--tall wheatgrass"
+107,synonym,Agropyron,Poaceae,Agropyron inerme,,,Agropyron spicatum f. inerme,A. spicatum f. inerme,,11,(inerme (Scribn. & Sm.) Rydb.) = A. spicatum f. inerme
+108,accepted,Agropyron,Poaceae,Agropyron intermedium,(ifost) Beauv. var. intermedium,intermediate wheatgrass,,,,11,intermedium (ifost) Beauv. var. intermedium--intermediate wheatgrass
+109,accepted,Agropyron,Poaceae,Agropyron intermedium var. trichophorum,(Link) Halac.,pubescent wheatgrass,,,,11,intermedium var. trichophorum (Link) Halac.--pubescent wheatgrass
+110,accepted,Agropyron,Poaceae,Agropyron repens,(L.) Beauv.,"quackgrass, couchgrass, couch (Br.), twitch (Br.)",,,,11,"repens (L.) Beauv.--quackgrass, couchgrass, couch (Br.), twitch (Br.)"
+111,accepted,Agropyron,Poaceae,Agropyron riparium,Scribn. ^ Sm.,streainbank wheatgrass,,,,11,riparium Scribn. ^ Sm.--streainbank wheatgrass
+112,accepted,Agropyron,Poaceae,Agropyron sibiricum,(Willd.) Beauv.,Siberian wheatgrass,,,,11,sibiricum (Willd.) Beauv.--Siberian wheatgrass
+113,accepted,Agropyron,Poaceae,Agropyron smithii,Rydb.,western wheatgrass,,,,11,smithii Rydb.--western wheatgrass
+114,accepted,Agropyron,Poaceae,Agropyron spicatum,(Pursh) Scribn. & Sm.-^-bluebunch wheatgrass,,,,,11,spicatum (Pursh) Scribn. & Sm.-^-bluebunch wheatgrass
+115,accepted,Agropyron,Poaceae,Agropyron spicatum,£. inerme (Scribn. & Sm.) Beetle,beardless wheatgrass,,,,11,spicatum £. inerme (Scribn. & Sm.) Beetle--beardless wheatgrass
+116,accepted,Agropyron,Poaceae,Agropyron trachycaulum,(Link) Malte ex H. F. Lewis,slender vdieatgrass,,,,11,trachycaulum (Link) Malte ex H. F. Lewis--slender vdieatgrass
+117,synonym,Agropyron,Poaceae,Agropyron trichophorum,,,Agropyron intennedium var. trichophorum,A. intennedium var. trichophorum,,11,(trichophorum (Link) Rieht.) = A. intennedium var. trichophorum
+118,accepted,Agrostemma,Caryophyllaceae,Agrostemma githago,L.,com cockle,,,,11,githago L.--com cockle
+119,synonym,Agrostis,Poaceae,Agrostis alba,,,Agrostis gigantea,A. gigantea,,11,"(alba sens. Amer, auct.) = A. gigantea"
+120,accepted,Agrostis,Poaceae,Agrostis canina,L.,velvet bentgrass,,,,11,canina L.--velvet bentgrass
+121,accepted,Agrostis,Poaceae,Agrostis gigantea,Roth,redtop--[TN],,,TN,11,gigantea Roth--redtop--[TN]
+122,synonym,Agrostis,Poaceae,Agrostis nigra,,,Agrostis gigantea,A. gigantea,,11,(nigra With.) = A. gigantea
+123,synonym_unresolved,Agrostis,Poaceae,Agrostis palustris,,,,« A. stolonifera var. palustris,,11,(palustris Huds.) « A. stolonifera var. palustris
+124,accepted,Agrostis,Poaceae,Agrostis scabra,Willd.,rough bentgrass,,,,11,scabra Willd.--rough bentgrass
+125,synonym,Agrostis,Poaceae,Agrostis semiverticillata,,,Polypogon semiverticillatus,Polypogon semiverticillatus,,11,(semiverticillata (Forsk.) C. Chr.) = Polypogon semiverticillatus
+126,synonym_unresolved,Agrostis,Poaceae,Agrostis spica-venti,,,,* Apera spica-venti,,11,(spica-venti L.) * Apera spica-venti
+127,accepted,Agrostis,Poaceae,Agrostis stolonifera,L.,(sens. lat. incl.) var. palustris (Huds.) Farw.--,,,,11,stolonifera L.--(sens. lat. incl.) var. palustris (Huds.) Farw.--
+128,accepted,Agrostis,Poaceae,Agrostis creeping,bentgrass,,,,,11,creeping bentgrass
+129,synonym_unresolved,Agrostis,Poaceae,Agrostis stolonifera var. major,,,,Farw.) ■ A. gigantea,,11,(stolonifera var. major (Gaud.) Farw.) ■ A. gigantea
+130,accepted,Agrostis,Poaceae,Agrostis tenuis,Sibth.,"colonial bentgrass, browntop, Rhode Island bentgrass",,,,11,"tenuis Sibth.--colonial bentgrass, browntop, Rhode Island bentgrass"
+131,accepted,Ailanthus,Simaroubaceae,Ailanthus altissima,(Mill.) Swingle,"tree-of-heaven, ailanthus",,,,11,"altissima (Mill.) Swingle--tree-of-heaven, ailanthus"
+132,accepted,Albizia,Fabaceae,Albizia carbonaria,Britt.,,,,,11,carbonaria Britt.
+133,accepted,Albizia,Fabaceae,Albizia chinensis,(Osb.) Merr.,,,,,11,chinensis (Osb.) Merr.
+134,synonym,Albizia,Fabaceae,Albizia falcata,,,Albizia falcataria,A. falcataria,,11,(falcata (L.) Backer) = A. falcataria
+135,accepted,Albizia,Fabaceae,Albizia falcataria,(L.) Fosb.,[TN],,,TN,11,falcataria (L.) Fosb.--[TN]
+136,accepted,Albizia,Fabaceae,Albizia ferruginea,(Guill. & Perr.) Benth.,,,,,11,ferruginea (Guill. & Perr.) Benth.
+137,accepted,Albizia,Fabaceae,Albizia julibrissin,Durazz.,"silktree albizia, silktree, mijnosa",,,,11,"julibrissin Durazz.--silktree albizia, silktree, mijnosa"
+138,accepted,Albizia,Fabaceae,Albizia lebbeck,(L.) Benth.,lebbeck,,,,11,lebbeck (L.) Benth.--lebbeck
+139,accepted,Albizia,Fabaceae,Albizia odoratissima,(L. f.) Benth.,,,,,11,odoratissima (L. f.) Benth.
+140,accepted,Albizia,Fabaceae,Albizia procera,(Roxb.) Benth.,,,,,11,procera (Roxb.) Benth.
+141,synonym,Albizia,Fabaceae,Albizia stipulata,,,Albizia chinensis,A. chinensis,,11,(stipulata (Roxb.) Boiv.) = A. chinensis
+142,accepted,Albizia,Fabaceae,Albizia zygia,(DC.) Macbr.,,,,,11,zygia (DC.) Macbr.
+143,synonym,Albizia,Fabaceae,Albizia Albizzia,,,Albizia,Albizia,,11,(Albizzia) = Albizia
+144,accepted,Alcea,Malvaceae,Alcea rosea,L.,hollyhock,,,,11,rosea L.--hollyhock
+145,accepted,Alchemilla,Rosaceae,Alchemilla orbiculata,Ruiz & Pavon,,,,,12,orbiculata Ruiz & Pavon
+146,accepted,Aleurites,Euphorbiaceae,Aleurites fordii,Hemsl.,tung-oil-tree,,,,12,fordii Hemsl.--tung-oil-tree
+147,accepted,Aleurites,Euphorbiaceae,Aleurites moluccana,(L.) Willd.,"candlenut, candleberry",,,,12,"moluccana (L.) Willd.--candlenut, candleberry"
+148,accepted,Aleurites,Euphorbiaceae,Aleurites montana,(Lour.) Wils.,mu-oil-tree,,,,12,montana (Lour.) Wils.--mu-oil-tree
+149,synonym,Aleurites,Euphorbiaceae,Aleurites triloba,,,Aleurites moluccana,A. moluccana,,12,(triloba J. R. & G. Forst.) = A. moluccana
+150,accepted,Aleurites,Euphorbiaceae,Aleurites trisperma,Blanco,Philippine tung,,,,12,trisperma Blanco--Philippine tung
+151,synonym,Alhagi,Fabaceae,Alhagi camelorum,,,Alhagi pseudalhagi,A. pseudalhagi,,12,(camelorum Fisch.) = A. pseudalhagi
+152,accepted,Alhagi,Fabaceae,Alhagi pseudalhagi,(Bieb.) Desv.,camelthorn,,,,12,pseudalhagi (Bieb.) Desv.--camelthorn
+153,accepted,Alhagi,Fabaceae,Alhagi tinctoria,(L.) Tausch,alkanna,,,,12,tinctoria (L.) Tausch--alkanna
+154,accepted,Allamanda,Apocynaceae,Allamanda cathartica,L.,allamanda,,,,12,cathartica L.--allamanda
+155,accepted,Allanblackia,Clusiaceae,Allanblackia floribunda,Oliv.,,,,,12,floribunda Oliv.
+156,synonym,Alliaria,Brassicaceae,Alliaria officinalis,,,Alliaria petiolata,A. petiolata,,12,(officinalis Andrz. ex Bieb.) = A. petiolata
+157,accepted,Alliaria,Brassicaceae,Alliaria petiolata,(Bieb.) Cavara & Grande,garlic mustard--[TN],,,TN,12,petiolata (Bieb.) Cavara & Grande--garlic mustard--[TN]
+158,accepted,Allium,Amaryllidaceae,Allium ampeloprasum,L.,"(sens. lat. incl.) leek, elephant garlic,",,,,12,"ampeloprasum L.--(sens. lat. incl.) leek, elephant garlic,"
+159,accepted,Allium,Amaryllidaceae,Allium great-headed,"g., kurrat",,,,,12,"great-headed g., kurrat"
+160,synonym,Allium,Amaryllidaceae,Allium ampeloprasum var. porrum,,,Allium ampeloprasum,A. ampeloprasum,,12,(ampeloprasum var. porrum (L.) Regel) = A. ampeloprasum
+161,synonym,Allium,Amaryllidaceae,Allium ascalonicum,,,Allium cepa,A. cepa,,12,(ascalonicum L.) = A. cepa
+162,accepted,Allium,Amaryllidaceae,Allium bakeri,Regel,,,,,12,bakeri Regel
+163,accepted,Allium,Amaryllidaceae,Allium canadense,L.,wild onion,,,,12,canadense L.--wild onion
+164,accepted,Allium,Amaryllidaceae,Allium cepa,L.,"(sens. lat. incl.) onion, shallot, potato o.,",,,,12,"cepa L.--(sens. lat. incl.) onion, shallot, potato o.,"
+165,accepted,Allium,Amaryllidaceae,Allium multiplier,"o., top o., tree o., Egyptian o.",,,,,12,"multiplier o., top o., tree o., Egyptian o."
+166,synonym,Allium,Amaryllidaceae,Allium cepa var. aggregatum,,,Allium cepa,A. cepa,,12,(cepa var. aggregatum G. Don) = A. cepa
+167,synonym,Allium,Amaryllidaceae,Allium cepa var. proliferum,,,Allium cepa,A. cepa,,12,(cepa var. proliferum (Moench) Aschers.) = A. cepa
+168,synonym,Allium,Amaryllidaceae,Allium cepa var. solaninum,,,Allium cepa,A. cepa,,12,(cepa var. solaninum Ale£.) = A. cepa
+169,synonym,Allium,Amaryllidaceae,Allium cepa var. viviparum,,,Allium cepa,A. cepa,,12,(cepa var. viviparum (Metz.) Ale£.) = A. cepa
+170,accepted,Allium,Amaryllidaceae,Allium cepa X A. £istulosum,,Beltsville bunching onion,,,,12,cepa X A. £istulosum--Beltsville bunching onion
+171,accepted,Allium,Amaryllidaceae,Allium chínense,G. Don,rakkyo,,,,12,chínense G. Don--rakkyo
+172,accepted,Allium,Amaryllidaceae,Allium fistulosum,L.,"Welsh onion, Japanese bunching o.",,,,12,"fistulosum L.--Welsh onion, Japanese bunching o."
+173,synonym,Allium,Amaryllidaceae,Allium porrum,,,Allium ampeloprasum,A. ampeloprasum,,12,(porrum L.) = A. ampeloprasum
+174,accepted,Allium,Amaryllidaceae,Allium sativum,L.,garlic,,,,12,sativum L.--garlic
+175,accepted,Allium,Amaryllidaceae,Allium schoenoprasum,L.,chives,,,,12,schoenoprasum L.--chives
+176,synonym,Allium,Amaryllidaceae,Allium sibiricum,,,Allium schoenoprasum,A. schoenoprasum,,12,(sibiricum L.) = A. schoenoprasum
+177,accepted,Allium,Amaryllidaceae,Allium tricoccum,Ait.,"wild leek, ramp",,,,12,"tricoccum Ait.--wild leek, ramp"
+178,accepted,Allium,Amaryllidaceae,Allium tuberosum,Rottl. ex Spreng.,"Chinese chives, oriental garlic",,,,12,"tuberosum Rottl. ex Spreng.--Chinese chives, oriental garlic"
+179,accepted,Allium,Amaryllidaceae,Allium vineale,L.,"wild garlic, field g.",,,,12,"vineale L.--wild garlic, field g."
+180,accepted,Alnus,Betulaceae,Alnus glutinosa,"(L.) Gaertn,",European alder,,,,13,"glutinosa (L.) Gaertn,--European alder"
+181,accepted,Alnus,Betulaceae,Alnus incana,(L.) Moench,vdiite aider,,,,13,incana (L.) Moench--vdiite aider
+182,accepted,Alnus,Betulaceae,Alnus rubra,Bong.,red aider,,,,13,rubra Bong.--red aider
+183,accepted,Alnus,Betulaceae,Alnus rugosa,(DuRoi) Spreng.,speckled alder,,,,13,rugosa (DuRoi) Spreng.--speckled alder
+184,accepted,Alnus,Betulaceae,Alnus serrulata,(Ait.) Willd.,hazel alder,,,,13,serrulata (Ait.) Willd.--hazel alder
+185,accepted,Alnus,Betulaceae,Alnus sinuata,(Regel) Rydb.,Sitka alder,,,,13,sinuata (Regel) Rydb.--Sitka alder
+186,synonym,Alocasia,Araceae,Alocasia alba,,,Alocasia macrorrhiza,A. macrorrhiza (L.) G. Don,,13,(alba Schott) = A. macrorrhiza (L.) G. Don
+187,synonym,Alocasia,Araceae,Alocasia crassifolia,,,Alocasia macrorrhiza,A. macrorrhiza (L.) G. Don,,13,(crassifolia Engler) = A. macrorrhiza (L.) G. Don
+188,accepted,Alocasia,Araceae,Alocasia macrorrhiza,(L.) G. Don,"giant taro, giant alocasia--[TN]",,,TN,13,"macrorrhiza (L.) G. Don--giant taro, giant alocasia--[TN]"
+189,synonym,Alocasia,Araceae,Alocasia macrorrhiza,,,Alocasia macrorrhiza,A. macrorrhiza (L.) G. Don,,13,(macrorrhiza (L.) Schott) = A. macrorrhiza (L.) G. Don
+190,accepted,Aloe,Liliaceae,Aloe arborescens,Mill.,candelabra aloe,,,,13,arborescens Mill.--candelabra aloe
+191,accepted,Aloe,Liliaceae,Aloe barbadensis,Mill.,"Barbados aloe, Mediterranean a., true a.--[NC], [TN]",,,TN|NC,13,"barbadensis Mill.--Barbados aloe, Mediterranean a., true a.--[NC], [TN]"
+192,accepted,Aloe,Liliaceae,Aloe ferox,Mill.,Cape aloe,,,,13,ferox Mill.--Cape aloe
+193,accepted,Aloe,Liliaceae,Aloe perryi,Baker,,,,,13,perryi Baker
+194,synonym,Aloe,Liliaceae,Aloe vera,,,Aloe barbadensis,A. barbadensis,,13,(vera (L.) Webb ) = A. barbadensis
+195,synonym,Aloe,Liliaceae,Aloe vulgaris,,,Aloe barbadensis,A. barbadensis,,13,(vulgaris Lam.) = A. barbadensis
+196,accepted,Alopecurus,Poaceae,Alopecurus arundinaceus,Poir.,creeping foxtail,,,,13,arundinaceus Poir.--creeping foxtail
+197,accepted,Alopecurus,Poaceae,Alopecurus geniculatus,L.,water foxtail,,,,13,geniculatus L.--water foxtail
+198,accepted,Alopecurus,Poaceae,Alopecurus pratensis,L.,meadow foxtail,,,,13,pratensis L.--meadow foxtail
+199,accepted,Aloysia,Verbenaceae,Aloysia lycioides,Cham.,whitebrush,,,,13,lycioides Cham.--whitebrush
+200,accepted,Aloysia,Verbenaceae,Aloysia triphylla,(L*Her.) Britt.,lemon verbena,,,,13,triphylla (L*Her.) Britt.--lemon verbena
+201,accepted,Alpinia,Zingiberaceae,Alpinia galanga,(L.) Willd.,greater galanga,,,,13,galanga (L.) Willd.--greater galanga
+202,accepted,Alpinia,Zingiberaceae,Alpinia officinarum,Hance,lesser galanga,,,,13,officinarum Hance--lesser galanga
+203,synonym,Altemanthera,Amaranthaceae,Altemanthera amoena,,,Altemanthera ficoidea,A. ficoidea,,13,(amoena (Lem.) Voss) = A. ficoidea
+204,accepted,Altemanthera,Amaranthaceae,Altemanthera brasiliana,(L.) Ktze.,,,,,13,brasiliana (L.) Ktze.
+205,accepted,Altemanthera,Amaranthaceae,Altemanthera ficoidea,"(L.) R. Br. ex Roem. & Schult,",,,,,13,"ficoidea (L.) R. Br. ex Roem. & Schult,"
+206,accepted,Altemanthera,Amaranthaceae,Altemanthera hasslerana,Chod. ex Chod. & Hassl.,,,,,13,hasslerana Chod. ex Chod. & Hassl.
+207,accepted,Altemanthera,Amaranthaceae,Altemanthera philoxeroides,(Mart.) Griseb.,alligatorweed,,,,13,philoxeroides (Mart.) Griseb.--alligatorweed
+208,accepted,Altemanthera,Amaranthaceae,Altemanthera sessilis,(L.) R. Br. ex DC.,,,,,13,sessilis (L.) R. Br. ex DC.
+209,accepted,Althaea,Malvaceae,Althaea officinalis,L.,marsh-mallow,,,,13,officinalis L.--marsh-mallow
+210,synonym,Althaea,Malvaceae,Althaea rosea,,,Alcea rosea,Alcea rosea,,13,(rosea (L.) Cav.) = Alcea rosea
+211,accepted,Alysicarpus,Fabaceae,Alysicarpus vaginalis,(L.) DC.,"alyceclover, oneleaf-clover",,,,13,"vaginalis (L.) DC.--alyceclover, oneleaf-clover"
+212,synonym,Alyssum,Brassicaceae,Alyssum maritimim,,,Lobular ia,Lobular ia marítima,,13,(maritimim (L.) Lam.) = Lobular ia marítima
+213,synonym,Alyssum,Brassicaceae,Alyssum saxatile,,,Aurinia saxatilis,Aurinia saxatilis,,13,(saxatile L.) = Aurinia saxatilis
+214,accepted,Amaranthus,Amaranthaceae,Amaranthus albus,L.,"tumble pigweed, tumbleweed",,,,14,"albus L.--tumble pigweed, tumbleweed"
+215,accepted,Amaranthus,Amaranthaceae,Amaranthus blitoides,S. Wats.,prostrate pigweed,,,,14,blitoides S. Wats.--prostrate pigweed
+216,accepted,Amaranthus,Amaranthaceae,Amaranthus caudatus,L.,"love-lies-bleeding, Inca-wheat",,,,14,"caudatus L.--love-lies-bleeding, Inca-wheat"
+217,accepted,Amaranthus,Amaranthaceae,Amaranthus cruentus,L.,,,,,14,cruentus L.
+218,accepted,Amaranthus,Amaranthaceae,Amaranthus deflexus,L.,,,,,14,deflexus L.
+219,accepted,Amaranthus,Amaranthaceae,Amaranthus dubius,"Mart, ex Thell.",,,,,14,"dubius Mart, ex Thell."
+220,synonym,Amaranthus,Amaranthaceae,Amaranthus edulis,,,Amaranthus caudatus,A. caudatus,,14,(edulis Speg.) = A. caudatus
+221,synonym,Amaranthus,Amaranthaceae,Amaranthus gangeticus,,,Amaranthus tricolor,A. tricolor,,14,(gangeticus L.) = A. tricolor
+222,accepted,Amaranthus,Amaranthaceae,Amaranthus graecizans,L.,,,,,14,graecizans L.
+223,accepted,Amaranthus,Amaranthaceae,Amaranthus hybridus,L.,smooth pigweed,,,,14,hybridus L.--smooth pigweed
+224,accepted,Amaranthus,Amaranthaceae,Amaranthus hypochondriacus,L.,princess-feather,,,,14,hypochondriacus L.--princess-feather
+225,synonym,Amaranthus,Amaranthaceae,Amaranthus leucocarpus,,,Amaranthus hypochondriacus,A. hypochondriacus,,14,(leucocarpus S. Wats.) = A. hypochondriacus
+226,accepted,Amaranthus,Amaranthaceae,Amaranthus lividus,L.,"livid amaranth, wild blite",,,,14,"lividus L.--livid amaranth, wild blite"
+227,accepted,Amaranthus,Amaranthaceae,Amaranthus palmeri,S. Wats.,careless-weed. Palmer amaranth,,,,14,palmeri S. Wats.--careless-weed. Palmer amaranth
+228,synonym,Amaranthus,Amaranthaceae,Amaranthus paniculatus,,,Amaranthus cruentus,A. cruentus,,14,(paniculatus L.) = A. cruentus
+229,accepted,Amaranthus,Amaranthaceae,Amaranthus retroflexus,L.,"redroot pigweed, rough p.",,,,14,"retroflexus L.--redroot pigweed, rough p."
+230,accepted,Amaranthus,Amaranthaceae,Amaranthus spinosus,L.,spiny amaranth,,,,14,spinosus L.--spiny amaranth
+231,accepted,Amaranthus,Amaranthaceae,Amaranthus tricolor,L.,"Chinese amaranth, tampala",,,,14,"tricolor L.--Chinese amaranth, tampala"
+232,accepted,Amaranthus,Amaranthaceae,Amaranthus viridis,L.,slender amaranth,,,,14,viridis L.--slender amaranth
+233,accepted,Ambrosia,Asteraceae,Ambrosia artemisiifolia,L.,common ragweed,,,,14,artemisiifolia L.--common ragweed
+234,accepted,Ambrosia,Asteraceae,Ambrosia grayi,(A. Neis.) Shinners,woollyleaf bursage,,,,14,grayi (A. Neis.) Shinners--woollyleaf bursage
+235,accepted,Ambrosia,Asteraceae,Ambrosia peruviana,Willd.,,,,,14,peruviana Willd.
+236,accepted,Ambrosia,Asteraceae,Ambrosia psilostachya,DC.,western ragweed,,,,14,psilostachya DC.--western ragweed
+237,accepted,Ambrosia,Asteraceae,Ambrosia tomentosa,Nutt.,skeletonlea£ bursage,,,,14,tomentosa Nutt.--skeletonlea£ bursage
+238,accepted,Ambrosia,Asteraceae,Ambrosia trifida,L.,"giant ragweed, buffaloweed",,,,14,"trifida L.--giant ragweed, buffaloweed"
+239,accepted,Amelanchier,Rosaceae,Amelanchier alnifolia,(Nutt.) Nutt.,Saskatoon serviceberry,,,,14,alnifolia (Nutt.) Nutt.--Saskatoon serviceberry
+240,accepted,Amelanchier,Rosaceae,Amelanchier arbórea,(Michx. £.) Fern.,downy serviceberry,,,,14,arbórea (Michx. £.) Fern.--downy serviceberry
+241,accepted,Amelanchier,Rosaceae,Amelanchier laevis,Wieg.,Allegheny serviceberry,,,,14,laevis Wieg.--Allegheny serviceberry
+242,accepted,Amherstia,Fabaceae,Amherstia nobilis,Wall.,pride-o£-Burma,,,,14,nobilis Wall.--pride-o£-Burma
+243,synonym,Ammi,Apiaceae,Ammi copticum,,,Trachyspermum ammi,Trachyspermum ammi,,14,(copticum L.) = Trachyspermum ammi
+244,accepted,Ammi,Apiaceae,Ammi majus,L.,greater ammi,,,,14,majus L.--greater ammi
+245,accepted,Ammi,Apiaceae,Ammi visnaga,(L.) Lam.,"toothpick ammi, khella",,,,14,"visnaga (L.) Lam.--toothpick ammi, khella"
+246,synonym,Ammocallis,Apocynaceae,Ammocallis rosea,,,Catharanthus roseus,Catharanthus roseus,,14,(rosea (L.) Small) = Catharanthus roseus
+247,accepted,Ammophila,Poaceae,Ammophila arenaria,(L.) Link,"European beachgrass, marram grass (Br.)",,,,14,"arenaria (L.) Link--European beachgrass, marram grass (Br.)"
+248,accepted,Ammophila,Poaceae,Ammophila breviligulata,Fern.,American beachgrass,,,,14,breviligulata Fern.--American beachgrass
+249,accepted,Amomum,Zingiberaceae,Amomum compactum,Soland. ex Maton,round cardamom,,,,14,compactum Soland. ex Maton--round cardamom
+250,synonym,Amomum,Zingiberaceae,Amomum kepulaga,,,Amomum compactum,A. compactum,,14,(kepulaga Sprague ^ Burk.) = A. compactum
+251,accepted,Amorphophallus,Araceae,Amorphophallus campanulatus,"(Roxb.) Bl, ex Decne,",whitespot giant arum,,,,15,"campanulatus (Roxb.) Bl, ex Decne,--whitespot giant arum"
+252,accepted,Amorphophallus,Araceae,Amorphophallus rivieri,Dur.,devil's-tongue,,,,15,rivieri Dur.--devil's-tongue
+253,synonym,Amygdalus,Rosaceae,Amygdalus conïïnunis,,,Prunus dulcis,Prunus dulcis,,15,(conïïnunis L.) = Prunus dulcis
+254,synonym,Amygdalus,Rosaceae,Amygdalus dulcis,,,Prunus dulcis,Prunus dulcis,,15,(dulcis Mill.) = Prunus dulcis
+255,accepted,Amyris,Rutaceae,Amyris balsamifera,L.,balsam amyris,,,,15,balsamifera L.--balsam amyris
+256,accepted,Amyris,Rutaceae,Amyris elemifera,L.,sea amyris,,,,15,elemifera L.--sea amyris
+257,accepted,Anacardium,Anacardiaceae,Anacardium occidentale,L.,cashew,,,,15,occidentale L.--cashew
+258,synonym,Anacharis,Ffydrocharitaceae,Anacharis canadensis,,,Elodea canadensis,Elodea canadensis,,15,(canadensis (Michx.) Planch.) = Elodea canadensis
+259,synonym,Anacharis,Ffydrocharitaceae,Anacharis densa,,,Egeria densa,Egeria densa,,15,(densa (Planch.) Marie-Vict.) = Egeria densa
+260,accepted,Anagallis,Primulaceae,Anagallis arvensis,L.,scarlet pimpernel,,,,15,arvensis L.--scarlet pimpernel
+261,accepted,Ananas,Bromeliaceae,Ananas comosus,(L.) Merr.,pineapple,,,,15,comosus (L.) Merr.--pineapple
+262,accepted,Anaphalis,Asteraceae,Anaphalis margaritacea,(L.) Benth. & Hook. £.,pearly everlasting,,,,15,margaritacea (L.) Benth. & Hook. £.--pearly everlasting
+263,synonym,Andropogon,Poaceae,Andropogon annulatus,,,Dichanthium annulatum,Dichanthium annulatum,,15,(annulatus Forsk.) = Dichanthium annulatum
+264,synonym,Andropogon,Poaceae,Andropogon barbinodis,,,Bothriochloa barbinodis,Bothriochloa barbinodis,,15,(barbinodis Lag.) = Bothriochloa barbinodis
+265,accepted,Andropogon,Poaceae,Andropogon bicomis,L.,"West Indian foxtailgrass, ridging grass",,,,15,"bicomis L.--West Indian foxtailgrass, ridging grass"
+266,synonym,Andropogon,Poaceae,Andropogon caucasicus,,,Bothriochloa caucásica,Bothriochloa caucásica,,15,(caucasicus Trin.) = Bothriochloa caucásica
+267,synonym,Andropogon,Poaceae,Andropogon citratus,,,Cymbopogon citratus,Cymbopogon citratus,,15,(citratus DC.) = Cymbopogon citratus
+268,synonym,Andropogon,Poaceae,Andropogon flexuosus,,,Cymbopogon flexuosus,Cymbopogon flexuosus,,15,(flexuosus Nees ex Steud.) = Cymbopogon flexuosus
+269,synonym,Andropogon,Poaceae,Andropogon furcatus,,,Andropogon gerardii,A. gerardii,,15,(furcatus Muhl.) = A. gerardii
+270,accepted,Andropogon,Poaceae,Andropogon gayanus,Kunth,,,,,15,gayanus Kunth
+271,accepted,Andropogon,Poaceae,Andropogon gerardii,Vitm.,big bluestem,,,,15,gerardii Vitm.--big bluestem
+272,accepted,Andropogon,Poaceae,Andropogon hallii,Hack.,sand bluestem,,,,15,hallii Hack.--sand bluestem
+273,synonym,Andropogon,Poaceae,Andropogon intermedius,,,Bothriochloa intermedia,Bothriochloa intermedia,,15,(intermedius R. Br.) = Bothriochloa intermedia
+274,synonym,Andropogon,Poaceae,Andropogon ischaemum,,,Bothriochloa ischaemum,Bothriochloa ischaemum,,15,(ischaemum L.) = Bothriochloa ischaemum
+275,synonym,Andropogon,Poaceae,Andropogon martinii,,,Cymbopogon martinii,Cymbopogon martinii,,15,(martinii Roxb.) = Cymbopogon martinii
+276,synonym,Andropogon,Poaceae,Andropogon nardus,,,Cymbopogon nardus,Cymbopogon nardus,,15,(nardus L.) = Cymbopogon nardus
+277,synonym,Andropogon,Poaceae,Andropogon nodosus,,,Dichanthium aristatum,Dichanthium aristatum,,15,(nodosus (Willem.) Nash) = Dichanthium aristatum
+278,synonym,Andropogon,Poaceae,Andropogon pertusus,,,Bothriochloa pertusa,Bothriochloa pertusa,,15,(pertusus (L.) Willd.) = Bothriochloa pertusa
+279,accepted,Andropogon,Poaceae,Andropogon rhizomatus,Swallen,,,,,15,rhizomatus Swallen
+280,synonym,Andropogon,Poaceae,Andropogon saccharoides,,,Bothriochloa saccharoides,Bothriochloa saccharoides,,15,(saccharoides Sw.) = Bothriochloa saccharoides
+281,synonym,Andropogon,Poaceae,Andropogon scoparius,,,Schizachyrium scoparium,Schizachyrium scoparium,,15,(scoparius Michx.) = Schizachyrium scoparium
+282,synonym,Andropogon,Poaceae,Andropogon sericeus,,,Dichanthium sericeum,Dichanthium sericeum,,15,(sericeus R. Br.) = Dichanthium sericeum
+283,accepted,Andropogon,Poaceae,Andropogon virginicus,L.,broomsedge,,,,15,virginicus L.--broomsedge
+284,accepted,Anemone,Ranunculaceae,Anemone hupehensis var. japónica,(Thunb.) Bowles & Steam,Japanese anemone,,,,16,hupehensis var. japónica (Thunb.) Bowles & Steam--Japanese anemone
+285,accepted,Anemone,Ranunculaceae,Anemone nemorosa,L.,European wood anemone,,,,16,nemorosa L.--European wood anemone
+286,accepted,Anethum,Apiaceae,Anethum graveolens,L.,dill,,,,16,graveolens L.--dill
+287,accepted,Angelica,Apiaceae,Angelica archangelica,L.,garden angelica,,,,16,archangelica L.--garden angelica
+288,accepted,Annona,Annonaceae,Annona cherimola,Mill.,cherimoya,,,,16,cherimola Mill.--cherimoya
+289,accepted,Annona,Annonaceae,Annona diversifolia,Sa££.,ilama,,,,16,diversifolia Sa££.--ilama
+290,accepted,Annona,Annonaceae,Annona glabra,L.,pond-apple,,,,16,glabra L.--pond-apple
+291,accepted,Annona,Annonaceae,Annona montana,Mac £ad.,mountain sour sop,,,,16,montana Mac £ad.--mountain sour sop
+292,accepted,Annona,Annonaceae,Annona muricata,L.,soursop,,,,16,muricata L.--soursop
+293,accepted,Annona,Annonaceae,Annona reticulata,L.,"custard-apple, bullock*s-heart, corazón",,,,16,"reticulata L.--custard-apple, bullock*s-heart, corazón"
+294,accepted,Annona,Annonaceae,Annona Senegalensis,Pers.,wild custard-apple,,,,16,Senegalensis Pers.--wild custard-apple
+295,accepted,Annona,Annonaceae,Annona squamosa,L.,"sugar-apple, sweetsop",,,,16,"squamosa L.--sugar-apple, sweetsop"
+296,accepted,Anoda,Malvaceae,Anoda cristata,(L.) Schlecht.,spurred anoda,,,,16,cristata (L.) Schlecht.--spurred anoda
+297,accepted,Anogeissus,Combretaceae,Anogeissus latifolia,"(Roxb. ex DC.) Wall, ex Bedd.",gum ghatti,,,,16,"latifolia (Roxb. ex DC.) Wall, ex Bedd.--gum ghatti"
+298,synonym,Antelaea,Meliaceae,Antelaea azadirachta,,,Azadirachta indica,Azadirachta indica,,16,(azadirachta (L.) Adelbert) = Azadirachta indica
+299,accepted,Anthémis,Asteraceae,Anthémis arvensis,L.,com chamomile,,,,16,arvensis L.--com chamomile
+300,accepted,Anthémis,Asteraceae,Anthémis cotula,L.,"mayweed, dogfennel, stinking m., mayweed chamomile",,,,16,"cotula L.--mayweed, dogfennel, stinking m., mayweed chamomile"
+301,synonym,Anthémis,Asteraceae,Anthémis nobilis,,,Chamaemelum nobile,Chamaemelum nobile,,16,(nobilis L.) = Chamaemelum nobile
+302,accepted,Anthémis,Asteraceae,Anthémis tinctoria,L.,yellow chamomile,,,,16,tinctoria L.--yellow chamomile
+303,accepted,Anthriscus,Apiaceae,Anthriscus cerefolium,(L.) Hoffm.,chervil,,,,16,cerefolium (L.) Hoffm.--chervil
+304,synonym,Anthriscus,Apiaceae,Anthriscus longirostris,,,Anthriscus cerefolium,A. cerefolium,,16,(longirostris Bertol.) = A. cerefolium
+305,accepted,Anthyllis,Fabaceae,Anthyllis vulneraria,L.,kidney-vetch,,,,16,vulneraria L.--kidney-vetch
+306,accepted,Antidesma,Euphorbiaceae,Antidesma bunius,(L.) Spreng.,"bignay, Oiinese laurel, salamander-tree",,,,16,"bunius (L.) Spreng.--bignay, Oiinese laurel, salamander-tree"
+307,accepted,Antirrhinum,Scrophulariaceae,Antirrhinum majus,L.,snapdragon,,,,16,majus L.--snapdragon
+308,accepted,Apera,Poaceae,Apera spica-venti,(L.) Beauv.,"windgrass, loose silky bent (Br.)",,,,17,"spica-venti (L.) Beauv.--windgrass, loose silky bent (Br.)"
+309,accepted,Aphelandra,Acanthaceae,Aphelandra squarrosa,Nees,zebra-plant,,,,17,squarrosa Nees--zebra-plant
+310,accepted,Apios,Fabaceae,Apios americana,Medik.,American potatobean,,,,17,americana Medik.--American potatobean
+311,synonym,Apium,Apiaceae,Apium dulce,,,Apium graveolens var. dulce,A. graveolens var. dulce,,17,(dulce Mill.) = A. graveolens var. dulce
+312,accepted,Apium,Apiaceae,Apium graveolens,L. var. dulce (Mill.) Pers.,celery,,,,17,graveolens L. var. dulce (Mill.) Pers.--celery
+313,accepted,Apium,Apiaceae,Apium graveolens var. rapaceum,(Mill.) Gaudich.,"celeriac, turnip-rooted",,,,17,"graveolens var. rapaceum (Mill.) Gaudich.--celeriac, turnip-rooted"
+314,accepted,Apium,Apiaceae,"Apium celery,","knob c, celery-root",,,,,17,"celery, knob c, celery-root"
+315,accepted,Apium,Apiaceae,Apium leptophyllum,(Pers.) F. v. Muell. ex Benth.,"wild celery, slender c.",,,,17,"leptophyllum (Pers.) F. v. Muell. ex Benth.--wild celery, slender c."
+316,synonym,Apium,Apiaceae,Apium petroselinum,,,Petroselinum crispum,Petroselinum crispum,,17,(petroselinum L.) = Petroselinum crispum
+317,synonym,Apium,Apiaceae,Apium rapaceum,,,Apium graveolens var. rapaceum,A. graveolens var. rapaceum,,17,(rapaceum Mill.) = A. graveolens var. rapaceum
+318,accepted,Apocynum,Apocynaceae,Apocynum androsaemifolium,L.,spreading dogbane,,,,17,androsaemifolium L.--spreading dogbane
+319,accepted,Apocynum,Apocynaceae,Apocynum cannabinum,L.,"hemp dogbane, Indian hemp",,,,17,"cannabinum L.--hemp dogbane, Indian hemp"
+320,accepted,Aquilegia,Ranunculaceae,Aquilegia vulgaris,L.,European columbine,,,,17,vulgaris L.--European columbine
+321,accepted,Arabidopsis,Brassicaceae,Arabidopsis thaliana,(L.) Heynh.,mouse-ear cress,,,,17,thaliana (L.) Heynh.--mouse-ear cress
+322,accepted,Arachis,Fabaceae,Arachis hypogaea,L.,"peanut, groundnut, goober, mani",,,,17,"hypogaea L.--peanut, groundnut, goober, mani"
+323,accepted,Aralia,Araliaceae,Aralia cordata,Thunb.,"udo, spikenard, oudo",,,,17,"cordata Thunb.--udo, spikenard, oudo"
+324,synonym,Aralia,Araliaceae,Aralia edulis,,,Aralia cordata,A. cordata,,17,(edulis Sieb. & Zuce.) = A. cordata
+325,accepted,Aralia,Araliaceae,Aralia spinosa,L.,"devil*s-walkingstick, Hercules-club",,,,17,"spinosa L.--devil*s-walkingstick, Hercules-club"
+326,accepted,Araucaria,Araucariaceae,Araucaria angustifolia,(Bertol.) Ktze.,Parana-pine,,,,17,angustifolia (Bertol.) Ktze.--Parana-pine
+327,accepted,Araucaria,Araucariaceae,Araucaria araucana,(Mol.) K. Koch,monkey-puzzle-tree,,,,17,araucana (Mol.) K. Koch--monkey-puzzle-tree
+328,accepted,Araucaria,Araucariaceae,Araucaria bidwillii,Hook.,bunya-bunya,,,,17,bidwillii Hook.--bunya-bunya
+329,accepted,Araucaria,Araucariaceae,Araucaria cunninghamii,D. Don,^toreton Bay-pine,,,,17,cunninghamii D. Don--^toreton Bay-pine
+330,accepted,Araujia,Asclepiadaceae,Araujia sericoJFera,Brot. - -bladder-flower,,,,,17,sericoJFera Brot. - -bladder-flower
+331,accepted,Arbutus,Ericaceae,Arbutus menziesii,Pursh,Pacific madrone,,,,17,menziesii Pursh--Pacific madrone
+332,synonym,Archangelica,Apiaceae,Archangelica officinalis,,,Angelica archangelica,Angelica archangelica,,17,(officinalis Hoffm.) = Angelica archangelica
+333,accepted,Arctium,Asteraceae,Arctium lappa,L.,"great burdock, edible b.",,,,17,"lappa L.--great burdock, edible b."
+334,accepted,Arctium,Asteraceae,Arctium minus,Bernh.,"common burdock, lesser b.",,,,18,"minus Bernh.--common burdock, lesser b."
+335,accepted,Arctostaphylos,Ericaceae,Arctostaphylos uva-ursi,(L.) Spreng.,bearberry,,,,18,uva-ursi (L.) Spreng.--bearberry
+336,accepted,Areca,Arecaceae,Areca catechu,"L,","betel-nut, betel palm, areca-nut",,,,18,"catechu L,--betel-nut, betel palm, areca-nut"
+337,synonym,Areca,Arecaceae,Areca cathecu,,,Areca catechu,A. catechu,,18,(cathecu L.) = A. catechu
+338,accepted,Arecastrum,Arecaceae,Arecastrum romanzoffianum,(Cham.) Becc,queen palm,,,,18,romanzoffianum (Cham.) Becc--queen palm
+339,accepted,Arenaria,Caryophyllaceae,Arenaria serpyllifolia,L.,thymelea£ sandwort,,,,18,serpyllifolia L.--thymelea£ sandwort
+340,accepted,Arenga,Arecaceae,Arenga pinnata,(vVurmb) Merr.,sugar palm,,,,18,pinnata (vVurmb) Merr.--sugar palm
+341,synonym,Arenga,Arecaceae,Arenga saccharifera,,,Arenga pinnata,A. pinnata,,18,(saccharifera Labill.) = A. pinnata
+342,accepted,Argemone,Papaveraceae,Argemone mexicana,L.,"Mexican pricklepoppy, Mexican prickly-poppy",,,,18,"mexicana L.--Mexican pricklepoppy, Mexican prickly-poppy"
+343,accepted,Argyreia,Convolvulaceae,Argyreia nervosa,(Burm. £.) Boj.,elephant-climber,,,,18,nervosa (Burm. £.) Boj.--elephant-climber
+344,synonym,Argyreia,Convolvulaceae,Argyreia speciosa,,,Argyreia nervosa,A. nervosa,,18,(speciosa (L. £.) Sweet) = A. nervosa
+345,synonym,Aristoclesia,Clusiaceae,Aristoclesia esculenta,,,Platonia esculenta,Platonia esculenta,,18,(esculenta (Arr. Caía.) Stuntz) = Platonia esculenta
+346,synonym,Armoracia,Brassicaceae,Armoracia lapathifolia,,,Armoracia rusticana,A. rusticana,,18,(lapathifolia Gilib. ex Usteri) = A. rusticana
+347,accepted,Armoracia,Brassicaceae,Armoracia rusticana,"Gaertn.,Mey. & Scherb.",horseradish--[TN],,,TN,18,"rusticana Gaertn.,Mey. & Scherb.--horseradish--[TN]"
+348,accepted,Arnica,Asteraceae,Arnica montana,L.,"arnica., European a.",,,,18,"montana L.--arnica., European a."
+349,synonym,Arracada,Apiaceae,Arracada esculenta,,,Arracada xanthorrhiza,A. xanthorrhiza,,18,(esculenta DC.) = A. xanthorrhiza
+350,accepted,Arracada,Apiaceae,Arracada xanthorrhiza,Bancroft,"arracacha, Peruvian-carrot",,,,18,"xanthorrhiza Bancroft--arracacha, Peruvian-carrot"
+351,accepted,Arrhenatherum,Poaceae,Arrhenatherum elatius,(L.) Beauv. ex J. & C. Presl,tall oatgrass--[TN],,,TN,18,elatius (L.) Beauv. ex J. & C. Presl--tall oatgrass--[TN]
+352,synonym,Arrhenatherum,Poaceae,Arrhenatherum elatius,,,Arrhenatherum elatius,A. elatius (L.) Beauv. ex J. & C. Presl,,18,(elatius Mert. S Koch) = A. elatius (L.) Beauv. ex J. & C. Presl
+353,accepted,Artemisia,Asteraceae,Artemisia abrotanum,"L,","southernwood, southern wormwood",,,,18,"abrotanum L,--southernwood, southern wormwood"
+354,accepted,Artemisia,Asteraceae,Artemisia absinthium,L.,"wormwood, absinthe w., absinthium, absinthe",,,,18,"absinthium L.--wormwood, absinthe w., absinthium, absinthe"
+355,accepted,Artemisia,Asteraceae,Artemisia annua,L.,annual worrmvood,,,,18,annua L.--annual worrmvood
+356,accepted,Artemisia,Asteraceae,Artemisia arbuscula,Nutt.,low sagebrush,,,,18,arbuscula Nutt.--low sagebrush
+357,accepted,Artemisia,Asteraceae,Artemisia califomica,Less.,California sagebrush,,,,18,califomica Less.--California sagebrush
+358,accepted,Artemisia,Asteraceae,Artemisia cana,Pursh,silver sagebrush,,,,18,cana Pursh--silver sagebrush
+359,accepted,Artemisia,Asteraceae,Artemisia ciña,Berg & Schmidt,santonica,,,,19,ciña Berg & Schmidt--santonica
+360,accepted,Artemisia,Asteraceae,Artemisia douglasiana,"Bess,",,,,,19,"douglasiana Bess,"
+361,accepted,Artemisia,Asteraceae,Artemisia dracunculus,L.,tarragon,,,,19,dracunculus L.--tarragon
+362,accepted,Artemisia,Asteraceae,Artemisia frigida,Willd.,fringed sagebrush,,,,19,frigida Willd.--fringed sagebrush
+363,accepted,Artemisia,Asteraceae,Artemisia ludoviciana,Nutt.,"Louisiana wormwood, western mugwort",,,,19,"ludoviciana Nutt.--Louisiana wormwood, western mugwort"
+364,accepted,Artemisia,Asteraceae,Artemisia maritima,L.,sea wormwood,,,,19,maritima L.--sea wormwood
+365,accepted,Artemisia,Asteraceae,Artemisia tridentata,Mutt.,big sagebrush,,,,19,tridentata Mutt.--big sagebrush
+366,accepted,Artemisia,Asteraceae,Artemisia vulgaris,L.,mugwort,,,,19,vulgaris L.--mugwort
+367,synonym,Arthrophyllum,Araliaceae,Arthrophyllum pinnatum,,,Polyscias rumphiana,Polyscias rumphiana,,19,"(pinnatum (Lam.) C. B, Clarke) = Polyscias rumphiana"
+368,accepted,Artocarpus,Moraceae,Artocarpus altills,(Parkins.) Fosb.,breadfruit,,,,19,altills (Parkins.) Fosb.--breadfruit
+369,synonym,Artocarpus,Moraceae,Artocarpus champeden,,,Artocarpus integer,A. integer,,19,(champeden (Lour.) Spreng.) = A. integer
+370,synonym,Artocarpus,Moraceae,Artocarpus champeden,,,Artocarpus integer,A. integer,,19,(champeden (Lour.) Stokes) = A. integer
+371,synonym,Artocarpus,Moraceae,Artocarpus communis,,,Artocarpus altills,A. altills,,19,(communis J. R. Forst.) = A. altills
+372,accepted,Artocarpus,Moraceae,Artocarpus elasticus,Reinw. ex Bl.,,,,,19,elasticus Reinw. ex Bl.
+373,accepted,Artocarpus,Moraceae,Artocarpus heterophyllus,Lam.,"jackfruit, jack",,,,19,"heterophyllus Lam.--jackfruit, jack"
+374,accepted,Artocarpus,Moraceae,Artocarpus hirsutus,Lam.,,,,,19,hirsutus Lam.
+375,accepted,Artocarpus,Moraceae,Artocarpus integer,(Thunb.) î^rr.,chempedak,,,,19,integer (Thunb.) î^rr.--chempedak
+376,synonym,Artocarpus,Moraceae,Artocarpus integrifolius,,,Artocarpus heterophyllus,A. heterophyllus,,19,(integrifolius auct. non L. f.) = A. heterophyllus
+377,synonym,Artocarpus,Moraceae,Artocarpus integrifolius,,,Artocarpus integer,A. integer,,19,(integrifolius L. f.) = A. integer
+378,accepted,Artocarpus,Moraceae,Artocarpus mariannensis,Trecul,,,,,19,mariannensis Trecul
+379,accepted,Artocarpus,Moraceae,Artocarpus rigidus,Bl.,monkey jack,,,,19,rigidus Bl.--monkey jack
+380,accepted,Artocarpus,Moraceae,Artocarpus tamaran,Becc.,,,,,19,tamaran Becc.
+381,synonym,Arum,Araceae,Arum esculentum,,,Colocasia esculenta,Colocasia esculenta,,19,(esculentum L.) = Colocasia esculenta
+382,accepted,Arundinaria,Poaceae,Arundinaria amabilis,McClure,"Tonkin cane, Tonkin bamboo",,,,19,"amabilis McClure--Tonkin cane, Tonkin bamboo"
+383,accepted,Arundinaria,Poaceae,Arundinaria gigantea,(Walt.) Muhl. subsp. gigantea,giant cane,,,,19,gigantea (Walt.) Muhl. subsp. gigantea--giant cane
+384,accepted,Arundinaria,Poaceae,Arundinaria gigantea subsp. tecta,(Walt.) McClure,switch cane,,,,19,gigantea subsp. tecta (Walt.) McClure--switch cane
+385,synonym,Arundinaria,Poaceae,Arundinaria longifolia,,,Bambusa longifolia,Bambusa longifolia,,19,(longifolia Foum.) = Bambusa longifolia
+386,accepted,Arundinaria,Poaceae,Arundinaria simonii,(Carr.) A. & C. Riv.,Simon bamboo,,,,19,simonii (Carr.) A. & C. Riv.--Simon bamboo
+387,synonym,Arundinaria,Poaceae,Arundinaria tecta,,,Arundinaria gigantea subsp. tecta,A. gigantea subsp. tecta,,19,(tecta (Walt.) Muhl.) = A. gigantea subsp. tecta
+388,accepted,Arundo,Poaceae,Arundo donax,L.,giant reed,,,,19,donax L.--giant reed
+389,accepted,Asclepias,Asclepiadaceae,Asclepias curassavica,L.,"bloodflower milkweed, false ipecac",,,,19,"curassavica L.--bloodflower milkweed, false ipecac"
+390,accepted,Asclepias,Asclepiadaceae,Asclepias subulata,Decne.,desert milkweed,,,,19,subulata Decne.--desert milkweed
+391,accepted,Asclepias,Asclepiadaceae,Asclepias syriaca,L.,common milkweed,,,,19,syriaca L.--common milkweed
+392,accepted,Asclepias,Asclepiadaceae,Asclepias verticillata,L.,eastern whorled milkweed,,,,19,verticillata L.--eastern whorled milkweed
+393,accepted,Asimina,Annonaceae,Asimina triloba,(L.) Dunal,pawpaw,,,,19,triloba (L.) Dunal--pawpaw
+394,accepted,Asparagus,Liliaceae,Asparagus africanus,Lam.,,,,,19,africanus Lam.
+395,accepted,Asparagus,Liliaceae,Asparagus densiflorus,(Kunth) Jessop,[TN],,,TN,19,densiflorus (Kunth) Jessop--[TN]
+396,accepted,Asparagus,Liliaceae,Asparagus officinalis,L.,garden asparagus,,,,20,officinalis L.--garden asparagus
+397,synonym,Asparagus,Liliaceae,Asparagus sprengeri,,,Asparagus densiflorus,A. densiflorus cv. Sprengeri,,20,(sprengeri Regel) = A. densiflorus cv. Sprengeri
+398,synonym,Asperula,Rubiaceae,Asperula odorata,,,Galium odoratum,Galium odoratum,,20,(odorata L.) = Galium odoratum
+399,accepted,Asphodelus,Liliaceae,Asphodelus albus,"Mill,",,,,,20,"albus Mill,"
+400,synonym,Asphodelus,Liliaceae,Asphodelus sphaerocarpus,,,Asphodelus albus,A. albus,,20,(sphaerocarpus Gren. & Godr.) = A. albus
+401,accepted,Aster,Asteraceae,Aster ericoides,L.,heath aster,,,,20,ericoides L.--heath aster
+402,accepted,Astragalus,Fabaceae,Astragalus cicer,L.,cicer milkvetch,,,,20,cicer L.--cicer milkvetch
+403,accepted,Astragalus,Fabaceae,Astragalus edulis,"Dur, ex Bunge",,,,,20,"edulis Dur, ex Bunge"
+404,accepted,Astragalus,Fabaceae,Astragalus gummifer,Labill.,gum tragacanth (in part),,,,20,gummifer Labill.--gum tragacanth (in part)
+405,accepted,Astragalus,Fabaceae,Astragalus mollissimüs,Torr.,wDolly loco,,,,20,mollissimüs Torr.--wDolly loco
+406,accepted,Atriplex,Chenopodiaceae,Atriplex canescens,(Pursh) Nutt.,"fourwing saltbush, chamisa",,,,20,"canescens (Pursh) Nutt.--fourwing saltbush, chamisa"
+407,accepted,Atriplex,Chenopodiaceae,Atriplex confertifolia,(Torr. & Frem.) S. Wats;,shadscale,,,,20,confertifolia (Torr. & Frem.) S. Wats;--shadscale
+408,accepted,Atriplex,Chenopodiaceae,Atriplex halimus,L.,,,,,20,halimus L.
+409,synonym,Atriplex,Chenopodiaceae,Atriplex hastata,,,Atriplex patula subsp. hastata,A. patula subsp. hastata,,20,(hastata L.) = A. patula subsp. hastata
+410,accepted,Atriplex,Chenopodiaceae,Atriplex hortensis,L.,"garden orach, orach, orache",,,,20,"hortensis L.--garden orach, orach, orache"
+411,accepted,Atriplex,Chenopodiaceae,Atriplex nummularia,Lindl.,old man saltbush,,,,20,nummularia Lindl.--old man saltbush
+412,accepted,Atriplex,Chenopodiaceae,Atriplex patula,L. subsp. hastata (L.) Hall & Clem.,halberdlea£ orach--[TN],,,TN,20,patula L. subsp. hastata (L.) Hall & Clem.--halberdlea£ orach--[TN]
+413,accepted,Atriplex,Chenopodiaceae,Atriplex patula subsp. patula,,spreading orach,,,,20,patula subsp. patula--spreading orach
+414,synonym,Atriplex,Chenopodiaceae,Atriplex patula var. hastata,,,Atriplex patula subsp. hastata,A. patula subsp. hastata,,20,(patula var. hastata (L.) A. Gray) = A. patula subsp. hastata
+415,accepted,Atropa,Solanaceae,Atropa bella-donna,L.,"belladonna, deadly nightshade",,,,20,"bella-donna L.--belladonna, deadly nightshade"
+416,synonym,Attalea,Arecaceae,Attalea cohune,,,Orbignya cohune,Orbignya cohune,,20,(cohune Mart.) = Orbignya cohune
+417,accepted,Attalea,Arecaceae,Attalea funifera,"Mart, ex Spreng.",Bahia piassaba palm,,,,20,"funifera Mart, ex Spreng.--Bahia piassaba palm"
+418,accepted,Aucuba,Comaceae,Aucuba japónica,Thunb.,Japanese aucuba,,,,20,japónica Thunb.--Japanese aucuba
+419,accepted,Aurinia,Brassicaceae,Aurinia saxatilis,(L.) Desv.,basket-o£-gold,,,,20,saxatilis (L.) Desv.--basket-o£-gold
+420,accepted,Avena,Poaceae,Avena abyssinica,"Höchst, ex A. Rich.",Abyssinian oat,,,,20,"abyssinica Höchst, ex A. Rich.--Abyssinian oat"
+421,synonym,Avena,Poaceae,Avena barbata,,,Avena barbata,A. barbata Pott ex Link,,20,(barbata Brot.) = A. barbata Pott ex Link
+422,accepted,Avena,Poaceae,Avena barbata,Pott ex Link,slender oat,,,,20,barbata Pott ex Link--slender oat
+423,accepted,Avena,Poaceae,Avena byzantina,K. Koch,"red oat, Mediterranean o., Algerian o.",,,,20,"byzantina K. Koch--red oat, Mediterranean o., Algerian o."
+424,synonym,Avena,Poaceae,Avena elatior,,,Arrhenatherum elatius,Arrhenatherum elatius,,20,(elatior L.) = Arrhenatherum elatius
+425,accepted,Avena,Poaceae,Avena fatua,L.,wild oat,,,,20,fatua L.--wild oat
+426,accepted,Avena,Poaceae,Avena nuda,L.,naked oat,,,,20,nuda L.--naked oat
+427,accepted,Avena,Poaceae,Avena sativa,L.,"oat, oats, common o.",,,,21,"sativa L.--oat, oats, common o."
+428,accepted,Avena,Poaceae,Avena sterilis,L.,animated oat,,,,21,sterilis L.--animated oat
+429,accepted,Avena,Poaceae,Avena strigosa,Schreb.,"bristle oat, sand o., small o.",,,,21,"strigosa Schreb.--bristle oat, sand o., small o."
+430,accepted,Averrhoa,Oxalidaceae,Averrhoa bilimbi,L.,bilimbi,,,,21,bilimbi L.--bilimbi
+431,accepted,Averrhoa,Oxalidaceae,Averrhoa carambola,L.,"carambola, starfruit",,,,21,"carambola L.--carambola, starfruit"
+432,accepted,Avicennia,Avicenniaceae,Avicennia africana,Beauv.,,,,,21,africana Beauv.
+433,accepted,Avicennia,Avicenniaceae,Avicennia germinans,(L.) L.,black mangrove,,,,21,germinans (L.) L.--black mangrove
+434,synonym,Avicennia,Avicenniaceae,Avicennia nitida,,,Avicennia germinans,A. germinans,,21,(nitida Jacq.) = A. germinans
+435,accepted,Axonopus,Poaceae,Axonopus affinis,Chase,carpetgrass,,,,21,affinis Chase--carpetgrass
+436,accepted,Axonopus,Poaceae,Axonopus compressas,"(Sw.) Beauv,",tropical carpetgrass,,,,21,"compressas (Sw.) Beauv,--tropical carpetgrass"
+437,accepted,Axonopus,Poaceae,Axonopus purpusii,(Mez) Chase,,,,,21,purpusii (Mez) Chase
+438,accepted,Axonopus,Poaceae,Axonopus scoparius,(Fluegge) Hitchc.,,,,,21,scoparius (Fluegge) Hitchc.
+439,accepted,Axyris,Chenopodiaceae,Axyris amaranthoides,L.,Russian pigweed,,,,21,amaranthoides L.--Russian pigweed
+440,accepted,Azadirachta,Meliaceae,Azadirachta indica,A. Juss.,"neem, margosa",,,,21,"indica A. Juss.--neem, margosa"
+441,accepted,Azolla,Salviniaceae,Azolla caroliniana,Willd.,"azolla, waterfem",,,,21,"caroliniana Willd.--azolla, waterfem"
+442,accepted,Baccaurea,Euphorbiaceae,Baccaurea motleyana,(Ntiell.-Arg.) I4iell.-Arg.,rambai,,,,21,motleyana (Ntiell.-Arg.) I4iell.-Arg.--rambai
+443,accepted,Baccaurea,Euphorbiaceae,Baccaurea racemosa,(Bl.) Muell.-Arg.,"menteng, kapundung",,,,21,"racemosa (Bl.) Muell.-Arg.--menteng, kapundung"
+444,accepted,Baccaurea,Euphorbiaceae,Baccaurea ramiflora,"Lour,",,,,,21,"ramiflora Lour,"
+445,synonym,Baccaurea,Euphorbiaceae,Baccaurea sápida,,,Baccaurea ramiflora,B. ramiflora,,21,(sápida (Roxb.) Nftiell.-Arg.) = B. ramiflora
+446,accepted,Bacopa,Scrophulariaceae,Bacopa monnieri,(L.) Pennell,,,,,21,monnieri (L.) Pennell
+447,accepted,Bactris,Arecaceae,Bactris gasipaes,H.B.K.,peach palm,,,,21,gasipaes H.B.K.--peach palm
+448,accepted,Baeckea,M/rtaceae,Baeckea frutescens,L.,,,,,21,frutescens L.
+449,accepted,Baillonella,Sapotaceae,Baillonella toxisperma,Pierre,,,,,21,toxisperma Pierre
+450,accepted,Balanites,Zygophyllaceae,Balanites aegyptiaca,(L.) Del.,desert-date,,,,21,aegyptiaca (L.) Del.--desert-date
+451,synonym,Balsamita,Asteraceae,Balsamita major,,,Chrysanthemum balsamita,Chrysanthemum balsamita,,21,(major Desf.) = Chrysanthemum balsamita
+452,accepted,Bambusa,Poaceae,Bambusa beecheyana,Munro,,,,,22,beecheyana Munro
+453,accepted,Bambusa,Poaceae,Bambusa longifolia,(Foum.) McClure,,,,,22,longifolia (Foum.) McClure
+454,accepted,Bambusa,Poaceae,Bambusa longispiculata,Gamble ex Brandis,,,,,22,longispiculata Gamble ex Brandis
+455,accepted,Bambusa,Poaceae,Bambusa multiplex,(Lour.) Raeusch.,hedge bamboo,,,,22,multiplex (Lour.) Raeusch.--hedge bamboo
+456,accepted,Bambusa,Poaceae,Bambusa polymorpha,Munro,,,,,22,polymorpha Munro
+457,accepted,Bambusa,Poaceae,Bambusa textilis,McClure,,,,,22,textilis McClure
+458,accepted,Bambusa,Poaceae,Bambusa tulda,Roxb.,,,,,22,tulda Roxb.
+459,accepted,Bambusa,Poaceae,Bambusa tuldoides,Munro,puntingpole bamboo,,,,22,tuldoides Munro--puntingpole bamboo
+460,accepted,Bambusa,Poaceae,Bambusa vulgaris,Schrad. ex Wendl.,,,,,22,vulgaris Schrad. ex Wendl.
+461,accepted,Banisteriopsis,Malpighiaceae,Banisteriopsis caapi,(Spruce ex Griseb.) Morton,"ayahuasca, caapi, yaje",,,,22,"caapi (Spruce ex Griseb.) Morton--ayahuasca, caapi, yaje"
+462,accepted,Banisteriopsis,Malpighiaceae,Banisteriopsis inebrians,Morton,caapi,,,,22,inebrians Morton--caapi
+463,accepted,Banisteriopsis,Malpighiaceae,Banisteriopsis quitensis,(Niedz.) Morton,,,,,22,quitensis (Niedz.) Morton
+464,accepted,Baphia,Fabaceae,Baphia nitida,Lodd.,"camwood, barwood",,,,22,"nitida Lodd.--camwood, barwood"
+465,synonym,Barbarea,Brassicaceae,Barbarea praecox,,,Barbarea vema,B. vema,,22,(praecox (Sm.) R. Br.) = B. vema
+466,accepted,Barbarea,Brassicaceae,Barbarea vema,(Mill.) Aschers.,early winterer es s,,,,22,vema (Mill.) Aschers.--early winterer es s
+467,accepted,Barbarea,Brassicaceae,Barbarea vulgaris,R. Br.,"yellow rocket, wintercress, upland cress",,,,22,"vulgaris R. Br.--yellow rocket, wintercress, upland cress"
+468,accepted,Bar1eria,Acanthaceae,Bar1eria opaca,(Vahl) Nees,kwahu,,,,22,opaca (Vahl) Nees--kwahu
+469,synonym,Barosma,Rutaceae,Barosma betulina,,,Agathosma betulina,Agathosma betulina,,22,(betulina (Berg.) Bartl. & Wendl. £.) = Agathosma betulina
+470,synonym,Barosma,Rutaceae,Barosma crenulata,,,Agathosma crenulata,Agathosma crenulata,,22,(crenulata (L.) Hook.) = Agathosma crenulata
+471,synonym,Barosma,Rutaceae,Barosma serratifolia,,,Agathosma crenulata,Agathosma crenulata,,22,(serratifolia (Curt.) Willd.) = Agathosma crenulata
+472,accepted,Basella,Basellaceae,Basella alba,L.,"Malabar-spinach, vine-spinach",,,,22,"alba L.--Malabar-spinach, vine-spinach"
+473,synonym,Basella,Basellaceae,Basella rubra,,,Basella alba,B. alba,,22,(rubra L.) = B. alba
+474,synonym,Bassia,Sapotaceae,Bassia butyracea,,,Madhuca butyracea,Madhuca butyracea,,22,(butyracea Roxb.) = Madhuca butyracea
+475,synonym,Bassia,Sapotaceae,Bassia latifolia,,,Madhuca indica,Madhuca indica,,22,(latifolia Roxb.) = Madhuca indica
+476,synonym,Bassia,Sapotaceae,Bassia longifolia,,,Ivladhuca longifolia,Ivladhuca longifolia,,22,(longifolia L.) = Ivladhuca longifolia
+477,accepted,Bauhinia,Fabaceae,Bauhinia esculenta,Burchell,"camel's-foot, gemsbok bean",,,,22,"esculenta Burchell--camel's-foot, gemsbok bean"
+478,synonym,Bauhinia,Fabaceae,Bauhinia fassoglensis,,,Tylosema fassoglensis,Tylosema fassoglensis,,22,(fassoglensis Schweinf.) = Tylosema fassoglensis
+479,accepted,Bauhinia,Fabaceae,Bauhinia purpurea,L.,purple bauhinia,,,,22,purpurea L.--purple bauhinia
+480,accepted,Beaumontia,Apocynaceae,Beaumontia grandiflora,(Roxb.) Wall.,herald's-trumpet,,,,22,grandiflora (Roxb.) Wall.--herald's-trumpet
+481,accepted,Beckmannia,Poaceae,Beckmannia syzigachne,(Steud.) Fem.,sloughgrass,,,,22,syzigachne (Steud.) Fem.--sloughgrass
+482,accepted,Bellis,Asteraceae,Bellis perennis,L.,English daisy,,,,23,perennis L.--English daisy
+483,synonym,Benincasa,Cucurbitaceae,Benincasa cerifera,,,Benincasa hispida,B. hispida,,23,(cerifera Savi) = B. hispida
+484,accepted,Benincasa,Cucurbitaceae,Benincasa hispida,(Thunb.) Cogn.,waxgourd,,,,23,hispida (Thunb.) Cogn.--waxgourd
+485,accepted,Berberis,Berberidaceae,Berberis canadensis,Mill.,American barberry,,,,23,canadensis Mill.--American barberry
+486,accepted,Berberis,Berberidaceae,Berberis thunbergii,DC.,Japanese barberry,,,,23,thunbergii DC.--Japanese barberry
+487,accepted,Berberis,Berberidaceae,Berberis vulgaris,L.,European barberry,,,,23,vulgaris L.--European barberry
+488,accepted,Berteroa,Brassicaceae,Berteroa incana,(L.) DC.,hoary alyssum,,,,23,incana (L.) DC.--hoary alyssum
+489,accepted,Bertholletia,Lecythidaceae,Bertholletia excelsa,Hjmb. & Bonpl.,"brazilnut, Brazil-nut",,,,23,"excelsa Hjmb. & Bonpl.--brazilnut, Brazil-nut"
+490,accepted,Beta,Chenopodiaceae,Beta vulgaris,L.,"(sens. lat. incl.) (1) Beet Group: beet, garden b.,",,,,23,"vulgaris L.--(sens. lat. incl.) (1) Beet Group: beet, garden b.,"
+491,accepted,Beta,Chenopodiaceae,Beta beetroot,"(Br.); sugar beet; mangel, mangold; (2) Cicla Group:",,,,,23,"beetroot (Br.); sugar beet; mangel, mangold; (2) Cicla Group:"
+492,accepted,Beta,Chenopodiaceae,"Beta chard,",Swiss c.,,,,,23,"chard, Swiss c."
+493,synonym,Beta,Chenopodiaceae,Beta vulgaris var. cicla,,,Beta vulgaris,B. vulgaris (Cicla Group),,23,(vulgaris var. cicla L.) = B. vulgaris (Cicla Group)
+494,accepted,Betula,Betulaceae,Betula alleghaniensis,Britt.,yellow birch,,,,23,alleghaniensis Britt.--yellow birch
+495,accepted,Betula,Betulaceae,Betula lenta,L.,"sweet birch, black b.",,,,23,"lenta L.--sweet birch, black b."
+496,synonym,Betula,Betulaceae,Betula lutea,,,Betula alleghaniensis,B. alleghaniensis,,23,(lutea Michx. £.) = B. alleghaniensis
+497,accepted,Betula,Betulaceae,Betula papyrifera,Marsh.,paper birch,,,,23,papyrifera Marsh.--paper birch
+498,accepted,Betula,Betulaceae,Betula péndula,Roth,European white birch,,,,23,péndula Roth--European white birch
+499,accepted,Betula,Betulaceae,Betula pubescens,Ehrh.,,,,,23,pubescens Ehrh.
+500,accepted,Bidens,Asteraceae,Bidens bipinnata,L.,"Spanish needles, beggarticks",,,,23,"bipinnata L.--Spanish needles, beggarticks"
+501,accepted,Bidens,Asteraceae,Bidens cernua,L.,nodding beggarticks,,,,23,cernua L.--nodding beggarticks
+502,accepted,Bidens,Asteraceae,Bidens comosa,(A. Gray) Wieg.,leafybract beggarticks,,,,23,comosa (A. Gray) Wieg.--leafybract beggarticks
+503,accepted,Bidens,Asteraceae,Bidens connata,Muhl.,purplestem beggarticks,,,,23,connata Muhl.--purplestem beggarticks
+504,accepted,Bidens,Asteraceae,Bidens frondosa,L.,devils beggarticks,,,,23,frondosa L.--devils beggarticks
+505,accepted,Bidens,Asteraceae,Bidens pilosa,L.,hairy beggarticks,,,,23,pilosa L.--hairy beggarticks
+506,accepted,Bidens,Asteraceae,Bidens polylepis,Blake,coreopsis beggarticks,,,,23,polylepis Blake--coreopsis beggarticks
+507,accepted,Bidens,Asteraceae,Bidens vulgata,Greene,tall beggarticks,,,,23,vulgata Greene--tall beggarticks
+508,accepted,Bixa,Bixaceae,Bixa orellana,L.,annatto,,,,23,orellana L.--annatto
+509,accepted,Blighia,Sapindaceae,Blighia sápida,Koen.,akee,,,,23,sápida Koen.--akee
+510,accepted,Blumea,Asteraceae,Blumea balsamifera,(L.) DC.,Nagi camphor,,,,23,balsamifera (L.) DC.--Nagi camphor
+511,accepted,Blumea,Asteraceae,Blumea lacera,(Burm. f.) DC.,,,,,23,lacera (Burm. f.) DC.
+512,accepted,Boehmeria,Urticaceae,Boehmeria nivea,(L.) Gaudich.,ramie,,,,24,nivea (L.) Gaudich.--ramie
+513,accepted,Boerhavia,Nyctaginaceae,Boerhavia diffusa,L.,,,,,24,diffusa L.
+514,accepted,Bombax,Bombacaceae,Bombax ceiba,L.,red silk-cotton,,,,24,ceiba L.--red silk-cotton
+515,synonym,Bombax,Bombacaceae,Bombax malabaricum,,,Salmalia malabarica,Salmalia malabarica,,24,(malabaricum DC.) = Salmalia malabarica
+516,synonym,Bombax,Bombacaceae,Bombax pentandrum,,,Ceiba pentandra,Ceiba pentandra,,24,(pentandrum L.) = Ceiba pentandra
+517,accepted,Borago,Boraginaceae,Borago officinalis,L.,borage,,,,24,officinalis L.--borage
+518,accepted,Borassus,Arecaceae,Borassus aethiopum,"Mart,",,,,,24,"aethiopum Mart,"
+519,accepted,Borassus,Arecaceae,Borassus flabellifer,L.,"Palmyra palm, African fan p.",,,,24,"flabellifer L.--Palmyra palm, African fan p."
+520,accepted,Boronia,Rutaceae,Boronia megastigma,Nees ex Bart1.,sweet boronia,,,,24,megastigma Nees ex Bart1.--sweet boronia
+521,accepted,Boscia,Capparaceae,Boscia senegalensis,(Pers.) Lam. ex Poir.,,,,,24,senegalensis (Pers.) Lam. ex Poir.
+522,accepted,Boswellia,Burseraceae,Boswellia carteri,Birdw.,frankincense,,,,24,carteri Birdw.--frankincense
+523,accepted,Bothriochloa,Poaceae,Bothriochloa barbinodis,(Lag.) Herter,cane bluestem,,,,24,barbinodis (Lag.) Herter--cane bluestem
+524,accepted,Bothriochloa,Poaceae,Bothriochloa caucásica,(Trin.) C. E. Hubb.,Caucasian bluestem,,,,24,caucásica (Trin.) C. E. Hubb.--Caucasian bluestem
+525,accepted,Bothriochloa,Poaceae,Bothriochloa decipiens,(Hack.) C. E. Hubb.,,,,,24,decipiens (Hack.) C. E. Hubb.
+526,accepted,Bothriochloa,Poaceae,Bothriochloa insculpta,(Höchst.) A. Camus,sweet-pitted grass,,,,24,insculpta (Höchst.) A. Camus--sweet-pitted grass
+527,accepted,Bothriochloa,Poaceae,Bothriochloa intermedia,(R. Br.) A. Camus,,,,,24,intermedia (R. Br.) A. Camus
+528,accepted,Bothriochloa,Poaceae,Bothriochloa ischaemum,(L.) Keng var. ischaemum,yellow bluestem,,,,24,ischaemum (L.) Keng var. ischaemum--yellow bluestem
+529,accepted,Bothriochloa,Poaceae,Bothriochloa ischaemum var. songarica,(Rupr. ex Fisch. & Mey.) Celar. & Harlan,,,,,24,ischaemum var. songarica (Rupr. ex Fisch. & Mey.) Celar. & Harlan--
+530,accepted,Bothriochloa,Poaceae,Bothriochloa King,Ranch bluestem,,,,,24,King Ranch bluestem
+531,accepted,Bothriochloa,Poaceae,Bothriochloa pertusa,(L.) A. Camus,"comagueyana, hurricane grass, pitted bluestem",,,,24,"pertusa (L.) A. Camus--comagueyana, hurricane grass, pitted bluestem"
+532,accepted,Bothriochloa,Poaceae,Bothriochloa saccharoides,(Sw.) I^db.,silver bluestem,,,,24,saccharoides (Sw.) I^db.--silver bluestem
+533,accepted,Bouchea,Verbenaceae,Bouchea prismática,(L.) Ktze.,,,,,24,prismática (L.) Ktze.
+534,accepted,Bouteloua,Poaceae,Bouteloua curtipendula,(Miclix.) Torr.,side-oats grama,,,,24,curtipendula (Miclix.) Torr.--side-oats grama
+535,accepted,Bouteloua,Poaceae,Bouteloua eriopoda,(Torr.) Torr.,black grama,,,,24,eriopoda (Torr.) Torr.--black grama
+536,accepted,Bouteloua,Poaceae,Bouteloua gracilis,(Willd. ex H.B.K.) Lag. ex Griffiths,blue grama--[TN],,,TN,24,gracilis (Willd. ex H.B.K.) Lag. ex Griffiths--blue grama--[TN]
+537,accepted,Bouteloua,Poaceae,Bouteloua hirsuta,Lag.,hairy grama,,,,24,hirsuta Lag.--hairy grama
+538,accepted,Bouvardia,Rubiaceae,Bouvardia longiflora,(Cav.) H.B.K.,,,,,24,longiflora (Cav.) H.B.K.
+539,accepted,Brachiaria,Poaceae,Brachiaria brizantha,(Itochst. ex A. Rich.) Stapf,"palisade grass, signal g.",,,,24,"brizantha (Itochst. ex A. Rich.) Stapf--palisade grass, signal g."
+540,accepted,Brachiaria,Poaceae,Brachiaria decumbens,Stapf,,,,,25,decumbens Stapf
+541,accepted,Brachiaria,Poaceae,Brachiaria deflexa,(SchumachO CE. Hubb. ex Robyns,,,,,25,deflexa (SchumachO CE. Hubb. ex Robyns
+542,accepted,Brachiaria,Poaceae,Brachiaria mutica,(Forsk.) Stapf,"paragrass, Para grass",,,,25,"mutica (Forsk.) Stapf--paragrass, Para grass"
+543,accepted,Brachiaria,Poaceae,Brachiaria ramosa,(L.) Stapf,browntop millet,,,,25,ramosa (L.) Stapf--browntop millet
+544,accepted,Brachypodium,Poaceae,Brachypodium pinnatum,(L.) Beauv.,"chalk false brome (Br.), torgrass (Br.)",,,,25,"pinnatum (L.) Beauv.--chalk false brome (Br.), torgrass (Br.)"
+545,accepted,Brachypodium,Poaceae,Brachypodium sylvaticum,(Huds.) Beauv.,slender false brome (Br.),,,,25,sylvaticum (Huds.) Beauv.--slender false brome (Br.)
+546,accepted,Brasenia,Nymphaeaceae,Brasenia schreberi,J. F. Gmel.,watershield,,,,25,schreberi J. F. Gmel.--watershield
+547,synonym,Brassica,Brassicaceae,Brassica alba,,,Sinapis alba,Sinapis alba,,25,(alba (L.) Rabenh.) = Sinapis alba
+548,synonym,Brassica,Brassicaceae,Brassica alboglabra,,,Brassica olerácea,B. olerácea (Alboglabra Group),,25,(alboglabra L. H. Bailey) = B. olerácea (Alboglabra Group)
+549,synonym,Brassica,Brassicaceae,Brassica arvensis,,,Sinapis arvensis,Sinapis arvensis,,25,(arvensis (L.) Rabenh.) = Sinapis arvensis
+550,synonym,Brassica,Brassicaceae,Brassica cançestris,,,Brassica rapa,B. rapa,,25,(cançestris L.) = B. rapa
+551,accepted,Brassica,Brassicaceae,Brassica carinata,A. Br.,Abyssinian mustard,,,,25,carinata A. Br.--Abyssinian mustard
+552,synonym,Brassica,Brassicaceae,Brassica caulorapa,,,Brassica olerácea,B. olerácea (Gongylodes Group),,25,(caulorapa (DC.) Pasq.) = B. olerácea (Gongylodes Group)
+553,synonym,Brassica,Brassicaceae,Brassica chinensis,,,Brassica rapa,B. rapa (Chinensis Group),,25,(chinensis L.) = B. rapa (Chinensis Group)
+554,synonym,Brassica,Brassicaceae,Brassica hirta,,,Sinapis alba,Sinapis alba,,25,(hirta Moench) = Sinapis alba
+555,accepted,Brassica,Brassicaceae,Brassica júncea,(L.) Czem. & Goss.,"Indian mustard, mustard greens--[TN]",,,TN,25,"júncea (L.) Czem. & Goss.--Indian mustard, mustard greens--[TN]"
+556,synonym,Brassica,Brassicaceae,Brassica kaber,,,Sinapis arvensis,Sinapis arvensis,,25,(kaber (DC.) Wheeler) = Sinapis arvensis
+557,synonym,Brassica,Brassicaceae,Brassica napobrassica,,,Brassica napus,B. napus (Napobrassica Group),,25,(napobrassica (L.) Mill.) = B. napus (Napobrassica Group)
+558,accepted,Brassica,Brassicaceae,Brassica napus,L.,"rape, colza",,,,25,"napus L.--rape, colza"
+559,accepted,Brassica,Brassicaceae,Brassica Napobrassica Group,,"rutabaga, swede",,,,25,"Napobrassica Group--rutabaga, swede"
+560,accepted,Brassica,Brassicaceae,Brassica Pabularia Group,,"Siberian kale, Hanover-salad",,,,25,"Pabularia Group--Siberian kale, Hanover-salad"
+561,synonym,Brassica,Brassicaceae,Brassica napus var. napobrassica,,,Brassica napus,B. napus (Napobrassica Group),,25,(napus var. napobrassica (L.) Reichenb.) = B. napus (Napobrassica Group)
+562,accepted,Brassica,Brassicaceae,Brassica narinosa,L. H. Bailey,broad-beaked mustard,,,,25,narinosa L. H. Bailey--broad-beaked mustard
+563,accepted,Brassica,Brassicaceae,Brassica nigra,(L.) Koch,black mustard,,,,25,nigra (L.) Koch--black mustard
+564,accepted,Brassica,Brassicaceae,Brassica olerácea,L.,wild cabbage,,,,25,olerácea L.--wild cabbage
+565,accepted,Brassica,Brassicaceae,Brassica Acephala Group,,"collards, boreocole, kale",,,,25,"Acephala Group--collards, boreocole, kale"
+566,accepted,Brassica,Brassicaceae,Brassica Alboglabra Group,,Chinese kale,,,,25,Alboglabra Group--Chinese kale
+567,accepted,Brassica,Brassicaceae,Brassica Botrytis Group,,"broccoli, cauliflower",,,,25,"Botrytis Group--broccoli, cauliflower"
+568,accepted,Brassica,Brassicaceae,Brassica Capitata,Groiç),"cabbage, savoy c.",,,,25,"Capitata Groiç)--cabbage, savoy c."
+569,accepted,Brassica,Brassicaceae,Brassica Gemmifera Group,,brussels-sprouts,,,,25,Gemmifera Group--brussels-sprouts
+570,accepted,Brassica,Brassicaceae,Brassica Gongylodes,Groi;ç),kohlrabi,,,,25,Gongylodes Groi;ç)--kohlrabi
+571,accepted,Brassica,Brassicaceae,Brassica Itálica Group,,"sprouting broccoli, asparagus b.",,,,25,"Itálica Group--sprouting broccoli, asparagus b."
+572,accepted,Brassica,Brassicaceae,Brassica Tronchuda Group,,"tronchuda kale, tronchuda cabbage",,,,25,"Tronchuda Group--tronchuda kale, tronchuda cabbage"
+573,synonym,Brassica,Brassicaceae,Brassica olerácea var. acephala,,,Brassica olerácea,B. olerácea (Acephala Group),,25,(olerácea var. acephala DC.) = B. olerácea (Acephala Group)
+574,synonym,Brassica,Brassicaceae,Brassica olerácea var. botrytis,,,Brassica olerácea,B. olerácea (Botrytis Group),,25,(olerácea var. botrytis L.) = B. olerácea (Botrytis Group)
+575,synonym,Brassica,Brassicaceae,Brassica olerácea var. capitata,,,Brassica olerácea,B. olerácea (Capitata Group),,25,(olerácea var. capitata L.) = B. olerácea (Capitata Group)
+576,synonym,Brassica,Brassicaceae,Brassica olerácea var. gemmifera,,,Brassica olerácea,B. olerácea (Gemmifera Group),,25,(olerácea var. gemmifera DC.) = B. olerácea (Gemmifera Group)
+577,synonym,Brassica,Brassicaceae,Brassica olerácea var. gongylodes,,,Brassica olerácea,B. olerácea (Gongylodes Group),,25,(olerácea var. gongylodes L.) = B. olerácea (Gongylodes Group)
+578,synonym,Brassica,Brassicaceae,Brassica olerácea var. itálica,,,Brassica olerácea,B. olerácea (Itálica Group),,25,(olerácea var. itálica Plenck) = B. olerácea (Itálica Group)
+579,accepted,Brassica,Brassicaceae,Brassica parachinensis,L. H. Bailey,false pak-choi,,,,25,parachinensis L. H. Bailey--false pak-choi
+580,synonym,Brassica,Brassicaceae,Brassica pekinensis,,,Brassica rapa,B. rapa (Pekinensis Group) .^. ^,,25,(pekinensis (Lour.) Rupr.) = B. rapa (Pekinensis Group) .^. ^
+581,synonym,Brassica,Brassicaceae,Brassica perviridis,,,Brassica rapa,B. rapa (Perviridis Group),,25,(perviridis (L. H. Bailey) L. H. Bailey) = B. rapa (Perviridis Group)
+582,accepted,Brassica,Brassicaceae,Brassica rapa,L.,,,,,25,rapa L.
+583,accepted,Brassica,Brassicaceae,Brassica Chinensis Group,,pak-choi,,,,25,Chinensis Group--pak-choi
+584,accepted,Brassica,Brassicaceae,Brassica Pekinensis Group,,"pe-tsai, Chinese cabbage",,,,25,"Pekinensis Group--pe-tsai, Chinese cabbage"
+585,accepted,Brassica,Brassicaceae,Brassica Perviridis Group,,spinach mustard,,,,25,Perviridis Group--spinach mustard
+586,accepted,Brassica,Brassicaceae,Brassica Rapifera Group,,turnip,,,,25,Rapifera Group--turnip
+587,accepted,Brassica,Brassicaceae,Brassica Ruvo Group,,ruvo kale,,,,26,Ruvo Group--ruvo kale
+588,synonym,Brassica,Brassicaceae,Brassica septiceps,,,Brassica rapa,B. rapa (Rapifera Group),,26,(septiceps (L. H. Bailey) L. H. Bailey) = B. rapa (Rapifera Group)
+589,accepted,Briza,Poaceae,Briza humilis,Bieb.,,,,,26,humilis Bieb.
+590,accepted,Briza,Poaceae,Briza maxima,L.,big quaking grass,,,,26,maxima L.--big quaking grass
+591,accepted,Briza,Poaceae,Briza media,L.,perennial quaking grass,,,,26,media L.--perennial quaking grass
+592,accepted,Briza,Poaceae,Briza minor,L.,little quaking grass,,,,26,minor L.--little quaking grass
+593,synonym,Briza,Poaceae,Briza spicata,,,Briza humilis,B. humilis,,26,(spicata Sibth. 5 Sm.) = B. humilis
+594,synonym,Bromelia,Bromeliaceae,Bromelia comosa,,,Ananas comosus,Ananas comosus,,26,(comosa L.) = Ananas comosus
+595,accepted,Bromus,Poaceae,Bromus arenarius,"Labill.-Australian chess, sand brome",,,,,26,"arenarius Labill.-Australian chess, sand brome"
+596,accepted,Bromus,Poaceae,Bromus arvensis,L.,field brome,,,,26,arvensis L.--field brome
+597,accepted,Bromus,Poaceae,Bromus biebersteinii,Roem. & Schult.,,,,,26,biebersteinii Roem. & Schult.
+598,synonym,Bromus,Poaceae,Bromus brizaefomis,,,Bromus briziformis,B. briziformis,,26,(brizaefomis Fisch. & Mey.) = B. briziformis
+599,accepted,Bromus,Poaceae,Bromus Srinft.T5noi^''?'A^,"Mey.-rattlesnake chess, rattlesnake brome",,,,,26,"Srinft.T5noi^''?'A^ Mey.-rattlesnake chess, rattlesnake brome"
+600,accepted,Bromus,Poaceae,Bromus carinatus,Hook. & Am.,California brane,,,,26,carinatus Hook. & Am.--California brane
+601,synonym,Bromus,Poaceae,Bromus catharticus,,,Bromus unioloides,B. unioloides,,26,(catharticus Vahl) = B. unioloides
+602,accepted,Bromus,Poaceae,Bromus commutatus,Schrad.,hairy chess,,,,26,commutatus Schrad.--hairy chess
+603,accepted,Bromus,Poaceae,Bromus erectus,Huds.,"meadow brome, ipright b. (Br )",,,,26,"erectus Huds.--meadow brome, ipright b. (Br )"
+604,synonym,Bromus,Poaceae,Bromus haenkeanus,,,Bromus unioloides,B. unioloides,,26,(haenkeanus (Presl) Kunth) = B. unioloides
+605,accepted,Bromus,Poaceae,Bromus inermis,Leyss.,smooth brome,,,,26,inermis Leyss.--smooth brome
+606,accepted,Bromus,Poaceae,Bromus Í^dSt^;í?i?r''-Q^'',Murr,"Japanese brome, Japanese chess",,,,26,"Í^dSt^;í?i?r''-Q^'' Murr --Japanese brome, Japanese chess"
+607,accepted,Bromus,Poaceae,Bromus madritensis,L.,"Spanish brome, compact b., Madrid b",,,,26,"madritensis L.--Spanish brome, compact b., Madrid b"
+608,accepted,Bromus,Poaceae,Bromus marginatus,Nees ex Steud.-mountain brome,,,,,26,marginatus Nees ex Steud.-mountain brome
+609,accepted,Bromus,Poaceae,Bromus mollis,L.,"soft chess, soft brome",,,,26,"mollis L.--soft chess, soft brome"
+610,accepted,Bromus,Poaceae,Bromus racemosus,L.,,,,,26,racemosus L.
+611,accepted,Bromus,Poaceae,Bromus rigidus,Roth,"ripgut brome, ripgut grass",,,,26,"rigidus Roth--ripgut brome, ripgut grass"
+612,accepted,Bromus,Poaceae,Bromus rubens,L.,"red brome, foxtail chess, foxtail b.",,,,26,"rubens L.--red brome, foxtail chess, foxtail b."
+613,accepted,Bromus,Poaceae,"Bromus secalinusL.-cheat,","cheatgrass, chess, rye brome (Br.)",,,,,26,"secalinusL.-cheat, cheatgrass, chess, rye brome (Br.)"
+614,accepted,Bromus,Poaceae,Bromus sterilis,"L.-poverty brome, barren b., sterile b.",,,,,26,"sterilis L.-poverty brome, barren b., sterile b."
+615,accepted,Bromus,Poaceae,Bromus tectorum,"L.-downy brome, downy chess, cheatgrass. droooing b fRr 1",,,,,26,"tectorum L.-downy brome, downy chess, cheatgrass. droooing b fRr 1"
+616,accepted,Bromus,Poaceae,Bromus unioloides,"H.B.K.-rescue grass-[TN] ^«rabs, aroopmg b. (Br.)",,,,TN,26,"unioloides H.B.K.-rescue grass-[TN] ^«rabs, aroopmg b. (Br.)"
+617,synonym,Bromus,Poaceae,Bromus willdenowii,,,Bromus unioloides,B. unioloides,,26,(willdenowii Kunth) = B. unioloides
+618,accepted,Brosimum,î4oraceae,Brosimum alicastrum,Sw. subsp. alicastrum,"ramon, breadnut",,,,26,"alicastrum Sw. subsp. alicastrum--ramon, breadnut"
+619,accepted,Brosimum,î4oraceae,Brosimum alicastrum subsp. bolivarense,(Pitt.) C. C. Bere,,,,,26,alicastrum subsp. bolivarense (Pitt.) C. C. Bere
+620,synonym,Brosimum,î4oraceae,Brosimum aubletii,,,Brosimum guianense,B. guianense,,26,(aubletii Poepp. & Endl.) = B. guianense
+621,accepted,Brosimum,î4oraceae,Brosimum guianense,(Aubl.) Huber,,,,,26,guianense (Aubl.) Huber
+622,synonym,Brosimum,î4oraceae,Brosimum uleanum,,,Brosimum alicastrum subsp. bolivarense,B. alicastrum subsp. bolivarense,,26,(uleanum Mildbr.) = B. alicastrum subsp. bolivarense
+623,accepted,Brosimum,î4oraceae,Brosimum utile,(H.B.K.) Pitt.-cow-tree,,,,,26,utile (H.B.K.) Pitt.-cow-tree
+624,accepted,Broussonetia,Moraceae,Broussonetia papyrifera,(L.) Vent.-paper-mulberry,,,,,26,papyrifera (L.) Vent.-paper-mulberry
+625,accepted,Browallia,Solanaceae,Browallia speciosa,Hook.,,,,,26,speciosa Hook.
+626,accepted,Brugmansia,Solanaceae,Brugmansia arbórea,(L.) Lagerheim,,,,,27,arbórea (L.) Lagerheim
+627,accepted,Brugmansia,Solanaceae,Brugmansia candida,Pers.,,,,,27,candida Pers.
+628,accepted,Brugmansia,Solanaceae,Brugmansia sanguinea,(Ruiz & Pavon) D. Don,,,,,27,sanguinea (Ruiz & Pavon) D. Don
+629,accepted,Brugmansia,Solanaceae,Brugmansia suaveolens,(Humb. & Bonpl. ex Willd.) Bercht. & Presl,,,,,27,suaveolens (Humb. & Bonpl. ex Willd.) Bercht. & Presl
+630,accepted,Brunnichia,Polygonaceae,Brunnichia cirrhosa,Gaertn.,"redvine, buckwheat-vine",,,,27,"cirrhosa Gaertn.--redvine, buckwheat-vine"
+631,accepted,Brya,Fabaceae,Brya ebenus,(L.) ÜC.,"coccus wood, American ebony, West Indian e.",,,,27,"ebenus (L.) ÜC.--coccus wood, American ebony, West Indian e."
+632,accepted,Buchanania,Anacardiaceae,Buchanania latifolia,Roxb.,chirauli-nut,,,,27,latifolia Roxb.--chirauli-nut
+633,accepted,Buchloe,Poaceae,Buchloe dactyloides,(Nutt-) Engelm.,bu££alograss,,,,27,dactyloides (Nutt-) Engelm.--bu££alograss
+634,accepted,Bulnesia,Zygophyllaceae,Bulnesia sarmienti,Lorentz ex Griseb.,balsamo,,,,27,sarmienti Lorentz ex Griseb.--balsamo
+635,accepted,Bumelia,Sapotaceae,Bumelia lanuginosa,(Michx.) Pers.,gum bumelia,,,,27,lanuginosa (Michx.) Pers.--gum bumelia
+636,accepted,Bursera,Burseraceae,Bursera simaruba,(L.) Sarg.,gumbo-limbo,,,,27,simaruba (L.) Sarg.--gumbo-limbo
+637,accepted,Butea,Fabaceae,Butea monosperma,(Lam.) Taub.,Bengal kino,,,,27,monosperma (Lam.) Taub.--Bengal kino
+638,accepted,Butyrospermum,Sapotaceae,Butyrospermum paradoxum,(Gaertn. £.) Hepper subsp. parkii (G. Don) Hepper,,,,,27,paradoxum (Gaertn. £.) Hepper subsp. parkii (G. Don) Hepper-
+639,accepted,Butyrospermum,Sapotaceae,"Butyrospermum shea-butter,",butterseed,,,,,27,"shea-butter, butterseed"
+640,synonym,Butyrospermum,Sapotaceae,Butyrospermum parkii,,,Butyrospermum paradoxum subsp. parkii,B. paradoxum subsp. parkii,,27,(parkii (G. Don) Kotschy) = B. paradoxum subsp. parkii
+641,accepted,Buxus,Buxaceae,Buxus microphylla,Sieb. & Zuce.,littleleaf boxwood,,,,27,microphylla Sieb. & Zuce.--littleleaf boxwood
+642,accepted,Buxus,Buxaceae,Buxus sempervirens,L.,"common boxwood, Turkish b.",,,,27,"sempervirens L.--common boxwood, Turkish b."
+643,accepted,Byrsonima,Malpighiaceae,Byrsonima coccolobifolia,H.B.K.,,,,,27,coccolobifolia H.B.K.
+644,accepted,Byrsonima,Malpighiaceae,Byrsonima crassifolia,(L.) H.B.K.,,,,,27,crassifolia (L.) H.B.K.
+645,accepted,Byrsonima,Malpighiaceae,Byrsonima lucida,"(Mill.) DC.-""plumberry, locustberry",,,,,27,"lucida (Mill.) DC.-""plumberry, locustberry"
+646,accepted,Byrsonima,Malpighiaceae,Byrsonima spicata,(Cav.) DC.,,,,,27,spicata (Cav.) DC.
+647,accepted,Cabomba,Nymphaeaceae,Cabomba caroliniana,A. Gray,"£anwort, cabomba",,,,27,"caroliniana A. Gray--£anwort, cabomba"
+648,accepted,Cacabus,Solanaceae,Cacabus pro^-^f-í^tus,Bemh.,,,,,27,pro^-^f-í^tus Bemh.
+649,synonym,Cacao,Sterculiaceae,Cacao bicolor,,,Theobroma bicolor,Theobroma bicolor,,28,(bicolor (Humb. & Bonpl.) Poir.) = Theobroma bicolor
+650,accepted,Cadaba,Capparaceae,Cadaba farinosa,"Forsk,",,,,,28,"farinosa Forsk,"
+651,accepted,Caesalpinia,Fabaceae,Caesalpinia bonduc,(L.) Roxb.,"yellow nickers, gray nickerbean",,,,28,"bonduc (L.) Roxb.--yellow nickers, gray nickerbean"
+652,accepted,Caesalpinia,Fabaceae,Caesalpinia corlarla,(Jacq.) Willd.,divi-divi,,,,28,corlarla (Jacq.) Willd.--divi-divi
+653,accepted,Caesalpinia,Fabaceae,Caesalpinia echinata,Lam.,brazilwood,,,,28,echinata Lam.--brazilwood
+654,accepted,Caesalpinia,Fabaceae,Caesalpinia pulcherrima,(L.) Sw.,"pride-o£-Barbados, paradise-flower",,,,28,"pulcherrima (L.) Sw.--pride-o£-Barbados, paradise-flower"
+655,accepted,Caesalpinia,Fabaceae,Caesalpinia sappan,L.,sappanwood,,,,28,sappan L.--sappanwood
+656,accepted,Caesalpinia,Fabaceae,Caesalpinia spinosa,(^4ol.) Ktze.,tara,,,,28,spinosa (^4ol.) Ktze.--tara
+657,accepted,Cajanus,Fabaceae,Cajanus cajan,(L.) Rith,pigeon pea--[TN],,,TN,28,cajan (L.) Rith--pigeon pea--[TN]
+658,synonym,Cajanus,Fabaceae,Cajanus cajan,,,Cajanus cajan,C. cajan (LO Huth,,28,(cajan (L.) Millsp.) = C. cajan (LO Huth
+659,synonym,Cajanus,Fabaceae,Cajanus indicus,,,"C, cajan (L,) Huth","C, cajan (L,) Huth",,28,"(indicus Spreng.) = C, cajan (L,) Huth"
+660,accepted,Cakile,Brassicaceae,Cakile edentula,"(Bigel.) Hook, subsp. edentula",American sea-rDcket,,,,28,"edentula (Bigel.) Hook, subsp. edentula--American sea-rDcket"
+661,accepted,Caladium,Araceae,Caladium bicolor,(Ait.) Vent.,,,,,28,bicolor (Ait.) Vent.
+662,accepted,Calamovilfa,Poaceae,Calamovilfa longifolia,(Hook.) Scribn.,prairie sandreed,,,,28,longifolia (Hook.) Scribn.--prairie sandreed
+663,accepted,Calamus,Arecaceae,Calamus deërratus,Mann ^ Wendl.,,,,,28,deërratus Mann ^ Wendl.
+664,accepted,Calamus,Arecaceae,Calamus rotang,L.,rattan,,,,28,rotang L.--rattan
+665,accepted,Calathea,Marantaceae,Calathea allouia,(Aubl.) Lindl.,"leren, sweet corm-root, allouya",,,,28,"allouia (Aubl.) Lindl.--leren, sweet corm-root, allouya"
+666,accepted,Calathea,Marantaceae,Calathea lútea,(Aubl.) G. F. W. Mey.,"cauassu, cachibou",,,,28,"lútea (Aubl.) G. F. W. Mey.--cauassu, cachibou"
+667,accepted,Calendula,Asteraceae,Calendula officinalis,L.,pot-marigold,,,,28,officinalis L.--pot-marigold
+668,accepted,Calliandra,Fabaceae,Calliandra cumingii,Benth.,,,,,28,cumingii Benth.
+669,accepted,Calliandra,Fabaceae,Calliandra haematocephala,Hassk.,,,,,28,haematocephala Hassk.
+670,accepted,Calliandra,Fabaceae,Calliandra surinamensis,Benth.,,,,,28,surinamensis Benth.
+671,accepted,Callicarpa,Verbenaceae,Callicarpa americana,L.,"American beautyberry, French-mulberry",,,,28,"americana L.--American beautyberry, French-mulberry"
+672,accepted,Callistemon,Myrtaceae,Callistemon citrinus,(Curt.) Stapf,crimson bottlebrush,,,,28,citrinus (Curt.) Stapf--crimson bottlebrush
+673,accepted,Callistemon,Myrtaceae,Callistemon rigidus,R. Br.,,,,,28,rigidus R. Br.
+674,accepted,Callistephus,Asteraceae,Callistephus chinensis,(L.) Nées,China-aster,,,,29,chinensis (L.) Nées--China-aster
+675,accepted,Calluna,Ericaceae,Calluna vulgaris,(L.) Hull,heather,,,,29,vulgaris (L.) Hull--heather
+676,synonym,Calocarpum,Sapotaceae,Calocarpum mairanosum,,,Pouteria sapota,Pouteria sapota,,29,(mairanosum Pierre) = Pouteria sapota
+677,synonym,Calocarpum,Sapotaceae,Calocarpum sapota,,,Pouteria sapota,Pouteria sapota,,29,(sapota (Jacq.) Merr.) = Pouteria sapota
+678,synonym,Calocarpum,Sapotaceae,Calocarpum viride,,,Pouteria viridis,Pouteria viridis,,29,(viride Pitt.) = Pouteria viridis
+679,accepted,Calocedrus,Cupressaceae,Calocedrus decurrens,(Torr.) Florin,incense-cedar,,,,29,decurrens (Torr.) Florin--incense-cedar
+680,accepted,Caloncoba,Flacourtiaceae,Caloncoba echinata,(Oliv.) Gilg,,,,,29,echinata (Oliv.) Gilg
+681,synonym,Calonyction,Convolvulaceae,Calonyction aculeatum,,,Ipomoea alba,Ipomoea alba,,29,(aculeatum (L.) House) = Ipomoea alba
+682,synonym,Calophyllum,Clusiaceae,Calophyllum antillanum,,,Calophyllum brasiliense,C. brasiliense,,29,(antillanum Britt.) = C. brasiliense
+683,accepted,Calophyllum,Clusiaceae,Calophyllum brasiliense,Camb.,maria,,,,29,brasiliense Camb.--maria
+684,accepted,Calophyllum,Clusiaceae,Calophyllum inophyllum,L.,"Indian laurel, laurelwood, tamanu, ati",,,,29,"inophyllum L.--Indian laurel, laurelwood, tamanu, ati"
+685,accepted,Calopogonium,Fabaceae,Calopogonium mucunoides,Desv.,,,,,29,mucunoides Desv.
+686,accepted,Caltha,Ranunculaceae,Caltha palustris,L.,marsh-marigold,,,,29,palustris L.--marsh-marigold
+687,accepted,Calycophyllum,Rubiaceae,Calycophyllum candidissimum,(Vahl) DC.,"degame, dagame",,,,29,"candidissimum (Vahl) DC.--degame, dagame"
+688,accepted,Camassia,Liliaceae,Camassia quainash,(Pursh) Greene,ccsnmon camas,,,,29,quainash (Pursh) Greene--ccsnmon camas
+689,accepted,Camelina,Brassicaceae,Camelina microcarpa,Andrz. ex DC.,smallseed falseflax,,,,29,microcarpa Andrz. ex DC.--smallseed falseflax
+690,accepted,Camelina,Brassicaceae,Camelina sativa,(L.) Crantz,largeseed falseflax,,,,29,sativa (L.) Crantz--largeseed falseflax
+691,accepted,Camellia,Iheaceae,Camellia japónica,L.,common camellia,,,,29,japónica L.--common camellia
+692,accepted,Camellia,Iheaceae,Camellia sasanqua,Thunb.,sasanqua camellia,,,,29,sasanqua Thunb.--sasanqua camellia
+693,accepted,Camellia,Iheaceae,Camellia sinensis,(L.) Ktze.,tea,,,,29,sinensis (L.) Ktze.--tea
+694,accepted,Camellia,Iheaceae,Camellia sinensis var. assamica,(Mast.) Kitamura,Assam tea,,,,29,sinensis var. assamica (Mast.) Kitamura--Assam tea
+695,synonym,Camellia,Iheaceae,Camellia thea,,,Camellia sinensis,C. sinensis,,29,(thea Link) = C. sinensis
+696,synonym,Camellia,Iheaceae,Camellia theifera,,,Camellia sinensis,C. sinensis,,29,(theifera Griff.) = C. sinensis
+697,accepted,Campanula,Campanulaceae,Campanula rapunculus,L.,rampion,,,,29,rapunculus L.--rampion
+698,accepted,Campsis,Bignoniaceae,Campsis radicans,"(L.) Seem, ex Bur.","trunç)et-creeper, trumpet-vine--[TN]",,,TN,30,"radicans (L.) Seem, ex Bur.--trunç)et-creeper, trumpet-vine--[TN]"
+699,accepted,Campsis,Bignoniaceae,Campsis Caiiç)totheca,(Nyssaceae),,,,,30,Caiiç)totheca (Nyssaceae)
+700,accepted,Campsis,Bignoniaceae,Campsis acuminata,Decne.,,,,,30,acuminata Decne.
+701,accepted,Cananga,Annonaceae,Cananga odorata,(Lam.) Hook. £. & ^rhoms.,ylang-ylang,,,,30,odorata (Lam.) Hook. £. & ^rhoms.--ylang-ylang
+702,accepted,Canarium,Burseraceae,Canarium indicum,L.,"Java-almond, kanari",,,,30,"indicum L.--Java-almond, kanari"
+703,accepted,Canarium,Burseraceae,Canarium schweinfurthii,Engler,,,,,30,schweinfurthii Engler
+704,accepted,Canarium,Burseraceae,Canarium strictum,Roxb.,black damar,,,,30,strictum Roxb.--black damar
+705,accepted,Canavalia,Fabaceae,Canavalia ensiformis,(L.) DC.,"jackbean, horsebean, swordbean",,,,30,"ensiformis (L.) DC.--jackbean, horsebean, swordbean"
+706,accepted,Canavalia,Fabaceae,Canavalia gladiata,(Jacq.) DC.,swordbean,,,,30,gladiata (Jacq.) DC.--swordbean
+707,accepted,Canavalia,Fabaceae,Canavalia marítima,(Aubl.) Thou.,,,,,30,marítima (Aubl.) Thou.
+708,accepted,Canavalia,Fabaceae,Canavalia plagiospema,Piper,oblique-seed jackbean,,,,30,plagiospema Piper--oblique-seed jackbean
+709,synonym,Canavalia,Fabaceae,Canavalia rosea,,,Canavalia marítima,C. marítima,,30,(rosea (Sw.) DC.) = C. marítima
+710,accepted,Canavalia,Fabaceae,Canavalia virosa,(Roxb.) Wight & Arn.,,,,,30,virosa (Roxb.) Wight & Arn.
+711,synonym,Canella,Canellaceae,Canella alba,,,Canella winterana,C. winterana,,30,(alba Murr.) = C. winterana
+712,accepted,Canella,Canellaceae,Canella Winterana,(L.) Gaertn.,canella,,,,30,Winterana (L.) Gaertn.--canella
+713,accepted,Canna,Cannaceae,Canna edulis,Ker,"Queensland arrowroot, edible canna, gruya",,,,30,"edulis Ker--Queensland arrowroot, edible canna, gruya"
+714,accepted,Cannabis,Moraceae,Cannabis sativa,L.,"marijuana, marihuana, hemp",,,,30,"sativa L.--marijuana, marihuana, hemp"
+715,accepted,Caperonia,Euphorbiaceae,Caperonia castaneifolia,(L.) St. Hil.,,,,,30,castaneifolia (L.) St. Hil.
+716,accepted,Caperonia,Euphorbiaceae,Caperonia palustris,(L.) St. Hil.,,,,,30,palustris (L.) St. Hil.
+717,accepted,Capparis,Capparaceae,Capparis corymbosa,Lam.,,,,,30,corymbosa Lam.
+718,synonym,Capparis,Capparaceae,Capparis rupestris,,,Capparis spinosa,C. spinosa,,30,(rupestris Sibth. & Sm.) = C. spinosa
+719,accepted,Capparis,Capparaceae,Capparis spinosa,L.,caper,,,,30,spinosa L.--caper
+720,accepted,Capsella,Brassicaceae,Capsella bursa-pastoris,(L.) Medik.,"shepherd's-purse, shepherdspurse",,,,30,"bursa-pastoris (L.) Medik.--shepherd's-purse, shepherdspurse"
+721,accepted,Capsicum,Solanaceae,Capsicum annuum,L. var. annuum,"bell pepper, green p., mango p., paprika p.,",,,,30,"annuum L. var. annuum--bell pepper, green p., mango p., paprika p.,"
+722,accepted,Capsicum,Solanaceae,Capsicum chili,p.,,,,,30,chili p.
+723,accepted,Capsicum,Solanaceae,Capsicum annuum var. glabriusculum,(Dunal) Heiser & Pickersgill,chilipiquin,,,,30,annuum var. glabriusculum (Dunal) Heiser & Pickersgill--chilipiquin
+724,accepted,Capsicum,Solanaceae,Capsicum bird,pepper ',,,,,30,bird pepper '
+725,accepted,Capsicum,Solanaceae,Capsicum baccatum,L. var. pendulum (Willd.) Eshbaugh,aji,,,,30,baccatum L. var. pendulum (Willd.) Eshbaugh--aji
+726,accepted,Capsicum,Solanaceae,Capsicum chínense,Jacq.,aji,,,,30,chínense Jacq.--aji
+727,accepted,Capsicum,Solanaceae,Capsicum frutescens,L.,"tabasco pepper, bird p., chili p.",,,,30,"frutescens L.--tabasco pepper, bird p., chili p."
+728,synonym,Capsicum,Solanaceae,Capsicum pendulum,,,Capsicum baccatum var. pendulum,C. baccatum var. pendulum,,31,(pendulum Willd.) = C. baccatum var. pendulum
+729,accepted,Capsicum,Solanaceae,Capsicum pubescens,Ruiz & Pavon,rocoto,,,,31,pubescens Ruiz & Pavon--rocoto
+730,accepted,Carapa,Meliaceae,Carapa guianensis,Aubl.,crabwood,,,,31,guianensis Aubl.--crabwood
+731,accepted,Cardarla,Brassicaceae,Cardarla draba,(L.) Desv.,hoary cress,,,,31,draba (L.) Desv.--hoary cress
+732,accepted,Carduus,Compositae,Carduus acanthoides,L.,plumeless thistle,,,,31,acanthoides L.--plumeless thistle
+733,accepted,Carduus,Compositae,Carduus nutans,L.,musk thistle,,,,31,nutans L.--musk thistle
+734,accepted,Carica,Caricaceae,Carica papaya,L.,papaya,,,,31,papaya L.--papaya
+735,accepted,Carica,Caricaceae,Carica pubescens,Lenné & K. Koch,mountain papaya,,,,31,pubescens Lenné & K. Koch--mountain papaya
+736,accepted,Carissa,Apocynaceae,Carissa carandas,L.,karanda,,,,31,carandas L.--karanda
+737,accepted,Carissa,Apocynaceae,Carissa edulis,Vahl,Egyptian carissa,,,,31,edulis Vahl--Egyptian carissa
+738,synonym,Carissa,Apocynaceae,Carissa grandiflora,,,Carissa macrocarpa,C. macrocarpa,,31,(grandiflora (E. Mey.) A- DC.) = C. macrocarpa
+739,accepted,Carissa,Apocynaceae,Carissa macrocarpa,(Eckl.) A. DC.,Natal-plum,,,,31,macrocarpa (Eckl.) A. DC.--Natal-plum
+740,accepted,Carludovica,Cyclanthaceae,Carludovica palmata,Ruiz & Pavon,Panama hat palm,,,,31,palmata Ruiz & Pavon--Panama hat palm
+741,synonym,Camegiea,Cactaceae,Camegiea gigantea,,,Cereus giganteus,Cereus giganteus Engelm.,,31,(gigantea (Engelm.) Britt. ^ Rose) = Cereus giganteus Engelm.
+742,accepted,Carpinus,Betulaceae,Carpinus betulus,L.,European hornbeam,,,,31,betulus L.--European hornbeam
+743,accepted,Carpinus,Betulaceae,Carpinus caroliniana,Walt.,"American hornbeam, blue beech",,,,31,"caroliniana Walt.--American hornbeam, blue beech"
+744,accepted,Carthamus,Asteraceae,Carthamus tinctorius,L.,sa££lower,,,,31,tinctorius L.--sa££lower
+745,accepted,Carum,Apiaceae,Carum carvi,L.,caraway,,,,31,carvi L.--caraway
+746,synonym,Carum,Apiaceae,Carum copticum,,,Trachyspermum ammi,Trachyspermum ammi,,31,(copticum (L.) Benth. & Hook. £. ex C. B. Clarke) = Trachyspermum ammi
+747,synonym,Carum,Apiaceae,Carum petroselinum,,,Petroselinum crispum,Petroselinum crispum,,31,(petroselinum Benth. & Hook. £.) = Petroselinum crispum
+748,synonym,Carum,Apiaceae,Carum velenovskyi,,,Carum carvi,C. carvi,,31,(velenovskyi Rohl.) = C. carvi
+749,synonym,Carya,Juglandaceae,Carya alba,,,Carya tomentosa,C. tomentosa,,31,(alba (L.) K. Koch) = C. tomentosa
+750,accepted,Carya,Juglandaceae,Carya cordi£ormis,(Wangenh.) K. Koch,"bittemut hickory, pignut",,,,31,"cordi£ormis (Wangenh.) K. Koch--bittemut hickory, pignut"
+751,accepted,Carya,Juglandaceae,Carya glabra,(Mill.) Sweet,pignut hickory,,,,31,glabra (Mill.) Sweet--pignut hickory
+752,accepted,Carya,Juglandaceae,Carya illinoensis,(Wangenh.) K. Koch,pecan--[TN],,,TN,31,illinoensis (Wangenh.) K. Koch--pecan--[TN]
+753,synonym,Carya,Juglandaceae,Carya illinoinensis,,,Carya illinoensis,C. illinoensis,,31,(illinoinensis (Wangenh.) K. Koch) = C. illinoensis
+754,accepted,Carya,Juglandaceae,Carya laciniosa,(Michx. £.) Loud.,shellbark hickory,,,,31,laciniosa (Michx. £.) Loud.--shellbark hickory
+755,accepted,Carya,Juglandaceae,Carya myristici£ormis,(Michx. £•) Nutt.,nutmeg hickory,,,,31,myristici£ormis (Michx. £•) Nutt.--nutmeg hickory
+756,synonym,Carya,Juglandaceae,Carya olivi£ormis,,,Carya illinoensis,C. illinoensis,,31,(olivi£ormis (Michx.) Nutt.) = C. illinoensis
+757,accepted,Carya,Juglandaceae,Carya ovata,(Mill.) K. Koch,shagbark hickory,,,,31,ovata (Mill.) K. Koch--shagbark hickory
+758,synonym,Carya,Juglandaceae,Carya pecan,,,Carya illinoensis,C. illinoensis,,32,(pecan (Marsh.) Engl. & Graebn.) = C. illinoensis
+759,accepted,Carya,Juglandaceae,Carya texana,Buckl.,black hickory,,,,32,texana Buckl.--black hickory
+760,accepted,Carya,Juglandaceae,Carya tomentosa,(Poir.) Nutt.,mockemut hickory,,,,32,tomentosa (Poir.) Nutt. --mockemut hickory
+761,accepted,Caryocar,Caryocaraceae,Caryocar amygdaliferum,Nfutis,achotillo,,,,32,amygdaliferum Nfutis--achotillo
+762,accepted,Caryocar,Caryocaraceae,Caryocar brasiliense,Cainb.,pequi,,,,32,brasiliense Cainb.--pequi
+763,accepted,Caryocar,Caryocaraceae,Caryocar nuciferum,L.,souari-nut,,,,32,nuciferum L.--souari-nut
+764,synonym,Caryophyllus,Myrtaceae,Caryophyllus aromáticas,,,Syzygium aromaticum,Syzygium aromaticum,,32,(aromáticas L.) = Syzygium aromaticum
+765,accepted,Caryota,Arecaceae,Caryota urens,L.,fishtail palm,,,,32,urens L.--fishtail palm
+766,accepted,Casimiroa,Rutaceae,Casimiroa edulis,Llave & Lex.,"viiite sapote, Mexican-apple",,,,32,"edulis Llave & Lex.--viiite sapote, Mexican-apple"
+767,synonym,Cassia,Fabaceae,Cassia acutifolia,,,Cassia senna,C. senna,,32,(acutifolia Del.) = C. senna
+768,accepted,Cassia,Fabaceae,Cassia alata,L.,ringworm-bush,,,,32,alata L.--ringworm-bush
+769,synonym,Cassia,Fabaceae,Cassia angustifolia,,,Cassia senna,C. senna,,32,(angustifolia Vahl) = C. senna
+770,accepted,Cassia,Fabaceae,Cassia auriculata,L.,avaram,,,,32,auriculata L.--avaram
+771,accepted,Cassia,Fabaceae,Cassia fasciculata,Michx.,partridge pea,,,,32,fasciculata Michx.--partridge pea
+772,accepted,Cassia,Fabaceae,Cassia fistula,L.,"Indian-laburnum, purging cassia, golden-shower",,,,32,"fistula L.--Indian-laburnum, purging cassia, golden-shower"
+773,accepted,Cassia,Fabaceae,Cassia floribunda,Cav.,,,,,32,floribunda Cav.
+774,accepted,Cassia,Fabaceae,Cassia grandis,L. f.,,,,,32,grandis L. f.
+775,synonym_unresolved,Cassia,Fabaceae,Cassia laevigata,,,,« C. floribunda,,32,(laevigata Willd.) « C. floribunda
+776,synonym_unresolved,Cassia,Fabaceae,Cassia marginata,,,,- C. roxburghii,,32,(marginata Roxb.) - C. roxburghii
+777,accepted,Cassia,Fabaceae,Cassia mimosoides,L.,,,,,32,mimosoides L.
+778,accepted,Cassia,Fabaceae,Cassia obtus,ifolia L.,s icklepod,,,,32,obtus ifolia L.--s icklepod
+779,accepted,Cassia,Fabaceae,Cassia occidentalis,L.,"coffee senna, negro-coffee",,,,32,"occidentalis L.--coffee senna, negro-coffee"
+780,synonym_unresolved,Cassia,Fabaceae,Cassia robusta,,,,Heller) - C. fasciculata,,32,(robusta (Pollard) Heller) - C. fasciculata
+781,accepted,Cassia,Fabaceae,Cassia roxburghii,DC.,,,,,32,roxburghii DC.
+782,accepted,Cassia,Fabaceae,Cassia senna,L.,Alexandrian senna,,,,32,senna L.--Alexandrian senna
+783,accepted,Cassia,Fabaceae,Cassia siamea,Lam.,Siamese senna,,,,32,siamea Lam.--Siamese senna
+784,accepted,Cassia,Fabaceae,Cassia sturtii,R. Br.,,,,,32,sturtii R. Br.
+785,accepted,Cassia,Fabaceae,Cassia tora,L.,sickle senna,,,,32,tora L.--sickle senna
+786,accepted,Cassytha,Lauraceae,Cassytha filiformis,L.,,,,,32,filiformis L.
+787,synonym_unresolved,Castanea,Fagaceae,Castanea americana,,,,Raf.) » C. dentata,,32,(americana (Michx.) Raf.) » C. dentata
+788,synonym_unresolved,Castanea,Fagaceae,Castanea bungeana,,,,- C. mollissima,,32,(bungeana Bl.) - C. mollissima
+789,accepted,Castanea,Fagaceae,Castanea crenata,Sieb. & Zuce.,Japanese chestnut,,,,32,crenata Sieb. & Zuce.--Japanese chestnut
+790,accepted,Castanea,Fagaceae,Castanea dentata,(Marsh.) Borkh.,American chestnut,,,,32,dentata (Marsh.) Borkh.--American chestnut
+791,synonym,Castanea,Fagaceae,Castanea formosana,,,Castanea mollissima,C. mollissima,,32,(formosana (Hayata) Hayata) = C. mollissima
+792,synonym_unresolved,Castanea,Fagaceae,Castanea japónica,,,,- C. crenata,,32,(japónica Bl.) - C. crenata
+793,accepted,Castanea,Fagaceae,Castanea mollissima,Bl.,Chinese chestnut,,,,32,mollissima Bl.--Chinese chestnut
+794,synonym,Castanea,Fagaceae,Castanea pubinervis,,,Castanea crenata,C. crenata,,32,(pubinervis (Hassk.) Schneid.) = C. crenata
+795,accepted,Castanea,Fagaceae,Castanea pumila,(L.) Mill.,Allegheny chinkapin (chinquapin),,,,33,pumila (L.) Mill.--Allegheny chinkapin (chinquapin)
+796,accepted,Castanea,Fagaceae,Castanea sativa,Mill.,European chestnut,,,,33,sativa Mill.--European chestnut
+797,synonym,Castanea,Fagaceae,Castanea stricta,,,Castanea crenata,C. crenata,,33,(stricta Sieb. ^ Zuce.) = C. crenata
+798,synonym,Castanea,Fagaceae,Castanea vesca,,,Castanea sativa,C. sativa,,33,(vesca Gaertn.) = C. sativa
+799,synonym,Castanea,Fagaceae,Castanea vulgaris,,,Castanea sativa,C. sativa,,33,(vulgaris Lam.) = C. sativa
+800,accepted,Castanopsis,Fagaceae,Castanopsis chrysophylla,(Dougl.) A. DC.,golden chinkapin (chinquapin),,,,33,chrysophylla (Dougl.) A. DC.--golden chinkapin (chinquapin)
+801,accepted,Castanopsis,Fagaceae,Castanopsis sempervirens,(Kell.) Dudl.,"Sierra chinkapin (chinquapin), bush c,",,,,33,"sempervirens (Kell.) Dudl.--Sierra chinkapin (chinquapin), bush c,"
+802,accepted,Castanopsis,Fagaceae,Castanopsis California,c.,,,,,33,California c.
+803,accepted,Castilla,Nbraceae,Castilla elástica,Sesse subsp. elástica,castilloa rubber,,,,33,elástica Sesse subsp. elástica--castilloa rubber
+804,accepted,Castilla,Nbraceae,Castilla elástica subsp. costaricana,(Liebm.) C. C. Berg,,,,,33,elástica subsp. costaricana (Liebm.) C. C. Berg
+805,synonym,Castilla,Nbraceae,Castilla panamensis,,,Castilla elástica subsp. costaricana,C. elástica subsp. costaricana,,33,(panamensis 0. F. Cook) = C. elástica subsp. costaricana
+806,accepted,Castilla,Nbraceae,Castilla ulei,Warb.,caucho rubber,,,,33,ulei Warb.--caucho rubber
+807,accepted,Casuarina,Casuarinaceae,Casuarina equisetifolia,J. R. & G. Forst.,"beefwood-tree, Australian-pine",,,,33,"equisetifolia J. R. & G. Forst.--beefwood-tree, Australian-pine"
+808,accepted,Catalpa,Bignoniaceae,Catalpa bignonioides,Walt.,"southern catalpa, Indian bean c.",,,,33,"bignonioides Walt.--southern catalpa, Indian bean c."
+809,accepted,Catalpa,Bignoniaceae,Catalpa speciosa,(Warder ex Barney) Warder ex Engelm.,"northern catalpa,",,,,33,"speciosa (Warder ex Barney) Warder ex Engelm.--northern catalpa,"
+810,accepted,Catalpa,Bignoniaceae,"Catalpa catawba-tree,",western c.,,,,,33,"catawba-tree, western c."
+811,accepted,Catha,Celastraceae,Catha edulis,(Vahl) Forsk. ex Endl.,khat,,,,33,edulis (Vahl) Forsk. ex Endl.--khat
+812,accepted,Catharanthus,Apocynaceae,Catharanthus roseus,(L.) G. Don,"Madagascar periwinkle, bright-eyes",,,,33,"roseus (L.) G. Don--Madagascar periwinkle, bright-eyes"
+813,accepted,Cecropia,Urticaceae,Cecropia peltata,L.,trumpet-tree,,,,33,peltata L.--trumpet-tree
+814,accepted,Cedrela,Meliaceae,Cedrela odorata,L.,"Spanish-cedar. West Indian-cedar, cigar-box-cedar, cedro",,,,33,"odorata L.--Spanish-cedar. West Indian-cedar, cigar-box-cedar, cedro"
+815,accepted,Ceiba,Bombacaceae,Ceiba acuminata,(S. Wats.) Rose,,,,,33,acuminata (S. Wats.) Rose
+816,accepted,Ceiba,Bombacaceae,Ceiba aesculifolia,(H.B.K.) Britten & Baker,pochote,,,,33,aesculifolia (H.B.K.) Britten & Baker--pochote
+817,accepted,Ceiba,Bombacaceae,Ceiba pentandra,(L.) Gaertn.,"kapok, silk-cotton-tree, ceiba",,,,33,"pentandra (L.) Gaertn.--kapok, silk-cotton-tree, ceiba"
+818,synonym,Celastrus,Celastraceae,Celastrus edulis,,,Catha edulis,Catha edulis,,33,(edulis Vahl) = Catha edulis
+819,accepted,Celosia,Amarantliaceae,Celosia argéntea,L.,,,,,33,argéntea L.
+820,accepted,Celosia,Amarantliaceae,Celosia cristata,L.,cockscomb,,,,33,cristata L.--cockscomb
+821,accepted,Celtis,Ulmaceae,Celtis occidentalis,L.,hackberry,,,,33,occidentalis L.--hackberry
+822,accepted,Celtis,Ulmaceae,Celtis pallida,Torr.,"granjeno, desert hackberry",,,,33,"pallida Torr.--granjeno, desert hackberry"
+823,accepted,Celtis,Ulmaceae,Celtis reticulata,Torr.,netleaf hackberry,,,,34,reticulata Torr.--netleaf hackberry
+824,accepted,Cenchrus,Poaceae,Cenchrus bifloras,Roxb.,,,,,34,bifloras Roxb.
+825,accepted,Cenchrus,Poaceae,Cenchrus brownii,"Roem. & Schult,",,,,,34,"brownii Roem. & Schult,"
+826,accepted,Cenchrus,Poaceae,Cenchrus ciliaris,L.,bu£felgrass,,,,34,ciliaris L.--bu£felgrass
+827,accepted,Cenchrus,Poaceae,Cenchrus echinatus,L.,"southern sandbur, hedgehog grass",,,,34,"echinatus L.--southern sandbur, hedgehog grass"
+828,accepted,Cenchrus,Poaceae,Cenchrus incertus,M. A. Curtis,"field sandbur, burgrass",,,,34,"incertus M. A. Curtis--field sandbur, burgrass"
+829,accepted,Cenchrus,Poaceae,Cenchrus longispinus,(Hack.) Fern.,longspine sandbur,,,,34,longispinus (Hack.) Fern.--longspine sandbur
+830,synonym,Cenchrus,Poaceae,Cenchrus pauciflorus,,,Cenchrus incertus,C. incertus,,34,(pauciflorus Benth.) = C. incertus
+831,accepted,Cenchrus,Poaceae,Cenchrus setigerus,Vahl,,,,,34,setigerus Vahl
+832,accepted,Cenchrus,Poaceae,Cenchrus tribuloides,L.,dune sandbur,,,,34,tribuloides L.--dune sandbur
+833,accepted,Centaurea,Asteraceae,Centaurea cyanus,L.,cornflower,,,,34,cyanus L.--cornflower
+834,accepted,Centaurea,Asteraceae,Centaurea diffusa,Lam.,diffuse knapweed,,,,34,diffusa Lam.--diffuse knapweed
+835,accepted,Centaurea,Asteraceae,Centaurea jacea,L.,brown knapweed,,,,34,jacea L.--brown knapweed
+836,accepted,Centaurea,Asteraceae,Centaurea maculosa,Lam.,spotted knapweed,,,,34,maculosa Lam.--spotted knapweed
+837,accepted,Centaurea,Asteraceae,Centaurea nigra,L.,black knapweed,,,,34,nigra L.--black knapweed
+838,accepted,Centaurea,Asteraceae,Centaurea repens,L.,Russian knapweed,,,,34,repens L.--Russian knapweed
+839,accepted,Centaurea,Asteraceae,Centaurea solstitialis,L.,yellow starthistle,,,,34,solstitialis L.--yellow starthistle
+840,accepted,Centaurium,Gentianaceae,Centaurium erythraea,Rafn,centaury,,,,34,erythraea Rafn--centaury
+841,synonym,Centaurium,Gentianaceae,Centaurium minus,,,Centaurium erythraea,C. erythraea,,34,(minus auct.) = C. erythraea
+842,accepted,Centella,Apiaceae,Centella asiática,(L.) Urb.,Asiatic pennywort,,,,34,asiática (L.) Urb.--Asiatic pennywort
+843,accepted,Centrosema,Fabaceae,Centrosema plumieri,(Turp. ex Pers.) Benth.,,,,,34,plumieri (Turp. ex Pers.) Benth.
+844,accepted,Centrosema,Fabaceae,Centrosema pubescens,Benth.,,,,,34,pubescens Benth.
+845,accepted,Cephaelis,Rubiaceae,Cephaelis ipecacuanha,(Brot.) A. Rich.,ipecac,,,,34,ipecacuanha (Brot.) A. Rich.--ipecac
+846,accepted,Cephalanthus,Rubiaceae,Cephalanthus occidentalis,L.,buttonbush,,,,34,occidentalis L.--buttonbush
+847,synonym,Cephalonema,Tiliaceae,Cephalonema polyandrum,,,Clappertonia polyandra,Clappertonia polyandra,,34,(polyandrum K. Schum. ex Sprague) = Clappertonia polyandra
+848,accepted,Cerastium,Caryophyllaceae,Cerastium arvense,L.,field chickweed,,,,34,arvense L.--field chickweed
+849,accepted,Cerastium,Caryophyllaceae,Cerastium vulgatum,L.,mouse-ear chickweed,,,,34,vulgatum L.--mouse-ear chickweed
+850,synonym_unresolved,Cerasus,Rosaceae,Cerasus laurocerasus,,,,Loisel.) « Prunus laurocerasus,,34,(laurocerasus (L.) Loisel.) « Prunus laurocerasus
+851,accepted,Ceratonia,Fabaceae,Ceratonia siliqua,L.,"carob, St. Jolin's-bread",,,,34,"siliqua L.--carob, St. Jolin's-bread"
+852,accepted,Ceratophyllum,Ceratophyllaceae,Ceratophyllum demersum,L.,coontail,,,,35,demersum L.--coontail
+853,accepted,Ceratotheca,Pedaliaceae,Ceratotheca sesamoides,Endl.,"false sesame, buiigu",,,,35,"sesamoides Endl.--false sesame, buiigu"
+854,accepted,Cercis,Fabaceae,Cercis canadensis,"L,",eastern redbud,,,,35,"canadensis L,--eastern redbud"
+855,accepted,Cereus,Cactaceae,Cereus giganteus,Engelin.,saguaro,,,,35,giganteus Engelin.--saguaro
+856,accepted,Ceroxylon,Arecaceae,Ceroxylon alpinum,Bonpl. ex DC.,wax palm,,,,35,alpinum Bonpl. ex DC.--wax palm
+857,synonym,Ceroxylon,Arecaceae,Ceroxylon andícola,,,Ceroxylon alpinum,C. alpinum,,35,(andícola Humb. & Bonpl.) = C. alpinum
+858,accepted,Cestrum,Solanaceae,Cestrum noctumum,L.,night jessamine,,,,35,noctumum L.--night jessamine
+859,accepted,Chaenorrhinum,Scrophulariaceae,Chaenorrhinum minus,(L.) Lange,dwarf snapdragon,,,,35,minus (L.) Lange--dwarf snapdragon
+860,accepted,Chaerophyllum,Apiaceae,Chaerophyllum bulbosum,L.,turnip - rooted chervil,,,,35,bulbosum L. - - turnip - rooted chervil
+861,accepted,Chamaebatia,Rosaceae,Chamaebatia foliolosa,Benth.,bearmat,,,,35,foliolosa Benth.--bearmat
+862,accepted,Chamaebatiaria,Rosaceae,Chamaebatiaria millefolium,(Torr.) Maxim.,fernbush,,,,35,millefolium (Torr.) Maxim.--fernbush
+863,accepted,Chamaecyparis,Cupressaceae,Chamaecyparis lawsoniana,(A. Murr.) Parl.,Port-Or£ord-cedar,,,,35,lawsoniana (A. Murr.) Parl.--Port-Or£ord-cedar
+864,accepted,Chamaecyparis,Cupressaceae,Chamaecyparis nootkatensis,(D. Don) Spach,Alaska-cedar,,,,35,nootkatensis (D. Don) Spach--Alaska-cedar
+865,accepted,Chamaecyparis,Cupressaceae,Chamaecyparis obtusa,"(Sieb. & Zuce.) Sieb. & Zuce, ex Endl.",Hinoki false cypress,,,,35,"obtusa (Sieb. & Zuce.) Sieb. & Zuce, ex Endl.--Hinoki false cypress"
+866,accepted,Chamaecyparis,Cupressaceae,Chamaecyparis thyoides,(L.) B.S.P.,"Atlantic white-cedar, southern white-cedar",,,,35,"thyoides (L.) B.S.P.--Atlantic white-cedar, southern white-cedar"
+867,accepted,Chamaedorea,Arecaceae,Chamaedorea elegans,Mart.,parlor palm,,,,35,elegans Mart.--parlor palm
+868,accepted,Chamaemelum,Asteraceae,Chamaemelum nobile,(L.) All.,"chamomile, garden c, Roman c.",,,,35,"nobile (L.) All.--chamomile, garden c, Roman c."
+869,accepted,Chamaerops,Arecaceae,Chamaerops humilis,L.,European fan palm,,,,35,humilis L.--European fan palm
+870,accepted,Chasmanthium,Poaceae,Chasmanthium latifolium,(Michx.) Yates,,,,,35,latifolium (Michx.) Yates
+871,accepted,Cheiranthus,Brassicaceae,Cheiranthus cheiri,L.,wallflower,,,,35,cheiri L.--wallflower
+872,accepted,Chelidonium,Papaveraceae,Chelidonium majus,L.,greater celandine,,,,36,majus L.--greater celandine
+873,accepted,Qienopodium,Chenopodiaceae,Qienopodium album,L.,"lambsquarters, lamb's-quarters",,,,36,"album L.--lambsquarters, lamb's-quarters"
+874,accepted,Qienopodium,Chenopodiaceae,Qienopodium amaranticolor,Coste & Reyn.,,,,,36,amaranticolor Coste & Reyn.
+875,accepted,Qienopodium,Chenopodiaceae,Qienopodium ambrosioides,L.,"Mexican tea, wormseed",,,,36,"ambrosioides L.--Mexican tea, wormseed"
+876,accepted,Qienopodium,Chenopodiaceae,Qienopodium bonus-henricus,L.,"perennial goosefoot, Good-King-Henry",,,,36,"bonus-henricus L.--perennial goosefoot, Good-King-Henry"
+877,accepted,Qienopodium,Chenopodiaceae,Qienopodium botrys,L.,Jerusalem-oak goosefoot,,,,36,botrys L.--Jerusalem-oak goosefoot
+878,accepted,Qienopodium,Chenopodiaceae,Qienopodium giganteum,D. Don,,,,,36,giganteum D. Don
+879,accepted,Qienopodium,Chenopodiaceae,Qienopodium murale,L.,nettlelea£ goosefoot,,,,36,murale L.--nettlelea£ goosefoot
+880,synonym,Qienopodium,Chenopodiaceae,Qienopodium nuttalliae,,,C. quinoa,C. quinoa,,36,(nuttalliae Safford) = C. quinoa
+881,accepted,Qienopodium,Chenopodiaceae,Qienopodium pallidicaule,Aellen,,,,,36,pallidicaule Aellen
+882,accepted,Qienopodium,Chenopodiaceae,Qienopodium polyspermum,L.,many-seeded goosefoot,,,,36,polyspermum L.--many-seeded goosefoot
+883,accepted,Qienopodium,Chenopodiaceae,Qienopodium quinoa,Willd.,quinoa,,,,36,quinoa Willd.--quinoa
+884,accepted,Qienopodium,Chenopodiaceae,Qienopodium rubrum,L.,red goosefoot,,,,36,rubrum L.--red goosefoot
+885,accepted,Chloris,Poaceae,Chloris gayana,Kunth,"rhodesgrass, Rhodes grass",,,,36,"gayana Kunth--rhodesgrass, Rhodes grass"
+886,accepted,Chloris,Poaceae,Chloris radiata,(L.) Sw.,radiate fingergrass,,,,36,radiata (L.) Sw.--radiate fingergrass
+887,accepted,Chloris,Poaceae,Chloris verticillata,Nutt.,"windmill grass, tumble windmill g,",,,,36,"verticillata Nutt.--windmill grass, tumble windmill g,"
+888,accepted,Chloris,Poaceae,Chloris virgata,Sw.,feather fingergrass,,,,36,virgata Sw.--feather fingergrass
+889,accepted,Chlorogalum,Liliaceae,Chlorogalum pomeridianum,(DC.) Kunth,"soap-plant, amole",,,,36,"pomeridianum (DC.) Kunth--soap-plant, amole"
+890,accepted,Chlorophora,Moraceae,Chlorophora excelsa,(Welw.) Benth.,African teak,,,,36,excelsa (Welw.) Benth.--African teak
+891,accepted,Chlorophora,Moraceae,Chlorophora tinctoria,(L.) Gaudich. ex Benth. & Hook. f.,fustic-mulberry,,,,36,tinctoria (L.) Gaudich. ex Benth. & Hook. f.--fustic-mulberry
+892,accepted,Chondrodendron,Menispermaceae,Chondrodendron tomentosum,Ruiz & Pavon,pareira,,,,36,tomentosum Ruiz & Pavon--pareira
+893,accepted,Chrozophora,Euphorbiaceae,Chrozophora tinctoria,(L.) A. Juss.,giradol,,,,36,tinctoria (L.) A. Juss.--giradol
+894,accepted,Chrysalidocarpus,Arecaceae,Chrysalidocarpus lutescens,(Bory) Wendl.,Madagascar palm,,,,36,lutescens (Bory) Wendl.--Madagascar palm
+895,accepted,Chrysanthemum,Asteraceae,Chrysanthemum balsamita,L.,costmary,,,,36,balsamita L.--costmary
+896,accepted,Chrysanthemum,Asteraceae,Chrysanthemum carinatum,Schousb.,"diopsuy greens, shungiku",,,,36,"carinatum Schousb.--diopsuy greens, shungiku"
+897,accepted,Chrysanthemum,Asteraceae,Chrysanthemum cinerariifolium,(Trevir.) Vis.,pyrethrun,,,,36,cinerariifolium (Trevir.) Vis.--pyrethrun
+898,accepted,Chrysanthemum,Asteraceae,Chrysanthemum coccineum,Willd.,Persian insect-flower,,,,36,coccineum Willd.--Persian insect-flower
+899,accepted,Chrysanthemum,Asteraceae,Chrysanthemum coronarium,L.,,,,,36,coronarium L.
+900,accepted,Chrysanthemum,Asteraceae,Chrysanthemum indicum,L.,,,,,36,indicum L.
+901,accepted,Chrysanthemum,Asteraceae,Chrysanthemum leucanthemum,L.,oxeye daisy,,,,36,leucanthemum L.--oxeye daisy
+902,accepted,Chrysanthemum,Asteraceae,Chrysanthemum morifolium,Ramat.,florist's chrysanthemum,,,,36,morifolium Ramat.--florist's chrysanthemum
+903,synonym,Chrysanthemum,Asteraceae,Chrysanthemum roseum,,,Chrysanthemum coccineum,C. coccineum,,36,(roseum Adam) = C. coccineum
+904,accepted,Chrysanthemum,Asteraceae,Chrysanthemum spatiosum,Bailey,,,,,36,spatiosum Bailey
+905,synonym,Chrysanthemum,Asteraceae,Chrysanthemum vulgäre,,,Tanacetum vulgäre,Tanacetum vulgäre,,36,(vulgäre (L.) Bemh.) = Tanacetum vulgäre
+906,accepted,Chrysobalanus,Chrysobalanaceae,Chrysobalanus icaco,L.,"cocoplum, icaco",,,,37,"icaco L.--cocoplum, icaco"
+907,synonym,Chrysophyllum,Sapotaceae,Chrysophyllum africanum,,,Chrysophyllum delevoyi,C. delevoyi,,37,"(africanum A. DC,) = C. delevoyi"
+908,accepted,Chrysophyllum,Sapotaceae,Chrysophyllum cainito,L.,star-apple,,,,37,cainito L.--star-apple
+909,accepted,Chrysophyllum,Sapotaceae,Chrysophyllum delevoyi,De Wild.,African star-apple,,,,37,delevoyi De Wild.--African star-apple
+910,accepted,Chrysothamnus,Asteraceae,Chrysothamnus nauseosus,(Pall.) Britt.,rubber rabbitbrush,,,,37,nauseosus (Pall.) Britt.--rubber rabbitbrush
+911,accepted,Chrysothamnus,Asteraceae,Chrysothamnus viscidiflorus,(Hook.) Nutt.,Douglas rabbitbrush,,,,37,viscidiflorus (Hook.) Nutt.--Douglas rabbitbrush
+912,accepted,Cicer,Fabaceae,Cicer arietinum,L.,"chickpea, garbanzo",,,,37,"arietinum L.--chickpea, garbanzo"
+913,synonym,Cicer,Fabaceae,Cicer lens,,,Lens culinaris,Lens culinaris,,37,(lens Willd.) = Lens culinaris
+914,accepted,Cichorium,Asteraceae,Cichorium endivia,L.,endive,,,,37,endivia L.--endive
+915,accepted,Cichorium,Asteraceae,Cichorium intybus,L.,chicory,,,,37,intybus L.--chicory
+916,accepted,Cicuta,Apiaceae,Cicuta maculata,L.,spotted waterhemlock,,,,37,maculata L.--spotted waterhemlock
+917,accepted,Cinchona,Rubiaceae,Cinchona calisaya,Wedd.,quinine,,,,37,calisaya Wedd.--quinine
+918,accepted,Cinchona,Rubiaceae,Cinchona officinalis,L.,quinine,,,,37,officinalis L.--quinine
+919,accepted,Cinchona,Rubiaceae,Cinchona pubescens,Vahl,quinine,,,,37,pubescens Vahl--quinine
+920,synonym,Cinchona,Rubiaceae,Cinchona succirubra,,,Cinchona pubescens,C. pubescens,,37,(succirubra Pav. ex Kl.) = C. pubescens
+921,accepted,Cinnaniomum,Lauraceae,Cinnaniomum aromaticum,Nees,cassia,,,,37,aromaticum Nees--cassia
+922,accepted,Cinnaniomum,Lauraceae,Cinnaniomum burmannii,(Nees) Bl.,padang-cassia,,,,37,burmannii (Nees) Bl.--padang-cassia
+923,accepted,Cinnaniomum,Lauraceae,Cinnaniomum camphora,"(L,) J. S. Prèsl",camphor-tree,,,,37,"camphora (L,) J. S. Prèsl--camphor-tree"
+924,synonym_unresolved,Cinnaniomum,Lauraceae,Cinnaniomum cassia,,,,« C. aromaticum,,37,(cassia Nees ex Bl.) « C. aromaticum
+925,accepted,Cinnaniomum,Lauraceae,Cinnaniomum tamala,(Buch.-Ham.) Nees & Oberm.,Indian-bark,,,,37,tamala (Buch.-Ham.) Nees & Oberm.--Indian-bark
+926,accepted,Cinnaniomum,Lauraceae,Cinnaniomum verum,J. S. Presl,cinnamon,,,,37,verum J. S. Presl--cinnamon
+927,synonym_unresolved,Cinnaniomum,Lauraceae,Cinnaniomum zeylanicum,,,,« C. verum,,37,"(zeylanicum Gare, ex Bl.) « C. verum"
+928,accepted,Cirsium,Asteraceae,Cirsium arvense,(L.) Scop.,Canada thistle,,,,37,arvense (L.) Scop.--Canada thistle
+929,accepted,Cirsium,Asteraceae,Cirsium vulgäre,(Savi) Ten.,bull thistle,,,,37,vulgäre (Savi) Ten.--bull thistle
+930,accepted,Cissus,Vitaceae,Cissus rhonibifolia,Vahl,grape ivy,,,,37,rhonibifolia Vahl--grape ivy
+931,accepted,Citrullus,Cucurbitaceae,Citrullus colocynthis,(L.) Schrad.,colocynth,,,,37,colocynthis (L.) Schrad.--colocynth
+932,synonym,Citrullus,Cucurbitaceae,Citrullus lanatus,,,Citrullus lanatus,C. lanatus (Thunb.) Matsum. & Nakai,,37,(lanatus (Thunb.) Mansf.) = C. lanatus (Thunb.) Matsum. & Nakai
+933,accepted,Citrullus,Cucurbitaceae,Citrullus lanatus,(Thunb.) Matsum. & Nakai,watermelon--[TN],,,TN,37,lanatus (Thunb.) Matsum. & Nakai--watermelon--[TN]
+934,accepted,Citrullus,Cucurbitaceae,Citrullus lanatus var. citroides,(Bailey) Mansf.,"citron (melon), preserving",,,,37,"lanatus var. citroides (Bailey) Mansf.--citron (melon), preserving"
+935,accepted,Citrullus,Cucurbitaceae,"Citrullus melon,",stock m.,,,,,37,"melon, stock m."
+936,synonym,Citrullus,Cucurbitaceae,Citrullus vulgaris,,,Citrullus lanatus,C. lanatus,,37,(vulgaris Schrad.) = C. lanatus
+937,synonym,Citrullus,Cucurbitaceae,Citrullus vulgaris var. citroides,,,Citrullus lanatus var. citroides,C. lanatus var. citroides,,37,(vulgaris var. citroides Bailey) = C. lanatus var. citroides
+938,accepted,Citrus,Rutaceae,Citrus aurantiifolia,(Christm.) Swingle,lime,,,,38,aurantiifolia (Christm.) Swingle--lime
+939,accepted,Citrus,Rutaceae,Citrus aurantium,L.,"sour orange, Seville o.",,,,38,"aurantium L.--sour orange, Seville o."
+940,synonym,Citrus,Rutaceae,Citrus aurantium var. sinensis,,,Citrus sinensis,C. sinensis,,38,(aurantium var. sinensis L.) = C. sinensis
+941,accepted,Citrus,Rutaceae,Citrus grandis,(L.) Osb.,"pummelo, shaddock",,,,38,"grandis (L.) Osb.--pummelo, shaddock"
+942,accepted,Citrus,Rutaceae,Citrus limon,(L.) Burm. £.,lemon,,,,38,limon (L.) Burm. £.--lemon
+943,synonym,Citrus,Rutaceae,Citrus limonum,,,Citrus limon,C. limon,,38,(limonum Risso) = C. limon
+944,accepted,Citrus,Rutaceae,Citrus medica,L.,citron,,,,38,medica L.--citron
+945,accepted,Citrus,Rutaceae,Citrus mitis,Blanco,,,,,38,mitis Blanco
+946,synonym,Citrus,Rutaceae,Citrus nobilis,,,Citrus reticulata,C. reticulata,,38,(nobilis Andr.) = C. reticulata
+947,accepted,Citrus,Rutaceae,Citrus X,nobilis Lour.,king orange,,,,38,X nobilis Lour.--king orange
+948,accepted,Citrus,Rutaceae,Citrus paradisi,Macfad.,grapefruit,,,,38,paradisi Macfad.--grapefruit
+949,accepted,Citrus,Rutaceae,Citrus paradisi X C. reticulata,,tángelo,,,,38,paradisi X C. reticulata--tángelo
+950,accepted,Citrus,Rutaceae,Citrus reticulata,Blanco,"tangerine, mandarin",,,,38,"reticulata Blanco--tangerine, mandarin"
+951,accepted,Citrus,Rutaceae,Citrus reticulata X C. sinensis,,"temple orange, tangors",,,,38,"reticulata X C. sinensis--temple orange, tangors"
+952,accepted,Citrus,Rutaceae,Citrus sinensis,(L.) Osb.,sweet orange,,,,38,sinensis (L.) Osb.--sweet orange
+953,accepted,Citrus,Rutaceae,Citrus tachibana,(Makino) Tanaka,tachibana orange,,,,38,tachibana (Makino) Tanaka--tachibana orange
+954,synonym,Citrus,Rutaceae,Citrus trifoliata,,,Poncirus trifoliata,Poncirus trifoliata,,38,(trifoliata L.) = Poncirus trifoliata
+955,synonym,Citrus,Rutaceae,Citrus vulgaris,,,Citrus aurantium,C. aurantium,,38,(vulgaris Risso) = C. aurantium
+956,accepted,Cladium,Cyperaceae,Cladium jamaicense,Crantz,sawgrass,,,,38,jamaicense Crantz--sawgrass
+957,accepted,Cladium,Cyperaceae,Cladium mariscoides,(Muhl.) Torr.,smooth sawgrass,,,,38,mariscoides (Muhl.) Torr.--smooth sawgrass
+958,accepted,Clappertonia,Tiliaceae,Clappertonia ficifolia,(Wind.) Decne.,bolo-bolo,,,,38,ficifolia (Wind.) Decne.--bolo-bolo
+959,accepted,Clappertonia,Tiliaceae,Clappertonia polyandra,(K. Schum.) Becherer,,,,,38,polyandra (K. Schum.) Becherer
+960,accepted,Clausena,Rutaceae,Clausena dentata,(Willd.) Roem.,,,,,38,dentata (Willd.) Roem.
+961,accepted,Clausena,Rutaceae,Clausena lansium,(Lour.) Skeels,wampi,,,,38,lansium (Lour.) Skeels--wampi
+962,accepted,Claytonia,Portulacaceae,Claytonia perfoliata,Bonn ex Willd.,"miner's-lettuce, winter purslane",,,,38,"perfoliata Bonn ex Willd.--miner's-lettuce, winter purslane"
+963,accepted,Claytonia,Portulacaceae,Claytonia virginica,L.,spring-beauty,,,,38,virginica L.--spring-beauty
+964,accepted,Cleome,Capparaceae,Cleome hasslerana,Chod.,spider£lower,,,,38,hasslerana Chod.--spider£lower
+965,accepted,Cleome,Capparaceae,Cleome spinosa,Jacq.,spiny spiderflower,,,,38,spinosa Jacq.--spiny spiderflower
+966,accepted,Cleome,Capparaceae,Cleome viscosa,L.,wild caia,,,,38,viscosa L.--wild caia
+967,accepted,Clidemia,Melastomataceae,Clidemia hirta,(L.) D. Don,"soapbush, curse",,,,38,"hirta (L.) D. Don--soapbush, curse"
+968,accepted,Clitoria,Fabaceae,Clitoria laurifolia,Poir.,,,,,38,laurifolia Poir.
+969,accepted,Clitoria,Fabaceae,Clitoria tematea,L.,"butterfly pea, Asian pigeon-wings",,,,38,"tematea L.--butterfly pea, Asian pigeon-wings"
+970,accepted,Cnicus,Asteraceae,Cnicus benedictus,L.,blessed thistle,,,,38,benedictus L.--blessed thistle
+971,accepted,Cnidoscolus,Euphorbiaceae,Cnidoscolus aconitifolius,(Mill.) I. M. Johnst.,"chaya, copapayo",,,,39,"aconitifolius (Mill.) I. M. Johnst.--chaya, copapayo"
+972,accepted,Cnidoscolus,Euphorbiaceae,Cnidoscolus chayamansa,McVaugh,chaya,,,,39,chayamansa McVaugh--chaya
+973,accepted,Cnidoscolus,Euphorbiaceae,Cnidoscolus stimilosus,(Michx.) Engelm. & A. Gray,bullnettle,,,,39,stimilosus (Michx.) Engelm. & A. Gray--bullnettle
+974,accepted,Cnidoscolus,Euphorbiaceae,Cnidoscolus texanus,"(Muell,-Arg.) Small",Texas bullnettle,,,,39,"texanus (Muell,-Arg.) Small--Texas bullnettle"
+975,accepted,Cnidoscolus,Euphorbiaceae,Cnidoscolus urens,(L.) Arthur,,,,,39,urens (L.) Arthur
+976,accepted,Coccinia,Cucurbitaceae,Coccinia grandis,(L.) Voigt,ivy gourd,,,,39,grandis (L.) Voigt--ivy gourd
+977,synonym,Coccinia,Cucurbitaceae,Coccinia indica,,,Coccinia grandis,C. grandis,,39,(indica Wight & Arn.) = C. grandis
+978,accepted,Coccoloba,Polygonaceae,Coccoloba uvifera,(L.) L.,seagrape,,,,39,uvifera (L.) L.--seagrape
+979,accepted,Coccothrinax,Arecaceae,Coccothrinax argentata,(Jacq.) Bailey,Florida silver palm,,,,39,argentata (Jacq.) Bailey--Florida silver palm
+980,synonym,Cochlearia,Brassicaceae,Cochlearia armoracia,,,Armoracia rusticana,Armoracia rusticana,,39,(armoracia L.) = Armoracia rusticana
+981,synonym,Cocos,Arecaceae,Cocos coronata,,,Syagrus coronata,Syagrus coronata,,39,(coronata Mart.) = Syagrus coronata
+982,accepted,Cocos,Arecaceae,Cocos nucífera,L.,coconut,,,,39,nucífera L.--coconut
+983,accepted,Codiaeum,Euphorbiaceae,Codiaeum variegatum,(L.) Bl.,garden crotón,,,,39,variegatum (L.) Bl.--garden crotón
+984,synonym,Coelococcus,Arecaceae,Coelococcus amicarum,,,Metroxylon amicarum,Metroxylon amicarum,,39,(amicarum (Wendl.) W. F. Wight) = Metroxylon amicarum
+985,accepted,Coelococcus,Arecaceae,Coelococcus arabica,L.,coffee,,,,39,arabica L.--coffee
+986,accepted,Coelococcus,Arecaceae,Coelococcus bengalensis,Roxb. ex Heyne ^ Wilid.,Bengal coffee,,,,39,bengalensis Roxb. ex Heyne ^ Wilid.--Bengal coffee
+987,accepted,Coelococcus,Arecaceae,Coelococcus canephora,Pierre ex Froehner,robusta coffee,,,,39,canephora Pierre ex Froehner--robusta coffee
+988,accepted,Coelococcus,Arecaceae,Coelococcus congensis,Froehner,Congo coffee,,,,39,congensis Froehner--Congo coffee
+989,synonym,Coelococcus,Arecaceae,Coelococcus dewevrei,,,Coelococcus liberica,C. liberica,,39,(dewevrei De Wild. & Dur.) = C. liberica
+990,synonym,Coelococcus,Arecaceae,Coelococcus excelsa,,,Coelococcus liberica,C. liberica,,39,(excelsa A. Chev.) = C. liberica
+991,accepted,Coelococcus,Arecaceae,Coelococcus liberica,Bull ex Hiern,liberica coffee,,,,39,liberica Bull ex Hiern--liberica coffee
+992,synonym,Coelococcus,Arecaceae,Coelococcus robusta,,,Coelococcus canephora,C. canephora,,39,(robusta Linden ex De Wild.) = C. canephora
+993,accepted,Coelococcus,Arecaceae,Coelococcus stenophylla,G. Don,,,,,39,stenophylla G. Don
+994,accepted,Coix,Poaceae,Coix lacryma-jobi,L.,"Job's-tears, adlay, adlay millet",,,,39,"lacryma-jobi L.--Job's-tears, adlay, adlay millet"
+995,accepted,Cola,Sterculiaceae,Cola acuminata,(Beauv.) Schott ^ Endl.,,,,,39,acuminata (Beauv.) Schott ^ Endl.
+996,accepted,Cola,Sterculiaceae,Cola anómala,K. Schum.,,,,,39,anómala K. Schum.
