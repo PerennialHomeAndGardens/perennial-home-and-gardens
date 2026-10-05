@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Garden Inventory, Shopping & Budget | Perennial Home & Gardens</title>
+<meta name="description" content="Track garden seeds, plants, supplies, tools, wish-list items, shopping, purchases, expenses, and garden budgets in one connected system.">
+<style>
+:root{--green:#24472b;--green2:#35613c;--paper:#fffdf8;--line:#ddd2c3;--soft:#edf3e8;--warn:#fff3d8;--danger:#91463d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f4efe7,#fbf8f1);color:#302b26;font-family:Georgia,serif}
+a{color:inherit}.topnote{background:#1f3824;color:#edf3e9;text-align:center;padding:7px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+header{position:sticky;top:0;z-index:40;background:#fffdf8f3;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.bar{max-width:1180px;margin:auto;padding:9px 13px;display:flex;align-items:center;gap:12px}.brand{flex:1}.brand strong{display:block;color:var(--green);font-size:22px}.brand span{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#766b61}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{border:1px solid #cbd8c4;background:#fff;border-radius:999px;padding:8px 10px;text-decoration:none;color:var(--green);font-size:10px;font-weight:bold}
+.hero{max-width:1160px;margin:auto;padding:42px 18px 20px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#6a7f60;font-weight:bold}.hero h1{font-size:clamp(40px,6vw,72px);line-height:.96;margin:8px 0;color:var(--green);font-weight:500}.hero p{max-width:900px;color:#665e56;font-size:16px;line-height:1.55;margin:11px 0}.badges{display:flex;gap:7px;flex-wrap:wrap}.badge{background:#e9efe4;border:1px solid #cbd7c4;border-radius:999px;padding:7px 10px;color:#446145;font-size:10px}
+.shell{max-width:1160px;margin:auto;padding:10px 18px 55px}.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:15px}.stat{background:#fffdf8;border:1px solid #ddd3c6;border-radius:15px;padding:12px}.stat strong{display:block;color:#315236;font-size:24px}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#74695f}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tab{border:1px solid #cfd8c9;background:#fffaf2;color:#38583c;border-radius:999px;padding:9px 12px;font-weight:bold;font-size:11px;cursor:pointer}.tab.active{background:#315936;color:#fff;border-color:#315936}
+.panel{display:none}.panel.active{display:block}.card{background:#fffdf8;border:1px solid #ddd3c5;border-radius:21px;box-shadow:0 14px 36px #253a2413;overflow:hidden;margin-bottom:15px}.cardhead{padding:16px 17px;border-bottom:1px solid #ebe3d8}.cardhead h2{margin:0;color:var(--green);font-size:25px;font-weight:500}.cardhead p{margin:4px 0 0;color:#746a61;font-size:11px;line-height:1.45}.body{padding:16px}
+.formgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.field{margin-top:9px}.field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#776c62;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:12px Georgia}.field textarea{min-height:72px;resize:vertical}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:999px;padding:8px 10px;font-weight:bold;font-size:10px;cursor:pointer;background:var(--green2);color:#fff}.btn.secondary{background:#fffaf2;color:var(--green);border:1px solid #c5d4be}.btn.danger{background:#fff1ee;color:var(--danger);border:1px solid #e3c2bb}
+.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:860px}.table th,.table td{padding:9px 8px;border-bottom:1px solid #ebe4da;text-align:left;font-size:10px;vertical-align:top}.table th{text-transform:uppercase;letter-spacing:.06em;color:#6d7567;background:#f4f7f0;position:sticky;top:0}.status{display:inline-block;border-radius:999px;padding:5px 7px;font-size:9px;font-weight:bold;background:#edf2e9;color:#3f5d42}.status.low{background:#fff0d1;color:#71582f}.status.out{background:#fff0ed;color:#88473e}
+.filters{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:8px}.filters input,.filters select{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:11px Georgia}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.itemcard{border:1px solid #ddd4c7;background:#fffaf4;border-radius:15px;padding:12px}.itemcard small{display:block;text-transform:uppercase;letter-spacing:.07em;color:#7b7167;font-size:8px}.itemcard h4{margin:3px 0 4px;color:#355638;font-size:16px}.itemcard p{margin:4px 0;color:#665d54;font-size:10px;line-height:1.45}.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.chip{background:#edf2e9;border-radius:999px;padding:4px 6px;font-size:8px;color:#466148}.chip.warn{background:#fff0d1;color:#735a31}
+.budgetgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.budgetbox{border:1px solid #ded4c6;border-radius:13px;background:#fffaf4;padding:11px}.budgetbox b{display:block;color:#355638;font-size:13px}.budgetbox strong{display:block;color:#315236;font-size:24px;margin-top:4px}.budgetbox span{display:block;color:#71675e;font-size:9px;line-height:1.4;margin-top:4px}
+.progress{height:9px;background:#e8e2d8;border-radius:999px;overflow:hidden;margin-top:8px}.progress i{display:block;height:100%;background:#739567;border-radius:999px}.progress i.over{background:#b46556}
+.empty{padding:18px;text-align:center;color:#786e64;border:1px dashed #d8cdbf;border-radius:13px;background:#fffaf4;font-size:11px}.note{margin-top:10px;padding:10px;background:#f5efdc;border:1px solid #ead9b1;border-radius:12px;color:#5f523f;font-size:10px;line-height:1.45}
+footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font-size:10px}.footerlinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}.footerlinks a{text-decoration:none}
+@media(max-width:900px){.formgrid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(3,1fr)}.budgetgrid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}}
+@media(max-width:620px){.bar{padding:8px 9px}.brand strong{font-size:17px}.brand span{display:none}.nav a:not(.garden){display:none}.hero{padding:30px 10px 14px}.shell{padding:8px 9px 42px}.stats{grid-template-columns:repeat(2,1fr)}.formgrid,.filters,.budgetgrid{grid-template-columns:1fr}.card{border-radius:17px}}
+</style>
+</head>
+<body>
+<div class="topnote">Perennial Home & Gardens • Garden Inventory, Shopping & Budget</div>
+<header><div class="bar"><div class="brand"><strong>Garden Inventory & Budget</strong><span>Seeds · Plants · Supplies · Tools · Shopping · Expenses</span></div><nav class="nav"><a class="garden" href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../seed-starting/">Seeds</a><a href="../garden-journal/">Journal</a></nav></div></header>
+
+<section class="hero">
+ <div class="eyebrow">Build 5 • My Garden System</div>
+ <h1>Garden Inventory, Shopping & Budget</h1>
+ <p>Keep garden supplies organized, know what you already own, build a shopping list, track purchases, and compare actual spending to your seasonal garden budget.</p>
+ <div class="badges"><span class="badge">Inventory</span><span class="badge">Seeds & Plants</span><span class="badge">Tools & Supplies</span><span class="badge">Wish List</span><span class="badge">Shopping List</span><span class="badge">Purchases</span><span class="badge">Budget Tracking</span></div>
+</section>
+
+<main class="shell">
+<div class="stats">
+ <div class="stat"><strong id="stItems">0</strong><span>Inventory items</span></div>
+ <div class="stat"><strong id="stLow">0</strong><span>Low / out</span></div>
+ <div class="stat"><strong id="stShop">0</strong><span>Shopping list</span></div>
+ <div class="stat"><strong id="stSpent">$0</strong><span>Total spent</span></div>
+ <div class="stat"><strong id="stBudget">$0</strong><span>Season budget</span></div>
+ <div class="stat"><strong id="stRemain">$0</strong><span>Budget remaining</span></div>
+</div>
+
+<div class="tabs"><button class="tab active" data-tab="inventory">INVENTORY</button><button class="tab" data-tab="shopping">SHOPPING / WISH LIST</button><button class="tab" data-tab="purchases">PURCHASES</button><button class="tab" data-tab="budget">BUDGET</button></div>
+
+<section class="panel active" id="inventory">
+ <div class="card"><div class="cardhead"><h2>Add Inventory Item</h2><p>Track garden materials you already own so shopping starts with what is actually on hand.</p></div><div class="body">
+  <div class="formgrid">
+   <div class="field"><label>Item name</label><input id="iName" placeholder="Potting mix"></div>
+   <div class="field"><label>Category</label><select id="iCat"><option>Seeds</option><option>Plants</option><option>Soil & Compost</option><option>Fertilizer & Amendments</option><option>Pest / Disease Supplies</option><option>Containers</option><option>Irrigation</option><option>Tools</option><option>Structures</option><option>Harvest / Storage</option><option>Other</option></select></div>
+   <div class="field"><label>Quantity</label><input id="iQty" type="number" min="0" step=".01" value="1"></div>
+   <div class="field"><label>Unit</label><input id="iUnit" placeholder="bags, packets, gal, each"></div>
+   <div class="field"><label>Minimum desired</label><input id="iMin" type="number" min="0" step=".01" value="0"></div>
+   <div class="field"><label>Storage location</label><input id="iLoc" placeholder="Shed shelf 2"></div>
+   <div class="field"><label>Brand / variety</label><input id="iBrand" placeholder="Optional"></div>
+   <div class="field"><label>Estimated value</label><input id="iValue" type="number" min="0" step=".01" placeholder="14.99"></div>
+  </div>
+  <div class="field"><label>Notes</label><textarea id="iNotes" placeholder="Expiration, size, use, condition, reorder note…"></textarea></div>
+  <div class="actions"><button class="btn" id="addItem">Add Inventory</button></div>
+ </div></div>
+ <div class="card"><div class="cardhead"><h2>Inventory</h2><p>Low-stock items can be moved directly to the shopping list.</p></div><div class="body"><div class="filters"><input id="iSearch" placeholder="Search inventory…"><select id="iFilterCat"><option value="">All categories</option></select><select id="iFilterStock"><option value="">All stock levels</option><option value="low">Low / out</option><option value="ok">Stocked</option></select></div><div class="tablewrap"><table class="table"><thead><tr><th>Item</th><th>Category</th><th>Qty</th><th>Min</th><th>Location</th><th>Status</th><th></th></tr></thead><tbody id="inventoryRows"></tbody></table></div><div id="inventoryEmpty" class="empty">No inventory added yet.</div></div></div>
+</section>
+
+<section class="panel" id="shopping">
+ <div class="card"><div class="cardhead"><h2>Add Shopping / Wish Item</h2><p>Use priority and target price to separate “need now” from “nice to have.”</p></div><div class="body">
+  <div class="formgrid">
+   <div class="field"><label>Item</label><input id="sName" placeholder="Drip emitters"></div>
+   <div class="field"><label>Category</label><select id="sCat"><option>Seeds</option><option>Plants</option><option>Soil & Compost</option><option>Fertilizer & Amendments</option><option>Pest / Disease Supplies</option><option>Containers</option><option>Irrigation</option><option>Tools</option><option>Structures</option><option>Harvest / Storage</option><option>Other</option></select></div>
+   <div class="field"><label>Quantity</label><input id="sQty" type="number" min="1" step=".01" value="1"></div>
+   <div class="field"><label>Priority</label><select id="sPriority"><option>Need now</option><option>Soon</option><option>Wish list</option></select></div>
+   <div class="field"><label>Target price</label><input id="sPrice" type="number" min="0" step=".01"></div>
+   <div class="field"><label>Store / source</label><input id="sStore" placeholder="Home Depot, seed company…"></div>
+  </div>
+  <div class="field"><label>Notes</label><textarea id="sNotes" placeholder="Size, brand, model, link note, why needed…"></textarea></div>
+  <div class="actions"><button class="btn" id="addShopping">Add to List</button></div>
+ </div></div>
+ <div class="card"><div class="cardhead"><h2>Shopping & Wish List</h2><p>Mark an item purchased and it automatically becomes a purchase record.</p></div><div class="body"><div class="cards" id="shoppingCards"></div></div></div>
+</section>
+
+<section class="panel" id="purchases">
+ <div class="card"><div class="cardhead"><h2>Record Purchase</h2><p>Purchases feed directly into budget totals.</p></div><div class="body">
+  <div class="formgrid">
+   <div class="field"><label>Date</label><input id="pDate" type="date"></div>
+   <div class="field"><label>Item</label><input id="pItem" placeholder="Compost"></div>
+   <div class="field"><label>Category</label><select id="pCat"><option>Seeds</option><option>Plants</option><option>Soil & Compost</option><option>Fertilizer & Amendments</option><option>Pest / Disease Supplies</option><option>Containers</option><option>Irrigation</option><option>Tools</option><option>Structures</option><option>Harvest / Storage</option><option>Other</option></select></div>
+   <div class="field"><label>Store / source</label><input id="pStore"></div>
+   <div class="field"><label>Quantity</label><input id="pQty" type="number" min="0" step=".01" value="1"></div>
+   <div class="field"><label>Total cost</label><input id="pCost" type="number" min="0" step=".01"></div>
+   <div class="field"><label>Payment / note</label><input id="pPay" placeholder="Card, cash, gift card…"></div>
+  </div>
+  <div class="actions"><button class="btn" id="addPurchase">Save Purchase</button></div>
+ </div></div>
+ <div class="card"><div class="cardhead"><h2>Purchase History</h2><p>Every expense is kept by date and category.</p></div><div class="body"><div class="tablewrap"><table class="table"><thead><tr><th>Date</th><th>Item</th><th>Category</th><th>Store</th><th>Qty</th><th>Cost</th><th></th></tr></thead><tbody id="purchaseRows"></tbody></table></div><div id="purchaseEmpty" class="empty">No purchases recorded yet.</div><div class="actions"><button class="btn secondary" id="exportData">Export Data</button></div></div></div>
+</section>
+
+<section class="panel" id="budget">
+ <div class="card"><div class="cardhead"><h2>Garden Budget</h2><p>Set one seasonal budget and optional category targets.</p></div><div class="body">
+  <div class="formgrid">
+   <div class="field"><label>Season / year</label><input id="bSeason" placeholder="2027 Garden"></div>
+   <div class="field"><label>Total budget</label><input id="bTotal" type="number" min="0" step=".01" placeholder="1200"></div>
+   <div class="field"><label>Plants & seeds target</label><input id="bPlants" type="number" min="0" step=".01"></div>
+   <div class="field"><label>Soil / fertilizer target</label><input id="bSoil" type="number" min="0" step=".01"></div>
+   <div class="field"><label>Tools / structures target</label><input id="bTools" type="number" min="0" step=".01"></div>
+   <div class="field"><label>Other target</label><input id="bOther" type="number" min="0" step=".01"></div>
+  </div>
+  <div class="actions"><button class="btn" id="saveBudget">Save Budget</button></div>
+ </div></div>
+ <div class="card"><div class="cardhead"><h2>Budget Snapshot</h2><p>Actual purchase totals compared with your plan.</p></div><div class="body"><div class="budgetgrid" id="budgetBoxes"></div><div id="budgetProgress"></div><div class="note">Budget tracking is informational and local to this device. It is designed to help gardeners understand seasonal garden costs, not provide accounting or tax advice.</div></div></div>
+</section>
+</main>
+
+<footer><div class="footerlinks"><a href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../seed-starting/">Seed Starting</a><a href="../garden-journal/">Garden Journal</a><a href="../harvest-records/">Harvest Records</a></div><div>© Perennial Home & Gardens</div></footer>
+
+<script>
+const KEY="phgGardenInventoryV1";
+const CATS=["Seeds","Plants","Soil & Compost","Fertilizer & Amendments","Pest / Disease Supplies","Containers","Irrigation","Tools","Structures","Harvest / Storage","Other"];
+let state=load();
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+function load(){try{return {...{inventory:[],shopping:[],purchases:[],budget:{}},...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch(e){return {inventory:[],shopping:[],purchases:[],budget:{}}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()}
+function uid(p){return p+"-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)}
+function today(){return new Date().toISOString().slice(0,10)}
+$("pDate").value=today();
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id===b.dataset.tab))});
+
+$("addItem").onclick=()=>{
+ const name=$("iName").value.trim();if(!name){alert("Enter an inventory item.");return}
+ state.inventory.push({id:uid("inv"),name,category:$("iCat").value,qty:+$("iQty").value||0,unit:$("iUnit").value.trim(),min:+$("iMin").value||0,location:$("iLoc").value.trim(),brand:$("iBrand").value.trim(),value:+$("iValue").value||0,notes:$("iNotes").value.trim(),created:new Date().toISOString()});
+ ["iName","iUnit","iLoc","iBrand","iValue","iNotes"].forEach(id=>$(id).value="");$("iQty").value=1;$("iMin").value=0;save();
+};
+function stockStatus(i){if(i.qty<=0)return["Out","out"];if(i.min>0&&i.qty<=i.min)return["Low","low"];return["Stocked",""]}
+function renderInventory(){
+ const q=$("iSearch").value.trim().toLowerCase(),cat=$("iFilterCat").value,stock=$("iFilterStock").value,rows=$("inventoryRows");rows.innerHTML="";
+ const a=state.inventory.filter(i=>{const st=stockStatus(i)[1];return(!q||[i.name,i.category,i.location,i.brand,i.notes].join(" ").toLowerCase().includes(q))&&(!cat||i.category===cat)&&(!stock||(stock==="low"?(st==="low"||st==="out"):!st))});
+ a.forEach(i=>{const [label,cls]=stockStatus(i),tr=document.createElement("tr");tr.innerHTML='<td><b>'+esc(i.name)+'</b>'+(i.brand?'<br><small>'+esc(i.brand)+'</small>':'')+'</td><td>'+esc(i.category)+'</td><td>'+i.qty+' '+esc(i.unit||"")+'</td><td>'+i.min+'</td><td>'+esc(i.location||"—")+'</td><td><span class="status '+cls+'">'+label+'</span></td><td><button class="btn secondary" data-shop="'+i.id+'">Shop</button> <button class="btn danger" data-del-inv="'+i.id+'">Delete</button></td>';rows.appendChild(tr)});
+ $("inventoryEmpty").style.display=a.length?"none":"block";
+ document.querySelectorAll("[data-shop]").forEach(b=>b.onclick=()=>{const i=state.inventory.find(x=>x.id===b.dataset.shop);state.shopping.push({id:uid("shop"),name:i.name,category:i.category,qty:Math.max(1,(i.min||1)-i.qty),priority:"Need now",targetPrice:0,store:"",notes:"Added from inventory because stock is "+stockStatus(i)[0].toLowerCase(),created:new Date().toISOString()});save()});
+ document.querySelectorAll("[data-del-inv]").forEach(b=>b.onclick=()=>{if(confirm("Delete this inventory item?")){state.inventory=state.inventory.filter(x=>x.id!==b.dataset.delInv);save()}});
+}
+$("addShopping").onclick=()=>{const name=$("sName").value.trim();if(!name){alert("Enter an item.");return}state.shopping.push({id:uid("shop"),name,category:$("sCat").value,qty:+$("sQty").value||1,priority:$("sPriority").value,targetPrice:+$("sPrice").value||0,store:$("sStore").value.trim(),notes:$("sNotes").value.trim(),created:new Date().toISOString()});["sName","sPrice","sStore","sNotes"].forEach(id=>$(id).value="");$("sQty").value=1;save()};
+function renderShopping(){const box=$("shoppingCards");box.innerHTML=state.shopping.length?"":"<div class='empty'>Shopping and wish list is empty.</div>";state.shopping.forEach(s=>{const d=document.createElement("div");d.className="itemcard";d.innerHTML='<small>'+esc(s.category)+' · '+esc(s.priority)+'</small><h4>'+esc(s.name)+'</h4><p>Qty '+s.qty+(s.store?' · '+esc(s.store):'')+(s.targetPrice?' · Target $'+s.targetPrice.toFixed(2):'')+'</p>'+(s.notes?'<p>'+esc(s.notes)+'</p>':'')+'<div class="actions"><button class="btn" data-buy="'+s.id+'">Mark Purchased</button><button class="btn danger" data-del-shop="'+s.id+'">Remove</button></div>';box.appendChild(d)});
+ document.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{const s=state.shopping.find(x=>x.id===b.dataset.buy),cost=prompt("Total purchase cost:",s.targetPrice||"");if(cost===null)return;state.purchases.unshift({id:uid("pur"),date:today(),item:s.name,category:s.category,store:s.store,qty:s.qty,cost:+cost||0,payment:"",created:new Date().toISOString()});state.shopping=state.shopping.filter(x=>x.id!==s.id);save()});
+ document.querySelectorAll("[data-del-shop]").forEach(b=>b.onclick=()=>{state.shopping=state.shopping.filter(x=>x.id!==b.dataset.delShop);save()});
+}
+$("addPurchase").onclick=()=>{const item=$("pItem").value.trim();if(!item){alert("Enter the purchased item.");return}state.purchases.unshift({id:uid("pur"),date:$("pDate").value||today(),item,category:$("pCat").value,store:$("pStore").value.trim(),qty:+$("pQty").value||1,cost:+$("pCost").value||0,payment:$("pPay").value.trim(),created:new Date().toISOString()});["pItem","pStore","pCost","pPay"].forEach(id=>$(id).value="");$("pQty").value=1;save()};
+function renderPurchases(){const rows=$("purchaseRows");rows.innerHTML="";state.purchases.forEach(p=>{const tr=document.createElement("tr");tr.innerHTML='<td>'+esc(p.date)+'</td><td><b>'+esc(p.item)+'</b></td><td>'+esc(p.category)+'</td><td>'+esc(p.store||"—")+'</td><td>'+p.qty+'</td><td>$'+(+p.cost||0).toFixed(2)+'</td><td><button class="btn danger" data-del-pur="'+p.id+'">Delete</button></td>';rows.appendChild(tr)});$("purchaseEmpty").style.display=state.purchases.length?"none":"block";document.querySelectorAll("[data-del-pur]").forEach(b=>b.onclick=()=>{if(confirm("Delete this purchase record?")){state.purchases=state.purchases.filter(x=>x.id!==b.dataset.delPur);save()}})}
+$("saveBudget").onclick=()=>{state.budget={season:$("bSeason").value.trim(),total:+$("bTotal").value||0,plants:+$("bPlants").value||0,soil:+$("bSoil").value||0,tools:+$("bTools").value||0,other:+$("bOther").value||0};save()};
+function renderBudget(){
+ const b=state.budget||{};["bSeason","bTotal","bPlants","bSoil","bTools","bOther"].forEach(id=>{if(document.activeElement!==$(id))$(id).value=id==="bSeason"?(b.season||""):(b[id.replace("b","").toLowerCase()]||"")});
+ const spent=state.purchases.reduce((n,p)=>n+(+p.cost||0),0),remaining=(+b.total||0)-spent;
+ const groups={plants:0,soil:0,tools:0,other:0};state.purchases.forEach(p=>{if(["Seeds","Plants"].includes(p.category))groups.plants+=+p.cost||0;else if(["Soil & Compost","Fertilizer & Amendments"].includes(p.category))groups.soil+=+p.cost||0;else if(["Tools","Structures","Irrigation","Containers"].includes(p.category))groups.tools+=+p.cost||0;else groups.other+=+p.cost||0});
+ $("budgetBoxes").innerHTML='<div class="budgetbox"><b>Season</b><strong>'+esc(b.season||"Not set")+'</strong><span>Current garden budget period.</span></div><div class="budgetbox"><b>Total budget</b><strong>$'+(+b.total||0).toFixed(2)+'</strong><span>Planned garden spending.</span></div><div class="budgetbox"><b>Spent</b><strong>$'+spent.toFixed(2)+'</strong><span>Recorded purchases.</span></div><div class="budgetbox"><b>Remaining</b><strong>$'+remaining.toFixed(2)+'</strong><span>'+(remaining<0?"Over budget by $"+Math.abs(remaining).toFixed(2):"Available in current budget.")+'</span></div>';
+ const rows=[["Plants & Seeds",groups.plants,+b.plants||0],["Soil / Fertilizer",groups.soil,+b.soil||0],["Tools / Structures",groups.tools,+b.tools||0],["Other",groups.other,+b.other||0]];$("budgetProgress").innerHTML=rows.map(([name,val,target])=>{const pct=target?Math.min(140,val/target*100):0;return '<div class="cropbar" style="margin-top:11px"><label style="display:flex;justify-content:space-between;font-size:9px;color:#675d54"><span>'+name+'</span><span>$'+val.toFixed(2)+(target?' / $'+target.toFixed(2):'')+'</span></label><div class="progress"><i class="'+(target&&val>target?'over':'')+'" style="width:'+Math.min(100,pct)+'%"></i></div></div>'}).join("");
+}
+function stats(){const spent=state.purchases.reduce((n,p)=>n+(+p.cost||0),0),budget=+(state.budget?.total||0),low=state.inventory.filter(i=>stockStatus(i)[1]).length;$("stItems").textContent=state.inventory.length;$("stLow").textContent=low;$("stShop").textContent=state.shopping.length;$("stSpent").textContent="$"+spent.toFixed(0);$("stBudget").textContent="$"+budget.toFixed(0);$("stRemain").textContent="$"+(budget-spent).toFixed(0)}
+function importSeeds(){
+ const ss=(()=>{try{return JSON.parse(localStorage.getItem("phgSeedSystemV1")||"{}")}catch(e){return{}}})();if(!Array.isArray(ss.seeds))return;const existing=new Set(state.inventory.filter(i=>i.sourceSeedId).map(i=>i.sourceSeedId));let n=0;ss.seeds.forEach(s=>{if(existing.has(s.id))return;state.inventory.push({id:uid("inv"),sourceSeedId:s.id,name:(s.crop||"Seed")+(s.variety?" — "+s.variety:""),category:"Seeds",qty:1,unit:s.qty||"packet",min:0,location:"",brand:s.source||"",value:0,notes:"Imported from Seed Starting inventory.",created:s.created||new Date().toISOString()});n++});if(n)localStorage.setItem(KEY,JSON.stringify(state));
+}
+["iSearch","iFilterCat","iFilterStock"].forEach(id=>$(id).addEventListener("input",renderInventory));
+$("exportData").onclick=()=>{const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),...state},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Perennial-Garden-Inventory-Budget.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+function renderAll(){$("iFilterCat").innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option>'+c+'</option>').join("");renderInventory();renderShopping();renderPurchases();renderBudget();stats()}
+importSeeds();renderAll();
+</script>
+</body>
+</html>
