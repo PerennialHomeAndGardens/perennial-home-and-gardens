@@ -48,6 +48,18 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 @media(max-width:900px){.phg-plant-results{grid-template-columns:repeat(2,1fr)}.phg-profile-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.phg-modebar,.phg-plant-panel{padding-left:9px;padding-right:9px}.phg-plant-app{border-radius:18px}.phg-plant-head,.phg-plant-body{padding:14px}.phg-plant-results{grid-template-columns:1fr}.phg-plant-search{grid-template-columns:1fr}.phg-plant-search button{height:43px}.phg-profile h2{font-size:29px}.phg-profile dl{grid-template-columns:1fr}.phg-imgbox img{height:220px}}
 </style>
+
+<style id="phg-phase4-enrichment-v1">
+.phg-grow-title{margin:20px 0 10px;padding-top:16px;border-top:1px solid #cbd8c3;color:#29492e;font:500 24px Georgia,serif}
+.phg-grow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}
+.phg-grow-card{background:#fffdf8;border:1px solid #dcd4c8;border-radius:14px;padding:11px 12px;min-height:88px}
+.phg-grow-card small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#75806f;font-size:9px;font-weight:bold;margin-bottom:5px}
+.phg-grow-card strong{display:block;color:#2e5032;font-size:15px;line-height:1.32;font-weight:600}
+.phg-grow-card span{display:block;color:#70665d;font-size:11px;line-height:1.4;margin-top:4px}
+.phg-sourcebox{margin-top:12px;background:#f5efe4;border:1px solid #dfd2c1;border-radius:13px;padding:11px 12px;color:#675b50;font-size:11px;line-height:1.45}
+.phg-sourcebox a{color:#365d39;font-weight:bold}.phg-enrichment-missing{background:#fff8ea;border:1px solid #e6d4ae;border-radius:13px;padding:12px;color:#6b5b43;font-size:13px;line-height:1.5}
+@media(max-width:800px){.phg-grow-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.phg-grow-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div class="topnote">Perennial Home &amp; Gardens • The Garden Library</div>
@@ -85,6 +97,13 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
             </dl>
             <div class="phg-aliases" id="phgAliasesBox"><b>Historical / synonym names</b><div class="phg-aliaswrap" id="phgAliases"></div></div>
             <div class="phg-audio"><button id="phgSpeakScientific">🔊 Hear scientific name</button><button class="secondary" id="phgSpeakSummary">🔊 Hear plant record</button></div>
+            <div id="phgGrowSection">
+              <h3 class="phg-grow-title">Growing &amp; Garden Information</h3>
+              <div id="phgGrowGrid" class="phg-grow-grid"></div>
+              <div id="phgEnrichmentMissing" class="phg-enrichment-missing" style="display:none">This verified plant currently has taxonomy information but no matching USDA NRCS Conservation Plant Characteristics record. We leave practical fields blank rather than guessing.</div>
+              <div id="phgSourceBox" class="phg-sourcebox" style="display:none"></div>
+            </div>
+
           </div>
           <div><div class="phg-imgbox" id="phgPlantImage"><div class="phg-imgph">Select a plant to load an openly licensed reference image when available.</div></div><div class="phg-imgcredit" id="phgPlantCredit"></div></div>
         </div>
@@ -92,7 +111,7 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
       <div class="phg-plant-meta"><span id="phgPlantCount">Loading verified plant profiles…</span><span>Verified against World Flora Online • June 2026</span></div>
       <div class="phg-plant-results" id="phgPlantResults"></div>
       <div class="phg-plant-pager"><button id="phgPlantPrev">← Previous</button><button id="phgPlantNext">Next →</button></div>
-      <div class="phg-phase-note"><strong>Plant profile foundation:</strong> this phase establishes authoritative names, families, common names, synonyms and images. Growing zones, sun, water, soil, size, bloom, propagation, wildlife value, pests and other care fields will be layered onto these same records rather than creating a separate database.</div>
+      <div class="phg-phase-note"><strong>Plant data note:</strong> taxonomy is verified against World Flora Online. Practical growing characteristics are added where an exact USDA NRCS PLANTS record exists. NRCS describes its Conservation Plant Characteristics as approximate nationwide values; missing information is left blank rather than invented. Cold-tolerance zone estimates are clearly marked as estimates, not official USDA hardiness-zone ratings.</div>
     </div>
   </div>
 </section>
@@ -157,7 +176,7 @@ init();
 
 <script id="phg-phase3-plants-js">
 (function(){
-  let P=[],page=0,current=null;const PAGE=24;
+  let P=[],E={},page=0,current=null;const PAGE=24;
   const $=id=>document.getElementById(id);
 
   function mode(m){
@@ -205,6 +224,59 @@ init();
   $("phgSpeakScientific").onclick=()=>current&&speak(current.scientificName);
   $("phgSpeakSummary").onclick=()=>current&&speak((current.displayName||"")+". Scientific name "+current.scientificName+". Family "+(current.family||"not listed")+". Common names "+((current.commonNames||[]).join(", ")||"not listed")+".");
 
+
+  function clean(v){
+    if(v===null||v===undefined||v===""||(Array.isArray(v)&&!v.length))return "";
+    return Array.isArray(v)?v.join(", "):String(v);
+  }
+  function growCard(label,value,note){
+    if(!value)return "";
+    return '<div class="phg-grow-card"><small>'+label+'</small><strong>'+value+'</strong>'+(note?'<span>'+note+'</span>':'')+'</div>';
+  }
+  function renderEnrichment(x){
+    const e=E[x.id];
+    const grid=$("phgGrowGrid"),missing=$("phgEnrichmentMissing"),source=$("phgSourceBox");
+    grid.innerHTML="";source.innerHTML="";
+    if(!e){
+      missing.style.display="block";source.style.display="none";return;
+    }
+    missing.style.display="none";
+    const soil=(e.soilTextures||[]).length ? e.soilTextures.join(", ")+" textured soils" : "";
+    const ph=(e.pHMin||e.pHMax) ? ((e.pHMin||"?")+"–"+(e.pHMax||"?")) : "";
+    const cold=e.minimumTemperatureF ? e.minimumTemperatureF+"°F" : "";
+    const zone=e.approxColdToleranceZone ? "≈ "+e.approxColdToleranceZone : "";
+    const native=(e.nativeStatus||[]).slice(0,5).join(" · ");
+    const life=[clean(e.duration),clean(e.growthHabit),clean(e.growthForm)].filter(Boolean).join(" · ");
+    const bloom=[e.bloomPeriod,e.flowerColor?e.flowerColor+" flowers":""].filter(Boolean).join(" · ");
+    const soilDetails=[soil,ph?"pH "+ph:"",e.fertilityRequirement?"fertility "+e.fertilityRequirement:""].filter(Boolean).join(" · ");
+    const water=[e.moistureUse?"Moisture use: "+e.moistureUse:"",e.droughtTolerance?"Drought tolerance: "+e.droughtTolerance:""].filter(Boolean).join(" · ");
+    const light=e.shadeTolerance ? "Shade tolerance: "+e.shadeTolerance : "";
+    const height=e.matureHeightFt ? e.matureHeightFt+" ft mature height" : "";
+    const growth=[height,e.growthRate?"growth "+e.growthRate:"",e.activeGrowthPeriod?"active "+e.activeGrowthPeriod:""].filter(Boolean).join(" · ");
+    const prop=clean(e.propagation);
+    const safety=[e.toxicity?"Toxicity: "+e.toxicity:"",e.allelopathic?"Allelopathic: "+e.allelopathic:""].filter(Boolean).join(" · ");
+    const wildlife=[e.hasPollinatorData?"Pollinator data available":"",e.hasWildlifeData?"Wildlife data available":""].filter(Boolean).join(" · ");
+    const cards=[
+      growCard("Life cycle & habit",life),
+      growCard("Light",light,"NRCS shade-tolerance characteristic"),
+      growCard("Water",water),
+      growCard("Soil",soilDetails),
+      growCard("Growth",growth,e.lifespan?"Lifespan: "+e.lifespan:""),
+      growCard("Bloom",bloom),
+      growCard("Cold tolerance",cold,zone?(zone+" estimated cold-tolerance band*"):""),
+      growCard("Propagation",prop,e.coldStratificationRequired?"Cold stratification: "+e.coldStratificationRequired:""),
+      growCard("Native status",native),
+      growCard("Wildlife & pollinators",wildlife),
+      growCard("Safety / behavior",safety),
+      growCard("Availability",e.commercialAvailability)
+    ].filter(Boolean);
+    grid.innerHTML=cards.join("");
+    if(!cards.length)grid.innerHTML='<div class="phg-enrichment-missing">USDA matched this plant, but the practical fields used by Perennial are not populated for this record.</div>';
+    source.style.display="block";
+    source.innerHTML='<strong>Growing-data source:</strong> USDA NRCS PLANTS Conservation Plant Characteristics. '+(e.sourceNote||'')+
+      (e.usdaProfileUrl?' <a href="'+e.usdaProfileUrl+'" target="_blank" rel="noopener">View USDA plant profile →</a>':'')+
+      (zone?' <br><em>*The displayed cold-tolerance zone is an interpretation of the NRCS minimum-temperature value and is not an official USDA hardiness-zone rating.</em>':'');
+  }
   function openProfile(x){
     current=x;$("phgPlantProfile").classList.add("show");
     $("phgPlantName").textContent=x.displayName||x.scientificName;
@@ -240,8 +312,12 @@ init();
     }catch(e){box.innerHTML='<div class="phg-imgph">No suitable open reference image was found automatically for this plant yet.</div>'}
   }
 
-  fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{
-    P=data;$("termBadge").textContent=(P.length+DATA?.length||P.length).toLocaleString()+" library records";
+  Promise.all([
+    fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()),
+    fetch("plant_enrichment.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({}))
+  ]).then(([data,enrichment])=>{
+    P=data;E=enrichment||{};
+    $("termBadge").textContent=(P.length+(window.DATA?.length||0)).toLocaleString()+" library records";
     render();
     let h=decodeURIComponent(location.hash.replace("#",""));
     if(h.startsWith("plant-")){let x=P.find(p=>"plant-"+p.id===h);if(x)openProfile(x)}
