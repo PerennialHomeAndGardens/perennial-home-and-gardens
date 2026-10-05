@@ -1,0 +1,68 @@
+name: Build Garden Planner homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-garden-planner-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Garden Planner homepage promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-garden-planner-home-v1"
+          if marker not in h:
+              section=r'''
+          <section id="garden-planner" class="phg-garden-planner-home-v1" aria-label="Garden Planner and Map My Garden Space">
+            <div class="phg-gp-inner">
+              <div class="phg-gp-copy">
+                <div class="phg-gp-kicker">Perennial Garden App</div>
+                <h2>Garden Planner &amp; Map My Garden Space</h2>
+                <p class="phg-gp-lead">Build a true-to-scale garden map with beds, plants, paths, trees, structures, water features, companion guidance, and movable sun and shade planning.</p>
+                <div class="phg-gp-tags"><span>Scaled 2D Layout</span><span>Plant Spacing</span><span>Companion Coach</span><span>Sun &amp; Shade</span><span>Water Planning</span><span>Mobile Friendly</span></div>
+                <a class="phg-gp-open" href="tools/garden-planner/">OPEN GARDEN PLANNER →</a>
+              </div>
+              <div class="phg-gp-preview">
+                <div class="phg-gp-top">40 × 30 ft Garden <strong>☀️</strong></div>
+                <div class="phg-gp-map">
+                  <span class="bed b1">4×8 Bed</span><span class="bed b2">4×4 Bed</span><span class="plant p1">🍅</span><span class="plant p2">🌿</span><span class="plant p3">🥕</span><span class="tree">🌳</span><span class="water">🛢️</span>
+                  <i class="shade"></i>
+                </div>
+                <div class="phg-gp-coach"><b>Garden Coach</b><span>Spacing · Companions · Light · Water</span></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-garden-planner-home-v1">
+          .phg-garden-planner-home-v1{padding:72px 20px;background:linear-gradient(180deg,#eef3e8 0%,#fffaf2 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-gp-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+          .phg-gp-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-gp-copy h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,62px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-gp-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-gp-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-gp-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-gp-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}.phg-gp-open:hover{transform:translateY(-3px)}
+          .phg-gp-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:16px;box-shadow:0 20px 45px rgba(45,63,39,.12)}.phg-gp-top{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:12px 13px;display:flex;justify-content:space-between}
+          .phg-gp-map{height:250px;margin-top:10px;position:relative;overflow:hidden;border-radius:15px;background:repeating-linear-gradient(0deg,#eef3e9 0,#eef3e9 23px,#d8e3d3 24px),repeating-linear-gradient(90deg,transparent 0,transparent 23px,#d8e3d3 24px);border:1px solid #ccd7c6}.phg-gp-map .bed{position:absolute;background:#8b684d;color:#fff;border-radius:5px;font:10px Georgia;padding:6px}.b1{left:10%;top:20%;width:40%;height:22%}.b2{left:58%;top:56%;width:25%;height:25%}.phg-gp-map .plant{position:absolute;font-size:24px}.p1{left:18%;top:27%}.p2{left:32%;top:27%}.p3{left:43%;top:27%}.phg-gp-map .tree{position:absolute;font-size:45px;right:5%;top:5%}.phg-gp-map .water{position:absolute;font-size:30px;left:5%;bottom:6%}.phg-gp-map .shade{position:absolute;width:130px;height:58px;background:#506a72;opacity:.15;transform:rotate(20deg);right:-10px;top:65px;border-radius:50%}.phg-gp-coach{margin-top:10px;background:#e9f0e3;border:1px solid #cbd8c3;border-radius:12px;padding:10px;color:#315238}.phg-gp-coach b,.phg-gp-coach span{display:block}.phg-gp-coach span{font-size:10px;margin-top:3px}
+          @media(max-width:800px){.phg-garden-planner-home-v1{padding:48px 14px}.phg-gp-inner{grid-template-columns:1fr}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1: h=h[:idx]+section+h[idx:]
+              else: h=h.replace("</body>",section+"</body>",1)
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit homepage Garden Planner section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Garden Planner homepage experience"
+          git push
