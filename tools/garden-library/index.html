@@ -79,6 +79,32 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 .phg-resource-count{margin-left:auto;align-self:center;color:#72675f;font-size:12px}.resources .resource{position:relative}.phg-save-resource{position:absolute;top:10px;right:10px;border:1px solid #d8cebf;background:#fffaf2;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:17px;line-height:1}.phg-save-resource.saved{background:#315936;color:#fff;border-color:#315936}
 .resource .phg-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.resource .phg-tags span{font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6e7e68;background:#eef3e8;border-radius:999px;padding:4px 6px}.phg-resource-empty{grid-column:1/-1;text-align:center;padding:30px;border:1px dashed #d7cbbb;border-radius:15px;color:#6c6259;background:#fffdf8}
 @media(max-width:620px){.phg-resource-controls{padding-left:9px;padding-right:9px}.phg-resource-search{grid-template-columns:1fr}.phg-resource-search button{height:42px}.phg-resource-count{width:100%;margin-left:0}}
+</style>
+<style id="phg-phase7-unified-search-v1">
+.phg-unified{max-width:1160px;margin:0 auto 24px;padding:0 18px}
+.phg-unified-card{background:linear-gradient(145deg,#203622,#315936);border-radius:26px;padding:22px;box-shadow:0 20px 48px rgba(35,54,34,.2);color:#fff}
+.phg-unified-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:#d7e4d0;font-weight:bold}
+.phg-unified h2{margin:6px 0 7px;font:500 clamp(29px,4vw,44px) Georgia,serif}
+.phg-unified p{margin:0;color:#dbe6d7;line-height:1.5;max-width:880px}
+.phg-unified-search{display:grid;grid-template-columns:1fr auto auto;gap:9px;margin-top:16px}
+.phg-unified-search input{width:100%;border:1px solid #ffffff44;background:#fffdf8;color:#35291f;border-radius:14px;padding:14px 15px;font:17px Georgia,serif;outline:none}
+.phg-unified-mic,.phg-unified-go{border:0;border-radius:14px;background:#ead3ab;color:#2d241d;cursor:pointer;font-weight:bold}
+.phg-unified-mic{width:56px;font-size:25px;position:relative}.phg-unified-go{padding:0 18px}
+.phg-unified-mic:hover:after{content:"Speak your search";position:absolute;bottom:calc(100% + 9px);right:0;white-space:nowrap;background:#182419;color:#fff;padding:7px 10px;border-radius:9px;font-size:12px;box-shadow:0 8px 20px #0004}
+.phg-unified-mic.listening{animation:phgMicPulse 1s infinite}@keyframes phgMicPulse{50%{transform:scale(1.08);box-shadow:0 0 0 8px #ead3ab33}}
+.phg-unified-types{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.phg-unified-type{border:1px solid #ffffff44;background:#ffffff0d;color:#fff;border-radius:999px;padding:7px 10px;cursor:pointer;font:12px Georgia,serif}
+.phg-unified-type.active,.phg-unified-type:hover{background:#e8d2ab;color:#2d241d;border-color:#e8d2ab}
+.phg-unified-meta{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:11px;font-size:11px;color:#d7e4d0}
+.phg-unified-results{display:none;margin-top:14px;background:#fffdf8;color:#3f352d;border-radius:18px;padding:12px}
+.phg-unified-results.show{display:block}
+.phg-unified-result{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:11px;border:1px solid #e1d9ce;border-radius:13px;margin:7px 0;background:#fffaf3;cursor:pointer}
+.phg-unified-result:hover{transform:translateY(-1px);border-color:#bdceb5}
+.phg-unified-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#e7eee1;font-size:18px}
+.phg-unified-result small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#72806a;font-size:9px;font-weight:bold}.phg-unified-result h3{margin:3px 0;color:#29492e;font:500 18px Georgia,serif}.phg-unified-result p{margin:0;color:#6b625a;font-size:12px;line-height:1.4}
+.phg-unified-open{font-size:18px;color:#5e7659}.phg-unified-empty{text-align:center;padding:18px;color:#73685e}
+.phg-recent{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.phg-recent button{border:1px solid #ffffff33;background:#ffffff0c;color:#f5efe6;border-radius:999px;padding:5px 8px;font-size:10px;cursor:pointer}
+@media(max-width:620px){.phg-unified{padding:0 9px}.phg-unified-card{border-radius:18px;padding:15px}.phg-unified-search{grid-template-columns:1fr auto}.phg-unified-go{grid-column:1/-1;height:44px}.phg-unified-mic:hover:after{display:none}.phg-unified-result{grid-template-columns:auto 1fr}.phg-unified-open{display:none}}
 </style></head>
 <body>
 <div class="topnote">Perennial Home &amp; Gardens • The Garden Library</div>
@@ -87,6 +113,28 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 <section class="hero"><div class="eyebrow">Premium-Style Free Garden Resource</div><h1>The Perennial Garden Library</h1><p>Search the language of gardening and botany, hear terms and definitions aloud, use voice search when your hands are busy, and explore trusted books, databases, gardens and research resources from one place.</p><div class="badges"><span class="badge" id="termBadge">200+ glossary terms</span><span class="badge">Voice search</span><span class="badge">Listen to definitions</span><span class="badge">Open-image lookup</span></div></section>
 
 
+
+<section class="phg-unified" id="phgUnifiedSearch">
+  <div class="phg-unified-card">
+    <div class="phg-unified-kicker">Search Everything</div>
+    <h2>One Search. The Entire Garden Library.</h2>
+    <p>Search plants, botanical terms, scientific names, synonyms, books, databases, podcasts, gardens and trusted resources from one place.</p>
+    <div class="phg-unified-search">
+      <input id="phgUnifiedInput" autocomplete="off" placeholder="Try yarrow, rhizome, pollinators, soil, native plants…">
+      <button class="phg-unified-mic" id="phgUnifiedMic" aria-label="Speak your search" title="Speak your search">🎙</button>
+      <button class="phg-unified-go" id="phgUnifiedGo">Search Entire Library</button>
+    </div>
+    <div class="phg-unified-types" id="phgUnifiedTypes">
+      <button class="phg-unified-type active" data-kind="all">ALL</button>
+      <button class="phg-unified-type" data-kind="plant">PLANTS</button>
+      <button class="phg-unified-type" data-kind="term">GARDEN TERMS</button>
+      <button class="phg-unified-type" data-kind="resource">RESOURCES</button>
+    </div>
+    <div class="phg-unified-meta"><span id="phgUnifiedStatus">Loading the Garden Library index…</span><span>Voice search available where supported</span></div>
+    <div class="phg-recent" id="phgRecentSearches"></div>
+    <div class="phg-unified-results" id="phgUnifiedResults"></div>
+  </div>
+</section>
 <div class="phg-modebar" id="phgModeBar">
   <button class="phg-modebtn active" data-mode="plants">PLANTS</button>
   <button class="phg-modebtn" data-mode="terms">GARDEN TERMS</button>
@@ -467,6 +515,121 @@ init();
   fetch("resource_index.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{R=data;buildFilters();renderResources()}).catch(()=>{
     const grid=document.querySelector(".resources");if(grid)grid.innerHTML='<div class="phg-resource-empty">The Garden Resource Directory is temporarily unavailable.</div>';
   });
+})();
+</script>
+
+<script id="phg-phase7-unified-search-js">
+(function(){
+  let plants=[],terms=[],resources=[],kind="all";
+  const $u=id=>document.getElementById(id);
+  const recentKey="phgGardenLibraryRecentSearches";
+  function clean(s){return (s||"").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
+  function words(s){return clean(s).split(/[^a-z0-9]+/).filter(Boolean)}
+  function scoreText(q,title,aliases,body){
+    const nq=clean(q), t=clean(title), a=clean((aliases||[]).join(" ")), b=clean(body);
+    if(!nq)return 0;
+    let score=0;
+    if(t===nq)score+=120;
+    else if(t.startsWith(nq))score+=80;
+    else if(t.includes(nq))score+=55;
+    if(a===nq)score+=85;
+    else if(a.includes(nq))score+=45;
+    if(b.includes(nq))score+=20;
+    for(const w of words(nq)){
+      if(t.split(/\s+/).includes(w))score+=18;
+      else if(t.includes(w))score+=10;
+      if(a.includes(w))score+=8;
+      if(b.includes(w))score+=3;
+    }
+    return score;
+  }
+  function combined(){
+    return [
+      ...plants.map(p=>({kind:"plant",id:p.id,title:p.displayName||p.scientificName,subtitle:p.scientificName,aliases:[...(p.commonNames||[]),...(p.synonyms||[]),p.family||""],body:[p.family,...(p.commonNames||[]),...(p.synonyms||[])].join(" "),raw:p})),
+      ...terms.map(t=>({kind:"term",id:t.id,title:t.term,subtitle:t.category,aliases:[],body:t.definition+" "+t.category,raw:t})),
+      ...resources.map(r=>({kind:"resource",id:r.id,title:r.title,subtitle:r.category,aliases:r.tags||[],body:r.description+" "+(r.tags||[]).join(" "),raw:r}))
+    ];
+  }
+  function icon(k){return k==="plant"?"🌿":k==="term"?"Aa":"↗"}
+  function label(k){return k==="plant"?"Plant":k==="term"?"Garden Term":"Resource"}
+  function saveRecent(q){
+    q=q.trim();if(!q)return;
+    let a=[];try{a=JSON.parse(localStorage.getItem(recentKey)||"[]")}catch(e){}
+    a=[q,...a.filter(x=>clean(x)!==clean(q))].slice(0,6);
+    localStorage.setItem(recentKey,JSON.stringify(a));renderRecent();
+  }
+  function renderRecent(){
+    const box=$u("phgRecentSearches");if(!box)return;
+    let a=[];try{a=JSON.parse(localStorage.getItem(recentKey)||"[]")}catch(e){}
+    box.innerHTML="";
+    if(a.length){
+      const lead=document.createElement("span");lead.textContent="Recent:";lead.style.fontSize="10px";lead.style.alignSelf="center";box.appendChild(lead);
+    }
+    a.forEach(q=>{const b=document.createElement("button");b.textContent=q;b.onclick=()=>{$u("phgUnifiedInput").value=q;runSearch(true)};box.appendChild(b)});
+  }
+  function openItem(item){
+    if(item.kind==="resource"){window.open(item.raw.url,"_blank","noopener");return}
+    if(item.kind==="plant"){
+      const plantInput=document.getElementById("phgPlantSearch");if(plantInput)plantInput.value=item.raw.scientificName;
+      document.querySelectorAll(".phg-modebtn").forEach(b=>b.classList.toggle("active",b.dataset.mode==="plants"));
+      const plantsPanel=document.getElementById("phgPlantsPanel");if(plantsPanel)plantsPanel.classList.add("active");
+      const glossary=document.querySelector(".glossary");if(glossary)glossary.style.display="none";
+      const resourceHead=document.querySelector(".resource-head");if(resourceHead)resourceHead.style.display="none";
+      const resourcesGrid=document.querySelector(".resources");if(resourcesGrid)resourcesGrid.style.display="none";
+      const controls=document.getElementById("phgResourceControls");if(controls)controls.classList.remove("active");
+      location.hash="plant-"+item.raw.id;
+      location.reload();
+      return;
+    }
+    if(item.kind==="term"){
+      document.querySelectorAll(".phg-modebtn").forEach(b=>b.classList.toggle("active",b.dataset.mode==="terms"));
+      const plantsPanel=document.getElementById("phgPlantsPanel");if(plantsPanel)plantsPanel.classList.remove("active");
+      const glossary=document.querySelector(".glossary");if(glossary)glossary.style.display="block";
+      const resourceHead=document.querySelector(".resource-head");if(resourceHead)resourceHead.style.display="none";
+      const resourcesGrid=document.querySelector(".resources");if(resourcesGrid)resourcesGrid.style.display="none";
+      const controls=document.getElementById("phgResourceControls");if(controls)controls.classList.remove("active");
+      const termInput=document.getElementById("search");if(termInput)termInput.value=item.raw.term;
+      location.hash=item.raw.term.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+      location.reload();
+    }
+  }
+  function runSearch(commit){
+    const q=$u("phgUnifiedInput").value.trim(),box=$u("phgUnifiedResults");
+    if(!q){box.classList.remove("show");box.innerHTML="";$u("phgUnifiedStatus").textContent="Search across plants, garden terms and trusted resources.";return}
+    if(commit)saveRecent(q);
+    let arr=combined().filter(x=>kind==="all"||x.kind===kind).map(x=>({...x,score:scoreText(q,x.title,x.aliases,x.body)})).filter(x=>x.score>0);
+    arr.sort((a,b)=>b.score-a.score||a.title.localeCompare(b.title));
+    const top=arr.slice(0,18);
+    $u("phgUnifiedStatus").textContent=arr.length.toLocaleString()+" matching library result"+(arr.length===1?"":"s");
+    box.classList.add("show");box.innerHTML="";
+    if(!top.length){box.innerHTML='<div class="phg-unified-empty"><b>No matching library record yet.</b><br>Try a broader term, a common name, scientific name or category.</div>';return}
+    top.forEach(x=>{
+      const row=document.createElement("article");row.className="phg-unified-result";
+      const desc=x.kind==="plant"?(x.raw.family||"Verified plant profile"):x.kind==="term"?x.raw.definition:x.raw.description;
+      row.innerHTML='<div class="phg-unified-icon">'+icon(x.kind)+'</div><div><small>'+label(x.kind)+' · '+(x.subtitle||"")+'</small><h3>'+x.title+'</h3><p>'+desc+'</p></div><div class="phg-unified-open">→</div>';
+      row.onclick=()=>openItem(x);box.appendChild(row);
+    });
+  }
+  document.querySelectorAll(".phg-unified-type").forEach(b=>b.onclick=()=>{kind=b.dataset.kind;document.querySelectorAll(".phg-unified-type").forEach(x=>x.classList.toggle("active",x===b));runSearch(false)});
+  const input=$u("phgUnifiedInput"),go=$u("phgUnifiedGo");
+  input.oninput=()=>runSearch(false);go.onclick=()=>runSearch(true);
+  input.addEventListener("keydown",e=>{if(e.key==="Enter")runSearch(true)});
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition,mic=$u("phgUnifiedMic");
+  if(SR){
+    const rec=new SR();rec.lang="en-US";rec.interimResults=false;rec.maxAlternatives=1;
+    mic.onclick=()=>{try{mic.classList.add("listening");rec.start()}catch(e){}};
+    rec.onresult=e=>{input.value=e.results[0][0].transcript;mic.classList.remove("listening");runSearch(true)};
+    rec.onerror=rec.onend=()=>mic.classList.remove("listening");
+  }else mic.onclick=()=>alert("Voice search is not supported by this browser. You can still type your search.");
+  Promise.all([
+    fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[]),
+    fetch("glossary.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[]),
+    fetch("resource_index.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>[])
+  ]).then(([p,t,r])=>{
+    plants=p;terms=t;resources=r;
+    $u("phgUnifiedStatus").textContent=(plants.length+terms.length+resources.length).toLocaleString()+" searchable library records";
+    renderRecent();
+  }).catch(()=>{$u("phgUnifiedStatus").textContent="The unified search index is temporarily unavailable."});
 })();
 </script>
 </body></html>
