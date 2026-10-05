@@ -282,14 +282,14 @@
     },
     {
       "id": "resource-044",
-      "url": "https://awaytogarden.com/category/podcast/",
-      "status": 404,
+      "url": "https://awaytogarden.com/podcast/",
+      "status": 202,
       "error": null
     },
     {
       "id": "resource-045",
       "url": "https://joegardener.com/podcast/",
-      "status": 200,
+      "status": 202,
       "error": null
     },
     {
