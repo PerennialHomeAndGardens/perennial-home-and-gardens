@@ -1,0 +1,37 @@
+name: Inspect NCSU plant sitemap
+
+on:
+  push:
+    paths:
+      - .github/workflows/inspect-ncsu-sitemap.yml
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect sitemap
+        run: |
+          python - <<'PY'
+          import urllib.request,json
+          urls=["https://plants.ces.ncsu.edu/sitemap.xml","https://plants.ces.ncsu.edu/robots.txt"]
+          out={}
+          for u in urls:
+            try:
+              req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"})
+              with urllib.request.urlopen(req,timeout=20) as r:
+                data=r.read(500000).decode("utf-8","replace")
+                out[u]={"status":r.status,"content_type":r.headers.get("content-type"),"len":len(data),"sample":data[:10000]}
+            except Exception as e: out[u]={"error":repr(e)}
+          open("data/garden-library/ncsu_sitemap_diagnostic.json","w").write(json.dumps(out,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/garden-library/ncsu_sitemap_diagnostic.json
+          git diff --cached --quiet || git commit -m "Inspect NCSU plant sitemap"
+          git push
