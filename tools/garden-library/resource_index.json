@@ -136,10 +136,10 @@
   },
   {
     "id": "resource-012",
-    "title": "Virginia Cooperative Extension Home Gardening",
+    "title": "Virginia Cooperative Extension Lawn & Garden",
     "category": "University Extension",
-    "description": "Research-based gardening and landscape guidance for Mid-Atlantic conditions.",
-    "url": "https://ext.vt.edu/lawn-garden/home-gardening.html",
+    "description": "Research-based Virginia gardening resources covering edible gardening, flowers, trees, shrubs, plant problems, pruning, turf, and Extension Master Gardener education.",
+    "url": "https://ext.vt.edu/lawn-garden.html",
     "tags": [
       "extension",
       "Virginia",
