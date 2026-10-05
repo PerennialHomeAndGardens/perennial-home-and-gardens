@@ -1,0 +1,46 @@
+name: Wire Plant Companions homepage CTA
+
+on:
+  push:
+    paths:
+      - .github/workflows/wire-plant-companions.yml
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wire homepage Plant Companions CTA
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-plant-companions-link-v1"
+          if marker not in h:
+              js=r'''
+          <script id="phg-plant-companions-link-v1">
+          document.addEventListener("DOMContentLoaded",function(){
+            document.querySelectorAll("a,button").forEach(function(el){
+              var t=(el.textContent||"").trim().toUpperCase();
+              if(t.indexOf("OPEN PLANT COMPANIONS")!==-1){
+                if(el.tagName==="A") el.setAttribute("href","tools/plant-companions/");
+                el.onclick=function(e){e.preventDefault();window.location.href="tools/plant-companions/";};
+              }
+            });
+          });
+          </script>
+          '''
+              h=h.replace("</body>",js+"</body>",1)
+              p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit homepage link
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Tool Build 03: link homepage to Plant Companions"
+          git push
