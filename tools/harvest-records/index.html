@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harvest & Garden Records | Perennial Home & Gardens</title>
+<meta name="description" content="Track harvest dates, quantities, weights, yields, quality, varieties, storage, notes, and season-to-season garden production.">
+<style>
+:root{--green:#24472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#ddd2c3;--soft:#edf3e8;--gold:#d7bc88;--muted:#74695f;--warn:#fff3d8;--danger:#91463d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f4efe7,#fbf8f1);color:#302b26;font-family:Georgia,serif}
+a{color:inherit}.topnote{background:#1f3824;color:#edf3e9;text-align:center;padding:7px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+header{position:sticky;top:0;z-index:40;background:#fffdf8f3;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.bar{max-width:1180px;margin:auto;padding:9px 13px;display:flex;align-items:center;gap:12px}.brand{flex:1}.brand strong{display:block;color:var(--green);font-size:22px}.brand span{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#766b61}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{border:1px solid #cbd8c4;background:#fff;border-radius:999px;padding:8px 10px;text-decoration:none;color:var(--green);font-size:10px;font-weight:bold}
+.hero{max-width:1160px;margin:auto;padding:42px 18px 20px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#6a7f60;font-weight:bold}.hero h1{font-size:clamp(40px,6vw,72px);line-height:.96;margin:8px 0;color:var(--green);font-weight:500}.hero p{max-width:900px;color:#665e56;font-size:16px;line-height:1.55;margin:11px 0}.badges{display:flex;gap:7px;flex-wrap:wrap}.badge{background:#e9efe4;border:1px solid #cbd7c4;border-radius:999px;padding:7px 10px;color:#446145;font-size:10px}
+.shell{max-width:1160px;margin:auto;padding:10px 18px 55px}.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:15px}.stat{background:#fffdf8;border:1px solid #ddd3c6;border-radius:15px;padding:12px}.stat strong{display:block;color:#315236;font-size:24px}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#74695f}
+.grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:15px}.card{background:#fffdf8;border:1px solid #ddd3c5;border-radius:21px;box-shadow:0 14px 36px #253a2413;overflow:hidden;margin-bottom:15px}.cardhead{padding:16px 17px;border-bottom:1px solid #ebe3d8}.cardhead h2{margin:0;color:var(--green);font-size:25px;font-weight:500}.cardhead p{margin:4px 0 0;color:#746a61;font-size:11px;line-height:1.45}.body{padding:16px}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.field{margin-top:9px}.field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#776c62;font-weight:bold;margin-bottom:4px}.field input,.field select,.field textarea{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:12px Georgia}.field textarea{min-height:82px;resize:vertical}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:999px;padding:8px 10px;font-weight:bold;font-size:10px;cursor:pointer;background:var(--green2);color:#fff}.btn.secondary{background:#fffaf2;color:var(--green);border:1px solid #c5d4be}.btn.danger{background:#fff1ee;color:var(--danger);border:1px solid #e3c2bb}
+.filters{display:grid;grid-template-columns:1.3fr .8fr .8fr;gap:8px}.filters input,.filters select{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:11px Georgia}
+.records{display:grid;gap:9px;margin-top:12px}.record{border:1px solid #ddd4c7;background:#fffaf4;border-radius:15px;padding:12px}.record small{display:block;text-transform:uppercase;letter-spacing:.07em;color:#7b7167;font-size:8px}.record h4{margin:3px 0 4px;color:#355638;font-size:17px}.record p{margin:4px 0;color:#665d54;font-size:10px;line-height:1.45}.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}.chip{background:#edf2e9;border-radius:999px;padding:4px 6px;font-size:8px;color:#466148}.chip.gold{background:#f3ead5;color:#6d5834}.chip.bad{background:#fff0ed;color:#85463d}
+.empty{padding:18px;text-align:center;color:#786e64;border:1px dashed #d8cdbf;border-radius:13px;background:#fffaf4;font-size:11px}
+.summarygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.summarybox{border:1px solid #ded4c6;border-radius:13px;background:#fffaf4;padding:11px}.summarybox b{display:block;color:#355638;font-size:13px}.summarybox span{display:block;color:#71675e;font-size:9px;line-height:1.4;margin-top:4px}
+.cropbar{margin-top:8px}.cropbar label{display:flex;justify-content:space-between;font-size:9px;color:#675d54;margin-bottom:3px}.barline{height:8px;background:#e8e2d8;border-radius:999px;overflow:hidden}.barline i{display:block;height:100%;background:#739567;border-radius:999px}
+.note{margin-top:10px;padding:10px;background:#f5efdc;border:1px solid #ead9b1;border-radius:12px;color:#5f523f;font-size:10px;line-height:1.45}
+.savedcrops{display:flex;gap:6px;flex-wrap:wrap}.savedcrops span{background:#eaf1e5;border:1px solid #d0dcc9;border-radius:999px;padding:6px 8px;font-size:9px;color:#416044}
+footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font-size:10px}.footerlinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}.footerlinks a{text-decoration:none}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.bar{padding:8px 9px}.brand strong{font-size:17px}.brand span{display:none}.nav a:not(.garden){display:none}.hero{padding:30px 10px 14px}.shell{padding:8px 9px 42px}.stats{grid-template-columns:repeat(2,1fr)}.formgrid,.filters,.summarygrid{grid-template-columns:1fr}.card{border-radius:17px}}
+@media print{header,.topnote,.hero,.leftcol,.filters,.record .actions,footer{display:none!important}.grid{display:block}.card{border:0;box-shadow:none}.shell{padding:0}}
+</style>
+</head>
+<body>
+<div class="topnote">Perennial Home & Gardens • Harvest History & Production Records</div>
+<header><div class="bar"><div class="brand"><strong>Harvest & Garden Records</strong><span>Crop · Variety · Yield · Quality · Storage · Season Comparison</span></div><nav class="nav"><a class="garden" href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../harvest-checker/">Harvest Checker</a><a href="../garden-journal/">Journal</a></nav></div></header>
+
+<section class="hero">
+ <div class="eyebrow">Build 4 • My Garden System</div>
+ <h1>Harvest & Garden Records</h1>
+ <p>Turn individual harvests into a season-long production history. Record crop, variety, date, quantity, weight, quality, use, storage, and notes — then compare totals by crop and year.</p>
+ <div class="badges"><span class="badge">Harvest History</span><span class="badge">Yield Tracking</span><span class="badge">Crop Totals</span><span class="badge">Quality Notes</span><span class="badge">Storage & Use</span><span class="badge">Season Comparison</span><span class="badge">My Garden Connected</span></div>
+</section>
+
+<main class="shell">
+<div class="stats">
+ <div class="stat"><strong id="stHarvests">0</strong><span>Harvest entries</span></div>
+ <div class="stat"><strong id="stCrops">0</strong><span>Different crops</span></div>
+ <div class="stat"><strong id="stWeight">0</strong><span>Total lb recorded</span></div>
+ <div class="stat"><strong id="stUnits">0</strong><span>Count / bunches</span></div>
+ <div class="stat"><strong id="stBest">—</strong><span>Top crop by weight</span></div>
+ <div class="stat"><strong id="stSeason">—</strong><span>Active season</span></div>
+</div>
+
+<div class="grid">
+ <div class="leftcol">
+  <section class="card">
+   <div class="cardhead"><h2>Record a Harvest</h2><p>Use weight, count, bunches, or any combination that makes sense for the crop.</p></div>
+   <div class="body">
+    <div class="formgrid">
+      <div class="field"><label>Harvest date</label><input id="hDate" type="date"></div>
+      <div class="field"><label>Crop</label><input id="hCrop" list="cropList" placeholder="Tomato"><datalist id="cropList"></datalist></div>
+      <div class="field"><label>Variety</label><input id="hVariety" placeholder="Cherokee Purple"></div>
+      <div class="field"><label>Bed / location</label><input id="hLocation" placeholder="Bed 2 / south row"></div>
+      <div class="field"><label>Weight</label><input id="hWeight" type="number" min="0" step=".01" placeholder="2.5"></div>
+      <div class="field"><label>Weight unit</label><select id="hWeightUnit"><option value="lb">lb</option><option value="oz">oz</option><option value="kg">kg</option><option value="g">g</option></select></div>
+      <div class="field"><label>Count / bunches</label><input id="hCount" type="number" min="0" step="1" placeholder="12"></div>
+      <div class="field"><label>Count unit</label><select id="hCountUnit"><option>pieces</option><option>bunches</option><option>heads</option><option>ears</option><option>pods</option><option>stems</option><option>flowers</option><option>baskets</option></select></div>
+      <div class="field"><label>Quality</label><select id="hQuality"><option>Excellent</option><option>Good</option><option>Fair</option><option>Mixed</option><option>Damaged / seconds</option></select></div>
+      <div class="field"><label>Use</label><select id="hUse"><option>Fresh eating</option><option>Preserving</option><option>Freezing</option><option>Drying</option><option>Storage</option><option>Gift / share</option><option>Sold</option><option>Seed saving</option></select></div>
+      <div class="field"><label>Storage location</label><input id="hStorage" placeholder="Pantry, freezer, cellar…"></div>
+      <div class="field"><label>Days from planting (optional)</label><input id="hDays" type="number" min="0" placeholder="82"></div>
+    </div>
+    <div class="field"><label>Harvest notes</label><textarea id="hNotes" placeholder="Flavor, size, pest damage, weather, yield impression, what you would change next season…"></textarea></div>
+    <div class="actions"><button class="btn" id="addHarvest">Save Harvest Record</button><button class="btn secondary" id="clearForm">Clear</button></div>
+   </div>
+  </section>
+
+  <section class="card">
+   <div class="cardhead"><h2>Saved Harvest Checker Crops</h2><p>Crops you previously saved in Harvest Checker are available here as a planning reference.</p></div>
+   <div class="body"><div class="savedcrops" id="savedCrops"></div><div class="note">Harvest Checker tells you <b>when</b> a crop may be ready. Harvest & Garden Records stores <b>what actually happened</b> after you picked it.</div></div>
+  </section>
+
+  <section class="card">
+   <div class="cardhead"><h2>Season Snapshot</h2><p>Production summaries from your own records.</p></div>
+   <div class="body">
+    <div class="summarygrid">
+      <div class="summarybox"><b>Largest harvest</b><span id="largestHarvest">No data yet.</span></div>
+      <div class="summarybox"><b>Best quality crop</b><span id="qualityCrop">No data yet.</span></div>
+      <div class="summarybox"><b>Most harvested location</b><span id="topLocation">No data yet.</span></div>
+      <div class="summarybox"><b>Preserved / stored</b><span id="storedCount">No data yet.</span></div>
+    </div>
+    <div id="cropBars"></div>
+   </div>
+  </section>
+ </div>
+
+ <div>
+  <section class="card">
+   <div class="cardhead"><h2>Harvest History</h2><p>Search, filter and compare what your garden produced.</p></div>
+   <div class="body">
+    <div class="filters"><input id="search" placeholder="Search crop, variety, bed, note…"><select id="yearFilter"><option value="">All years</option></select><select id="cropFilter"><option value="">All crops</option></select></div>
+    <div class="actions"><button class="btn secondary" id="printRecords">Print Records</button><button class="btn secondary" id="exportRecords">Export Records</button><button class="btn danger" id="clearRecords">Clear All</button></div>
+    <div class="records" id="records"></div>
+   </div>
+  </section>
+ </div>
+</div>
+</main>
+
+<footer><div class="footerlinks"><a href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../harvest-checker/">Harvest Checker</a><a href="../garden-journal/">Garden Journal</a><a href="../seed-starting/">Seed Starting</a></div><div>© Perennial Home & Gardens</div></footer>
+
+<script>
+const KEY="phgHarvestRecordsV1";
+let state=load();
+const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+function load(){try{return {...{records:[]},...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch(e){return {records:[]}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()}
+function uid(){return "h-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)}
+function today(){return new Date().toISOString().slice(0,10)}
+$("hDate").value=today();
+
+function pounds(v,u){v=+v||0;return u==="lb"?v:u==="oz"?v/16:u==="kg"?v*2.2046226218:u==="g"?v/453.59237:0}
+function displayWeight(r){if(!r.weight)return "No weight recorded";return r.weight+" "+r.weightUnit+" ("+pounds(r.weight,r.weightUnit).toFixed(2)+" lb)"}
+function addCropDatalist(){
+ const saved=(()=>{try{return JSON.parse(localStorage.getItem("phg-harvest-saved")||"[]")}catch(e){return[]}})();
+ const crops=[...new Set([...saved,...state.records.map(r=>r.crop).filter(Boolean)])].sort();
+ $("cropList").innerHTML=crops.map(c=>'<option value="'+esc(c)+'"></option>').join("");
+ $("savedCrops").innerHTML=saved.length?saved.map(c=>'<span>'+esc(c)+'</span>').join(""):'<div class="empty">No crops saved in Harvest Checker yet.</div>';
+}
+$("addHarvest").onclick=()=>{
+ const crop=$("hCrop").value.trim();if(!crop){alert("Enter the crop or plant harvested.");return}
+ state.records.unshift({
+  id:uid(),date:$("hDate").value||today(),crop,variety:$("hVariety").value.trim(),location:$("hLocation").value.trim(),
+  weight:+$("hWeight").value||0,weightUnit:$("hWeightUnit").value,count:+$("hCount").value||0,countUnit:$("hCountUnit").value,
+  quality:$("hQuality").value,use:$("hUse").value,storage:$("hStorage").value.trim(),days:+$("hDays").value||null,notes:$("hNotes").value.trim(),created:new Date().toISOString()
+ });clearForm(false);save();
+};
+function clearForm(resetDate=true){["hCrop","hVariety","hLocation","hWeight","hCount","hStorage","hDays","hNotes"].forEach(id=>$(id).value="");if(resetDate)$("hDate").value=today()}
+$("clearForm").onclick=()=>clearForm(true);
+
+function rebuildFilters(){
+ const years=[...new Set(state.records.map(r=>(r.date||"").slice(0,4)).filter(Boolean))].sort().reverse(),crops=[...new Set(state.records.map(r=>r.crop).filter(Boolean))].sort();
+ const y=$("yearFilter"),c=$("cropFilter"),yv=y.value,cv=c.value;
+ y.innerHTML='<option value="">All years</option>'+years.map(x=>'<option>'+x+'</option>').join("");c.innerHTML='<option value="">All crops</option>'+crops.map(x=>'<option>'+esc(x)+'</option>').join("");
+ if(years.includes(yv))y.value=yv;if(crops.includes(cv))c.value=cv;
+}
+function filtered(){
+ const q=$("search").value.trim().toLowerCase(),y=$("yearFilter").value,c=$("cropFilter").value;
+ return state.records.filter(r=>{
+  if(y&&!(r.date||"").startsWith(y))return false;if(c&&r.crop!==c)return false;
+  const blob=[r.crop,r.variety,r.location,r.quality,r.use,r.storage,r.notes].join(" ").toLowerCase();return !q||blob.includes(q);
+ }).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+}
+function renderRecords(){
+ const box=$("records"),a=filtered();box.innerHTML=a.length?"":"<div class='empty'>No harvest records match these filters.</div>";
+ a.forEach(r=>{const d=document.createElement("article");d.className="record";const chips=[r.quality,r.use];if(r.location)chips.push(r.location);if(r.storage)chips.push("Stored: "+r.storage);d.innerHTML='<small>'+esc(r.date)+' · '+esc(r.count?r.count+" "+r.countUnit:"No count")+'</small><h4>'+esc(r.crop)+(r.variety?' · '+esc(r.variety):'')+'</h4><p><b>'+esc(displayWeight(r))+'</b>'+(r.days?' · '+r.days+' days from planting':'')+'</p>'+(r.notes?'<p>'+esc(r.notes)+'</p>':'')+'<div class="chips">'+chips.filter(Boolean).map(x=>'<span class="chip">'+esc(x)+'</span>').join("")+'</div><div class="actions"><button class="btn danger" data-del="'+r.id+'">Delete</button></div>';box.appendChild(d)});
+ document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(confirm("Delete this harvest record?")){state.records=state.records.filter(r=>r.id!==b.dataset.del);save()}});
+}
+function stats(){
+ const totalLb=state.records.reduce((n,r)=>n+pounds(r.weight,r.weightUnit),0),totalCount=state.records.reduce((n,r)=>n+(+r.count||0),0),crops=[...new Set(state.records.map(r=>r.crop))];
+ const by={};state.records.forEach(r=>by[r.crop]=(by[r.crop]||0)+pounds(r.weight,r.weightUnit));const top=Object.entries(by).sort((a,b)=>b[1]-a[1])[0];
+ $("stHarvests").textContent=state.records.length;$("stCrops").textContent=crops.length;$("stWeight").textContent=totalLb.toFixed(totalLb<10?1:0);$("stUnits").textContent=totalCount;$("stBest").textContent=top?top[0]:"—";$("stSeason").textContent=state.records[0]?(state.records[0].date||"").slice(0,4):"—";
+}
+function snapshot(){
+ if(!state.records.length){["largestHarvest","qualityCrop","topLocation","storedCount"].forEach(id=>$(id).textContent="No data yet.");$("cropBars").innerHTML="";return}
+ const max=state.records.slice().sort((a,b)=>pounds(b.weight,b.weightUnit)-pounds(a.weight,a.weightUnit))[0];$("largestHarvest").textContent=max.crop+" · "+displayWeight(max);
+ const excellent={};state.records.filter(r=>r.quality==="Excellent").forEach(r=>excellent[r.crop]=(excellent[r.crop]||0)+1);const eq=Object.entries(excellent).sort((a,b)=>b[1]-a[1])[0];$("qualityCrop").textContent=eq?eq[0]+" · "+eq[1]+" excellent harvests":"No crop leads yet.";
+ const loc={};state.records.filter(r=>r.location).forEach(r=>loc[r.location]=(loc[r.location]||0)+1);const tl=Object.entries(loc).sort((a,b)=>b[1]-a[1])[0];$("topLocation").textContent=tl?tl[0]+" · "+tl[1]+" harvests":"No locations recorded.";
+ const stored=state.records.filter(r=>["Preserving","Freezing","Drying","Storage"].includes(r.use)).length;$("storedCount").textContent=stored+" harvest"+(stored===1?"":"s")+" marked for preservation/storage.";
+ const by={};state.records.forEach(r=>by[r.crop]=(by[r.crop]||0)+pounds(r.weight,r.weightUnit));const rows=Object.entries(by).sort((a,b)=>b[1]-a[1]).slice(0,8),mx=Math.max(1,...rows.map(x=>x[1]));$("cropBars").innerHTML=rows.map(([crop,val])=>'<div class="cropbar"><label><span>'+esc(crop)+'</span><span>'+val.toFixed(2)+' lb</span></label><div class="barline"><i style="width:'+Math.max(3,val/mx*100)+'%"></i></div></div>').join("");
+}
+function importLegacy(){
+ const old=(()=>{try{return JSON.parse(localStorage.getItem("phg-harvest-records")||"[]")}catch(e){return[]}})();
+ if(!Array.isArray(old)||!old.length)return;
+ const existing=new Set(state.records.map(r=>r.legacyId).filter(Boolean));let n=0;old.forEach((r,i)=>{const lid=r.id||("legacy-"+i+"-"+(r.date||""));if(existing.has(lid))return;state.records.push({id:uid(),legacyId:lid,date:r.date||today(),crop:r.crop||r.name||"Harvest",variety:r.variety||"",location:r.location||"",weight:+r.weight||0,weightUnit:r.weightUnit||"lb",count:+r.count||0,countUnit:r.countUnit||"pieces",quality:r.quality||"Good",use:r.use||"Fresh eating",storage:r.storage||"",days:r.days||null,notes:r.notes||"",created:r.created||new Date().toISOString()});n++});if(n)localStorage.setItem(KEY,JSON.stringify(state));
+}
+["search","yearFilter","cropFilter"].forEach(id=>$(id).addEventListener("input",renderRecords));
+$("printRecords").onclick=()=>window.print();
+$("exportRecords").onclick=()=>{const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),records:state.records},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="Perennial-Harvest-Records.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+$("clearRecords").onclick=()=>{if(confirm("Clear every Harvest & Garden Record on this device?")){state={records:[]};save()}};
+function renderAll(){addCropDatalist();rebuildFilters();renderRecords();stats();snapshot()}
+importLegacy();renderAll();
+</script>
+</body>
+</html>
