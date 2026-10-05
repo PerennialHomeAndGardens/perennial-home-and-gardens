@@ -1,0 +1,97 @@
+name: Build Garden Library homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-garden-library-home-v3.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add dedicated Garden Library homepage promo and route card to it
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+
+          marker="phg-garden-library-home-v3"
+          if marker not in h:
+              section=r'''
+          <section id="garden-library" class="phg-garden-library-home-v3" aria-label="Garden Library">
+            <div class="phg-gl-inner">
+              <div class="phg-gl-copy">
+                <div class="phg-gl-kicker">Perennial Garden App</div>
+                <h2>Garden Library</h2>
+                <p class="phg-gl-lead">A searchable garden knowledge center for botanical language, scientific plant terms, pronunciation, trusted databases, free books, university resources and more.</p>
+                <div class="phg-gl-tags">
+                  <span>Botanical Dictionary</span><span>Voice Search</span><span>Hear Pronunciation</span><span>Free Books</span><span>Trusted Databases</span>
+                </div>
+                <a class="phg-gl-open" href="tools/garden-library/">OPEN GARDEN LIBRARY →</a>
+              </div>
+              <div class="phg-gl-preview">
+                <div class="phg-gl-search">Search the Garden Library <strong>⌕</strong></div>
+                <div class="phg-gl-row"><b>rhizome</b><span>Plant Anatomy</span></div>
+                <div class="phg-gl-row"><b>mycorrhizae</b><span>Soil Biology</span></div>
+                <div class="phg-gl-row"><b>inflorescence</b><span>Botany</span></div>
+                <div class="phg-gl-row"><b>purpurea</b><span>Botanical Latin</span></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-garden-library-home-v3">
+          .phg-garden-library-home-v3{padding:72px 20px;background:linear-gradient(180deg,#eef3e8 0%,#fffaf2 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-gl-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+          .phg-gl-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-gl-copy h2{font-family:Georgia,serif;font-size:clamp(42px,5vw,66px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-gl-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-gl-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-gl-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-gl-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}
+          .phg-gl-open:hover{transform:translateY(-3px);text-decoration:none!important}
+          .phg-gl-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:18px;box-shadow:0 20px 45px rgba(45,63,39,.12)}
+          .phg-gl-search{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:13px 14px;display:flex;justify-content:space-between;gap:12px;margin-bottom:10px}
+          .phg-gl-row{font-family:Georgia,serif;display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #e4ddd2;background:#fffaf3;border-radius:13px;padding:11px 12px;margin-top:8px;color:#2f4931}.phg-gl-row span{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#71806a}
+          @media(max-width:800px){.phg-garden-library-home-v3{padding:48px 14px}.phg-gl-inner{grid-template-columns:1fr}.phg-gl-preview{margin-top:4px}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1:
+                  h=h[:idx]+section+h[idx:]
+              else:
+                  h=h.replace("</body>",section+"</body>",1)
+
+          route_marker="phg-garden-library-route-v3"
+          if route_marker not in h:
+              route=r'''
+          <script id="phg-garden-library-route-v3">
+          document.addEventListener("click",function(e){
+            var el=e.target.closest("a,button,[role='button']");
+            if(!el)return;
+            var txt=(el.textContent||"").replace(/\s+/g," ").trim().toUpperCase();
+            if(txt==="GARDEN LIBRARY" || txt.indexOf("GARDEN LIBRARY")===0){
+              if(el.classList.contains("phg-gl-open")) return;
+              var s=document.getElementById("garden-library");
+              if(s){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                s.scrollIntoView({behavior:"smooth",block:"start"});
+              }
+            }
+          },true);
+          </script>
+          '''
+              h=h.replace("</body>",route+"</body>",1)
+
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit homepage Garden Library experience
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Build 06B: add Garden Library homepage experience"
+          git push
