@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Garden | Perennial Home & Gardens</title>
+<meta name="description" content="Your central Perennial Home & Gardens dashboard for plans, saved plants, growing zone, companion notes, harvest records, garden-health reports and seasonal tools.">
+<style>
+:root{--green:#24472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#ddd2c3;--soft:#edf3e8;--gold:#d8bd89;--muted:#71675e;--danger:#94483e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f4efe6,#fbf8f1);color:#302b26;font-family:Georgia,serif}
+a{color:inherit}.topnote{background:#1f3824;color:#edf3e9;text-align:center;padding:7px 10px;font-size:10px;letter-spacing:.09em;text-transform:uppercase}
+header{position:sticky;top:0;z-index:30;background:#fffdf8f2;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.bar{max-width:1180px;margin:auto;padding:9px 14px;display:flex;align-items:center;gap:12px}.brand{flex:1}.brand strong{display:block;color:var(--green);font-size:24px}.brand span{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#766b61}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a,.nav button{border:1px solid #cbd8c4;background:#fff;border-radius:999px;padding:8px 10px;text-decoration:none;color:var(--green);font-size:10px;font-weight:bold}
+.hero{max-width:1160px;margin:auto;padding:42px 18px 18px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#6b805f;font-weight:bold}.hero h1{font-size:clamp(42px,7vw,78px);line-height:.95;margin:8px 0;color:var(--green);font-weight:500}.hero p{max-width:850px;color:#665e56;font-size:16px;line-height:1.55;margin:12px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:18px}.stat{background:#fffdf8;border:1px solid #ddd3c6;border-radius:15px;padding:12px}.stat strong{display:block;color:#2f5134;font-size:26px}.stat span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#74695f}
+.shell{max-width:1160px;margin:auto;padding:10px 18px 55px}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.stack{display:grid;gap:16px}
+.card{background:#fffdf8;border:1px solid #ddd3c5;border-radius:22px;box-shadow:0 14px 36px #253a2414;overflow:hidden}.cardhead{padding:16px 17px;border-bottom:1px solid #ebe3d8;display:flex;justify-content:space-between;gap:12px;align-items:center}.cardhead h2{margin:0;color:var(--green);font-size:25px;font-weight:500}.cardhead p{margin:3px 0 0;color:#746a61;font-size:11px}.body{padding:16px}
+.profilegrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}.field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#776c62;font-weight:bold;margin-bottom:4px}.field input{width:100%;border:1px solid #d9cebf;border-radius:10px;padding:9px;background:#fff;font:13px Georgia}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:999px;padding:8px 10px;font-weight:bold;font-size:10px;cursor:pointer;background:var(--green2);color:#fff}.btn.secondary{background:#fffaf2;color:var(--green);border:1px solid #c6d5bf}
+.toolgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.tool{display:block;text-decoration:none;background:#fffaf3;border:1px solid #e0d7ca;border-radius:15px;padding:13px;transition:.15s}.tool:hover{transform:translateY(-2px);border-color:#b9c8b2}.tool .icon{font-size:25px}.tool b{display:block;color:#315336;font-size:15px;margin-top:6px}.tool span{display:block;color:#756a61;font-size:10px;line-height:1.4;margin-top:4px}.tool .meta{margin-top:8px;display:inline-block;background:#e9f0e4;border-radius:999px;padding:5px 7px;color:#446246;font-size:9px;font-weight:bold}
+.feed{display:grid;gap:8px}.feeditem{border:1px solid #e2d9cd;border-radius:13px;padding:10px;background:#fffaf4}.feeditem small{display:block;color:#7b7167;font-size:9px;text-transform:uppercase;letter-spacing:.06em}.feeditem b{display:block;color:#36563a;margin-top:3px}.feeditem span{display:block;color:#6d635a;font-size:10px;line-height:1.4;margin-top:3px}.empty{padding:16px;text-align:center;color:#776d63;border:1px dashed #d7cdbf;border-radius:13px;background:#fffaf4;font-size:11px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.quick button{border:1px solid #d7cebf;background:#fffaf2;border-radius:13px;padding:12px 8px;color:#35563a;font-weight:bold;font-size:10px}.section-note{margin-top:10px;padding:10px;background:#f5efdc;border:1px solid #ead9b1;border-radius:12px;color:#5f523f;font-size:10px;line-height:1.45}
+footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font-size:10px}.footerlinks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}.footerlinks a{text-decoration:none}
+@media(max-width:900px){.summary{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}.profilegrid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.bar{padding:8px 9px}.brand strong{font-size:18px}.brand span{display:none}.nav a:not(.home){display:none}.hero{padding:30px 10px 12px}.shell{padding:8px 9px 42px}.summary{grid-template-columns:repeat(2,1fr)}.toolgrid{grid-template-columns:1fr}.profilegrid{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.card{border-radius:17px}}
+</style>
+</head>
+<body>
+<div class="topnote">Perennial Home & Gardens • Personal Garden Command Center</div>
+<header><div class="bar"><div class="brand"><strong>My Garden</strong><span>One place for your entire garden</span></div><nav class="nav"><a class="home" href="../../">Home</a><a href="../garden-library/">Library</a><a href="../garden-planner/">Planner</a><a href="../plant-identifier/">Identifier</a></nav></div></header>
+
+<section class="hero">
+  <div class="eyebrow">Your Central Garden System</div>
+  <h1>My Garden</h1>
+  <p>Bring your growing zone, garden plans, saved plants, companion ideas, seasonal settings, harvest records and garden-health reports together in one dashboard.</p>
+  <div class="summary">
+    <div class="stat"><strong id="statPlants">0</strong><span>Saved plants</span></div>
+    <div class="stat"><strong id="statPlans">0</strong><span>Garden plans</span></div>
+    <div class="stat"><strong id="statHarvests">0</strong><span>Harvest records</span></div>
+    <div class="stat"><strong id="statHealth">0</strong><span>Health reports</span></div>
+    <div class="stat"><strong id="statZone">—</strong><span>Growing zone</span></div>
+  </div>
+</section>
+
+<main class="shell">
+<div class="grid">
+  <div class="stack">
+    <section class="card">
+      <div class="cardhead"><div><h2>Garden Profile</h2><p>Shared profile information used across Perennial tools.</p></div></div>
+      <div class="body">
+        <div class="profilegrid">
+          <div class="field"><label>Garden name</label><input id="gardenName" placeholder="My Garden"></div>
+          <div class="field"><label>Growing zone</label><input id="profileZone" placeholder="Example: 7b"></div>
+          <div class="field"><label>Garden location</label><input id="profileLocation" placeholder="Example: Southern Maryland"></div>
+        </div>
+        <div class="actions"><button class="btn" id="saveProfile">Save Garden Profile</button><a class="btn secondary" href="../growing-zone/">Update Growing Zone</a></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="cardhead"><div><h2>My Garden Tools</h2><p>All of the main Perennial apps now return to this dashboard.</p></div></div>
+      <div class="body"><div class="toolgrid">
+        <a class="tool" href="../growing-zone/"><span class="icon">🌎</span><b>My Growing Zone</b><span>USDA 2023 hardiness zone lookup by ZIP.</span><span class="meta" id="zoneMeta">Zone not saved</span></a>
+        <a class="tool" href="../seasonal-calendar/"><span class="icon">🗓️</span><b>Seasonal Garden Calendar</b><span>Seasonal timing, monthly focus and local growing guidance.</span><span class="meta" id="calendarMeta">Open calendar</span></a>
+        <a class="tool" href="../garden-planner/"><span class="icon">🗺️</span><b>Garden Planner</b><span>Scaled beds, plants, structures, water, light and companion guidance.</span><span class="meta" id="planMeta">0 saved layouts</span></a>
+        <a class="tool" href="../garden-library/"><span class="icon">📚</span><b>Garden Library</b><span>Saved plants, garden terms, resources and personal plant notes.</span><span class="meta" id="libraryMeta">0 saved items</span></a>
+        <a class="tool" href="../plant-companions/"><span class="icon">🌱</span><b>Plant Companions</b><span>Saved pairings and quick companion guidance.</span><span class="meta" id="compMeta">0 saved</span></a>
+        <a class="tool" href="../plant-identifier/"><span class="icon">🔎</span><b>Plant / Pest / Disease Identifier</b><span>Garden-health screening, photo reference and saved reports.</span><span class="meta" id="healthMeta">0 saved reports</span></a>
+        <a class="tool" href="../harvest-checker/"><span class="icon">🧺</span><b>Harvest Checker</b><span>Readiness guidance and saved harvest checks.</span><span class="meta" id="harvestMeta">0 saved</span></a>
+        <a class="tool" href="../garden-calculator/"><span class="icon">🧮</span><b>Garden Calculator</b><span>Soil, mulch, bed, spacing and garden measurement calculations.</span><span class="meta">Open calculator</span></a>
+      </div></div>
+    </section>
+
+    <section class="card">
+      <div class="cardhead"><div><h2>Recent Garden Activity</h2><p>Your latest saved activity from connected Perennial apps.</p></div></div>
+      <div class="body"><div class="feed" id="activityFeed"></div></div>
+    </section>
+  </div>
+
+  <div class="stack">
+    <section class="card">
+      <div class="cardhead"><div><h2>Quick Start</h2><p>Jump directly into common garden tasks.</p></div></div>
+      <div class="body"><div class="quick">
+        <button data-go="../garden-planner/">Map Garden</button>
+        <button data-go="../plant-identifier/">Check a Problem</button>
+        <button data-go="../garden-library/">Find a Plant</button>
+        <button data-go="../harvest-checker/">Check Harvest</button>
+        <button data-go="../plant-companions/">Check Companions</button>
+        <button data-go="../seasonal-calendar/">What Now?</button>
+      </div></div>
+    </section>
+
+    <section class="card">
+      <div class="cardhead"><div><h2>Saved Plants</h2><p>Plants saved in the Garden Library.</p></div></div>
+      <div class="body"><div class="feed" id="savedPlants"></div><div class="actions"><a class="btn secondary" href="../garden-library/">Open My Library</a></div></div>
+    </section>
+
+    <section class="card">
+      <div class="cardhead"><div><h2>Garden Plans</h2><p>Your most recent saved layouts.</p></div></div>
+      <div class="body"><div class="feed" id="savedPlans"></div><div class="actions"><a class="btn secondary" href="../garden-planner/">Open Planner</a></div></div>
+    </section>
+
+    <section class="card">
+      <div class="cardhead"><div><h2>Garden Health</h2><p>Most recent Identifier reports.</p></div></div>
+      <div class="body"><div class="feed" id="healthReports"></div><div class="actions"><a class="btn secondary" href="../plant-identifier/">Open Identifier</a></div></div>
+    </section>
+
+    <section class="card">
+      <div class="cardhead"><div><h2>Coming Next</h2><p>The next systems that will connect here.</p></div></div>
+      <div class="body">
+        <div class="feeditem"><small>Next Build</small><b>Seed Starting + Succession + Tray Tracker</b><span>Seeds, sow dates, trays, germination, transplant timing and succession rounds will feed directly into My Garden.</span></div>
+        <div class="section-note">My Garden is local-first right now. It reads the saved data already created by your Perennial tools on this device. Cloud account sync remains a later step when a dedicated Perennial backend is connected.</div>
+      </div>
+    </section>
+  </div>
+</div>
+</main>
+
+<footer><div class="footerlinks"><a href="../../">Home</a><a href="../garden-library/">Garden Library</a><a href="../garden-planner/">Garden Planner</a><a href="../plant-identifier/">Identifier</a><a href="../seasonal-calendar/">Calendar</a></div><div>© Perennial Home & Gardens</div></footer>
+
+<script>
+const J=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(f))}catch(e){return f}};
+const profileKey="phgMyGardenProfileV1";
+const zone=J("phg-growing-zone",{});
+const cal=J("phg-cal-prefs",{});
+const companions=J("phg-companion-saved",[]);
+const harvests=J("phg-harvest-saved",[]);
+const lastHarvest=J("phg-harvest-last",{});
+const plans=J("phgGardenPlans",[]);
+const health=J("phgGardenHealthReports",[]);
+const shelf=J("phgGardenLibraryShelfV1",{plants:[],terms:[],resources:[]});
+const libProfile=J("phgGardenLibraryProfileV1",{});
+const notes=J("phgGardenLibraryPlantNotesV1",{});
+
+let profile=J(profileKey,{gardenName:"",zone:"",location:""});
+if(!profile.zone&&(zone.zone||libProfile.homeZone))profile.zone=zone.zone||libProfile.homeZone||"";
+if(!profile.location&&libProfile.locationLabel)profile.location=libProfile.locationLabel;
+document.getElementById("gardenName").value=profile.gardenName||"";
+document.getElementById("profileZone").value=profile.zone||"";
+document.getElementById("profileLocation").value=profile.location||"";
+document.getElementById("saveProfile").onclick=()=>{
+ profile={gardenName:document.getElementById("gardenName").value.trim(),zone:document.getElementById("profileZone").value.trim(),location:document.getElementById("profileLocation").value.trim()};
+ localStorage.setItem(profileKey,JSON.stringify(profile));
+ const lp={...libProfile,displayName:profile.gardenName||libProfile.displayName||"",homeZone:profile.zone,locationLabel:profile.location};
+ localStorage.setItem("phgGardenLibraryProfileV1",JSON.stringify(lp));
+ refreshStats();
+ document.getElementById("saveProfile").textContent="Saved ✓";setTimeout(()=>document.getElementById("saveProfile").textContent="Save Garden Profile",1200);
+};
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>location.href=b.dataset.go);
+
+function feedEmpty(msg){return '<div class="empty">'+msg+'</div>'}
+function refreshStats(){
+ const p=J(profileKey,profile), z=J("phg-growing-zone",zone), sh=J("phgGardenLibraryShelfV1",shelf), pl=J("phgGardenPlans",plans), hv=J("phg-harvest-saved",harvests), hr=J("phgGardenHealthReports",health), cp=J("phg-companion-saved",companions), ca=J("phg-cal-prefs",cal);
+ document.getElementById("statPlants").textContent=(sh.plants||[]).length;
+ document.getElementById("statPlans").textContent=pl.length;
+ document.getElementById("statHarvests").textContent=hv.length;
+ document.getElementById("statHealth").textContent=hr.length;
+ document.getElementById("statZone").textContent=(p.zone||z.zone||"—").toString().toUpperCase();
+ document.getElementById("zoneMeta").textContent=(z.zone?"Zone "+String(z.zone).toUpperCase()+(z.zip?" · "+z.zip:""):"Zone not saved");
+ document.getElementById("planMeta").textContent=pl.length+" saved layout"+(pl.length===1?"":"s");
+ document.getElementById("libraryMeta").textContent=((sh.plants||[]).length+(sh.terms||[]).length+(sh.resources||[]).length)+" saved item"+((((sh.plants||[]).length+(sh.terms||[]).length+(sh.resources||[]).length)===1)?"":"s");
+ document.getElementById("compMeta").textContent=(Array.isArray(cp)?cp.length:0)+" saved";
+ document.getElementById("healthMeta").textContent=hr.length+" saved report"+(hr.length===1?"":"s");
+ document.getElementById("harvestMeta").textContent=hv.length+" saved";
+ document.getElementById("calendarMeta").textContent=ca.zone?("Zone "+String(ca.zone).toUpperCase()+" · "+(ca.focus||"Seasonal plan")):"Open calendar";
+ renderPlans(pl);renderHealth(hr);renderActivity({pl,hr,hv,cp,z,ca,last:lastHarvest});renderPlants(sh);
+}
+function renderPlans(pl){const box=document.getElementById("savedPlans");box.innerHTML=pl.length?pl.slice(0,4).map(x=>'<div class="feeditem"><small>Garden Plan</small><b>'+escapeHtml(x.name||"Saved Layout")+'</b><span>'+(x.date?new Date(x.date).toLocaleDateString():"Saved on this device")+'</span></div>').join(""):feedEmpty("No garden layouts saved yet.")}
+function renderHealth(hr){const box=document.getElementById("healthReports");box.innerHTML=hr.length?hr.slice(0,4).map(x=>'<div class="feeditem"><small>'+escapeHtml(x.mode||"Garden Health")+'</small><b>'+escapeHtml(x.plant||"Unnamed plant")+'</b><span>'+escapeHtml((x.matches||[]).slice(0,2).join(" · ")||"Screening report")+'</span></div>').join(""):feedEmpty("No garden-health reports saved yet.")}
+function renderPlants(sh){
+ const ids=(sh.plants||[]);const box=document.getElementById("savedPlants");
+ if(!ids.length){box.innerHTML=feedEmpty("No plants saved in My Library yet.");return}
+ fetch("../garden-library/plant_profiles.json").then(r=>r.json()).then(data=>{
+  const map=new Map(data.map(x=>[x.id,x]));box.innerHTML=ids.slice(0,6).map(id=>{const p=map.get(id);return p?'<div class="feeditem"><small>'+escapeHtml(p.family||"Plant")+'</small><b>'+escapeHtml(p.displayName||p.scientificName)+'</b><span><em>'+escapeHtml(p.scientificName||"")+'</em>'+(notes[id]?" · Note saved":"")+'</span></div>':""}).join("")||feedEmpty("Saved plant records are unavailable right now.")
+ }).catch(()=>box.innerHTML=feedEmpty("Saved plant records are unavailable right now."));
+}
+function renderActivity(d){
+ const a=[];
+ if(d.pl[0])a.push({t:d.pl[0].date||"",k:"Garden Plan",b:d.pl[0].name||"Saved layout",s:"Garden Planner"});
+ if(d.hr[0])a.push({t:d.hr[0].date||"",k:"Garden Health",b:d.hr[0].plant||"Saved report",s:(d.hr[0].matches||[]).slice(0,2).join(" · ")});
+ if(d.hv[0])a.push({t:d.hv[0].date||d.hv[0].savedAt||"",k:"Harvest",b:d.hv[0].crop||d.last.crop||"Saved harvest",s:d.hv[0].stage||d.last.stage||"Harvest Checker"});
+ if(d.z.zone)a.push({t:"",k:"Growing Zone",b:"Zone "+String(d.z.zone).toUpperCase(),s:d.z.zip?("ZIP "+d.z.zip):"USDA zone saved"});
+ if(d.ca.zone)a.push({t:"",k:"Seasonal Calendar",b:"Zone "+String(d.ca.zone).toUpperCase(),s:d.ca.focus||"Seasonal preferences saved"});
+ a.sort((x,y)=>(y.t||"").localeCompare(x.t||""));
+ const box=document.getElementById("activityFeed");box.innerHTML=a.length?a.slice(0,7).map(x=>'<div class="feeditem"><small>'+escapeHtml(x.k)+'</small><b>'+escapeHtml(x.b)+'</b><span>'+escapeHtml(x.s||"")+(x.t?" · "+new Date(x.t).toLocaleDateString():"")+'</span></div>').join(""):feedEmpty("Your saved activity from connected Perennial tools will appear here.");
+}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
+refreshStats();
+</script>
+</body></html>
