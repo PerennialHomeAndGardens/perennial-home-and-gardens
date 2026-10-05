@@ -13,37 +13,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect USDA PLANTS app bundle
+      - name: Inspect USDA PLANTS API config
         run: |
           python - <<'PY'
           import urllib.request,re,json
           js=urllib.request.urlopen(urllib.request.Request("https://plants.sc.egov.usda.gov/main.js",headers={"User-Agent":"Mozilla/5.0"}),timeout=40).read().decode("utf-8","replace")
-          needles=["fetchPlantsSearchResults","CharacteristicSearchService","characteristics","apiUrl","baseUrl","environment","PlantProfileService","characteristic"]
-          snippets={}
+          needles=["getPlantsAPIUrl","plantsAPI","fetchPlantProfile","PlantProfile/get","getCharacteristics","characteristicSearchResults","serviceUrl"]
+          out={}
           for n in needles:
-            arr=[]
-            start=0
+            arr=[];start=0
             while True:
               i=js.find(n,start)
-              if i<0: break
-              arr.append(js[max(0,i-1200):min(len(js),i+2400)])
-              if len(arr)>=25: break
+              if i<0:break
+              arr.append(js[max(0,i-1800):min(len(js),i+5000)])
+              if len(arr)>=20:break
               start=i+len(n)
-            snippets[n]=arr
-          # Also collect strings that look like service routes, avoiding framework noise.
-          route_strings=[]
-          for m in re.finditer(r'["\']([^"\']{2,180})["\']',js):
-            s=m.group(1)
-            sl=s.lower()
-            if any(k in sl for k in ["/api/","characteristic","plantprofile","plant-profile","plant-search","plants/search","profile/"]):
-              if "\n" not in s and s not in route_strings:
-                route_strings.append(s)
-          open("data/garden-library/usda_api_diagnostic.json","w").write(json.dumps({"bundle_len":len(js),"routes":route_strings[:2000],"snippets":snippets},indent=2))
+            out[n]=arr
+          open("data/garden-library/usda_api_diagnostic.json","w").write(json.dumps(out,indent=2))
           PY
       - name: Commit diagnostic
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/garden-library/usda_api_diagnostic.json
-          git diff --cached --quiet || git commit -m "Inspect USDA PLANTS service routes"
+          git diff --cached --quiet || git commit -m "Inspect USDA PLANTS API configuration"
           git push
