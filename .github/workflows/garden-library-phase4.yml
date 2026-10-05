@@ -1,0 +1,378 @@
+name: Garden Library Phase 4 enrichment
+
+on:
+  push:
+    paths:
+      - .github/workflows/garden-library-phase4.yml
+
+permissions:
+  contents: write
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build USDA NRCS plant enrichment database
+        run: |
+          python - <<'PY'
+          import json,re,html,urllib.request,urllib.parse,time,math
+          from pathlib import Path
+          from concurrent.futures import ThreadPoolExecutor, as_completed
+          from collections import Counter
+
+          BASE="https://plantsservices.sc.egov.usda.gov/api/"
+          PROFILES=Path("tools/garden-library/plant_profiles.json")
+          OUT=Path("tools/garden-library/plant_enrichment.json")
+          SUMMARY=Path("tools/garden-library/plant_enrichment_summary.json")
+
+          profiles=json.loads(PROFILES.read_text(encoding="utf-8"))
+
+          def norm(s):
+              s=html.unescape(re.sub(r"<[^>]+>","",s or ""))
+              s=s.replace("×","x")
+              s=re.sub(r"\s+"," ",s).strip().casefold()
+              return s
+
+          def get_json(path,attempts=3):
+              url=BASE+path
+              last=None
+              for a in range(attempts):
+                  try:
+                      req=urllib.request.Request(url,headers={
+                        "User-Agent":"PerennialHomeAndGardens/1.0 (+https://perennialhomeandgardens.github.io/)",
+                        "Accept":"application/json"
+                      })
+                      with urllib.request.urlopen(req,timeout=35) as r:
+                          return json.loads(r.read().decode("utf-8","replace"))
+                  except Exception as e:
+                      last=e
+                      time.sleep(0.6*(a+1))
+              raise last
+
+          print("Fetching USDA characteristic index…")
+          usda_index=get_json("characteristicSearchResults")
+          print("USDA characteristic plants:",len(usda_index))
+
+          by_name={}
+          for u in usda_index:
+              n=norm(u.get("scientificNameWithoutAuthor") or u.get("scientificName"))
+              if not n: continue
+              # Prefer accepted/non-synonym record if duplicates appear.
+              if n not in by_name or (by_name[n].get("isSynonym") and not u.get("isSynonym")):
+                  by_name[n]=u
+
+          # Match current name first, then verified historical synonyms.
+          matches={}
+          for p in profiles:
+              candidates=[p.get("scientificName","")]+list(p.get("synonyms") or [])+list(p.get("historicalNames") or [])
+              hit=None
+              for c in candidates:
+                  if norm(c) in by_name:
+                      hit=by_name[norm(c)]
+                      break
+              if hit:
+                  matches[p["id"]]=hit
+
+          print("Matched Perennial profiles to USDA characteristics:",len(matches))
+
+          def characteristic_map(items):
+              d={}
+              for x in items or []:
+                  name=(x.get("PlantCharacteristicName") or "").strip()
+                  val=x.get("PlantCharacteristicValue")
+                  if name and val not in (None,""):
+                      d[name]=str(val).strip()
+              return d
+
+          # USDA 2023 zone 5°F half-zone bands. This is an INTERPRETATION
+          # of NRCS minimum-temperature tolerance, never presented as an official zone.
+          def approximate_zone(temp):
+              try:t=float(temp)
+              except:return None
+              # Zone 1a starts at -60. Each half zone = 5F.
+              idx=math.floor((t+60)/5)
+              idx=max(0,min(25,idx))
+              zone=1+(idx//2)
+              half="a" if idx%2==0 else "b"
+              return f"{zone}{half}+"
+
+          def yes(c,name):
+              return (c.get(name) or "").strip().lower()=="yes"
+
+          def build_enrichment(pid,u):
+              plant_id=u.get("id")
+              try:
+                  chars=get_json("PlantCharacteristics/"+str(plant_id))
+              except Exception:
+                  chars=[]
+              try:
+                  prof=get_json("PlantProfile/"+str(plant_id))
+              except Exception:
+                  prof={}
+              c=characteristic_map(chars)
+
+              textures=[]
+              if yes(c,"Adapted to Coarse Textured Soils"): textures.append("coarse")
+              if yes(c,"Adapted to Medium Textured Soils"): textures.append("medium")
+              if yes(c,"Adapted to Fine Textured Soils"): textures.append("fine")
+
+              propagation=[]
+              pmap=[
+                ("Seed","Propagated by Seed"),("Container","Propagated by Container"),
+                ("Cuttings","Propagated by Cuttings"),("Bare root","Propagated by Bare Root"),
+                ("Bulb","Propagated by Bulb"),("Corm","Propagated by Corm"),
+                ("Sod","Propagated by Sod"),("Sprigs","Propagated by Sprigs"),
+                ("Tubers","Propagated by Tubers")
+              ]
+              for label,key in pmap:
+                  if yes(c,key): propagation.append(label)
+
+              native=[]
+              for x in prof.get("NativeStatuses") or []:
+                  reg=x.get("Region"); typ=x.get("Type") or x.get("Status")
+                  if reg and typ: native.append(f"{reg}: {typ}")
+
+              min_temp=c.get("Temperature, Minimum (°F)")
+              enrich={
+                "usdaPlantId":plant_id,
+                "usdaSymbol":u.get("symbol") or prof.get("Symbol"),
+                "usdaScientificName":u.get("scientificNameWithoutAuthor") or norm(u.get("scientificName")),
+                "usdaCommonName":u.get("commonName") or prof.get("CommonName"),
+                "usdaProfileUrl":"https://plants.sc.egov.usda.gov/plant-profile/"+str(u.get("symbol") or prof.get("Symbol") or ""),
+                "source":"USDA NRCS PLANTS Conservation Plant Characteristics",
+                "sourceNote":"NRCS characteristics are nationwide approximations compiled from literature, agency documents, field observations, and plant specialists.",
+                "enrichmentStatus":"usda_nrcs_characteristics",
+                "duration":prof.get("Durations") or [],
+                "growthHabit":prof.get("GrowthHabits") or [],
+                "group":prof.get("Group") or prof.get("GroupName"),
+                "nativeStatus":native,
+                "activeGrowthPeriod":c.get("Active Growth Period"),
+                "growthForm":c.get("Growth Form"),
+                "growthRate":c.get("Growth Rate"),
+                "matureHeightFt":c.get("Height, Mature (feet)"),
+                "lifespan":c.get("Lifespan"),
+                "flowerColor":c.get("Flower Color"),
+                "flowerConspicuous":c.get("Flower Conspicuous"),
+                "foliageColor":c.get("Foliage Color"),
+                "foliageTexture":c.get("Foliage Texture"),
+                "bloomPeriod":c.get("Bloom Period"),
+                "shadeTolerance":c.get("Shade Tolerance"),
+                "moistureUse":c.get("Moisture Use"),
+                "droughtTolerance":c.get("Drought Tolerance"),
+                "soilTextures":textures,
+                "fertilityRequirement":c.get("Fertility Requirement"),
+                "pHMin":c.get("pH, Minimum"),
+                "pHMax":c.get("pH, Maximum"),
+                "precipitationMinIn":c.get("Precipitation, Minimum"),
+                "precipitationMaxIn":c.get("Precipitation, Maximum"),
+                "rootDepthMinIn":c.get("Root Depth, Minimum (inches)"),
+                "salinityTolerance":c.get("Salinity Tolerance"),
+                "anaerobicTolerance":c.get("Anaerobic Tolerance"),
+                "minimumTemperatureF":min_temp,
+                "approxColdToleranceZone":approximate_zone(min_temp),
+                "coldToleranceDisclaimer":"Approximate zone is inferred only from the NRCS minimum-temperature value; it is not an official USDA hardiness-zone rating.",
+                "frostFreeDaysMin":c.get("Frost Free Days, Minimum"),
+                "propagation":propagation,
+                "coldStratificationRequired":c.get("Cold Stratification Required"),
+                "seedlingVigor":c.get("Seedling Vigor"),
+                "vegetativeSpreadRate":c.get("Vegetative Spread Rate"),
+                "commercialAvailability":c.get("Commercial Availability"),
+                "toxicity":c.get("Toxicity"),
+                "nitrogenFixation":c.get("Nitrogen Fixation"),
+                "allelopathic":c.get("Known Allelopath"),
+                "fireTolerance":c.get("Fire Tolerance"),
+                "fireResistant":c.get("Fire Resistant"),
+                "humanPalatability":c.get("Palatable Human"),
+                "nurseryStockProduct":c.get("Nursery Stock Product"),
+                "hasPollinatorData":bool(prof.get("HasPollinator")),
+                "hasWildlifeData":bool(prof.get("HasWildlife")),
+                "hasWetlandData":bool(prof.get("HasWetlandData")),
+                "hasInvasiveStatus":bool(prof.get("HasInvasiveStatuses")),
+                "hasNoxiousStatus":bool(prof.get("HasNoxiousStatuses")),
+                "hasImages":bool(prof.get("HasImages")),
+                "usdaImageCount":prof.get("NumImages") or u.get("imageCount") or 0
+              }
+              return pid,enrich
+
+          enrichment={}
+          failures=[]
+          with ThreadPoolExecutor(max_workers=12) as pool:
+              futures={pool.submit(build_enrichment,pid,u):pid for pid,u in matches.items()}
+              done=0
+              for fut in as_completed(futures):
+                  pid=futures[fut]
+                  try:
+                      k,v=fut.result(); enrichment[k]=v
+                  except Exception as e:
+                      failures.append({"id":pid,"error":repr(e)})
+                  done+=1
+                  if done%100==0: print("Processed",done,"/",len(futures))
+
+          OUT.write_text(json.dumps(enrichment,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
+
+          fields=[
+            "duration","growthHabit","nativeStatus","activeGrowthPeriod","growthForm","growthRate",
+            "matureHeightFt","lifespan","flowerColor","bloomPeriod","shadeTolerance","moistureUse",
+            "droughtTolerance","soilTextures","fertilityRequirement","pHMin","pHMax",
+            "minimumTemperatureF","approxColdToleranceZone","propagation","toxicity",
+            "commercialAvailability"
+          ]
+          counts={}
+          for f in fields:
+              counts[f]=sum(1 for v in enrichment.values() if v.get(f) not in (None,"",[],{}))
+          summary={
+            "totalPlantProfiles":len(profiles),
+            "usdaCharacteristicIndexPlants":len(usda_index),
+            "matchedProfiles":len(matches),
+            "successfullyEnriched":len(enrichment),
+            "failedRequests":len(failures),
+            "fieldCoverage":counts,
+            "source":"USDA NRCS PLANTS Conservation Plant Characteristics",
+            "sourceEndpoint":"https://plantsservices.sc.egov.usda.gov/api/",
+            "note":"Only exact current-name or verified-synonym matches were enriched. Missing fields were left blank rather than guessed. Approximate cold-tolerance zones are explicitly labeled as interpretations, not official USDA zone ratings.",
+            "failures":failures[:50]
+          }
+          SUMMARY.write_text(json.dumps(summary,indent=2),encoding="utf-8")
+          print(json.dumps(summary,indent=2))
+          PY
+
+      - name: Upgrade plant profile UI with practical growing data
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("tools/garden-library/index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-phase4-enrichment-v1"
+          if marker in h:
+              raise SystemExit("Phase 4 UI already installed")
+
+          css=r'''
+          <style id="phg-phase4-enrichment-v1">
+          .phg-grow-title{margin:20px 0 10px;padding-top:16px;border-top:1px solid #cbd8c3;color:#29492e;font:500 24px Georgia,serif}
+          .phg-grow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}
+          .phg-grow-card{background:#fffdf8;border:1px solid #dcd4c8;border-radius:14px;padding:11px 12px;min-height:88px}
+          .phg-grow-card small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#75806f;font-size:9px;font-weight:bold;margin-bottom:5px}
+          .phg-grow-card strong{display:block;color:#2e5032;font-size:15px;line-height:1.32;font-weight:600}
+          .phg-grow-card span{display:block;color:#70665d;font-size:11px;line-height:1.4;margin-top:4px}
+          .phg-sourcebox{margin-top:12px;background:#f5efe4;border:1px solid #dfd2c1;border-radius:13px;padding:11px 12px;color:#675b50;font-size:11px;line-height:1.45}
+          .phg-sourcebox a{color:#365d39;font-weight:bold}.phg-enrichment-missing{background:#fff8ea;border:1px solid #e6d4ae;border-radius:13px;padding:12px;color:#6b5b43;font-size:13px;line-height:1.5}
+          @media(max-width:800px){.phg-grow-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.phg-grow-grid{grid-template-columns:1fr}}
+          </style>
+          '''
+          h=h.replace("</head>",css+"</head>",1)
+
+          target='<div class="phg-audio"><button id="phgSpeakScientific">🔊 Hear scientific name</button><button class="secondary" id="phgSpeakSummary">🔊 Hear plant record</button></div>'
+          insert=target+r'''
+                      <div id="phgGrowSection">
+                        <h3 class="phg-grow-title">Growing &amp; Garden Information</h3>
+                        <div id="phgGrowGrid" class="phg-grow-grid"></div>
+                        <div id="phgEnrichmentMissing" class="phg-enrichment-missing" style="display:none">This verified plant currently has taxonomy information but no matching USDA NRCS Conservation Plant Characteristics record. We leave practical fields blank rather than guessing.</div>
+                        <div id="phgSourceBox" class="phg-sourcebox" style="display:none"></div>
+                      </div>
+          '''
+          if target not in h: raise SystemExit("Plant audio target not found")
+          h=h.replace(target,insert,1)
+
+          # Expand phase note so the page accurately describes Phase 4.
+          old='<div class="phg-phase-note"><strong>Plant profile foundation:</strong> this phase establishes authoritative names, families, common names, synonyms and images. Growing zones, sun, water, soil, size, bloom, propagation, wildlife value, pests and other care fields will be layered onto these same records rather than creating a separate database.</div>'
+          new='<div class="phg-phase-note"><strong>Plant data note:</strong> taxonomy is verified against World Flora Online. Practical growing characteristics are added where an exact USDA NRCS PLANTS record exists. NRCS describes its Conservation Plant Characteristics as approximate nationwide values; missing information is left blank rather than invented. Cold-tolerance zone estimates are clearly marked as estimates, not official USDA hardiness-zone ratings.</div>'
+          h=h.replace(old,new,1)
+
+          # Add enrichment variable.
+          h=h.replace('let P=[],page=0,current=null;const PAGE=24;','let P=[],E={},page=0,current=null;const PAGE=24;',1)
+
+          # Insert render helper before openProfile.
+          needle='            function openProfile(x){'
+          helper=r'''
+            function clean(v){
+              if(v===null||v===undefined||v===""||(Array.isArray(v)&&!v.length))return "";
+              return Array.isArray(v)?v.join(", "):String(v);
+            }
+            function growCard(label,value,note){
+              if(!value)return "";
+              return '<div class="phg-grow-card"><small>'+label+'</small><strong>'+value+'</strong>'+(note?'<span>'+note+'</span>':'')+'</div>';
+            }
+            function renderEnrichment(x){
+              const e=E[x.id];
+              const grid=$("phgGrowGrid"),missing=$("phgEnrichmentMissing"),source=$("phgSourceBox");
+              grid.innerHTML="";source.innerHTML="";
+              if(!e){
+                missing.style.display="block";source.style.display="none";return;
+              }
+              missing.style.display="none";
+              const soil=(e.soilTextures||[]).length ? e.soilTextures.join(", ")+" textured soils" : "";
+              const ph=(e.pHMin||e.pHMax) ? ((e.pHMin||"?")+"–"+(e.pHMax||"?")) : "";
+              const cold=e.minimumTemperatureF ? e.minimumTemperatureF+"°F" : "";
+              const zone=e.approxColdToleranceZone ? "≈ "+e.approxColdToleranceZone : "";
+              const native=(e.nativeStatus||[]).slice(0,5).join(" · ");
+              const life=[clean(e.duration),clean(e.growthHabit),clean(e.growthForm)].filter(Boolean).join(" · ");
+              const bloom=[e.bloomPeriod,e.flowerColor?e.flowerColor+" flowers":""].filter(Boolean).join(" · ");
+              const soilDetails=[soil,ph?"pH "+ph:"",e.fertilityRequirement?"fertility "+e.fertilityRequirement:""].filter(Boolean).join(" · ");
+              const water=[e.moistureUse?"Moisture use: "+e.moistureUse:"",e.droughtTolerance?"Drought tolerance: "+e.droughtTolerance:""].filter(Boolean).join(" · ");
+              const light=e.shadeTolerance ? "Shade tolerance: "+e.shadeTolerance : "";
+              const height=e.matureHeightFt ? e.matureHeightFt+" ft mature height" : "";
+              const growth=[height,e.growthRate?"growth "+e.growthRate:"",e.activeGrowthPeriod?"active "+e.activeGrowthPeriod:""].filter(Boolean).join(" · ");
+              const prop=clean(e.propagation);
+              const safety=[e.toxicity?"Toxicity: "+e.toxicity:"",e.allelopathic?"Allelopathic: "+e.allelopathic:""].filter(Boolean).join(" · ");
+              const wildlife=[e.hasPollinatorData?"Pollinator data available":"",e.hasWildlifeData?"Wildlife data available":""].filter(Boolean).join(" · ");
+              const cards=[
+                growCard("Life cycle & habit",life),
+                growCard("Light",light,"NRCS shade-tolerance characteristic"),
+                growCard("Water",water),
+                growCard("Soil",soilDetails),
+                growCard("Growth",growth,e.lifespan?"Lifespan: "+e.lifespan:""),
+                growCard("Bloom",bloom),
+                growCard("Cold tolerance",cold,zone?(zone+" estimated cold-tolerance band*"):""),
+                growCard("Propagation",prop,e.coldStratificationRequired?"Cold stratification: "+e.coldStratificationRequired:""),
+                growCard("Native status",native),
+                growCard("Wildlife & pollinators",wildlife),
+                growCard("Safety / behavior",safety),
+                growCard("Availability",e.commercialAvailability)
+              ].filter(Boolean);
+              grid.innerHTML=cards.join("");
+              if(!cards.length)grid.innerHTML='<div class="phg-enrichment-missing">USDA matched this plant, but the practical fields used by Perennial are not populated for this record.</div>';
+              source.style.display="block";
+              source.innerHTML='<strong>Growing-data source:</strong> USDA NRCS PLANTS Conservation Plant Characteristics. '+(e.sourceNote||'')+
+                (e.usdaProfileUrl?' <a href="'+e.usdaProfileUrl+'" target="_blank" rel="noopener">View USDA plant profile →</a>':'')+
+                (zone?' <br><em>*The displayed cold-tolerance zone is an interpretation of the NRCS minimum-temperature value and is not an official USDA hardiness-zone rating.</em>':'');
+            }
+          '''
+          if needle not in h: raise SystemExit("openProfile function not found")
+          h=h.replace(needle,helper+needle,1)
+
+          # Render enrichment whenever a profile opens.
+          h=h.replace('              loadImage(x);','              renderEnrichment(x);\n              loadImage(x);',1)
+
+          # Replace the Phase 3 single fetch with Promise.all.
+          old='''            fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{
+              P=data;$("termBadge").textContent=(P.length+DATA?.length||P.length).toLocaleString()+" library records";
+              render();
+              let h=decodeURIComponent(location.hash.replace("#",""));
+              if(h.startsWith("plant-")){let x=P.find(p=>"plant-"+p.id===h);if(x)openProfile(x)}
+            }).catch(()=>{$("phgPlantCount").textContent="Plant profile database is temporarily unavailable."});'''
+          new='''            Promise.all([
+              fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()),
+              fetch("plant_enrichment.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({}))
+            ]).then(([data,enrichment])=>{
+              P=data;E=enrichment||{};
+              $("termBadge").textContent=(P.length+(window.DATA?.length||0)).toLocaleString()+" library records";
+              render();
+              let h=decodeURIComponent(location.hash.replace("#",""));
+              if(h.startsWith("plant-")){let x=P.find(p=>"plant-"+p.id===h);if(x)openProfile(x)}
+            }).catch(()=>{$("phgPlantCount").textContent="Plant profile database is temporarily unavailable."});'''
+          if old not in h: raise SystemExit("Phase 3 plant fetch block not found")
+          h=h.replace(old,new,1)
+
+          p.write_text(h,encoding="utf-8")
+          PY
+
+      - name: Commit Phase 4 enrichment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/garden-library/index.html tools/garden-library/plant_enrichment.json tools/garden-library/plant_enrichment_summary.json
+          git diff --cached --quiet || git commit -m "Garden Library Phase 4: add practical USDA plant enrichment"
+          git push
