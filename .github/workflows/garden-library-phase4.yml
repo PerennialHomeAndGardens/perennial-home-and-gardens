@@ -285,7 +285,7 @@ jobs:
           h=h.replace('let P=[],page=0,current=null;const PAGE=24;','let P=[],E={},page=0,current=null;const PAGE=24;',1)
 
           # Insert render helper before openProfile.
-          needle='            function openProfile(x){'
+          needle='  function openProfile(x){'
           helper=r'''
             function clean(v){
               if(v===null||v===undefined||v===""||(Array.isArray(v)&&!v.length))return "";
@@ -347,13 +347,13 @@ jobs:
           h=h.replace('              loadImage(x);','              renderEnrichment(x);\n              loadImage(x);',1)
 
           # Replace the Phase 3 single fetch with Promise.all.
-          old='''            fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{
+          old='''  fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{
               P=data;$("termBadge").textContent=(P.length+DATA?.length||P.length).toLocaleString()+" library records";
               render();
               let h=decodeURIComponent(location.hash.replace("#",""));
               if(h.startsWith("plant-")){let x=P.find(p=>"plant-"+p.id===h);if(x)openProfile(x)}
             }).catch(()=>{$("phgPlantCount").textContent="Plant profile database is temporarily unavailable."});'''
-          new='''            Promise.all([
+          new='''  Promise.all([
               fetch("plant_profiles.json",{cache:"no-store"}).then(r=>r.json()),
               fetch("plant_enrichment.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({}))
             ]).then(([data,enrichment])=>{
