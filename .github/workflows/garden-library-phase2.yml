@@ -177,113 +177,68 @@ jobs:
               s=re.sub(r"\s+"," ",s)
               return s.casefold()
 
-          # WFO archives can be packaged with or without meta.xml. Detect the taxon table robustly.
-          metas=list(Path("/tmp/wfo").rglob("meta.xml"))
-          rows_iter=None
-          header_map=None
-          id_index=None
-
-          if metas:
-              meta=metas[0]
-              root=ET.parse(meta).getroot()
-              core=next((x for x in root if x.tag.endswith("core")),None)
-              if core is None:
-                  raise SystemExit("No core element in Darwin Core archive")
-              files=next(x for x in core if x.tag.endswith("files"))
-              loc=next(x for x in files if x.tag.endswith("location"))
-              corefile=meta.parent/loc.text.strip()
-              fields={}
-              for el in core:
-                  tag=el.tag.rsplit("}",1)[-1]
-                  if tag=="id":
-                      id_index=int(el.attrib.get("index","0"))
-                  elif tag=="field":
-                      fields[el.attrib.get("term","").rsplit("/",1)[-1]]=int(el.attrib["index"])
-              delim=core.attrib.get("fieldsTerminatedBy","\\t")
-              if delim=="\\\\t": delim="\\t"
-              quote=core.attrib.get("fieldsEnclosedBy","") or '"'
-              ignore=int(core.attrib.get("ignoreHeaderLines","0"))
-              want=["taxonID","acceptedNameUsageID","scientificName","acceptedNameUsage","scientificNameAuthorship",
-                    "canonicalName","taxonRank","taxonomicStatus","family","genus","specificEpithet","infraspecificEpithet"]
-              idx={k:fields.get(k) for k in want}
-              fh=corefile.open("r",encoding="utf-8",errors="replace",newline="")
-              rd=csv.reader(fh,delimiter=delim,quotechar=quote)
-              for _ in range(ignore): next(rd,None)
-              rows_iter=rd
-              print("Using WFO Darwin Core table:",corefile)
-          else:
-              # Fallback: find a delimited file whose header contains scientificName and taxonomicStatus.
-              candidates=[]
-              for fp in Path("/tmp/wfo").rglob("*"):
-                  if not fp.is_file() or fp.stat().st_size<1000:
-                      continue
-                  try:
-                      with fp.open("r",encoding="utf-8",errors="replace",newline="") as f:
-                          first=f.readline().strip("\r\n")
-                      if not first:
-                          continue
-                      for delim_try in ("\\t",",","|"):
-                          cols=next(csv.reader([first],delimiter=delim_try))
-                          low=[c.strip().rsplit("/",1)[-1] for c in cols]
-                          if "scientificName" in low and ("taxonomicStatus" in low or "acceptedNameUsageID" in low):
-                              candidates.append((fp,delim_try,low))
-                              break
-                  except Exception:
-                      pass
-              if not candidates:
-                  print("WFO archive files:")
-                  for fp in list(Path("/tmp/wfo").rglob("*"))[:100]:
-                      if fp.is_file(): print(fp,fp.stat().st_size)
-                  raise SystemExit("Could not detect WFO taxon table")
-              corefile,delim,headers=max(candidates,key=lambda x:x[0].stat().st_size)
-              print("Using detected WFO table:",corefile,corefile.stat().st_size)
-              fh=corefile.open("r",encoding="utf-8",errors="replace",newline="")
-              rd=csv.reader(fh,delimiter=delim)
-              raw_headers=next(rd)
-              headers=[h.strip().rsplit("/",1)[-1] for h in raw_headers]
-              header_map={h:i for i,h in enumerate(headers)}
-              id_index=header_map.get("taxonID")
-              want=["taxonID","acceptedNameUsageID","scientificName","acceptedNameUsage","scientificNameAuthorship",
-                    "canonicalName","taxonRank","taxonomicStatus","family","genus","specificEpithet","infraspecificEpithet"]
-              idx={k:header_map.get(k) for k in want}
-              rows_iter=rd
+          # WFO June 2026 backbone ships as a tab-delimited classification.csv.
+          corefile=Path("/tmp/wfo/classification.csv")
+          if not corefile.exists():
+              raise SystemExit("WFO classification.csv not found")
 
           by_name=defaultdict(list)
           by_gs=defaultdict(list)
           by_id={}
 
-          for row in rows_iter:
-              def g(k):
-                  i=idx.get(k)
-                  return row[i].strip() if i is not None and i<len(row) else ""
-              tid=row[id_index].strip() if id_index is not None and id_index<len(row) else g("taxonID")
-              canonical=g("canonicalName")
-              if not canonical:
-                  parts=[g("genus"),g("specificEpithet")]
-                  if g("infraspecificEpithet"): parts.append(g("infraspecificEpithet"))
+          with corefile.open("r",encoding="utf-8",errors="replace",newline="") as fh:
+              rd=csv.DictReader(fh,delimiter="\t")
+              required={"taxonID","scientificName","taxonomicStatus","acceptedNameUsageID","family","genus","specificEpithet"}
+              missing=required-set(rd.fieldnames or [])
+              if missing:
+                  raise SystemExit(f"WFO classification.csv missing expected columns: {sorted(missing)}")
+              print("Using WFO table:",corefile,corefile.stat().st_size)
+              print("WFO columns:",len(rd.fieldnames or []))
+
+              for row in rd:
+                  tid=(row.get("taxonID") or "").strip()
+                  sci=(row.get("scientificName") or "").strip()
+                  genus=(row.get("genus") or "").strip()
+                  species=(row.get("specificEpithet") or "").strip()
+                  infra=(row.get("infraspecificEpithet") or "").strip()
+
+                  # classification.csv does not always include canonicalName.
+                  # Build a conservative canonical form from structured fields.
+                  parts=[genus,species]
+                  if infra:
+                      rank=(row.get("taxonRank") or "").strip().lower()
+                      rank_token={
+                        "subspecies":"subsp.","variety":"var.","form":"f.",
+                        "subsp.":"subsp.","var.":"var.","f.":"f."
+                      }.get(rank,"")
+                      if rank_token:
+                          parts += [rank_token,infra]
+                      else:
+                          parts += [infra]
                   canonical=" ".join(x for x in parts if x)
-              rec={
-                "id":tid,
-                "scientific_name":g("scientificName"),
-                "canonical_name":canonical,
-                "authorship":g("scientificNameAuthorship"),
-                "status":g("taxonomicStatus"),
-                "accepted_id":g("acceptedNameUsageID"),
-                "accepted_name":g("acceptedNameUsage"),
-                "rank":g("taxonRank"),
-                "family":g("family"),
-                "genus":g("genus"),
-                "species":g("specificEpithet")
-              }
-              if tid: by_id[tid]=rec
-              for k in {norm(rec["scientific_name"]),norm(canonical)}:
-                  if k: by_name[k].append(rec)
-              if rec["genus"] and rec["species"]:
-                  by_gs[(norm(rec["genus"]),norm(rec["species"]))].append(rec)
-          try:
-              fh.close()
-          except Exception:
-              pass
+
+                  rec={
+                    "id":tid,
+                    "scientific_name":sci,
+                    "canonical_name":canonical,
+                    "authorship":(row.get("scientificNameAuthorship") or "").strip(),
+                    "status":(row.get("taxonomicStatus") or "").strip(),
+                    "accepted_id":(row.get("acceptedNameUsageID") or "").strip(),
+                    "accepted_name":"",
+                    "rank":(row.get("taxonRank") or "").strip(),
+                    "family":(row.get("family") or "").strip(),
+                    "genus":genus,
+                    "species":species
+                  }
+                  if tid:
+                      by_id[tid]=rec
+                  for k in {norm(sci),norm(canonical)}:
+                      if k:
+                          by_name[k].append(rec)
+                  if genus and species:
+                      by_gs[(norm(genus),norm(species))].append(rec)
+
+          print("WFO records indexed:",len(by_id))
 
           for rec in by_id.values():
               if rec["accepted_id"] and not rec["accepted_name"] and rec["accepted_id"] in by_id:
