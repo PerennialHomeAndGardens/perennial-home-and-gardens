@@ -121,12 +121,22 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 .phg-account-row{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.phg-account-row h3{margin:0;color:#29492e;font:500 22px Georgia,serif}.phg-account-status{display:inline-flex;align-items:center;gap:7px;background:#fffdf8;border:1px solid #d8cdbd;border-radius:999px;padding:7px 10px;color:#61574f;font-size:11px;font-weight:bold}.phg-dot{width:8px;height:8px;border-radius:50%;background:#8b9b80}.phg-dot.local{background:#b98943}.phg-profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.phg-profile-grid label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#766a60;font-weight:bold}.phg-profile-grid input{width:100%;margin-top:5px;border:1px solid #d8cdbf;border-radius:10px;padding:10px;background:#fffdf8}.phg-account-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.phg-account-actions button{border:0;border-radius:999px;padding:9px 11px;font-weight:bold;cursor:pointer;background:#315936;color:#fff}.phg-account-actions button.secondary{background:#fffaf2;color:#35543a;border:1px solid #bfd0b8}.phg-account-note{margin-top:10px;color:#6d635a;font-size:11px;line-height:1.45}
 .phg-note-wrap{margin-top:10px}.phg-note-wrap textarea{width:100%;min-height:70px;border:1px solid #ddd2c3;border-radius:10px;padding:9px;background:#fffaf2;resize:vertical;font:12px/1.4 inherit}.phg-note-wrap button{margin-top:6px;border:0;border-radius:999px;background:#315936;color:#fff;padding:7px 9px;font-size:11px;font-weight:bold;cursor:pointer}
 @media(max-width:700px){.phg-profile-grid{grid-template-columns:1fr}}
+</style>
+<style id="phg-phase10-qa-v1">
+.phg-qa-badge{background:#e8f0e1!important;color:#29492e!important;border-color:#bfd0b8!important}
+@media print{
+  body *{visibility:hidden!important}
+  #phgMyLibraryPanel,#phgMyLibraryPanel *{visibility:visible!important}
+  #phgMyLibraryPanel{display:block!important;position:absolute;left:0;top:0;width:100%;padding:0!important;margin:0!important}
+  .phg-library-tools,.phg-shelf-remove,.phg-note-wrap button,.phg-account-actions{display:none!important}
+  .phg-library-card{box-shadow:none!important;border:0!important}.phg-shelf-grid{grid-template-columns:1fr 1fr!important}
+}
 </style></head>
 <body>
 <div class="topnote">Perennial Home &amp; Gardens • The Garden Library</div>
 <header><div class="bar"><div class="left"><a class="navbtn" href="../../#garden-library">← Garden Library</a></div><div class="brand"><strong>Perennial Home &amp; Gardens</strong><span>Plan it. Grow it. Live it.</span></div><div class="right"><a class="navbtn" href="../../">Home</a></div></div></header>
 
-<section class="hero"><div class="eyebrow">Premium-Style Free Garden Resource</div><h1>The Perennial Garden Library</h1><p>Search the language of gardening and botany, hear terms and definitions aloud, use voice search when your hands are busy, and explore trusted books, databases, gardens and research resources from one place.</p><div class="badges"><span class="badge" id="termBadge">200+ glossary terms</span><span class="badge">Voice search</span><span class="badge">Listen to definitions</span><span class="badge">Open-image lookup</span></div></section>
+<section class="hero"><div class="eyebrow">Premium-Style Free Garden Resource</div><h1>The Perennial Garden Library</h1><p>Search the language of gardening and botany, hear terms and definitions aloud, use voice search when your hands are busy, and explore trusted books, databases, gardens and research resources from one place.</p><div class="badges"><span class="badge" id="termBadge">200+ glossary terms</span><span class="badge">Voice search</span><span class="badge">Listen to definitions</span><span class="badge">Open-image lookup</span><span class="badge phg-qa-badge">QA Checked</span></div></section>
 
 
 
@@ -146,9 +156,9 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
       <button class="phg-unified-type" data-kind="term">GARDEN TERMS</button>
       <button class="phg-unified-type" data-kind="resource">RESOURCES</button>
     </div>
-    <div class="phg-unified-meta"><span id="phgUnifiedStatus">Loading the Garden Library index…</span><span>Voice search available where supported</span></div>
+    <div class="phg-unified-meta"><span id="phgUnifiedStatus" aria-live="polite">Loading the Garden Library index…</span><span>Voice search available where supported</span></div>
     <div class="phg-recent" id="phgRecentSearches"></div>
-    <div class="phg-unified-results" id="phgUnifiedResults"></div>
+    <div class="phg-unified-results" id="phgUnifiedResults" role="region" aria-label="Unified Garden Library search results"></div>
   </div>
 </section>
 <div class="phg-modebar" id="phgModeBar">
@@ -491,19 +501,21 @@ init();
 
   async function loadImage(x){
     let box=$("phgPlantImage"),credit=$("phgPlantCredit");box.innerHTML='<div class="phg-imgph">Looking for an openly licensed reference image…</div>';credit.textContent="";
-    let q=x.scientificName+" plant";
+    const taxon=(x.scientificName||"").replace(/×/g,"x").trim(),parts=taxon.split(/\s+/),genus=(parts[0]||"").toLowerCase(),species=(parts[1]||"").toLowerCase();
+    let q='"'+taxon+'"';
     try{
-      let url="https://commons.wikimedia.org/w/api.php?origin=*&action=query&generator=search&gsrnamespace=6&gsrlimit=8&gsrsearch="+encodeURIComponent(q)+"&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=900&format=json";
+      let url="https://commons.wikimedia.org/w/api.php?origin=*&action=query&generator=search&gsrnamespace=6&gsrlimit=12&gsrsearch="+encodeURIComponent(q)+"&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=900&format=json";
       let r=await fetch(url),j=await r.json(),pages=j.query&&j.query.pages?Object.values(j.query.pages):[];
-      let p=pages.find(y=>y.imageinfo&&y.imageinfo[0]&&(y.imageinfo[0].thumburl||y.imageinfo[0].url));
+      let candidates=pages.filter(y=>y.imageinfo&&y.imageinfo[0]&&(y.imageinfo[0].thumburl||y.imageinfo[0].url));
+      let p=candidates.find(y=>{let t=(y.title||"").toLowerCase().replace(/[_-]/g," ");return genus&&species&&t.includes(genus)&&t.includes(species)})||candidates.find(y=>{let t=(y.title||"").toLowerCase();return genus&&t.includes(genus)});
       if(!p)throw 0;
       let ii=p.imageinfo[0],m=ii.extmetadata||{},img=ii.thumburl||ii.url;
       box.innerHTML='<img src="'+img+'" alt="'+(x.displayName||x.scientificName).replace(/"/g,"&quot;")+'">';
       let artist=((m.Artist&&m.Artist.value)||"Wikimedia Commons contributor").replace(/<[^>]*>/g,"");
       let lic=(m.LicenseShortName&&m.LicenseShortName.value)||"";
       let src="https://commons.wikimedia.org/wiki/"+encodeURIComponent(p.title.replace(/ /g,"_"));
-      credit.innerHTML='Image: '+artist+(lic?" · "+lic:"")+' · <a href="'+src+'" target="_blank" rel="noopener">source & license</a>';
-    }catch(e){box.innerHTML='<div class="phg-imgph">No suitable open reference image was found automatically for this plant yet.</div>'}
+      credit.innerHTML='Reference image: '+artist+(lic?" · "+lic:"")+' · <a href="'+src+'" target="_blank" rel="noopener">verify source & license</a>';
+    }catch(e){box.innerHTML='<div class="phg-imgph">No taxon-matched open reference image was found automatically for this plant yet.</div>'}
   }
 
   Promise.all([
