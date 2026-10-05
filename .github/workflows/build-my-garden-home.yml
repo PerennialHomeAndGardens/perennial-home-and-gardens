@@ -1,0 +1,68 @@
+name: Build My Garden homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-my-garden-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add My Garden homepage promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-my-garden-home-v1"
+          if marker not in h:
+              section=r'''
+          <section id="my-garden" class="phg-my-garden-home-v1" aria-label="My Garden Dashboard">
+            <div class="phg-mg-inner">
+              <div class="phg-mg-copy">
+                <div class="phg-mg-kicker">Your Garden Command Center</div>
+                <h2>My Garden</h2>
+                <p class="phg-mg-lead">Bring your growing zone, garden plans, saved plants, seasonal settings, companion ideas, harvest checks and garden-health reports into one personal dashboard.</p>
+                <div class="phg-mg-tags"><span>Growing Zone</span><span>Garden Plans</span><span>Saved Plants</span><span>Harvest Records</span><span>Garden Health</span><span>Seasonal Tools</span></div>
+                <a class="phg-mg-open" href="tools/my-garden/">OPEN MY GARDEN →</a>
+              </div>
+              <div class="phg-mg-preview">
+                <div class="phg-mg-top">MY GARDEN <strong>🌿</strong></div>
+                <div class="phg-mg-stats"><div><b>7B</b><span>Zone</span></div><div><b>3</b><span>Plans</span></div><div><b>12</b><span>Plants</span></div><div><b>4</b><span>Reports</span></div></div>
+                <div class="phg-mg-row"><b>Garden Planner</b><span>Saved layouts</span></div>
+                <div class="phg-mg-row"><b>Garden Library</b><span>Plants & notes</span></div>
+                <div class="phg-mg-row"><b>Harvest Checker</b><span>Garden records</span></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-my-garden-home-v1">
+          .phg-my-garden-home-v1{padding:72px 20px;background:linear-gradient(180deg,#fffaf2 0%,#eaf1e5 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-mg-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+          .phg-mg-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-mg-copy h2{font-family:Georgia,serif;font-size:clamp(44px,6vw,70px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-mg-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-mg-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-mg-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-mg-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}.phg-mg-open:hover{transform:translateY(-3px)}
+          .phg-mg-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:16px;box-shadow:0 20px 45px rgba(45,63,39,.12)}.phg-mg-top{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:12px 13px;display:flex;justify-content:space-between}
+          .phg-mg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:9px 0}.phg-mg-stats div{background:#eef3e9;border:1px solid #d6dfd0;border-radius:11px;padding:9px;text-align:center}.phg-mg-stats b{display:block;font:500 22px Georgia;color:#315238}.phg-mg-stats span{font:9px Georgia;color:#71806a;text-transform:uppercase}
+          .phg-mg-row{font-family:Georgia,serif;display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #e4ddd2;background:#fffaf3;border-radius:13px;padding:11px 12px;margin-top:7px;color:#2f4931}.phg-mg-row span{font-size:10px;color:#71806a}
+          @media(max-width:800px){.phg-my-garden-home-v1{padding:48px 14px}.phg-mg-inner{grid-template-columns:1fr}.phg-mg-stats{grid-template-columns:repeat(2,1fr)}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1: h=h[:idx]+section+h[idx:]
+              else: h=h.replace("</body>",section+"</body>",1)
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit My Garden homepage section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add My Garden central dashboard homepage experience"
+          git push
