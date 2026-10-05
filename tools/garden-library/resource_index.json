@@ -1,0 +1,680 @@
+[
+  {
+    "id": "resource-001",
+    "title": "USDA PLANTS Database",
+    "category": "Plant Databases",
+    "description": "U.S. plant names, symbols, distribution, characteristics, images, legal status, and plant guides.",
+    "url": "https://plants.sc.egov.usda.gov/home",
+    "tags": [
+      "taxonomy",
+      "distribution",
+      "USDA",
+      "characteristics"
+    ]
+  },
+  {
+    "id": "resource-002",
+    "title": "World Flora Online Plant List",
+    "category": "Plant Databases",
+    "description": "Global taxonomic backbone for accepted plant names and synonyms.",
+    "url": "https://wfoplantlist.org/plant-list",
+    "tags": [
+      "taxonomy",
+      "scientific names",
+      "synonyms"
+    ]
+  },
+  {
+    "id": "resource-003",
+    "title": "NC State Extension Gardener Plant Toolbox",
+    "category": "Plant Databases",
+    "description": "Detailed plant profiles with care, hardiness, landscape use, wildlife value, and problem information.",
+    "url": "https://plants.ces.ncsu.edu/",
+    "tags": [
+      "care",
+      "hardiness",
+      "extension",
+      "landscape"
+    ]
+  },
+  {
+    "id": "resource-004",
+    "title": "Missouri Botanical Garden Plant Finder",
+    "category": "Plant Databases",
+    "description": "Searchable ornamental plant profiles and horticultural information.",
+    "url": "https://www.missouribotanicalgarden.org/plantfinder/plantfindersearch.aspx",
+    "tags": [
+      "ornamentals",
+      "plant finder",
+      "care"
+    ]
+  },
+  {
+    "id": "resource-005",
+    "title": "Lady Bird Johnson Wildflower Center Native Plant Database",
+    "category": "Native Plants & Conservation",
+    "description": "Native plant profiles, recommended species, and ecological gardening information.",
+    "url": "https://www.wildflower.org/plants/",
+    "tags": [
+      "native plants",
+      "wildlife",
+      "regional"
+    ]
+  },
+  {
+    "id": "resource-006",
+    "title": "BONAP North American Plant Atlas",
+    "category": "Plant Databases",
+    "description": "County- and state-level North American plant distribution maps and taxonomic resources.",
+    "url": "http://bonap.net/Napa/Genus/Traditional/County",
+    "tags": [
+      "distribution",
+      "range maps",
+      "native"
+    ]
+  },
+  {
+    "id": "resource-007",
+    "title": "Plants of the World Online",
+    "category": "Plant Databases",
+    "description": "Royal Botanic Gardens, Kew global plant names, taxonomy, distribution, descriptions, and references.",
+    "url": "https://powo.science.kew.org/",
+    "tags": [
+      "Kew",
+      "taxonomy",
+      "distribution",
+      "global"
+    ]
+  },
+  {
+    "id": "resource-008",
+    "title": "Integrated Taxonomic Information System",
+    "category": "Plant Databases",
+    "description": "Authoritative taxonomic information across plants and other organisms.",
+    "url": "https://www.itis.gov/",
+    "tags": [
+      "taxonomy",
+      "scientific names"
+    ]
+  },
+  {
+    "id": "resource-009",
+    "title": "University of Maryland Home & Garden Information Center",
+    "category": "University Extension",
+    "description": "Science-based gardening, pest management, food gardening, native plants, soil, trees, and landscape resources.",
+    "url": "https://extension.umd.edu/programs/environment-natural-resources/program-areas/home-and-garden-information-center",
+    "tags": [
+      "Maryland",
+      "extension",
+      "gardening",
+      "pests"
+    ]
+  },
+  {
+    "id": "resource-010",
+    "title": "NC State Extension Gardening",
+    "category": "University Extension",
+    "description": "Research-based gardening, horticulture, home landscape, vegetable, fruit, and pest resources.",
+    "url": "https://gardening.ces.ncsu.edu/",
+    "tags": [
+      "extension",
+      "North Carolina",
+      "gardening"
+    ]
+  },
+  {
+    "id": "resource-011",
+    "title": "Penn State Extension Home Gardening",
+    "category": "University Extension",
+    "description": "Gardening, trees, shrubs, flowers, vegetables, soils, pests, and landscape education.",
+    "url": "https://extension.psu.edu/home-gardening",
+    "tags": [
+      "extension",
+      "Pennsylvania",
+      "gardening"
+    ]
+  },
+  {
+    "id": "resource-012",
+    "title": "Virginia Cooperative Extension Home Gardening",
+    "category": "University Extension",
+    "description": "Research-based gardening and landscape guidance for Mid-Atlantic conditions.",
+    "url": "https://ext.vt.edu/lawn-garden/home-gardening.html",
+    "tags": [
+      "extension",
+      "Virginia",
+      "Mid-Atlantic"
+    ]
+  },
+  {
+    "id": "resource-013",
+    "title": "Cornell Garden-Based Learning",
+    "category": "University Extension",
+    "description": "Gardening education, horticulture resources, and community garden learning.",
+    "url": "https://gardening.cals.cornell.edu/",
+    "tags": [
+      "extension",
+      "Cornell",
+      "horticulture"
+    ]
+  },
+  {
+    "id": "resource-014",
+    "title": "Rutgers New Jersey Agricultural Experiment Station Home Gardeners",
+    "category": "University Extension",
+    "description": "Home gardening, lawn, landscape, pest, and plant health resources.",
+    "url": "https://njaes.rutgers.edu/home-lawn-garden/",
+    "tags": [
+      "extension",
+      "New Jersey",
+      "gardening"
+    ]
+  },
+  {
+    "id": "resource-015",
+    "title": "University of Minnesota Extension Yard and Garden",
+    "category": "University Extension",
+    "description": "Cold-climate gardening, plant selection, lawn, trees, vegetables, and diagnostic resources.",
+    "url": "https://extension.umn.edu/yard-and-garden",
+    "tags": [
+      "extension",
+      "cold climate",
+      "gardening"
+    ]
+  },
+  {
+    "id": "resource-016",
+    "title": "Iowa State Extension Horticulture and Home Pest News",
+    "category": "University Extension",
+    "description": "Seasonal horticulture, plant diagnostics, vegetables, fruits, ornamentals, and pest information.",
+    "url": "https://hortnews.extension.iastate.edu/",
+    "tags": [
+      "extension",
+      "diagnostics",
+      "pests"
+    ]
+  },
+  {
+    "id": "resource-017",
+    "title": "Biodiversity Heritage Library",
+    "category": "Free Books & Literature",
+    "description": "Open-access biodiversity literature, botanical books, journals, historic field guides, and illustrations.",
+    "url": "https://www.biodiversitylibrary.org/",
+    "tags": [
+      "books",
+      "public domain",
+      "botany",
+      "historic"
+    ]
+  },
+  {
+    "id": "resource-018",
+    "title": "BHL Botany Textbooks",
+    "category": "Free Books & Literature",
+    "description": "Historic botany and plant-culture textbooks available through the Biodiversity Heritage Library.",
+    "url": "https://field.biodiversitylibrary.org/subject/Text-books",
+    "tags": [
+      "books",
+      "botany",
+      "textbooks",
+      "public domain"
+    ]
+  },
+  {
+    "id": "resource-019",
+    "title": "Internet Archive Gardening Collection Search",
+    "category": "Free Books & Literature",
+    "description": "Search digitized public-domain and borrowable gardening books, seed catalogs, and horticultural texts.",
+    "url": "https://archive.org/search?query=subject%3A%22Gardening%22",
+    "tags": [
+      "books",
+      "seed catalogs",
+      "historic"
+    ]
+  },
+  {
+    "id": "resource-020",
+    "title": "Project Gutenberg Gardening Search",
+    "category": "Free Books & Literature",
+    "description": "Free public-domain gardening and horticultural ebooks.",
+    "url": "https://www.gutenberg.org/ebooks/search/?query=gardening",
+    "tags": [
+      "ebooks",
+      "public domain",
+      "gardening"
+    ]
+  },
+  {
+    "id": "resource-021",
+    "title": "USDA National Agricultural Library Digital Collections",
+    "category": "Free Books & Literature",
+    "description": "Digitized agricultural publications, reports, historical documents, and special collections.",
+    "url": "https://www.nal.usda.gov/collections/digital-collections",
+    "tags": [
+      "USDA",
+      "digital library",
+      "agriculture"
+    ]
+  },
+  {
+    "id": "resource-022",
+    "title": "HathiTrust Gardening Search",
+    "category": "Free Books & Literature",
+    "description": "Search digitized horticulture and gardening books from research-library collections.",
+    "url": "https://catalog.hathitrust.org/Search/Home?lookfor=gardening&type=all",
+    "tags": [
+      "books",
+      "research libraries",
+      "horticulture"
+    ]
+  },
+  {
+    "id": "resource-023",
+    "title": "Pollinator Partnership",
+    "category": "Pollinators & Wildlife",
+    "description": "Pollinator planting guides, regional resources, habitat programs, and conservation education.",
+    "url": "https://www.pollinator.org/",
+    "tags": [
+      "pollinators",
+      "bees",
+      "habitat"
+    ]
+  },
+  {
+    "id": "resource-024",
+    "title": "Xerces Society Pollinator Conservation",
+    "category": "Pollinators & Wildlife",
+    "description": "Science-based pollinator, beneficial insect, pesticide, and habitat conservation resources.",
+    "url": "https://xerces.org/pollinator-conservation",
+    "tags": [
+      "pollinators",
+      "beneficial insects",
+      "habitat"
+    ]
+  },
+  {
+    "id": "resource-025",
+    "title": "National Wildlife Federation Garden for Wildlife",
+    "category": "Pollinators & Wildlife",
+    "description": "Native-plant and wildlife-habitat guidance for home landscapes.",
+    "url": "https://www.nwf.org/Garden-for-Wildlife",
+    "tags": [
+      "wildlife",
+      "native plants",
+      "habitat"
+    ]
+  },
+  {
+    "id": "resource-026",
+    "title": "Audubon Native Plants Database",
+    "category": "Native Plants & Conservation",
+    "description": "Find bird-friendly native plants by ZIP code and plant characteristics.",
+    "url": "https://www.audubon.org/native-plants",
+    "tags": [
+      "birds",
+      "native plants",
+      "habitat"
+    ]
+  },
+  {
+    "id": "resource-027",
+    "title": "National Wildlife Federation Native Plant Finder",
+    "category": "Native Plants & Conservation",
+    "description": "Search native plants by ZIP code with emphasis on plants supporting caterpillars and local food webs.",
+    "url": "https://nativeplantfinder.nwf.org/",
+    "tags": [
+      "native plants",
+      "caterpillars",
+      "wildlife"
+    ]
+  },
+  {
+    "id": "resource-028",
+    "title": "Maryland Native Plant Society",
+    "category": "Native Plants & Conservation",
+    "description": "Maryland native plant education, conservation, events, field resources, and plant information.",
+    "url": "https://mdflora.org/",
+    "tags": [
+      "Maryland",
+      "native plants",
+      "conservation"
+    ]
+  },
+  {
+    "id": "resource-029",
+    "title": "USDA Web Soil Survey",
+    "category": "Soil & Compost",
+    "description": "Official NRCS soil maps, soil properties, interpretations, and reports for U.S. properties.",
+    "url": "https://websoilsurvey.nrcs.usda.gov/",
+    "tags": [
+      "soil maps",
+      "NRCS",
+      "property"
+    ]
+  },
+  {
+    "id": "resource-030",
+    "title": "USDA NRCS Soil Health",
+    "category": "Soil & Compost",
+    "description": "Soil health principles, biology, management, cover crops, and conservation resources.",
+    "url": "https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soils/soil-health",
+    "tags": [
+      "soil health",
+      "NRCS",
+      "cover crops"
+    ]
+  },
+  {
+    "id": "resource-031",
+    "title": "Cornell Waste Management Institute Composting",
+    "category": "Soil & Compost",
+    "description": "Research and education resources about composting, organics, and soil amendment management.",
+    "url": "https://cwmi.css.cornell.edu/composting.htm",
+    "tags": [
+      "compost",
+      "soil",
+      "Cornell"
+    ]
+  },
+  {
+    "id": "resource-032",
+    "title": "University of Maryland Soil, Compost & Fertilizer",
+    "category": "Soil & Compost",
+    "description": "Home-garden soil testing, soil improvement, compost, cover crop, and fertilizer guidance.",
+    "url": "https://extension.umd.edu/programs/environment-natural-resources/program-areas/home-and-garden-information-center/gardening-resources/yard-and-landscape/soil-compost-and-fertilizer",
+    "tags": [
+      "Maryland",
+      "soil",
+      "compost",
+      "fertilizer"
+    ]
+  },
+  {
+    "id": "resource-033",
+    "title": "United States Botanic Garden",
+    "category": "Botanical Gardens & Arboreta",
+    "description": "Living collections, conservation, garden education, exhibits, and public programs in Washington, D.C.",
+    "url": "https://www.usbg.gov/",
+    "tags": [
+      "botanic garden",
+      "Washington DC",
+      "public garden"
+    ]
+  },
+  {
+    "id": "resource-034",
+    "title": "U.S. National Arboretum",
+    "category": "Botanical Gardens & Arboreta",
+    "description": "USDA research arboretum with major living collections, gardens, plant introductions, and visitor resources.",
+    "url": "https://www.usna.usda.gov/",
+    "tags": [
+      "arboretum",
+      "USDA",
+      "Washington DC"
+    ]
+  },
+  {
+    "id": "resource-035",
+    "title": "Missouri Botanical Garden",
+    "category": "Botanical Gardens & Arboreta",
+    "description": "Major botanical research institution with living collections, horticultural education, and plant science resources.",
+    "url": "https://www.missouribotanicalgarden.org/",
+    "tags": [
+      "botanical garden",
+      "research",
+      "horticulture"
+    ]
+  },
+  {
+    "id": "resource-036",
+    "title": "New York Botanical Garden",
+    "category": "Botanical Gardens & Arboreta",
+    "description": "Botanical collections, plant science, horticulture, education, and library resources.",
+    "url": "https://www.nybg.org/",
+    "tags": [
+      "botanical garden",
+      "education",
+      "research"
+    ]
+  },
+  {
+    "id": "resource-037",
+    "title": "Chicago Botanic Garden",
+    "category": "Botanical Gardens & Arboreta",
+    "description": "Living collections, plant conservation, horticulture, and science education.",
+    "url": "https://www.chicagobotanic.org/",
+    "tags": [
+      "botanical garden",
+      "conservation",
+      "education"
+    ]
+  },
+  {
+    "id": "resource-038",
+    "title": "Morton Arboretum",
+    "category": "Botanical Gardens & Arboreta",
+    "description": "Tree science, woody plant collections, urban forestry, conservation, and gardening resources.",
+    "url": "https://mortonarb.org/",
+    "tags": [
+      "arboretum",
+      "trees",
+      "urban forestry"
+    ]
+  },
+  {
+    "id": "resource-039",
+    "title": "National Agricultural Library Thesaurus",
+    "category": "Professional & Research",
+    "description": "USDA agricultural terminology, definitions, synonyms, broader and narrower concepts.",
+    "url": "https://lod.nal.usda.gov/nalt/",
+    "tags": [
+      "terminology",
+      "USDA",
+      "thesaurus"
+    ]
+  },
+  {
+    "id": "resource-040",
+    "title": "Google Scholar",
+    "category": "Professional & Research",
+    "description": "Search scholarly literature for plant science, horticulture, ecology, soils, and pest research.",
+    "url": "https://scholar.google.com/",
+    "tags": [
+      "research",
+      "papers",
+      "science"
+    ]
+  },
+  {
+    "id": "resource-041",
+    "title": "PubMed",
+    "category": "Professional & Research",
+    "description": "Biomedical and life-science literature, useful for plant toxicology, ethnobotany, and biological research.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "tags": [
+      "research",
+      "toxicology",
+      "life science"
+    ]
+  },
+  {
+    "id": "resource-042",
+    "title": "AGRIS",
+    "category": "Professional & Research",
+    "description": "FAO global agricultural research and literature discovery database.",
+    "url": "https://agris.fao.org/",
+    "tags": [
+      "FAO",
+      "agriculture",
+      "research"
+    ]
+  },
+  {
+    "id": "resource-043",
+    "title": "USDA National Agricultural Library",
+    "category": "Professional & Research",
+    "description": "Agriculture, food, environment, plant science, and research collections and services.",
+    "url": "https://www.nal.usda.gov/",
+    "tags": [
+      "USDA",
+      "research",
+      "library"
+    ]
+  },
+  {
+    "id": "resource-044",
+    "title": "A Way to Garden Podcast",
+    "category": "Podcasts & Audio",
+    "description": "Long-running garden conversations on plants, ecology, seasonal practice, and expert horticulture.",
+    "url": "https://awaytogarden.com/category/podcast/",
+    "tags": [
+      "podcast",
+      "gardening",
+      "horticulture"
+    ]
+  },
+  {
+    "id": "resource-045",
+    "title": "Joe Gardener Show",
+    "category": "Podcasts & Audio",
+    "description": "Practical gardening conversations on soil, vegetables, sustainability, experts, and garden science.",
+    "url": "https://joegardener.com/podcast/",
+    "tags": [
+      "podcast",
+      "vegetables",
+      "soil"
+    ]
+  },
+  {
+    "id": "resource-046",
+    "title": "BBC Gardeners' Question Time",
+    "category": "Podcasts & Audio",
+    "description": "Expert panel gardening questions and seasonal advice from the BBC.",
+    "url": "https://www.bbc.co.uk/programmes/b006qp2f",
+    "tags": [
+      "podcast",
+      "garden questions",
+      "BBC"
+    ]
+  },
+  {
+    "id": "resource-047",
+    "title": "Cultivating Place",
+    "category": "Podcasts & Audio",
+    "description": "Conversations about gardens, plants, ecology, place, and the human relationship with landscapes.",
+    "url": "https://www.cultivatingplace.com/",
+    "tags": [
+      "podcast",
+      "ecology",
+      "garden culture"
+    ]
+  },
+  {
+    "id": "resource-048",
+    "title": "University of Maryland Extension YouTube",
+    "category": "Video Learning",
+    "description": "University Extension videos covering gardening, horticulture, food production, pests, and natural resources.",
+    "url": "https://www.youtube.com/@UniversityofMarylandExtension",
+    "tags": [
+      "video",
+      "Maryland",
+      "extension"
+    ]
+  },
+  {
+    "id": "resource-049",
+    "title": "USDA Natural Resources Conservation Service YouTube",
+    "category": "Video Learning",
+    "description": "Videos on soils, conservation, pollinators, agriculture, water, and land stewardship.",
+    "url": "https://www.youtube.com/@USDA_NRCS",
+    "tags": [
+      "video",
+      "soil",
+      "conservation"
+    ]
+  },
+  {
+    "id": "resource-050",
+    "title": "NC State Extension YouTube",
+    "category": "Video Learning",
+    "description": "Extension education videos spanning horticulture, agriculture, home gardening, and plant health.",
+    "url": "https://www.youtube.com/@NCStateExtension",
+    "tags": [
+      "video",
+      "extension",
+      "horticulture"
+    ]
+  },
+  {
+    "id": "resource-051",
+    "title": "National Gardening Association Vegetable Planting Calendar",
+    "category": "Garden Planning",
+    "description": "General vegetable planting-calendar tools and gardening reference material.",
+    "url": "https://garden.org/apps/calendar/",
+    "tags": [
+      "vegetables",
+      "planting dates",
+      "calendar"
+    ]
+  },
+  {
+    "id": "resource-052",
+    "title": "Johnny's Selected Seeds Grower's Library",
+    "category": "Garden Planning",
+    "description": "Crop planning, succession, seed-starting, production guides, tools, and grower references.",
+    "url": "https://www.johnnyseeds.com/growers-library/growing-center.html",
+    "tags": [
+      "vegetables",
+      "seed starting",
+      "grower guides"
+    ]
+  },
+  {
+    "id": "resource-053",
+    "title": "Cornell Vegetable Growing Guides",
+    "category": "Garden Planning",
+    "description": "University vegetable crop guides and research-based production information.",
+    "url": "https://gardening.cals.cornell.edu/garden-guidance/foodgarden/vegetable-growing-guides/",
+    "tags": [
+      "vegetables",
+      "Cornell",
+      "growing guides"
+    ]
+  },
+  {
+    "id": "resource-054",
+    "title": "University of Minnesota High Tunnels",
+    "category": "Structures & Season Extension",
+    "description": "University Extension information on high tunnels, season extension, site selection, and production.",
+    "url": "https://extension.umn.edu/growing-systems/high-tunnels",
+    "tags": [
+      "high tunnel",
+      "season extension",
+      "structures"
+    ]
+  },
+  {
+    "id": "resource-055",
+    "title": "Penn State High Tunnel Production",
+    "category": "Structures & Season Extension",
+    "description": "Extension resources on high tunnel crop production and protected growing systems.",
+    "url": "https://extension.psu.edu/forage-and-food-crops/vegetables/high-tunnel-production",
+    "tags": [
+      "high tunnel",
+      "protected culture",
+      "extension"
+    ]
+  },
+  {
+    "id": "resource-056",
+    "title": "USDA NRCS High Tunnel Initiative",
+    "category": "Structures & Season Extension",
+    "description": "NRCS information on high tunnel systems and conservation practices.",
+    "url": "https://www.nrcs.usda.gov/programs-initiatives/eqip-high-tunnel-initiative",
+    "tags": [
+      "high tunnel",
+      "NRCS",
+      "season extension"
+    ]
+  }
+]
