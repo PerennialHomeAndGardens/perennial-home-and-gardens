@@ -1,0 +1,106 @@
+name: Build Growing Zone data and wire homepage
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-growing-zone.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download official 2023 USDA ZIP zone listing
+        run: |
+          python - <<'PY'
+          import csv, json, urllib.request
+          from pathlib import Path
+
+          url = "https://prism.oregonstate.edu/phzm/data/2023/phzm_us_zipcode_2023.csv"
+          outdir = Path("tools/growing-zone")
+          outdir.mkdir(parents=True, exist_ok=True)
+          csv_path = outdir / "phzm_us_zipcode_2023.csv"
+          urllib.request.urlretrieve(url, csv_path)
+
+          with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
+              rows = list(csv.DictReader(f))
+
+          if not rows:
+              raise SystemExit("USDA/PRISM ZIP data was empty")
+
+          headers = list(rows[0].keys())
+          def pick_header(kind):
+              hs = headers
+              if kind == "zip":
+                  for h in hs:
+                      l=(h or "").lower()
+                      if "zip" in l or "postal" in l:
+                          return h
+              if kind == "zone":
+                  for h in hs:
+                      l=(h or "").lower()
+                      if "zone" in l and "title" not in l and "temp" not in l:
+                          return h
+                  for h in hs:
+                      l=(h or "").lower()
+                      if "zone" in l:
+                          return h
+              return None
+
+          zh = pick_header("zip")
+          hh = pick_header("zone")
+          if not zh or not hh:
+              raise SystemExit(f"Could not identify ZIP/zone columns: {headers}")
+
+          m = {}
+          for row in rows:
+              zc = str(row.get(zh,"")).strip().zfill(5)
+              zone = str(row.get(hh,"")).strip().lower().replace("zone","").strip()
+              import re
+              mm = re.search(r"(1[0-3]|[1-9])[ab]", zone)
+              if re.fullmatch(r"\d{5}", zc) and mm:
+                  m[zc] = mm.group(0)
+
+          if len(m) < 10000:
+              raise SystemExit(f"Parsed too few ZIP records: {len(m)}")
+
+          (outdir / "phzm_zip_2023.json").write_text(json.dumps(m, separators=(",",":")), encoding="utf-8")
+          print("Parsed", len(m), "ZIP codes")
+          PY
+
+      - name: Wire homepage Growing Zone CTA
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-growing-zone-link-v1"
+          if marker not in h:
+              js=r'''
+          <script id="phg-growing-zone-link-v1">
+          document.addEventListener("DOMContentLoaded",function(){
+            document.querySelectorAll("a,button").forEach(function(el){
+              var t=(el.textContent||"").replace(/\s+/g," ").trim().toUpperCase();
+              if(t.indexOf("OPEN MY GROWING ZONE")!==-1 || t==="MY GROWING ZONE"){
+                if(el.tagName==="A") el.setAttribute("href","tools/growing-zone/");
+                el.onclick=function(e){e.preventDefault();window.location.href="tools/growing-zone/";};
+              }
+            });
+          });
+          </script>
+          '''
+              h=h.replace("</body>",js+"</body>",1)
+              p.write_text(h,encoding="utf-8")
+          PY
+
+      - name: Commit growing-zone data and homepage link
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/growing-zone/phzm_zip_2023.json index.html
+          git diff --cached --quiet || git commit -m "Tool Build 05: add USDA zone data and homepage link"
+          git push
