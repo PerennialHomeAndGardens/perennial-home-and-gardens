@@ -1,0 +1,68 @@
+name: Build Garden Inventory homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-garden-inventory-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Garden Inventory homepage promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-garden-inventory-home-v1"
+          if marker not in h:
+              section=r'''
+          <section id="garden-inventory" class="phg-garden-inventory-home-v1" aria-label="Garden Inventory Shopping and Budget">
+            <div class="phg-gi-inner">
+              <div class="phg-gi-copy">
+                <div class="phg-gi-kicker">Perennial Garden App</div>
+                <h2>Garden Inventory, Shopping &amp; Budget</h2>
+                <p class="phg-gi-lead">Know what you already own, what is running low, what you need to buy, and how much your garden is costing through the season.</p>
+                <div class="phg-gi-tags"><span>Inventory</span><span>Low Stock</span><span>Shopping List</span><span>Wish List</span><span>Purchases</span><span>Budget</span></div>
+                <a class="phg-gi-open" href="tools/garden-inventory/">OPEN INVENTORY &amp; BUDGET →</a>
+              </div>
+              <div class="phg-gi-preview">
+                <div class="phg-gi-top">GARDEN INVENTORY <strong>🧰</strong></div>
+                <div class="phg-gi-stats"><div><b>42</b><span>Items</span></div><div><b>6</b><span>Low</span></div><div><b>$318</b><span>Spent</span></div></div>
+                <div class="phg-gi-row"><b>Potting Mix</b><span>Low stock</span></div>
+                <div class="phg-gi-row"><b>Drip Emitters</b><span>Shopping list</span></div>
+                <div class="phg-gi-row"><b>2027 Garden Budget</b><span>$882 remaining</span></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-garden-inventory-home-v1">
+          .phg-garden-inventory-home-v1{padding:72px 20px;background:linear-gradient(180deg,#fffaf2 0%,#eef3e8 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-gi-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+          .phg-gi-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-gi-copy h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,62px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-gi-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-gi-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-gi-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-gi-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}.phg-gi-open:hover{transform:translateY(-3px)}
+          .phg-gi-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:16px;box-shadow:0 20px 45px rgba(45,63,39,.12)}.phg-gi-top{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:12px 13px;display:flex;justify-content:space-between}
+          .phg-gi-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:9px 0}.phg-gi-stats div{background:#eef3e9;border:1px solid #d6dfd0;border-radius:11px;padding:9px;text-align:center}.phg-gi-stats b{display:block;font:500 22px Georgia;color:#315238}.phg-gi-stats span{font:9px Georgia;color:#71806a;text-transform:uppercase}
+          .phg-gi-row{font-family:Georgia,serif;display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #e4ddd2;background:#fffaf3;border-radius:13px;padding:11px 12px;margin-top:7px;color:#2f4931}.phg-gi-row span{font-size:10px;color:#71806a}
+          @media(max-width:800px){.phg-garden-inventory-home-v1{padding:48px 14px}.phg-gi-inner{grid-template-columns:1fr}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1: h=h[:idx]+section+h[idx:]
+              else: h=h.replace("</body>",section+"</body>",1)
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit Garden Inventory homepage section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Garden Inventory Shopping and Budget homepage experience"
+          git push
