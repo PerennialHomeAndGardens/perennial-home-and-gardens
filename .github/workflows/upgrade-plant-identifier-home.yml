@@ -1,0 +1,37 @@
+name: Upgrade Identifier homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/upgrade-plant-identifier-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upgrade Plant Identifier homepage copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          old="Take or upload a garden photo, record symptoms, and narrow likely plant-health problems with a guided screening tool built around trusted Extension and USDA resources."
+          new="Use up to four garden photos, automatic image-quality checks, visual cue screening, symptoms and growing conditions to narrow likely plant, pest and disease problems with trusted Extension and USDA verification."
+          h=h.replace(old,new)
+          h=h.replace(
+            '<div class="phg-pi-tags"><span>Camera Upload</span><span>Pest Screening</span><span>Disease Screening</span><span>Plant Traits</span><span>Saved Reports</span></div>',
+            '<div class="phg-pi-tags"><span>4-Photo Capture</span><span>Image Quality</span><span>Visual Cues</span><span>Pest & Disease Screening</span><span>Saved Reports</span><span>Secure-AI Ready</span></div>'
+          )
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit Identifier homepage upgrade
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Build 6: upgrade Identifier homepage experience"
+          git push
