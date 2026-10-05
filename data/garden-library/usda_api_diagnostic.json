@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://plants.sc.egov.usda.gov/plant-profile/CHDO/characteristics",
+    "status": 200,
+    "content_type": "text/html",
+    "len": 710,
+    "sample": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <base href=\"/\"/>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n    <title>USDA Plants Database</title>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n\n    <link rel=\"stylesheet\" href=\"https://js.arcgis.com/4.6/esri/css/main.css\"/>\n\n    <script src=\"./assets/js/json2csv.js\"></script>\n    <script src=\"./assets/js/uswds-init.min.js\"></script>\n  <link rel=\"stylesheet\" href=\"styles.css\"></head>\n  <body>\n    <plants-app></plants-app>\n  <script src=\"runtime.js\" type=\"module\"></script><script src=\"polyfills.js\" type=\"module\"></script><script src=\"main.js\" type=\"module\"></script></body>\n</html>\n"
+  },
+  {
+    "url": "https://plants.sc.egov.usda.gov/api/plants/CHDO",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "url": "https://plants.sc.egov.usda.gov/api/plant-profile/CHDO",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "url": "https://plants.sc.egov.usda.gov/api/plant-profile/CHDO/characteristics",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "url": "https://plants.usda.gov/home",
+    "status": 200,
+    "content_type": "text/html",
+    "len": 710,
+    "sample": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <base href=\"/\"/>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n    <title>USDA Plants Database</title>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n\n    <link rel=\"stylesheet\" href=\"https://js.arcgis.com/4.6/esri/css/main.css\"/>\n\n    <script src=\"./assets/js/json2csv.js\"></script>\n    <script src=\"./assets/js/uswds-init.min.js\"></script>\n  <link rel=\"stylesheet\" href=\"styles.css\"></head>\n  <body>\n    <plants-app></plants-app>\n  <script src=\"runtime.js\" type=\"module\"></script><script src=\"polyfills.js\" type=\"module\"></script><script src=\"main.js\" type=\"module\"></script></body>\n</html>\n"
+  },
+  {
+    "scripts": [
+      "./assets/js/json2csv.js",
+      "./assets/js/uswds-init.min.js",
+      "runtime.js",
+      "polyfills.js",
+      "main.js"
+    ]
+  }
+]
