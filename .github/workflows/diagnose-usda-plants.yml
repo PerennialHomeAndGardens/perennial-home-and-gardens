@@ -13,39 +13,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect USDA PLANTS profile implementation
+      - name: Inspect USDA PLANTS app bundle
         run: |
           python - <<'PY'
           import urllib.request,re,json
-          urls=[
-            "https://plants.sc.egov.usda.gov/plant-profile/CHDO/characteristics",
-            "https://plants.sc.egov.usda.gov/api/plants/CHDO",
-            "https://plants.sc.egov.usda.gov/api/plant-profile/CHDO",
-            "https://plants.sc.egov.usda.gov/api/plant-profile/CHDO/characteristics",
-            "https://plants.usda.gov/home"
+          base="https://plants.sc.egov.usda.gov/"
+          req=urllib.request.Request(base+"main.js",headers={"User-Agent":"Mozilla/5.0"})
+          js=urllib.request.urlopen(req,timeout=30).read().decode("utf-8","replace")
+          pats=[
+            r'https?://[^"\'\\ ]+',
+            r'["\']([^"\']*(?:api|characteristic|plant-profile|plants)[^"\']*)["\']'
           ]
-          out=[]
-          for u in urls:
-            try:
-              req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"})
-              with urllib.request.urlopen(req,timeout=20) as r:
-                data=r.read(300000).decode("utf-8","replace")
-                out.append({"url":u,"status":r.status,"content_type":r.headers.get("content-type"),"len":len(data),"sample":data[:5000]})
-            except Exception as e:
-              out.append({"url":u,"error":repr(e)})
-          # Fetch script srcs from profile HTML
-          try:
-            html=urllib.request.urlopen(urllib.request.Request(urls[0],headers={"User-Agent":"Mozilla/5.0"}),timeout=20).read().decode("utf-8","replace")
-            scripts=re.findall(r'<script[^>]+src=["\']([^"\']+)',html,re.I)
-            out.append({"scripts":scripts})
-          except Exception as e:
-            out.append({"script_error":repr(e)})
-          open("data/garden-library/usda_api_diagnostic.json","w").write(json.dumps(out,indent=2))
+          found=[]
+          for pat in pats:
+            for m in re.findall(pat,js,re.I):
+              s=m if isinstance(m,str) else str(m)
+              if 4 < len(s) < 500:
+                found.append(s)
+          # Keep unique URL/API-ish strings.
+          seen=[]
+          for s in found:
+            if s not in seen: seen.append(s)
+          data={"bundle_len":len(js),"strings":seen[:5000]}
+          open("data/garden-library/usda_api_diagnostic.json","w").write(json.dumps(data,indent=2))
           PY
       - name: Commit diagnostic
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/garden-library/usda_api_diagnostic.json
-          git diff --cached --quiet || git commit -m "Inspect USDA PLANTS enrichment endpoints"
+          git diff --cached --quiet || git commit -m "Inspect USDA PLANTS app API strings"
           git push
