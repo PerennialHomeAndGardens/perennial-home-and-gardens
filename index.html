@@ -1903,5 +1903,50 @@ document.addEventListener("DOMContentLoaded",function(){
   });
 });
 </script>
+
+<script id="phg-harvest-routing-fix-v2">
+document.addEventListener("DOMContentLoaded", function () {
+  const harvestUrl = "tools/harvest-checker/";
+
+  // Fix explicit Harvest Checker buttons/links.
+  document.querySelectorAll("a,button,[onclick]").forEach(function(el){
+    const t=(el.textContent||"").replace(/\s+/g," ").trim().toUpperCase();
+    if(t==="HARVEST CHECKER" || t.indexOf("OPEN HARVEST")!==-1){
+      if(el.tagName==="A") el.setAttribute("href", harvestUrl);
+      el.onclick=function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href=harvestUrl;
+        return false;
+      };
+    }
+  });
+
+  // Fix the homepage Harvest Checker card itself.
+  document.querySelectorAll("h1,h2,h3,h4,h5,h6,strong,b,span,p").forEach(function(label){
+    const t=(label.textContent||"").replace(/\s+/g," ").trim().toUpperCase();
+    if(t!=="HARVEST CHECKER") return;
+
+    let clickable=label.closest("a,button,[onclick]");
+    if(!clickable){
+      let n=label.parentElement;
+      for(let i=0;i<6 && n;i++,n=n.parentElement){
+        if(n.matches && (n.matches("[role='button']") || /card|tool/i.test(n.className||""))){
+          clickable=n; break;
+        }
+      }
+    }
+    if(clickable){
+      if(clickable.tagName==="A") clickable.setAttribute("href",harvestUrl);
+      clickable.style.cursor="pointer";
+      clickable.addEventListener("click",function(e){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        window.location.href=harvestUrl;
+      },true);
+    }
+  });
+}, {once:true});
+</script>
 </body></html>
 <style>.heroVisual{position:relative}.heroVisual img{width:100%;border-radius:22px;box-shadow:0 28px 35px rgba(35,25,18,.34);transform:perspective(900px) rotateY(-3deg) rotateX(1deg);border:1px solid #fff}.heroVisual:after{content:"";position:absolute;left:7%;right:7%;bottom:-18px;height:28px;background:#2b211b55;filter:blur(18px);border-radius:50%;z-index:-1}.hero .eyebrow{color:#3d322b;border-color:#8f816f;background:#ffffffa8}.hero p{color:#5f554c}.assistPrompt{position:absolute;right:88px;bottom:62px;width:210px;background:#fff;color:#34291f;border-radius:18px;padding:10px 13px;box-shadow:0 14px 35px #0004;font:700 italic 14px Georgia,serif;opacity:0;transform:scale(.75) translateX(18px);transform-origin:100% 100%;pointer-events:none;transition:.2s}.assistPrompt:after{content:"";position:absolute;right:-9px;bottom:17px;border:10px solid transparent;border-left-color:#fff;border-right:0}.assistant:hover .assistPrompt{opacity:1;transform:scale(1) translateX(0)}.assistantAvatar{width:118px;height:135px}.assistantAvatar img{object-fit:contain;mask-image:linear-gradient(to bottom,#000 0 78%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0 78%,transparent 100%)}.assistHead{display:flex;align-items:center;gap:10px}.assistHead img{width:42px;height:42px;object-fit:contain}.assistTitle{font-family:Georgia,serif}.brand img{filter:drop-shadow(0 4px 5px #0009)}@media(max-width:620px){.assistPrompt{display:none}.assistantAvatar{width:90px;height:105px}}</style>
