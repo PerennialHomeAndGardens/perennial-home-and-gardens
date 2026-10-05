@@ -1,0 +1,66 @@
+name: Build Garden Journal homepage experience
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-garden-journal-home.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Garden Journal homepage promo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          h=p.read_text(encoding="utf-8",errors="ignore")
+          marker="phg-garden-journal-home-v1"
+          if marker not in h:
+              section=r'''
+          <section id="garden-journal" class="phg-garden-journal-home-v1" aria-label="Garden Journal and Logs">
+            <div class="phg-gj-inner">
+              <div class="phg-gj-copy">
+                <div class="phg-gj-kicker">Perennial Garden App</div>
+                <h2>Garden Journal &amp; Logs</h2>
+                <p class="phg-gj-lead">Keep a chronological history of watering, feeding, soil amendments, garden observations, pest and disease treatments, and follow-up tasks.</p>
+                <div class="phg-gj-tags"><span>Watering</span><span>Feeding</span><span>Soil</span><span>Observations</span><span>Treatments</span><span>Follow-ups</span></div>
+                <a class="phg-gj-open" href="tools/garden-journal/">OPEN GARDEN JOURNAL →</a>
+              </div>
+              <div class="phg-gj-preview">
+                <div class="phg-gj-top">GARDEN JOURNAL <strong>📓</strong></div>
+                <div class="phg-gj-row"><b>Tomatoes · Watering</b><span>2 gal · drip line</span></div>
+                <div class="phg-gj-row"><b>Bed 2 · Soil</b><span>Compost added</span></div>
+                <div class="phg-gj-row"><b>Roses · Treatment</b><span>Follow-up due</span></div>
+              </div>
+            </div>
+          </section>
+          <style id="phg-garden-journal-home-v1">
+          .phg-garden-journal-home-v1{padding:72px 20px;background:linear-gradient(180deg,#fffaf2 0%,#eef3e8 100%);border-top:1px solid rgba(70,90,60,.12);border-bottom:1px solid rgba(70,90,60,.12)}
+          .phg-gj-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;align-items:center}
+          .phg-gj-kicker{font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:#6b815f;font-weight:bold;margin-bottom:9px}
+          .phg-gj-copy h2{font-family:Georgia,serif;font-size:clamp(40px,5vw,62px);line-height:1;margin:0 0 14px;color:#213622;font-weight:500}
+          .phg-gj-lead{font-family:Georgia,serif;font-size:18px;line-height:1.62;color:#685f56;max-width:720px;margin:0 0 16px}
+          .phg-gj-tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 20px}.phg-gj-tags span{font-family:Georgia,serif;font-size:12px;font-weight:bold;background:#fffdf8;border:1px solid #cbd8c3;color:#35543a;border-radius:999px;padding:7px 9px}
+          .phg-gj-open{display:inline-block;text-decoration:none!important;background:#315936;color:#fff!important;border-radius:999px;padding:13px 18px;font-family:Georgia,serif;font-weight:bold;box-shadow:0 10px 24px rgba(49,89,54,.18);transition:.18s}.phg-gj-open:hover{transform:translateY(-3px)}
+          .phg-gj-preview{background:#fffdf8;border:1px solid #d6ddcf;border-radius:26px;padding:16px;box-shadow:0 20px 45px rgba(45,63,39,.12)}.phg-gj-top{font-family:Georgia,serif;background:#29492e;color:#fff;border-radius:13px;padding:12px 13px;display:flex;justify-content:space-between}
+          .phg-gj-row{font-family:Georgia,serif;display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #e4ddd2;background:#fffaf3;border-radius:13px;padding:11px 12px;margin-top:7px;color:#2f4931}.phg-gj-row span{font-size:10px;color:#71806a}
+          @media(max-width:800px){.phg-garden-journal-home-v1{padding:48px 14px}.phg-gj-inner{grid-template-columns:1fr}}
+          </style>
+          '''
+              idx=h.lower().rfind("<footer")
+              if idx!=-1: h=h[:idx]+section+h[idx:]
+              else: h=h.replace("</body>",section+"</body>",1)
+          p.write_text(h,encoding="utf-8")
+          PY
+      - name: Commit Garden Journal homepage section
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add Garden Journal homepage experience"
+          git push
