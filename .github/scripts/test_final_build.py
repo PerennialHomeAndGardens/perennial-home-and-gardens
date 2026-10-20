@@ -11,8 +11,11 @@ mock="""class FakeSpeech {constructor(){window.testRecognition=this;}start(){thi
 async def main():
  async with async_playwright() as pw:
   browser=await pw.chromium.launch();context=await browser.new_context();await context.add_init_script(mock)
-  await context.add_init_script("sessionStorage.setItem('phg-b3-resource-seen','1');sessionStorage.setItem('phg-b3-tool-offer-seen','1')")
-  page=await context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+  await context.add_init_script("sessionStorage.setItem('phg-b3-resource-offer','1');sessionStorage.setItem('phg-b3-tool-offer','1')")
+  page=await context.new_page();errors=[];
+  async def open_assistant():
+   b=await page.locator('.assistantAvatar').bounding_box();await page.mouse.click(b['x']+b['width']/2,b['y']+b['height']/2)
+  page.on('pageerror',lambda e:errors.append(str(e)))
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced] ',state='attached')
   # Every local navigation destination exists, including all retained apps.
   routes=await page.locator('#tools .creamTool').evaluate_all('(els)=>els.map(e=>e.getAttribute("href"))');assert len(routes)==8
@@ -24,19 +27,19 @@ async def main():
   print('PASS 8 direct tool routes and 13 retained app shells')
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached')
   for width,height in [(1440,1000),(1024,768),(768,800),(390,844),(360,640),(390,360)]:
-   await page.set_viewport_size({'width':width,'height':height});await page.locator('.assistantAvatar').click();await page.wait_for_selector('#ap.on')
+   await page.set_viewport_size({'width':width,'height':height});await open_assistant();await page.wait_for_selector('#ap.on')
    for selector in ['.tanya-head','.tanya-categories button:first-child','.tanya-categories button:last-child','.tanya-intro','#q','.tanya-mic','.tanya-compose button:last-child','.tanya-close']:
     box=await page.locator('#ap '+selector).bounding_box();assert box and box['y']>=0 and box['y']+box['height']<=height+1,(width,height,selector,box)
    assert await page.locator('#chat').evaluate('(e)=>getComputedStyle(e).overflowY')=='auto'
    await page.get_by_role('button',name='Close Tanya’s Assistant',exact=True).click()
   print('PASS compact assistant across desktop, tablet, mobile and reduced-height keyboard simulation')
-  await page.set_viewport_size({'width':390,'height':844});await page.locator('.assistantAvatar').click()
+  await page.set_viewport_size({'width':390,'height':844});await open_assistant()
   assert await page.locator('#tanya-intro-audio').evaluate('(a)=>a.paused && a.currentTime===0')
   await page.get_by_role('button',name='▶ Play',exact=True).click();await page.wait_for_timeout(500);assert await page.locator('#tanya-intro-audio').evaluate('(a)=>!a.paused && a.currentTime>0')
   await page.get_by_role('button',name='Pause Tanya’s message',exact=True).click();assert await page.locator('#tanya-intro-audio').evaluate('(a)=>a.paused')
   await page.get_by_role('button',name='Restart Tanya’s message',exact=True).click();assert await page.locator('#tanya-intro-audio').evaluate('(a)=>a.currentTime===0')
   await page.get_by_role('button',name='Play Tanya’s message',exact=True).click();await page.get_by_role('button',name='Close Tanya’s Assistant',exact=True).click();assert await page.locator('#tanya-intro-audio').evaluate('(a)=>a.paused && a.currentTime===0')
-  await page.locator('.assistantAvatar').click();await page.get_by_role('button',name='Ask About Gardening',exact=True).click();assert await page.locator('.tanya-question').count()==5
+  await open_assistant();await page.get_by_role('button',name='Ask About Gardening',exact=True).click();assert await page.locator('.tanya-question').count()==5
   await page.locator('.tanya-question').first.click();await page.wait_for_function('document.querySelectorAll("#chat .bubble").length===2');assert await page.locator('#chat .bubble').count()==2
   await page.get_by_role('button',name='Suggested questions',exact=True).click();await page.get_by_role('button',name='About Perennial Home & Gardens',exact=True).click();assert await page.locator('.tanya-question').count()==5
   await page.locator('#q').fill('Tell me about Perennial');await page.get_by_role('button',name='Send',exact=True).click();await page.wait_for_timeout(100);assert await page.locator('#chat .bubble').count()==4
@@ -63,6 +66,21 @@ async def main():
    fields=page.locator('.phg-quiz:not([data-pretest]) fieldset');f=fields.first;answer=int(await f.get_attribute('data-answer'));await f.locator('input').nth(answer).check();await f.locator('button').click();assert 'You got it.' in await f.locator('output').inner_text();await f.locator('input').nth((answer+1)%3).check();await f.locator('button').click();assert 'Try again.' in await f.locator('output').inner_text()
   print('PASS all29 article pages, correct/incorrect quiz feedback, videos and affiliate spaces')
   await page.goto(URL+'/articles/',wait_until='load');await page.locator('#article-search').fill('cucumber');assert await page.locator('.phg-article-card:visible').count()>=1
+  link=page.locator('.phg-article-card:visible a').first;destination=await link.get_attribute('href');await link.click();await page.wait_for_url('**'+destination);assert await page.locator('.phg-article-content').count()==1
+  # Compare unchanged wood artwork reference and exact original dark gradient.
+  await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached')
+  await open_assistant();assert await page.locator('.tanya-head').evaluate('(e)=>getComputedStyle(e).backgroundImage')==await page.locator('footer.phg-footer').evaluate('(e)=>getComputedStyle(e).backgroundImage')
+  await page.get_by_role('button',name='Close Tanya’s Assistant',exact=True).click()
+  await page.set_viewport_size({'width':390,'height':844})
+  assert await page.locator('#contact .contactGrid').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns').count('px')==1
+  await page.locator('.cleanMenu').hover();assert await page.locator('.cleanMenu').get_attribute('data-phg-tooltip')=='Menu'
+  await page.locator('#music').hover();assert await page.locator('#music').get_attribute('data-phg-tooltip')=='Jukebox'
+  await page.locator('#music').click();juke=page.locator('#site-shared-jukebox');await juke.wait_for(state='visible')
+  for name in ['Meditation','Music','Movies','Motivation']:assert await juke.get_by_role('button',name=name,exact=True).count()==1
+  assert await juke.get_by_role('button',name='Site soundtrack',exact=True).count()==0
+  await juke.get_by_role('button',name='Meditation',exact=True).click();assert await juke.locator('.x-track').count()>0
+  await juke.locator('.x-dialog-heading button').click()
+  print('PASS article links, mobile contact, original brown gradient, icon labels and retained jukebox categories')
   assert not errors,errors
   await browser.close();print('PASS no uncaught page errors')
 asyncio.run(main());server.shutdown()
