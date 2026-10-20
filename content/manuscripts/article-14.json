@@ -1,0 +1,263 @@
+{
+  "id": 14,
+  "title": "Drip Irrigation vs Hand Watering",
+  "category": "Design & DIY",
+  "summary": "Compare effort, control and maintenance so water reaches the roots without turning your garden into a guessing game.",
+  "goals": [
+    "Match a watering method to crops, soil, layout and available care time.",
+    "Use flow and run-time arithmetic without treating it as a universal watering schedule.",
+    "Check moisture, leaks and seasonal changes even when a timer is in use."
+  ],
+  "vocabulary": [
+    {
+      "term": "Root zone",
+      "meaning": "The soil area containing the active roots you are trying to supply with water."
+    },
+    {
+      "term": "Emitter",
+      "meaning": "A small outlet that releases water in a drip system."
+    },
+    {
+      "term": "Flow rate",
+      "meaning": "The amount of water delivered during a stated amount of time."
+    },
+    {
+      "term": "Backflow protection",
+      "meaning": "A required or appropriate device or arrangement that helps prevent water from moving back into the supply."
+    },
+    {
+      "term": "Infiltration",
+      "meaning": "Water entering the soil from the surface."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Choose a method that helps you observe",
+      "paragraphs": [
+        "Hand watering and drip irrigation can both support a healthy garden when they are used well. Neither method can decide what your plants need without good information. The useful question is not simply which method is best. It is which method fits your crops, soil, water supply, layout, time, and ability to check the results.",
+        "Hand watering gives you direct control at the moment you apply water. Drip irrigation delivers water through small outlets near the growing area. A gardener may use both. You might hand water new seed rows while a drip line serves established plants nearby. Begin by listing the places you need to water and the jobs that are difficult now. That list gives the equipment a purpose. Buying a system before understanding the problem can leave you with more parts to manage and the same thirsty or soggy plants."
+      ]
+    },
+    {
+      "heading": "Understand the root-zone goal",
+      "paragraphs": [
+        "Watering is about supplying suitable moisture where active roots can use it. A dark patch on the soil surface does not prove that the whole root area has received water. Likewise, a pale surface does not always mean that deeper soil is dry. Learn to check below the top layer in a way that suits the bed and avoids damaging roots.",
+        "The useful depth depends on the crop, its growth stage, and the growing system. A newly sown seed and a large tomato plant are not using the same volume of soil. A small container can change moisture quickly compared with a deep in-ground bed. Keep this in mind when comparing methods. A fast spray that makes the leaves sparkle may not meet the need below. A long drip run may also miss roots if outlets are too far away or water movement in the soil is misunderstood."
+      ]
+    },
+    {
+      "heading": "Read soil before setting a schedule",
+      "paragraphs": [
+        "Different soils accept, hold, and release water differently. Sandy soil can behave very differently from soil with more fine particles and organic matter. Compaction, crusting, slope, and drainage also matter. Use local soil knowledge and simple observation rather than copying a schedule from a garden with different conditions.",
+        "Watch how water enters your bed. Does it soak in, collect, or run away? Check more than one location, because a bed may not be uniform. If water pools quickly, a slower application or another correction may be needed. If only a narrow spot becomes wet, changing run time alone may not solve the distribution problem. The equipment should fit the way water moves in your soil. This is why a single claim such as “run it every morning for ten minutes” is not a complete watering plan."
+      ]
+    },
+    {
+      "heading": "Match water to plant stage",
+      "paragraphs": [
+        "Newly sown seeds need conditions that allow germination near the surface. New transplants have a limited established root system. Larger plants may draw water from a broader and deeper area. The need also changes when plants produce leaves, flowers, roots, or fruit. Learn the important stages for the crop you are growing.",
+        "A schedule that worked for small spring plants may be poor for larger summer plants. Check after a major change in growth or weather. Do not wait for severe wilting to make every decision, and do not treat every drooping leaf as proof that more water is needed. Heat, root trouble, disease, or other causes can create similar-looking symptoms. Combine leaf observations with soil moisture and recent weather. The method you choose should help you make these checks, not encourage you to stop looking at the garden."
+      ]
+    },
+    {
+      "heading": "Notice what hand watering does well",
+      "paragraphs": [
+        "A watering can or hose can be a practical choice for a small garden. You can move between plants, adjust the amount, and respond to different needs. The close visit also gives you a chance to see damaged leaves, ripe fruit, weeds, and new growth. For a few containers near a door, a simple hand method may be entirely reasonable.",
+        "Choose an attachment that lets water arrive gently. A strong stream can move soil, expose roots, or wash seeds out of position. Direct water where it is needed and give it time to enter the soil. Return to a dry area if necessary rather than flooding it all at once. Hand watering works best when it is deliberate. A quick pass over the surface may feel like completing the job without actually wetting the intended root area. Check the result instead of judging the task only by how long you held the hose."
+      ]
+    },
+    {
+      "heading": "Recognize the limits of hand watering",
+      "paragraphs": [
+        "Hand watering depends on a person being available and able to do it. During hot weather, travel, illness, or a busy week, that routine can become difficult. Carrying full cans may also create strain. Dragging a long hose through narrow paths can damage plants or create a trip hazard.",
+        "Estimate the time and effort honestly. Water the whole garden in the way you expect to use, then note how long it takes and which parts are awkward. Include putting equipment away. A method that feels easy for three pots may be tiring for many beds. You do not need to abandon hand watering because it has limits. You can shorten the route, improve hose storage, reduce the planted area, or use drip in the most demanding section. Good design begins by naming the real source of difficulty rather than assuming more expensive equipment is always the answer."
+      ]
+    },
+    {
+      "heading": "Understand what a drip system actually includes",
+      "paragraphs": [
+        "A drip system is more than a length of small tubing. Depending on the product and water source, it may need a backflow device, filter, pressure regulator, supply line, fittings, drip lines or emitters, and end closures. Each part has a job. Read the instructions for the system you choose rather than mixing pieces only because they appear to fit.",
+        "A filter helps protect small water passages from debris. A regulator helps supply pressure suited to the product. Backflow protection helps protect the water supply and must meet applicable requirements. End closures allow lines to work as designed and may need to open for flushing. Learn the order and purpose of the components. If the layout or water source is complex, get appropriate help. A simple home system still deserves careful setup. Small outlets cannot perform consistently when the supply conditions are wrong."
+      ]
+    },
+    {
+      "heading": "Compare drip lines and separate emitters",
+      "paragraphs": [
+        "Some systems have outlets built into a line at repeated spaces. Others use individual emitters placed for particular plants. A row of closely spaced vegetables may suit a different pattern from widely separated containers or shrubs. The growing layout should guide the choice.",
+        "Look at the manufacturer’s flow information and layout limits. Long lines, changes in height, pressure, and other factors can affect performance. Do not assume that every small tube delivers the same amount of water. A flexible mix of emitters may be useful, but too many different rates on one zone can make watering hard to understand. Keep the first system simple enough to test. Draw it, label the parts, and keep the product information. When you later change a crop or add a bed, that record helps you see what the existing system can reasonably serve."
+      ]
+    },
+    {
+      "heading": "Place water according to the crop roots",
+      "paragraphs": [
+        "An outlet beside one stem does not necessarily wet all the soil that plant will use. Water moves outward and downward in patterns influenced by soil and application. Check those patterns rather than judging only by the visible drip point. Closely spaced crops may need a more continuous wetted area than widely separated plants.",
+        "Lay out a test section before committing the whole garden. Run it under normal supply conditions, then inspect moisture in several locations. Look between outlets as well as beneath them. If parts of the root area remain dry, review spacing, flow, and run time together. For containers, confirm that the setup fits each pot rather than treating the entire patio as one uniform bed. The goal is suitable distribution. More minutes will not always repair a layout that puts water in the wrong place."
+      ]
+    },
+    {
+      "heading": "Build a schedule from checks, not guesses",
+      "paragraphs": [
+        "A watering schedule is a starting plan that you adjust. Keep a record of rain, watering, plant stage, and soil observations. Note when the system ran and what the soil was like afterward. Over time, those notes help you connect a run with a useful result.",
+        "Avoid treating the clock as the main measure of success. The same number of minutes can deliver different amounts through different products. For a known flow rate, volume equals rate multiplied by time. Even then, the water must enter the soil and reach the intended roots. Runoff, leaks, and poor placement can break the connection. Use the arithmetic to understand delivery, then use observation to judge whether the delivery fits the garden. A schedule becomes stronger when it includes both numbers and checks."
+      ]
+    },
+    {
+      "heading": "Learn the basic flow calculation",
+      "paragraphs": [
+        "Suppose a small test zone has ten emitters, each rated at one-half gallon per hour under its intended operating conditions. Together they have a rated flow of five gallons per hour. A half-hour run would have a calculated delivery of two and one-half gallons. This is an example of arithmetic, not a recommended watering amount for a particular bed.",
+        "Compare rated flow with real performance when possible. A clogged outlet, unsuitable pressure, or damaged line can change what arrives. If you collect water for a test, use a safe method that fits the equipment and does not contaminate the supply. Keep the calculation with the layout. It helps you compare options without relying on vague claims about a system being fast or slow. Always return to the plant and soil question: does that delivery create suitable root-zone moisture in this place?"
+      ]
+    },
+    {
+      "heading": "Use timers as helpers",
+      "paragraphs": [
+        "A timer can make repeated watering easier and may be useful when you are away. It can also repeat a poor decision very reliably. Learn its settings, test the program, and check the system while it is running. Know how to stop it manually. Replace batteries or maintain power as the product requires.",
+        "Adjust or pause watering after rain when the garden does not need more. Inspect after a power change, battery change, or seasonal reset. If you travel, ask someone to check the garden rather than assuming a timer guarantees healthy plants. A leak or disconnected fitting can keep running while a crop receives little useful water. Automation is most helpful when it supports a system you already understand. It should remove some repetitive labor while leaving observation and judgment with the gardener."
+      ]
+    },
+    {
+      "heading": "Keep foliage and paths in the comparison",
+      "paragraphs": [
+        "Applying water near the soil can reduce unnecessary wetting of leaves and paths. This can be useful for garden access and may help with some plant-health concerns. Yet equipment alone does not prevent disease. Plant spacing, airflow, crop choice, weather, and other care decisions still matter.",
+        "When hand watering, you can also direct a gentle flow toward the soil instead of spraying every leaf. When using drip, keep fittings and lines from leaking into walking areas. Check for mud where you stand and for wet spots that do not match the layout. A dry-looking path is not the only goal, but it is a useful part of a safe garden. Compare the complete result: plant moisture, water placement, access, and the time needed to maintain the method. These practical details often matter more than a broad claim that one method is always superior."
+      ]
+    },
+    {
+      "heading": "Inspect for leaks and blocked outlets",
+      "paragraphs": [
+        "Make a quick inspection part of the routine. Look for loose connections, split tubing, missing emitters, chewing damage, and areas that are wetter or drier than expected. Watch the far end of the system as well as the part closest to the tap. A problem can hide beneath leaves or mulch.",
+        "Clean or flush components according to the product instructions. Do not force a sharp object into an emitter unless the manufacturer recommends that method. You may damage the passage and change its flow. Keep a few suitable repair parts where you can find them. Label unusual fittings so you know what to replace. Maintenance does not mean the system has failed. It is part of using small passages and outdoor equipment. A system that saves watering labor still needs a gardener who notices when its pattern changes."
+      ]
+    },
+    {
+      "heading": "Treat containers as their own watering problem",
+      "paragraphs": [
+        "Containers have limited root space and can dry at a different pace from ground beds. Pot size, material, plant size, drainage, wind, and heat all affect what happens. Several pots beside each other may still need different care. A small herb pot and a large tomato container should not be assumed to share one schedule.",
+        "Check each type of container and group plants with similar needs when practical. If using drip, test whether the water spreads through the potting mix rather than leaving dry pockets. Confirm that drainage openings remain useful. With hand watering, apply gently and check the result instead of giving every pot the same quick splash. Containers can be convenient because they are close to the house. They can also be demanding in summer. Choose a method that makes those frequent checks possible for your daily routine."
+      ]
+    },
+    {
+      "heading": "Protect the water source and harvest",
+      "paragraphs": [
+        "Use water appropriate for the food-growing task. A source suitable for one landscape use may not be suitable for spraying edible crops or for use near harvest. Ask for reliable local food-safety guidance when considering stored rainwater, surface water, or another uncertain source. Do not assume that a filter for emitters makes water safe for every use.",
+        "Keep hose ends and equipment from becoming a contamination route. Use required backflow protection and follow local plumbing rules. Store tools and watering supplies so they are not mixed with animal waste or unsafe chemicals. A home garden does not need a complicated system to make thoughtful choices. It needs a clear understanding of where water comes from, how it reaches plants, and what else it may contact. Safety belongs in the plan before the system is assembled, not after the first harvest."
+      ]
+    },
+    {
+      "heading": "Plan for seasonal change and storage",
+      "paragraphs": [
+        "As temperatures cool, days shorten, or crops are removed, watering needs can change. Review the schedule rather than letting a summer program continue unchanged. Check new autumn plantings separately from beds that are resting. A covered growing area may receive little rainfall even when the outdoor garden is wet.",
+        "Before freezing weather where applicable, follow instructions for draining, disconnecting, and storing the equipment. Protect the supply and fittings as local conditions require. Clean and label reusable parts. Keep tubing away from damage and store it as the maker recommends. Take a photograph of the working layout before taking it apart. Next season, inspect it before use rather than assuming every part survived storage. A small amount of careful shutdown work can reduce waste and make the next setup easier to understand."
+      ]
+    },
+    {
+      "heading": "Make a fair small-scale comparison",
+      "paragraphs": [
+        "Try hand watering one manageable section while using a simple drip setup in another suitable section. The areas should be similar enough that you can learn something from the comparison. Record the crops, soil conditions, weather, time spent, and moisture checks. Do not call the result a controlled experiment if many factors differ.",
+        "Notice labor as well as plant appearance. Hand watering may give useful observation time. Drip may make a distant bed easier to keep supplied. Both may need changes in layout or technique. Your result may be a mixed approach rather than one winner. For example, you might keep drip for established rows and hand water seed trays and a few special containers. The best system is the one you can operate, inspect, maintain, and adjust. Equipment earns its place by making good garden care more reliable."
+      ]
+    }
+  ],
+  "chart": {
+    "title": "Calculate delivery for one example drip zone",
+    "labels": [
+      "Ten 0.5-gallon/hour emitters, 15 minutes",
+      "Ten 0.5-gallon/hour emitters, 30 minutes",
+      "Ten 0.5-gallon/hour emitters, 60 minutes"
+    ],
+    "values": [
+      1.25,
+      2.5,
+      5
+    ],
+    "unit": "Calculated gallons",
+    "note": "Arithmetic examples using a combined rated flow of five gallons per hour. These are not recommended watering amounts or measured field performance."
+  },
+  "pretest": [
+    {
+      "question": "What is the main goal of watering?",
+      "options": [
+        "Making every leaf wet",
+        "Creating suitable moisture in the crop root zone",
+        "Running the hose for the same time each day"
+      ],
+      "answer": 1,
+      "explanation": "Useful watering supplies roots according to the crop, soil and conditions."
+    },
+    {
+      "question": "Ten half-gallon-per-hour emitters have what combined rated flow?",
+      "options": [
+        "Five gallons per hour",
+        "Twenty gallons per hour",
+        "One-half gallon per hour"
+      ],
+      "answer": 0,
+      "explanation": "Ten multiplied by one-half equals five. The rating still depends on intended operating conditions."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is the main goal of watering?",
+      "options": [
+        "Making every leaf wet",
+        "Creating suitable moisture in the crop root zone",
+        "Running the hose for the same time each day"
+      ],
+      "answer": 1,
+      "explanation": "Useful watering supplies roots according to the crop, soil and conditions."
+    },
+    {
+      "question": "Ten half-gallon-per-hour emitters have what combined rated flow?",
+      "options": [
+        "Five gallons per hour",
+        "Twenty gallons per hour",
+        "One-half gallon per hour"
+      ],
+      "answer": 0,
+      "explanation": "Ten multiplied by one-half equals five. The rating still depends on intended operating conditions."
+    },
+    {
+      "question": "What should you do after installing a timer?",
+      "options": [
+        "Stop visiting the garden",
+        "Ignore rain because the program is fixed",
+        "Test delivery, inspect the system and adjust to conditions"
+      ],
+      "answer": 2,
+      "explanation": "A timer repeats a program; it cannot replace moisture checks or notice every leak."
+    }
+  ],
+  "activity": "Sketch one garden watering zone. Mark the water source, paths, plants and proposed outlets. List the rated flow of the outlets and calculate one example run volume. Then run a small test and check moisture in several places. Record what you would change before relying on the system.",
+  "checklist": [
+    "Check moisture below the surface.",
+    "Match the method to plant stage and soil.",
+    "Use compatible parts and proper source protection.",
+    "Keep hoses and lines out of walking routes.",
+    "Test the real watering pattern.",
+    "Inspect for leaks, blockage and damage.",
+    "Review timers after rain and seasonal change."
+  ],
+  "sources": [
+    {
+      "title": "Drip Irrigation — Maryland Extension",
+      "url": "https://extension.umd.edu/resource/drip-irrigation"
+    },
+    {
+      "title": "Drip irrigation in the home garden — Illinois Extension",
+      "url": "https://extension.illinois.edu/blogs/good-growing/2025-06-06-drip-irrigation-home-garden"
+    },
+    {
+      "title": "Irrigation — Utah State University Extension",
+      "url": "https://extension.usu.edu/vegetableguide/management/irrigation"
+    },
+    {
+      "title": "From the Ground Up: Drip Irrigation — Virginia Cooperative Extension",
+      "url": "https://www.pubs.ext.vt.edu/SPES/spes-706/spes-706-8.html"
+    }
+  ],
+  "video": {
+    "title": "From the Ground Up: Drip Irrigation — Virginia Cooperative Extension",
+    "id": "dUnrTDn68K4",
+    "sourceUrl": "https://www.pubs.ext.vt.edu/SPES/spes-706/spes-706-8.html"
+  }
+}

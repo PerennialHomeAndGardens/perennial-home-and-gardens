@@ -77,9 +77,9 @@ async function genericPlayer(){
  function render(){view.replaceChildren();back.hidden=screen.type==='root';status.textContent='';
   if(screen.type==='root'){
    const grid=el('div','x-root-grid');const siteTracks=nativeTracks();
-   if(siteTracks.length)grid.append(action(cfg.slug==='ie-casino-games'?'Casino Tunes':'Site soundtrack',()=>navigate({type:'list',title:cfg.name+' music',items:siteTracks})));
-   if(cfg.slug==='livefit-info'){grid.append(action('Workout Music',()=>navigate({type:'genres'})),action('Recovery Music',()=>navigate({type:'list',title:'Recovery Music',items:catalog.quiet})),action('Quiet Listening',()=>navigate({type:'list',title:'Quiet Listening',items:catalog.quiet})));}else{grid.append(action('Music',()=>navigate({type:'genres'})),action('Motivation',()=>navigate({type:'list',title:'Motivation',items:catalog.motivation})),action('Movies',()=>navigate({type:'list',title:'Movies, Trailers & Documentaries',items:catalog.movies})));}
-   if(catalog.failed)status.textContent='The media collection could not load. Refresh to try again, or use a site soundtrack or your own audio.';view.append(grid,rootPlaylists());const explore=el('a','x-action x-wide','Explore our free resources');explore.href='#free-resources';explore.onclick=()=>{panel.close();document.getElementById('free-resources')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});};const credit=el('div','phg-jukebox-credit');credit.innerHTML='<span class="phg-ie-mark" aria-hidden="true">i.e.</span><span>Brought to you by InAct Entertainment LLC<br>© '+new Date().getFullYear()+' InAct Entertainment LLC</span>';view.append(explore,credit,status);return;
+   if(siteTracks.length&&cfg.slug!=='perennial-home-and-gardens')grid.append(action(cfg.slug==='ie-casino-games'?'Casino Tunes':'Site soundtrack',()=>navigate({type:'list',title:cfg.name+' music',items:siteTracks})));
+   if(cfg.slug==='livefit-info'){grid.append(action('Workout Music',()=>navigate({type:'genres'})),action('Recovery Music',()=>navigate({type:'list',title:'Recovery Music',items:catalog.quiet})),action('Quiet Listening',()=>navigate({type:'list',title:'Quiet Listening',items:catalog.quiet})));}else{grid.append(action('Meditation',()=>navigate({type:'list',title:'Meditation',items:catalog.meditation||[]})),action('Music',()=>navigate({type:'genres'})),action('Movies',()=>navigate({type:'list',title:'Movies, Trailers & Documentaries',items:catalog.movies})),action('Motivation',()=>navigate({type:'list',title:'Motivation',items:catalog.motivation})));}
+   if(catalog.failed)status.textContent='The media collection could not load. Refresh to try again, or use a site soundtrack or your own audio.';view.append(grid,rootPlaylists());const explore=el('a','x-action x-wide','Explore our free resources');explore.href='/#free-resources';explore.onclick=e=>{panel.close();if(!document.getElementById('free-resources'))return;e.preventDefault();document.getElementById('free-resources')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});};const credit=el('div','phg-jukebox-credit');credit.innerHTML='<img class="phg-ie-mark" src="/app-assets/ie-logo.png" alt="InAct Entertainment"/><span>Brought to you by InAct Entertainment LLC<br>© '+new Date().getFullYear()+' InAct Entertainment LLC</span>';view.append(explore,credit,status);return;
   }
   if(screen.type==='genres'){
    view.append(el('h3','','Choose a genre'));const grid=el('div','x-root-grid');for(const genre of [...new Set(catalog.music.map(t=>t.genre||'Music'))])grid.append(action(genre,()=>navigate({type:'list',title:genre,items:catalog.music.filter(t=>(t.genre||'Music')===genre)})));view.append(grid);return;
@@ -184,6 +184,7 @@ function gardenRefinements(){
   window.toggleShare=async()=>{const data={title:'Perennial Home & Gardens',url:location.origin+'/'};try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard){await navigator.clipboard.writeText(data.url);alert('Website link copied.');}else prompt('Copy this website link:',data.url);}catch{}};
   window.openJoin=()=>location.assign('/?join=1');
  }else if(new URLSearchParams(location.search).get('join')==='1')window.openJoin?.();
+ for(const [selector,label] of [['#music','Jukebox'],['.cleanMenu','Menu']]){const n=$(selector);if(n){n.removeAttribute('title');n.dataset.phgTooltip=label;}}
  const contact=$('#contact');
  if(contact){
   const intro=contact.querySelector('.contactGrid>div');
@@ -200,13 +201,6 @@ function gardenRefinements(){
  if(header){
   const embedded=window.top!==window.self;if(embedded){header.hidden=true;header.style.setProperty('display','none','important');}
   else{
-   let previous=scrollY;
-   addEventListener('scroll',()=>{const y=scrollY,delta=y-previous;previous=y;
-    const appPage=location.pathname.includes('/tools/');
-    const inApp=appPage||all('.b17Preview').some(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4;});
-    if(!inApp||y<100||delta< -3||$('#navlinks.open'))header.classList.remove('phg-header-away');
-    else if(delta>3)header.classList.add('phg-header-away');
-   },{passive:true});
    header.addEventListener('focusin',()=>header.classList.remove('phg-header-away'));
   }
  }
@@ -218,19 +212,26 @@ function gardenPrompts(){
  const save=k=>{try{sessionStorage.setItem(k,'1');}catch{}};
  const claimed=()=>{try{return localStorage.getItem('phg_freebie_claimed')==='1';}catch{return false;}};
  const busy=()=>document.hidden||!!$('dialog[open],.modal.on,#ap.on,#navlinks.open')||!!document.activeElement?.closest('form')||all('.b17Preview').some(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4;});
- const start=Date.now();
+ let start=Date.now();try{const previous=Number(sessionStorage.getItem('phg-visit-start'));if(previous>0)start=previous;else sessionStorage.setItem('phg-visit-start',String(start));}catch{}
+ if(typeof window.openFreebie!=='function')window.openFreebie=()=>{
+  const d=dialog('x-jukebox','Free garden worksheets');d.id='phg-resource-prompt';d.append(el('p','','Start with practical worksheets for your next garden idea.'));
+  const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.required=true;input.autocomplete='email';label.append(input);const b=action('Open free resources',()=>{});b.type='submit';form.append(label,b);
+  form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;try{localStorage.setItem('phg_freebie_claimed','1');localStorage.setItem('phg_freebie_lead',JSON.stringify({email:input.value.trim(),time:new Date().toISOString()}));}catch{}window.open('https://drive.google.com/drive/folders/1Z8FywZpky3tPu-j7M_tYHOgGP5ZXG8bc?usp=drive_link','_blank','noopener');d.close();};d.append(form);d.showModal();
+ };
  const tick=setInterval(()=>{
   const elapsed=Date.now()-start;
-  if(elapsed>=15000&&!read('phg-b3-resource-offer')){
+  if(elapsed>=25000&&!read('phg-b3-resource-offer')){
    if(claimed()){save('phg-b3-resource-offer');}
    else if(!busy()){save('phg-b3-resource-offer');window.openFreebie?.('welcome');}
   }
-  if(elapsed>=300000&&!read('phg-b3-tool-offer')&&!busy()){
+  if(elapsed>=120000&&!read('phg-b3-tool-offer')&&!busy()){
    save('phg-b3-tool-offer');
-   const d=dialog('x-jukebox','Make room for your next garden idea');
-   d.id='phg-tool-prompt';
-   d.append(el('p','','Plan your space, check your growing zone and track your garden with our free tools. No account is needed.'));
-   const a=el('a','x-action x-wide','Explore free garden tools');a.href='#tools';a.onclick=()=>d.close();d.append(a);d.showModal();
+   const d=dialog('x-jukebox','A little garden inspiration, once a month');d.id='phg-newsletter-prompt';
+   d.append(el('p','','Monthly garden ideas, free gifts and coupons. Subscribe by sending your request to Perennial.'));
+   const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.name='email';input.required=true;input.autocomplete='email';input.id='phg-newsletter-email';label.htmlFor=input.id;label.append(input);
+   const submit=action('Subscribe by email',()=>{});submit.type='submit';form.append(label,submit,el('small','','Opens your email app. Send the message to request a subscription.'));
+   form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;location.href='mailto:perennialhomeandgardens@gmail.com?subject='+encodeURIComponent('Perennial monthly newsletter signup')+'&body='+encodeURIComponent('Please subscribe this address to the Perennial monthly newsletter, including garden ideas, free gifts and coupons. Email: '+input.value.trim());};
+   d.append(form);d.showModal();
   }
   if(read('phg-b3-resource-offer')&&read('phg-b3-tool-offer'))clearInterval(tick);
  },1000);
@@ -239,10 +240,11 @@ function gardenPrompts(){
 
 function init(){
  const body=document.body;body.dataset.siteSlug=cfg.slug;for(const [key,value] of Object.entries({high:cfg.high,mid:cfg.mid,low:cfg.low,ink:cfg.ink}))body.style.setProperty('--x-'+key,value);
- const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261020-build3');document.head.append(link);
+ const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261020-final');document.head.append(link);
  function syncTheme(){const m=getComputedStyle(document.body).color.match(/[\d.]+/g)||[240,240,240];const light=cfg.slug!=='ie'&&(+m[0]*.2126 + +m[1]*.7152 + +m[2]*.0722)<145;body.style.setProperty('--x-panel',light?'#f1eee7':'#0c100f');body.style.setProperty('--x-text',light?'#262923':'#eee');}
  syncTheme();for(const n of [document.body,document.documentElement])new MutationObserver(syncTheme).observe(n,{attributes:true,attributeFilter:['class','data-theme']});
  gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();gardenRefinements();
+ if(document.getElementById("ap")){const t=el("script");t.src=asset("tanya-assistant.js?v=20261020-final");document.body.append(t);}
  // ETP creates its jukebox on demand, so apply the same branding when it appears.
  if(cfg.slug==='examine-the-past-home')new MutationObserver(()=>{if($('.etp-jukebox-card:not(.x-native-panel)'))brandNative();}).observe(document.body,{childList:true,subtree:true});
 }

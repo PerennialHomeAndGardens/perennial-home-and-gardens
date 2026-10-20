@@ -1,0 +1,265 @@
+{
+  "id": 24,
+  "title": "Houseplants, vessels and calm visual moments",
+  "category": "Design & DIY",
+  "summary": "A well-placed houseplant can make a room feel more considered without filling every surface. Learn to match the plant with real light, choose a practical vessel and arrange a small group that is easy to enjoy and maintain.",
+  "goals": [
+    "Match a houseplant to the conditions at its intended indoor location.",
+    "Choose a growing pot and decorative vessel that allow sound watering and drainage.",
+    "Use scale, shape and open space to create a simple arrangement with a manageable care routine."
+  ],
+  "vocabulary": [
+    {
+      "term": "Cachepot",
+      "meaning": "A decorative outer container that holds a separate growing pot."
+    },
+    {
+      "term": "Drainage",
+      "meaning": "The path that allows extra water to leave the growing pot."
+    },
+    {
+      "term": "Potting mix",
+      "meaning": "A prepared growing material made for container roots, rather than ordinary outdoor garden soil."
+    },
+    {
+      "term": "Indirect light",
+      "meaning": "Light that reaches the plant without direct sun shining on its leaves."
+    },
+    {
+      "term": "Rootbound",
+      "meaning": "A condition in which roots have filled the available pot space and may circle or crowd it."
+    },
+    {
+      "term": "Scale",
+      "meaning": "The relationship between the size of the plant, its vessel and the surrounding room."
+    }
+  ],
+  "chart": {
+    "title": "An example of testing three houseplant locations",
+    "labels": [
+      "Bright window area",
+      "Interior table",
+      "Near a heat vent"
+    ],
+    "values": [
+      4,
+      2,
+      1
+    ],
+    "unit": "Illustrative fit score out of 5",
+    "note": "A fictional comparison for one plant and room, not a light reading or universal ranking. Actual suitability depends on the named plant and site."
+  },
+  "pretest": [
+    {
+      "question": "You have found a beautiful pot for a dark corner. What should guide the plant choice first?",
+      "options": [
+        "The pot’s color only",
+        "The real light and growing conditions in that corner",
+        "The number of plants in a magazine photo"
+      ],
+      "answer": 1,
+      "explanation": "A living plant needs suitable conditions. A good-looking vessel cannot replace the light that its plant requires."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What is a useful way to use a decorative vessel with no drainage hole?",
+      "options": [
+        "Let water collect around the roots indefinitely",
+        "Use it as an outer pot, remove the growing pot for watering and empty collected water",
+        "Fill the bottom with rocks and assume drainage no longer matters"
+      ],
+      "answer": 1,
+      "explanation": "An outer vessel can work when excess water is allowed to drain from the growing pot and is not left standing around it."
+    },
+    {
+      "question": "Which approach helps keep an indoor plant arrangement manageable?",
+      "options": [
+        "Make watering and inspection easy to reach",
+        "Hide every growing pot where it cannot be removed",
+        "Buy a new plant whenever one leaf falls"
+      ],
+      "answer": 0,
+      "explanation": "A display should support the care routine. Easy access helps you notice and respond to real needs."
+    },
+    {
+      "question": "Why might a plant need a different position as seasons change?",
+      "options": [
+        "All plants must move every week",
+        "Decorative pots lose their color",
+        "Day length, sunlight angle and indoor heating can change its conditions"
+      ],
+      "answer": 2,
+      "explanation": "A room is not the same growing environment all year. Recheck the site instead of assuming one permanent care schedule fits every season."
+    }
+  ],
+  "activity": "Choose one indoor location and observe its light at three times of day. Measure the clear surface, note nearby vents and select one plant whose needs fit. Test its growing pot inside a possible outer vessel, then rehearse watering and draining before arranging the final display.",
+  "checklist": [
+    "Identify the plant and check its light needs.",
+    "Keep plants safely placed for children and pets.",
+    "Choose a growing pot with an appropriate drainage system.",
+    "Use an outer vessel only when excess water can be removed.",
+    "Leave access for watering, inspection and cleaning.",
+    "Check the mix before watering rather than using a fixed guess.",
+    "Revisit placement and care as seasons change."
+  ],
+  "sources": [
+    {
+      "title": "University of Minnesota Extension: Lighting for Indoor Plants and Starting Seeds",
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/lighting-for-indoor-plants"
+    },
+    {
+      "title": "University of Maryland Extension: Selecting Indoor Plants",
+      "url": "https://www.extension.umd.edu/resource/selecting-indoor-plants"
+    },
+    {
+      "title": "University of Maryland Extension: Potting and Repotting Indoor Plants",
+      "url": "https://www.extension.umd.edu/resource/potting-and-repotting-indoor-plants"
+    },
+    {
+      "title": "University of Maryland Extension: Watering Indoor Plants",
+      "url": "https://extension.umd.edu/resource/watering-indoor-plants"
+    },
+    {
+      "title": "Illinois Extension: Houseplants",
+      "url": "https://extension.illinois.edu/houseplants"
+    },
+    {
+      "title": "University of Illinois Extension: Repotting Houseplants video",
+      "url": "https://www.youtube.com/watch?v=IyaOvo-X6Pw"
+    }
+  ],
+  "video": {
+    "title": "Repotting Houseplants — University of Illinois Extension",
+    "id": "IyaOvo-X6Pw",
+    "sourceUrl": "https://www.youtube.com/watch?v=IyaOvo-X6Pw"
+  },
+  "sections": [
+    {
+      "heading": "Start with a place you already use",
+      "paragraphs": [
+        "A calm plant arrangement begins with a real part of your day. It may sit beside the chair where you read, on a table near the kitchen or at the edge of a work area. The goal is not to cover the room with greenery. It is to give one useful place a thoughtful living detail. That makes the project easier to plan and easier to judge afterward.",
+        "Choose a location before choosing a plant. Write down how the space is used and what needs to remain clear. A table may need room for a cup, a lamp or a notebook. A hallway must stay easy to walk through. If the display takes away the room’s main function, it will become frustrating no matter how attractive it looks in a picture. A good plant arrangement belongs to ordinary life instead of requiring the household to work around it."
+      ]
+    },
+    {
+      "heading": "Learn the light in that particular location",
+      "paragraphs": [
+        "A room that feels bright to a person is not automatically bright enough for every plant. Light at the window can be quite different from light several feet into the room. Curtains, nearby buildings, trees and the direction of the window also affect what reaches the leaves. The practical task is to observe the intended location rather than labeling the whole room sunny or dark.",
+        "Check it in the morning, around midday and later in the day. Note whether direct sun reaches the surface, whether the light is bright but indirect, or whether the area stays dim. Repeat when the season changes. You do not need a complicated measuring system to begin making better choices. You need a more specific description than “it is indoors.” Use that description with reliable guidance for the named plant you are considering, and be willing to choose a different location when the fit is poor."
+      ]
+    },
+    {
+      "heading": "Match the plant to the site before matching it to the pot",
+      "paragraphs": [
+        "A decorative vessel cannot make a plant suited to conditions it does not tolerate. Begin with the plant’s needs: light, temperature, moisture and mature size. Then consider its appearance. A plant that fits the room and remains healthy will usually make a better long-term display than a dramatic choice that struggles from the first week.",
+        "Keep the plant’s name when you buy it. A tag that says only “foliage plant” gives limited help when care questions arise. Ask for a clear identification or choose a plant you can identify reliably. Compare the care information with your notes about the location. If the match depends on a grow light, frequent moves or a watering routine you cannot keep, acknowledge that extra work before purchasing. The best choice is not the most impressive plant in the shop. It is one that fits both the site and the person caring for it."
+      ]
+    },
+    {
+      "heading": "Look at the mature shape rather than today’s small leaves",
+      "paragraphs": [
+        "A plant can change the scale of a display as it grows. A small upright plant may become broad. A trailing plant may extend across a shelf. A large leaf may begin to block a lamp or catch on clothing as people pass. Planning for growth helps you avoid treating a living plant as a fixed-size decoration.",
+        "Read the expected size and growth habit, then make a rough outline on paper. Imagine the mature plant above the vessel and beside nearby objects. Leave room for normal growth and for your hand to reach the pot. If the only plan is to cut the plant repeatedly into a shape that does not suit it, consider a better size match. A calm arrangement gives the plant a believable place in the room. It does not depend on keeping it permanently small through constant correction."
+      ]
+    },
+    {
+      "heading": "Separate the growing pot from the decorative role",
+      "paragraphs": [
+        "The pot that holds roots has a practical job. It must suit the plant’s root space, growing mix and watering needs. The outer vessel has a different job: it contributes color, texture and form to the room. Sometimes one container can do both jobs. In other arrangements, a simple growing pot sits inside a decorative outer pot, called a cachepot.",
+        "This two-part approach can make care easier if the inner pot can be removed for watering. It also lets you change the look without disturbing the roots. Make sure the growing pot fits without being jammed tightly into the outer vessel. You should be able to lift it safely and see whether water has collected below. Do not choose a beautiful outer pot that turns every care task into a struggle. The design works best when the decorative layer supports rather than hides the practical system."
+      ]
+    },
+    {
+      "heading": "Make drainage a real route for water",
+      "paragraphs": [
+        "Drainage means extra water can leave the growing pot. It does not mean water disappears because you cannot see it. A decorative vessel with no outlet can hold standing water around the inner pot if you leave the excess there. Roots need a suitable balance of moisture and air, so a hidden pool can become a real problem.",
+        "If you use a cachepot, remove the inner growing pot for normal watering where appropriate, let excess water drain and empty the outer vessel before returning it. Protect furniture and follow plant-specific guidance. Adding a layer of stones is not a substitute for providing a route for excess water to leave the root area. Practice the whole process before the arrangement is complete. Can you lift the pot without breaking leaves? Where will it drain? Where will the wet pot rest? These small answers make the display easier to maintain."
+      ]
+    },
+    {
+      "heading": "Choose a container mix suited to the plant",
+      "paragraphs": [
+        "Container roots live in a limited volume. The growing material needs to suit that setting and the plant’s needs. Ordinary outdoor soil is not automatically a good choice for an indoor pot. A suitable prepared potting mix can support root space, air and moisture management. Different plant groups may need different mixes, so read guidance for the actual plant rather than treating all bags as interchangeable.",
+        "When repotting, do not choose a very large vessel simply to avoid the task for years. The new pot should fit the plant and its root system. Follow a reliable repotting guide and handle roots gently. Check that the pot is stable afterward. The decorative arrangement can wait until the plant has been placed correctly. A healthy root environment is the foundation of the display, even though it will not appear in most photographs of the room."
+      ]
+    },
+    {
+      "heading": "Check the mix before adding water",
+      "paragraphs": [
+        "A fixed reminder can help you remember to check a plant, but it should not force you to water a pot that is still wet. Light, temperature, plant size, pot material and season affect how quickly water is used. Two plants beside each other may need different attention. The useful habit is a consistent check followed by a decision, not an automatic splash.",
+        "Learn how the mix and pot feel as they move from suitably moist toward the next watering stage for that plant. Check carefully without damaging roots. Keep a brief note when you are learning a new plant’s rhythm. If the pot stays wet much longer than expected, investigate conditions rather than adding another product. Good watering is not measured by how often you hold the watering can. It is measured by whether the plant receives suitable moisture while excess water can leave and the roots remain in a workable environment."
+      ]
+    },
+    {
+      "heading": "Watch the plant’s response without chasing every leaf",
+      "paragraphs": [
+        "A plant may lose an old leaf while producing new growth. It may slow down during a season with less light. One change does not always mean that the entire care plan is wrong. Look at the pattern: where the change appears, how fast it spreads and what else is happening in the plant’s environment.",
+        "Make a clear observation before acting. “Two older leaves yellowed after the pot stayed wet” gives you something useful to investigate. “It looks unhappy” does not. Take a photo from the same spot occasionally so you can compare growth. Avoid moving the plant, changing the water routine, adding fertilizer and repotting all on the same day unless a real situation requires it. When you change one reasonable factor at a time, you have a better chance of understanding which action helped."
+      ]
+    },
+    {
+      "heading": "Consider temperature and airflow in the room",
+      "paragraphs": [
+        "A plant location is more than a patch of light. Heating vents, cooling air, cold windows and frequently opened doors can change the conditions around leaves and roots. A place that seems comfortable while you stand there briefly may be exposed to a strong draft for many hours. Notice these features when you choose the display site.",
+        "Watch what happens during ordinary household use. Does a curtain press leaves against cold glass? Does hot air blow directly across the plant? Does a door knock a stem each time it opens? Move the plant or adjust the arrangement when a clear conflict appears. You do not need to create a tropical room for every houseplant. You need to avoid obvious stress and choose plants that fit the conditions you can reasonably provide. A healthy location should be comfortable for both the plant and the people using the room."
+      ]
+    },
+    {
+      "heading": "Use one visual idea to hold the arrangement together",
+      "paragraphs": [
+        "A simple display can feel considered when one detail repeats. You might repeat a muted vessel color, a rounded shape or a natural surface. Repetition gives the eye a connection without requiring every item to be identical. The plant itself contributes form and texture, so the vessel does not need to supply all the visual interest.",
+        "Choose one main idea and let the other details stay quiet. For example, broad green leaves in a plain clay-colored vessel can look strong beside a simple lamp. Adding another patterned pot, a bright ornament and several small labels may make the grouping harder to read. Try removing nearby objects before shopping for more. The space around a plant helps you notice its outline. A calm moment often comes from giving one good plant room to be seen rather than surrounding it with more and more things."
+      ]
+    },
+    {
+      "heading": "Balance plant and vessel without hiding either",
+      "paragraphs": [
+        "A vessel should feel related to the plant above it. A very heavy-looking pot may overwhelm a tiny plant. A very small base can make a broad plant look visually or physically top-heavy. These are different issues: appearance can be tested with a mock-up, while real stability requires a suitable pot and safe placement.",
+        "Set the growing pot inside the proposed outer vessel and look from the main viewing position. Is the plant visible as a whole shape? Can you see enough of the container to appreciate it? Is the result stable on the surface? Do not raise a pot on an unsafe pile of loose objects just to improve the view. If the pairing feels awkward, try a different vessel or position. You may not need a new plant. Small changes in height, background or spacing can make an existing plant read more clearly."
+      ]
+    },
+    {
+      "heading": "Choose a background that lets the leaves show",
+      "paragraphs": [
+        "A plant with fine leaves can disappear against a busy curtain or patterned wall. Broad leaves may remain clear in the same place. This does not mean that every room needs a plain white background. It means the relationship between leaf shape and background affects what you notice. Look at the display from the place where it will usually be enjoyed.",
+        "Try a photograph with the plant in two possible locations. Compare the outline and the light, but keep plant needs first. A dark background may make a leaf stand out beautifully, yet the location still needs suitable light. If the best-looking background is not a suitable growing place, choose a different plant or a different arrangement. The calm effect should come from a sound match. It should not depend on placing a living plant in a spot where it will gradually decline for the sake of the picture."
+      ]
+    },
+    {
+      "heading": "Group plants by practical care as well as appearance",
+      "paragraphs": [
+        "A group of plants can look pleasing when it combines different heights and leaf shapes. It also becomes easier to maintain when each plant’s needs are understood. Do not assume every plant in a display should be watered together. A plant that prefers to dry more between waterings may not suit the same watering routine as a plant that needs more even moisture.",
+        "Keep each growing pot accessible. If you arrange several inside one large decorative vessel, make sure water is not trapped unseen around them. Use labels or a simple care note while you learn the group. You can create visual unity with similar outer pots while keeping the care of each plant separate. That gives you the look of a coordinated display without pretending the roots all have the same needs. A group should not become a puzzle you must dismantle each time one plant needs attention."
+      ]
+    },
+    {
+      "heading": "Leave room for the normal use of the surface",
+      "paragraphs": [
+        "A plant display belongs on a surface people may also use for reading, working, eating or setting down daily items. Decide how much space can truly be given to the plants. Keep the route to a switch, drawer or frequently used object clear. A beautiful arrangement that blocks daily tasks will soon be moved without much care, which can put the plant and the surface at risk.",
+        "Rehearse the use of the area. Open the drawer. Pull out the chair. Place an empty cup where you normally set one down. Check whether trailing growth catches your arm or a pot sits near an unstable edge. If the arrangement interferes, simplify it. A smaller group or a different location may give more pleasure because it fits naturally into the room. The best display should feel like part of a useful home rather than a fragile exhibit everyone must avoid disturbing."
+      ]
+    },
+    {
+      "heading": "Make safe placement part of the design",
+      "paragraphs": [
+        "Plants and vessels should be safely placed around children, pets and anyone moving through the room. A pot that can tip, a trailing stem within easy reach or a heavy vessel near an edge deserves attention. Identify your plant and check reliable information about its suitability around pets or children. Do not assume all indoor plants are harmless to chew because they are commonly sold.",
+        "Use stable surfaces and suitable supports. Keep cords for grow lights or other equipment arranged safely, and follow the equipment instructions. If a location cannot be made safe, choose another one. This is not separate from good appearance. A secure display feels more relaxed because people can use the room without constant caution. You can enjoy attractive leaves and a thoughtful vessel while still treating the plant, the container and the people around them as parts of the same practical design."
+      ]
+    },
+    {
+      "heading": "Build inspection and cleaning into a short routine",
+      "paragraphs": [
+        "A regular close look helps you notice dust, pests, old leaves and changes in moisture before they become bigger problems. Inspect the undersides of leaves and the area where stems meet when practical. Use reliable plant-specific guidance for cleaning leaves, and avoid products or methods that may damage the plant. A shiny leaf is not automatically a healthy leaf.",
+        "Keep the pot and nearby surface clean enough that you can see water spills or fallen material. If a plant shows suspicious insects or damage, separate it from other plants when appropriate and seek a sound identification before treating it. Record what you see and what you do. The routine can be brief. The aim is not to polish a plant into perfection but to maintain a clear view of how it is growing and to keep the display pleasant in everyday use."
+      ]
+    },
+    {
+      "heading": "Revisit the arrangement as seasons and needs change",
+      "paragraphs": [
+        "A home is not a fixed growing environment. Day length, sun angle, heating and the use of rooms can change through the year. A plant that did well in one position during summer may need a fresh assessment in winter. Likewise, a growing plant may outgrow a shelf or begin to block a useful view. Revisit both care and appearance rather than assuming the original arrangement must last unchanged.",
+        "Take one comparison photo and write one useful note each season. Ask what is working, what is harder to maintain and whether the plant still fits its place. Make a small change when the evidence supports it. You might move a vessel slightly, simplify a group or choose a better position for the same plant. Houseplants and vessels create calm visual moments when they are treated as a living arrangement. A clear purpose, suitable conditions and easy care give that calm effect a chance to last."
+      ]
+    }
+  ]
+}

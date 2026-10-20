@@ -65,7 +65,7 @@
   }
   window.siteInstallApp=install;
   window.__siteExperienceConfig=brand;
-  const experience=document.createElement("script");experience.src=new URL("site-experience.js?v=20261020-build3",document.currentScript.src).href;document.head.append(experience);
+  const experience=document.createElement("script");experience.src=new URL("site-experience.js?v=20261020-final",document.currentScript.src).href;document.head.append(experience);
   function init() {
     const mobileHost = document.querySelector(brand.mobile);
     const menuInstall = makeButton('Install App','site-app-menu');
@@ -74,7 +74,7 @@
     legacy.forEach(b => { b.hidden=true;b.style.setProperty('display','none','important'); });
     document.querySelectorAll('.site-app-footer').forEach(n=>n.remove());
     const footer=document.querySelector('footer');
-    if(footer){const host=footer.querySelector('.footer-word-links,.footer-links,.footer-nav,.legal-links,nav')||footer;const link=document.createElement('button');link.type='button';link.className='site-app-footer-text';link.textContent='Install App';link.addEventListener('click',install);host.append(link);controls.push(link);}
+    if(footer){const host=footer.querySelector('.footerLegal,.footer-word-links,.footer-links,.footer-nav,.legal-links,nav')||footer;const link=document.createElement('button');link.type='button';link.className='site-app-footer-text';link.textContent='Install App';link.addEventListener('click',install);host.append(link);controls.push(link);}
     sync();
   }
   // Keep older install buttons on the same prompt, without duplicate prompts.

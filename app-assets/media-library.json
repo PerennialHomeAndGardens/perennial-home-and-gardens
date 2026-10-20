@@ -41,8 +41,8 @@
     },
     {
       "genre": "Classical",
-      "artist": "Lang Lang · Beethoven",
-      "title": "Für Elise",
+      "artist": "Lang Lang \u00b7 Beethoven",
+      "title": "F\u00fcr Elise",
       "videoId": "s71I_EWJk7I",
       "alternates": [
         "FW_KCau2iTI"
@@ -194,7 +194,7 @@
     {
       "genre": "Soul",
       "artist": "James Brown & Luciano Pavarotti",
-      "title": "It's a Man's Man's Man's World · Live",
+      "title": "It's a Man's Man's Man's World \u00b7 Live",
       "videoId": "GaB9F3R9cIY",
       "alternates": [],
       "theme": "A powerful historic duet about achievement and the importance of partnership.",
@@ -214,7 +214,7 @@
     {
       "genre": "Jazz",
       "artist": "Miles Davis",
-      "title": "So What · Official live video",
+      "title": "So What \u00b7 Official live video",
       "videoId": "zqNTltOGh5c",
       "alternates": [],
       "theme": "Instrumental musical craft, conversation, and space to think.",
@@ -245,7 +245,7 @@
       "alternates": [
         "dKvgphSdG84"
       ],
-      "contentNote": "Explicit language · official lyric video"
+      "contentNote": "Explicit language \u00b7 official lyric video"
     },
     {
       "genre": "Jazz",
@@ -342,7 +342,7 @@
       "artist": "Luther Vandross",
       "title": "Luther Vandross - Never Too Much",
       "videoId": "pNj9bXKGOiI",
-      "theme": "Luther Vandross · R&B selection.",
+      "theme": "Luther Vandross \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=pNj9bXKGOiI",
       "publisher": "https://www.youtube.com/@LutherVandrossVEVO",
@@ -354,7 +354,7 @@
       "artist": "Anita Baker",
       "title": "Sweet Love",
       "videoId": "2w6udgiojlE",
-      "theme": "Anita Baker · R&B selection.",
+      "theme": "Anita Baker \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=2w6udgiojlE",
       "publisher": "https://www.youtube.com/channel/UC6C-K094bqDtp3G_A3eNcRQ",
@@ -366,7 +366,7 @@
       "artist": "Michael Jackson",
       "title": "Michael Jackson - P.Y.T. (Pretty Young Thing)",
       "videoId": "1ZZQuj6htF4",
-      "theme": "Michael Jackson · R&B selection.",
+      "theme": "Michael Jackson \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=1ZZQuj6htF4",
       "publisher": "https://www.youtube.com/@michaeljacksonVEVO",
@@ -378,7 +378,7 @@
       "artist": "Whitney Houston",
       "title": "Whitney Houston - I Have Nothing",
       "videoId": "FxYw0XPEoKE",
-      "theme": "Whitney Houston · R&B selection.",
+      "theme": "Whitney Houston \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=FxYw0XPEoKE",
       "publisher": "https://www.youtube.com/@whitneyhoustonVEVO",
@@ -390,7 +390,7 @@
       "artist": "Whitney Houston",
       "title": "Whitney Houston - I'm Your Baby Tonight",
       "videoId": "i0oRnyXxIrY",
-      "theme": "Whitney Houston · R&B selection.",
+      "theme": "Whitney Houston \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=i0oRnyXxIrY",
       "publisher": "https://www.youtube.com/@whitneyhoustonVEVO",
@@ -402,7 +402,7 @@
       "artist": "Whitney Houston",
       "title": "Whitney Houston - I Will Always Love You",
       "videoId": "3JWTaaS7LdU",
-      "theme": "Whitney Houston · R&B selection.",
+      "theme": "Whitney Houston \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=3JWTaaS7LdU",
       "publisher": "https://www.youtube.com/@whitneyhoustonVEVO",
@@ -414,7 +414,7 @@
       "artist": "Whitney Houston",
       "title": "Whitney Houston - I Look to You",
       "videoId": "5Pze_mdbOK8",
-      "theme": "Whitney Houston · R&B selection.",
+      "theme": "Whitney Houston \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=5Pze_mdbOK8",
       "publisher": "https://www.youtube.com/@whitneyhoustonVEVO",
@@ -426,7 +426,7 @@
       "artist": "Mariah Carey",
       "title": "Mariah Carey - We Belong Together",
       "videoId": "0habxsuXW4g",
-      "theme": "Mariah Carey · R&B selection.",
+      "theme": "Mariah Carey \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=0habxsuXW4g",
       "publisher": "https://www.youtube.com/@MariahCareyVEVO",
@@ -438,7 +438,7 @@
       "artist": "Michael Jackson",
       "title": "Michael Jackson - Billie Jean",
       "videoId": "Zi_XLOBDo_Y",
-      "theme": "Michael Jackson · Pop selection.",
+      "theme": "Michael Jackson \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=Zi_XLOBDo_Y",
       "publisher": "https://www.youtube.com/@michaeljacksonVEVO",
@@ -450,7 +450,7 @@
       "artist": "Michael Jackson",
       "title": "Michael Jackson - Smooth Criminal",
       "videoId": "h_D3VFfhvs4",
-      "theme": "Michael Jackson · Pop selection.",
+      "theme": "Michael Jackson \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=h_D3VFfhvs4",
       "publisher": "https://www.youtube.com/@michaeljacksonVEVO",
@@ -462,7 +462,7 @@
       "artist": "Michael Jackson",
       "title": "Michael Jackson - Thriller",
       "videoId": "sOnqjkJTMaA",
-      "theme": "Michael Jackson · Pop selection.",
+      "theme": "Michael Jackson \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=sOnqjkJTMaA",
       "publisher": "https://www.youtube.com/@michaeljacksonVEVO",
@@ -474,7 +474,7 @@
       "artist": "Michael Jackson",
       "title": "Michael Jackson - Black Or White",
       "videoId": "F2AitTPI5U0",
-      "theme": "Michael Jackson · Pop selection.",
+      "theme": "Michael Jackson \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=F2AitTPI5U0",
       "publisher": "https://www.youtube.com/@michaeljacksonVEVO",
@@ -486,7 +486,7 @@
       "artist": "Michael Jackson",
       "title": "Michael Jackson - You Are Not Alone",
       "videoId": "pAyKJAtDNCw",
-      "theme": "Michael Jackson · Pop selection.",
+      "theme": "Michael Jackson \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=pAyKJAtDNCw",
       "publisher": "https://www.youtube.com/@michaeljacksonVEVO",
@@ -498,7 +498,7 @@
       "artist": "Prince",
       "title": "Prince and the Revolution - Kiss",
       "videoId": "H9tEvfIsDyo",
-      "theme": "Prince · Pop selection.",
+      "theme": "Prince \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=H9tEvfIsDyo",
       "publisher": "https://www.youtube.com/@prince",
@@ -510,7 +510,7 @@
       "artist": "Prince",
       "title": "Prince and the Revolution - When Doves Cry",
       "videoId": "UG3VcCAlUgE",
-      "theme": "Prince · Pop selection.",
+      "theme": "Prince \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=UG3VcCAlUgE",
       "publisher": "https://www.youtube.com/@prince",
@@ -522,7 +522,7 @@
       "artist": "Prince",
       "title": "Prince & The New Power Generation - Cream",
       "videoId": "rrbFQEcpJ3A",
-      "theme": "Prince · Pop selection.",
+      "theme": "Prince \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=rrbFQEcpJ3A",
       "publisher": "https://www.youtube.com/@prince",
@@ -534,7 +534,7 @@
       "artist": "Dolly Parton",
       "title": "Dolly Parton - Jolene",
       "videoId": "Ixrje2rXLMA",
-      "theme": "Dolly Parton · Country selection.",
+      "theme": "Dolly Parton \u00b7 Country selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=Ixrje2rXLMA",
       "publisher": "https://www.youtube.com/@DollyPartonVEVO",
@@ -546,7 +546,7 @@
       "artist": "John Denver",
       "title": "John Denver - Take Me Home, Country Roads",
       "videoId": "1vrEljMfXYo",
-      "theme": "John Denver · Country selection.",
+      "theme": "John Denver \u00b7 Country selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=1vrEljMfXYo",
       "publisher": "https://www.youtube.com/@JohnDenverVEVO",
@@ -558,7 +558,7 @@
       "artist": "Johnny Cash",
       "title": "[Ghost] Riders in the Sky",
       "videoId": "3LtmZM0OWO8",
-      "theme": "Johnny Cash · Country selection.",
+      "theme": "Johnny Cash \u00b7 Country selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=3LtmZM0OWO8",
       "publisher": "https://www.youtube.com/channel/UCiGs21G3KeE2tpbbMPzn9Qg",
@@ -570,7 +570,7 @@
       "artist": "Kenny Rogers",
       "title": "Kenny Rogers - The Gambler",
       "videoId": "7hx4gdlfamo",
-      "theme": "Kenny Rogers · Country selection.",
+      "theme": "Kenny Rogers \u00b7 Country selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=7hx4gdlfamo",
       "publisher": "https://www.youtube.com/@KennyRogersVEVO",
@@ -582,7 +582,7 @@
       "artist": "Charley Pride",
       "title": "Kiss an Angel Good Mornin'",
       "videoId": "rouSFhnQapE",
-      "theme": "Charley Pride · Country selection.",
+      "theme": "Charley Pride \u00b7 Country selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=rouSFhnQapE",
       "publisher": "https://www.youtube.com/channel/UCeYo1Vdj0i2rvZ7A60I4NuQ",
@@ -594,7 +594,7 @@
       "artist": "Lang Lang",
       "title": "Lang Lang - Cornfield Chase (from \"Interstellar\")",
       "videoId": "gGYZc5Pc4Qc",
-      "theme": "Lang Lang · Classical selection.",
+      "theme": "Lang Lang \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=gGYZc5Pc4Qc",
       "publisher": "https://www.youtube.com/@LangLangVEVO",
@@ -607,7 +607,7 @@
       "artist": "Anita Baker",
       "publisher": "https://www.youtube.com/@anitabaker",
       "genre": "R&B",
-      "theme": "Anita Baker · R&B selection.",
+      "theme": "Anita Baker \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=WrfcbNCqH40",
       "publisherName": "Anita Baker",
@@ -619,7 +619,7 @@
       "artist": "Willie Nelson",
       "publisher": "https://www.youtube.com/@WillieNelsonVEVO",
       "genre": "Country",
-      "theme": "Willie Nelson · Country selection.",
+      "theme": "Willie Nelson \u00b7 Country selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=dBN86y30Ufc",
       "publisherName": "WillieNelsonVEVO",
@@ -631,7 +631,7 @@
       "artist": "Brooklyn Duo",
       "publisher": "https://www.youtube.com/@BrooklynDuo",
       "genre": "Classical",
-      "theme": "Brooklyn Duo · Classical selection.",
+      "theme": "Brooklyn Duo \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=Ptk_1Dc2iPY",
       "publisherName": "Brooklyn Duo",
@@ -639,11 +639,11 @@
     },
     {
       "videoId": "WNIPqafd4As",
-      "title": "Céline Dion - My Heart Will Go On (from the 2007 DVD \"Live In Las Vegas - A New Day...\")",
-      "artist": "Céline Dion",
+      "title": "C\u00e9line Dion - My Heart Will Go On (from the 2007 DVD \"Live In Las Vegas - A New Day...\")",
+      "artist": "C\u00e9line Dion",
       "publisher": "https://www.youtube.com/@CelineDionVEVO",
       "genre": "Pop",
-      "theme": "Céline Dion · Pop selection.",
+      "theme": "C\u00e9line Dion \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=WNIPqafd4As",
       "publisherName": "CelineDionVEVO",
@@ -651,11 +651,11 @@
     },
     {
       "videoId": "fJ9rUzIMcZQ",
-      "title": "Queen – Bohemian Rhapsody",
+      "title": "Queen \u2013 Bohemian Rhapsody",
       "artist": "Queen",
       "publisher": "https://www.youtube.com/@Queen",
       "genre": "Pop",
-      "theme": "Queen · Pop selection.",
+      "theme": "Queen \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
       "publisherName": "Queen Official",
@@ -663,11 +663,11 @@
     },
     {
       "videoId": "BxX1obB9GKk",
-      "title": "Yuja Wang, Gustavo Dudamel, LA Philharmonic – Rachmaninoff: Piano Concerto No.2: II.Adagio sostenuto",
-      "artist": "Yuja Wang · Gustavo Dudamel · LA Philharmonic",
+      "title": "Yuja Wang, Gustavo Dudamel, LA Philharmonic \u2013 Rachmaninoff: Piano Concerto No.2: II.Adagio sostenuto",
+      "artist": "Yuja Wang \u00b7 Gustavo Dudamel \u00b7 LA Philharmonic",
       "publisher": "https://www.youtube.com/@deutschegrammophon",
       "genre": "Classical",
-      "theme": "Yuja Wang · Gustavo Dudamel · LA Philharmonic · Classical selection.",
+      "theme": "Yuja Wang \u00b7 Gustavo Dudamel \u00b7 LA Philharmonic \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=BxX1obB9GKk",
       "publisherName": "Deutsche Grammophon - DG",
@@ -679,7 +679,7 @@
       "artist": "Hilary Hahn",
       "publisher": "https://www.youtube.com/@HilaryHahnVEVO",
       "genre": "Classical",
-      "theme": "Hilary Hahn · Classical selection.",
+      "theme": "Hilary Hahn \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=PZoaEmxrsZQ",
       "publisherName": "HilaryHahnVEVO",
@@ -687,11 +687,11 @@
     },
     {
       "videoId": "1prweT95Mo0",
-      "title": "Yo-Yo Ma - Bach: Cello Suite No. 1 in G Major, Prélude",
+      "title": "Yo-Yo Ma - Bach: Cello Suite No. 1 in G Major, Pr\u00e9lude",
       "artist": "Yo-Yo Ma",
       "publisher": "https://www.youtube.com/@YoYoMaVEVO",
       "genre": "Classical",
-      "theme": "Yo-Yo Ma · Classical selection.",
+      "theme": "Yo-Yo Ma \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=1prweT95Mo0",
       "publisherName": "YoYoMaVEVO",
@@ -703,7 +703,7 @@
       "artist": "Lang Lang",
       "publisher": "https://www.youtube.com/@LangLangVEVO",
       "genre": "Classical",
-      "theme": "Lang Lang · Classical selection.",
+      "theme": "Lang Lang \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=sOH6WSbPdIw",
       "publisherName": "LangLangVEVO",
@@ -715,7 +715,7 @@
       "artist": "Lang Lang",
       "publisher": "https://www.youtube.com/@LangLangVEVO",
       "genre": "Classical",
-      "theme": "Lang Lang · Classical selection.",
+      "theme": "Lang Lang \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=jlSUjTBC3mA",
       "publisherName": "LangLangVEVO",
@@ -727,7 +727,7 @@
       "artist": "Lang Lang",
       "publisher": "https://www.youtube.com/@LangLangVEVO",
       "genre": "Classical",
-      "theme": "Lang Lang · Classical selection.",
+      "theme": "Lang Lang \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=tnIbvlLhAXU",
       "publisherName": "LangLangVEVO",
@@ -739,7 +739,7 @@
       "artist": "Lang Lang",
       "publisher": "https://www.youtube.com/@LangLangVEVO",
       "genre": "Classical",
-      "theme": "Lang Lang · Classical selection.",
+      "theme": "Lang Lang \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=EvNsPyp5O2I",
       "publisherName": "LangLangVEVO",
@@ -747,11 +747,11 @@
     },
     {
       "videoId": "Xv0Ai_rYa00",
-      "title": "Lang Lang - Liszt: Consolations, S. 172: No. 2 in E Major. Un poco più mosso",
+      "title": "Lang Lang - Liszt: Consolations, S. 172: No. 2 in E Major. Un poco pi\u00f9 mosso",
       "artist": "Lang Lang",
       "publisher": "https://www.youtube.com/@LangLangVEVO",
       "genre": "Classical",
-      "theme": "Lang Lang · Classical selection.",
+      "theme": "Lang Lang \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=Xv0Ai_rYa00",
       "publisherName": "LangLangVEVO",
@@ -759,11 +759,11 @@
     },
     {
       "videoId": "1uQWUcTXWOg",
-      "title": "Saint-Saëns: Piano Concerto No. 2: III. Presto (Live from the Notre-Dame Reopening Concert)",
+      "title": "Saint-Sa\u00ebns: Piano Concerto No. 2: III. Presto (Live from the Notre-Dame Reopening Concert)",
       "artist": "Lang Lang",
       "publisher": "https://www.youtube.com/@langlang",
       "genre": "Classical",
-      "theme": "Lang Lang · Classical selection.",
+      "theme": "Lang Lang \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=1uQWUcTXWOg",
       "publisherName": "Lang Lang",
@@ -771,11 +771,11 @@
     },
     {
       "videoId": "xR4IElye7eg",
-      "title": "Yo-Yo Ma - Bach: Cello Suite No. 3 in C Major, Bourrée I and II",
+      "title": "Yo-Yo Ma - Bach: Cello Suite No. 3 in C Major, Bourr\u00e9e I and II",
       "artist": "Yo-Yo Ma",
       "publisher": "https://www.youtube.com/@YoYoMaVEVO",
       "genre": "Classical",
-      "theme": "Yo-Yo Ma · Classical selection.",
+      "theme": "Yo-Yo Ma \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=xR4IElye7eg",
       "publisherName": "YoYoMaVEVO",
@@ -787,7 +787,7 @@
       "artist": "HAUSER",
       "publisher": "https://www.youtube.com/@HAUSERmusic",
       "genre": "Classical",
-      "theme": "HAUSER · Classical selection.",
+      "theme": "HAUSER \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=kn1gcjuhlhg",
       "publisherName": "HAUSER",
@@ -799,7 +799,7 @@
       "artist": "Royal Scottish National Orchestra",
       "publisher": "https://www.youtube.com/@TheRSNO",
       "genre": "Classical",
-      "theme": "Royal Scottish National Orchestra · Classical selection.",
+      "theme": "Royal Scottish National Orchestra \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=On2luLSf7XI",
       "publisherName": "Royal Scottish National Orchestra",
@@ -808,10 +808,10 @@
     {
       "videoId": "CH8zsdkPhAE",
       "title": "Florence Price - Symphony No.1 Finale | Classic FM",
-      "artist": "Chineke! Orchestra · Florence Price",
+      "artist": "Chineke! Orchestra \u00b7 Florence Price",
       "publisher": "https://www.youtube.com/@ClassicFMOfficial",
       "genre": "Classical",
-      "theme": "Florence Price · Chineke! Orchestra · Classical selection.",
+      "theme": "Florence Price \u00b7 Chineke! Orchestra \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=CH8zsdkPhAE",
       "publisherName": "Classic FM",
@@ -819,11 +819,11 @@
     },
     {
       "videoId": "R2d2spnXyLA",
-      "title": "Lang Lang  — Chopin, “Raindrop” Prelude on the Steinway & Sons Spirio | r",
+      "title": "Lang Lang  \u2014 Chopin, \u201cRaindrop\u201d Prelude on the Steinway & Sons Spirio | r",
       "artist": "Steinway & Sons",
       "publisher": "https://www.youtube.com/@steinway",
       "genre": "Classical",
-      "theme": "Steinway & Sons · Classical selection.",
+      "theme": "Steinway & Sons \u00b7 Classical selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=R2d2spnXyLA",
       "publisherName": "Steinway & Sons",
@@ -831,14 +831,14 @@
     },
     {
       "videoId": "4m1EFMoRFvY",
-      "title": "Beyoncé - Single Ladies (Put a Ring on It)",
-      "artist": "Beyoncé",
+      "title": "Beyonc\u00e9 - Single Ladies (Put a Ring on It)",
+      "artist": "Beyonc\u00e9",
       "publisher": "https://www.youtube.com/@beyonceVEVO",
       "genre": "Pop",
-      "theme": "Beyoncé · Pop selection.",
+      "theme": "Beyonc\u00e9 \u00b7 Pop selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=4m1EFMoRFvY",
-      "publisherName": "BeyoncéVEVO",
+      "publisherName": "Beyonc\u00e9VEVO",
       "instrumental": false
     },
     {
@@ -847,7 +847,7 @@
       "artist": "Sam Smith",
       "publisher": "https://www.youtube.com/@SamSmithWorldVEVO",
       "genre": "R&B",
-      "theme": "Sam Smith · R&B selection.",
+      "theme": "Sam Smith \u00b7 R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=HaMq2nn5ac0",
       "publisherName": "SamSmithVEVO",
@@ -859,7 +859,7 @@
       "artist": "Blackstreet feat. Dr. Dre & Queen Pen",
       "publisher": "https://www.youtube.com/@BlackstreetVEVO",
       "genre": "Hip-Hop / R&B",
-      "theme": "Blackstreet feat. Dr. Dre & Queen Pen · Hip-Hop / R&B selection.",
+      "theme": "Blackstreet feat. Dr. Dre & Queen Pen \u00b7 Hip-Hop / R&B selection.",
       "alternates": [],
       "source": "https://www.youtube.com/watch?v=3KL9mRus19o",
       "publisherName": "BlackstreetVEVO",
@@ -878,7 +878,7 @@
     },
     {
       "artist": "Motiversity",
-      "title": "Best of 2025 · Speakers compilation",
+      "title": "Best of 2025 \u00b7 Speakers compilation",
       "videoId": "SkQ-eoBo1Q4",
       "genre": "Motivation",
       "category": "Motivation",
@@ -886,8 +886,8 @@
       "alternates": []
     },
     {
-      "artist": "Les Brown · MotivationHub",
-      "title": "It’s Time to Get Over It",
+      "artist": "Les Brown \u00b7 MotivationHub",
+      "title": "It\u2019s Time to Get Over It",
       "videoId": "ffXKVfUcQE8",
       "genre": "Motivation",
       "category": "Motivation",
@@ -914,7 +914,7 @@
     },
     {
       "artist": "Motiversity",
-      "title": "Morning Motivation · Start Your Day Right",
+      "title": "Morning Motivation \u00b7 Start Your Day Right",
       "videoId": "GXftq9TnhaA",
       "genre": "Motivation",
       "category": "Motivation",
@@ -923,7 +923,7 @@
     },
     {
       "artist": "Eric Thomas",
-      "title": "You Owe It to Yourself · Compilation",
+      "title": "You Owe It to Yourself \u00b7 Compilation",
       "videoId": "iqJpJLOyaoY",
       "genre": "Motivation",
       "category": "Motivation",
@@ -941,7 +941,7 @@
     },
     {
       "artist": "Motiversity",
-      "title": "Believe in Yourself · Morning Motivation",
+      "title": "Believe in Yourself \u00b7 Morning Motivation",
       "videoId": "4Bnfmgm3jZg",
       "genre": "Motivation",
       "category": "Motivation",
@@ -950,7 +950,7 @@
     },
     {
       "artist": "Les Brown",
-      "title": "Change Your Life · Morning Motivation",
+      "title": "Change Your Life \u00b7 Morning Motivation",
       "videoId": "ZTHy7KhudkM",
       "genre": "Motivation",
       "category": "Motivation",
@@ -959,7 +959,7 @@
     },
     {
       "artist": "Tony Robbins",
-      "title": "Focus on Yourself · Morning Motivation",
+      "title": "Focus on Yourself \u00b7 Morning Motivation",
       "videoId": "IRmMDkbEySA",
       "genre": "Motivation",
       "category": "Motivation",
@@ -978,121 +978,121 @@
   ],
   "movies": [
     {
-      "title": "The Gardener · Official documentary trailer",
+      "title": "The Gardener \u00b7 Official documentary trailer",
       "artist": "Gravitas Ventures",
       "videoId": "Kx0qhR7OsIE",
       "genre": "Garden documentaries"
     },
     {
-      "title": "The Green Planet · Official series trailer",
+      "title": "The Green Planet \u00b7 Official series trailer",
       "artist": "BBC Earth",
       "videoId": "FcnLPH11qJw",
       "genre": "Botanical documentary series"
     },
     {
-      "title": "Gardening with Soul · Official documentary trailer",
+      "title": "Gardening with Soul \u00b7 Official documentary trailer",
       "artist": "Gardening with Soul",
       "videoId": "9Kg2cKwKhWk",
       "genre": "Garden documentaries"
     },
     {
-      "title": "The Biggest Little Farm · Official documentary trailer",
+      "title": "The Biggest Little Farm \u00b7 Official documentary trailer",
       "artist": "NEON",
       "videoId": "UfDTM4JxHl8",
       "genre": "Growing & ecosystems"
     },
     {
-      "title": "Dare to Be Wild · Official film trailer",
+      "title": "Dare to Be Wild \u00b7 Official film trailer",
       "artist": "Pinnacle Films",
       "videoId": "oOwKMF9D-4w",
       "genre": "Garden films"
     },
     {
-      "title": "The Secret Garden (2020) · Official film trailer",
+      "title": "The Secret Garden (2020) \u00b7 Official film trailer",
       "artist": "STXfilms",
       "videoId": "gHNOXDiD9Vk",
       "genre": "Garden films"
     },
     {
-      "title": "Five Seasons: The Gardens of Piet Oudolf · Film & trailer",
+      "title": "Five Seasons: The Gardens of Piet Oudolf \u00b7 Film & trailer",
       "artist": "Official film site",
       "sourceUrl": "https://fiveseasonsmovie.com/piet-oudolf-movie-trailer/",
       "genre": "Garden design documentaries"
     },
     {
-      "title": "A Garden in Conversation · Documentary film",
+      "title": "A Garden in Conversation \u00b7 Documentary film",
       "artist": "The Garden Conservancy",
       "sourceUrl": "https://gardenconservancy.org/films/garden-in-conversation",
       "genre": "Garden documentaries"
     },
     {
-      "title": "Blithewood Garden · Documentary short",
+      "title": "Blithewood Garden \u00b7 Documentary short",
       "artist": "The Garden Conservancy",
       "sourceUrl": "https://gardenconservancy.org/films/blithewood-garden",
       "genre": "Garden documentaries"
     },
     {
-      "title": "Garden Portrait: Rocky Hills · Documentary short",
+      "title": "Garden Portrait: Rocky Hills \u00b7 Documentary short",
       "artist": "The Garden Conservancy",
       "sourceUrl": "https://gardenconservancy.org/films/garden-portrait-rocky-hills",
       "genre": "Garden documentaries"
     },
     {
-      "title": "John P. Humes Japanese Stroll Garden · Documentary short",
+      "title": "John P. Humes Japanese Stroll Garden \u00b7 Documentary short",
       "artist": "The Garden Conservancy",
       "sourceUrl": "https://gardenconservancy.org/films/humes-japanese-stroll-garden",
       "genre": "Garden documentaries"
     },
     {
-      "title": "Rocky Hills: Magnolias · Documentary short",
+      "title": "Rocky Hills: Magnolias \u00b7 Documentary short",
       "artist": "The Garden Conservancy",
       "sourceUrl": "https://gardenconservancy.org/films/rocky-hills-magnolias-ferns",
       "genre": "Botanical documentaries"
     },
     {
-      "title": "SEED: The Untold Story · Film & trailer",
+      "title": "SEED: The Untold Story \u00b7 Film & trailer",
       "artist": "Collective Eye Films",
       "sourceUrl": "https://www.seedthemovie.com/watch",
       "genre": "Seeds & biodiversity"
     },
     {
-      "title": "Queen of the Sun: What Are the Bees Telling Us? · Film information",
+      "title": "Queen of the Sun: What Are the Bees Telling Us? \u00b7 Film information",
       "artist": "Collective Eye Films",
       "sourceUrl": "https://www.seedthemovie.com/watch",
       "genre": "Pollinators & ecosystems"
     },
     {
-      "title": "The Real Dirt on Farmer John · Film information",
+      "title": "The Real Dirt on Farmer John \u00b7 Film information",
       "artist": "Collective Eye Films",
       "sourceUrl": "https://www.seedthemovie.com/watch",
       "genre": "Growing & ecosystems"
     },
     {
-      "title": "Kiss the Ground · Documentary & educational viewing",
+      "title": "Kiss the Ground \u00b7 Documentary & educational viewing",
       "artist": "Kiss the Ground",
       "sourceUrl": "https://kisstheground.com/feature-films/",
       "genre": "Soil & growing"
     },
     {
-      "title": "Common Ground · Documentary & educational viewing",
+      "title": "Common Ground \u00b7 Documentary & educational viewing",
       "artist": "Kiss the Ground / Big Picture Ranch",
       "sourceUrl": "https://kisstheground.com/feature-films/",
       "genre": "Soil & growing"
     },
     {
-      "title": "Hometown Habitat: Stories of Bringing Nature Home · Film & trailer",
+      "title": "Hometown Habitat: Stories of Bringing Nature Home \u00b7 Film & trailer",
       "artist": "The Meadow Project",
       "sourceUrl": "https://themeadowproject.com/hometown-habitat/",
       "genre": "Native plants & habitat"
     },
     {
-      "title": "Plants Behaving Badly · Series information",
+      "title": "Plants Behaving Badly \u00b7 Series information",
       "artist": "PBS",
       "sourceUrl": "https://www.pbs.org/video/eight-previews-plants-behaving-badly/",
       "genre": "Botanical documentary series"
     },
     {
-      "title": "The Garden · Documentary & trailer",
+      "title": "The Garden \u00b7 Documentary & trailer",
       "artist": "Roco Films",
       "sourceUrl": "https://rocofilms.com/films/the-garden/",
       "genre": "Community gardens"
@@ -1112,8 +1112,8 @@
     },
     {
       "genre": "Classical",
-      "artist": "Lang Lang · Beethoven",
-      "title": "Für Elise",
+      "artist": "Lang Lang \u00b7 Beethoven",
+      "title": "F\u00fcr Elise",
       "videoId": "s71I_EWJk7I",
       "alternates": [
         "FW_KCau2iTI"
@@ -1154,7 +1154,7 @@
     {
       "genre": "Jazz",
       "artist": "Miles Davis",
-      "title": "So What · Official live video",
+      "title": "So What \u00b7 Official live video",
       "videoId": "zqNTltOGh5c",
       "alternates": [],
       "theme": "Instrumental musical craft, conversation, and space to think.",
@@ -1177,6 +1177,42 @@
       "theme": "A lyrical instrumental for calm concentration.",
       "alternates": [],
       "instrumental": true
+    }
+  ],
+  "meditation": [
+    {
+      "title": "Five-minute breathing meditation",
+      "artist": "UCLA Mindful",
+      "videoId": "tpeRvwitXlA",
+      "sourceUrl": "https://www.uclahealth.org/programs/uclamindful/free-guided-meditations/getting-started"
+    },
+    {
+      "title": "Three-minute body scan",
+      "artist": "UCLA Mindful",
+      "videoId": "tA2PLXfz-ac",
+      "sourceUrl": "https://www.uclahealth.org/programs/uclamindful/free-guided-meditations/getting-started"
+    },
+    {
+      "title": "Breath, sound and body \u00b7 12 minutes",
+      "artist": "UCLA Mindful",
+      "videoId": "XWwUJc642ZU",
+      "sourceUrl": "https://www.uclahealth.org/programs/uclamindful/free-guided-meditations/getting-started"
+    },
+    {
+      "title": "Introduction to mindfulness",
+      "artist": "UCLA Mindful",
+      "videoId": "oCcoULyd21A",
+      "sourceUrl": "https://www.uclahealth.org/programs/uclamindful/free-guided-meditations/getting-started"
+    },
+    {
+      "title": "Nature meets mindfulness",
+      "artist": "Headspace",
+      "sourceUrl": "https://www.headspace.com/content/video/nature-meets-mindfulness/7663"
+    },
+    {
+      "title": "Yellowstone eyes-open meditation",
+      "artist": "Headspace",
+      "sourceUrl": "https://www.headspace.com/content/video/yellowstone-eyes-open-meditation/8545"
     }
   ]
 }

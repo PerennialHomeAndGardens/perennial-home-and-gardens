@@ -1,0 +1,251 @@
+{
+  "id": 21,
+  "title": "How yellow squash tells you it is happy",
+  "category": "Grow Food",
+  "summary": "Yellow squash gives you useful clues through its leaves, flowers and young fruit. Learn to read those clues together, choose a helpful next step and harvest before a small squash becomes an oversized surprise.",
+  "goals": [
+    "Tell normal squash growth from a change worth investigating.",
+    "Use soil checks, flower observations and harvest records to guide care.",
+    "Choose a next step without assuming every yellow leaf or lost flower means failure."
+  ],
+  "vocabulary": [
+    {
+      "term": "Summer squash",
+      "meaning": "Squash harvested while its rind and seeds are still tender, rather than grown to a hard storage stage."
+    },
+    {
+      "term": "Pollination",
+      "meaning": "The movement of pollen needed for many flowers to develop fruit."
+    },
+    {
+      "term": "Male flower",
+      "meaning": "A flower that supplies pollen but does not have a small fruit behind its petals."
+    },
+    {
+      "term": "Female flower",
+      "meaning": "A flower with a small developing fruit behind its petals."
+    },
+    {
+      "term": "Crown",
+      "meaning": "The area where the stems meet near the base of the plant."
+    },
+    {
+      "term": "Succession planting",
+      "meaning": "Starting a later small planting to spread the harvest across time."
+    }
+  ],
+  "chart": {
+    "title": "A sample week of squash observation",
+    "labels": [
+      "Monday",
+      "Wednesday",
+      "Friday"
+    ],
+    "values": [
+      2,
+      4,
+      3
+    ],
+    "unit": "Illustrative tender fruit picked",
+    "note": "A fictional garden log showing how a record might look. These numbers are not promised yields or a crop forecast."
+  },
+  "pretest": [
+    {
+      "question": "A squash flower falls off. What should you check before deciding something is wrong?",
+      "options": [
+        "Whether it was a male flower, and what the rest of the plant is doing",
+        "Whether the garden hose is green",
+        "Whether every nearby plant has a flower"
+      ],
+      "answer": 0,
+      "explanation": "Individual male flowers normally finish their work. Look at flower type and the plant’s overall pattern before choosing a response."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "A large leaf droops in afternoon heat, but the soil is moist. What is the better first step?",
+      "options": [
+        "Add water immediately every time",
+        "Check the plant again in a cooler part of the day and inspect the soil",
+        "Cut off every large leaf"
+      ],
+      "answer": 1,
+      "explanation": "Heat, soil conditions and time of day all matter. Do not add water to already wet soil just because leaves droop."
+    },
+    {
+      "question": "Which is the best summer-squash harvest goal?",
+      "options": [
+        "Tender fruit at the size recommended for the variety",
+        "The largest possible fruit every time",
+        "Fruit with a hard storage rind"
+      ],
+      "answer": 0,
+      "explanation": "Summer squash is usually picked young and tender. Large fruit can become coarse and seedy."
+    },
+    {
+      "question": "A small fruit stops growing after its flower fades. What is a useful possibility to investigate?",
+      "options": [
+        "The plant has permanently stopped working",
+        "The bed needs three different sprays",
+        "Pollination may have been incomplete"
+      ],
+      "answer": 2,
+      "explanation": "Poor pollination can cause young fruit to fail, but plant stress and other conditions also deserve a check."
+    }
+  ],
+  "activity": "Choose one squash plant and make a three-visit log. On each visit note soil moisture, one leaf change, open flower types and the size of two marked fruit. Write a next step only after reviewing the whole pattern.",
+  "checklist": [
+    "Know your variety and the packet’s spacing guidance.",
+    "Check soil near the roots instead of watering only by the calendar.",
+    "Look for male and female flowers during the morning.",
+    "Harvest tender squash regularly with a clean tool.",
+    "Record important changes before treating a problem."
+  ],
+  "sources": [
+    {
+      "title": "University of Maryland Extension: Growing Summer Squash in a Home Garden",
+      "url": "https://www.extension.umd.edu/resource/growing-summer-squash-zucchini-home-garden"
+    },
+    {
+      "title": "University of Minnesota Extension: Growing Summer Squash and Zucchini",
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-summer-squash-and-zucchini"
+    },
+    {
+      "title": "University of Wisconsin Extension: Pollinator Gardens, Plant Selection and Garden Care",
+      "url": "https://hort.extension.wisc.edu/articles/pollinator-gardens-plant-selection-and-garden-care/"
+    }
+  ],
+  "video": {
+    "title": "Pollinator Gardens: Plant Selection and Garden Care — UW Extension",
+    "id": "1wdxtXilHGU",
+    "sourceUrl": "https://hort.extension.wisc.edu/articles/pollinator-gardens-plant-selection-and-garden-care/"
+  },
+  "sections": [
+    {
+      "heading": "Read the whole plant before reading one leaf",
+      "paragraphs": [
+        "A squash plant does not tell you that it is happy with one clear signal. It gives you a group of clues. New leaves may be opening. Flowers may appear each morning. Small fruit may grow steadily. The plant may also lose an old leaf while the rest of it continues well. The useful question is not whether the plant looks perfect. It is whether growth, moisture and fruit development fit a healthy pattern for that plant.",
+        "Start each visit with a wide look. Notice the shape of the plant, the space around it and any recent changes in the weather. Then look more closely. A single yellow leaf low on the plant means something different from sudden yellowing across several plants. By moving from the whole view to the small detail, you avoid treating every normal change as a crisis. You also become more likely to notice a real pattern early."
+      ]
+    },
+    {
+      "heading": "Know what kind of squash you planted",
+      "paragraphs": [
+        "Yellow squash is summer squash. Gardeners usually harvest it while the fruit is young, the skin is tender and the seeds are not fully developed. That is different from a pumpkin or winter squash grown toward a mature storage stage. The word yellow may describe the fruit color; it does not mean yellow leaves are the main sign of success. A crookneck type, straightneck type and another selection may also differ in their shape and best picking size.",
+        "Keep the packet or plant label. Write the name in your garden log before the plants blend together. If you later ask for help, the correct name is more useful than “the squash by the fence.” It also gives you a fair harvest target. A fruit should not be judged against a picture of a different type. Follow the variety’s directions and learn what tender, useful fruit looks like in your own kitchen."
+      ]
+    },
+    {
+      "heading": "Give the plant its full-sized space",
+      "paragraphs": [
+        "Small squash seedlings can hide the scale of the plant to come. A few young leaves may fit beside another crop with room to spare. Later, that same plant may spread across the bed and lean over the path. Crowding makes it harder to see the crown, find small fruit and check for changes. It can also make routine watering and harvest feel like an unpleasant search through a thick pile of leaves.",
+        "Use the packet’s spacing guidance when you plan the bed. Mark where the mature plant is likely to reach, including any area needed for safe access. Leave a place to stand while you inspect it. A productive plant is more useful when you can reach its fruit without stepping on soil or snapping stems. If you are using a container, choose a variety and container that suit one another rather than expecting a tiny pot to control a large plant’s needs."
+      ]
+    },
+    {
+      "heading": "Look for a steady stream of new growth",
+      "paragraphs": [
+        "New growth is one useful clue, but it needs context. Look for leaves opening near the center and for stems that continue to extend without obvious damage. Compare the plant with its own earlier appearance rather than with the largest plant in an online photo. A young plant just settling into its site should not look like a mature plant in full production.",
+        "Choose one simple reference point. Take a photo from the same side each week, or note the number of large healthy leaves without touching every leaf. When you compare the record, ask whether growth is continuing, slowing or suddenly stopping. A gradual slowdown as the season changes is different from a rapid collapse after damage. This kind of comparison helps you notice when care is working and when a more careful inspection may be useful."
+      ]
+    },
+    {
+      "heading": "Use leaf color as a clue, not a diagnosis",
+      "paragraphs": [
+        "Leaves can change color for many reasons. Age, weather, water, root conditions, nutrients, insects and disease can all play a part. Some squash varieties also have natural leaf patterns. A pale patch is not enough information to name a problem. Look at where the change begins, how it spreads and whether it affects new leaves, old leaves or the whole plant.",
+        "Write a short description before choosing a treatment. For example: “Two oldest leaves are yellow at the edges; new leaves remain green; soil is wet after several days of rain.” That record is far more useful than “squash looks sick.” Avoid adding fertilizer just because a leaf is yellow. First consider whether roots have air, whether the bed drains and whether the change matches another clear clue. A careful description keeps the next action focused on the likely cause."
+      ]
+    },
+    {
+      "heading": "Check the soil before reaching for the hose",
+      "paragraphs": [
+        "A watering habit should be based on the growing conditions, not only the day of the week. Rain, heat, wind, soil texture and container size change how quickly moisture is used. The surface may look dry while soil below it remains moist. A light splash can also make the top look dark without helping much where roots are active.",
+        "Check the soil in a consistent place near the plant without digging into the crown. Learn how that soil feels when it is moist and when it is drying. Water the root area thoughtfully when needed, and allow excess water to move away. Record a major watering or heavy rain beside your plant notes. If a problem follows several wet days, that fact matters. The goal is a dependable supply of moisture, not a permanently soaked bed or a dramatic cycle from very dry to flooded."
+      ]
+    },
+    {
+      "heading": "Understand afternoon drooping before reacting",
+      "paragraphs": [
+        "A large squash leaf may droop during hot afternoon conditions. That sight can make a gardener want to add water at once. Yet the soil may already be moist. More water is not always the right response. Time of day matters, and the plant’s condition in the cooler morning can tell a different story from its appearance during the hottest hour.",
+        "Make a second observation when temperatures ease. If the plant recovers and the soil remains suitably moist, record that pattern instead of treating the afternoon look alone. If wilting persists, inspect more closely. Check the crown, stems, soil and recent weather. Look for damage and ask whether other plants are affected. Sudden lasting wilt deserves attention, but guessing from one afternoon glance can lead to the wrong action. Let the soil and the full-day pattern guide your next step."
+      ]
+    },
+    {
+      "heading": "Learn the two flower types",
+      "paragraphs": [
+        "Many summer-squash plants produce separate male and female flowers. Male flowers provide pollen. Female flowers have a small fruit-like swelling behind the petals. Learning to notice that difference can solve a common worry: not every flower is meant to become a squash. A male flower may open, finish and fall without leaving a fruit behind.",
+        "Look at flowers during the morning when they are easier to observe. Do not pull them apart. Notice the stalk behind the flower and whether there is a small developing fruit. Keep a rough note of what you see over several visits. Early flowering patterns can vary, and one morning is not the whole season. If you first see male flowers, that alone is not proof that something is wrong. Continue observing new growth and the arrival of female flowers rather than changing several care practices at once."
+      ]
+    },
+    {
+      "heading": "Connect flower visits with fruit development",
+      "paragraphs": [
+        "Pollination is one link between a flower and a growing squash. Insects may carry pollen as they visit flowers. A nearby flower garden can support visitors, but seeing bees somewhere on the property does not prove that each squash flower received what it needed. Weather, flower timing and other conditions also matter. A young fruit can fail to develop for more than one reason.",
+        "Watch without getting in the way. Stand back and note whether insects visit open squash flowers during your observation period. Then check the young fruit over the next few days. Does it enlarge and stay firm, or does it stop growing and decline? If pollination seems to be a recurring issue, consult a reliable guide for your crop before trying a new method. Do not assume extra fertilizer replaces pollination, and do not treat every failed young fruit as a reason to spray."
+      ]
+    },
+    {
+      "heading": "Treat regular growth as a better clue than a single big fruit",
+      "paragraphs": [
+        "One oversized squash does not prove the plant is doing better than a plant giving several smaller tender fruit. A gardener who misses harvests may find a large fruit that has become coarse or seedy. The important measure is whether the garden provides useful food that matches your needs. Regularly checking young fruit helps you catch it during the stage you want.",
+        "Mark two fruit in your notes rather than tying anything tight around them. Record their approximate size on one visit, then look again soon. You will learn how quickly the plant changes under your weather conditions. That knowledge helps you plan harvest visits. It can also reveal when growth slows after a dry spell or another stress. Size is most helpful when it is linked to time and quality, not treated as a contest for the largest possible squash."
+      ]
+    },
+    {
+      "heading": "Build a picking habit that fits your life",
+      "paragraphs": [
+        "Summer squash can change quickly, so it pays to look often while the plant is producing. Choose a visit routine that you can keep. A short morning check before another task may work better than a long garden session once each weekend. Bring a small basket and a clean cutting tool so that useful fruit does not remain on the plant just because you were not ready to pick it.",
+        "Follow the variety’s harvest guidance and aim for tender fruit. Use a clean tool to cut rather than twisting hard against the stem. Support the fruit as you remove it. Avoid stepping into the bed or dragging a basket across young stems. The routine should protect both the crop you take and the plant that remains. After picking, note how much you will actually use. If the household is already full of squash, plan sharing or a smaller planting rather than letting food become an unwanted burden."
+      ]
+    },
+    {
+      "heading": "Notice the crown and stems without harming them",
+      "paragraphs": [
+        "The crown is the busy area near the base where stems meet. It can be hidden under large leaves, but it deserves a careful look. Check for obvious injury, decay, unusual debris or a change that helps explain lasting wilt. Move leaves gently and avoid tugging on the plant. A rough inspection can create damage that was not there before.",
+        "If you find something unusual, take a clear photo before disturbing it. Include a wide view and a close view. Describe the material or injury in plain words instead of naming a pest from memory. Some problems need a crop-specific response and local timing guidance. When a plant is declining quickly, this record gives an Extension helper a much better starting point than a single photo of a wilted leaf. The purpose of inspection is to gather evidence, not to perform surgery every time you visit."
+      ]
+    },
+    {
+      "heading": "Look for insects and damage as separate observations",
+      "paragraphs": [
+        "An insect on a squash plant is not automatically a serious problem. Some visitors pollinate flowers, some feed on pests and some damage the crop. Begin by noticing what the insect is doing and whether damage is present. A few holes, a large feeding patch and a sudden loss of plant vigor are different situations. The amount and speed of damage help determine whether action is needed.",
+        "Take photos from a safe distance and seek a reliable identification. Do not mix several sprays simply because you want to protect the plant. Any pesticide use must follow its label, including crop, pest, timing and pollinator directions. Keep the plant’s flowers and visitors in mind. For many home gardeners, the best first move is an accurate identification plus a clear note of the problem’s size. That approach reduces unnecessary work and makes a later treatment decision easier to explain."
+      ]
+    },
+    {
+      "heading": "Give leaves room to dry and people room to work",
+      "paragraphs": [
+        "A crowded, tangled plant is difficult to care for. Good spacing and a workable layout help you inspect leaves, reach fruit and deliver water near the soil. They also help you notice when a leaf problem is spreading. This does not mean you should remove healthy leaves at random to make the plant look tidy. Leaves are part of the plant’s working system.",
+        "When planning or adjusting the bed, focus on access first. Keep paths open and avoid adding new containers directly against the mature squash. If you remove damaged material, use crop-specific guidance and clean tools. Do not turn an uncertain leaf symptom into heavy pruning. A neat appearance is not worth stripping the plant of useful foliage. The practical goal is a garden you can inspect and maintain without constantly scraping, breaking or leaning across it."
+      ]
+    },
+    {
+      "heading": "Use feeding decisions to solve a clear need",
+      "paragraphs": [
+        "More fertilizer is not a general reward for a plant that looks slow. Plants need suitable nutrients, but they also need the right light, temperature, root conditions and water. Adding a product cannot solve every one of those issues. Too many changes at once can make it hard to tell what helped or what created a new problem.",
+        "Review the soil test and the guidance used when you prepared the bed. If you are growing in a container, follow a suitable feeding plan for that system and read the product label. Record what you add, including the amount and date. Before adding more, ask which observation supports the decision. Is growth generally pale, or is one old leaf simply aging? Is the soil waterlogged? A good care note links an action to a reason. It does not list products just to show that you have been busy."
+      ]
+    },
+    {
+      "heading": "Plan for the crop’s changing season",
+      "paragraphs": [
+        "A squash plant has a season, not an endless promise. Production can shift as weather changes, problems build or the plant ages. The right response may be a later small planting, a different crop or a break to improve the bed. Your local frost window and planting guidance determine whether there is time for another round. A date that works in one region may be too late in another.",
+        "If you try a succession planting, label it separately. Keep the new planting’s start date and first useful harvest in your records. Compare it with the older plant using similar measures: tender fruit picked, condition of foliage and care time. This small trial helps you learn whether a second planting suits your household. It also avoids the mistake of replacing every tired plant simply because the idea sounds productive. New plants still need space, water and attention."
+      ]
+    },
+    {
+      "heading": "Turn the harvest into useful feedback",
+      "paragraphs": [
+        "A garden log becomes valuable when it connects care with a result you care about. For squash, that result might be a steady supply of tender fruit for two people rather than the largest total weight. Record a few practical details: how often you picked, whether fruit stayed tender, whether any went unused and which visits felt difficult. These notes can guide next year’s planting size.",
+        "For example, a household may discover that two healthy plants produce more squash than it wants. The next improvement could be growing one plant well and using the spare space for another crop. Another gardener may find that a small harvest met the goal perfectly because the plant was easy to reach and enjoyable to watch. Good results are tied to your needs. A beautiful photograph is one kind of record, but a short note about meals and effort can tell you even more."
+      ]
+    },
+    {
+      "heading": "Practice a calm response to an unclear change",
+      "paragraphs": [
+        "Imagine finding a small yellow fruit that has stopped growing while several other fruit are enlarging. The first response is to inspect and record. You note the flower stage, the soil condition and whether the plant is making new leaves. You compare again on the next visit. If only one fruit failed, you may remove the declining fruit and keep watching. If the pattern repeats, you gather better photos and ask for crop-specific help.",
+        "Now imagine the whole plant suddenly wilts and does not recover when conditions cool. That is a different pattern and deserves quicker investigation. The lesson is to match the response to the evidence. You do not need to ignore problems, and you do not need to treat every change as an emergency. Yellow squash becomes easier to grow when you learn to describe what is happening, protect the plant from rough handling and choose one sensible next step at a time."
+      ]
+    }
+  ]
+}
