@@ -67,7 +67,7 @@ async def main():
         for e in kb["entries"]:
             before=await page.locator("#chat .bubble").count()
             await page.evaluate("(q)=>{document.querySelector('#q').value=q;window.ask()}",e["question"])
-            await page.wait_for_function("(n)=>document.querySelectorAll('#chat .bubble').length>=n",before+2)
+            await page.wait_for_function("(n)=>document.querySelectorAll('#chat .bubble').length>=n",arg=before+2)
             answer=await page.locator("#chat .bubble").last.inner_text()
             if e["answer"] not in answer: failed.append({"question":e["question"],"expected":e["id"],"actual":answer[:180]})
         print("ANSWER MATCH FAILURES",json.dumps(failed))
