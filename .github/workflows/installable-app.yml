@@ -1,6 +1,7 @@
 name: Enable installable website app
 on:
   push:
+    branches: [main]
     paths:
       - 'app-assets/**'
       - '*.webmanifest'
