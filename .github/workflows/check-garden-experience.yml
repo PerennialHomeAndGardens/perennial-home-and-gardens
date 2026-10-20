@@ -3,6 +3,9 @@ on:
   push:
     branches: [garden-jukebox-tanya-20261020]
     paths: ['app-assets/**', '.github/scripts/test_garden_experience.py', '.github/workflows/check-garden-experience.yml']
+concurrency:
+  group: garden-experience-qa
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
