@@ -40,6 +40,7 @@ for page in Path('tools').glob('*/index.html'):
  h=str(header)
  h=h.replace('href="/#top"','href="/"')
  inject='<style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("'+wood_url+'") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style>'+h
+ inject+='<script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>'
  t=re.sub(r'(<body\b[^>]*>)',lambda m:m[1]+inject,t,count=1)
  t=t.replace('</body>','<script src="/app-assets/install.js?v=20261020-build3"></script></body>')
  page.write_text(t)
