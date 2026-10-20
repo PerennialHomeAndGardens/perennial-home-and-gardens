@@ -93,6 +93,7 @@ async function genericPlayer(){
  function api(){if(window.YT?.Player)return Promise.resolve(window.YT);if(apiPromise)return apiPromise;apiPromise=new Promise((resolve,reject)=>{const old=window.onYouTubeIframeAPIReady;const timeout=setTimeout(()=>{apiPromise=null;reject(Error('Video controls could not connect. Try again.'));},12000);window.onYouTubeIframeAPIReady=()=>{old?.();clearTimeout(timeout);resolve(window.YT);};if(!document.querySelector('script[src*="youtube.com/iframe_api"]')){const s=el('script');s.src='https://www.youtube.com/iframe_api';document.head.append(s);}});return apiPromise;}
  function pause(){if(audio)audio.pause();try{yt?.pauseVideo();}catch{}playing=false;sync();}
  function stop(){pause();if(audio)try{audio.currentTime=0;}catch{}try{yt?.stopVideo();}catch{}sync();}
+ window.PHGMusic={pause,stop};
  function sync(){const b=panel.querySelector('[data-x-play]');if(b)b.textContent=playing?'Pause':'Play';mini.hidden=panel.open||!playing;mini.replaceChildren(action('Pause',pause),action('Open',()=>{if(!panel.open)panel.showModal();mini.hidden=true;}),action('Stop',stop));}
  function drawPlayer(){
   view.append(el('h3','',current?current.artist+' · '+current.title:'Loading selection…'));
@@ -179,6 +180,10 @@ function gardenAssistant(){
 
 
 function gardenRefinements(){
+ if(location.pathname.includes('/tools/')){
+  window.toggleShare=async()=>{const data={title:'Perennial Home & Gardens',url:location.origin+'/'};try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard){await navigator.clipboard.writeText(data.url);alert('Website link copied.');}else prompt('Copy this website link:',data.url);}catch{}};
+  window.openJoin=()=>location.assign('/?join=1');
+ }else if(new URLSearchParams(location.search).get('join')==='1')window.openJoin?.();
  const contact=$('#contact');
  if(contact){
   const intro=contact.querySelector('.contactGrid>div');
@@ -199,7 +204,7 @@ function gardenRefinements(){
    addEventListener('scroll',()=>{const y=scrollY,delta=y-previous;previous=y;
     const appPage=location.pathname.includes('/tools/');
     const inApp=appPage||all('.b17Preview').some(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4;});
-    if(!inApp||y<100||delta< -3||$('#navlinks.open')||header.contains(document.activeElement))header.classList.remove('phg-header-away');
+    if(!inApp||y<100||delta< -3||$('#navlinks.open'))header.classList.remove('phg-header-away');
     else if(delta>3)header.classList.add('phg-header-away');
    },{passive:true});
    header.addEventListener('focusin',()=>header.classList.remove('phg-header-away'));
