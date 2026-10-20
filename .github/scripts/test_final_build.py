@@ -1,4 +1,5 @@
 import asyncio,json,threading,http.server,socketserver,re
+from datetime import datetime,timedelta,timezone
 from pathlib import Path
 from bs4 import BeautifulSoup as Soup
 from playwright.async_api import async_playwright
@@ -31,6 +32,8 @@ async def main():
    for selector in ['.tanya-head','.tanya-categories button:first-child','.tanya-categories button:last-child','.tanya-intro','#q','.tanya-mic','.tanya-compose button:last-child','.tanya-close']:
     box=await page.locator('#ap '+selector).bounding_box();assert box and box['y']>=0 and box['y']+box['height']<=height+1,(width,height,selector,box)
    assert await page.locator('#chat').evaluate('(e)=>getComputedStyle(e).overflowY')=='auto'
+   if width in [1440,390]:
+    Path('qa').mkdir(exist_ok=True);await page.screenshot(path='qa/tanya-'+str(width)+'x'+str(height)+'.png')
    await page.get_by_role('button',name='Close Tanya’s Assistant',exact=True).click()
   print('PASS compact assistant across desktop, tablet, mobile and reduced-height keyboard simulation')
   await page.set_viewport_size({'width':390,'height':844});await open_assistant()
@@ -72,7 +75,7 @@ async def main():
   await open_assistant();assert await page.locator('.tanya-head').evaluate('(e)=>getComputedStyle(e).backgroundImage')==await page.locator('footer.phg-footer').evaluate('(e)=>getComputedStyle(e).backgroundImage')
   await page.get_by_role('button',name='Close Tanya’s Assistant',exact=True).click()
   await page.set_viewport_size({'width':390,'height':844})
-  assert await page.locator('#contact .contactGrid').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns').count('px')==1
+  assert (await page.locator('#contact .contactGrid').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns')).count('px')==1
   await page.locator('.cleanMenu').hover();assert await page.locator('.cleanMenu').get_attribute('data-phg-tooltip')=='Menu'
   await page.locator('#music').hover();assert await page.locator('#music').get_attribute('data-phg-tooltip')=='Jukebox'
   await page.locator('#music').click();juke=page.locator('#site-shared-jukebox');await juke.wait_for(state='visible')
@@ -83,7 +86,7 @@ async def main():
   print('PASS article links, mobile contact, original brown gradient, icon labels and retained jukebox categories')
   assert not errors,errors
   # Browser clock exercises the two prompt thresholds without a real two-minute delay.
-  prompt_context=await browser.new_context();prompt_page=await prompt_context.new_page();await prompt_page.clock.install();await prompt_page.goto(URL,wait_until='load');await prompt_page.wait_for_selector('#ap[data-enhanced]',state='attached')
+  prompt_context=await browser.new_context();prompt_page=await prompt_context.new_page();await prompt_page.clock.install();await prompt_page.clock.pause_at(datetime.now(timezone.utc)+timedelta(seconds=1));await prompt_page.goto(URL,wait_until='load');await prompt_page.wait_for_selector('#ap[data-enhanced]',state='attached')
   await prompt_page.clock.fast_forward(24000);assert not await prompt_page.locator('#freebieModal').is_visible()
   await prompt_page.clock.fast_forward(1000);assert await prompt_page.locator('#freebieModal').is_visible()
   await prompt_page.evaluate('closeFreebie()');await prompt_page.clock.fast_forward(94000);assert await prompt_page.locator('#phg-newsletter-prompt').count()==0
