@@ -1,0 +1,26 @@
+name: Check garden jukebox and Tanya
+on:
+  push:
+    branches: [garden-jukebox-tanya-20261020]
+    paths: ['app-assets/**', '.github/scripts/test_garden_experience.py', '.github/workflows/check-garden-experience.yml']
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check JavaScript syntax
+        run: |
+          node --check app-assets/site-experience.js
+          node --check app-assets/install.js
+      - name: Prepare browser checks
+        run: |
+          python -m pip install playwright
+          python -m playwright install chromium --with-deps
+      - name: Check navigation, jukebox and assistant
+        run: python .github/scripts/test_garden_experience.py

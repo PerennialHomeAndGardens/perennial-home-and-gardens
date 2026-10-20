@@ -8,7 +8,7 @@ const $=s=>document.querySelector(s), all=s=>[...document.querySelectorAll(s)];
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 function action(text,fn,cls=''){const b=el('button','x-action '+cls,text);b.type='button';b.onclick=fn;return b;}
 const icon='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>';
-function dialog(type,title){const d=el('dialog',type),head=el('div','x-dialog-heading'),img=el('img');img.src=asset('icon-192.png');img.alt='';const copy=el('div');copy.append(el('small','',cfg.name),el('h2','',title));const close=action('×',()=>d.close());close.setAttribute('aria-label','Close '+title);head.append(img,copy,close);d.append(head);d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});document.body.append(d);return d;}
+function dialog(type,title){const d=el('dialog',type),head=el('div','x-dialog-heading'),img=el('img');img.src=asset('icon-192.png');img.alt='';const copy=el('div');copy.append(el('small','',cfg.name),el('h2','',title));const close=action('×',()=>d.close());close.setAttribute('aria-label','Close '+title);head.append(copy,close);d.append(head);d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});document.body.append(d);return d;}
 function divider(index=0){const n=document.createElementNS('http://www.w3.org/2000/svg','svg');n.setAttribute('class','x-divider');n.setAttribute('viewBox','0 0 420 20');n.setAttribute('aria-hidden','true');const designs=['M0 10H100Q130 -5 160 10T220 10T280 10H420','M0 10H140C165 10 160 -6 180 4S170 25 200 10H420','M0 10Q70 2 140 10T280 10T420 10','M0 10H90L110 5L130 15L150 10H280Q300 0 320 10H420'];const start=65+index*11,bend=start+32;const unique='M0 10H'+start+'C'+bend+' 10 '+bend+' '+(1+index%4)+' '+(bend+18)+' '+(1+index%4)+'S'+(bend+7)+' '+(19-index%4)+' '+(bend+40)+' 10H420';n.innerHTML='<path d="M0 10H420" opacity=".3"/><path class="x-flow" d="'+unique+'"/>';n.querySelector('.x-flow').style.animationDuration=(10+index)+'s';n.style.setProperty('--x-divider-speed',(10+index)+'s');return n;}
 function addMenu(){
  if(cfg.slug==='perennial-home-and-gardens')return;
@@ -78,15 +78,15 @@ async function genericPlayer(){
   if(screen.type==='root'){
    const grid=el('div','x-root-grid');const siteTracks=nativeTracks();
    if(siteTracks.length)grid.append(action(cfg.slug==='ie-casino-games'?'Casino Tunes':'Site soundtrack',()=>navigate({type:'list',title:cfg.name+' music',items:siteTracks})));
-   if(cfg.slug==='livefit-info'){grid.append(action('Workout Music',()=>navigate({type:'genres'})),action('Recovery Music',()=>navigate({type:'list',title:'Recovery Music',items:catalog.quiet})),action('Quiet Listening',()=>navigate({type:'list',title:'Quiet Listening',items:catalog.quiet})));}else{grid.append(action('Music',()=>navigate({type:'genres'})),action('Motivation',()=>navigate({type:'list',title:'Motivation',items:catalog.motivation})),action('Movies',()=>navigate({type:'list',title:'Movie trailers',items:catalog.movies})));}
-   if(catalog.failed)status.textContent='The media collection could not load. Refresh to try again, or use a site soundtrack or your own audio.';view.append(grid,rootPlaylists());const explore=el('a','x-action x-wide','Explore '+cfg.name);explore.href=new URL('../',base).href;view.append(explore,status);return;
+   if(cfg.slug==='livefit-info'){grid.append(action('Workout Music',()=>navigate({type:'genres'})),action('Recovery Music',()=>navigate({type:'list',title:'Recovery Music',items:catalog.quiet})),action('Quiet Listening',()=>navigate({type:'list',title:'Quiet Listening',items:catalog.quiet})));}else{grid.append(action('Music',()=>navigate({type:'genres'})),action('Motivation',()=>navigate({type:'list',title:'Motivation',items:catalog.motivation})),action('Movies',()=>navigate({type:'list',title:'Movies, Trailers & Documentaries',items:catalog.movies})));}
+   if(catalog.failed)status.textContent='The media collection could not load. Refresh to try again, or use a site soundtrack or your own audio.';view.append(grid,rootPlaylists());const explore=el('a','x-action x-wide','Explore our free resources');explore.href='#free-resources';explore.onclick=()=>{panel.close();document.getElementById('free-resources')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});};const credit=el('div','phg-jukebox-credit');credit.innerHTML='<span class="phg-ie-mark" aria-hidden="true">i.e.</span><span>Brought to you by InAct Entertainment LLC<br>© '+new Date().getFullYear()+' InAct Entertainment LLC</span>';view.append(explore,credit,status);return;
   }
   if(screen.type==='genres'){
    view.append(el('h3','','Choose a genre'));const grid=el('div','x-root-grid');for(const genre of [...new Set(catalog.music.map(t=>t.genre||'Music'))])grid.append(action(genre,()=>navigate({type:'list',title:genre,items:catalog.music.filter(t=>(t.genre||'Music')===genre)})));view.append(grid);return;
   }
   if(screen.type==='list'){
-   view.append(el('h3','',screen.title));if(!screen.items.length)view.append(el('p','','Save a selection or add local audio in My playlists.'));
-   screen.items.forEach((t,i)=>{const row=el('div','x-row');row.append(action(t.artist+' · '+t.title,()=>{queue=screen.items;index=i;navigate({type:'player'});play(t);},'x-track'));if(t.videoId){const exists=saved.some(x=>x.videoId===t.videoId);const save=action(exists?'✓':'+',()=>{saved=exists?saved.filter(x=>x.videoId!==t.videoId):[...saved,t];persist();render();},'x-save');save.setAttribute('aria-label',(exists?'Remove from':'Save to')+' My playlist');row.append(save);}view.append(row);});view.append(status);return;
+   view.append(el('h3','',screen.title));if(screen.title==='Movies, Trailers & Documentaries')view.append(el('p','x-status','Garden stories, botanical documentaries and published films. Each selection is labeled as a trailer, film or series. Full viewing may require a provider account or purchase.'));if(!screen.items.length)view.append(el('p','','Save a selection or add local audio in My playlists.'));
+   screen.items.forEach((t,i)=>{const row=el('div','x-row');if(t.sourceUrl&&!t.videoId&&!t.listId){const a=el('a','x-action x-track',t.artist+' · '+t.title+' ↗');a.href=t.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';row.append(a);view.append(row);return;}row.append(action(t.artist+' · '+t.title,()=>{queue=screen.items;index=i;navigate({type:'player'});play(t);},'x-track'));if(t.videoId){const exists=saved.some(x=>x.videoId===t.videoId);const save=action(exists?'✓':'+',()=>{saved=exists?saved.filter(x=>x.videoId!==t.videoId):[...saved,t];persist();render();},'x-save');save.setAttribute('aria-label',(exists?'Remove from':'Save to')+' My playlist');row.append(save);}view.append(row);});view.append(status);return;
   }
   if(screen.type==='player'){drawPlayer();}
  }
@@ -110,7 +110,7 @@ async function genericPlayer(){
  }
  function step(direction){if(!queue.length)return;index=shuffle&&queue.length>1?(index+1+Math.floor(Math.random()*(queue.length-1)))%queue.length:(index+direction+queue.length)%queue.length;screen={type:'player'};render();play(queue[index]);}
  panel.addEventListener('close',sync);const updateClock=()=>{const seek=panel.querySelector('[data-x-seek]');if(!seek)return;let duration=0,time=0;try{duration=audio?audio.duration:ready?yt.getDuration():0;time=audio?audio.currentTime:ready?yt.getCurrentTime():0;}catch{}seek.disabled=!Number.isFinite(duration)||duration<=0;seek.max=String(Number.isFinite(duration)?duration:1);if(document.activeElement!==seek)seek.value=String(time||0);};timer=setInterval(updateClock,750);
- function open(){if(current&&playing&&screen.type==='player'){if(!panel.open)panel.showModal();mini.hidden=true;return;}stack=[];screen={type:'root'};render();if(!panel.open)panel.showModal();mini.hidden=true;}
+ function open(){$('#navlinks')?.classList.remove('open');$('.cleanMenu')?.setAttribute('aria-expanded','false');if(current&&playing&&screen.type==='player'){if(!panel.open)panel.showModal();mini.hidden=true;return;}stack=[];screen={type:'root'};render();if(!panel.open)panel.showModal();mini.hidden=true;}
  document.addEventListener('click',e=>{const trigger=e.target.closest?.(cfg.mediaTrigger||'[data-no-media]');if(trigger){e.preventDefault();e.stopImmediatePropagation();open();}},true);
  if(!$(cfg.mediaTrigger||'[data-no-media]')){const b=action('♫',open);b.setAttribute('aria-label','Open '+cfg.name+' Jukebox');($(cfg.header)||$('header')||document.body).append(b);}
  all(cfg.replacePanel||'[data-no-panel]').forEach(n=>{n.classList.add('x-hidden-nav');n.style.setProperty('display','none','important');});
@@ -118,12 +118,68 @@ async function genericPlayer(){
  window.addEventListener('pageshow',e=>{if(e.persisted){stack=[];screen={type:'root'};queue=queue.filter(t=>!t.local);if(current?.local)current=null;render();timer=setInterval(updateClock,750);}});
  document.addEventListener('play',e=>{if(playing&&e.target!==audio&&e.target.matches?.('audio,video'))pause();},true);render();
 }
+
+function gardenNavigation(){
+ const nav=$('#navlinks'),host=$('.newActions'),music=$('#music'),menu=$('.cleanMenu');
+ if(!nav||!host||!music||!menu)return;
+ const desktop=nav.cloneNode(true);desktop.id='phg-desktop-links';desktop.setAttribute('aria-label','Main navigation');
+ desktop.querySelectorAll('button').forEach(n=>n.remove());nav.before(desktop);
+ host.querySelectorAll('.desktopShare,.desktopJoin,.site-app-desktop').forEach(n=>n.remove());
+ music.innerHTML='<span class="phg-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>';
+ music.setAttribute('aria-label','Open Perennial Home and Gardens jukebox');music.removeAttribute('onclick');
+ host.append(music,menu);menu.setAttribute('aria-controls','navlinks');menu.setAttribute('aria-expanded','false');
+ menu.setAttribute('aria-label','Open navigation');nav.setAttribute('aria-label','Full navigation');
+ const close=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');};
+ window.toggleMenu=()=>{const open=!nav.classList.contains('open');if(open){$('#ap')?.classList.remove('on');}nav.classList.toggle('open',open);menu.setAttribute('aria-expanded',String(open));};
+ nav.querySelectorAll('a,button').forEach(n=>n.addEventListener('click',close));
+ document.addEventListener('click',e=>{if(!nav.contains(e.target)&&!menu.contains(e.target))close();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();$('#ap')?.classList.remove('on');}});
+ window.toggleAssistant=()=>{const ap=$('#ap');if(!ap)return;const open=!ap.classList.contains('on');close();$('#shareMenu')?.classList.remove('on');all('dialog[open]').forEach(d=>d.close());ap.classList.toggle('on',open);if(open)$('#q')?.focus();};
+ // Mobile keeps the existing dropdown, including its raised Share/Join buttons.
+}
+function gardenAssistant(){
+ const baseQuestion=$('#q'),chat=$('#chat');if(!baseQuestion||!chat)return;
+ const promise=fetch(asset('tanya-knowledge.json?v=20261020')).then(r=>{if(!r.ok)throw Error();return r.json();}).catch(()=>({entries:[]}));
+ let last=null,busy=false;
+ const normalize=s=>s.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+ const stop=new Set('a an the i my me you your our we do does can could would should how what when where why is are of for to and in with it this that on about please tell want need have has us get'.split(' '));
+ function find(question,kb){
+  const q=normalize(question),tokens=new Set(q.split(' ').filter(t=>t.length>2&&!stop.has(t)));
+  let best=null,score=0;
+  for(const e of kb.entries){let n=0;
+   for(const p of e.phrases||[])if(q.includes(normalize(p)))n+=6+normalize(p).split(' ').length*3;
+   const terms=new Set(normalize(e.question+' '+(e.keywords||'')).split(' ').filter(t=>t.length>2&&!stop.has(t)));
+   for(const t of tokens)if(terms.has(t))n+=2;
+   if(e.exclude?.some(p=>q.includes(normalize(p))))n=0;
+   if(n>score){score=n;best=e;}
+  }
+  if(score<5&&last&&/^(and |what about |how often|how much|when should|why |what if)/.test(q))return last;
+  return score>=5?best:null;
+ }
+ function bubble(label,text){const b=el('div','bubble'),strong=el('b','',label+': ');b.append(strong,document.createTextNode(text));chat.append(b);return b;}
+ function appendAnswer(record){
+  const b=bubble('Tanya',record.answer);
+  if(record.link){const a=el('a','phg-answer-link',record.linkLabel||'Explore this on Perennial →');a.href=record.link;a.onclick=()=>{$('#ap')?.classList.remove('on');};b.append(el('br'),a);}
+  if(record.source){const a=el('a','phg-answer-source','Read the gardening reference ↗');a.href=record.source;a.target='_blank';a.rel='noopener noreferrer';b.append(el('br'),a);}
+  chat.scrollTop=chat.scrollHeight;
+ }
+ window.ask=async()=>{const question=baseQuestion.value.trim();if(!question||busy)return;busy=true;baseQuestion.value='';bubble('You',question);
+  try{const kb=await promise;const answer=find(question,kb);if(answer){last=answer;appendAnswer(answer);}else appendAnswer({answer:kb.entries.length?'I need a little more detail to give you a useful answer. What plant or garden problem are you working on? Include your location or ZIP code, sunlight, soil moisture and what changed. For a difficult diagnosis, the Garden Library and a local Extension specialist can help; I do not have a confirmed answer for every question.':'My garden reference could not load. Please try again, or contact Perennial for help.',link:'tools/garden-library/',linkLabel:'Open the Garden Library →'});}finally{busy=false;}};
+ window.quickAsk=t=>{baseQuestion.value=t;window.ask();};
+ window.siteAsk=kind=>{const map={services:'What services do you offer?',statuary:'What kind of statuary do you have?',about:'Tell me about Perennial',courses:'What courses do you offer?'};baseQuestion.value=map[kind]||kind;window.ask();};
+ const quick=chat.querySelector('.quick');
+ for(const label of ['How long have you been in business?','Where are the free resources?','Why is my hydrangea not blooming?','How does soil pH affect nutrients?']){
+  const b=el('button','',label);b.type='button';b.onclick=()=>window.quickAsk(label);quick?.append(b);
+ }
+ const response=$('#tanyaResponse');if(response)response.textContent='Ask about our services, garden tools, plants, soil, growing seasons or a specific garden problem.';
+}
+
 function init(){
  const body=document.body;body.dataset.siteSlug=cfg.slug;for(const [key,value] of Object.entries({high:cfg.high,mid:cfg.mid,low:cfg.low,ink:cfg.ink}))body.style.setProperty('--x-'+key,value);
- const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261015-quiet');document.head.append(link);
+ const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261020-garden');document.head.append(link);
  function syncTheme(){const m=getComputedStyle(document.body).color.match(/[\d.]+/g)||[240,240,240];const light=cfg.slug!=='ie'&&(+m[0]*.2126 + +m[1]*.7152 + +m[2]*.0722)<145;body.style.setProperty('--x-panel',light?'#f1eee7':'#0c100f');body.style.setProperty('--x-text',light?'#262923':'#eee');}
  syncTheme();for(const n of [document.body,document.documentElement])new MutationObserver(syncTheme).observe(n,{attributes:true,attributeFilter:['class','data-theme']});
- addMenu();brandNative();genericPlayer();
+ gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();
  // ETP creates its jukebox on demand, so apply the same branding when it appears.
  if(cfg.slug==='examine-the-past-home')new MutationObserver(()=>{if($('.etp-jukebox-card:not(.x-native-panel)'))brandNative();}).observe(document.body,{childList:true,subtree:true});
 }

@@ -65,16 +65,11 @@
   }
   window.siteInstallApp=install;
   window.__siteExperienceConfig=brand;
-  const experience=document.createElement("script");experience.src=new URL("site-experience.js?v=20261015-quiet",document.currentScript.src).href;document.head.append(experience);
+  const experience=document.createElement("script");experience.src=new URL("site-experience.js?v=20261020-garden",document.currentScript.src).href;document.head.append(experience);
   function init() {
-    const desktopHost = document.querySelector(brand.desktop);
-    const desktop = makeButton('Install App','site-app-desktop');
-    if (desktopHost) desktopHost.append(desktop);
-    else { const rail = document.createElement('div'); rail.className='site-app-mobile-rail'; rail.append(desktop); (document.querySelector('main') || document.body).prepend(rail); }
-    const mobile = makeButton('Install App','site-app-mobile');
     const mobileHost = document.querySelector(brand.mobile);
-    if (mobileHost) { mobileHost.prepend(mobile); new MutationObserver(() => { if (!mobileHost.contains(mobile)) mobileHost.prepend(mobile); }).observe(mobileHost, {childList:true}); }
-    else { const rail=document.createElement('div');rail.className='site-app-mobile-rail site-app-mobile-slot';rail.append(mobile);(document.querySelector('main')||document.body).prepend(rail); }
+    const menuInstall = makeButton('Install App','site-app-menu');
+    if(mobileHost){const join=mobileHost.querySelector('.joinDrop');if(join)join.after(menuInstall);else mobileHost.prepend(menuInstall);}
     const legacy = document.querySelectorAll('[data-pwa-install], [onclick*="installBasketballBrilliance"]');
     legacy.forEach(b => { b.hidden=true;b.style.setProperty('display','none','important'); });
     document.querySelectorAll('.site-app-footer').forEach(n=>n.remove());

@@ -1,0 +1,1384 @@
+{
+  "version": "2026-10-20",
+  "description": "Prepared site and horticulture reference answers; not a live generative model or diagnostic service.",
+  "entries": [
+    {
+      "id": "about",
+      "question": "Tell me about Perennial",
+      "phrases": [
+        "about perennial",
+        "who are you",
+        "what is perennial"
+      ],
+      "keywords": "business company mission home gardens tanya",
+      "answer": "Perennial Home & Gardens brings together practical growing guidance, garden tools, education, digital planners, garden accents and local garden support. Our approach connects food, flowers, herbs, habitat and outdoor living.",
+      "link": "#about",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "decade",
+      "question": "How long have you been in business?",
+      "phrases": [
+        "how long have you been in business",
+        "years in business",
+        "how long has perennial",
+        "when did you start",
+        "how old is the business",
+        "a decade"
+      ],
+      "keywords": "business established founded experience ten years",
+      "answer": "Perennial Home & Gardens has been in business for a decade—10 years. We combine that experience with practical guidance, planning tools, educational resources and local garden support.",
+      "link": "#about",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "services",
+      "question": "What services do you offer?",
+      "phrases": [
+        "what services",
+        "services do you offer",
+        "service options"
+      ],
+      "keywords": "services coaching design installation",
+      "answer": "We feature three service paths: Garden Coaching for planning and troubleshooting; Garden Design Templates for a layout framework and implementation roadmap; and Garden Installation for local raised-bed and edible-garden projects. Use the service buttons to request the support you need.",
+      "link": "#services",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "coaching",
+      "question": "Can I book garden coaching?",
+      "phrases": [
+        "garden coaching",
+        "garden coach",
+        "schedule an appointment",
+        "virtual consultation",
+        "online consultation"
+      ],
+      "keywords": "consulting troubleshoot virtual appointment remote",
+      "answer": "Garden Coaching offers one-on-one help with planning, troubleshooting, seasonal questions and next steps. Choose Schedule an Appointment under Services, or contact us with your location, garden goals and photos. Ask which questions can be handled virtually; scheduling is confirmed directly.",
+      "link": "#services",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "design",
+      "question": "Can you design my garden?",
+      "phrases": [
+        "design templates",
+        "design my garden",
+        "garden design",
+        "start a design"
+      ],
+      "keywords": "layout framework roadmap dimensions planting design",
+      "answer": "Garden Design Templates help organize the layout, planting structure and implementation steps. Choose Start a Design under Services. Include bed measurements, sun exposure, access needs, preferred plants and your budget so we can discuss scope.",
+      "link": "#services",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "installation",
+      "question": "Do you install raised beds?",
+      "phrases": [
+        "garden installation",
+        "install raised beds",
+        "installation services",
+        "install my garden"
+      ],
+      "keywords": "local install construction build raised beds",
+      "answer": "The site offers local installation support for raised beds and edible gardens, depending on the site, materials and project scope. Choose Request a Free Consultation under Garden Installation. Coverage, availability and the final quote are confirmed after reviewing your project.",
+      "link": "#services",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "location",
+      "question": "Where do you provide services?",
+      "phrases": [
+        "service area",
+        "where are you located",
+        "where do you serve",
+        "southern maryland",
+        "washington metropolitan",
+        "do you serve"
+      ],
+      "keywords": "location address waldorf maryland dmv washington local",
+      "answer": "Local services focus on Southern Maryland and the Washington metropolitan area. Digital tools and resources are intended for gardeners across U.S. growing zones. Contact us with your ZIP code to confirm an individual project's coverage.",
+      "link": "#contact",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "price",
+      "question": "How much do your services cost?",
+      "phrases": [
+        "how much do your services",
+        "service prices",
+        "service cost",
+        "pricing",
+        "how much does coaching"
+      ],
+      "keywords": "quote estimate rates fees price cost",
+      "answer": "The current page does not publish a complete service price list. Prices depend on scope, materials and the kind of support you need. Send your goals, measurements and location through Contact for a specific quote. The installation service has a Request a Free Consultation button.",
+      "link": "#contact",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "booking",
+      "question": "How do I book or request help?",
+      "phrases": [
+        "how do i book",
+        "book an appointment",
+        "request help",
+        "contact you",
+        "email address"
+      ],
+      "keywords": "booking appointment contact phone email hours",
+      "answer": "Use Contact and select Garden Coaching, Garden Design Templates or Garden Installation. The site's email is perennialhomeandgardens@gmail.com. Include your location, goals and the best way to reach you. Business hours and appointment availability are confirmed directly.",
+      "link": "#contact",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "free",
+      "question": "Where are the free resources?",
+      "phrases": [
+        "free resources",
+        "free worksheets",
+        "freebie",
+        "free download",
+        "free product"
+      ],
+      "keywords": "free library useful plant profile worksheet email unlock",
+      "answer": "Choose FREE RESOURCES in the navigation, or Explore our free resources in the jukebox. The Start with something useful section offers a Plant Profile Sheet and Houseplant Care Worksheet. Enter your name and a valid email, then choose Open Free Resources.",
+      "link": "#free-resources",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "email",
+      "question": "What happens to my email when I get free resources?",
+      "phrases": [
+        "email stored",
+        "email list",
+        "email capture",
+        "unsubscribe",
+        "my email",
+        "privacy"
+      ],
+      "keywords": "newsletter subscription emails data consent",
+      "answer": "The current resource form validates an email and saves the entry in your browser before opening the resource folder. That alone does not confirm delivery to Perennial or a mailing-list subscription. Contact Perennial for subscription or data questions; the footer also includes the Privacy Policy.",
+      "link": "#free-resources",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "join",
+      "question": "What does Join do?",
+      "phrases": [
+        "join perennial",
+        "join button",
+        "founding gardener",
+        "membership",
+        "become a member"
+      ],
+      "keywords": "join community founding garden subscribe paid account",
+      "answer": "Join opens the Perennial community interest form for your name, email, what you hope to grow and what you hope to gain. It is a way to express interest in resources and updates. The current page does not establish a paid membership price or guarantee account features. Find Join at the top of the menu.",
+      "link": "#contact",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "app",
+      "question": "How do I install the app?",
+      "phrases": [
+        "install app",
+        "install the app",
+        "download the app",
+        "home screen"
+      ],
+      "keywords": "pwa android iphone install application",
+      "answer": "Open the menu and choose Install App, or use the Install App link in the footer. Supported browsers show an install prompt; other browsers show instructions for adding the website to your home screen. Installation does not by itself create an account or guarantee that every tool works offline.",
+      "link": "#tools",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "share",
+      "question": "How do I share the website?",
+      "phrases": [
+        "share website",
+        "share the site",
+        "share button",
+        "copy link"
+      ],
+      "keywords": "sharing facebook pinterest email",
+      "answer": "Open the menu and choose Share. The existing share panel offers Facebook, Pinterest, Email and Copy link. Choose the option you prefer."
+    },
+    {
+      "id": "jukebox",
+      "question": "How does the jukebox work?",
+      "phrases": [
+        "jukebox",
+        "site soundtrack",
+        "music icon",
+        "movies and documentaries",
+        "movie trailers"
+      ],
+      "keywords": "music motivation movies volume playlists pause",
+      "answer": "The three animated vertical bars open the jukebox. Browse Site soundtrack, Music, Motivation or Movies. The Movies area now focuses on gardening, botanical life and garden-related published films and documentaries. You can also add your own YouTube selections or local audio through My playlists. Saved selections stay in this browser."
+    },
+    {
+      "id": "courses",
+      "question": "What courses do you offer?",
+      "phrases": [
+        "what courses",
+        "courses do you offer",
+        "course levels",
+        "gardening foundations",
+        "advanced garden systems"
+      ],
+      "keywords": "beginner intermediate courses certificate lessons training",
+      "answer": "The site previews three levels: Gardening Foundations for beginners, Garden Planning & Production for intermediate learners, and Advanced Garden Systems for experienced growers. The current buttons open course previews. Full lesson access, enrollment, progress tracking and certificates are not confirmed as available.",
+      "link": "#courses",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "products",
+      "question": "What digital products do you have?",
+      "phrases": [
+        "digital products",
+        "digital planners",
+        "perennial collection",
+        "buy a planner"
+      ],
+      "keywords": "products workbook download gardening planner houseplant organizer",
+      "answer": "Explore the Perennial Collection for the gardening, houseplant and home-planning products currently presented. Check the individual listing for format, included files, price and availability before purchasing. A product preview does not guarantee that a checkout or download is ready.",
+      "link": "#products",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "statuary",
+      "question": "What kind of statuary do you have?",
+      "phrases": [
+        "statuary",
+        "garden statues",
+        "garden accents",
+        "concrete birds"
+      ],
+      "keywords": "birds frogs turtles inventory decorative statues",
+      "answer": "The site presents decorative garden accents, including small birds, frogs, turtles and similar pieces as inventory is added. Ask about the exact piece, size, finish, price, availability and pickup or shipping before ordering.",
+      "link": "#statuary",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "structures",
+      "question": "Where are the greenhouses and garden structures?",
+      "phrases": [
+        "garden structures",
+        "garden market",
+        "buy a greenhouse",
+        "greenhouse vendor"
+      ],
+      "keywords": "market structures high tunnels metal beds vendors affiliate",
+      "answer": "Garden Structures presents greenhouse, tunnel and raised-bed ideas. Compare dimensions, ventilation, anchoring, site preparation, shipping and warranty with the seller. Some links may be affiliate links; product availability and fulfillment depend on the third-party seller.",
+      "link": "#shop",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "tools",
+      "question": "What garden apps are available?",
+      "phrases": [
+        "garden apps",
+        "garden tools",
+        "what tools",
+        "tools do you have"
+      ],
+      "keywords": "apps calculator planner library journal inventory harvest companions zone",
+      "answer": "Garden Apps brings together planning and reference tools, including Growing Zone, Garden Calculator, Plant Companions, Seasonal Calendar, Plant Identifier, Harvest Checker and Garden Library. Additional garden organization tools include the Planner, My Garden, Journal, Inventory, Seed Starting and Harvest Records.",
+      "link": "#tools",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "library",
+      "question": "Where is the Garden Library?",
+      "phrases": [
+        "garden library",
+        "plant library",
+        "botanical library"
+      ],
+      "keywords": "reference plants profiles search",
+      "answer": "The Garden Library provides searchable plant and garden reference material. Start with a plant name or topic, then compare the result with your light, climate and drainage. Identification and care references should be checked against the actual plant.",
+      "link": "tools/garden-library/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "zone",
+      "question": "How do I find my growing zone?",
+      "phrases": [
+        "growing zone",
+        "hardiness zone",
+        "usda zone",
+        "zip code"
+      ],
+      "keywords": "zone 7b 8a winter cold frost",
+      "answer": "Use Growing Zone with your ZIP code. A USDA hardiness zone describes average annual extreme minimum winter temperature; it does not provide your frost dates, summer heat, rainfall or planting calendar. Combine zone information with local weather and Extension guidance.",
+      "link": "tools/growing-zone/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "calendar",
+      "question": "When should I plant?",
+      "phrases": [
+        "when should i plant",
+        "planting calendar",
+        "seasonal calendar",
+        "planting dates"
+      ],
+      "keywords": "last frost first frost calendar sow dates",
+      "answer": "Use the Seasonal Calendar for a starting point, then check your location, local frost dates, soil temperature and the crop's seed packet. Hardiness zone alone cannot set a safe planting date. Tell me your crop and ZIP code for a more focused discussion.",
+      "link": "tools/seasonal-calendar/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "calculator",
+      "question": "How much soil or mulch do I need?",
+      "phrases": [
+        "how much soil",
+        "soil volume",
+        "mulch volume",
+        "garden calculator",
+        "cubic yards"
+      ],
+      "keywords": "calculate depth width length feet inches materials",
+      "answer": "For a rectangular bed, cubic feet = length in feet × width in feet × depth in inches ÷ 12. Divide cubic feet by 27 for cubic yards. A 4 × 12 foot bed filled 6 inches deep needs 24 cubic feet, about 0.89 cubic yard before settling. Use Garden Calculator to plan your materials.",
+      "link": "tools/garden-calculator/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "companions",
+      "question": "Which companion plants should I grow together?",
+      "phrases": [
+        "companion planting",
+        "companion finder",
+        "plant companions",
+        "companion plants"
+      ],
+      "keywords": "companions pairings neighbors pest myths",
+      "answer": "Use Plant Companions to explore combinations, but prioritize compatible light, water, root space and harvest access. Flowers can support beneficial insects; specific claims that one plant always repels a pest or makes another taste better often lack strong evidence. Keep records of what works in your garden.",
+      "link": "tools/plant-companions/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "identifier",
+      "question": "Can you identify a plant from a photo?",
+      "phrases": [
+        "plant identifier",
+        "identify a plant",
+        "identify this",
+        "plant identification"
+      ],
+      "keywords": "photo image unknown identification weed",
+      "answer": "Open Plant Identifier to explore the site's identification feature. A useful request includes clear photos of the whole plant, leaves, stems, flowers or fruit, plus location. Treat a match as provisional. Never use an uncertain photo identification to decide that a plant or mushroom is edible.",
+      "link": "tools/plant-identifier/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "harvest",
+      "question": "How do I know when to harvest?",
+      "phrases": [
+        "harvest checker",
+        "ready to harvest",
+        "when to harvest",
+        "harvest readiness"
+      ],
+      "keywords": "ripe maturity harvest ready pick",
+      "answer": "Harvest readiness depends on species, variety, intended use and weather. Use Harvest Checker and compare color, size, firmness and the crop's expected maturity window. Tell me which plant and whether you want fresh use, storage, seed saving or dried flowers.",
+      "link": "tools/harvest-checker/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "journal",
+      "question": "How do I keep garden records?",
+      "phrases": [
+        "garden journal",
+        "garden records",
+        "keep records",
+        "track my garden"
+      ],
+      "keywords": "journal notes observations photos results",
+      "answer": "Use Garden Journal to record the date, crop or variety, bed location, weather, watering, pests, actions and results. Consistent notes help distinguish a seasonal pattern from a one-time problem. Check each tool's save and export options and keep your own backup.",
+      "link": "tools/garden-journal/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "inventory",
+      "question": "How do I organize seeds and supplies?",
+      "phrases": [
+        "garden inventory",
+        "organize seeds",
+        "seed inventory",
+        "track supplies"
+      ],
+      "keywords": "inventory tools seeds supplies dates quantities",
+      "answer": "Garden Inventory helps organize garden supplies and seed information. Record variety, source, purchase year, quantity, storage location and germination notes. Store seeds cool and dry, and test older packets before depending on them.",
+      "link": "tools/garden-inventory/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "planner",
+      "question": "Can I plan beds and crop layouts?",
+      "phrases": [
+        "garden planner",
+        "plan my beds",
+        "bed layout",
+        "garden space mapper"
+      ],
+      "keywords": "planner map layout paths dimensions",
+      "answer": "Use Garden Planner to map dimensions, access paths, permanent plants, irrigation and crop locations before buying supplies. Start with bed access and sunlight; account for mature size and shading from tall plants.",
+      "link": "tools/garden-planner/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "seedtool",
+      "question": "Where is the seed-starting tool?",
+      "phrases": [
+        "seed starting tool",
+        "seed starting app"
+      ],
+      "keywords": "seed starting records schedule sow",
+      "answer": "Seed Starting helps organize sowing and transplant planning. Work backward from the crop's planting window and seed-packet instructions, then record emergence and actual transplant dates.",
+      "link": "tools/seed-starting/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "harvestrecords",
+      "question": "How do I track yields?",
+      "phrases": [
+        "harvest records",
+        "track yields",
+        "record harvests"
+      ],
+      "keywords": "yield harvest weight totals production",
+      "answer": "Use Harvest Records to note crop, variety, bed, date and usable weight or count. Compare yield with the space, time, water and inputs used, rather than total harvest alone.",
+      "link": "tools/harvest-records/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "mygarden",
+      "question": "Where is My Garden?",
+      "phrases": [
+        "my garden dashboard",
+        "my garden tool"
+      ],
+      "keywords": "dashboard garden organization plots",
+      "answer": "My Garden is a garden organization tool. Check its current save behavior and any export or backup options before relying on it as your only record.",
+      "link": "tools/my-garden/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "contactroute",
+      "question": "Can I ask about partnerships or careers?",
+      "phrases": [
+        "partnership",
+        "affiliate program",
+        "careers",
+        "media collaboration"
+      ],
+      "keywords": "vendor collaboration job work brand business",
+      "answer": "Contact includes Affiliate / Partnership, Careers, Media / Collaboration and Garden Structures / Vendor. Choose the relevant reason and describe the opportunity. A contact option does not indicate that a vacancy or partnership has been approved.",
+      "link": "#contact",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "returns",
+      "question": "What is your refund or shipping policy?",
+      "phrases": [
+        "refund",
+        "returns",
+        "shipping",
+        "pickup",
+        "order status",
+        "payment methods"
+      ],
+      "keywords": "purchase delivery shipping checkout refund",
+      "answer": "Check the exact product listing or service agreement for delivery, refunds, payment and scheduling terms. Third-party sellers set their own policies. For a Perennial purchase, contact us with the product name and order details; do not send full payment-card information.",
+      "link": "#contact",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "blog",
+      "question": "Can I comment on articles?",
+      "phrases": [
+        "blog comments",
+        "comment on articles",
+        "read articles",
+        "blog"
+      ],
+      "keywords": "blog articles commenting discussion",
+      "answer": "The current Blog opens garden article previews. A public commenting system is not currently established. You can send a question or suggestion through Contact; article and discussion improvements are planned for a separate build.",
+      "link": "#blog",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "offline",
+      "question": "Will my saved information work on another device?",
+      "phrases": [
+        "another device",
+        "saved data",
+        "lost data",
+        "sync",
+        "offline"
+      ],
+      "keywords": "storage browser account backups saved privacy",
+      "answer": "Do not assume that app installation synchronizes your records. Browser-local records belong to that browser and device and can disappear if storage is cleared. Review the individual tool's save, export and account information, and keep a backup.",
+      "link": "#tools",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "beginner",
+      "question": "How do I start gardening?",
+      "phrases": [
+        "start gardening",
+        "beginner garden",
+        "first garden"
+      ],
+      "keywords": "beginner start small easy vegetables herbs",
+      "answer": "Start with a small area you can water and reach easily. Observe direct sunlight, choose a few crops you use, check drainage and test in-ground soil. Containers or one manageable bed are enough to learn. The free worksheets help you record plant needs and results.",
+      "link": "#free-resources",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "sun",
+      "question": "How much sunlight do plants need?",
+      "phrases": [
+        "full sun",
+        "part shade",
+        "partial shade",
+        "hours of sun"
+      ],
+      "keywords": "sunlight shade exposure light orientation",
+      "answer": "Full sun generally means at least six hours of direct sun, while part shade commonly means roughly three to six. Check the species: afternoon heat, latitude and nearby surfaces change what the plant experiences. Observe the site over the day and through the seasons.",
+      "source": "https://plants.ces.ncsu.edu/"
+    },
+    {
+      "id": "soiltest",
+      "question": "Should I test my soil?",
+      "phrases": [
+        "soil test",
+        "test my soil",
+        "soil testing"
+      ],
+      "keywords": "soil ph nutrient laboratory test sample",
+      "answer": "Test in-ground soil before selecting amendments. Take a representative sample from the planting area's root zone, avoid unusual spots, and follow the laboratory's collection instructions. Request pH and nutrient recommendations for the intended crop; urban or unknown sites may need a separate contaminant test.",
+      "source": "https://extension.umd.edu/resource/soil-testing-and-soil-testing-labs"
+    },
+    {
+      "id": "claysand",
+      "question": "Should I add sand to clay?",
+      "phrases": [
+        "sand to clay",
+        "add sand",
+        "sandy up",
+        "clay soil",
+        "poor drainage"
+      ],
+      "keywords": "sand drainage clay compaction soggy heavy soil",
+      "answer": "Small additions of fine sand can make clay drainage worse. First check compaction, grade and where water can go; improve soil structure with suitable organic matter, or use a well-drained raised area. Lavender needs a dry crown and good drainage, so avoid burying it under new fill.",
+      "source": "https://extension.umd.edu/resource/soil-health-drainage-and-improving-soil"
+    },
+    {
+      "id": "ph",
+      "question": "How does soil pH affect nutrients?",
+      "phrases": [
+        "soil ph",
+        "ph affect",
+        "acidic soil",
+        "alkaline soil",
+        "nutrient lockout"
+      ],
+      "keywords": "ph acidity alkalinity nutrients chlorosis iron manganese",
+      "answer": "Soil pH changes nutrient solubility and root uptake. A nutrient can be present yet less available at an unsuitable pH. Match the plant's preference and use a laboratory test before adding lime or sulfur. Yellow leaves alone cannot identify either the missing nutrient or the correct amendment.",
+      "source": "https://extension.umd.edu/resource/understanding-your-soil-test-report"
+    },
+    {
+      "id": "fertilizer",
+      "question": "How should I fertilize?",
+      "phrases": [
+        "fertilizer",
+        "fertilise",
+        "fertilize",
+        "npk",
+        "plant food"
+      ],
+      "keywords": "nitrogen phosphorus potassium fertilizer npk feeding",
+      "answer": "Use soil-test recommendations and the plant's growth stage. N-P-K labels describe nitrogen, phosphate and potash percentages. More fertilizer can cause excess growth, salt injury or runoff; it cannot correct poor drainage or inadequate light. Measure the product and follow its labeled rate.",
+      "source": "https://extension.umd.edu/resource/soil-testing-and-soil-testing-labs"
+    },
+    {
+      "id": "compost",
+      "question": "How much compost should I add?",
+      "phrases": [
+        "compost",
+        "organic matter"
+      ],
+      "keywords": "compost manure amendments mature soil",
+      "answer": "Use mature compost to improve structure and contribute nutrients, but avoid assuming that more is always better. Repeated heavy additions can accumulate phosphorus or salts. Test the soil, consider the compost source and keep wet material away from plant crowns. Containers usually need a formulated potting mix, rather than straight compost.",
+      "source": "https://extension.umd.edu/resource/organic-matter-and-soil-amendments"
+    },
+    {
+      "id": "watering",
+      "question": "How often should I water?",
+      "phrases": [
+        "water my plants",
+        "how often to water",
+        "watering schedule",
+        "overwatering",
+        "underwatering"
+      ],
+      "keywords": "water irrigation moisture wet dry roots",
+      "answer": "Check moisture in the actual root zone before watering. Plant size, soil texture, container volume, rain, wind and heat all change demand. Water deeply enough to wet the root area, then allow the appropriate drying interval for that species. Yellowing or wilt can occur with both too much and too little water."
+    },
+    {
+      "id": "mulch",
+      "question": "How should I mulch?",
+      "phrases": [
+        "mulch depth",
+        "mulching",
+        "wood chips"
+      ],
+      "keywords": "mulch bark weeds moisture crown trunk",
+      "answer": "Use mulch to protect bare soil, moderate temperature and reduce weeds. Keep it back from trunks, stems and crowns. Depth depends on material and site; avoid thick piles that stay wet or block oxygen. Do not mix fresh wood chips deeply into a vegetable root zone."
+    },
+    {
+      "id": "container",
+      "question": "What soil should I use in pots?",
+      "phrases": [
+        "container soil",
+        "potting mix",
+        "pots",
+        "repotting",
+        "repot"
+      ],
+      "keywords": "container drainage holes gravel pot bound houseplant",
+      "answer": "Use a potting mix suited to the plant and a container with drainage holes. Garden soil can compact in pots. A gravel layer does not fix poor drainage; it can leave water perched higher in the mix. Repot when roots or declining performance justify it, and avoid oversized pots that stay wet."
+    },
+    {
+      "id": "raised",
+      "question": "How wide should a raised bed be?",
+      "phrases": [
+        "raised bed width",
+        "raised beds",
+        "bed height",
+        "raised bed"
+      ],
+      "keywords": "raised bed width access height soil fill lumber",
+      "answer": "Choose a width you can reach without stepping in the bed: often about four feet when accessible from both sides, or narrower for one-sided access. Height should fit your mobility and rooting needs. Keep paths wide enough for your equipment and calculate soil volume before ordering.",
+      "link": "tools/garden-calculator/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "crown",
+      "question": "Can I add soil around an established plant?",
+      "phrases": [
+        "bury the crown",
+        "add soil around",
+        "raise soil level",
+        "six inches of soil",
+        "plant crown"
+      ],
+      "keywords": "crown burial topdress fill established lavender roots",
+      "answer": "Keep a plant's crown or trunk flare at the correct original depth. Adding several inches over established roots and stems can reduce oxygen and cause rot. Remove weeds carefully, top-dress lightly where appropriate, or lift and reset suitable perennials when conditions and season permit."
+    },
+    {
+      "id": "germination",
+      "question": "Why are my seeds not germinating?",
+      "phrases": [
+        "seeds not germinating",
+        "seed germination",
+        "wont germinate",
+        "germination rate"
+      ],
+      "keywords": "seed starting temperature depth moisture viability light",
+      "answer": "Check seed age, sowing depth, moisture, temperature and whether the species needs light, darkness, scarification or stratification. Keep the medium moist and aerated rather than saturated. Some perennials naturally take much longer than vegetables. Read the species-specific packet instructions.",
+      "link": "tools/seed-starting/",
+      "linkLabel": "Open the garden tool →"
+    },
+    {
+      "id": "stratification",
+      "question": "What is seed stratification?",
+      "phrases": [
+        "stratification",
+        "cold moist treatment"
+      ],
+      "keywords": "dormancy seed cold moist germination scarification",
+      "answer": "Cold moist stratification mimics winter conditions needed to release dormancy in some seeds. Duration and temperature are species-specific. It differs from scarification, which weakens a hard seed coat. Some species need warm-cold sequences; look up the exact botanical name."
+    },
+    {
+      "id": "hardening",
+      "question": "How do I harden off seedlings?",
+      "phrases": [
+        "harden off",
+        "hardening off",
+        "transplant shock"
+      ],
+      "keywords": "seedlings outdoors acclimate wind sun transplant",
+      "answer": "Gradually introduce indoor-grown seedlings to outdoor light, wind and temperature before transplanting. Begin in a sheltered spot and increase exposure over several days. Avoid sudden midday sun, frost or drying wind; keep roots appropriately moist without keeping them saturated."
+    },
+    {
+      "id": "leggy",
+      "question": "Why are my seedlings leggy?",
+      "phrases": [
+        "leggy seedlings",
+        "stretching seedlings",
+        "seedlings fall over"
+      ],
+      "keywords": "leggy seedling light distance warmth stretching",
+      "answer": "Long weak stems often indicate insufficient light relative to warmth or crowded seedlings. Improve light intensity and spacing, and keep conditions appropriate for the species. Do not solve weak growth with extra fertilizer. Collapsing stems at the soil line can instead indicate damping-off."
+    },
+    {
+      "id": "damping",
+      "question": "What is damping-off?",
+      "phrases": [
+        "damping off",
+        "damping-off",
+        "seedlings collapse"
+      ],
+      "keywords": "seedling collapse soil line rot fungus",
+      "answer": "Damping-off is a group of seedling diseases associated with root or stem decay. Use clean trays, fresh seed-starting medium, good airflow and careful watering. Remove affected seedlings and avoid reusing contaminated material. Weak stretched seedlings without stem decay may have a light problem instead."
+    },
+    {
+      "id": "rotation",
+      "question": "How should I rotate crops?",
+      "phrases": [
+        "crop rotation",
+        "rotate crops"
+      ],
+      "keywords": "rotation plant families disease beds",
+      "answer": "Rotate by plant family and disease history where space permits. Moving tomatoes a few inches is not a meaningful rotation if the same root-zone pathogens remain. In a small garden, combine rotation with resistant cultivars, sanitation and better drainage rather than promising that rotation alone will solve disease."
+    },
+    {
+      "id": "succession",
+      "question": "What is succession planting?",
+      "phrases": [
+        "succession planting",
+        "continuous harvest"
+      ],
+      "keywords": "succession sow harvest stagger intervals",
+      "answer": "Sow or transplant successive small batches to spread harvests instead of planting everything at once. Adjust intervals to crop maturity, seasonal heat and frost windows. For fall crops, account for slower growth as days shorten; summer packet maturity estimates can be optimistic."
+    },
+    {
+      "id": "tomato",
+      "question": "How do I grow healthy tomatoes?",
+      "phrases": [
+        "tomato",
+        "tomatoes"
+      ],
+      "keywords": "tomato sun support pruning watering",
+      "answer": "Give tomatoes strong sun, support, steady root-zone moisture and enough spacing for airflow. Choose varieties suited to your disease pressure and space. Pruning strategy depends on determinate versus indeterminate growth; removing too much foliage can reduce yield and expose fruit to sunscald."
+    },
+    {
+      "id": "ber",
+      "question": "Why is the bottom of my tomato black?",
+      "phrases": [
+        "blossom end rot",
+        "bottom of my tomato",
+        "black bottom",
+        "epsom salt"
+      ],
+      "keywords": "tomato calcium blossom rot epsom salts magnesium",
+      "answer": "Blossom-end rot is linked to inadequate calcium reaching developing fruit, often during uneven moisture or rapid growth. It does not automatically mean soil lacks calcium. Stabilize watering and check soil pH and fertility; do not add Epsom salt as a cure. Damaged fruit will not heal.",
+      "source": "https://extension.umd.edu/resource/blossom-end-rot-vegetables"
+    },
+    {
+      "id": "tomatoflowers",
+      "question": "Why do tomato flowers fall off?",
+      "phrases": [
+        "tomato flowers fall",
+        "tomato not setting",
+        "tomatoes not setting",
+        "blossom drop"
+      ],
+      "keywords": "tomato flowers heat pollination fruit drop",
+      "answer": "Temperature extremes, humidity, water stress and excessive nitrogen can reduce tomato fruit set. Tomatoes can self-pollinate, but pollen still must reach the stigma. Evaluate weather and plant vigor before adding fertilizer or buying another variety as a pollinator.",
+      "source": "https://extension.umd.edu/resource/vegetable-plant-pollination-changing-climate"
+    },
+    {
+      "id": "squashpollination",
+      "question": "Why do baby squash turn yellow and fall off?",
+      "phrases": [
+        "squash turn yellow",
+        "zucchini rot",
+        "squash pollination",
+        "hand pollinate"
+      ],
+      "keywords": "squash zucchini cucumber female male flowers pollination",
+      "answer": "Incomplete pollination can cause young squash to shrivel, though rot and stress are other possibilities. Female squash flowers have a small immature fruit beneath them; male flowers have a simple stalk. In the morning, transfer pollen from a fresh male flower to a fresh female stigma. Check for other symptoms before assuming the cause.",
+      "source": "https://extension.umd.edu/resource/pollination-problems-vegetables"
+    },
+    {
+      "id": "cucumber",
+      "question": "How do I keep cucumbers producing?",
+      "phrases": [
+        "cucumber",
+        "cucumbers"
+      ],
+      "keywords": "cucumber bitter trellis harvest vine",
+      "answer": "Choose a suitable variety, use a trellis where appropriate, keep moisture steady and harvest frequently. Stress can contribute to bitterness. Some varieties require pollination while parthenocarpic varieties set fruit without it; check the variety before diagnosing poor fruit set."
+    },
+    {
+      "id": "pepper",
+      "question": "Why are my peppers slow?",
+      "phrases": [
+        "pepper",
+        "peppers"
+      ],
+      "keywords": "pepper heat cold slow growth fruit sun",
+      "answer": "Peppers grow slowly in cold soil and can lose flowers in temperature extremes. Provide warm conditions, adequate light and consistent moisture. Excess nitrogen can encourage leaves at the expense of flowers. Check variety maturity and root conditions before assuming a deficiency."
+    },
+    {
+      "id": "garlic",
+      "question": "When should I plant garlic?",
+      "phrases": [
+        "garlic"
+      ],
+      "keywords": "garlic cloves bulbs autumn planting harvest curing",
+      "answer": "Garlic is commonly planted in fall in the Mid-Atlantic so roots establish before winter. Use healthy planting stock and local timing guidance. Harvest according to leaf condition and bulb development, then cure in a sheltered, ventilated place. Hardneck and softneck types differ in storage and climate adaptation."
+    },
+    {
+      "id": "bulbs",
+      "question": "How deep should I plant bulbs?",
+      "phrases": [
+        "plant bulbs",
+        "bulb depth",
+        "spring bulbs",
+        "allium bulbs"
+      ],
+      "keywords": "bulbs tulips daffodils allium depth autumn",
+      "answer": "Use the species' instructions; many true bulbs are planted roughly two to three times their height deep, but exceptions matter. Ensure drainage and keep foliage until it naturally yellows after flowering. Iris rhizomes, peony crowns and tubers are not planted by a universal bulb-depth rule."
+    },
+    {
+      "id": "iris",
+      "question": "Why are my irises not blooming?",
+      "phrases": [
+        "bearded iris",
+        "iris not blooming",
+        "iris rhizome"
+      ],
+      "keywords": "iris rhizome depth division flowering",
+      "answer": "Bearded iris needs sun and a shallow rhizome position; burying it deeply or crowding can reduce flowering. Divide congested clumps at the appropriate time and discard soft, damaged rhizomes. Different iris groups have different moisture needs, so identify the type first."
+    },
+    {
+      "id": "peony",
+      "question": "Why is my peony not flowering?",
+      "phrases": [
+        "peony",
+        "peonies"
+      ],
+      "keywords": "peony crown eyes planting depth flowers buds",
+      "answer": "Peonies may take time to establish. Too-deep planting, inadequate sun, division stress or bud damage can reduce bloom. Check the type and climate before changing planting depth; herbaceous peony eyes are normally kept near the soil surface rather than deeply buried."
+    },
+    {
+      "id": "lavender",
+      "question": "How do I grow lavender?",
+      "phrases": [
+        "lavender"
+      ],
+      "keywords": "lavender drainage pruning flowers drying soil",
+      "answer": "Lavender needs strong sun and excellent drainage, especially around the crown in humid climates. Do not bury established stems or keep the plant constantly wet. Prune within living leafy growth rather than assuming bare old wood will resprout. Harvest timing varies with fresh bouquets, drying and fragrance goals.",
+      "source": "https://extension.umd.edu/resource/lavender"
+    },
+    {
+      "id": "hydrangea",
+      "question": "Why is my hydrangea not blooming and when do I prune it?",
+      "phrases": [
+        "hydrangea",
+        "hydrangeas"
+      ],
+      "keywords": "hydrangea bloom pruning old new wood panicle oakleaf",
+      "answer": "First identify the hydrangea species and cultivar. Panicle and smooth hydrangeas generally flower on new growth; many bigleaf and oakleaf hydrangeas rely on old wood. Wrong-season pruning, winter bud injury, too much shade or excess nitrogen can reduce bloom. Reblooming cultivars can use both old and new growth.",
+      "source": "https://www.rhs.org.uk/plants/hydrangea/pruning-guide"
+    },
+    {
+      "id": "hydrangeacolor",
+      "question": "How can I make hydrangeas blue?",
+      "phrases": [
+        "hydrangea blue",
+        "hydrangea color",
+        "hydrangea pink"
+      ],
+      "keywords": "hydrangea color aluminum acidity ph blue pink",
+      "answer": "Color changes mainly apply to certain bigleaf and mountain hydrangeas. Aluminum availability, influenced by soil chemistry, contributes to blue flowers. White-flowered types and panicle hydrangeas do not turn blue through soil acidification. Test first and avoid repeated aluminum additions without a sound recommendation."
+    },
+    {
+      "id": "salvia",
+      "question": "How do I grow salvia?",
+      "phrases": [
+        "salvia",
+        "sage flowers"
+      ],
+      "keywords": "salvia perennial annual sun deadhead pollinator",
+      "answer": "Identify the salvia species before choosing a site or pruning routine. Many ornamental salvias prefer sun and drainage, while hardiness varies widely. Remove spent blooms if appropriate to encourage another flush, and avoid constant moisture around drought-adapted types."
+    },
+    {
+      "id": "catnip",
+      "question": "Can I plant catnip or catmint with lavender?",
+      "phrases": [
+        "catnip",
+        "catmint",
+        "nepeta"
+      ],
+      "keywords": "catnip catmint lavender spread companion",
+      "answer": "Catnip and ornamental catmints are different selections within Nepeta. Many prefer sun and drainage and can fit near lavender when mature spread, watering and airflow are considered. Check the exact variety's dimensions; a small new plant can become a broad clump."
+    },
+    {
+      "id": "yarrow",
+      "question": "How do I grow yarrow?",
+      "phrases": [
+        "yarrow",
+        "achillea"
+      ],
+      "keywords": "yarrow dry bouquet flowers divide",
+      "answer": "Yarrow commonly prefers sun and well-drained soil. Too much fertilizer or shade can encourage floppy stems. Deadhead for a tidier display, divide crowded clumps when appropriate and check the cultivar's mature spread before using it in a compact bed."
+    },
+    {
+      "id": "echinacea",
+      "question": "How do I grow coneflowers?",
+      "phrases": [
+        "echinacea",
+        "coneflower",
+        "coneflowers"
+      ],
+      "keywords": "echinacea coneflower native seed heads disease",
+      "answer": "Provide sun and drainage suited to the species. Leave some seed heads for wildlife when plants are healthy. Distorted or green flowers can have several causes, including aster yellows or mite damage; compare detailed symptoms and seek identification before removing a whole planting."
+    },
+    {
+      "id": "cutflowers",
+      "question": "When should I cut and dry flowers?",
+      "phrases": [
+        "cut flowers",
+        "dried flowers",
+        "dry flowers",
+        "bouquet"
+      ],
+      "keywords": "bouquets vase life harvesting dried stems",
+      "answer": "Harvest stage varies by flower: some open further after cutting while others do not. Use clean tools and containers, remove submerged foliage and cool stems promptly. For air-drying suitable species, hang small loose bundles in a dark, dry, ventilated place. Test a few stems before harvesting the entire crop."
+    },
+    {
+      "id": "mint",
+      "question": "How do I contain mint?",
+      "phrases": [
+        "mint"
+      ],
+      "keywords": "mint roots spread invasive container herbs",
+      "answer": "Mint spreads vigorously through underground stems. A separate container can make control easier, but roots may escape drainage holes or stems may root outside the pot. Monitor boundaries and avoid treating a bottomless pot as permanent containment."
+    },
+    {
+      "id": "basil",
+      "question": "Why is my basil flowering?",
+      "phrases": [
+        "basil"
+      ],
+      "keywords": "basil flowering pinch downy mildew harvest",
+      "answer": "Pinch basil above healthy leaf pairs to encourage branching and delay flowering. Provide warm conditions and appropriate sun and moisture. Yellowing with gray-purple growth under leaves can suggest downy mildew; inspect closely and keep airflow good rather than assuming it just needs fertilizer."
+    },
+    {
+      "id": "rosemary",
+      "question": "Will rosemary survive winter?",
+      "phrases": [
+        "rosemary"
+      ],
+      "keywords": "rosemary winter hardy drainage prune",
+      "answer": "Rosemary hardiness varies by cultivar, winter exposure and drainage. A hardiness-zone match is not a guarantee in cold wet soil. Choose a sheltered well-drained site or a movable pot, and avoid hard pruning into leafless old wood."
+    },
+    {
+      "id": "houseplants",
+      "question": "How do I care for houseplants?",
+      "phrases": [
+        "houseplant",
+        "houseplants",
+        "indoor plants"
+      ],
+      "keywords": "houseplant light water humidity potting windows",
+      "answer": "Match the plant to the actual light near your window, inspect roots and check the potting mix before watering. A calendar alone is unreliable. Keep leaves and pests under observation, and use the Houseplant Care Worksheet to note watering and changes.",
+      "link": "#free-resources",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "orchid",
+      "question": "How do I make my orchid bloom again?",
+      "phrases": [
+        "orchid",
+        "phalaenopsis"
+      ],
+      "keywords": "orchid roots bark bloom spike",
+      "answer": "Care depends on the orchid type. Many Phalaenopsis need bright indirect light, an airy medium and careful watering rather than ice-cube routines. Green roots and silver roots can indicate different moisture states, but assess the pot and plant together. A root, new leaf and flower spike have different shapes."
+    },
+    {
+      "id": "succulent",
+      "question": "Why is my succulent stretching or rotting?",
+      "phrases": [
+        "succulent",
+        "cactus",
+        "cacti"
+      ],
+      "keywords": "succulent etiolation rot stretched light watering",
+      "answer": "Stretching commonly indicates insufficient light; soft dark tissue may suggest rot or cold damage. Use a gritty, well-drained mix and a draining pot, then adjust watering to the species and season. Increase strong light gradually to avoid sunburn."
+    },
+    {
+      "id": "chlorosis",
+      "question": "Why are the leaves yellow?",
+      "phrases": [
+        "yellow leaves",
+        "yellowing leaves",
+        "chlorosis",
+        "interveinal"
+      ],
+      "keywords": "yellow chlorosis nutrient roots iron nitrogen magnesium",
+      "answer": "Yellowing can reflect root stress, watering, aging leaves, pests or nutrient problems. Note whether old or new leaves change first and whether veins remain green. These clues narrow possibilities but cannot prove a deficiency; test soil and inspect roots before adding a nutrient."
+    },
+    {
+      "id": "wilting",
+      "question": "Why is my plant wilting in wet soil?",
+      "phrases": [
+        "wilting in wet",
+        "wet soil wilt",
+        "wilts when wet"
+      ],
+      "keywords": "wilt wet roots oxygen root rot water",
+      "answer": "Wet roots can lose oxygen and fail to supply water, so a wilted plant may already have too much water. Check drainage, roots and stem condition before watering again. Heat-related afternoon wilt with moist soil may recover overnight; persistent wilt needs closer inspection."
+    },
+    {
+      "id": "powdery",
+      "question": "What is the white powder on leaves?",
+      "phrases": [
+        "powdery mildew",
+        "white powder",
+        "white coating"
+      ],
+      "keywords": "powdery mildew fungus leaves airflow",
+      "answer": "Powdery mildew is one possibility for white powdery growth, but residue and insects can look similar. Identify the host and inspect the pattern. Improve suitable airflow, avoid crowding and select resistant varieties. Treatment choices depend on the confirmed issue and plant; follow any product label."
+    },
+    {
+      "id": "aphids",
+      "question": "How do I deal with aphids?",
+      "phrases": [
+        "aphids"
+      ],
+      "keywords": "aphid honeydew curled leaves beneficial insects",
+      "answer": "Check soft new growth and leaf undersides for colonies and sticky honeydew. A firm water spray can reduce aphids on sturdy plants, and predators often help. Avoid broad insecticide use that removes beneficial insects; if needed, choose a labeled treatment for the plant and pest."
+    },
+    {
+      "id": "spidermites",
+      "question": "How do I recognize spider mites?",
+      "phrases": [
+        "spider mites",
+        "spider mite",
+        "fine webbing"
+      ],
+      "keywords": "mites stippling webbing undersides dry leaves",
+      "answer": "Fine stippling, pale leaves and delicate webbing can indicate spider mites. Inspect the underside of leaves with magnification and check nearby plants. Isolate affected houseplants and use an appropriate washing or labeled treatment plan; ordinary insecticides may not control mites."
+    },
+    {
+      "id": "gnats",
+      "question": "How do I stop fungus gnats?",
+      "phrases": [
+        "fungus gnats",
+        "tiny flies",
+        "gnats"
+      ],
+      "keywords": "gnat larvae moist potting soil indoor flies",
+      "answer": "Fungus gnats breed in moist growing media. Confirm they are gnats rather than fruit flies, let the surface dry as the plant allows and remove decaying material. Sticky cards monitor adults; a labeled larval treatment may be needed for persistent problems."
+    },
+    {
+      "id": "slugs",
+      "question": "What is eating holes in my leaves?",
+      "phrases": [
+        "slugs",
+        "snails",
+        "holes in leaves"
+      ],
+      "keywords": "holes chewing slime night pests",
+      "answer": "Holes alone do not identify a pest. Check at dusk or at night for slugs, and look for slime, droppings, caterpillars or beetles. Protect seedlings and reduce damp hiding places nearby. Identify the pest before selecting a control."
+    },
+    {
+      "id": "deer",
+      "question": "What plants resist deer or rabbits?",
+      "phrases": [
+        "deer",
+        "rabbits",
+        "deer resistant"
+      ],
+      "keywords": "deer rabbit fencing browse resistant",
+      "answer": "No plant is deer-proof under every condition. Fencing and physical protection are more reliable than a plant list alone. Use regional resistance lists to reduce risk, protect new growth and consider that deer, rabbits and rodents leave different feeding patterns."
+    },
+    {
+      "id": "weeds",
+      "question": "How do I remove weeds around perennials?",
+      "phrases": [
+        "weeds",
+        "weeding",
+        "weed control"
+      ],
+      "keywords": "weeds roots lavender pull mulch seed heads",
+      "answer": "Identify the weed and remove seed heads before they mature. Loosen roots carefully near established plants, remove persistent underground pieces when feasible and cover bare soil appropriately. Avoid piling fill against perennial crowns or tilling repeatedly through rhizomatous weeds."
+    },
+    {
+      "id": "native",
+      "question": "How do I make a pollinator garden?",
+      "phrases": [
+        "pollinator garden",
+        "native plants",
+        "habitat garden"
+      ],
+      "keywords": "native bees butterflies host plants bloom habitat",
+      "answer": "Choose regionally suitable plants with overlapping bloom times, plus host plants for caterpillars. Provide appropriate habitat and avoid unnecessary pesticides. Native to North America is less specific than native to your region; match each species to your soil and light."
+    },
+    {
+      "id": "invasive",
+      "question": "How do I check whether a plant is invasive?",
+      "phrases": [
+        "invasive species",
+        "invasive plant",
+        "nonnative"
+      ],
+      "keywords": "invasive non native aggressive spreading",
+      "answer": "Check your state's invasive-plant guidance using the scientific name. Non-native does not always mean invasive, while a native plant can be vigorous in a garden. Evaluate spread, ecological impact and local conditions rather than relying on a sales label."
+    },
+    {
+      "id": "pruning",
+      "question": "When should I prune shrubs?",
+      "phrases": [
+        "prune shrubs",
+        "pruning shrubs",
+        "when to prune"
+      ],
+      "keywords": "pruning old wood new wood spring flowering shrubs",
+      "answer": "Identify the species and where its flower buds form. Many spring bloomers set buds the prior season and are pruned after flowering; some summer bloomers flower on new growth. Remove damaged material as appropriate, but avoid a universal pruning date for every shrub."
+    },
+    {
+      "id": "division",
+      "question": "When should I divide perennials?",
+      "phrases": [
+        "divide perennials",
+        "perennial division",
+        "divide plants"
+      ],
+      "keywords": "division perennial clumps spring fall",
+      "answer": "Divide when the plant type and season favor root recovery, often in cool conditions. Avoid automatically dividing peonies, woody crowns or drought-stressed plants like an ordinary clumping perennial. Water the root zone, preserve healthy divisions and reset them at the correct depth."
+    },
+    {
+      "id": "propagation",
+      "question": "Can I propagate plants from cuttings?",
+      "phrases": [
+        "cuttings",
+        "propagate plants",
+        "propagation"
+      ],
+      "keywords": "cuttings rooting stem node humidity clone",
+      "answer": "Use a healthy species-appropriate cutting and include the necessary node. Keep rooting media aerated and humidity appropriate without leaving foliage continually wet. Some cuttings need hormone or a particular season. Check plant-patent or propagation restrictions before multiplying a protected cultivar."
+    },
+    {
+      "id": "seedsaving",
+      "question": "Will saved seeds come true?",
+      "phrases": [
+        "save seeds",
+        "seed saving",
+        "hybrid seeds",
+        "f1"
+      ],
+      "keywords": "seed saving open pollinated hybrid cross pollination true type",
+      "answer": "Open-pollinated seed can remain true when pollination is controlled and enough suitable plants are maintained. F1 hybrids usually segregate in the next generation. Cross-pollination changes the genetics of seeds, not generally the flesh of the fruit growing that season. Different crops need different isolation distances."
+    },
+    {
+      "id": "frost",
+      "question": "How do I protect plants from frost?",
+      "phrases": [
+        "frost protection",
+        "freeze protection",
+        "row cover"
+      ],
+      "keywords": "frost freeze cloth cold protection",
+      "answer": "Use suitable covers before temperatures drop, secure edges and keep heavy material off delicate growth. Remove or vent covers when conditions warm. Row cover provides limited protection; tolerance depends on the crop, duration, wind and moisture. Containers and new growth can be more vulnerable."
+    },
+    {
+      "id": "greenhouse",
+      "question": "How do I manage a greenhouse or high tunnel?",
+      "phrases": [
+        "greenhouse ventilation",
+        "high tunnel",
+        "greenhouse"
+      ],
+      "keywords": "greenhouse tunnel ventilation overheating humidity season extension",
+      "answer": "Plan ventilation, anchoring, water access and temperature monitoring before buying. An unheated greenhouse can overheat on a sunny day and still freeze at night. Protected growing changes irrigation, humidity and pest pressure; it does not eliminate seasonal limits.",
+      "link": "#shop",
+      "linkLabel": "View this section →"
+    },
+    {
+      "id": "salts",
+      "question": "What is electrical conductivity or salt buildup?",
+      "phrases": [
+        "electrical conductivity",
+        "salt buildup",
+        "salinity",
+        "ec test"
+      ],
+      "keywords": "ec salts conductivity fertilizer burn high tunnel",
+      "answer": "Electrical conductivity estimates soluble salt concentration, but the measurement depends on the sampling method. High readings can make water uptake harder even when soil is moist. Identify irrigation-water and fertilizer sources, use the right laboratory test and correct drainage before attempting leaching.",
+      "source": "https://extension.umn.edu/agriculture/specialty-crops/soil-health-and-nutrient-management-in-high-tunnels"
+    },
+    {
+      "id": "mycorrhiza",
+      "question": "Do I need mycorrhizal inoculants?",
+      "phrases": [
+        "mycorrhizal",
+        "mycorrhiza",
+        "mycorrhizae"
+      ],
+      "keywords": "mycorrhiza fungi inoculant phosphorus symbiosis",
+      "answer": "Mycorrhizal fungi exchange resources with many plant roots, but not all plant groups form the same associations. Established soils may already contain suitable fungi, and extra inoculant is not automatically beneficial. High phosphorus can reduce some associations; species, conditions and product viability matter.",
+      "source": "https://extension.umn.edu/natural-resources/conservation/agricultural-soil-and-water/soil-biology"
+    },
+    {
+      "id": "photoperiod",
+      "question": "How does day length affect flowering?",
+      "phrases": [
+        "photoperiod",
+        "day length",
+        "short day",
+        "long day"
+      ],
+      "keywords": "photoperiod flowering dark night interruption",
+      "answer": "Some plants flower in response to day and night length, while others are day-neutral. For many short-day plants, an uninterrupted dark period is critical, so night lighting can alter flowering. Light intensity and duration are different variables: more hours do not always compensate for weak light.",
+      "source": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/lighting-for-indoor-plants"
+    },
+    {
+      "id": "vernalization",
+      "question": "What is vernalization?",
+      "phrases": [
+        "vernalization",
+        "vernalisation"
+      ],
+      "keywords": "vernalization cold exposure flowering dormancy chilling",
+      "answer": "Vernalization is a cold-exposure requirement that enables flowering in some plants. It is distinct from seed stratification, which addresses seed dormancy, and from general winter hardiness. Temperature, duration, plant age and cultivar affect the response; identify the species before applying a cold treatment."
+    },
+    {
+      "id": "vpd",
+      "question": "What is vapor pressure deficit?",
+      "phrases": [
+        "vapor pressure deficit",
+        "vapour pressure deficit",
+        "vpd"
+      ],
+      "keywords": "vpd transpiration humidity leaf air temperature",
+      "answer": "VPD describes the drying demand created by the difference between water-vapor pressure at saturation and actual vapor pressure. Air temperature and humidity matter, but leaf temperature can change the plant's actual experience. Very high demand can close stomata; very low demand can limit transpiration. Targets depend on crop, growth stage and growing system."
+    },
+    {
+      "id": "dli",
+      "question": "What is daily light integral?",
+      "phrases": [
+        "daily light integral",
+        "dli",
+        "ppfd"
+      ],
+      "keywords": "dli ppfd grow lights photons photosynthesis",
+      "answer": "DLI totals photosynthetically active light over a day. At constant PPFD, DLI in mol per square meter per day = PPFD in micromoles per square meter per second × hours × 0.0036. For example, 200 PPFD for 14 hours is about 10.1 DLI. Crop targets vary; fixture wattage is not a substitute for canopy-level measurement."
+    },
+    {
+      "id": "cec",
+      "question": "What is cation exchange capacity?",
+      "phrases": [
+        "cation exchange capacity",
+        "cec"
+      ],
+      "keywords": "cec nutrient retention clay organic matter cations",
+      "answer": "CEC estimates the soil's capacity to retain exchangeable positively charged nutrients. Clay type and organic matter influence it; it is not a score for every aspect of soil health. Base saturation and pH must be interpreted with the laboratory method and crop needs, not an assumed ideal ratio."
+    },
+    {
+      "id": "allelopathy",
+      "question": "Does black walnut harm other plants?",
+      "phrases": [
+        "allelopathy",
+        "juglone",
+        "black walnut"
+      ],
+      "keywords": "allelopathy juglone walnut toxicity competition",
+      "answer": "Black walnut is often associated with juglone sensitivity, but a struggling nearby plant may also face shade, drought or root competition. Identify the plant and evaluate the entire site. Lists of tolerance vary in evidence quality; do not assume every decline near a walnut proves a single chemical cause."
+    },
+    {
+      "id": "grafting",
+      "question": "Why does a grafted plant send up different shoots?",
+      "phrases": [
+        "grafted plant",
+        "rootstock",
+        "graft union",
+        "suckers"
+      ],
+      "keywords": "grafting rootstock scion suckers graft union",
+      "answer": "Shoots below a graft may come from the rootstock and differ from the named cultivar above it. Confirm the graft position and remove unwanted rootstock shoots appropriately. Planting depth around a graft is species-specific; do not bury every graft to solve suckering."
+    },
+    {
+      "id": "sports",
+      "question": "What is a plant sport or reversion?",
+      "phrases": [
+        "plant sport",
+        "reversion",
+        "variegation reverting"
+      ],
+      "keywords": "sport variegated reversion green shoot chimeral",
+      "answer": "A sport is a growth change arising from a mutation; some variegation involves cell layers that may not remain stable. Strong green reversions can outgrow variegated portions. Check the cultivar and pruning guidance before removing a shoot, and do not assume seed will preserve chimeral variegation."
+    },
+    {
+      "id": "botany",
+      "question": "What is the difference between species and cultivar?",
+      "phrases": [
+        "species and cultivar",
+        "botanical name",
+        "latin name",
+        "cultivar"
+      ],
+      "keywords": "taxonomy genus species cultivar variety hybrid nomenclature",
+      "answer": "A botanical name identifies genus and species; a cultivar names a cultivated selection, often shown in single quotes. A cultivar may need vegetative propagation to retain its characteristics. Common names can refer to multiple plants, so botanical names improve care and identification accuracy."
+    },
+    {
+      "id": "ipm",
+      "question": "What is integrated pest management?",
+      "phrases": [
+        "integrated pest management",
+        "ipm"
+      ],
+      "keywords": "ipm pest diagnosis monitoring thresholds biological controls",
+      "answer": "IPM begins with identifying the pest and host, monitoring damage and deciding whether action is needed. Favor prevention, resistant plants and cultural or physical controls, while protecting beneficial organisms. A pesticide is one possible tool after diagnosis; follow the label and account for pollinators and harvest restrictions."
+    },
+    {
+      "id": "diagnosis",
+      "question": "Can you diagnose my sick plant?",
+      "phrases": [
+        "diagnose",
+        "sick plant",
+        "dying plant",
+        "plant disease"
+      ],
+      "keywords": "diagnosis disease symptoms treatment roots sample",
+      "answer": "A useful diagnosis needs the plant's identity, location, age, symptom timeline, watering, recent treatments and photos of the whole plant and affected tissue. Several problems can look alike. For a persistent or valuable plant problem, a local Extension diagnostic service can confirm causes that a text exchange cannot.",
+      "source": "https://extension.umd.edu/programs/environment-natural-resources/program-areas/home-and-garden-information-center"
+    },
+    {
+      "id": "petplants",
+      "question": "Are these plants safe for pets or children?",
+      "phrases": [
+        "safe for pets",
+        "toxic to cats",
+        "toxic to dogs",
+        "poisonous",
+        "edible plant"
+      ],
+      "keywords": "toxic poison pets children cats dogs safety edible mushroom",
+      "answer": "Use the exact botanical name and a reliable toxicity reference before choosing plants around pets or young children. Do not eat or give pets an unidentified plant. If an exposure has happened, contact a veterinarian or an appropriate poison service; a gardening assistant cannot assess poisoning."
+    },
+    {
+      "id": "credentials",
+      "question": "Are you a certified Master Gardener?",
+      "phrases": [
+        "master gardener certified",
+        "are you certified",
+        "credentials",
+        "are you a master gardener"
+      ],
+      "keywords": "certification credentials license master gardener expert",
+      "answer": "I am Tanya's digital garden guide. I can share prepared gardening references and help you navigate the site, but I should not claim a Master Gardener credential or professional certification that has not been confirmed. Contact Perennial about qualifications for a particular service.",
+      "link": "#contact",
+      "linkLabel": "View this section →"
+    }
+  ]
+}
