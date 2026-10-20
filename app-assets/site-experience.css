@@ -66,3 +66,49 @@ body[data-site-slug=perennial-home-and-gardens] .assistBody{max-height:calc(100d
 .phg-answer-link,.phg-answer-source{display:inline-block;margin-top:8px;text-decoration:underline}.phg-answer-source{font-size:12px}
 .phg-jukebox-credit{display:flex;align-items:center;justify-content:center;gap:7px;text-align:center;font:9px/1.5 Georgia,serif;opacity:.8;margin:14px 0 0}.phg-ie-mark{font:italic bold 18px Georgia,serif}
 @media(prefers-reduced-motion:reduce){.phg-equalizer i{animation:none!important}.phg-equalizer i:nth-child(2){transform:scaleY(.55)}}
+
+/* Build 3: brand and controls share the wood plank on every screen. */
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header{position:sticky!important;top:0!important;transition:transform .2s ease}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-header-away{transform:translateY(-100%)!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header .b20WoodBar{height:94px!important;min-height:94px!important;overflow:visible!important;position:relative!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header .b20Logo img{height:80px!important;max-width:calc(100vw - 170px)!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header>.nav{display:none!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand #phg-desktop-links{display:none!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header .newActions{position:absolute!important;right:12px!important;top:50%!important;transform:translateY(-50%)!important;gap:2px!important;min-height:40px!important;margin:0!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header :is(.cleanMusic,.cleanMenu){flex:0 0 40px!important;width:40px!important;height:40px!important;min-height:40px!important;padding:10px!important;border:0!important;box-shadow:none!important;border-radius:0!important;outline-offset:-2px!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header .cleanMenu{gap:4px!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header .cleanMenu span{width:18px!important;height:1.5px!important}
+.phg-compact-header .phg-equalizer{height:20px;gap:3px}.phg-compact-header .phg-equalizer i{height:16px;width:2px}
+.phg-compact-header button:focus-visible{outline:2px solid #f6f0e4!important}
+body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header #navlinks{top:calc(100% + 6px)!important;max-height:calc(100dvh - 112px)!important}
+body[data-site-slug=perennial-home-and-gardens] #contact{scroll-margin-top:110px;padding-block:48px!important}
+body[data-site-slug=perennial-home-and-gardens] #contact .contactGrid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;align-items:start!important;gap:32px!important}
+body[data-site-slug=perennial-home-and-gardens] #contact h2{font-size:clamp(30px,4vw,48px)!important;line-height:1.12!important;margin:10px 0 14px!important}
+body[data-site-slug=perennial-home-and-gardens] #contact .contactGrid>div>p{font-size:17px!important;line-height:1.6!important}
+body[data-site-slug=perennial-home-and-gardens] #contact .contactMeta{font-size:14px!important;line-height:1.55!important;padding:16px!important}
+body[data-site-slug=perennial-home-and-gardens] #contact form{width:100%!important;min-width:0!important;padding:26px!important;border-radius:18px!important;box-sizing:border-box!important}
+body[data-site-slug=perennial-home-and-gardens] #contact :is(input,select,textarea){box-sizing:border-box!important;min-width:0!important;max-width:100%!important;width:100%!important;font:16px/1.5 Georgia,serif!important;padding:12px!important;border-radius:10px!important}
+body[data-site-slug=perennial-home-and-gardens] #contact textarea{min-height:150px!important}
+body[data-site-slug=perennial-home-and-gardens] #contact .field{min-width:0!important;margin-bottom:18px!important}
+body[data-site-slug=perennial-home-and-gardens] #contact label{font-size:12px!important;line-height:1.5!important;letter-spacing:.08em!important}
+body[data-site-slug=perennial-home-and-gardens] #contact button[type=submit]{font:600 16px/1.4 Georgia,serif!important;min-height:46px!important;padding:12px 24px!important}
+body[data-site-slug=perennial-home-and-gardens] footer.footer{padding:24px 0!important}
+body[data-site-slug=perennial-home-and-gardens] footer .footerGrid{align-items:end!important;gap:22px!important}
+body[data-site-slug=perennial-home-and-gardens] footer .footlogo{display:block!important;width:170px!important;margin-bottom:4px!important}
+body[data-site-slug=perennial-home-and-gardens] footer .footlogo+p{margin:4px 0 12px!important}
+body[data-site-slug=perennial-home-and-gardens] footer .wrap.small{margin-top:16px!important}
+body[data-site-slug=perennial-home-and-gardens] footer .footerLegal{display:flex!important;gap:8px 14px!important;flex-wrap:wrap!important;align-items:center!important;font-size:11px!important}
+@media(max-width:760px){
+ body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header .b20WoodBar{height:86px!important;min-height:86px!important}
+ body[data-site-slug=perennial-home-and-gardens] .b21StickyBrand.phg-compact-header .b20Logo img{height:72px!important;max-width:calc(100vw - 170px)!important}
+ body[data-site-slug=perennial-home-and-gardens] #contact .contactGrid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:20px!important;padding-inline:20px!important}
+ body[data-site-slug=perennial-home-and-gardens] #contact .contactMeta{background:none!important;padding:0!important;margin:8px 0 0!important;color:#e5d9cd!important}
+ body[data-site-slug=perennial-home-and-gardens] #contact form{padding:22px!important}
+ body[data-site-slug=perennial-home-and-gardens] #contact form .grid.g2{grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+ body[data-site-slug=perennial-home-and-gardens] #contact button[type=submit]{width:100%!important}
+ body[data-site-slug=perennial-home-and-gardens] #contact{padding-block:32px!important}
+ body[data-site-slug=perennial-home-and-gardens] .assistantAvatar{width:60px!important;height:72px!important}
+ body[data-site-slug=perennial-home-and-gardens] footer .footerGrid{grid-template-columns:1fr 1fr!important}
+ body[data-site-slug=perennial-home-and-gardens] footer .footerGrid>div:first-child{grid-column:1/-1!important}
+}
+@media(prefers-reduced-motion:reduce){.b21StickyBrand{transition:none!important}}

@@ -127,7 +127,9 @@ function gardenNavigation(){
  host.querySelectorAll('.desktopShare,.desktopJoin,.site-app-desktop').forEach(n=>n.remove());
  music.innerHTML='<span class="phg-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>';
  music.setAttribute('aria-label','Open Perennial Home and Gardens jukebox');music.removeAttribute('onclick');
- host.append(music,menu);menu.setAttribute('aria-controls','navlinks');menu.setAttribute('aria-expanded','false');
+ host.append(music,menu);
+ const wood=$('.b20WoodBar');if(wood){wood.append(host,nav);$('.b21StickyBrand')?.classList.add('phg-compact-header');}
+ menu.setAttribute('aria-controls','navlinks');menu.setAttribute('aria-expanded','false');
  menu.setAttribute('aria-label','Open navigation');nav.setAttribute('aria-label','Full navigation');
  const close=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');};
  window.toggleMenu=()=>{const open=!nav.classList.contains('open');if(open){$('#ap')?.classList.remove('on');}nav.classList.toggle('open',open);menu.setAttribute('aria-expanded',String(open));};
@@ -175,12 +177,67 @@ function gardenAssistant(){
  const response=$('#tanyaResponse');if(response)response.textContent='Ask about our services, garden tools, plants, soil, growing seasons or a specific garden problem.';
 }
 
+
+function gardenRefinements(){
+ const contact=$('#contact');
+ if(contact){
+  const intro=contact.querySelector('.contactGrid>div');
+  if(intro){const h=intro.querySelector('h2'),p=intro.querySelector('p'),meta=intro.querySelector('.contactMeta');if(h)h.textContent='How can we help?';if(p)p.textContent='Choose a topic and send us a message.';if(meta)meta.textContent='Garden help, products and partnerships are welcome.';}
+  for(const id of ['reason','cn','ce','cm']){const input=document.getElementById(id);const label=input?.closest('.field')?.querySelector('label');if(label)label.htmlFor=id;}
+  $('#cn')?.setAttribute('autocomplete','name');$('#ce')?.setAttribute('autocomplete','email');
+  const reasonLabel=$('#reason')?.closest('.field')?.querySelector('label');if(reasonLabel)reasonLabel.textContent='Topic';
+  const button=contact.querySelector('[type=submit]');if(button)button.textContent='Send message';
+  const old=window.updateContactPrompt;
+  if(old){window.updateContactPrompt=()=>{old();const m=$('#cm');if(m&&m.value===m.placeholder)m.value='';};window.updateContactPrompt();}
+ }
+ const footer=$('footer');const install=footer?.querySelector('.site-app-footer-text');if(install)footer.querySelector('.footerLegal')?.append(install);
+ const header=$('.b21StickyBrand');
+ if(header){
+  const embedded=window.top!==window.self;if(embedded){header.hidden=true;header.style.setProperty('display','none','important');}
+  else{
+   let previous=scrollY;
+   addEventListener('scroll',()=>{const y=scrollY,delta=y-previous;previous=y;
+    const appPage=location.pathname.includes('/tools/');
+    const inApp=appPage||all('.b17Preview').some(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4;});
+    if(!inApp||y<100||delta< -3||$('#navlinks.open')||header.contains(document.activeElement))header.classList.remove('phg-header-away');
+    else if(delta>3)header.classList.add('phg-header-away');
+   },{passive:true});
+   header.addEventListener('focusin',()=>header.classList.remove('phg-header-away'));
+  }
+ }
+ all('a[href="#blog"]').forEach(a=>{if(a.textContent.trim()==='Blog')a.textContent='Articles';});
+ if(!location.pathname.includes('/tools/'))gardenPrompts();
+}
+function gardenPrompts(){
+ const read=k=>{try{return sessionStorage.getItem(k);}catch{return null;}};
+ const save=k=>{try{sessionStorage.setItem(k,'1');}catch{}};
+ const claimed=()=>{try{return localStorage.getItem('phg_freebie_claimed')==='1';}catch{return false;}};
+ const busy=()=>document.hidden||!!$('dialog[open],.modal.on,#ap.on,#navlinks.open')||!!document.activeElement?.closest('form')||all('.b17Preview').some(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4;});
+ const start=Date.now();
+ const tick=setInterval(()=>{
+  const elapsed=Date.now()-start;
+  if(elapsed>=15000&&!read('phg-b3-resource-offer')){
+   if(claimed()){save('phg-b3-resource-offer');}
+   else if(!busy()){save('phg-b3-resource-offer');window.openFreebie?.('welcome');}
+  }
+  if(elapsed>=300000&&!read('phg-b3-tool-offer')&&!busy()){
+   save('phg-b3-tool-offer');
+   const d=dialog('x-jukebox','Make room for your next garden idea');
+   d.id='phg-tool-prompt';
+   d.append(el('p','','Plan your space, check your growing zone and track your garden with our free tools. No account is needed.'));
+   const a=el('a','x-action x-wide','Explore free garden tools');a.href='#tools';a.onclick=()=>d.close();d.append(a);d.showModal();
+  }
+  if(read('phg-b3-resource-offer')&&read('phg-b3-tool-offer'))clearInterval(tick);
+ },1000);
+ addEventListener('pagehide',()=>clearInterval(tick),{once:true});
+}
+
 function init(){
  const body=document.body;body.dataset.siteSlug=cfg.slug;for(const [key,value] of Object.entries({high:cfg.high,mid:cfg.mid,low:cfg.low,ink:cfg.ink}))body.style.setProperty('--x-'+key,value);
- const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261020-garden');document.head.append(link);
+ const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261020-build3');document.head.append(link);
  function syncTheme(){const m=getComputedStyle(document.body).color.match(/[\d.]+/g)||[240,240,240];const light=cfg.slug!=='ie'&&(+m[0]*.2126 + +m[1]*.7152 + +m[2]*.0722)<145;body.style.setProperty('--x-panel',light?'#f1eee7':'#0c100f');body.style.setProperty('--x-text',light?'#262923':'#eee');}
  syncTheme();for(const n of [document.body,document.documentElement])new MutationObserver(syncTheme).observe(n,{attributes:true,attributeFilter:['class','data-theme']});
- gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();
+ gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();gardenRefinements();
  // ETP creates its jukebox on demand, so apply the same branding when it appears.
  if(cfg.slug==='examine-the-past-home')new MutationObserver(()=>{if($('.etp-jukebox-card:not(.x-native-panel)'))brandNative();}).observe(document.body,{childList:true,subtree:true});
 }
