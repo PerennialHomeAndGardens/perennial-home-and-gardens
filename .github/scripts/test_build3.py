@@ -123,6 +123,10 @@ async def main():
         await page.get_by_role("button",name="Comfort",exact=True).click()
         assert await page.locator("#ie-comfort-panel").is_visible()
         print("COMFORT",await page.locator("#ie-comfort-panel").inner_text())
+        await page.get_by_role("button",name="Lights on",exact=True).click()
+        assert await page.locator("body").get_attribute("data-comfort-shade")=="on"
+        await page.get_by_role("button",name="Lights off",exact=True).click()
+        assert await page.locator("body").get_attribute("data-comfort-shade")=="off"
         await page.keyboard.press("Escape")
         await page.get_by_role("button",name="Listen",exact=True).click()
         assert await page.locator("#read-settings").is_visible()
@@ -134,6 +138,7 @@ async def main():
         await prompt.goto("http://127.0.0.1:8765",wait_until="load")
         await prompt.wait_for_selector(".phg-compact-header")
         await prompt.clock.fast_forward(16000)
+        print("PROMPT STATE",await prompt.evaluate("""()=>({hidden:document.hidden,resource:sessionStorage.getItem('phg-b3-resource-offer'),claimed:localStorage.getItem('phg_freebie_claimed'),opener:typeof window.openFreebie,busy:[...document.querySelectorAll('dialog[open],.modal.on,#ap.on,#navlinks.open')].map(n=>n.id),active:document.activeElement?.outerHTML.slice(0,200),app:[...document.querySelectorAll('.b17Preview')].filter(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4}).map(n=>n.id)})"""))
         assert await prompt.locator("#freebieModal.on").is_visible()
         await prompt.evaluate("closeFreebie()")
         await prompt.clock.fast_forward(285000)
