@@ -38,9 +38,32 @@ button{font:inherit}.go{padding:11px 15px;border:0;border-radius:10px;background
 <link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
 </head>
-<body>
+<body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
+</a>
+</div><nav class="nav"><div class="navin newNavIn">
+<div class="navlinks" id="navlinks">
+<button class="mobileNavAction" onclick="toggleShare()">Share</button>
+<button class="mobileNavAction joinDrop" onclick="openJoin()">Join</button>
+<div class="navSide navSideLeft"><a href="/#tools">Garden Apps</a>
+<a href="/#services">Services</a>
+<a href="/#courses">Courses</a>
+<a href="/#shop">Garden Structures</a></div>
+<a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
+<a href="/#blog">Blog</a>
+<a href="/#about">About</a>
+<a href="/#contact">Contact</a></div>
+</div>
+<div class="actions newActions">
+<button class="cleanMusic" id="music" onclick="toggleMusic()" title="Garden music">♫</button>
+<button class="desktopShare" onclick="toggleShare()">Share</button>
+<button class="desktopJoin" onclick="openJoin()">Join</button>
+<button aria-label="Menu" class="cleanMenu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</div>
+</div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
 <div class="top">Perennial Home &amp; Gardens • Free Garden Apps</div>
-<header><div class="bar"><div class="left"><a class="link" href="../../#tools">← Garden Apps</a></div><div class="brand"><b>Perennial Home &amp; Gardens</b><small>Plan it. Grow it. Live it.</small></div><div class="right"><a class="link" href="../../">Home</a></div></div></header>
+
 <section class="hero"><div class="eyebrow">Free Garden App • Tool Build 01</div><h1>Seasonal Garden Calendar</h1><p>Choose your USDA growing zone and month to see practical garden work for right now—planting, perennial care, soil, watering, pest checks and harvest tasks. Check tasks off as you complete them.</p><div class="badges"><span class="badge">Free to use</span><span class="badge">No sign-in required</span><span class="badge">Progress saves on this device</span></div></section>
 <main class="shell"><div class="app"><section class="controls"><div class="grid">
 <div><label class="cap">USDA Growing Zone</label><select id="zone"></select></div>
@@ -90,4 +113,4 @@ document.getElementById("update").onclick=()=>{active="All";filters();render()};
 @media(max-width:620px){.phg-my-garden-link{right:8px;bottom:8px;padding:9px 11px;font-size:10px}}
 </style>
 <a class="phg-my-garden-link" href="../my-garden/" aria-label="Open My Garden dashboard">MY GARDEN</a>
-</body></html>
+<script src="/app-assets/install.js?v=20261020-build3"></script></body></html>

@@ -37,9 +37,32 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 <link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
 </head>
-<body>
+<body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
+</a>
+</div><nav class="nav"><div class="navin newNavIn">
+<div class="navlinks" id="navlinks">
+<button class="mobileNavAction" onclick="toggleShare()">Share</button>
+<button class="mobileNavAction joinDrop" onclick="openJoin()">Join</button>
+<div class="navSide navSideLeft"><a href="/#tools">Garden Apps</a>
+<a href="/#services">Services</a>
+<a href="/#courses">Courses</a>
+<a href="/#shop">Garden Structures</a></div>
+<a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
+<a href="/#blog">Blog</a>
+<a href="/#about">About</a>
+<a href="/#contact">Contact</a></div>
+</div>
+<div class="actions newActions">
+<button class="cleanMusic" id="music" onclick="toggleMusic()" title="Garden music">♫</button>
+<button class="desktopShare" onclick="toggleShare()">Share</button>
+<button class="desktopJoin" onclick="openJoin()">Join</button>
+<button aria-label="Menu" class="cleanMenu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</div>
+</div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
 <div class="topnote">Perennial Home & Gardens • Advanced Garden Identifier</div>
-<header><div class="bar"><div class="brand"><strong>Plant, Pest & Disease Identifier</strong><span>Photo Preflight · Visual Cues · Guided Screening · Garden History</span></div><nav class="nav"><a class="garden" href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../garden-library/">Library</a><a href="../garden-journal/">Journal</a></nav></div></header>
+
 
 <section class="hero">
  <div class="eyebrow">Build 6 • Identifier Upgrade</div>
@@ -164,5 +187,5 @@ $("saveReport").onclick=()=>{const key="phgGardenHealthReports";let a=[];try{a=J
 $("tryAI").onclick=async()=>{const btn=$("tryAI"),status=$("aiStatus"),dot=$("aiDot");btn.disabled=true;status.textContent="Checking secure endpoint…";try{const r=await fetch("../../api/identify",{method:"OPTIONS",cache:"no-store"});if(r.ok){status.textContent="Secure endpoint detected";dot.classList.add("ready")}else throw 0}catch(e){status.textContent="Secure backend not connected yet";dot.classList.remove("ready")}finally{btn.disabled=false}};
 fetch("../garden-library/plant_profiles.json").then(r=>r.json()).then(d=>{const list=$("plantList");d.slice(0,2703).forEach(p=>{const o=document.createElement("option");o.value=p.displayName&&p.displayName!==p.scientificName?p.displayName+" — "+p.scientificName:p.scientificName;list.appendChild(o)})}).catch(()=>{});
 </script>
-</body>
+<script src="/app-assets/install.js?v=20261020-build3"></script></body>
 </html>

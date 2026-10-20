@@ -1326,7 +1326,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Perennial Gardens">
-<script defer src="app-assets/install.js"></script>
+<script defer src="app-assets/install.js?v=20261020-build3"></script>
 <link rel="icon" type="image/png" sizes="64x64" href="app-assets/icon-64-large-20261015.png">
 <link rel="apple-touch-icon" sizes="180x180" href="app-assets/icon-180-large-20261015.png">
 </head><body>
@@ -1942,15 +1942,7 @@ function showToolPreview(kind){
   };
   show(previews[kind] || '<h2>Garden Tool</h2><p>Explore practical guidance and planning support from Perennial Home & Gardens.</p>');
 }
-function scheduleFreebiePopup(){
-  if(localStorage.getItem('phg_freebie_seen')==='1') return;
-  setTimeout(()=>{
-    if(localStorage.getItem('phg_freebie_seen')!=='1'){
-      const box=document.getElementById('freebieModal');
-      if(box) box.classList.add('on');
-    }
-  }, 300000);
-}
+function scheduleFreebiePopup(){}
 function closeFreebie(){
   localStorage.setItem('phg_freebie_seen','1');
   const box=document.getElementById('freebieModal');
@@ -2046,10 +2038,7 @@ function joinSend(){
   const h=(document.getElementById('jh')||{}).value||'';
   if(!valid.test(e.trim())){alert('Please enter a valid email address.'); return;}
   try{localStorage.setItem('phg_join_interest', JSON.stringify({name:n,email:e,grow:g,hope:h,time:new Date().toISOString()}));}catch(err){}
-  location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('[Perennial Website] Community Signup — '+n)+'&body='+encodeURIComponent('Name: '+n+'
-Email: '+e+'
-What they hope to grow: '+g+'
-What they hope to gain: '+h);
+  location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('[Perennial Website] Community Signup — '+n)+'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+e+'\nWhat they hope to grow: '+g+'\nWhat they hope to gain: '+h);
 }
 
 /* Better freebie timing */
@@ -2066,7 +2055,7 @@ function _setFreebieContent(kind){
     if(btn) btn.textContent='Open my free resources';
   }else{
     if(h2) h2.textContent='A welcome gift for visiting Perennial.';
-    if(intro) intro.textContent='Join our list and open the current free-resource folder. It includes the featured worksheets and may include added resources as the collection grows.';
+    if(intro) intro.textContent='Open the current free-resource folder with the form below. It includes the featured worksheets and may include added resources as the collection grows.';
     if(fine) fine.textContent='This welcome pop-up stays light and easy to close.';
     if(btn) btn.textContent='Send me the free worksheets';
   }
@@ -2093,10 +2082,7 @@ function claimFreebie(){
   closeFreebie();
   window.open(FREEBIE_LINK, '_blank');
 }
-window.addEventListener('load', ()=>{
-  setTimeout(()=>{ if(localStorage.getItem('phg_freebie_claimed')!=='1') openFreebie('welcome'); }, 10000);
-  setTimeout(()=>{ if(localStorage.getItem('phg_freebie_claimed')!=='1') openFreebie('reminder'); }, 300000);
-});
+
 </script>
 <script id="build16-scripts">
 function updateContactPrompt(){

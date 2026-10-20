@@ -44,16 +44,33 @@ button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
 <link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
 </head>
-<body>
+<body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
+</a>
+</div><nav class="nav"><div class="navin newNavIn">
+<div class="navlinks" id="navlinks">
+<button class="mobileNavAction" onclick="toggleShare()">Share</button>
+<button class="mobileNavAction joinDrop" onclick="openJoin()">Join</button>
+<div class="navSide navSideLeft"><a href="/#tools">Garden Apps</a>
+<a href="/#services">Services</a>
+<a href="/#courses">Courses</a>
+<a href="/#shop">Garden Structures</a></div>
+<a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
+<a href="/#blog">Blog</a>
+<a href="/#about">About</a>
+<a href="/#contact">Contact</a></div>
+</div>
+<div class="actions newActions">
+<button class="cleanMusic" id="music" onclick="toggleMusic()" title="Garden music">♫</button>
+<button class="desktopShare" onclick="toggleShare()">Share</button>
+<button class="desktopJoin" onclick="openJoin()">Join</button>
+<button aria-label="Menu" class="cleanMenu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</div>
+</div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
 <div id="app">
 <div class="top">Perennial Home & Gardens • Garden Planner Generation 2</div>
-<header class="header">
- <button class="pill mobile-toggle" id="openLibrary">☰ Add</button>
- <div class="brand"><strong>Garden Planner Gen 2</strong><span>Map My Garden Space · Intelligent 2D Planning</span></div>
- <div class="header-actions">
-  <a class="pill" href="../my-garden/" style="text-decoration:none">My Garden</a><button class="pill" id="newPlan">New</button><button class="pill" id="savePlan">Save</button><button class="pill" id="loadPlan">Layouts</button><button class="pill" id="exportPlan">Export</button><button class="pill" id="helpBtn">How it works</button><button class="pill primary" id="fitBtn">Fit Garden</button><button class="pill mobile-toggle" id="openInspector">Coach</button>
- </div>
-</header>
+
 <div class="workspace">
  <aside class="panel left" id="libraryPanel">
   <div class="panel-head"><h2>Add to Your Garden</h2><p>Choose a category or search the Garden Library catalog. Every placed item uses feet as the scale.</p></div>
@@ -217,5 +234,5 @@ const help=$("helpModal");$("helpBtn").onclick=()=>help.classList.add("show");$(
 function closeMobilePanels(){if(innerWidth<721){$("libraryPanel").classList.remove("open");$("inspector").classList.remove("open")}}$("openLibrary").onclick=()=>$("libraryPanel").classList.toggle("open");$("openInspector").onclick=()=>$("inspector").classList.toggle("open");
 renderTabs();renderSaved();render();loadCatalog();
 </script>
-</body>
+<script src="/app-assets/install.js?v=20261020-build3"></script></body>
 </html>
