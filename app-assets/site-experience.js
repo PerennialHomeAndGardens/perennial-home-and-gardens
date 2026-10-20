@@ -144,17 +144,18 @@ function gardenAssistant(){
  const normalize=s=>s.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
  const stop=new Set('a an the i my me you your our we do does can could would should how what when where why is are of for to and in with it this that on about please tell want need have has us get'.split(' '));
  function find(question,kb){
-  const q=normalize(question),tokens=new Set(q.split(' ').filter(t=>t.length>2&&!stop.has(t)));
+  const q=normalize(question),stem=t=>t.length>4?t.replace(/ies$/,'y').replace(/s$/,''):t;
+  const words=text=>[...new Set(normalize(text).split(' ').filter(t=>t.length>2&&!stop.has(t)).map(stem))];
+  const exact=kb.entries.find(e=>normalize(e.question)===q);if(exact)return exact;
+  const tokens=words(question),docs=kb.entries.map(e=>new Set(words(e.question+' '+(e.keywords||''))));
   let best=null,score=0;
-  for(const e of kb.entries){let n=0;
-   for(const p of e.phrases||[])if(q.includes(normalize(p)))n+=6+normalize(p).split(' ').length*3;
-   const terms=new Set(normalize(e.question+' '+(e.keywords||'')).split(' ').filter(t=>t.length>2&&!stop.has(t)));
-   for(const t of tokens)if(terms.has(t))n+=2;
-   if(e.exclude?.some(p=>q.includes(normalize(p))))n=0;
+  for(let i=0;i<kb.entries.length;i++){const e=kb.entries[i];let n=0;
+   for(const p of e.phrases||[])if((' '+q+' ').includes(' '+normalize(p)+' '))n+=6+normalize(p).split(' ').length*2;
+   for(const t of tokens)if(docs[i].has(t)){const count=docs.filter(d=>d.has(t)).length;n+=2+Math.log(kb.entries.length/count)*2;}
+   if(e.exclude?.some(p=>(' '+q+' ').includes(' '+normalize(p)+' ')))n=0;
    if(n>score){score=n;best=e;}
   }
-  if(score<5&&last&&/^(and |what about |how often|how much|when should|why |what if)/.test(q))return last;
-  return score>=5?best:null;
+  return score>=7?best:null;
  }
  function bubble(label,text){const b=el('div','bubble'),strong=el('b','',label+': ');b.append(strong,document.createTextNode(text));chat.append(b);return b;}
  function appendAnswer(record){

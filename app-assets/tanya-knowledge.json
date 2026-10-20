@@ -26,7 +26,7 @@
         "how old is the business",
         "a decade"
       ],
-      "keywords": "business established founded experience ten years",
+      "keywords": "business established founded experience ten years operating operated years business started founded anniversary decade",
       "answer": "Perennial Home & Gardens has been in business for a decade—10 years. We combine that experience with practical guidance, planning tools, educational resources and local garden support.",
       "link": "#about",
       "linkLabel": "View this section →"
@@ -54,7 +54,7 @@
         "virtual consultation",
         "online consultation"
       ],
-      "keywords": "consulting troubleshoot virtual appointment remote",
+      "keywords": "consulting troubleshoot virtual appointment remote consultation consult online book coaching virtual appointment",
       "answer": "Garden Coaching offers one-on-one help with planning, troubleshooting, seasonal questions and next steps. Choose Schedule an Appointment under Services, or contact us with your location, garden goals and photos. Ask which questions can be handled virtually; scheduling is confirmed directly.",
       "link": "#services",
       "linkLabel": "View this section →"
@@ -82,7 +82,7 @@
         "installation services",
         "install my garden"
       ],
-      "keywords": "local install construction build raised beds",
+      "keywords": "local install construction build raised beds install installation raised bed vegetable service building come",
       "answer": "The site offers local installation support for raised beds and edible gardens, depending on the site, materials and project scope. Choose Request a Free Consultation under Garden Installation. Coverage, availability and the final quote are confirmed after reviewing your project.",
       "link": "#services",
       "linkLabel": "View this section →"
@@ -98,7 +98,7 @@
         "washington metropolitan",
         "do you serve"
       ],
-      "keywords": "location address waldorf maryland dmv washington local",
+      "keywords": "location address waldorf maryland dmv washington local located location based provide services serve service area",
       "answer": "Local services focus on Southern Maryland and the Washington metropolitan area. Digital tools and resources are intended for gardeners across U.S. growing zones. Contact us with your ZIP code to confirm an individual project's coverage.",
       "link": "#contact",
       "linkLabel": "View this section →"
@@ -174,7 +174,7 @@
         "membership",
         "become a member"
       ],
-      "keywords": "join community founding garden subscribe paid account",
+      "keywords": "join community founding garden subscribe paid account join community membership button",
       "answer": "Join opens the Perennial community interest form for your name, email, what you hope to grow and what you hope to gain. It is a way to express interest in resources and updates. The current page does not establish a paid membership price or guarantee account features. Find Join at the top of the menu.",
       "link": "#contact",
       "linkLabel": "View this section →"
@@ -202,7 +202,7 @@
         "share button",
         "copy link"
       ],
-      "keywords": "sharing facebook pinterest email",
+      "keywords": "sharing facebook pinterest email share sharing website",
       "answer": "Open the menu and choose Share. The existing share panel offers Facebook, Pinterest, Email and Copy link. Choose the option you prefer."
     },
     {
@@ -228,7 +228,7 @@
         "gardening foundations",
         "advanced garden systems"
       ],
-      "keywords": "beginner intermediate courses certificate lessons training",
+      "keywords": "beginner intermediate courses certificate lessons training courses course certificate ready enrollment training lessons",
       "answer": "The site previews three levels: Gardening Foundations for beginners, Garden Planning & Production for intermediate learners, and Advanced Garden Systems for experienced growers. The current buttons open course previews. Full lesson access, enrollment, progress tracking and certificates are not confirmed as available.",
       "link": "#courses",
       "linkLabel": "View this section →"
@@ -461,7 +461,7 @@
         "my garden dashboard",
         "my garden tool"
       ],
-      "keywords": "dashboard garden organization plots",
+      "keywords": "dashboard garden organization plots my garden",
       "answer": "My Garden is a garden organization tool. Check its current save behavior and any export or backup options before relying on it as your only record.",
       "link": "tools/my-garden/",
       "linkLabel": "Open the garden tool →"
@@ -520,7 +520,7 @@
         "sync",
         "offline"
       ],
-      "keywords": "storage browser account backups saved privacy",
+      "keywords": "storage browser account backups saved privacy second device another device saved data synchronize sync browser",
       "answer": "Do not assume that app installation synchronizes your records. Browser-local records belong to that browser and device and can disappear if storage is cleared. Review the individual tool's save, export and account information, and keep a backup.",
       "link": "#tools",
       "linkLabel": "View this section →"
