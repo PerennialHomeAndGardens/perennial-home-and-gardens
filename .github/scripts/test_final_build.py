@@ -82,5 +82,13 @@ async def main():
   await juke.locator('.x-dialog-heading button').click()
   print('PASS article links, mobile contact, original brown gradient, icon labels and retained jukebox categories')
   assert not errors,errors
+  # Browser clock exercises the two prompt thresholds without a real two-minute delay.
+  prompt_context=await browser.new_context();prompt_page=await prompt_context.new_page();await prompt_page.clock.install();await prompt_page.goto(URL,wait_until='load');await prompt_page.wait_for_selector('#ap[data-enhanced]',state='attached')
+  await prompt_page.clock.fast_forward(24000);assert not await prompt_page.locator('#freebieModal').is_visible()
+  await prompt_page.clock.fast_forward(1000);assert await prompt_page.locator('#freebieModal').is_visible()
+  await prompt_page.evaluate('closeFreebie()');await prompt_page.clock.fast_forward(94000);assert await prompt_page.locator('#phg-newsletter-prompt').count()==0
+  await prompt_page.clock.fast_forward(1000);assert await prompt_page.locator('#phg-newsletter-prompt').is_visible();assert 'Monthly garden ideas, free gifts and coupons' in await prompt_page.locator('#phg-newsletter-prompt').inner_text()
+  await prompt_page.locator('#phg-newsletter-prompt .x-dialog-heading button').click();await prompt_page.clock.fast_forward(180000);assert not await prompt_page.locator('dialog[open],.modal.on').count()
+  print('PASS resource prompt at25seconds and distinct newsletter prompt at120seconds, once per visit')
   await browser.close();print('PASS no uncaught page errors')
 asyncio.run(main());server.shutdown()
