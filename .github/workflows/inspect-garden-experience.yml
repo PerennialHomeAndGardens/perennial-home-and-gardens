@@ -1,0 +1,25 @@
+name: Inspect garden experience
+on:
+  push:
+    paths: ['.github/workflows/inspect-garden-experience.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect navigation and assistant
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          s=Path('index.html').read_text()
+          s=re.sub(r'data:[^;"\s]+;base64,[A-Za-z0-9+/=]+','[embedded asset]',s)
+          print('SOURCE SIZE',len(s))
+          for pattern in [r'<header\b.*?</header>',r'<nav\b.*?</nav>',r'<script\b[^>]*src=[^>]+>']:
+              for m in re.finditer(pattern,s,re.S|re.I): print(m[0][:22000])
+          for line in s.splitlines():
+              if re.search(r'assist|tanya|faithful|navlinks|newActions|menuToggle',line,re.I):
+                  print(line[:6000])
+          PY
