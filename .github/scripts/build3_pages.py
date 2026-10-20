@@ -8,6 +8,12 @@ assert n==1
 s,n=re.subn(r"window.addEventListener\('load', \(\)=>\{\s*setTimeout\(\(\)=>\{ if\(localStorage.getItem\('phg_freebie_claimed'\).*?\}, 10000\);\s*setTimeout\(\(\)=>\{ if\(localStorage.getItem\('phg_freebie_claimed'\).*?\}, 300000\);\s*\}\);","",s,count=1,flags=re.S)
 assert n==1
 s=re.sub(r'(app-assets/install\.js)(?:\?[^"\s<>]*)?',r'\1?v=20261020-build3',s)
+# Repair the older community form's literal newlines so its welcome functions can load.
+broken="+n+'\nEmail: '+e+'\nWhat they hope to grow: '+g+'\nWhat they hope to gain: '+h"
+fixed="+n+'\\nEmail: '+e+'\\nWhat they hope to grow: '+g+'\\nWhat they hope to gain: '+h"
+assert broken in s
+s=s.replace(broken,fixed)
+s=s.replace('Join our list and open the current free-resource folder.', 'Open the current free-resource folder with the form below.')
 p.write_text(s)
 soup=BeautifulSoup(s,'html.parser')
 header=soup.select_one('.b21StickyBrand')
