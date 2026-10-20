@@ -39,7 +39,8 @@ async def main():
             assert await page.locator("#navlinks .joinDrop").is_visible()
             assert await page.locator("#navlinks .site-app-menu").is_visible()
             assert await page.locator("#navlinks a").count()==9
-            await page.locator(".assistantAvatar").click()
+            avatar=await page.locator(".assistantAvatar").bounding_box()
+            await page.mouse.click(avatar["x"]+avatar["width"]/2,avatar["y"]+avatar["height"]/2)
             assert await page.locator("#ap").is_visible()
             assert not await page.locator("#navlinks").is_visible()
             await page.evaluate("toggleAssistant()")
