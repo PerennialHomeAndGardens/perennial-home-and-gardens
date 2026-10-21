@@ -76,6 +76,18 @@ with zipfile.ZipFile(O/'perennial-garden-guide-editing-kit.zip','w',zipfile.ZIP_
 # User-initiated native playback while the requested YouTube upload awaits account access.
 from bs4 import BeautifulSoup as Soup
 p=R/'help/index.html';d=Soup(p.read_text(),'html.parser');section=d.select_one('.guide-intro')
+for old in section.select('.phg-guide-video'):old.decompose()
+for old in section.select('a[href*="perennial-garden-guide-editing-kit"]'):
+ parent=old.find_parent('p')
+ if parent:parent.decompose()
+ else:old.decompose()
 v=d.new_tag('video',attrs={'class':'phg-guide-video','controls':'','preload':'metadata','playsinline':'','poster':'/help/media/frames/01-frame.png','aria-label':'Getting Started With My Garden tutorial'});v.append(d.new_tag('source',src='/help/media/getting-started-with-my-garden.mp4',type='video/mp4'));v.append(d.new_tag('track',kind='captions',src='/help/media/my-garden-captions.vtt',srclang='en',label='English'));section.append(v)
 a=d.new_tag('p');a.append(Soup('<a href="/help/media/perennial-garden-guide-editing-kit.zip">Download the tutorial editing kit</a>','html.parser'));section.append(a);p.write_text(str(d))
+config=O/'tutorial-config.json'
+if not config.exists():config.write_text(json.dumps({'youtubeVideoId':None,'title':'Perennial Garden Guides | Getting Started With My Garden','autoplay':False},indent=2))
+script=R/'app-assets/garden-guide-video.js'
+script.write_text("(()=>{const v=document.querySelector('.phg-guide-video');if(!v)return;v.addEventListener('play',()=>document.querySelectorAll('audio,video').forEach(a=>{if(a!==v)a.pause();}));fetch('/help/media/tutorial-config.json').then(r=>r.json()).then(c=>{if(!/^[A-Za-z0-9_-]{11}$/.test(c.youtubeVideoId||''))return;const f=document.createElement('iframe');f.title=c.title;f.src='https://www.youtube-nocookie.com/embed/'+c.youtubeVideoId+'?rel=0';f.allow='accelerometer; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;f.loading='lazy';v.replaceWith(f);}).catch(()=>{});})();")
+d=Soup(p.read_text(),'html.parser')
+if not d.select_one('script[src="/app-assets/garden-guide-video.js"]'):d.body.append(d.new_tag('script',src='/app-assets/garden-guide-video.js',defer=''))
+p.write_text(str(d))
 print('Produced14 real-site frames; user audio duration',duration)
