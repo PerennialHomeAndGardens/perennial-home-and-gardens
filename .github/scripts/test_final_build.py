@@ -25,7 +25,11 @@ async def main():
   await harvest.click();assert '/tools/harvest-records/' in page.url
   for path in sorted(Path('tools').glob('*/index.html')):
    await page.goto(URL+'/'+str(path),wait_until='load');assert await page.locator('.b21StickyBrand').count()==1;assert await page.locator('footer.phg-footer').count()==1
-  print('PASS 8 direct tool routes and 13 retained app shells')
+  await page.goto(URL+'/tools/garden-planner/',wait_until='load')
+  for control in ['newPlan','savePlan','loadPlan','exportPlan','helpBtn','fitBtn','openLibrary','openInspector']:assert await page.locator('#'+control).count()==1
+  await page.locator('#helpBtn').click();assert await page.locator('#helpModal').is_visible();await page.locator('#closeHelp').click()
+  await page.locator('#palette .tool').first.click();assert await page.locator('#gardenSvg #objectLayer > *').count()>0
+  print('PASS 8 direct tool routes, 13 retained app shells and restored Planner controls')
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached')
   for width,height in [(1440,1000),(1024,768),(768,800),(390,844),(360,640),(390,360)]:
    await page.set_viewport_size({'width':width,'height':height});await open_assistant();await page.wait_for_selector('#ap.on')

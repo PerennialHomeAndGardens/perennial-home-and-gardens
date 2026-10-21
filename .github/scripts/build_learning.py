@@ -138,7 +138,16 @@ for page in (ROOT/'tools').glob('*/index.html'):
  if page.parent.name=='my-garden':source=source.replace(');\\nconst',');\nconst').replace(';\\n const',';\n const').replace('}\\n if','}\n if').replace(');\\n if',');\n if')
  if page.parent.name=='garden-library':source=source.replace('JSON.parse(localStorage.getItem(shelfKey)||"{}")}catch(e){}','JSON.parse(localStorage.getItem(shelfKey)||"{}")}}catch(e){}')
  if page.parent.name=='garden-planner':source=source.replace('Use paths and hose/drip routes to minimize traffic through beds and avoid wetting foliage unnecessarily.</div>\';','Use paths and hose/drip routes to minimize traffic through beds and avoid wetting foliage unnecessarily.</div>";')
- d=fragment(source);old=d.select_one('.b21StickyBrand')
+ d=fragment(source)
+ if page.parent.name=='garden-planner':
+  # Recover the app controls removed by the earlier shared-header build.
+  previous=fragment(subprocess.check_output(['git','show','bcfb41c:tools/garden-planner/index.html'],cwd=ROOT).decode())
+  controls=previous.select_one('header.header');controls['class']=controls.get('class',[])+['phg-planner-controls']
+  controls.select_one('a[href*="my-garden"]')['href']='/tools/my-garden/'
+  d.select_one('#app .top').insert_after(controls)
+  style=d.new_tag('style');style.string='html,body{overflow:auto!important}#app{height:max(620px,calc(100dvh - 94px));grid-template-rows:auto auto minmax(0,1fr)}.phg-planner-controls.header{height:auto;min-height:58px;flex-wrap:wrap}.phg-planner-controls .header-actions{flex-wrap:wrap}@media(max-width:720px){#app{grid-template-rows:auto minmax(0,1fr)}.phg-planner-controls .header-actions{width:100%;margin:0}.phg-planner-controls .header-actions .pill{display:inline-flex!important}}'
+  d.head.append(style)
+ old=d.select_one('.b21StickyBrand')
  if old:old.replace_with(fragment(header_html))
  else:d.body.insert(0,fragment(header_html))
  set_footer(d)
