@@ -14,6 +14,11 @@ for b in books:
  assert covers[b['rank']]['verified'];b.update({k:v for k,v in covers[b['rank']].items() if k not in ['title','authors','rank']})
 books.sort(key=lambda b:b['rank'])
 out=R/'books';out.mkdir(exist_ok=True)
+resourcepath=R/'tools/garden-library/resource_index.json'
+resources=[x for x in json.loads(resourcepath.read_text()) if not x.get('id','').startswith('perennial-book-')]
+for b in books:
+ resources.append({'id':'perennial-book-'+str(b['rank']),'title':b['title'],'category':'Gardening Books','description':'By '+', '.join(b['authors'])+'. '+b['bestFor']+'. '+b['summary'],'url':'/books/'+b['slug']+'.html','tags':b['authors']+[b['category'],'Perennial book guide']})
+resourcepath.write_text(json.dumps(resources,ensure_ascii=False,indent=2))
 (out/'catalog.json').write_text(json.dumps({'title':'100 Notable and Influential Gardening Books','editorial':True,'affiliateEnabled':False,'books':books},ensure_ascii=False,indent=2))
 base=Soup((R/'articles/index.html').read_text(),'html.parser')
 header=str(base.select_one('.b21StickyBrand'));footer=str(base.footer)
@@ -24,7 +29,7 @@ shelf='''<section class="phg-books" id="phgBooks"><header><span class="phg-books
 shelf=shelf.replace('STATIC_LIST','<ol>'+''.join('<li><a href="/books/'+b['slug']+'.html">'+e(b['title'])+'</a> — '+e(' · '.join(b['authors']))+'</li>' for b in books)+'</ol>')
 (out/'index.html').write_text(shell('100 Notable and Influential Gardening Books','<main>'+shelf+'</main>'))
 for i,b in enumerate(books):
- credit='<a class="phg-book-cover-credit" href="'+e(b['coverSourceUrl'])+'" target="_blank" rel="noopener">'+e(b['coverCredit'])+'</a>'
+ credit='<p class="phg-book-edition">Cover artwork can vary by printing; the ISBN below identifies the referenced edition.</p><a class="phg-book-cover-credit" href="'+e(b['coverSourceUrl'])+'" target="_blank" rel="noopener">'+e(b['coverCredit'])+'</a>'
  family='<p class="phg-book-family-note">A personal connection: Jimmy Williams is Wayne’s uncle. This family relationship is part of our reason for highlighting this book, alongside its celebration of growing, cooking and passing garden knowledge between generations.</p>' if b['rank']==12 else ''
  related=[x for x in books if x['category']==b['category'] and x!=b][:3]
  body='<main class="phg-book-shell" data-book-id="'+b['slug']+'"><a class="phg-book-back" href="/tools/garden-library/#phgBooks">← Back to the Garden Library</a><header class="phg-book-head"><div><img class="phg-book-cover" src="'+e(b['coverUrl'])+'" alt="Cover of '+e(b['title'])+'">'+credit+'</div><div><span class="phg-books-kicker">Perennial’s editorial selection #'+str(b['rank'])+'</span><h1>'+e(b['title'])+'</h1><p class="phg-book-subtitle">'+e(' · '.join(b['authors']))+'</p><p class="phg-book-edition">Selected edition: '+e(b.get('editionYear',b.get('year','See source')))+' · ISBN '+e(b['isbn13'])+'</p><div class="phg-book-meta"><span>'+e(b['category'])+'</span><span>Editorial reading guide</span></div><p>'+e(b['bestFor'])+'</p><div class="phg-book-actions"><a class="phg-app-open phg-book-amazon" href="'+e(b['amazonUrl'])+'" target="_blank" rel="noopener noreferrer">View on Amazon ↗</a><button class="phg-book-save" data-book-save="'+b['slug']+'" type="button"></button></div></div></header>'+family+'<nav class="phg-book-outline" aria-label="Book guide"><a href="#summary">About the book</a><a href="#selection">Why this selection</a><a href="#use">Put it to work</a><a href="#notes">My notes</a><a href="#sources">Sources</a></nav><div class="phg-book-reading-guide"><div>'
@@ -52,4 +57,16 @@ if not p.exists():p.write_bytes(subprocess.check_output(['git','show','origin/ma
 d=Soup(p.read_text(),'html.parser')
 if not d.find(id='phg-integrated-library-link'):
  d.main.insert(0,frag('<aside id="phg-integrated-library-link"><a href="/tools/garden-library/#phgBooks">Explore the expanded Garden Library: matched covers, 100 full book guides and reading notes →</a><p>This original catalog and its saved notes remain available here.</p></aside>'))
+# Preserve the preliminary catalog and its private notes inside the shared brand shell.
+if 'phg-legacy-books' not in d.body.get('class',[]):
+ oldheader=d.find('header')
+ if oldheader:
+  intro=d.new_tag('section');intro['class']='phg-legacy-intro'
+  for item in list(oldheader.contents):intro.append(item.extract())
+  oldheader.replace_with(frag(header));d.main.insert(0,intro)
+ if d.footer:d.footer.replace_with(frag(footer))
+ d.body['class']=d.body.get('class',[])+['phg-legacy-books']
+ for style in frag(styles).select('link'):d.head.append(style)
+ for script in frag(scripts).select('script[src]'):
+  if 'garden-books.js' not in script['src']:d.body.append(script)
 p.write_text(str(d));print('Built 100 book guides and integrated the existing Garden Library; preliminary catalog preserved.')
