@@ -26,7 +26,7 @@ async def main():
    await page.locator('#tools .creamTool[href="'+r+'"]').click();await page.wait_for_url('**'+r)
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached')
   harvest=page.get_by_role('link',name='OPEN HARVEST RECORDS →',exact=True);assert 'harvest-records/' in await harvest.get_attribute('href')
-  await harvest.click();await page.wait_for_url('**/tools/harvest-records/');assert '/tools/harvest-records/' in page.url
+  await harvest.press('Enter');await page.wait_for_url('**/tools/harvest-records/');assert '/tools/harvest-records/' in page.url
   for path in sorted(Path('tools').glob('*/index.html')):
    await page.goto(URL+'/'+str(path),wait_until='load');assert await page.locator('.b21StickyBrand').count()==1;assert await page.locator('footer.phg-footer').count()==1
   await page.goto(URL+'/tools/garden-planner/',wait_until='load')
@@ -37,7 +37,7 @@ async def main():
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached')
   for width,height in [(1440,1000),(1024,768),(768,800),(390,844),(360,640),(390,360)]:
    await page.set_viewport_size({'width':width,'height':height});await open_assistant();await page.wait_for_selector('#ap.on')
-   for selector in ['.tanya-head','.tanya-categories button:first-child','.tanya-categories button:last-child','.tanya-intro','#q','.tanya-mic','.tanya-compose button:last-child','.tanya-close']:
+   for selector in ['.tanya-head','.tanya-categories button:first-child','.tanya-categories button:last-of-type','.tanya-intro','#q','.tanya-mic','.tanya-compose button:last-child','.tanya-close']:
     box=await page.locator('#ap '+selector).bounding_box();assert box and box['y']>=0 and box['y']+box['height']<=height+1,(width,height,selector,box)
    assert await page.locator('#chat').evaluate('(e)=>getComputedStyle(e).overflowY')=='auto'
    if width in [1440,390]:
