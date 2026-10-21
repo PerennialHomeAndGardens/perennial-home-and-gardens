@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Harvest Checker | Perennial Home & Gardens</title>
-<meta name="description" content="Free harvest readiness checker for vegetables, herbs, fruit and cut flowers from Perennial Home & Gardens.">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Harvest Checker | Perennial Home &amp; Gardens</title>
+<meta content="Free harvest readiness checker for vegetables, herbs, fruit and cut flowers from Perennial Home &amp; Gardens." name="description"/>
 <style>
 :root{--forest:#213622;--forest2:#35583a;--cream:#fffaf2;--paper:#fffdf8;--sage:#e3ecd9;--brown:#3b281b;--tan:#d9cbbb;--gold:#b18958;--muted:#6e655d;--ready:#dfeedd;--watch:#f6ecd8;--wait:#f3dfda}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,serif;color:var(--brown);background:linear-gradient(180deg,#f8f2e8 0,#fffdf8 34%,#f4efe6 100%)}
@@ -30,17 +31,16 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 @media(max-width:850px){.bar{grid-template-columns:1fr auto}.bar .left{display:none}.brand{text-align:left}.searchbar{grid-template-columns:1fr}.statusbox,.two{grid-template-columns:1fr}.crophead{grid-template-columns:1fr}.savebar{align-items:flex-start;flex-direction:column}}
 @media(max-width:540px){.bar{padding:8px 11px}.brand strong{font-size:21px}.brand span{font-size:9px}.hero{padding-top:33px}.hero p{font-size:16px}.shell{padding:10px 9px 48px}.app{border-radius:18px}.body{padding:16px}.searchbar{padding:13px}}
 </style>
-<link rel="manifest" href="../../manifest.webmanifest" type="application/manifest+json">
-
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Perennial Gardens">
-<script defer src="../../app-assets/install.js"></script>
-<link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
+<link href="../../manifest.webmanifest" rel="manifest" type="application/manifest+json"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Perennial Gardens" name="apple-mobile-web-app-title"/>
+<script defer="" src="../../app-assets/install.js?v=20261020-final"></script>
+<link href="../../app-assets/icon-64-large-20261015.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="../../app-assets/icon-180-large-20261015.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
 <body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
-<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/#top">
 <img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
 </a>
 </div><nav class="nav"><div class="navin newNavIn">
@@ -52,7 +52,7 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 <a href="/#courses">Courses</a>
 <a href="/#shop">Garden Structures</a></div>
 <a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
-<a href="/#blog">Blog</a>
+<a href="/articles/">Articles</a>
 <a href="/#about">About</a>
 <a href="/#contact">Contact</a></div>
 </div>
@@ -64,10 +64,7 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 </div>
 </div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
 <div class="topnote">Perennial Home &amp; Gardens • Free Garden Apps</div>
-
-
 <section class="hero"><div class="eyebrow">Free Garden App • Tool Build 04</div><h1>Harvest Checker</h1><p>Choose what you’re growing and compare what you see with practical readiness signs. Get a simple harvest recommendation, what to look for next, how to pick it, and what to do after harvest.</p><div class="badges"><span class="badge">Free to use</span><span class="badge">No sign-in required</span><span class="badge">Save crops on this device</span></div></section>
-
 <main class="shell"><div class="app">
 <section class="searchbar">
 <select id="crop"></select>
@@ -77,8 +74,7 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 <section class="body"><div class="quick" id="quick"></div><div id="content"></div>
 <div class="note"><strong>Harvest timing note:</strong> Variety, weather, soil, irrigation and intended use can change the ideal harvest stage. Use several visual and tactile signs together instead of relying on a single number or calendar date.</div>
 </section></div></main>
-<footer class="footer"><p><a href="../../">Perennial Home &amp; Gardens</a> · <a href="../../#free-resources">Free Resources</a> · <a href="../../#tools">Garden Apps</a></p><p>Use the tools for free. Build your garden record over time.</p></footer>
-
+<footer class="footer phg-footer"><div class="phg-footer-main"><div class="phg-footer-brand"><a aria-label="Perennial home" href="/"><img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/></a><p>Plan it. Grow it. Live it.</p></div><nav aria-label="Footer navigation" class="phg-footer-nav"><a href="/#tools">Garden Apps</a><a href="/#services">Services</a><a href="/#courses">Courses</a><a href="/#shop">Garden Structures</a><a href="/#free-resources">Free Resources</a><a href="/#products">Perennial Collection</a><a href="/articles/">Articles</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div><div class="phg-footer-bottom"><nav aria-label="Legal and installation" class="footerLegal"><a href="/legal/privacy.html">Privacy Policy</a><a href="/legal/terms.html">Terms of Use</a><a href="/legal/affiliate.html">Affiliate Disclosure</a><a href="/legal/cookies.html">Cookie Notice</a><a href="/legal/accessibility.html">Accessibility</a></nav><nav aria-label="Shops and social" class="phg-socials"><a href="https://pin.it/5lgbMVS4S" rel="noopener" target="_blank">Pinterest</a><a href="https://perennialhomegardens.etsy.com" rel="noopener" target="_blank">Etsy</a><a href="https://www.redbubble.com/people/perennialhandg/shop" rel="noopener" target="_blank">Redbubble</a></nav></div><p class="phg-footer-copy">© 2026 Perennial Home &amp; Gardens LLC. Product links currently go directly to vendors. Reserved partner spaces are not active advertisements.</p></footer>
 <script>
 const DATA={
 "Tomato":{type:"Vegetable",about:"Warm-season fruiting crop; harvest stage depends on variety and whether you want vine-ripened or slightly early fruit.",signals:[["Color","Fruit has developed the mature color expected for the variety."],["Feel","Fruit is firm but yields slightly to gentle pressure."],["Release","Ripe fruit usually separates easily with a gentle twist or snip."]],how:["Harvest in the cool part of the day when practical.","Twist gently or snip the stem to avoid tearing vines.","Handle ripe fruit carefully to reduce bruising."],after:["Use fully ripe tomatoes soon for best flavor.","Keep underripe tomatoes at room temperature to finish coloring.","Remove damaged fruit from the garden to reduce pest and disease pressure."]},
@@ -121,11 +117,10 @@ document.getElementById("saveBtn").onclick=()=>{let a=saved();if(a.includes(n))a
 document.getElementById("checkBtn").onclick=render;crop.onchange=render;stage.onchange=render;
 const old=JSON.parse(localStorage.getItem("phg-harvest-last")||"{}"),hash=decodeURIComponent(location.hash.replace("#","")),hashName=names.find(n=>n.toLowerCase()===hash);crop.value=hashName||old.crop||"Tomato";stage.value=old.stage||"watch";render();
 </script>
-
 <style id="phg-my-garden-link-v1">
 .phg-my-garden-link{position:fixed;right:12px;bottom:12px;z-index:9999;text-decoration:none!important;background:#294f30;color:#fff!important;border:1px solid #ffffff44;border-radius:999px;padding:10px 13px;font:700 11px Georgia,serif;box-shadow:0 10px 28px #1b2f1d40}
 .phg-my-garden-link:hover{transform:translateY(-2px)}
 @media(max-width:620px){.phg-my-garden-link{right:8px;bottom:8px;padding:9px 11px;font-size:10px}}
 </style>
-<a class="phg-my-garden-link" href="../my-garden/" aria-label="Open My Garden dashboard">MY GARDEN</a>
-<script src="/app-assets/install.js?v=20261020-build3"></script></body></html>
+<a aria-label="Open My Garden dashboard" class="phg-my-garden-link" href="../my-garden/">MY GARDEN</a>
+<script src="/app-assets/install.js?v=20261020-final"></script></body></html>

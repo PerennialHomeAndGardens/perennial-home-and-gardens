@@ -1,0 +1,292 @@
+[
+  {
+    "id": 0,
+    "title": "The First 30 Days of a Raised-Bed Garden",
+    "slug": "the-first-30-days-of-a-raised-bed-garden",
+    "url": "/articles/the-first-30-days-of-a-raised-bed-garden.html",
+    "category": "Grow Food",
+    "summary": "Use your first month to build a garden routine, not just a wooden box. Match the bed to your space, plant a small crop plan, and learn what healthy progress looks like.",
+    "words": 3170,
+    "image": "/articles/images/the-first-30-days-of-a-raised-bed-garden.svg"
+  },
+  {
+    "id": 1,
+    "title": "Cucumbers That Keep Producing",
+    "slug": "cucumbers-that-keep-producing",
+    "url": "/articles/cucumbers-that-keep-producing.html",
+    "category": "Grow Food",
+    "summary": "Steady cucumber harvests come from matching the variety, roots, flowers and harvest routine. Learn how to support a vine, read common problems and pick fruit while it is still useful in the kitchen.",
+    "words": 3007,
+    "image": "/articles/images/cucumbers-that-keep-producing.svg"
+  },
+  {
+    "id": 2,
+    "title": "Sweet Potatoes: Slips to Storage",
+    "slug": "sweet-potatoes-slips-to-storage",
+    "url": "/articles/sweet-potatoes-slips-to-storage.html",
+    "category": "Grow Food",
+    "summary": "Sweet potatoes need a warm start, enough room and gentle handling at harvest. Follow the crop from young slips to cured storage roots, with a plan that fits a home garden.",
+    "words": 3170,
+    "image": "/articles/images/sweet-potatoes-slips-to-storage.svg"
+  },
+  {
+    "id": 3,
+    "title": "Asparagus Is a Long Game",
+    "slug": "asparagus-is-a-long-game",
+    "url": "/articles/asparagus-is-a-long-game.html",
+    "category": "Grow Food",
+    "summary": "An asparagus bed is a long-term planting, so the early choices matter. Learn how to prepare the site, establish crowns, protect fern growth and build a harvest routine that leaves the plants strong.",
+    "words": 3314,
+    "image": "/articles/images/asparagus-is-a-long-game.svg"
+  },
+  {
+    "id": 4,
+    "title": "A Small Family Garden That Feeds You",
+    "slug": "a-small-family-garden-that-feeds-you",
+    "url": "/articles/a-small-family-garden-that-feeds-you.html",
+    "category": "Grow Food",
+    "summary": "A useful family garden begins with the food you enjoy, the time you have and the space you can care for. Build a small plan that reaches the kitchen instead of becoming a crowded list of crops.",
+    "words": 3174,
+    "image": "/articles/images/a-small-family-garden-that-feeds-you.svg"
+  },
+  {
+    "id": 5,
+    "title": "Lavender for Cutting, Drying & Fragrance",
+    "slug": "lavender-for-cutting-drying-fragrance",
+    "url": "/articles/lavender-for-cutting-drying-fragrance.html",
+    "category": "Flowers & Herbs",
+    "summary": "A useful lavender harvest begins long before the scissors come out. Match the plant to your space, choose stems for a clear purpose, and dry small batches with good airflow. You can keep more color and scent by watching the flowers rather than following one fixed calendar date.",
+    "words": 3044,
+    "image": "/articles/images/lavender-for-cutting-drying-fragrance.svg"
+  },
+  {
+    "id": 6,
+    "title": "Best Flowers for Dried Bouquets",
+    "slug": "best-flowers-for-dried-bouquets",
+    "url": "/articles/best-flowers-for-dried-bouquets.html",
+    "category": "Flowers & Herbs",
+    "summary": "The best dried bouquet is planned for shape, texture and the space where it will live. Learn which kinds of flowers tend to hold their form, how to harvest small test batches, and how to combine lasting stems without buying or growing more than you can use.",
+    "words": 3078,
+    "image": "/articles/images/best-flowers-for-dried-bouquets.svg"
+  },
+  {
+    "id": 7,
+    "title": "Rosemary from Starter to Kitchen Staple",
+    "slug": "rosemary-from-starter-to-kitchen-staple",
+    "url": "/articles/rosemary-from-starter-to-kitchen-staple.html",
+    "category": "Flowers & Herbs",
+    "summary": "Rosemary becomes useful when it is easy to reach, healthy enough to spare a few sprigs and clearly identified for kitchen use. Learn to choose a starter, manage water and light, take modest harvests and plan for winter without treating this woody herb like a soft annual.",
+    "words": 3066,
+    "image": "/articles/images/rosemary-from-starter-to-kitchen-staple.svg"
+  },
+  {
+    "id": 8,
+    "title": "Mint Without Regret",
+    "slug": "mint-without-regret",
+    "url": "/articles/mint-without-regret.html",
+    "category": "Flowers & Herbs",
+    "summary": "Mint can be generous, fragrant and easy to reach for a drink or meal. It can also spread far beyond the place you meant to give it. Learn to set a clear boundary, keep a container healthy, harvest useful stems and notice escapes before a small herb becomes a large garden job.",
+    "words": 3183,
+    "image": "/articles/images/mint-without-regret.svg"
+  },
+  {
+    "id": 9,
+    "title": "Comfrey in the Productive Garden",
+    "slug": "comfrey-in-the-productive-garden",
+    "url": "/articles/comfrey-in-the-productive-garden.html",
+    "category": "Flowers & Herbs",
+    "summary": "Comfrey can make a large, lasting patch of leaves and flowers. That does not make it a magic fertilizer or the right plant for every garden. Learn to judge its role, plan a durable location, use plant material thoughtfully and separate reliable evidence from claims that need a closer look.",
+    "words": 3247,
+    "image": "/articles/images/comfrey-in-the-productive-garden.svg"
+  },
+  {
+    "id": 10,
+    "title": "Design an Edible Garden That Belongs",
+    "slug": "design-an-edible-garden-that-belongs",
+    "url": "/articles/design-an-edible-garden-that-belongs.html",
+    "category": "Design & DIY",
+    "summary": "Blend food, flowers, structure and paths into a garden that fits your home and your daily life.",
+    "words": 3031,
+    "image": "/articles/images/design-an-edible-garden-that-belongs.svg"
+  },
+  {
+    "id": 11,
+    "title": "Raised Bed Sizes That Make Gardening Easier",
+    "slug": "raised-bed-sizes-that-make-gardening-easier",
+    "url": "/articles/raised-bed-sizes-that-make-gardening-easier.html",
+    "category": "Design & DIY",
+    "summary": "Choose widths, heights, lengths and paths that fit real bodies, real crops and real care routines.",
+    "words": 3087,
+    "image": "/articles/images/raised-bed-sizes-that-make-gardening-easier.svg"
+  },
+  {
+    "id": 12,
+    "title": "Empty Lawn to Productive Garden",
+    "slug": "empty-lawn-to-productive-garden",
+    "url": "/articles/empty-lawn-to-productive-garden.html",
+    "category": "Design & DIY",
+    "summary": "Plan a manageable lawn-to-garden change before buying plants, lifting sod or ordering soil.",
+    "words": 3008,
+    "image": "/articles/images/empty-lawn-to-productive-garden.svg"
+  },
+  {
+    "id": 13,
+    "title": "Build a Pollinator Strip",
+    "slug": "build-a-pollinator-strip",
+    "url": "/articles/build-a-pollinator-strip.html",
+    "category": "Design & DIY",
+    "summary": "Create a manageable band of plants that offers flowers across the season and fits the needs of your local place.",
+    "words": 3085,
+    "image": "/articles/images/build-a-pollinator-strip.svg"
+  },
+  {
+    "id": 14,
+    "title": "Drip Irrigation vs Hand Watering",
+    "slug": "drip-irrigation-vs-hand-watering",
+    "url": "/articles/drip-irrigation-vs-hand-watering.html",
+    "category": "Design & DIY",
+    "summary": "Compare effort, control and maintenance so water reaches the roots without turning your garden into a guessing game.",
+    "words": 3038,
+    "image": "/articles/images/drip-irrigation-vs-hand-watering.svg"
+  },
+  {
+    "id": 15,
+    "title": "Choosing a Backyard Greenhouse",
+    "slug": "choosing-a-backyard-greenhouse",
+    "url": "/articles/choosing-a-backyard-greenhouse.html",
+    "category": "Garden Systems",
+    "summary": "A good backyard greenhouse fits a clear growing goal, a safe site, and a care routine you can keep. Learn how to compare small structures before spending money, and build a plan for light, air, water, access, and the seasons you actually want to use.",
+    "words": 3123,
+    "image": "/articles/images/choosing-a-backyard-greenhouse.svg"
+  },
+  {
+    "id": 16,
+    "title": "Is a High Tunnel Worth It?",
+    "slug": "is-a-high-tunnel-worth-it",
+    "url": "/articles/is-a-high-tunnel-worth-it.html",
+    "category": "Garden Systems",
+    "summary": "A high tunnel can protect crops and widen your growing season, but it also creates work. Use a crop plan, a simple trial, a labor calendar, and an honest budget to decide whether this kind of protected space fits your garden.",
+    "words": 3207,
+    "image": "/articles/images/is-a-high-tunnel-worth-it.svg"
+  },
+  {
+    "id": 17,
+    "title": "Before Buying a Serious Greenhouse",
+    "slug": "before-buying-a-serious-greenhouse",
+    "url": "/articles/before-buying-a-serious-greenhouse.html",
+    "category": "Garden Systems",
+    "summary": "A larger greenhouse purchase deserves a written plan, clear specifications, and answers you can compare. Learn how to check a quote, ask useful supplier questions, prepare a site, and avoid discovering missing parts of the project after delivery.",
+    "words": 3125,
+    "image": "/articles/images/before-buying-a-serious-greenhouse.svg"
+  },
+  {
+    "id": 18,
+    "title": "Modular Metal Beds vs Wood",
+    "slug": "modular-metal-beds-vs-wood",
+    "url": "/articles/modular-metal-beds-vs-wood.html",
+    "category": "Garden Systems",
+    "summary": "Choose a bed by how it fits your body, soil, site and budget. Both wood and metal can work. The right choice is the one you can build safely, fill well and care for over time.",
+    "words": 3221,
+    "image": "/articles/images/modular-metal-beds-vs-wood.svg"
+  },
+  {
+    "id": 19,
+    "title": "Garden Infrastructure Worth Buying Once",
+    "slug": "garden-infrastructure-worth-buying-once",
+    "url": "/articles/garden-infrastructure-worth-buying-once.html",
+    "category": "Garden Systems",
+    "summary": "The most useful garden investment is often the ordinary system you use every week: a safe path, a reliable water connection, a reachable work surface, or a tool you can repair. Learn how to choose durable support without buying more than your garden needs.",
+    "words": 3132,
+    "image": "/articles/images/garden-infrastructure-worth-buying-once.svg"
+  },
+  {
+    "id": 20,
+    "title": "Why sunflowers still belong in the edible garden",
+    "slug": "why-sunflowers-still-belong-in-the-edible-garden",
+    "url": "/articles/why-sunflowers-still-belong-in-the-edible-garden.html",
+    "category": "Flowers & Herbs",
+    "summary": "A sunflower can do more than fill a vase. Choose its size and place with care, then use it to support a garden that grows food, welcomes wildlife and feels good to visit.",
+    "words": 3389,
+    "image": "/articles/images/story-0.webp"
+  },
+  {
+    "id": 21,
+    "title": "How yellow squash tells you it is happy",
+    "slug": "how-yellow-squash-tells-you-it-is-happy",
+    "url": "/articles/how-yellow-squash-tells-you-it-is-happy.html",
+    "category": "Grow Food",
+    "summary": "Yellow squash gives you useful clues through its leaves, flowers and young fruit. Learn to read those clues together, choose a helpful next step and harvest before a small squash becomes an oversized surprise.",
+    "words": 3238,
+    "image": "/articles/images/story-1.webp"
+  },
+  {
+    "id": 22,
+    "title": "From vine to counter: reading a cucumber harvest",
+    "slug": "from-vine-to-counter-reading-a-cucumber-harvest",
+    "url": "/articles/from-vine-to-counter-reading-a-cucumber-harvest.html",
+    "category": "Grow Food",
+    "summary": "A cucumber harvest starts before the fruit reaches your basket. Learn to judge each variety, pick without damaging the vine, keep a useful harvest record and move the crop into the kitchen with less waste.",
+    "words": 3169,
+    "image": "/articles/images/story-2.webp"
+  },
+  {
+    "id": 23,
+    "title": "Small statuary that softens a patio garden",
+    "slug": "small-statuary-that-softens-a-patio-garden",
+    "url": "/articles/small-statuary-that-softens-a-patio-garden.html",
+    "category": "Design & DIY",
+    "summary": "A small garden figure can make a hard patio feel more personal. Learn to choose its role, test its scale and place it with plants so the space stays calm, useful and easy to care for.",
+    "words": 3328,
+    "image": "/articles/images/story-3.webp"
+  },
+  {
+    "id": 24,
+    "title": "Houseplants, vessels and calm visual moments",
+    "slug": "houseplants-vessels-and-calm-visual-moments",
+    "url": "/articles/houseplants-vessels-and-calm-visual-moments.html",
+    "category": "Design & DIY",
+    "summary": "A well-placed houseplant can make a room feel more considered without filling every surface. Learn to match the plant with real light, choose a practical vessel and arrange a small group that is easy to enjoy and maintain.",
+    "words": 3295,
+    "image": "/articles/images/story-4.webp"
+  },
+  {
+    "id": 25,
+    "title": "A fall table built from the harvest itself",
+    "slug": "a-fall-table-built-from-the-harvest-itself",
+    "url": "/articles/a-fall-table-built-from-the-harvest-itself.html",
+    "category": "Home & Garden Design",
+    "summary": "Turn a few sound pumpkins, squash and garden stems into a fall table that feels warm, useful and your own. Plan the space, protect food quality, and build a display that can change without buying a new collection each year.",
+    "words": 3235,
+    "image": "/articles/images/story-5.webp"
+  },
+  {
+    "id": 26,
+    "title": "What sheet mulching looks like before the magic",
+    "slug": "what-sheet-mulching-looks-like-before-the-magic",
+    "url": "/articles/what-sheet-mulching-looks-like-before-the-magic.html",
+    "category": "Soil & Garden Planning",
+    "summary": "Sheet mulching is a slow way to prepare a garden area, not an instant finished bed. Learn how to choose a suitable site, arrange clean layers, watch what happens underneath, and decide when the soil is ready for plants.",
+    "words": 3187,
+    "image": "/articles/images/story-6.webp"
+  },
+  {
+    "id": 27,
+    "title": "Why one strong garden piece changes the space",
+    "slug": "why-one-strong-garden-piece-changes-the-space",
+    "url": "/articles/why-one-strong-garden-piece-changes-the-space.html",
+    "category": "Home & Garden Design",
+    "summary": "One well-placed garden feature can give a space a clear center without filling it with objects. Learn how to choose its role, test its size, connect it to plants and paths, and keep the garden comfortable to use.",
+    "words": 3255,
+    "image": "/articles/images/story-7.webp"
+  },
+  {
+    "id": 28,
+    "title": "Sorting, drying and storing a mixed herb harvest",
+    "slug": "sorting-drying-and-storing-a-mixed-herb-harvest",
+    "url": "/articles/sorting-drying-and-storing-a-mixed-herb-harvest.html",
+    "category": "Flowers & Herbs",
+    "summary": "A basket of rosemary, mint, lavender and other herbs is several different harvests sharing one container. Learn to sort them by identity and intended use, choose an appropriate drying method, and store small batches with clear labels and less waste.",
+    "words": 3260,
+    "image": "/articles/images/story-8.webp"
+  }
+]

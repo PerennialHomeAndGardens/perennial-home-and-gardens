@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>My Growing Zone | Perennial Home & Gardens</title>
-<meta name="description" content="Look up your 2023 USDA Plant Hardiness Zone by ZIP code and get practical seasonal garden guidance from Perennial Home & Gardens.">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>My Growing Zone | Perennial Home &amp; Gardens</title>
+<meta content="Look up your 2023 USDA Plant Hardiness Zone by ZIP code and get practical seasonal garden guidance from Perennial Home &amp; Gardens." name="description"/>
 <style>
 :root{--forest:#213622;--forest2:#35583a;--cream:#fffaf2;--paper:#fffdf8;--sage:#e3ecd9;--brown:#3b281b;--tan:#d9cbbb;--gold:#b18958;--muted:#6e655d}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,serif;color:var(--brown);background:linear-gradient(180deg,#f8f2e8 0,#fffdf8 34%,#f4efe6 100%)}
@@ -29,17 +30,16 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 @media(max-width:850px){.bar{grid-template-columns:1fr auto}.bar .left{display:none}.brand{text-align:left}.zonehero{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
 @media(max-width:540px){.bar{padding:8px 11px}.brand strong{font-size:21px}.brand span{font-size:9px}.hero{padding-top:33px}.hero p{font-size:16px}.shell{padding:10px 9px 48px}.app{border-radius:18px}.body{padding:16px}.lookup{padding:13px;grid-template-columns:1fr}.zonecard .zone{font-size:60px}.manualrow{grid-template-columns:1fr}}
 </style>
-<link rel="manifest" href="../../manifest.webmanifest" type="application/manifest+json">
-
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Perennial Gardens">
-<script defer src="../../app-assets/install.js"></script>
-<link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
+<link href="../../manifest.webmanifest" rel="manifest" type="application/manifest+json"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Perennial Gardens" name="apple-mobile-web-app-title"/>
+<script defer="" src="../../app-assets/install.js?v=20261020-final"></script>
+<link href="../../app-assets/icon-64-large-20261015.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="../../app-assets/icon-180-large-20261015.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
 <body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
-<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/#top">
 <img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
 </a>
 </div><nav class="nav"><div class="navin newNavIn">
@@ -51,7 +51,7 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 <a href="/#courses">Courses</a>
 <a href="/#shop">Garden Structures</a></div>
 <a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
-<a href="/#blog">Blog</a>
+<a href="/articles/">Articles</a>
 <a href="/#about">About</a>
 <a href="/#contact">Contact</a></div>
 </div>
@@ -63,11 +63,9 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 </div>
 </div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
 <div class="topnote">Perennial Home &amp; Gardens • Free Garden Apps</div>
-
 <section class="hero"><div class="eyebrow">Free Garden App • Tool Build 05</div><h1>My Growing Zone</h1><p>Enter your ZIP code to find your 2023 USDA Plant Hardiness Zone, understand the winter-temperature range it represents, and get practical seasonal planning guidance for your garden.</p><div class="badges"><span class="badge">2023 USDA zone data</span><span class="badge">Free to use</span><span class="badge">No sign-in required</span></div></section>
-
 <main class="shell"><div class="app">
-<section class="lookup"><input id="zip" inputmode="numeric" maxlength="5" placeholder="Enter 5-digit ZIP code"><button id="find">Find My Growing Zone</button></section>
+<section class="lookup"><input id="zip" inputmode="numeric" maxlength="5" placeholder="Enter 5-digit ZIP code"/><button id="find">Find My Growing Zone</button></section>
 <section class="body">
 <div class="message" id="message"></div>
 <div class="result" id="result">
@@ -80,15 +78,12 @@ h1{font-size:clamp(42px,7vw,78px);font-weight:500;line-height:.96;color:#203622;
 <article class="card"><h3>What to focus on now</h3><ul id="nowList"></ul></article>
 <article class="card"><h3>Planning reminder</h3><p>Your hardiness zone describes average annual extreme minimum winter temperature. It does <strong>not</strong> by itself give an exact last-frost or first-frost date. Local weather and microclimates still matter.</p></article>
 </div>
-<div class="actions"><a class="action" href="../seasonal-calendar/">Open Seasonal Calendar</a><a class="action secondary" href="https://planthardiness.ars.usda.gov/" target="_blank" rel="noopener">View Official USDA Map</a></div>
+<div class="actions"><a class="action" href="../seasonal-calendar/">Open Seasonal Calendar</a><a class="action secondary" href="https://planthardiness.ars.usda.gov/" rel="noopener" target="_blank">View Official USDA Map</a></div>
 </div>
-
 <details class="manual"><summary>Already know your zone? Enter it manually</summary><div class="manualrow"><select id="manualZone"></select><button class="action" id="manualBtn">Use This Zone</button></div></details>
 <div class="attribution"><strong>Data source:</strong> 2023 USDA Plant Hardiness Zone data prepared by the PRISM Climate Group at Oregon State University for USDA-ARS. ZIP-code lookup data are used without alteration. The USDA map is based on 1991–2020 average annual extreme minimum temperatures.</div>
 </section></div></main>
-
-<footer class="footer"><p><a href="../../">Perennial Home &amp; Gardens</a> · <a href="../../#free-resources">Free Resources</a> · <a href="../../#tools">Garden Apps</a></p><p>Use the tools for free. Build your garden record over time.</p></footer>
-
+<footer class="footer phg-footer"><div class="phg-footer-main"><div class="phg-footer-brand"><a aria-label="Perennial home" href="/"><img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/></a><p>Plan it. Grow it. Live it.</p></div><nav aria-label="Footer navigation" class="phg-footer-nav"><a href="/#tools">Garden Apps</a><a href="/#services">Services</a><a href="/#courses">Courses</a><a href="/#shop">Garden Structures</a><a href="/#free-resources">Free Resources</a><a href="/#products">Perennial Collection</a><a href="/articles/">Articles</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div><div class="phg-footer-bottom"><nav aria-label="Legal and installation" class="footerLegal"><a href="/legal/privacy.html">Privacy Policy</a><a href="/legal/terms.html">Terms of Use</a><a href="/legal/affiliate.html">Affiliate Disclosure</a><a href="/legal/cookies.html">Cookie Notice</a><a href="/legal/accessibility.html">Accessibility</a></nav><nav aria-label="Shops and social" class="phg-socials"><a href="https://pin.it/5lgbMVS4S" rel="noopener" target="_blank">Pinterest</a><a href="https://perennialhomegardens.etsy.com" rel="noopener" target="_blank">Etsy</a><a href="https://www.redbubble.com/people/perennialhandg/shop" rel="noopener" target="_blank">Redbubble</a></nav></div><p class="phg-footer-copy">© 2026 Perennial Home &amp; Gardens LLC. Product links currently go directly to vendors. Reserved partner spaces are not active advertisements.</p></footer>
 <script>
 const $=id=>document.getElementById(id), ZONES={};
 for(let z=1;z<=13;z++){ZONES[z+"a"]=[-65+(z-1)*10,-60+(z-1)*10];ZONES[z+"b"]=[-60+(z-1)*10,-55+(z-1)*10]}
@@ -104,11 +99,10 @@ async function findZip(){let zip=$("zip").value.trim();if(!/^\d{5}$/.test(zip)){
 $("find").onclick=findZip;$("zip").addEventListener("keydown",e=>{if(e.key==="Enter")findZip()});$("manualBtn").onclick=()=>showZone(manual.value);
 const old=JSON.parse(localStorage.getItem("phg-growing-zone")||"null");if(old&&old.zone){manual.value=old.zone;if(old.zip&&/^\d{5}$/.test(old.zip))$("zip").value=old.zip;showZone(old.zone,old.zip||"Saved zone")}
 </script>
-
 <style id="phg-my-garden-link-v1">
 .phg-my-garden-link{position:fixed;right:12px;bottom:12px;z-index:9999;text-decoration:none!important;background:#294f30;color:#fff!important;border:1px solid #ffffff44;border-radius:999px;padding:10px 13px;font:700 11px Georgia,serif;box-shadow:0 10px 28px #1b2f1d40}
 .phg-my-garden-link:hover{transform:translateY(-2px)}
 @media(max-width:620px){.phg-my-garden-link{right:8px;bottom:8px;padding:9px 11px;font-size:10px}}
 </style>
-<a class="phg-my-garden-link" href="../my-garden/" aria-label="Open My Garden dashboard">MY GARDEN</a>
-<script src="/app-assets/install.js?v=20261020-build3"></script></body></html>
+<a aria-label="Open My Garden dashboard" class="phg-my-garden-link" href="../my-garden/">MY GARDEN</a>
+<script src="/app-assets/install.js?v=20261020-final"></script></body></html>

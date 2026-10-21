@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Garden Planner Generation 2 | Perennial Home & Gardens</title>
-<meta name="description" content="A full-screen, true-to-scale 2D garden planner with an expanded plant catalog, mature-spread visuals, companion overlays, seasonal sun and shade, water planning, beds, structures and saved layouts.">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
+<title>Garden Planner Generation 2 | Perennial Home &amp; Gardens</title>
+<meta content="A full-screen, true-to-scale 2D garden planner with an expanded plant catalog, mature-spread visuals, companion overlays, seasonal sun and shade, water planning, beds, structures and saved layouts." name="description"/>
 <style>
 :root{--green:#23472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#d9cfbf;--gold:#d8bd89;--soft:#edf3e9;--warn:#fff4d9;--bad:#9a4e43;--panel:320px}
 *{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#e9eee5;color:#302b26;font-family:Georgia,serif}
@@ -35,17 +36,16 @@ button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
 @media(max-width:980px){:root{--panel:285px}.workspace{grid-template-columns:var(--panel) 1fr}.panel.right{position:absolute;right:0;top:0;bottom:0;width:var(--panel);transform:translateX(100%);transition:.2s;box-shadow:-10px 0 30px #0001}.panel.right.open{transform:none}.mobile-toggle{display:inline-block}}
 @media(max-width:720px){.top{display:none}.header{height:54px}.brand{min-width:0}.brand span{display:none}.brand strong{font-size:15px}.header-actions .pill:not(.primary){display:none}.workspace{display:block}.panel.left{position:absolute;left:0;top:0;bottom:0;width:min(88vw,340px);transform:translateX(-100%);transition:.2s;box-shadow:10px 0 30px #0002;z-index:18}.panel.left.open{transform:none}.canvas-wrap{position:absolute;inset:0}.mobile-toggle{display:inline-block}.floatbar{top:7px}.teach{bottom:7px;font-size:8px}.palette{grid-template-columns:repeat(2,1fr)}.north{top:48px;width:40px;height:40px}}
 </style>
-<link rel="manifest" href="../../manifest.webmanifest" type="application/manifest+json">
-
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Perennial Gardens">
-<script defer src="../../app-assets/install.js"></script>
-<link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
-</head>
+<link href="../../manifest.webmanifest" rel="manifest" type="application/manifest+json"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Perennial Gardens" name="apple-mobile-web-app-title"/>
+<script defer="" src="../../app-assets/install.js?v=20261020-final"></script>
+<link href="../../app-assets/icon-64-large-20261015.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="../../app-assets/icon-180-large-20261015.png" rel="apple-touch-icon" sizes="180x180"/>
+<style>html,body{overflow:auto!important}#app{height:max(620px,calc(100dvh - 94px));grid-template-rows:auto auto minmax(0,1fr)}.phg-planner-controls.header{height:auto;min-height:58px;flex-wrap:wrap}.phg-planner-controls .header-actions{flex-wrap:wrap}@media(max-width:720px){#app{grid-template-rows:auto minmax(0,1fr)}.phg-planner-controls .header-actions{width:100%;margin:0}.phg-planner-controls .header-actions .pill{display:inline-flex!important}}</style></head>
 <body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
-<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/#top">
 <img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
 </a>
 </div><nav class="nav"><div class="navin newNavIn">
@@ -57,7 +57,7 @@ button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
 <a href="/#courses">Courses</a>
 <a href="/#shop">Garden Structures</a></div>
 <a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
-<a href="/#blog">Blog</a>
+<a href="/articles/">Articles</a>
 <a href="/#about">About</a>
 <a href="/#contact">Contact</a></div>
 </div>
@@ -69,57 +69,59 @@ button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
 </div>
 </div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
 <div id="app">
-<div class="top">Perennial Home & Gardens • Garden Planner Generation 2</div>
-
+<div class="top">Perennial Home &amp; Gardens • Garden Planner Generation 2</div><header class="header phg-planner-controls">
+<button class="pill mobile-toggle" id="openLibrary">☰ Add</button>
+<div class="brand"><strong>Garden Planner Gen 2</strong><span>Map My Garden Space · Intelligent 2D Planning</span></div>
+<div class="header-actions">
+<a class="pill" href="/tools/my-garden/" style="text-decoration:none">My Garden</a><button class="pill" id="newPlan">New</button><button class="pill" id="savePlan">Save</button><button class="pill" id="loadPlan">Layouts</button><button class="pill" id="exportPlan">Export</button><button class="pill" id="helpBtn">How it works</button><button class="pill primary" id="fitBtn">Fit Garden</button><button class="pill mobile-toggle" id="openInspector">Coach</button>
+</div>
+</header>
 <div class="workspace">
- <aside class="panel left" id="libraryPanel">
-  <div class="panel-head"><h2>Add to Your Garden</h2><p>Choose a category or search the Garden Library catalog. Every placed item uses feet as the scale.</p></div>
-  <div class="section">
-   <div class="field"><label>Garden width (ft)</label><input id="gardenW" type="number" min="4" max="400" value="40"></div>
-   <div class="field"><label>Garden depth (ft)</label><input id="gardenH" type="number" min="4" max="400" value="30"></div>
-   <button class="mini" id="applySize">Apply Garden Size</button>
-  </div>
-  <div class="section">
-   <div class="field searchbox"><label>Search 2,700+ Library plants</label><input id="plantSearch" placeholder="Common or scientific name…"><div class="searchCount" id="plantSearchCount">Loading Garden Library plant catalog…</div></div>
-   <div class="library-tabs" id="tabs"></div><div class="palette" id="palette"></div>
-  </div>
-  <div class="section">
-   <h3>Sun & Season</h3>
-   <div class="field"><label>Season</label><select id="season"><option value="summer">Summer</option><option value="spring">Spring</option><option value="fall">Fall</option><option value="winter">Winter</option></select></div>
-   <div class="field"><label>Time of day</label><div class="sun-controls"><input id="sunTime" type="range" min="7" max="19" step="1" value="14"><span id="sunTimeLabel">2 PM</span></div></div>
-   <div class="field"><label>Garden orientation</label><select id="orientation"><option value="0">North at top</option><option value="90">East at top</option><option value="180">South at top</option><option value="270">West at top</option></select></div>
-   <div class="lesson"><b>Sun teaching:</b> Shadow length changes by season and time of day. This is a planning model, not a surveyed solar study. Use observed sun zones whenever possible.</div>
-  </div>
-  <div class="section">
-   <h3>Planning Layers</h3>
-   <div class="toggles"><button class="toggle on" id="togSpacing">Spacing</button><button class="toggle on" id="togComp">Companions</button><button class="toggle on" id="togWater">Water</button><button class="toggle on" id="togShade">Shadows</button></div>
-  </div>
- </aside>
-
- <main class="canvas-wrap" id="canvasWrap">
-  <svg id="gardenSvg" xmlns="http://www.w3.org/2000/svg" aria-label="True-to-scale 2D garden design canvas">
-   <defs>
-    <pattern id="minorGrid" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M 1 0 L 0 0 0 1" class="grid-minor" fill="none"/></pattern>
-    <pattern id="majorGrid" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="url(#minorGrid)"/><path d="M 5 0 L 0 0 0 5" class="grid-major" fill="none"/></pattern>
-   </defs>
-   <rect id="boundary" class="garden-boundary" x="0" y="0" width="40" height="30"/>
-   <rect id="grid" x="0" y="0" width="40" height="30" fill="url(#majorGrid)" pointer-events="none"/>
-   <g id="sunLayer"></g><g id="shadowLayer"></g><g id="waterLayer"></g><g id="companionLayer"></g><g id="spacingLayer"></g><g id="objectLayer"></g>
-  </svg>
-  <div class="floatbar"><button id="zoomOut">−</button><span class="zoomtxt" id="zoomLabel">100%</span><button id="zoomIn">+</button><button id="centerView">⌂</button><button id="quickComp" class="on">Comp</button><button id="quickWater" class="on">Water</button></div>
-  <div class="north"><span>N</span></div>
-  <div class="teach" id="teachBar">Search a plant or choose an object. Mature plant canopies are drawn to scale; one small grid square equals 1 foot.</div>
- </main>
-
- <aside class="panel right" id="inspector">
-  <div class="panel-head"><h2>Garden Coach</h2><p>Spacing, sunlight, companion relationships, water reach and teaching notes for the selected item.</p></div>
-  <div id="inspectBody" class="inspect-empty">Select an item in the garden to see detailed guidance.</div>
-  <div class="section"><h3>Plan Alerts</h3><div class="alerts" id="alerts"></div></div>
-  <div class="section"><h3>Saved Layouts</h3><div class="saved-list" id="savedList"></div></div>
- </aside>
+<aside class="panel left" id="libraryPanel">
+<div class="panel-head"><h2>Add to Your Garden</h2><p>Choose a category or search the Garden Library catalog. Every placed item uses feet as the scale.</p></div>
+<div class="section">
+<div class="field"><label>Garden width (ft)</label><input id="gardenW" max="400" min="4" type="number" value="40"/></div>
+<div class="field"><label>Garden depth (ft)</label><input id="gardenH" max="400" min="4" type="number" value="30"/></div>
+<button class="mini" id="applySize">Apply Garden Size</button>
+</div>
+<div class="section">
+<div class="field searchbox"><label>Search 2,700+ Library plants</label><input id="plantSearch" placeholder="Common or scientific name…"/><div class="searchCount" id="plantSearchCount">Loading Garden Library plant catalog…</div></div>
+<div class="library-tabs" id="tabs"></div><div class="palette" id="palette"></div>
+</div>
+<div class="section">
+<h3>Sun &amp; Season</h3>
+<div class="field"><label>Season</label><select id="season"><option value="summer">Summer</option><option value="spring">Spring</option><option value="fall">Fall</option><option value="winter">Winter</option></select></div>
+<div class="field"><label>Time of day</label><div class="sun-controls"><input id="sunTime" max="19" min="7" step="1" type="range" value="14"/><span id="sunTimeLabel">2 PM</span></div></div>
+<div class="field"><label>Garden orientation</label><select id="orientation"><option value="0">North at top</option><option value="90">East at top</option><option value="180">South at top</option><option value="270">West at top</option></select></div>
+<div class="lesson"><b>Sun teaching:</b> Shadow length changes by season and time of day. This is a planning model, not a surveyed solar study. Use observed sun zones whenever possible.</div>
+</div>
+<div class="section">
+<h3>Planning Layers</h3>
+<div class="toggles"><button class="toggle on" id="togSpacing">Spacing</button><button class="toggle on" id="togComp">Companions</button><button class="toggle on" id="togWater">Water</button><button class="toggle on" id="togShade">Shadows</button></div>
+</div>
+</aside>
+<main class="canvas-wrap" id="canvasWrap">
+<svg aria-label="True-to-scale 2D garden design canvas" id="gardenSvg" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="1" id="minorGrid" patternunits="userSpaceOnUse" width="1"><path class="grid-minor" d="M 1 0 L 0 0 0 1" fill="none"></path></pattern>
+<pattern height="5" id="majorGrid" patternunits="userSpaceOnUse" width="5"><rect fill="url(#minorGrid)" height="5" width="5"></rect><path class="grid-major" d="M 5 0 L 0 0 0 5" fill="none"></path></pattern>
+</defs>
+<rect class="garden-boundary" height="30" id="boundary" width="40" x="0" y="0"></rect>
+<rect fill="url(#majorGrid)" height="30" id="grid" pointer-events="none" width="40" x="0" y="0"></rect>
+<g id="sunLayer"></g><g id="shadowLayer"></g><g id="waterLayer"></g><g id="companionLayer"></g><g id="spacingLayer"></g><g id="objectLayer"></g>
+</svg>
+<div class="floatbar"><button id="zoomOut">−</button><span class="zoomtxt" id="zoomLabel">100%</span><button id="zoomIn">+</button><button id="centerView">⌂</button><button class="on" id="quickComp">Comp</button><button class="on" id="quickWater">Water</button></div>
+<div class="north"><span>N</span></div>
+<div class="teach" id="teachBar">Search a plant or choose an object. Mature plant canopies are drawn to scale; one small grid square equals 1 foot.</div>
+</main>
+<aside class="panel right" id="inspector">
+<div class="panel-head"><h2>Garden Coach</h2><p>Spacing, sunlight, companion relationships, water reach and teaching notes for the selected item.</p></div>
+<div class="inspect-empty" id="inspectBody">Select an item in the garden to see detailed guidance.</div>
+<div class="section"><h3>Plan Alerts</h3><div class="alerts" id="alerts"></div></div>
+<div class="section"><h3>Saved Layouts</h3><div class="saved-list" id="savedList"></div></div>
+</aside>
 </div>
 </div>
-
 <div class="modal" id="helpModal"><div class="modalbox"><button class="close" id="closeHelp">×</button><h2>Garden Planner Generation 2</h2>
 <p><b>True scale:</b> the garden, beds, structures and plant canopy circles all use feet. A plant with a 3-foot mature spread occupies a 3-foot-diameter footprint.</p>
 <p><b>Expanded plant catalog:</b> use search to pull plant names from the Perennial Garden Library. When detailed mature-spread data is not available, the planner uses a conservative planning footprint that you can edit in Garden Coach.</p>
@@ -128,7 +130,6 @@ button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
 <p><b>Seasonal shade:</b> trees, sheds, fences and greenhouses project estimated shadows that change with season, time and orientation.</p>
 <p><b>Water planning:</b> add spigots, rain barrels, sprinklers, drip lines and hose routes. Water sources display approximate reach so you can see which beds and plants may be inconvenient to irrigate.</p>
 <p><b>Save / export:</b> layouts remain local to this device under the existing Perennial plan storage and can be exported as JSON.</p></div></div>
-
 <script>
 const STATIC={
  "Beds & Containers":[
@@ -217,7 +218,7 @@ function zoneAt(x,y){return garden.objects.find(o=>o.type==="sun"&&x>=o.x&&x<=o.
 function waterCovered(o){const cx=o.x+o.w/2,cy=o.y+o.h/2;return garden.objects.some(w=>w.type==="water"&&w.reach&&Math.hypot((w.x+w.w/2)-cx,(w.y+w.h/2)-cy)<=w.reach)}
 function inspect(o){const box=$("inspectBody");if(!o){box.className="inspect-empty";box.innerHTML="Select an item in the garden to see detailed guidance.";return}box.className="section";let html='<h3 class="inspect-title">'+o.name+'</h3><div class="meta">'+o.type.toUpperCase()+" · "+o.w.toFixed(2)+" × "+o.h.toFixed(2)+" ft</div><div class='field'><label>Width / mature spread (ft)</label><input id='iw' type='number' step='.25' min='.2' value='"+o.w+"'></div><div class='field'><label>Depth / mature spread (ft)</label><input id='ih' type='number' step='.25' min='.2' value='"+o.h+"'></div><div class='field'><label>Rotation</label><input id='irot' type='number' step='15' value='"+(o.rot||0)+"'></div><div class='ins-actions'><button class='mini' id='updateObj'>Update</button><button class='mini danger' id='deleteObj'>Delete</button></div>";
  if(o.type==="plant"){const c=COMP[o.name]||{good:[],avoid:[]},near=nearPlants(o),good=near.filter(n=>(c.good||[]).includes(n.name)),bad=near.filter(n=>(c.avoid||[]).includes(n.name)),zone=zoneAt(o.x+o.w/2,o.y+o.h/2);html+='<div class="lesson"><b>Mature footprint:</b> approximately '+o.w+' ft across. Edit this size for your exact cultivar.</div><div class="lesson"><b>Light:</b> '+(o.sun||"Check Garden Library profile")+'<br><b>Water:</b> '+(o.water||"Varies by species and establishment.")+'</div><div class="compat"><h4>Companion quick sheet</h4>'+(c.good?.length?'<div class="compat-row good"><b>Often useful nearby:</b> '+c.good.join(", ")+'</div>':'')+(c.avoid?.length?'<div class="compat-row avoid"><b>Often better separated:</b> '+c.avoid.join(", ")+'</div>':'')+(good.length?'<div class="compat-row good">✓ Nearby compatible: '+good.map(x=>x.name).join(", ")+'</div>':'')+(bad.length?'<div class="compat-row avoid">⚠ Nearby conflict: '+bad.map(x=>x.name).join(", ")+'</div>':'')+'<div class="compat-row neutral">Companion guidance is secondary to correct light, spacing, soil, airflow and crop rotation.</div></div>';if(zone)html+='<div class="lesson"><b>Mapped sun zone:</b> '+zone.name+'. Compare with the plant’s actual light needs.</div>';html+='<div class="lesson"><b>Water reach:</b> '+(waterCovered(o)?"Within an approximate mapped water-source radius.":"No mapped water source currently reaches this plant.")+'</div>';if(o.libraryId)html+='<div class="actions"><a class="mini" href="../garden-library/#plant-'+encodeURIComponent(o.libraryId)+'" target="_blank" rel="noopener" style="text-decoration:none">Open Library Profile</a></div>'}
- if(o.type==="water")html+='<div class="lesson"><b>Water planning:</b> '+(o.reach?"Approximate reach: "+o.reach+" ft. ":"")+"Use paths and hose/drip routes to minimize traffic through beds and avoid wetting foliage unnecessarily.</div>';
+ if(o.type==="water")html+='<div class="lesson"><b>Water planning:</b> '+(o.reach?"Approximate reach: "+o.reach+" ft. ":"")+"Use paths and hose/drip routes to minimize traffic through beds and avoid wetting foliage unnecessarily.</div>";
  if(o.type==="structure"&&o.height)html+='<div class="lesson"><b>Shade model:</b> estimated shadow uses structure height, time, season and garden orientation. Actual site shade should still be observed.</div>';
  box.innerHTML=html;$("updateObj").onclick=()=>{o.w=Math.max(.2,+$("iw").value);o.h=Math.max(.2,+$("ih").value);o.rot=+$("irot").value||0;render();inspect(o)};$("deleteObj").onclick=()=>{garden.objects=garden.objects.filter(x=>x.id!==o.id);selected=null;render();inspect(null)}
 }
@@ -234,5 +235,5 @@ const help=$("helpModal");$("helpBtn").onclick=()=>help.classList.add("show");$(
 function closeMobilePanels(){if(innerWidth<721){$("libraryPanel").classList.remove("open");$("inspector").classList.remove("open")}}$("openLibrary").onclick=()=>$("libraryPanel").classList.toggle("open");$("openInspector").onclick=()=>$("inspector").classList.toggle("open");
 renderTabs();renderSaved();render();loadCatalog();
 </script>
-<script src="/app-assets/install.js?v=20261020-build3"></script></body>
+<script src="/app-assets/install.js?v=20261020-final"></script><footer class="footer phg-footer"><div class="phg-footer-main"><div class="phg-footer-brand"><a aria-label="Perennial home" href="/"><img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/></a><p>Plan it. Grow it. Live it.</p></div><nav aria-label="Footer navigation" class="phg-footer-nav"><a href="/#tools">Garden Apps</a><a href="/#services">Services</a><a href="/#courses">Courses</a><a href="/#shop">Garden Structures</a><a href="/#free-resources">Free Resources</a><a href="/#products">Perennial Collection</a><a href="/articles/">Articles</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div><div class="phg-footer-bottom"><nav aria-label="Legal and installation" class="footerLegal"><a href="/legal/privacy.html">Privacy Policy</a><a href="/legal/terms.html">Terms of Use</a><a href="/legal/affiliate.html">Affiliate Disclosure</a><a href="/legal/cookies.html">Cookie Notice</a><a href="/legal/accessibility.html">Accessibility</a></nav><nav aria-label="Shops and social" class="phg-socials"><a href="https://pin.it/5lgbMVS4S" rel="noopener" target="_blank">Pinterest</a><a href="https://perennialhomegardens.etsy.com" rel="noopener" target="_blank">Etsy</a><a href="https://www.redbubble.com/people/perennialhandg/shop" rel="noopener" target="_blank">Redbubble</a></nav></div><p class="phg-footer-copy">© 2026 Perennial Home &amp; Gardens LLC. Product links currently go directly to vendors. Reserved partner spaces are not active advertisements.</p></footer></body>
 </html>

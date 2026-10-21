@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Harvest & Garden Records | Perennial Home & Gardens</title>
-<meta name="description" content="Track harvest dates, quantities, weights, yields, quality, varieties, storage, notes, and season-to-season garden production.">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Harvest &amp; Garden Records | Perennial Home &amp; Gardens</title>
+<meta content="Track harvest dates, quantities, weights, yields, quality, varieties, storage, notes, and season-to-season garden production." name="description"/>
 <style>
 :root{--green:#24472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#ddd2c3;--soft:#edf3e8;--gold:#d7bc88;--muted:#74695f;--warn:#fff3d8;--danger:#91463d}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f4efe7,#fbf8f1);color:#302b26;font-family:Georgia,serif}
@@ -26,17 +27,16 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 @media(max-width:620px){.bar{padding:8px 9px}.brand strong{font-size:17px}.brand span{display:none}.nav a:not(.garden){display:none}.hero{padding:30px 10px 14px}.shell{padding:8px 9px 42px}.stats{grid-template-columns:repeat(2,1fr)}.formgrid,.filters,.summarygrid{grid-template-columns:1fr}.card{border-radius:17px}}
 @media print{header,.topnote,.hero,.leftcol,.filters,.record .actions,footer{display:none!important}.grid{display:block}.card{border:0;box-shadow:none}.shell{padding:0}}
 </style>
-<link rel="manifest" href="../../manifest.webmanifest" type="application/manifest+json">
-
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Perennial Gardens">
-<script defer src="../../app-assets/install.js"></script>
-<link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
+<link href="../../manifest.webmanifest" rel="manifest" type="application/manifest+json"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Perennial Gardens" name="apple-mobile-web-app-title"/>
+<script defer="" src="../../app-assets/install.js?v=20261020-final"></script>
+<link href="../../app-assets/icon-64-large-20261015.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="../../app-assets/icon-180-large-20261015.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
 <body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
-<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/#top">
 <img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
 </a>
 </div><nav class="nav"><div class="navin newNavIn">
@@ -48,7 +48,7 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 <a href="/#courses">Courses</a>
 <a href="/#shop">Garden Structures</a></div>
 <a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
-<a href="/#blog">Blog</a>
+<a href="/articles/">Articles</a>
 <a href="/#about">About</a>
 <a href="/#contact">Contact</a></div>
 </div>
@@ -58,85 +58,76 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 <button class="desktopJoin" onclick="openJoin()">Join</button>
 <button aria-label="Menu" class="cleanMenu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </div>
-</div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
-<div class="topnote">Perennial Home & Gardens • Harvest History & Production Records</div>
-
-
+</div></nav></div><a class="phg-my-garden-universal" href="/tools/my-garden/">My Garden →</a><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
+<div class="topnote">Perennial Home &amp; Gardens • Harvest History &amp; Production Records</div>
 <section class="hero">
- <div class="eyebrow">Build 4 • My Garden System</div>
- <h1>Harvest & Garden Records</h1>
- <p>Turn individual harvests into a season-long production history. Record crop, variety, date, quantity, weight, quality, use, storage, and notes — then compare totals by crop and year.</p>
- <div class="badges"><span class="badge">Harvest History</span><span class="badge">Yield Tracking</span><span class="badge">Crop Totals</span><span class="badge">Quality Notes</span><span class="badge">Storage & Use</span><span class="badge">Season Comparison</span><span class="badge">My Garden Connected</span></div>
+<div class="eyebrow">Build 4 • My Garden System</div>
+<h1>Harvest &amp; Garden Records</h1>
+<p>Turn individual harvests into a season-long production history. Record crop, variety, date, quantity, weight, quality, use, storage, and notes — then compare totals by crop and year.</p>
+<div class="badges"><span class="badge">Harvest History</span><span class="badge">Yield Tracking</span><span class="badge">Crop Totals</span><span class="badge">Quality Notes</span><span class="badge">Storage &amp; Use</span><span class="badge">Season Comparison</span><span class="badge">My Garden Connected</span></div>
 </section>
-
 <main class="shell">
 <div class="stats">
- <div class="stat"><strong id="stHarvests">0</strong><span>Harvest entries</span></div>
- <div class="stat"><strong id="stCrops">0</strong><span>Different crops</span></div>
- <div class="stat"><strong id="stWeight">0</strong><span>Total lb recorded</span></div>
- <div class="stat"><strong id="stUnits">0</strong><span>Count / bunches</span></div>
- <div class="stat"><strong id="stBest">—</strong><span>Top crop by weight</span></div>
- <div class="stat"><strong id="stSeason">—</strong><span>Active season</span></div>
+<div class="stat"><strong id="stHarvests">0</strong><span>Harvest entries</span></div>
+<div class="stat"><strong id="stCrops">0</strong><span>Different crops</span></div>
+<div class="stat"><strong id="stWeight">0</strong><span>Total lb recorded</span></div>
+<div class="stat"><strong id="stUnits">0</strong><span>Count / bunches</span></div>
+<div class="stat"><strong id="stBest">—</strong><span>Top crop by weight</span></div>
+<div class="stat"><strong id="stSeason">—</strong><span>Active season</span></div>
 </div>
-
 <div class="grid">
- <div class="leftcol">
-  <section class="card">
-   <div class="cardhead"><h2>Record a Harvest</h2><p>Use weight, count, bunches, or any combination that makes sense for the crop.</p></div>
-   <div class="body">
-    <div class="formgrid">
-      <div class="field"><label>Harvest date</label><input id="hDate" type="date"></div>
-      <div class="field"><label>Crop</label><input id="hCrop" list="cropList" placeholder="Tomato"><datalist id="cropList"></datalist></div>
-      <div class="field"><label>Variety</label><input id="hVariety" placeholder="Cherokee Purple"></div>
-      <div class="field"><label>Bed / location</label><input id="hLocation" placeholder="Bed 2 / south row"></div>
-      <div class="field"><label>Weight</label><input id="hWeight" type="number" min="0" step=".01" placeholder="2.5"></div>
-      <div class="field"><label>Weight unit</label><select id="hWeightUnit"><option value="lb">lb</option><option value="oz">oz</option><option value="kg">kg</option><option value="g">g</option></select></div>
-      <div class="field"><label>Count / bunches</label><input id="hCount" type="number" min="0" step="1" placeholder="12"></div>
-      <div class="field"><label>Count unit</label><select id="hCountUnit"><option>pieces</option><option>bunches</option><option>heads</option><option>ears</option><option>pods</option><option>stems</option><option>flowers</option><option>baskets</option></select></div>
-      <div class="field"><label>Quality</label><select id="hQuality"><option>Excellent</option><option>Good</option><option>Fair</option><option>Mixed</option><option>Damaged / seconds</option></select></div>
-      <div class="field"><label>Use</label><select id="hUse"><option>Fresh eating</option><option>Preserving</option><option>Freezing</option><option>Drying</option><option>Storage</option><option>Gift / share</option><option>Sold</option><option>Seed saving</option></select></div>
-      <div class="field"><label>Storage location</label><input id="hStorage" placeholder="Pantry, freezer, cellar…"></div>
-      <div class="field"><label>Days from planting (optional)</label><input id="hDays" type="number" min="0" placeholder="82"></div>
-    </div>
-    <div class="field"><label>Harvest notes</label><textarea id="hNotes" placeholder="Flavor, size, pest damage, weather, yield impression, what you would change next season…"></textarea></div>
-    <div class="actions"><button class="btn" id="addHarvest">Save Harvest Record</button><button class="btn secondary" id="clearForm">Clear</button></div>
-   </div>
-  </section>
-
-  <section class="card">
-   <div class="cardhead"><h2>Saved Harvest Checker Crops</h2><p>Crops you previously saved in Harvest Checker are available here as a planning reference.</p></div>
-   <div class="body"><div class="savedcrops" id="savedCrops"></div><div class="note">Harvest Checker tells you <b>when</b> a crop may be ready. Harvest & Garden Records stores <b>what actually happened</b> after you picked it.</div></div>
-  </section>
-
-  <section class="card">
-   <div class="cardhead"><h2>Season Snapshot</h2><p>Production summaries from your own records.</p></div>
-   <div class="body">
-    <div class="summarygrid">
-      <div class="summarybox"><b>Largest harvest</b><span id="largestHarvest">No data yet.</span></div>
-      <div class="summarybox"><b>Best quality crop</b><span id="qualityCrop">No data yet.</span></div>
-      <div class="summarybox"><b>Most harvested location</b><span id="topLocation">No data yet.</span></div>
-      <div class="summarybox"><b>Preserved / stored</b><span id="storedCount">No data yet.</span></div>
-    </div>
-    <div id="cropBars"></div>
-   </div>
-  </section>
- </div>
-
- <div>
-  <section class="card">
-   <div class="cardhead"><h2>Harvest History</h2><p>Search, filter and compare what your garden produced.</p></div>
-   <div class="body">
-    <div class="filters"><input id="search" placeholder="Search crop, variety, bed, note…"><select id="yearFilter"><option value="">All years</option></select><select id="cropFilter"><option value="">All crops</option></select></div>
-    <div class="actions"><button class="btn secondary" id="printRecords">Print Records</button><button class="btn secondary" id="exportRecords">Export Records</button><button class="btn danger" id="clearRecords">Clear All</button></div>
-    <div class="records" id="records"></div>
-   </div>
-  </section>
- </div>
+<div class="leftcol">
+<section class="card">
+<div class="cardhead"><h2>Record a Harvest</h2><p>Use weight, count, bunches, or any combination that makes sense for the crop.</p></div>
+<div class="body">
+<div class="formgrid">
+<div class="field"><label>Harvest date</label><input id="hDate" type="date"/></div>
+<div class="field"><label>Crop</label><input id="hCrop" list="cropList" placeholder="Tomato"/><datalist id="cropList"></datalist></div>
+<div class="field"><label>Variety</label><input id="hVariety" placeholder="Cherokee Purple"/></div>
+<div class="field"><label>Bed / location</label><input id="hLocation" placeholder="Bed 2 / south row"/></div>
+<div class="field"><label>Weight</label><input id="hWeight" min="0" placeholder="2.5" step=".01" type="number"/></div>
+<div class="field"><label>Weight unit</label><select id="hWeightUnit"><option value="lb">lb</option><option value="oz">oz</option><option value="kg">kg</option><option value="g">g</option></select></div>
+<div class="field"><label>Count / bunches</label><input id="hCount" min="0" placeholder="12" step="1" type="number"/></div>
+<div class="field"><label>Count unit</label><select id="hCountUnit"><option>pieces</option><option>bunches</option><option>heads</option><option>ears</option><option>pods</option><option>stems</option><option>flowers</option><option>baskets</option></select></div>
+<div class="field"><label>Quality</label><select id="hQuality"><option>Excellent</option><option>Good</option><option>Fair</option><option>Mixed</option><option>Damaged / seconds</option></select></div>
+<div class="field"><label>Use</label><select id="hUse"><option>Fresh eating</option><option>Preserving</option><option>Freezing</option><option>Drying</option><option>Storage</option><option>Gift / share</option><option>Sold</option><option>Seed saving</option></select></div>
+<div class="field"><label>Storage location</label><input id="hStorage" placeholder="Pantry, freezer, cellar…"/></div>
+<div class="field"><label>Days from planting (optional)</label><input id="hDays" min="0" placeholder="82" type="number"/></div>
+</div>
+<div class="field"><label>Harvest notes</label><textarea id="hNotes" placeholder="Flavor, size, pest damage, weather, yield impression, what you would change next season…"></textarea></div>
+<div class="actions"><button class="btn" id="addHarvest">Save Harvest Record</button><button class="btn secondary" id="clearForm">Clear</button></div>
+</div>
+</section>
+<section class="card">
+<div class="cardhead"><h2>Saved Harvest Checker Crops</h2><p>Crops you previously saved in Harvest Checker are available here as a planning reference.</p></div>
+<div class="body"><div class="savedcrops" id="savedCrops"></div><div class="note">Harvest Checker tells you <b>when</b> a crop may be ready. Harvest &amp; Garden Records stores <b>what actually happened</b> after you picked it.</div></div>
+</section>
+<section class="card">
+<div class="cardhead"><h2>Season Snapshot</h2><p>Production summaries from your own records.</p></div>
+<div class="body">
+<div class="summarygrid">
+<div class="summarybox"><b>Largest harvest</b><span id="largestHarvest">No data yet.</span></div>
+<div class="summarybox"><b>Best quality crop</b><span id="qualityCrop">No data yet.</span></div>
+<div class="summarybox"><b>Most harvested location</b><span id="topLocation">No data yet.</span></div>
+<div class="summarybox"><b>Preserved / stored</b><span id="storedCount">No data yet.</span></div>
+</div>
+<div id="cropBars"></div>
+</div>
+</section>
+</div>
+<div>
+<section class="card">
+<div class="cardhead"><h2>Harvest History</h2><p>Search, filter and compare what your garden produced.</p></div>
+<div class="body">
+<div class="filters"><input id="search" placeholder="Search crop, variety, bed, note…"/><select id="yearFilter"><option value="">All years</option></select><select id="cropFilter"><option value="">All crops</option></select></div>
+<div class="actions"><button class="btn secondary" id="printRecords">Print Records</button><button class="btn secondary" id="exportRecords">Export Records</button><button class="btn danger" id="clearRecords">Clear All</button></div>
+<div class="records" id="records"></div>
+</div>
+</section>
+</div>
 </div>
 </main>
-
-<footer><div class="footerlinks"><a href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../harvest-checker/">Harvest Checker</a><a href="../garden-journal/">Garden Journal</a><a href="../seed-starting/">Seed Starting</a></div><div>© Perennial Home & Gardens</div></footer>
-
+<footer class="footer phg-footer"><div class="phg-footer-main"><div class="phg-footer-brand"><a aria-label="Perennial home" href="/"><img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/></a><p>Plan it. Grow it. Live it.</p></div><nav aria-label="Footer navigation" class="phg-footer-nav"><a href="/#tools">Garden Apps</a><a href="/#services">Services</a><a href="/#courses">Courses</a><a href="/#shop">Garden Structures</a><a href="/#free-resources">Free Resources</a><a href="/#products">Perennial Collection</a><a href="/articles/">Articles</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div><div class="phg-footer-bottom"><nav aria-label="Legal and installation" class="footerLegal"><a href="/legal/privacy.html">Privacy Policy</a><a href="/legal/terms.html">Terms of Use</a><a href="/legal/affiliate.html">Affiliate Disclosure</a><a href="/legal/cookies.html">Cookie Notice</a><a href="/legal/accessibility.html">Accessibility</a></nav><nav aria-label="Shops and social" class="phg-socials"><a href="https://pin.it/5lgbMVS4S" rel="noopener" target="_blank">Pinterest</a><a href="https://perennialhomegardens.etsy.com" rel="noopener" target="_blank">Etsy</a><a href="https://www.redbubble.com/people/perennialhandg/shop" rel="noopener" target="_blank">Redbubble</a></nav></div><p class="phg-footer-copy">© 2026 Perennial Home &amp; Gardens LLC. Product links currently go directly to vendors. Reserved partner spaces are not active advertisements.</p></footer>
 <script>
 const KEY="phgHarvestRecordsV1";
 let state=load();
@@ -209,5 +200,5 @@ $("clearRecords").onclick=()=>{if(confirm("Clear every Harvest & Garden Record o
 function renderAll(){addCropDatalist();rebuildFilters();renderRecords();stats();snapshot()}
 importLegacy();renderAll();
 </script>
-<script src="/app-assets/install.js?v=20261020-build3"></script></body>
+<script src="/app-assets/install.js?v=20261020-final"></script></body>
 </html>

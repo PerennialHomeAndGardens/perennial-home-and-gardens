@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Garden Library | Perennial Home & Gardens</title>
-<meta name="description" content="The Perennial Garden Library: searchable garden terminology, botanical language, pronunciation, trusted plant databases, free books, university resources and more.">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Garden Library | Perennial Home &amp; Gardens</title>
+<meta content="The Perennial Garden Library: searchable garden terminology, botanical language, pronunciation, trusted plant databases, free books, university resources and more." name="description"/>
 <style>
 :root{--forest:#213622;--forest2:#315636;--sage:#e5eedc;--cream:#fffaf2;--paper:#fffdf8;--brown:#3b281b;--muted:#6c6259;--line:#dfd5c8;--gold:#b38a58}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,serif;color:var(--brown);background:linear-gradient(#f8f2e8,#fffdf8 32%,#f4efe6)}
@@ -25,7 +26,6 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 @media(max-width:900px){.bar{grid-template-columns:1fr auto}.bar .left{display:none}.brand{text-align:left}.results,.resources{grid-template-columns:repeat(2,1fr)}.viewer-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.bar{padding:8px 11px}.brand strong{font-size:21px}.brand span{font-size:9px}.hero{padding-top:34px}.hero p{font-size:16px}.shell{padding:10px 9px 48px}.glossary{border-radius:18px}.glossary-head,.library-body{padding:14px}.searchrow{grid-template-columns:1fr auto}.searchbtn{grid-column:1/-1;height:43px}.mic:hover:after{display:none}.results,.resources{grid-template-columns:1fr}.viewer h2{font-size:29px}.imagebox img{height:210px}}
 </style>
-
 <style id="phg-phase3-plants-v1">
 .phg-modebar{max-width:1160px;margin:0 auto 18px;padding:0 18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .phg-modebtn{border:1px solid #cbd8c3;background:#fffaf2;color:#35543a;border-radius:999px;padding:10px 14px;font:700 14px Georgia,serif;cursor:pointer;transition:.16s}
@@ -48,7 +48,6 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 @media(max-width:900px){.phg-plant-results{grid-template-columns:repeat(2,1fr)}.phg-profile-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.phg-modebar,.phg-plant-panel{padding-left:9px;padding-right:9px}.phg-plant-app{border-radius:18px}.phg-plant-head,.phg-plant-body{padding:14px}.phg-plant-results{grid-template-columns:1fr}.phg-plant-search{grid-template-columns:1fr}.phg-plant-search button{height:43px}.phg-profile h2{font-size:29px}.phg-profile dl{grid-template-columns:1fr}.phg-imgbox img{height:220px}}
 </style>
-
 <style id="phg-phase4-enrichment-v1">
 .phg-grow-title{margin:20px 0 10px;padding-top:16px;border-top:1px solid #cbd8c3;color:#29492e;font:500 24px Georgia,serif}
 .phg-grow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}
@@ -60,7 +59,6 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 .phg-sourcebox a{color:#365d39;font-weight:bold}.phg-enrichment-missing{background:#fff8ea;border:1px solid #e6d4ae;border-radius:13px;padding:12px;color:#6b5b43;font-size:13px;line-height:1.5}
 @media(max-width:800px){.phg-grow-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.phg-grow-grid{grid-template-columns:1fr}}
 </style>
-
 <style id="phg-phase5-care-v1">
 .phg-care-title{margin:20px 0 10px;padding-top:16px;border-top:1px solid #cbd8c3;color:#29492e;font:500 24px Georgia,serif}
 .phg-care-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.phg-care-card{background:#fffdf8;border:1px solid #dcd4c8;border-radius:14px;padding:12px}
@@ -69,7 +67,6 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 .phg-care-note{margin-top:10px;font-size:11px;color:#746960;line-height:1.45}.phg-safety{background:#fff8ea;border:1px solid #e6d4ae;border-radius:13px;padding:10px 12px;margin-top:10px;color:#68583f;font-size:12px;line-height:1.45}
 @media(max-width:600px){.phg-care-grid{grid-template-columns:1fr}}
 </style>
-
 <style id="phg-phase6-resource-v1">
 .phg-resource-controls{display:none;max-width:1160px;margin:0 auto 14px;padding:0 18px}
 .phg-resource-controls.active{display:block}.phg-resource-search{display:grid;grid-template-columns:1fr auto;gap:9px;background:#315236;padding:16px;border-radius:18px 18px 0 0}
@@ -131,17 +128,16 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
   .phg-library-tools,.phg-shelf-remove,.phg-note-wrap button,.phg-account-actions{display:none!important}
   .phg-library-card{box-shadow:none!important;border:0!important}.phg-shelf-grid{grid-template-columns:1fr 1fr!important}
 }
-</style><link rel="manifest" href="../../manifest.webmanifest" type="application/manifest+json">
-
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Perennial Gardens">
-<script defer src="../../app-assets/install.js"></script>
-<link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
+</style><link href="../../manifest.webmanifest" rel="manifest" type="application/manifest+json"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Perennial Gardens" name="apple-mobile-web-app-title"/>
+<script defer="" src="../../app-assets/install.js?v=20261020-final"></script>
+<link href="../../app-assets/icon-64-large-20261015.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="../../app-assets/icon-180-large-20261015.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
 <body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
-<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/#top">
 <img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
 </a>
 </div><nav class="nav"><div class="navin newNavIn">
@@ -153,7 +149,7 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 <a href="/#courses">Courses</a>
 <a href="/#shop">Garden Structures</a></div>
 <a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
-<a href="/#blog">Blog</a>
+<a href="/articles/">Articles</a>
 <a href="/#about">About</a>
 <a href="/#contact">Contact</a></div>
 </div>
@@ -165,136 +161,126 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 </div>
 </div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
 <div class="topnote">Perennial Home &amp; Gardens • The Garden Library</div>
-
-
 <section class="hero"><div class="eyebrow">Premium-Style Free Garden Resource</div><h1>The Perennial Garden Library</h1><p>Search the language of gardening and botany, hear terms and definitions aloud, use voice search when your hands are busy, and explore trusted books, databases, gardens and research resources from one place.</p><div class="badges"><span class="badge" id="termBadge">200+ glossary terms</span><span class="badge">Voice search</span><span class="badge">Listen to definitions</span><span class="badge">Open-image lookup</span><span class="badge phg-qa-badge">QA Checked</span></div></section>
-
-
-
 <section class="phg-unified" id="phgUnifiedSearch">
-  <div class="phg-unified-card">
-    <div class="phg-unified-kicker">Search Everything</div>
-    <h2>One Search. The Entire Garden Library.</h2>
-    <p>Search plants, botanical terms, scientific names, synonyms, books, databases, podcasts, gardens and trusted resources from one place.</p>
-    <div class="phg-unified-search">
-      <input id="phgUnifiedInput" autocomplete="off" placeholder="Try yarrow, rhizome, pollinators, soil, native plants…">
-      <button class="phg-unified-mic" id="phgUnifiedMic" aria-label="Speak your search" title="Speak your search">🎙</button>
-      <button class="phg-unified-go" id="phgUnifiedGo">Search Entire Library</button>
-    </div>
-    <div class="phg-unified-types" id="phgUnifiedTypes">
-      <button class="phg-unified-type active" data-kind="all">ALL</button>
-      <button class="phg-unified-type" data-kind="plant">PLANTS</button>
-      <button class="phg-unified-type" data-kind="term">GARDEN TERMS</button>
-      <button class="phg-unified-type" data-kind="resource">RESOURCES</button>
-    </div>
-    <div class="phg-unified-meta"><span id="phgUnifiedStatus" aria-live="polite">Loading the Garden Library index…</span><span>Voice search available where supported</span></div>
-    <div class="phg-recent" id="phgRecentSearches"></div>
-    <div class="phg-unified-results" id="phgUnifiedResults" role="region" aria-label="Unified Garden Library search results"></div>
-  </div>
+<div class="phg-unified-card">
+<div class="phg-unified-kicker">Search Everything</div>
+<h2>One Search. The Entire Garden Library.</h2>
+<p>Search plants, botanical terms, scientific names, synonyms, books, databases, podcasts, gardens and trusted resources from one place.</p>
+<div class="phg-unified-search">
+<input autocomplete="off" id="phgUnifiedInput" placeholder="Try yarrow, rhizome, pollinators, soil, native plants…"/>
+<button aria-label="Speak your search" class="phg-unified-mic" id="phgUnifiedMic" title="Speak your search">🎙</button>
+<button class="phg-unified-go" id="phgUnifiedGo">Search Entire Library</button>
+</div>
+<div class="phg-unified-types" id="phgUnifiedTypes">
+<button class="phg-unified-type active" data-kind="all">ALL</button>
+<button class="phg-unified-type" data-kind="plant">PLANTS</button>
+<button class="phg-unified-type" data-kind="term">GARDEN TERMS</button>
+<button class="phg-unified-type" data-kind="resource">RESOURCES</button>
+</div>
+<div class="phg-unified-meta"><span aria-live="polite" id="phgUnifiedStatus">Loading the Garden Library index…</span><span>Voice search available where supported</span></div>
+<div class="phg-recent" id="phgRecentSearches"></div>
+<div aria-label="Unified Garden Library search results" class="phg-unified-results" id="phgUnifiedResults" role="region"></div>
+</div>
 </section>
 <div class="phg-modebar" id="phgModeBar">
-  <button class="phg-modebtn active" data-mode="plants">PLANTS</button>
-  <button class="phg-modebtn" data-mode="terms">GARDEN TERMS</button>
-  <button class="phg-modebtn" data-mode="resources">RESOURCES</button>
-  <button class="phg-modebtn" data-mode="library">MY LIBRARY</button>
+<button class="phg-modebtn active" data-mode="plants">PLANTS</button>
+<button class="phg-modebtn" data-mode="terms">GARDEN TERMS</button>
+<button class="phg-modebtn" data-mode="resources">RESOURCES</button>
+<button class="phg-modebtn" data-mode="library">MY LIBRARY</button>
 </div>
-
-
 <section class="phg-library-panel" id="phgMyLibraryPanel">
-  <div class="phg-library-card">
-    <div class="phg-library-head">
-      <h2>My Garden Library</h2>
-      <p>Save plants, garden terms and trusted resources while you research. This free version saves on this device; account syncing can be added later.</p>
-      <div class="phg-library-stats">
-        <div class="phg-library-stat"><strong id="phgSavedPlantsCount">0</strong><span>Plants</span></div>
-        <div class="phg-library-stat"><strong id="phgSavedTermsCount">0</strong><span>Terms</span></div>
-        <div class="phg-library-stat"><strong id="phgSavedResourcesCount">0</strong><span>Resources</span></div>
-        <div class="phg-library-stat"><strong id="phgSavedTotalCount">0</strong><span>Total Saved</span></div>
-      </div>
-    </div>
-    <div class="phg-library-body">
-
-      <div class="phg-account-box" id="phgAccountBox">
-        <div class="phg-account-row">
-          <div><h3>My Garden Profile</h3><div class="phg-account-note">Your Garden Library is currently saved locally on this device. The account-sync structure is prepared for Perennial cloud sync.</div></div>
-          <div class="phg-account-status"><span class="phg-dot local" id="phgSyncDot"></span><span id="phgSyncStatus">Local Mode</span></div>
-        </div>
-        <div class="phg-profile-grid">
-          <label>Display Name<input id="phgProfileName" placeholder="Optional"></label>
-          <label>Home Zone<input id="phgProfileZone" placeholder="Example: 7b"></label>
-          <label>Garden Location<input id="phgProfileLocation" placeholder="Example: Southern Maryland"></label>
-        </div>
-        <div class="phg-account-actions">
-          <button id="phgSaveProfile">Save Garden Profile</button>
-          <button id="phgRefreshLocal" class="secondary">Refresh Local Sync</button>
-          <button id="phgAccountSync" class="secondary" title="Requires a Perennial Supabase project">Cloud Sync Ready</button>
-        </div>
-        <div class="phg-account-note" id="phgAccountNote">Cross-device syncing is prepared but not activated until a dedicated Perennial Supabase project is created and connected.</div>
-      </div>
-      <div class="phg-library-tools">
-        <button id="phgPrintLibrary">Print My Library</button>
-        <button id="phgExportLibrary">Export Saved List</button>
-        <button id="phgClearLibrary" class="danger">Clear Saved Library</button>
-      </div>
-      <section class="phg-shelf-section"><h3>Saved Plants</h3><div class="phg-shelf-grid" id="phgSavedPlants"></div></section>
-      <section class="phg-shelf-section"><h3>Saved Garden Terms</h3><div class="phg-shelf-grid" id="phgSavedTerms"></div></section>
-      <section class="phg-shelf-section"><h3>Saved Resources</h3><div class="phg-shelf-grid" id="phgSavedResources"></div></section>
-    </div>
-  </div>
+<div class="phg-library-card">
+<div class="phg-library-head">
+<h2>My Garden Library</h2>
+<p>Save plants, garden terms and trusted resources while you research. This free version saves on this device; account syncing can be added later.</p>
+<div class="phg-library-stats">
+<div class="phg-library-stat"><strong id="phgSavedPlantsCount">0</strong><span>Plants</span></div>
+<div class="phg-library-stat"><strong id="phgSavedTermsCount">0</strong><span>Terms</span></div>
+<div class="phg-library-stat"><strong id="phgSavedResourcesCount">0</strong><span>Resources</span></div>
+<div class="phg-library-stat"><strong id="phgSavedTotalCount">0</strong><span>Total Saved</span></div>
+</div>
+</div>
+<div class="phg-library-body">
+<div class="phg-account-box" id="phgAccountBox">
+<div class="phg-account-row">
+<div><h3>My Garden Profile</h3><div class="phg-account-note">Your Garden Library is currently saved locally on this device. The account-sync structure is prepared for Perennial cloud sync.</div></div>
+<div class="phg-account-status"><span class="phg-dot local" id="phgSyncDot"></span><span id="phgSyncStatus">Local Mode</span></div>
+</div>
+<div class="phg-profile-grid">
+<label>Display Name<input id="phgProfileName" placeholder="Optional"/></label>
+<label>Home Zone<input id="phgProfileZone" placeholder="Example: 7b"/></label>
+<label>Garden Location<input id="phgProfileLocation" placeholder="Example: Southern Maryland"/></label>
+</div>
+<div class="phg-account-actions">
+<button id="phgSaveProfile">Save Garden Profile</button>
+<button class="secondary" id="phgRefreshLocal">Refresh Local Sync</button>
+<button class="secondary" id="phgAccountSync" title="Requires a Perennial Supabase project">Cloud Sync Ready</button>
+</div>
+<div class="phg-account-note" id="phgAccountNote">Cross-device syncing is prepared but not activated until a dedicated Perennial Supabase project is created and connected.</div>
+</div>
+<div class="phg-library-tools">
+<button id="phgPrintLibrary">Print My Library</button>
+<button id="phgExportLibrary">Export Saved List</button>
+<button class="danger" id="phgClearLibrary">Clear Saved Library</button>
+</div>
+<section class="phg-shelf-section"><h3>Saved Plants</h3><div class="phg-shelf-grid" id="phgSavedPlants"></div></section>
+<section class="phg-shelf-section"><h3>Saved Garden Terms</h3><div class="phg-shelf-grid" id="phgSavedTerms"></div></section>
+<section class="phg-shelf-section"><h3>Saved Resources</h3><div class="phg-shelf-grid" id="phgSavedResources"></div></section>
+</div>
+</div>
 </section>
 <section class="phg-plant-panel active" id="phgPlantsPanel">
-  <div class="phg-plant-app">
-    <div class="phg-plant-head">
-      <h2>Perennial Plant Records</h2>
-      <p>Search verified plant names, common names, families and historical synonyms from the Perennial Garden Library.</p>
-      <div class="phg-plant-search"><input id="phgPlantSearch" placeholder="Search yarrow, Achillea millefolium, Asteraceae…"><button id="phgPlantSearchBtn">Search Plants</button></div>
-    </div>
-    <div class="phg-plant-body">
-      <div class="phg-profile" id="phgPlantProfile">
-        <div class="phg-profile-grid">
-          <div>
-            <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#667c61;font-weight:bold">Verified Plant Profile</div>
-            <h2 id="phgPlantName"></h2>
-            <div class="phg-scientific" id="phgScientific"></div>
-            <div class="phg-profile-badges" id="phgPlantBadges"></div>
-            <dl>
-              <dt>Family</dt><dd id="phgFamily"></dd>
-              <dt>Common names</dt><dd id="phgCommon"></dd>
-              <dt>Current taxonomy</dt><dd id="phgTaxonomy"></dd>
-              <dt>Verification</dt><dd id="phgVerification"></dd>
-            </dl>
-            <div class="phg-aliases" id="phgAliasesBox"><b>Historical / synonym names</b><div class="phg-aliaswrap" id="phgAliases"></div></div>
-            <div class="phg-audio"><button id="phgSpeakScientific">🔊 Hear scientific name</button><button class="secondary" id="phgSpeakSummary">🔊 Hear plant record</button></div><button class="phg-save-current" id="phgSavePlant">☆ Save Plant</button>
-            <div id="phgGrowSection">
-              <h3 class="phg-grow-title">Growing &amp; Garden Information</h3>
-              <div id="phgGrowGrid" class="phg-grow-grid"></div>
-              <div id="phgEnrichmentMissing" class="phg-enrichment-missing" style="display:none">This verified plant currently has taxonomy information but no matching USDA NRCS Conservation Plant Characteristics record. We leave practical fields blank rather than guessing.</div>
-              <div id="phgSourceBox" class="phg-sourcebox" style="display:none"></div>
-<div id="phgCareSection">
-  <h3 class="phg-care-title">Garden Use, Ecology &amp; Trusted Resources</h3>
-  <div id="phgCareGrid" class="phg-care-grid"></div>
-  <div id="phgSafetyBox" class="phg-safety" style="display:none"></div>
-  <div id="phgTrusted" class="phg-trusted"></div>
-  <div id="phgCareNote" class="phg-care-note"></div>
+<div class="phg-plant-app">
+<div class="phg-plant-head">
+<h2>Perennial Plant Records</h2>
+<p>Search verified plant names, common names, families and historical synonyms from the Perennial Garden Library.</p>
+<div class="phg-plant-search"><input id="phgPlantSearch" placeholder="Search yarrow, Achillea millefolium, Asteraceae…"/><button id="phgPlantSearchBtn">Search Plants</button></div>
 </div>
-
-            </div>
-
-          </div>
-          <div><div class="phg-imgbox" id="phgPlantImage"><div class="phg-imgph">Select a plant to load an openly licensed reference image when available.</div></div><div class="phg-imgcredit" id="phgPlantCredit"></div></div>
-        </div>
-      </div>
-      <div class="phg-plant-meta"><span id="phgPlantCount">Loading verified plant profiles…</span><span>Verified against World Flora Online • June 2026</span></div>
-      <div class="phg-plant-results" id="phgPlantResults"></div>
-      <div class="phg-plant-pager"><button id="phgPlantPrev">← Previous</button><button id="phgPlantNext">Next →</button></div>
-      <div class="phg-phase-note"><strong>Plant data note:</strong> taxonomy is verified against World Flora Online. Practical growing characteristics are added where an exact USDA NRCS PLANTS record exists. NRCS describes its Conservation Plant Characteristics as approximate nationwide values; missing information is left blank rather than invented. Cold-tolerance zone estimates are clearly marked as estimates, not official USDA hardiness-zone ratings.</div>
-    </div>
-  </div>
+<div class="phg-plant-body">
+<div class="phg-profile" id="phgPlantProfile">
+<div class="phg-profile-grid">
+<div>
+<div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#667c61;font-weight:bold">Verified Plant Profile</div>
+<h2 id="phgPlantName"></h2>
+<div class="phg-scientific" id="phgScientific"></div>
+<div class="phg-profile-badges" id="phgPlantBadges"></div>
+<dl>
+<dt>Family</dt><dd id="phgFamily"></dd>
+<dt>Common names</dt><dd id="phgCommon"></dd>
+<dt>Current taxonomy</dt><dd id="phgTaxonomy"></dd>
+<dt>Verification</dt><dd id="phgVerification"></dd>
+</dl>
+<div class="phg-aliases" id="phgAliasesBox"><b>Historical / synonym names</b><div class="phg-aliaswrap" id="phgAliases"></div></div>
+<div class="phg-audio"><button id="phgSpeakScientific">🔊 Hear scientific name</button><button class="secondary" id="phgSpeakSummary">🔊 Hear plant record</button></div><button class="phg-save-current" id="phgSavePlant">☆ Save Plant</button>
+<div id="phgGrowSection">
+<h3 class="phg-grow-title">Growing &amp; Garden Information</h3>
+<div class="phg-grow-grid" id="phgGrowGrid"></div>
+<div class="phg-enrichment-missing" id="phgEnrichmentMissing" style="display:none">This verified plant currently has taxonomy information but no matching USDA NRCS Conservation Plant Characteristics record. We leave practical fields blank rather than guessing.</div>
+<div class="phg-sourcebox" id="phgSourceBox" style="display:none"></div>
+<div id="phgCareSection">
+<h3 class="phg-care-title">Garden Use, Ecology &amp; Trusted Resources</h3>
+<div class="phg-care-grid" id="phgCareGrid"></div>
+<div class="phg-safety" id="phgSafetyBox" style="display:none"></div>
+<div class="phg-trusted" id="phgTrusted"></div>
+<div class="phg-care-note" id="phgCareNote"></div>
+</div>
+</div>
+</div>
+<div><div class="phg-imgbox" id="phgPlantImage"><div class="phg-imgph">Select a plant to load an openly licensed reference image when available.</div></div><div class="phg-imgcredit" id="phgPlantCredit"></div></div>
+</div>
+</div>
+<div class="phg-plant-meta"><span id="phgPlantCount">Loading verified plant profiles…</span><span>Verified against World Flora Online • June 2026</span></div>
+<div class="phg-plant-results" id="phgPlantResults"></div>
+<div class="phg-plant-pager"><button id="phgPlantPrev">← Previous</button><button id="phgPlantNext">Next →</button></div>
+<div class="phg-phase-note"><strong>Plant data note:</strong> taxonomy is verified against World Flora Online. Practical growing characteristics are added where an exact USDA NRCS PLANTS record exists. NRCS describes its Conservation Plant Characteristics as approximate nationwide values; missing information is left blank rather than invented. Cold-tolerance zone estimates are clearly marked as estimates, not official USDA hardiness-zone ratings.</div>
+</div>
+</div>
 </section>
 <main class="shell">
 <section class="glossary">
-<div class="glossary-head"><h2>Garden & Botanical Dictionary</h2><p>Search horticulture, plant anatomy, botanical Latin, scientific naming, soil, propagation, plant health and more.</p>
-<div class="searchrow"><input id="search" placeholder="Type a word, botanical term, Latin epithet, soil term…"><button class="mic" id="mic" aria-label="Speak a search term" title="Speak a search term">🎙</button><button class="searchbtn" id="searchBtn">Search Library</button></div>
+<div class="glossary-head"><h2>Garden &amp; Botanical Dictionary</h2><p>Search horticulture, plant anatomy, botanical Latin, scientific naming, soil, propagation, plant health and more.</p>
+<div class="searchrow"><input id="search" placeholder="Type a word, botanical term, Latin epithet, soil term…"/><button aria-label="Speak a search term" class="mic" id="mic" title="Speak a search term">🎙</button><button class="searchbtn" id="searchBtn">Search Library</button></div>
 </div>
 <div class="library-body">
 <div class="statbar"><div class="filters" id="filters"></div><div class="count" id="count"></div></div>
@@ -303,7 +289,7 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 <div><div class="category" id="vCat"></div><h2 id="vTerm"></h2><div class="definition" id="vDef"></div>
 <div class="audio-actions"><button id="speakTerm">🔊 Hear pronunciation</button><button class="secondary" id="speakDef">🔊 Hear definition</button></div><button class="phg-save-current" id="phgSaveTerm">☆ Save Term</button>
 <div class="related"><b>Related terms</b><div class="relwrap" id="related"></div></div>
-<div class="source-line">Terminology foundation references: <a href="https://research.fs.usda.gov/treesearch/5245" target="_blank" rel="noopener">USDA Forest Service Botanical Glossary</a> · <a href="https://lod.nal.usda.gov/nalt/" target="_blank" rel="noopener">NAL Agricultural Thesaurus</a></div>
+<div class="source-line">Terminology foundation references: <a href="https://research.fs.usda.gov/treesearch/5245" rel="noopener" target="_blank">USDA Forest Service Botanical Glossary</a> · <a href="https://lod.nal.usda.gov/nalt/" rel="noopener" target="_blank">NAL Agricultural Thesaurus</a></div>
 </div>
 <div><div class="imagebox" id="imageBox"><div class="imgplaceholder">Openly licensed reference image will appear here when available.</div></div><div class="imgcredit" id="imgCredit"></div></div>
 </div>
@@ -313,31 +299,27 @@ header{position:sticky;top:0;z-index:40;background:linear-gradient(#4e3425,#2d1d
 <div class="note"><strong>Pronunciation note:</strong> browser speech is used for this first version so the feature remains free. Botanical and scientific pronunciation can vary by region and professional tradition; pronunciation overrides can be added term-by-term where needed.</div>
 </div>
 </section>
-
 <section class="resource-head"><span class="eyebrow">Beyond the Dictionary</span><h2>Garden Resource Center</h2><p>Curated gateways to reliable plant information, open biodiversity literature, university gardening tools and botanical collections. External resources open in a new tab so your Perennial Library stays open.</p></section>
-
-<section class="phg-resource-controls" id="phgResourceControls" aria-label="Garden resource directory search">
-  <div class="phg-resource-search">
-    <input id="phgResourceSearch" placeholder="Search books, databases, podcasts, native plants, soil, gardens…">
-    <button id="phgResourceSearchBtn">Search Resources</button>
-  </div>
-  <div class="phg-resource-filterbar" id="phgResourceFilters"></div>
+<section aria-label="Garden resource directory search" class="phg-resource-controls" id="phgResourceControls">
+<div class="phg-resource-search">
+<input id="phgResourceSearch" placeholder="Search books, databases, podcasts, native plants, soil, gardens…"/>
+<button id="phgResourceSearchBtn">Search Resources</button>
+</div>
+<div class="phg-resource-filterbar" id="phgResourceFilters"></div>
 </section>
 <section class="resources">
-<article class="resource"><span class="rtype">Plant Database</span><h3>USDA PLANTS Database</h3><p>Standardized U.S. plant names, taxonomy, symbols, distribution, characteristics, images and plant guides.</p><a href="https://plants.sc.egov.usda.gov/home/" target="_blank" rel="noopener">Explore USDA PLANTS →</a></article>
-<article class="resource"><span class="rtype">Scientific Terminology</span><h3>NAL Agricultural Thesaurus</h3><p>USDA National Agricultural Library concepts, definitions, synonyms and broader/narrower scientific relationships.</p><a href="https://lod.nal.usda.gov/nalt/" target="_blank" rel="noopener">Explore NALT →</a></article>
-<article class="resource"><span class="rtype">Free Books</span><h3>Biodiversity Heritage Library</h3><p>Open access biodiversity books and journals from natural-history and botanical library collections around the world.</p><a href="https://www.biodiversitylibrary.org/" target="_blank" rel="noopener">Search Free Books →</a></article>
-<article class="resource"><span class="rtype">University Extension</span><h3>NC State Plant Toolbox</h3><p>Search plants by name, traits, landscape use, wildlife value and growing conditions through an Extension-maintained tool.</p><a href="https://plants.ces.ncsu.edu/" target="_blank" rel="noopener">Open Plant Toolbox →</a></article>
-<article class="resource"><span class="rtype">Botanical Garden</span><h3>Missouri Botanical Garden</h3><p>Explore garden collections, plant research, horticultural displays and botanical resources from a major research garden.</p><a href="https://www.missouribotanicalgarden.org/" target="_blank" rel="noopener">Visit Resource →</a></article>
-<article class="resource"><span class="rtype">Botanical Terms</span><h3>US Forest Service Glossary</h3><p>A USDA Forest Service glossary focused on technical botanical language used in plant identification and description.</p><a href="https://research.fs.usda.gov/treesearch/5245" target="_blank" rel="noopener">Open Glossary →</a></article>
-<article class="resource"><span class="rtype">Perennial Tool</span><h3>My Growing Zone</h3><p>Find your USDA hardiness zone and connect it to seasonal planning inside Perennial Home & Gardens.</p><a href="../growing-zone/">Open Growing Zone →</a></article>
+<article class="resource"><span class="rtype">Plant Database</span><h3>USDA PLANTS Database</h3><p>Standardized U.S. plant names, taxonomy, symbols, distribution, characteristics, images and plant guides.</p><a href="https://plants.sc.egov.usda.gov/home/" rel="noopener" target="_blank">Explore USDA PLANTS →</a></article>
+<article class="resource"><span class="rtype">Scientific Terminology</span><h3>NAL Agricultural Thesaurus</h3><p>USDA National Agricultural Library concepts, definitions, synonyms and broader/narrower scientific relationships.</p><a href="https://lod.nal.usda.gov/nalt/" rel="noopener" target="_blank">Explore NALT →</a></article>
+<article class="resource"><span class="rtype">Free Books</span><h3>Biodiversity Heritage Library</h3><p>Open access biodiversity books and journals from natural-history and botanical library collections around the world.</p><a href="https://www.biodiversitylibrary.org/" rel="noopener" target="_blank">Search Free Books →</a></article>
+<article class="resource"><span class="rtype">University Extension</span><h3>NC State Plant Toolbox</h3><p>Search plants by name, traits, landscape use, wildlife value and growing conditions through an Extension-maintained tool.</p><a href="https://plants.ces.ncsu.edu/" rel="noopener" target="_blank">Open Plant Toolbox →</a></article>
+<article class="resource"><span class="rtype">Botanical Garden</span><h3>Missouri Botanical Garden</h3><p>Explore garden collections, plant research, horticultural displays and botanical resources from a major research garden.</p><a href="https://www.missouribotanicalgarden.org/" rel="noopener" target="_blank">Visit Resource →</a></article>
+<article class="resource"><span class="rtype">Botanical Terms</span><h3>US Forest Service Glossary</h3><p>A USDA Forest Service glossary focused on technical botanical language used in plant identification and description.</p><a href="https://research.fs.usda.gov/treesearch/5245" rel="noopener" target="_blank">Open Glossary →</a></article>
+<article class="resource"><span class="rtype">Perennial Tool</span><h3>My Growing Zone</h3><p>Find your USDA hardiness zone and connect it to seasonal planning inside Perennial Home &amp; Gardens.</p><a href="../growing-zone/">Open Growing Zone →</a></article>
 <article class="resource"><span class="rtype">Perennial Tool</span><h3>Plant Companions</h3><p>Compare practical planting relationships, compatible neighbors and combinations that deserve caution.</p><a href="../plant-companions/">Open Companions →</a></article>
 <article class="resource"><span class="rtype">Perennial Tool</span><h3>Seasonal Calendar</h3><p>Turn garden knowledge into month-by-month action based on zone, season and garden focus.</p><a href="../seasonal-calendar/">Open Calendar →</a></article>
 </section>
 </main>
-
-<footer class="footer"><p><a href="../../">Perennial Home &amp; Gardens</a> · <a href="../../#free-resources">Free Resources</a> · <a href="../../#garden-library">Garden Library</a></p><p>Use the tools for free. Build your garden record over time.</p></footer>
-
+<footer class="footer phg-footer"><div class="phg-footer-main"><div class="phg-footer-brand"><a aria-label="Perennial home" href="/"><img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/></a><p>Plan it. Grow it. Live it.</p></div><nav aria-label="Footer navigation" class="phg-footer-nav"><a href="/#tools">Garden Apps</a><a href="/#services">Services</a><a href="/#courses">Courses</a><a href="/#shop">Garden Structures</a><a href="/#free-resources">Free Resources</a><a href="/#products">Perennial Collection</a><a href="/articles/">Articles</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div><div class="phg-footer-bottom"><nav aria-label="Legal and installation" class="footerLegal"><a href="/legal/privacy.html">Privacy Policy</a><a href="/legal/terms.html">Terms of Use</a><a href="/legal/affiliate.html">Affiliate Disclosure</a><a href="/legal/cookies.html">Cookie Notice</a><a href="/legal/accessibility.html">Accessibility</a></nav><nav aria-label="Shops and social" class="phg-socials"><a href="https://pin.it/5lgbMVS4S" rel="noopener" target="_blank">Pinterest</a><a href="https://perennialhomegardens.etsy.com" rel="noopener" target="_blank">Etsy</a><a href="https://www.redbubble.com/people/perennialhandg/shop" rel="noopener" target="_blank">Redbubble</a></nav></div><p class="phg-footer-copy">© 2026 Perennial Home &amp; Gardens LLC. Product links currently go directly to vendors. Reserved partner spaces are not active advertisements.</p></footer>
 <script>
 const $=id=>document.getElementById(id);
 let DATA=[],active="All",page=0,current=null;const PAGE=24;
@@ -357,7 +339,6 @@ async function loadCommonsImage(term,cat){let box=$("imageBox"),credit=$("imgCre
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(SR){let rec=new SR();rec.lang="en-US";rec.interimResults=false;rec.maxAlternatives=1;$("mic").onclick=()=>{try{$("mic").classList.add("listening");rec.start()}catch(e){}};rec.onresult=e=>{$("search").value=e.results[0][0].transcript;$("mic").classList.remove("listening");page=0;render();let a=filtered();if(a.length)openTerm(a[0])};rec.onerror=rec.onend=()=>$("mic").classList.remove("listening")}else{$("mic").onclick=()=>alert("Voice search is not supported by this browser. You can still type your term, and pronunciation playback may still work.")}
 init();
 </script>
-
 <script id="phg-phase3-plants-js">
 (function(){
   let P=[],E={},C={},page=0,current=null;const PAGE=24;
@@ -566,7 +547,6 @@ init();
   if(hash && !hash.startsWith("plant-")) mode("terms"); else mode("plants");
 })();
 </script>
-
 <script id="phg-phase6-resource-js">
 (function(){
   let R=[],resourceCategory="All",savedOnly=false;
@@ -621,7 +601,6 @@ init();
   });
 })();
 </script>
-
 <script id="phg-phase7-unified-search-js">
 (function(){
   let plants=[],terms=[],resources=[],kind="all";
@@ -736,7 +715,6 @@ init();
   }).catch(()=>{$u("phgUnifiedStatus").textContent="The unified search index is temporarily unavailable."});
 })();
 </script>
-
 <script src="account_sync_adapter.js"></script>
 <script id="phg-phase8-my-library-js">
 (function(){
@@ -745,7 +723,7 @@ init();
   const $8=id=>document.getElementById(id);
   function blank(){return {plants:[],terms:[],resources:[]}}
   function loadShelf(){
-    let s=blank();try{s={...s,...JSON.parse(localStorage.getItem(shelfKey)||"{}")}catch(e){}
+    let s=blank();try{s={...s,...JSON.parse(localStorage.getItem(shelfKey)||"{}")}}catch(e){}
     s.plants=Array.isArray(s.plants)?s.plants:[];s.terms=Array.isArray(s.terms)?s.terms:[];s.resources=Array.isArray(s.resources)?s.resources:[];
     try{const old=JSON.parse(localStorage.getItem(oldResourceKey)||"[]");old.forEach(id=>{if(!s.resources.includes(id))s.resources.push(id)})}catch(e){}
     return s;
@@ -839,11 +817,10 @@ init();
   ]).then(([p,t,r])=>{P=p;T=t;R=r;render()});
 })();
 </script>
-
 <style id="phg-my-garden-link-v1">
 .phg-my-garden-link{position:fixed;right:12px;bottom:12px;z-index:9999;text-decoration:none!important;background:#294f30;color:#fff!important;border:1px solid #ffffff44;border-radius:999px;padding:10px 13px;font:700 11px Georgia,serif;box-shadow:0 10px 28px #1b2f1d40}
 .phg-my-garden-link:hover{transform:translateY(-2px)}
 @media(max-width:620px){.phg-my-garden-link{right:8px;bottom:8px;padding:9px 11px;font-size:10px}}
 </style>
-<a class="phg-my-garden-link" href="../my-garden/" aria-label="Open My Garden dashboard">MY GARDEN</a>
-<script src="/app-assets/install.js?v=20261020-build3"></script></body></html>
+<a aria-label="Open My Garden dashboard" class="phg-my-garden-link" href="../my-garden/">MY GARDEN</a>
+<script src="/app-assets/install.js?v=20261020-final"></script></body></html>

@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Seed Starting, Succession & Tray Tracker | Perennial Home & Gardens</title>
-<meta name="description" content="Plan seed starts, track trays and cells, record germination and potting-up, schedule transplants, and build succession rounds in one garden app.">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Seed Starting, Succession &amp; Tray Tracker | Perennial Home &amp; Gardens</title>
+<meta content="Plan seed starts, track trays and cells, record germination and potting-up, schedule transplants, and build succession rounds in one garden app." name="description"/>
 <style>
 :root{--green:#24472b;--green2:#35613c;--cream:#f7f2e8;--paper:#fffdf8;--line:#ddd2c3;--soft:#edf3e8;--gold:#d7bc88;--muted:#74695f;--warn:#fff3d8;--danger:#91463d}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f4efe7,#fbf8f1);color:#302b26;font-family:Georgia,serif}
@@ -25,17 +26,16 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 @media(max-width:900px){.formgrid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.bar{padding:8px 9px}.brand strong{font-size:17px}.brand span{display:none}.nav a:not(.garden){display:none}.hero{padding:30px 10px 14px}.shell{padding:8px 9px 42px}.formgrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.quickgrid{grid-template-columns:1fr}.card{border-radius:17px}}
 </style>
-<link rel="manifest" href="../../manifest.webmanifest" type="application/manifest+json">
-
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Perennial Gardens">
-<script defer src="../../app-assets/install.js"></script>
-<link rel="icon" type="image/png" sizes="64x64" href="../../app-assets/icon-64-large-20261015.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../../app-assets/icon-180-large-20261015.png">
+<link href="../../manifest.webmanifest" rel="manifest" type="application/manifest+json"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="Perennial Gardens" name="apple-mobile-web-app-title"/>
+<script defer="" src="../../app-assets/install.js?v=20261020-final"></script>
+<link href="../../app-assets/icon-64-large-20261015.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="../../app-assets/icon-180-large-20261015.png" rel="apple-touch-icon" sizes="180x180"/>
 </head>
 <body><style id="phg-shared-header-build3">.b21StickyBrand{position:sticky;top:0;z-index:100;background:#302015}.b20WoodBar{display:flex;align-items:center;justify-content:center;background:url("/app-assets/header-wood.webp") center/cover}.b20Logo{display:flex;align-items:center;justify-content:center;height:100%}.b20Logo img{width:auto;object-fit:contain}.b21StickyBrand .nav{display:none}.b21StickyBrand .cleanMenu span{display:block}</style><div class="b21StickyBrand"><div class="b20WoodBar">
-<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/">
+<a aria-label="Perennial Home &amp; Gardens home" class="b20Logo" href="/#top">
 <img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/>
 </a>
 </div><nav class="nav"><div class="navin newNavIn">
@@ -47,7 +47,7 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 <a href="/#courses">Courses</a>
 <a href="/#shop">Garden Structures</a></div>
 <a class="navCenterFree" href="/#free-resources">FREE RESOURCES</a><div class="navSide navSideRight"><a href="/#products">Perennial Collection</a>
-<a href="/#blog">Blog</a>
+<a href="/articles/">Articles</a>
 <a href="/#about">About</a>
 <a href="/#contact">Contact</a></div>
 </div>
@@ -57,93 +57,83 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 <button class="desktopJoin" onclick="openJoin()">Join</button>
 <button aria-label="Menu" class="cleanMenu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </div>
-</div></nav></div><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
-<div class="topnote">Perennial Home & Gardens • Seed-to-Harvest Planning</div>
-
-
+</div></nav></div><a class="phg-my-garden-universal" href="/tools/my-garden/">My Garden →</a><script>if(window.top!==window.self)document.querySelector(".b21StickyBrand")?.remove();</script>
+<div class="topnote">Perennial Home &amp; Gardens • Seed-to-Harvest Planning</div>
 <section class="hero">
- <div class="eyebrow">Build 2 • My Garden System</div>
- <h1>Seed Starting, Succession & Tray Tracker</h1>
- <p>Plan what to sow, track trays and cells, record germination and potting-up, schedule transplant dates, and build repeat sowings so harvests arrive in waves instead of all at once.</p>
- <div class="badges"><span class="badge">Seed Inventory</span><span class="badge">Tray & Cell Tracking</span><span class="badge">Germination</span><span class="badge">Transplant Dates</span><span class="badge">Succession Rounds</span><span class="badge">My Garden Connected</span></div>
+<div class="eyebrow">Build 2 • My Garden System</div>
+<h1>Seed Starting, Succession &amp; Tray Tracker</h1>
+<p>Plan what to sow, track trays and cells, record germination and potting-up, schedule transplant dates, and build repeat sowings so harvests arrive in waves instead of all at once.</p>
+<div class="badges"><span class="badge">Seed Inventory</span><span class="badge">Tray &amp; Cell Tracking</span><span class="badge">Germination</span><span class="badge">Transplant Dates</span><span class="badge">Succession Rounds</span><span class="badge">My Garden Connected</span></div>
 </section>
-
 <main class="shell">
 <div class="stats">
- <div class="stat"><strong id="sSeeds">0</strong><span>Seed varieties</span></div>
- <div class="stat"><strong id="sTrays">0</strong><span>Active trays</span></div>
- <div class="stat"><strong id="sCells">0</strong><span>Cells planted</span></div>
- <div class="stat"><strong id="sRounds">0</strong><span>Succession rounds</span></div>
- <div class="stat"><strong id="sDue">0</strong><span>Due / overdue</span></div>
+<div class="stat"><strong id="sSeeds">0</strong><span>Seed varieties</span></div>
+<div class="stat"><strong id="sTrays">0</strong><span>Active trays</span></div>
+<div class="stat"><strong id="sCells">0</strong><span>Cells planted</span></div>
+<div class="stat"><strong id="sRounds">0</strong><span>Succession rounds</span></div>
+<div class="stat"><strong id="sDue">0</strong><span>Due / overdue</span></div>
 </div>
-
 <div class="tabs"><button class="tab active" data-tab="inventory">SEED INVENTORY</button><button class="tab" data-tab="trays">TRAY TRACKER</button><button class="tab" data-tab="succession">SUCCESSION PLANNER</button><button class="tab" data-tab="overview">OVERVIEW</button></div>
-
 <section class="panel active" id="inventory">
- <div class="card"><div class="cardhead"><h2>Add Seed Variety</h2><p>Keep the packet details you actually use when planning starts and successions.</p></div><div class="body">
-  <div class="formgrid">
-   <div class="field"><label>Crop / plant</label><input id="seedCrop" placeholder="Tomato"></div>
-   <div class="field"><label>Variety</label><input id="seedVariety" placeholder="Cherokee Purple"></div>
-   <div class="field"><label>Seed year</label><input id="seedYear" type="number" min="2000" max="2100"></div>
-   <div class="field"><label>Quantity / packets</label><input id="seedQty" placeholder="1 packet / 40 seeds"></div>
-   <div class="field"><label>Days to maturity</label><input id="seedDTM" type="number" min="1" placeholder="80"></div>
-   <div class="field"><label>Start method</label><select id="seedMethod"><option>Indoor start</option><option>Direct sow</option><option>Either</option></select></div>
-   <div class="field"><label>Spacing (inches)</label><input id="seedSpacing" type="number" min="1" placeholder="24"></div>
-   <div class="field"><label>Source</label><input id="seedSource" placeholder="Seed company / saved seed"></div>
-  </div>
-  <div class="field"><label>Packet / planning notes</label><textarea id="seedNotes" placeholder="Light, depth, germination temperature, special instructions, saved seed notes…"></textarea></div>
-  <div class="actions"><button class="btn" id="addSeed">Add to Inventory</button></div>
- </div></div>
- <div class="card"><div class="cardhead"><h2>My Seeds</h2><p>Use inventory entries directly when creating trays and succession rounds.</p></div><div class="body"><div class="tablewrap"><table class="table"><thead><tr><th>Crop</th><th>Variety</th><th>Year</th><th>Method</th><th>DTM</th><th>Spacing</th><th>Source</th><th></th></tr></thead><tbody id="seedRows"></tbody></table></div><div id="seedEmpty" class="empty">No seeds added yet.</div></div></div>
+<div class="card"><div class="cardhead"><h2>Add Seed Variety</h2><p>Keep the packet details you actually use when planning starts and successions.</p></div><div class="body">
+<div class="formgrid">
+<div class="field"><label>Crop / plant</label><input id="seedCrop" placeholder="Tomato"/></div>
+<div class="field"><label>Variety</label><input id="seedVariety" placeholder="Cherokee Purple"/></div>
+<div class="field"><label>Seed year</label><input id="seedYear" max="2100" min="2000" type="number"/></div>
+<div class="field"><label>Quantity / packets</label><input id="seedQty" placeholder="1 packet / 40 seeds"/></div>
+<div class="field"><label>Days to maturity</label><input id="seedDTM" min="1" placeholder="80" type="number"/></div>
+<div class="field"><label>Start method</label><select id="seedMethod"><option>Indoor start</option><option>Direct sow</option><option>Either</option></select></div>
+<div class="field"><label>Spacing (inches)</label><input id="seedSpacing" min="1" placeholder="24" type="number"/></div>
+<div class="field"><label>Source</label><input id="seedSource" placeholder="Seed company / saved seed"/></div>
+</div>
+<div class="field"><label>Packet / planning notes</label><textarea id="seedNotes" placeholder="Light, depth, germination temperature, special instructions, saved seed notes…"></textarea></div>
+<div class="actions"><button class="btn" id="addSeed">Add to Inventory</button></div>
+</div></div>
+<div class="card"><div class="cardhead"><h2>My Seeds</h2><p>Use inventory entries directly when creating trays and succession rounds.</p></div><div class="body"><div class="tablewrap"><table class="table"><thead><tr><th>Crop</th><th>Variety</th><th>Year</th><th>Method</th><th>DTM</th><th>Spacing</th><th>Source</th><th></th></tr></thead><tbody id="seedRows"></tbody></table></div><div class="empty" id="seedEmpty">No seeds added yet.</div></div></div>
 </section>
-
 <section class="panel" id="trays">
- <div class="card"><div class="cardhead"><h2>Create Tray / Cell Block</h2><p>Create a tray, plug flat, soil block tray, or cell section and track what happens after sowing.</p></div><div class="body">
-  <div class="formgrid">
-   <div class="field"><label>Tray name</label><input id="trayName" placeholder="Tray A"></div>
-   <div class="field"><label>Seed variety</label><select id="traySeed"></select></div>
-   <div class="field"><label>Total cells</label><select id="trayCells"><option>6</option><option>12</option><option>18</option><option>24</option><option>32</option><option>36</option><option>50</option><option>72</option><option>98</option><option>128</option></select></div>
-   <div class="field"><label>Sow date</label><input id="traySow" type="date"></div>
-   <div class="field"><label>Target transplant</label><input id="trayTransplant" type="date"></div>
-   <div class="field"><label>Location</label><select id="trayLocation"><option>Grow lights</option><option>Sunny window</option><option>Greenhouse</option><option>Cold frame</option><option>Outdoors</option></select></div>
-   <div class="field"><label>Germination target (days)</label><input id="trayGermDays" type="number" min="1" value="7"></div>
-   <div class="field"><label>Notes</label><input id="trayNotes" placeholder="Heat mat, dome, bottom water…"></div>
-  </div>
-  <div class="actions"><button class="btn" id="addTray">Create Tray</button></div>
- </div></div>
- <div id="trayList"></div>
+<div class="card"><div class="cardhead"><h2>Create Tray / Cell Block</h2><p>Create a tray, plug flat, soil block tray, or cell section and track what happens after sowing.</p></div><div class="body">
+<div class="formgrid">
+<div class="field"><label>Tray name</label><input id="trayName" placeholder="Tray A"/></div>
+<div class="field"><label>Seed variety</label><select id="traySeed"></select></div>
+<div class="field"><label>Total cells</label><select id="trayCells"><option>6</option><option>12</option><option>18</option><option>24</option><option>32</option><option>36</option><option>50</option><option>72</option><option>98</option><option>128</option></select></div>
+<div class="field"><label>Sow date</label><input id="traySow" type="date"/></div>
+<div class="field"><label>Target transplant</label><input id="trayTransplant" type="date"/></div>
+<div class="field"><label>Location</label><select id="trayLocation"><option>Grow lights</option><option>Sunny window</option><option>Greenhouse</option><option>Cold frame</option><option>Outdoors</option></select></div>
+<div class="field"><label>Germination target (days)</label><input id="trayGermDays" min="1" type="number" value="7"/></div>
+<div class="field"><label>Notes</label><input id="trayNotes" placeholder="Heat mat, dome, bottom water…"/></div>
+</div>
+<div class="actions"><button class="btn" id="addTray">Create Tray</button></div>
+</div></div>
+<div id="trayList"></div>
 </section>
-
 <section class="panel" id="succession">
- <div class="card"><div class="cardhead"><h2>Create Succession Plan</h2><p>Repeat sowings by interval so harvest windows are spread over time.</p></div><div class="body">
-  <div class="formgrid">
-   <div class="field"><label>Seed variety</label><select id="succSeed"></select></div>
-   <div class="field"><label>First sow date</label><input id="succStart" type="date"></div>
-   <div class="field"><label>Interval</label><select id="succInterval"><option value="7">Every 7 days</option><option value="10">Every 10 days</option><option value="14">Every 14 days</option><option value="21">Every 21 days</option><option value="28">Every 28 days</option></select></div>
-   <div class="field"><label>Number of rounds</label><input id="succRounds" type="number" min="2" max="12" value="4"></div>
-   <div class="field"><label>Method</label><select id="succMethod"><option>Direct sow</option><option>Indoor start</option><option>Transplant</option></select></div>
-   <div class="field"><label>Bed / location</label><input id="succBed" placeholder="Bed 2 / south row"></div>
-  </div>
-  <div class="actions"><button class="btn" id="addSucc">Build Succession Rounds</button></div>
-  <div class="note">Teaching note: succession planting is not only for lettuce and radish. It can also mean staggered transplants, repeated flower sowings, repeat bean or corn plantings, or replacing a finished crop with the next seasonal crop.</div>
- </div></div>
- <div class="card"><div class="cardhead"><h2>Succession Schedule</h2><p>Each sowing round stays editable and visible as a separate event.</p></div><div class="body"><div class="rounds" id="succList"></div></div></div>
+<div class="card"><div class="cardhead"><h2>Create Succession Plan</h2><p>Repeat sowings by interval so harvest windows are spread over time.</p></div><div class="body">
+<div class="formgrid">
+<div class="field"><label>Seed variety</label><select id="succSeed"></select></div>
+<div class="field"><label>First sow date</label><input id="succStart" type="date"/></div>
+<div class="field"><label>Interval</label><select id="succInterval"><option value="7">Every 7 days</option><option value="10">Every 10 days</option><option value="14">Every 14 days</option><option value="21">Every 21 days</option><option value="28">Every 28 days</option></select></div>
+<div class="field"><label>Number of rounds</label><input id="succRounds" max="12" min="2" type="number" value="4"/></div>
+<div class="field"><label>Method</label><select id="succMethod"><option>Direct sow</option><option>Indoor start</option><option>Transplant</option></select></div>
+<div class="field"><label>Bed / location</label><input id="succBed" placeholder="Bed 2 / south row"/></div>
+</div>
+<div class="actions"><button class="btn" id="addSucc">Build Succession Rounds</button></div>
+<div class="note">Teaching note: succession planting is not only for lettuce and radish. It can also mean staggered transplants, repeated flower sowings, repeat bean or corn plantings, or replacing a finished crop with the next seasonal crop.</div>
+</div></div>
+<div class="card"><div class="cardhead"><h2>Succession Schedule</h2><p>Each sowing round stays editable and visible as a separate event.</p></div><div class="body"><div class="rounds" id="succList"></div></div></div>
 </section>
-
 <section class="panel" id="overview">
- <div class="card"><div class="cardhead"><h2>Seed-to-Garden Overview</h2><p>What needs attention now, what is coming next, and what has already progressed.</p></div><div class="body">
-  <div class="quickgrid">
-   <div class="quick"><b>Due to Sow</b><span id="dueSow">Nothing due yet.</span></div>
-   <div class="quick"><b>Germination Watch</b><span id="dueGerm">No germination checks due.</span></div>
-   <div class="quick"><b>Transplants Coming</b><span id="dueTrans">No transplants due.</span></div>
-  </div>
-  <div class="note">This app is connected to <b>My Garden</b>. Inventory totals, active trays, planted cells, succession rounds, and due items are stored on this device and summarized in the central dashboard.</div>
- </div></div>
+<div class="card"><div class="cardhead"><h2>Seed-to-Garden Overview</h2><p>What needs attention now, what is coming next, and what has already progressed.</p></div><div class="body">
+<div class="quickgrid">
+<div class="quick"><b>Due to Sow</b><span id="dueSow">Nothing due yet.</span></div>
+<div class="quick"><b>Germination Watch</b><span id="dueGerm">No germination checks due.</span></div>
+<div class="quick"><b>Transplants Coming</b><span id="dueTrans">No transplants due.</span></div>
+</div>
+<div class="note">This app is connected to <b>My Garden</b>. Inventory totals, active trays, planted cells, succession rounds, and due items are stored on this device and summarized in the central dashboard.</div>
+</div></div>
 </section>
 </main>
-
-<footer><div class="footerlinks"><a href="../my-garden/">My Garden</a><a href="../../">Home</a><a href="../seasonal-calendar/">Seasonal Calendar</a><a href="../garden-planner/">Garden Planner</a><a href="../garden-library/">Garden Library</a></div><div>© Perennial Home & Gardens</div></footer>
-
+<footer class="footer phg-footer"><div class="phg-footer-main"><div class="phg-footer-brand"><a aria-label="Perennial home" href="/"><img alt="Perennial Home &amp; Gardens" src="/app-assets/header-logo.webp"/></a><p>Plan it. Grow it. Live it.</p></div><nav aria-label="Footer navigation" class="phg-footer-nav"><a href="/#tools">Garden Apps</a><a href="/#services">Services</a><a href="/#courses">Courses</a><a href="/#shop">Garden Structures</a><a href="/#free-resources">Free Resources</a><a href="/#products">Perennial Collection</a><a href="/articles/">Articles</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div><div class="phg-footer-bottom"><nav aria-label="Legal and installation" class="footerLegal"><a href="/legal/privacy.html">Privacy Policy</a><a href="/legal/terms.html">Terms of Use</a><a href="/legal/affiliate.html">Affiliate Disclosure</a><a href="/legal/cookies.html">Cookie Notice</a><a href="/legal/accessibility.html">Accessibility</a></nav><nav aria-label="Shops and social" class="phg-socials"><a href="https://pin.it/5lgbMVS4S" rel="noopener" target="_blank">Pinterest</a><a href="https://perennialhomegardens.etsy.com" rel="noopener" target="_blank">Etsy</a><a href="https://www.redbubble.com/people/perennialhandg/shop" rel="noopener" target="_blank">Redbubble</a></nav></div><p class="phg-footer-copy">© 2026 Perennial Home &amp; Gardens LLC. Product links currently go directly to vendors. Reserved partner spaces are not active advertisements.</p></footer>
 <script>
 const KEY="phgSeedSystemV1";
 let state=load();
@@ -193,5 +183,5 @@ function renderStats(){const d=dueItems(),cells=state.trays.reduce((n,t)=>n+t.ce
 function renderAll(){fillSeedSelects();renderSeeds();renderTrays();renderSucc();renderOverview();renderStats()}
 renderAll();
 </script>
-<script src="/app-assets/install.js?v=20261020-build3"></script></body>
+<script src="/app-assets/install.js?v=20261020-final"></script></body>
 </html>
