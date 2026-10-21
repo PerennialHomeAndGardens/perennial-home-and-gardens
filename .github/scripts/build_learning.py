@@ -156,3 +156,6 @@ for page in (ROOT/'tools').glob('*/index.html'):
  text=re.sub(r'(app-assets/install\.js)(?:\?[^"\s<>]*)?',r'\1?v=20261020-final',str(d));page.write_text(text)
 print('Generated 29 learning articles, article index, 13 app shells, shared footer and legal pages.')
 print('Word counts:',json.dumps({a['id']:a['words'] for a in articles}))
+
+# Keep subsequent educational regeneration aligned with the navigation polish.
+subprocess.run(["python",str(ROOT/".github/scripts/polish_navigation.py")],check=True)

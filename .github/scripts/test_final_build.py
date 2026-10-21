@@ -98,7 +98,7 @@ async def main():
   await prompt_page.clock.fast_forward(24000);assert not await prompt_page.locator('#freebieModal').is_visible()
   await prompt_page.clock.fast_forward(1000);assert await prompt_page.locator('#freebieModal').is_visible()
   await prompt_page.evaluate('closeFreebie()');await prompt_page.clock.fast_forward(94000);assert await prompt_page.locator('#phg-newsletter-prompt').count()==0
-  await prompt_page.clock.fast_forward(1000);assert await prompt_page.locator('#phg-newsletter-prompt').is_visible();assert 'Monthly garden ideas, free gifts and coupons' in await prompt_page.locator('#phg-newsletter-prompt').inner_text()
+  await prompt_page.clock.fast_forward(1000);assert await prompt_page.locator('#phg-newsletter-prompt').is_visible();assert 'Monthly garden ideas, gifts and coupons' in await prompt_page.locator('#phg-newsletter-prompt').inner_text()
   await prompt_page.locator('#phg-newsletter-prompt .x-dialog-heading button').click();await prompt_page.clock.fast_forward(180000);assert not await prompt_page.locator('dialog[open],.modal.on').count()
   print('PASS resource prompt at25seconds and distinct newsletter prompt at120seconds, once per visit')
   await browser.close();print('PASS no uncaught page errors')
