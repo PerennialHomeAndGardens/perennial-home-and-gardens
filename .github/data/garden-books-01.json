@@ -250,13 +250,35 @@
     "sourceTitle": "From Seed to Skillet — publisher or bibliographic listing",
     "category": "Vegetables",
     "summary": "Jimmy Williams and Susan Heeger connect the work of a vegetable garden with the food prepared from its harvest. The book moves through planning a backyard growing space, establishing beds, tending crops, and using the results in the kitchen. Williams's family history and inherited gardening knowledge are part of that story, giving practical instruction a personal context. The combination encourages readers to choose crops for the meals and people they care about, not simply for a photograph of a productive plot. It is an inviting garden-to-table manual for households that want growing and cooking to remain connected.",
-    "whyChosen": "Our number-twelve selection recognizes the book's connection between growing skills, family memory, and cooking. There is also a personal connection: Jimmy Williams is Wayne Williams's uncle. We disclose that relationship openly. Its top-twenty-five placement is a Perennial editorial choice honoring both practical usefulness and the family legacy behind this collection.",
+    "whyChosen": "Our number-twelve selection honors a useful connection between growing food, cooking, and carrying garden knowledge from one generation to the next. Williams and Heeger make the household vegetable garden feel purposeful: a place to grow ingredients, preserve traditions, and share what the season provides. Its place in our top twenty-five is a Perennial editorial choice recognizing those practical and cultural strengths.",
     "practicalUse": "Start with a meal your household enjoys, then identify vegetables and herbs that could be grown for it. Plan a manageable bed, record planting and harvest dates, and keep the cooking notes beside your garden observations. Use each season to strengthen the connection between crops and meals.",
     "bestFor": "Families connecting vegetable gardening, cooking, and shared traditions",
     "rankingType": "Perennial editorial selection",
     "year": 2010,
     "subtitle": "A Guide to Growing, Tending, Harvesting, and Cooking Up Fresh, Healthy Food to Share with People You Love",
-    "caution": "Editorial disclosure: coauthor Jimmy Williams is Wayne Williams’s uncle. This personal relationship informs Perennial’s selection note, not an independent consensus ranking."
+    "familyNote": "A close family connection to Perennial Home & Gardens makes this book a personal favorite.",
+    "heritageStory": {
+      "title": "The Goose Creek tomato: seeds, memory and a gardening life",
+      "paragraphs": [
+        "For Jimmy Williams, a tomato can hold generations of memory. Goose Creek is the heirloom at the center of his family's seed-saving story, rooted in Goose Creek, South Carolina, near Charleston. According to the family history recounted in published accounts, his enslaved great-great-grandmother carried tomato seeds aboard a slave ship; those seeds were kept and passed down through the family.",
+        "His grandmother Eloise, who belonged to South Carolina's Gullah community, taught him to garden and grow the family tomatoes. TomatoFest identifies her as Elouise Watson and recounts her sharing the heirloom with Jimmy in the 1950s. His published interview describes her attachment to Goose Creek as a matter of both exceptional flavor and cultural inheritance. Saving seed meant keeping a beloved food, a growing practice, and a family memory alive together.",
+        "That continuity helps explain the spirit of From Seed to Skillet. Written with Susan Heeger, the book brings inherited knowledge into a practical guide to planning beds, tending vegetables, harvesting, and cooking food to share. The garden and kitchen belong to the same story. For a reader starting a family garden, its lasting invitation is to grow something meaningful, learn how to care for it, and pass that knowledge on."
+      ],
+      "sources": [
+        {
+          "title": "Jimmy Williams interview — Modern Farmer (2016)",
+          "url": "https://modernfarmer.com/2016/07/jimmy-williams/"
+        },
+        {
+          "title": "Goose Creek heirloom family account — TomatoFest",
+          "url": "https://www.tomatofest.com/Goose_Creek_Heirloom_Tomato_p/tf-0213f.htm"
+        },
+        {
+          "title": "From Seed to Skillet — Chronicle Books listing via Raincoast",
+          "url": "https://services.raincoast.com/scripts/b2b.wsc/featured?hh_isbn=9780811872218&ht_orig_from=raincoast"
+        }
+      ]
+    }
   },
   {
     "rank": 13,

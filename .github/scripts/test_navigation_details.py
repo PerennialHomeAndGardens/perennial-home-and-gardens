@@ -12,6 +12,11 @@ for path in pages:
  for nav in s.select('#navlinks,.phg-footer-nav'):
   assert len(nav.select('a[href="/tools/garden-library/"]'))==1,path
 with wave.open('app-assets/audio/soft-whirl.wav','rb') as w:assert 1.29<w.getnframes()/w.getframerate()<1.31
+b=Soup((R/'books/from-seed-to-skillet-12.html').read_text(),'html.parser')
+assert 'Wayne Williams' not in b.get_text() and 'uncle' not in b.get_text().lower()
+assert b.select_one('#heritage') and 'Eloise' in b.select_one('#heritage').get_text() and 'Goose Creek' in b.select_one('#heritage').get_text()
+assert b.select_one('.phg-book-family-credit') and len(b.select('#heritage a'))==3
+print('PASS Jimmy Williams heritage story, discreet family note and removal of personal-name/uncle disclosure')
 print('PASS direct Garden Library links on all152 retained pages; valid selected1.3second recording')
 async def main():
  async with async_playwright() as pw:

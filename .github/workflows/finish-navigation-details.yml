@@ -16,6 +16,7 @@ jobs:
       - run: python -m pip install beautifulsoup4 playwright
       - run: python -m playwright install chromium --with-deps
       - run: |
+          python .github/scripts/build_garden_books.py
           python .github/scripts/finish_navigation_details.py
           node --check app-assets/app-navigation.js
           python .github/scripts/test_navigation_details.py
