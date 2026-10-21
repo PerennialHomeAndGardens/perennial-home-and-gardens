@@ -259,7 +259,7 @@
     {
       "id": "resource-040",
       "url": "https://scholar.google.com/",
-      "status": 200,
+      "status": 403,
       "error": null
     },
     {
@@ -283,13 +283,13 @@
     {
       "id": "resource-044",
       "url": "https://awaytogarden.com/podcast/",
-      "status": 202,
+      "status": 200,
       "error": null
     },
     {
       "id": "resource-045",
       "url": "https://joegardener.com/podcast/",
-      "status": 202,
+      "status": 200,
       "error": null
     },
     {
@@ -301,7 +301,7 @@
     {
       "id": "resource-047",
       "url": "https://www.cultivatingplace.com/",
-      "status": 429,
+      "status": 200,
       "error": null
     },
     {
