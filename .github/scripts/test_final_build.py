@@ -20,7 +20,11 @@ async def main():
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced] ',state='attached')
   # Every local navigation destination exists, including all retained apps.
   routes=await page.locator('#tools .creamTool').evaluate_all('(els)=>els.map(e=>e.getAttribute("href"))');assert len(routes)==8
-  for r in routes:assert (await context.request.get(URL+r)).status==200,r
+  for r in routes:
+   assert (await context.request.get(URL+r)).status==200,r
+   await page.goto(URL,wait_until='load');await page.wait_for_function('window.__siteExperience===true')
+   await page.locator('#tools .creamTool[href="'+r+'"]').click();await page.wait_for_url('**'+r)
+  await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached')
   harvest=page.get_by_role('link',name='OPEN HARVEST RECORDS →',exact=True);assert 'harvest-records/' in await harvest.get_attribute('href')
   await harvest.click();assert '/tools/harvest-records/' in page.url
   for path in sorted(Path('tools').glob('*/index.html')):
