@@ -25,11 +25,12 @@ for item in order:
  n=d.select_one('section#'+item) if isinstance(item,str) else item
  assert n is not None,str(item)
  main.append(n.extract())
+main.insert_after(d.footer.extract())
 # Give the directory the exact same tool order as the advertisement sequence.
 slugs=['growing-zone','garden-planner','garden-calculator','plant-companions','seasonal-calendar','plant-identifier','harvest-checker','garden-library','seed-starting','garden-journal','harvest-records','garden-inventory']
 for slug in slugs:
  a=cards.select_one('a[href="/tools/'+slug+'/"]');assert a is not None,slug;cards.append(a.extract())
 for icon in cards.select('.toolMiniIcon'):icon['aria-hidden']='true'
-# Remove a stale script assumption that the legacy eight-card directory is fixed.
+# Keep the directory count explicit.
 assert len(cards.select('a'))==12
 p.write_text(str(d));print('Organized twelve tool advertisements plus My Garden; final sections are Articles, About, Contact.')
