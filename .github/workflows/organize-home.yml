@@ -17,7 +17,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install beautifulsoup4 playwright
       - run: |
-          python .github/scripts/polish_navigation.py
+          python .github/scripts/organize_home.py
           node --check app-assets/site-experience.js
           python -m playwright install chromium --with-deps
       - run: python .github/scripts/test_final_build.py

@@ -9,7 +9,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 server=socketserver.TCPServer(('127.0.0.1',8767),Handler);threading.Thread(target=server.serve_forever,daemon=True).start();URL='http://127.0.0.1:8767'
 s=Soup(Path('index.html').read_text(),'html.parser')
-sections=s.main.select(':scope > section');assert sections[0]['id']=='tools'
+sections=s.main.select(':scope > section');assert 'hero' in sections[0].get('class',[]);assert sections[1]['id']=='tools'
 assert [n['id'] for n in sections[-3:]]==['blog','about','contact']
 assert not s.select('body > section')
 assert s.main.find_next_sibling().name=='footer'
@@ -41,7 +41,7 @@ async def main():
   # Returning from app pages keeps the real closing sections in the same DOM order.
   assert await page.locator('main > section').evaluate_all('(es)=>es.slice(-3).map(e=>e.id)')==['blog','about','contact']
   Path('qa').mkdir(exist_ok=True)
-  await page.goto(URL,wait_until='load');await page.screenshot(path='qa/home-directory-mobile.png')
+  await page.goto(URL+'/#tools',wait_until='load');await page.wait_for_function("document.querySelector('#tools').getBoundingClientRect().top<200");await page.screenshot(path='qa/home-directory-mobile.png')
   await page.goto(URL+'/#contact',wait_until='load');await page.wait_for_function("document.querySelector('#contact').getBoundingClientRect().top<200");await page.screenshot(path='qa/home-contact-footer-mobile.png')
   print('PASS12 directory routes match12 advertisements, no duplicate ads, closing order and four responsive widths')
   # Fresh article visitor: neither prompt fires early, both contain distinct offers.
