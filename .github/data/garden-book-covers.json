@@ -1,0 +1,1353 @@
+[
+  {
+    "rank": 1,
+    "isbn13": "9781603424752",
+    "coverUrl": "https://covers.openlibrary.org/b/id/839333-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL5840575W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The vegetable gardener's bible",
+    "matchedAuthors": [
+      "Edward C. Smith"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 2,
+    "isbn13": "9781603588171",
+    "coverUrl": "https://www.chelseagreen.com/wp-content/uploads/6836f01191c1d.jpg",
+    "coverSourceUrl": "https://www.chelseagreen.com/product/the-new-organic-grower-3rd-edition/",
+    "coverCredit": "Publisher",
+    "matchedTitle": "The New Organic Grower",
+    "matchedAuthors": [
+      "Eliot Coleman"
+    ],
+    "matchNote": "Cover linked by the publisher/author on the title-specific source page; exact selected ISBN where listed. Image loaded HTTP 200 and visually checked against title and author.",
+    "verified": true
+  },
+  {
+    "rank": 3,
+    "isbn13": "9781603580298",
+    "coverUrl": "https://covers.openlibrary.org/b/id/938189-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL8908355W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Gaia's Garden",
+    "matchedAuthors": [
+      "Toby Hemenway"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 4,
+    "isbn13": "9781604699005",
+    "coverUrl": "https://covers.openlibrary.org/b/id/9288182-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20650593W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Nature's Best Hope",
+    "matchedAuthors": [
+      "Douglas Tallamy"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 5,
+    "isbn13": "9780881929928",
+    "coverUrl": "https://covers.openlibrary.org/b/id/2676607-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL9571688W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Bringing Nature Home",
+    "matchedAuthors": [
+      "Douglas Tallamy"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 6,
+    "isbn13": "9781604691139",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12186173-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19938115W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Teaming with microbes",
+    "matchedAuthors": [
+      "Jeff Lowenfels"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 7,
+    "isbn13": "9781590173138",
+    "coverUrl": "https://covers.openlibrary.org/b/id/6255962-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL4261633W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Shizen nōhō wara ippon no kakumei",
+    "matchedAuthors": [
+      "Masanobu Fukuoka"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 8,
+    "isbn13": "9781780227825",
+    "coverUrl": "https://www.weidenfeldandnicolson.co.uk/wp-content/uploads/2018/07/hbg-title-the-well-tempered-garden-103.jpg",
+    "coverSourceUrl": "https://www.weidenfeldandnicolson.co.uk/titles/christopher-lloyd/the-well-tempered-garden/9781780227825/",
+    "coverCredit": "Publisher",
+    "matchedTitle": "The Well-Tempered Garden",
+    "matchedAuthors": [
+      "Christopher Lloyd"
+    ],
+    "matchNote": "Cover linked by the publisher/author on the title-specific source page; exact selected ISBN where listed. Image loaded HTTP 200 and visually checked against title and author.",
+    "verified": true
+  },
+  {
+    "rank": 9,
+    "isbn13": "9780241545782",
+    "coverUrl": "https://dk.com/cdn/shop/files/getfile_54f7577d-cda5-4fe8-a49e-66ccb99e3bec.jpg?v=1756852056",
+    "coverSourceUrl": "https://dk.com/products/9780241545782-rhs-encyclopedia-of-gardening-new-edition",
+    "coverCredit": "Publisher",
+    "matchedTitle": "RHS Encyclopedia of Gardening",
+    "matchedAuthors": [
+      "Royal Horticultural Society",
+      "DK"
+    ],
+    "matchNote": "Cover linked by the publisher/author on the title-specific source page; exact selected ISBN where listed. Image loaded HTTP 200 and visually checked against title and author. Cover credits Christopher Brickell as editor-in-chief.",
+    "verified": true
+  },
+  {
+    "rank": 10,
+    "isbn13": "9780760362853",
+    "coverUrl": "https://covers.openlibrary.org/b/id/10827896-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL21624856W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "All New Square Foot Gardening, 3rd Edition, Fully Updated",
+    "matchedAuthors": [
+      "Mel Bartholomew",
+      "Square Foot Gardening Foundation"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 11,
+    "isbn13": "9780865717657",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15227833-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20031442W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The market gardener",
+    "matchedAuthors": [
+      "Jean-Martin Fortier"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 12,
+    "isbn13": "9780811872218",
+    "coverUrl": "https://img.raincoastgroup.com/Covers/ecatalogue/978081187/9780811872218_cfl.jpg",
+    "coverSourceUrl": "https://services.raincoast.com/scripts/b2b.wsc/featured?hh_isbn=9780811872218&ht_orig_from=raincoast",
+    "coverCredit": "Raincoast Books / Chronicle Books",
+    "matchedTitle": "From Seed to Skillet",
+    "matchedAuthors": [
+      "Jimmy Williams",
+      "Susan Heeger"
+    ],
+    "matchNote": "Publisher/distributor cover matched to ISBN and title; image loaded and visually checked.",
+    "verified": true,
+    "imageDimensions": [
+      800,
+      978
+    ]
+  },
+  {
+    "rank": 13,
+    "isbn13": "9781604697070",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14360191-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20057660W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The well-tended perennial garden",
+    "matchedAuthors": [
+      "Tracy DiSabato-Aust"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 14,
+    "isbn13": "9781604693706",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14670093-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19962306W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Planting",
+    "matchedAuthors": [
+      "Piet Oudolf"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 15,
+    "isbn13": "9781643261430",
+    "coverUrl": "https://www.hachettebookgroup.com/wp-content/uploads/2025/12/9781643261430.jpg",
+    "coverSourceUrl": "https://www.hachettebookgroup.com/titles/brian-capon/botany-for-gardeners-fourth-edition/9781643261430/",
+    "coverCredit": "Publisher",
+    "matchedTitle": "Botany for Gardeners",
+    "matchedAuthors": [
+      "Brian Capon"
+    ],
+    "matchNote": "Cover linked by the publisher/author on the title-specific source page; exact selected ISBN where listed. Image loaded HTTP 200 and visually checked against title and author.",
+    "verified": true
+  },
+  {
+    "rank": 16,
+    "isbn13": "9781882424580",
+    "coverUrl": "https://covers.openlibrary.org/b/id/928517-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19926444W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Seed to seed",
+    "matchedAuthors": [
+      "Suzanne Ashworth",
+      "Kent Whealy"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 17,
+    "isbn13": "9781580170277",
+    "coverUrl": "https://covers.openlibrary.org/b/id/4745489-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL1818685W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Secrets of companion planting",
+    "matchedAuthors": [
+      "Louise Riotte"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 18,
+    "isbn13": "9781603587617",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8579156-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19758875W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Farming While Black: Soul Fire Farm’s Practical Guide to Liberation on the Land",
+    "matchedAuthors": [
+      "Leah Penniman",
+      "Karen Washington"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 19,
+    "isbn13": "9781580177023",
+    "coverUrl": "https://covers.openlibrary.org/b/id/2933221-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL809798W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The complete compost gardening guide",
+    "matchedAuthors": [
+      "Barbara Pleasant",
+      "Deborah Martin"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 20,
+    "isbn13": "9780761122753",
+    "coverUrl": "https://covers.openlibrary.org/b/id/4176425-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL5279470W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Garden Primer",
+    "matchedAuthors": [
+      "Barbara Damrosch"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 21,
+    "isbn13": "9780375759451",
+    "coverUrl": "https://covers.openlibrary.org/b/id/230542-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL8038222W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Green Thoughts",
+    "matchedAuthors": [
+      "Eleanor Perenyi"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 22,
+    "isbn13": "9781590178508",
+    "coverUrl": "https://covers.openlibrary.org/b/id/656198-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL3349034W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Onward and upward in the garden",
+    "matchedAuthors": [
+      "Katharine Sergeant Angell White",
+      "Katherine White",
+      "Katharine White"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 23,
+    "isbn13": "9781909881174",
+    "coverUrl": "https://covers.openlibrary.org/b/id/9520866-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL1347392W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Some flowers",
+    "matchedAuthors": [
+      "Vita Sackville-West"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 24,
+    "isbn13": "9781474610964",
+    "coverUrl": "https://covers.openlibrary.org/b/id/697646-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL3258763W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The dry garden",
+    "matchedAuthors": [
+      "Beth Chatto"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 25,
+    "isbn13": "9780711214255",
+    "coverUrl": "https://covers.openlibrary.org/b/id/449225-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL3258756W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Beth Chatto's gravel garden",
+    "matchedAuthors": [
+      "Beth Chatto"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 26,
+    "isbn13": "9780460024570",
+    "coverUrl": "https://covers.openlibrary.org/b/id/697647-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL3258762W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The damp garden",
+    "matchedAuthors": [
+      "Beth Chatto"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 27,
+    "isbn13": "9780878338375",
+    "coverUrl": "https://covers.openlibrary.org/b/id/672899-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL3290340W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Well-Placed Weed",
+    "matchedAuthors": [
+      "Ryan Gainey"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 28,
+    "isbn13": "9780711217928",
+    "coverUrl": "https://covers.openlibrary.org/b/id/449286-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL409909W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Gertrude Jekyll's Colour Schemes for Flower Garden",
+    "matchedAuthors": [
+      "Gertrude Jekyll"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 29,
+    "isbn13": "9780881929553",
+    "coverUrl": "https://covers.openlibrary.org/b/id/679153-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL3743317W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The wild garden",
+    "matchedAuthors": [
+      "Robinson, W."
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 30,
+    "isbn13": "9780747538332",
+    "coverUrl": "https://covers.openlibrary.org/b/id/1390757-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL7947384W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The English Flower Garden (Bloomsbury Gardening Classics)",
+    "matchedAuthors": [
+      "William  Albert Robinson"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 31,
+    "isbn13": "9781590172315",
+    "coverUrl": "https://covers.openlibrary.org/b/id/4827883-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL122540W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The education of a gardener",
+    "matchedAuthors": [
+      "Russell Page",
+      "Russell Page"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 32,
+    "isbn13": "9780297825449",
+    "coverUrl": "https://covers.openlibrary.org/b/id/2370206-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL4068720W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The garden at Highgrove",
+    "matchedAuthors": [
+      "Charles Prince of Wales",
+      "Charles Windsor",
+      "Candida Lycett Green",
+      "Prince of Wales Charles"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 33,
+    "isbn13": "9780241424308",
+    "coverUrl": "https://covers.openlibrary.org/b/id/553789-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL8384259W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Complete Gardener",
+    "matchedAuthors": [
+      "Monty Don"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 34,
+    "isbn13": "9780241347140",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8880796-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20227504W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Down to Earth",
+    "matchedAuthors": [
+      "Monty Don"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 35,
+    "isbn13": "9780374528775",
+    "coverUrl": "https://covers.openlibrary.org/b/id/222980-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL502507W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "A Garden from a Hundred Packets of Seed",
+    "matchedAuthors": [
+      "James Fenton"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 36,
+    "isbn13": "9781604692365",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8182737-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL16002752W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The anxious gardener's guide",
+    "matchedAuthors": [
+      "Teri Dunn Chace"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 37,
+    "isbn13": "9781604698770",
+    "coverUrl": "https://covers.openlibrary.org/b/id/323061-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2658399W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "A way to garden",
+    "matchedAuthors": [
+      "Margaret Roach"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 38,
+    "isbn13": "9780881928716",
+    "coverUrl": "https://covers.openlibrary.org/b/id/11588114-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL18729445W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The American meadow garden",
+    "matchedAuthors": [
+      "John Greenlee"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 39,
+    "isbn13": "9781604694086",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12175952-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19988092W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The living landscape",
+    "matchedAuthors": [
+      "Rick Darke"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 40,
+    "isbn13": "9781604696165",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12944678-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20033619W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Garden revolution",
+    "matchedAuthors": [
+      "Larry Weaner"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 41,
+    "isbn13": "9781933392653",
+    "coverUrl": "https://covers.openlibrary.org/b/id/710201-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2627820W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Flower Farmer",
+    "matchedAuthors": [
+      "Lynn Byczynski"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 42,
+    "isbn13": "9781452145761",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12786519-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20049195W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Floret Farm's cut flower garden",
+    "matchedAuthors": [
+      "Erin Benzakein"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 43,
+    "isbn13": "9781452181752",
+    "coverUrl": "https://covers.openlibrary.org/b/id/10873485-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL24348879W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Floret Farm's Discovering Dahlias",
+    "matchedAuthors": [
+      "Erin Benzakein",
+      "Julie Chai",
+      "Jill Jorgensen",
+      "Chris Benzakein"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 44,
+    "isbn13": "9780989268813",
+    "coverUrl": "https://covers.openlibrary.org/b/id/10880201-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL24354436W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Cool Flowers",
+    "matchedAuthors": [
+      "Lisa Mason Ziegler"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 45,
+    "isbn13": "9780760357583",
+    "coverUrl": "https://cloud.firebrandtech.com/api/v2/image/111/9780760357583/CoverArtHigh/L",
+    "coverSourceUrl": "https://www.quarto.com/books/9780760357583/vegetables-love-flowers",
+    "coverCredit": "Quarto / Cool Springs Press",
+    "matchedTitle": "Vegetables Love Flowers",
+    "matchedAuthors": [
+      "Lisa Mason Ziegler"
+    ],
+    "matchNote": "Publisher/distributor cover matched to ISBN and title; image loaded and visually checked.",
+    "verified": true,
+    "imageDimensions": [
+      300,
+      370
+    ]
+  },
+  {
+    "rank": 46,
+    "isbn13": "9781739903923",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14701784-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL31169050W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Cut Flower Sourcebook",
+    "matchedAuthors": [
+      "Rachel Siegfried"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 47,
+    "isbn13": "9780563534655",
+    "coverUrl": "https://covers.openlibrary.org/b/id/375506-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL3264123W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Grow Your Own Cut Flowers",
+    "matchedAuthors": [
+      "Sarah Raven"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 48,
+    "isbn13": "9781580174626",
+    "coverUrl": "https://covers.openlibrary.org/b/id/7373828-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2707243W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Flower Gardener's Bible",
+    "matchedAuthors": [
+      "Lewis Hill",
+      "Nancy Hill"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 49,
+    "isbn13": "9781600850950",
+    "coverUrl": "https://covers.openlibrary.org/b/id/792911-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2954568W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The pruning book",
+    "matchedAuthors": [
+      "Lee Reich"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 50,
+    "isbn13": "9780241282908",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12054727-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19729925W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Pruning & training",
+    "matchedAuthors": [
+      "Christopher Brickell"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 51,
+    "isbn13": "9780881924046",
+    "coverUrl": "https://covers.openlibrary.org/b/id/679236-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2013836W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Dirr's Hardy trees and shrubs",
+    "matchedAuthors": [
+      "Michael Dirr"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 52,
+    "isbn13": "9781588748683",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12578983-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL16614607W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Manual of woody landscape plants",
+    "matchedAuthors": [
+      "Michael Dirr"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 53,
+    "isbn13": "9781604690040",
+    "coverUrl": "https://covers.openlibrary.org/b/id/10380737-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL8541717W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The reference manual of woody plant propagation",
+    "matchedAuthors": [
+      "Michael A. Dirr",
+      "Michael Dirr"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 54,
+    "isbn13": "9780376039200",
+    "coverUrl": "https://covers.openlibrary.org/b/id/7465836-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL17381458W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Western Garden Book The Ultimate Gardening Guide",
+    "matchedAuthors": [
+      "Kathleen Norris Brenzel"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 55,
+    "isbn13": "9781604693232",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14846285-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL21509062W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Native Plants of the Southeast",
+    "matchedAuthors": [
+      "Larry Mellichamp",
+      "Will Stuart"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 56,
+    "isbn13": "9780881926736",
+    "coverUrl": "https://covers.openlibrary.org/b/id/679430-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL7914796W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Native Plants of the Northeast",
+    "matchedAuthors": [
+      "Donald J. Leopold"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 57,
+    "isbn13": "9781591866558",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14364233-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL22322310W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Grow native",
+    "matchedAuthors": [
+      "Lynn M. Steiner"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 58,
+    "isbn13": "9781604695533",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12449881-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20018861W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Planting in a post-wild world",
+    "matchedAuthors": [
+      "Rainer, Thomas (Landscape architect)"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 59,
+    "isbn13": "9781604693348",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12947072-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19976394W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Know Maintenance perennial garden",
+    "matchedAuthors": [
+      "Roy Diblik"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 60,
+    "isbn13": "9780881925456",
+    "coverUrl": "https://covers.openlibrary.org/b/id/679341-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL1899918W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The American Woodland Garden",
+    "matchedAuthors": [
+      "Rick Darke"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 61,
+    "isbn13": "9780761156697",
+    "coverUrl": "https://covers.openlibrary.org/b/id/13098341-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19966192W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The four season farm gardener's cookbook",
+    "matchedAuthors": [
+      "Barbara Damrosch"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 62,
+    "isbn13": "9781890132279",
+    "coverUrl": "https://covers.openlibrary.org/b/id/2093050-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL21341482W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Four-Season Harvest",
+    "matchedAuthors": [
+      "Eliot Coleman",
+      "Barbara Damrosch"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 63,
+    "isbn13": "9781603580816",
+    "coverUrl": "https://covers.openlibrary.org/b/id/9322257-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL15973272W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Winter Harvest Handbook",
+    "matchedAuthors": [
+      "Eliot Coleman"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 64,
+    "isbn13": "9781603425681",
+    "coverUrl": "https://www.hachettebookgroup.com/wp-content/uploads/2025/12/9781603425681.jpg?w=640",
+    "coverSourceUrl": "https://www.hachettebookgroup.com/titles/niki-jabbour/the-year-round-vegetable-gardener/9781603425681/",
+    "coverCredit": "Hachette Book Group / Storey Publishing",
+    "matchedTitle": "The Year-Round Vegetable Gardener",
+    "matchedAuthors": [
+      "Niki Jabbour"
+    ],
+    "matchNote": "Publisher/distributor cover matched to ISBN and title; image loaded and visually checked.",
+    "verified": true,
+    "imageDimensions": [
+      640,
+      819
+    ]
+  },
+  {
+    "rank": 65,
+    "isbn13": "9781635864090",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12636287-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL25794686W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Grow More Food",
+    "matchedAuthors": [
+      "Colin McCrate",
+      "Brad Halm"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 66,
+    "isbn13": "9781603429757",
+    "coverUrl": "https://covers.openlibrary.org/b/id/6713575-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL15690911W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Vegetable Gardener's Container Bible",
+    "matchedAuthors": [
+      "Edward C. Smith"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 67,
+    "isbn13": "9780761116233",
+    "coverUrl": "https://covers.openlibrary.org/b/id/507565-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL15004650W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "McGee & Stuckey's Bountiful Container",
+    "matchedAuthors": [
+      "Rose Marie Nichols McGee"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 68,
+    "isbn13": "9781604699708",
+    "coverUrl": "https://covers.openlibrary.org/b/id/13494410-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL21655004W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Grow Great Vegetables in Virginia",
+    "matchedAuthors": [
+      "Ira Wallace"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 69,
+    "isbn13": "9781603580311",
+    "coverUrl": "https://covers.openlibrary.org/b/id/9256836-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19944103W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The resilient gardener",
+    "matchedAuthors": [
+      "Carol Deppe"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 70,
+    "isbn13": "9781603584876",
+    "coverUrl": "https://covers.openlibrary.org/b/id/11959282-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL19994621W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Tao of vegetable gardening",
+    "matchedAuthors": [
+      "Carol Deppe"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 71,
+    "isbn13": "9781603425742",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12178193-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL16358748W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The complete guide to saving seeds",
+    "matchedAuthors": [
+      "Robert E. Gough"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 72,
+    "isbn13": "9781890132729",
+    "coverUrl": "https://covers.openlibrary.org/b/id/938201-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL4293941W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Breed Your Own Vegetable Varieties",
+    "matchedAuthors": [
+      "Carol Deppe"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 73,
+    "isbn13": "9780399579189",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8876175-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20223392W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "How to Grow More Vegetables, Ninth Edition",
+    "matchedAuthors": [
+      "John Jeavons"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 74,
+    "isbn13": "9780552141871",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8419911-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2606442W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The self-sufficient gardener",
+    "matchedAuthors": [
+      "Seymour, John"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 75,
+    "isbn13": "9781632175830",
+    "coverUrl": "https://images.penguinrandomhouse.com/cover/9781632175830",
+    "coverSourceUrl": "https://www.penguinrandomhouseretail.com/book/?isbn=9781632175830",
+    "coverCredit": "Penguin Random House / Sasquatch Books",
+    "matchedTitle": "The Encyclopedia of Country Living",
+    "matchedAuthors": [
+      "Carla Emery"
+    ],
+    "matchNote": "Exact selected 2025 anniversary ISBN matched to publisher product page and cover; image loaded HTTP 200. Visually checked: 3-ring-binder edition.",
+    "verified": true
+  },
+  {
+    "rank": 76,
+    "isbn13": "9780143118718",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12775487-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL16176523W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The essential urban farmer",
+    "matchedAuthors": [
+      "Novella Carpenter"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 77,
+    "isbn13": "9780865718012",
+    "coverUrl": "https://newsociety.com/wp-content/uploads/2024/05/The-Urban-Farmer_cover.jpg",
+    "coverSourceUrl": "https://newsociety.com/book/the-urban-farmer/",
+    "coverCredit": "New Society Publishers",
+    "matchedTitle": "The Urban Farmer",
+    "matchedAuthors": [
+      "Curtis Stone"
+    ],
+    "matchNote": "Publisher/distributor cover matched to ISBN and title; image loaded and visually checked.",
+    "verified": true,
+    "imageDimensions": [
+      967,
+      1200
+    ]
+  },
+  {
+    "rank": 78,
+    "isbn13": "9781603585927",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14847223-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20012911W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The lean farm",
+    "matchedAuthors": [
+      "Ben Hartman"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 79,
+    "isbn13": "9781603586993",
+    "coverUrl": "https://www.chelseagreen.com/wp-content/uploads/6836f067880ef.jpg",
+    "coverSourceUrl": "https://www.chelseagreen.com/product/the-lean-farm-guide-to-growing-vegetables/",
+    "coverCredit": "Chelsea Green Publishing",
+    "matchedTitle": "The Lean Farm Guide to Growing Vegetables",
+    "matchedAuthors": [
+      "Ben Hartman"
+    ],
+    "matchNote": "Publisher/distributor cover matched to ISBN and title; image loaded and visually checked.",
+    "verified": true,
+    "imageDimensions": [
+      315,
+      450
+    ]
+  },
+  {
+    "rank": 80,
+    "isbn13": "9780865718845",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8807710-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20161894W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Organic No-Till Farming Revolution",
+    "matchedAuthors": [
+      "Andrew Mefferd"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 81,
+    "isbn13": "9781635650983",
+    "coverUrl": "https://covers.openlibrary.org/b/id/6297053-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL18567308W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Rodale's ultimate encyclopedia of organic gardening",
+    "matchedAuthors": [
+      "Fern Marshall Bradley",
+      "Barbara W. Ellis",
+      "Ellen Phillips"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 82,
+    "isbn13": "9781605296777",
+    "coverUrl": "https://covers.openlibrary.org/b/id/11355685-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL18549549W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The organic gardener's handbook of natural pest and disease control",
+    "matchedAuthors": [
+      "Fern Marshall Bradley",
+      "Barbara W. Ellis",
+      "Deborah L. Martin"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 83,
+    "isbn13": "9781604693140",
+    "coverUrl": "https://covers.openlibrary.org/b/id/7865604-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL17582446W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Teaming With Nutrients The Organic Gardeners Guide To Optimizing Plant Nutrition",
+    "matchedAuthors": [
+      "Jeff Lowenfels"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 84,
+    "isbn13": "9781604697292",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8122890-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL17830024W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Teaming with fungi",
+    "matchedAuthors": [
+      "Jeff Lowenfels"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 85,
+    "isbn13": "9781643261393",
+    "coverUrl": "https://www.hachettebookgroup.com/wp-content/uploads/2025/12/9781643261393.jpg",
+    "coverSourceUrl": "https://www.hachettebookgroup.com/titles/jeff-lowenfels/teaming-with-bacteria/9781643261393/",
+    "coverCredit": "Publisher",
+    "matchedTitle": "Teaming with Bacteria",
+    "matchedAuthors": [
+      "Jeff Lowenfels"
+    ],
+    "matchNote": "Cover linked by the publisher/author on the title-specific source page; exact selected ISBN where listed. Image loaded HTTP 200 and visually checked against title and author.",
+    "verified": true
+  },
+  {
+    "rank": 86,
+    "isbn13": "9781890132316",
+    "coverUrl": "https://covers.openlibrary.org/b/id/3696057-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL13715W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The soul of soil",
+    "matchedAuthors": [
+      "Grace Gershuny",
+      "Joseph Smillie"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 87,
+    "isbn13": "9781888626193",
+    "coverUrl": "https://www.sare.org/wp-content/uploads/Building-Soils-for-Better-Crops-4-cover.jpg",
+    "coverSourceUrl": "https://www.sare.org/resources/building-soils-for-better-crops/",
+    "coverCredit": "Publisher",
+    "matchedTitle": "Building Soils for Better Crops",
+    "matchedAuthors": [
+      "Fred Magdoff",
+      "Harold van Es"
+    ],
+    "matchNote": "Cover linked by the publisher/author on the title-specific source page; exact selected ISBN where listed. Image loaded HTTP 200 and visually checked against title and author.",
+    "verified": true
+  },
+  {
+    "rank": 88,
+    "isbn13": "9781955289030",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14074702-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL27845102W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Compost Everything",
+    "matchedAuthors": [
+      "David the Good"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 89,
+    "isbn13": "9781580170239",
+    "coverUrl": "https://covers.openlibrary.org/b/id/4036770-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2717790W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Let it rot!",
+    "matchedAuthors": [
+      "Stu Campbell"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 90,
+    "isbn13": "9781612129471",
+    "coverUrl": "https://covers.openlibrary.org/b/id/4221131-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL5567897W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Worms Eat My Garbage",
+    "matchedAuthors": [
+      "Mary Appelhof",
+      "Joanne Olszewski",
+      "Amy Stewart"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 91,
+    "isbn13": "9781635866605",
+    "coverUrl": "https://covers.openlibrary.org/b/id/839516-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL809781W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The complete houseplant survival manual",
+    "matchedAuthors": [
+      "Barbara Pleasant"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 92,
+    "isbn13": "9781419732393",
+    "coverUrl": "https://covers.openlibrary.org/b/id/8802602-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL20157516W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "New Plant Parent",
+    "matchedAuthors": [
+      "Darryl Cheng"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 93,
+    "isbn13": "9780903505352",
+    "coverUrl": "https://covers.openlibrary.org/b/id/6515109-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL890224W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The house plant expert",
+    "matchedAuthors": [
+      "D. G. Hessayon"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 94,
+    "isbn13": "9781925811773",
+    "coverUrl": "https://covers.openlibrary.org/b/id/13162163-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL21674087W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Plantopedia",
+    "matchedAuthors": [
+      "Lauren Camilleri",
+      "Sophia Kaplan"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 95,
+    "isbn13": "9781603425674",
+    "coverUrl": "https://www.hachettebookgroup.com/wp-content/uploads/2025/12/9781603425674.jpg",
+    "coverSourceUrl": "https://www.hachettebookgroup.com/titles/lewis-hill/the-fruit-gardeners-bible/9781603425674/",
+    "coverCredit": "Publisher",
+    "matchedTitle": "The Fruit Gardener's Bible",
+    "matchedAuthors": [
+      "Lewis Hill",
+      "Leonard Perry"
+    ],
+    "matchNote": "Cover linked by the publisher/author on the title-specific source page; exact selected ISBN where listed. Image loaded HTTP 200 and visually checked against title and author.",
+    "verified": true
+  },
+  {
+    "rank": 96,
+    "isbn13": "9781600853562",
+    "coverUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjDJoZGiZPqtO7ulqIkwMwjaU-m21E1Xm8Yh42X8WYRSX4oFNJVml8duBNEUbsLE0Yh2vk7ix0NVuWTvs6bwTRIZ9zNPtIRQleD0SZ5h-lKaR9dl6hmgQ6qhANZ4gW5NtWjJpoBetW_34o/s320/GFN+Front+Cover,+Final.jpg",
+    "coverSourceUrl": "https://leereich.blogspot.com/2012/02/",
+    "coverCredit": "Lee Reich, author",
+    "matchedTitle": "Grow Fruit Naturally",
+    "matchedAuthors": [
+      "Lee Reich"
+    ],
+    "matchNote": "Cover on the author's February 2012 publication announcement, matching title and author. Image loaded HTTP 200 and visually checked against title and author.",
+    "verified": true
+  },
+  {
+    "rank": 97,
+    "isbn13": "9780881926231",
+    "coverUrl": "https://covers.openlibrary.org/b/id/679393-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL2954569W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "Uncommon Fruits for Every Garden",
+    "matchedAuthors": [
+      "Lee Reich"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 98,
+    "isbn13": "9781933392134",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15128218-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL16142552W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The holistic orchard",
+    "matchedAuthors": [
+      "Phillips, Michael",
+      "Michael Phillips"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 99,
+    "isbn13": "9781931498913",
+    "coverUrl": "https://covers.openlibrary.org/b/id/938157-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL1806859W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The apple grower",
+    "matchedAuthors": [
+      "Phillips, Michael"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  },
+  {
+    "rank": 100,
+    "isbn13": "9781616200466",
+    "coverUrl": "https://covers.openlibrary.org/b/id/7362541-L.jpg",
+    "coverSourceUrl": "https://openlibrary.org/works/OL17190373W",
+    "coverCredit": "Open Library",
+    "matchedTitle": "The Drunken Botanist",
+    "matchedAuthors": [
+      "Amy Stewart"
+    ],
+    "matchNote": "Exact ISBN metadata match; cover image not fetched.",
+    "verified": true
+  }
+]

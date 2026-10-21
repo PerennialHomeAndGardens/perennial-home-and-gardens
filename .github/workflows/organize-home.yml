@@ -1,4 +1,4 @@
-name: Verify twelve-tool homepage and article offers
+name: Verify connected garden library and homepage
 on:
   push:
     branches: [organize-home-20261021]
@@ -18,15 +18,22 @@ jobs:
       - run: python -m pip install beautifulsoup4 playwright
       - run: |
           python .github/scripts/organize_home.py
+          python .github/scripts/build_garden_books.py
+          python .github/scripts/finish_connected_garden.py
+          python .github/scripts/build_garden_help.py
+          node --check app-assets/garden-books.js
+          node --check app-assets/library-voice.js
+          node --check app-assets/tanya-assistant.js
           node --check app-assets/site-experience.js
           python -m playwright install chromium --with-deps
       - run: python .github/scripts/test_home_organization.py
+      - run: python .github/scripts/test_connected_library.py
       - name: Save verified organized pages
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html tools articles legal app-assets qa
-          git diff --cached --quiet || git commit -m 'Generate verified twelve-tool homepage and article offers'
+          git add index.html tools articles legal app-assets qa books help garden-books.html
+          git diff --cached --quiet || git commit -m 'Generate verified connected garden library, book guides and help'
           for attempt in 1 2 3; do
             git pull --rebase
             if git push; then exit 0; fi
