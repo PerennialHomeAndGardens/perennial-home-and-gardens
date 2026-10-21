@@ -40,3 +40,13 @@ body a.phg-app-open:hover,body a.phg-app-open:focus-visible{animation:phg-app-sh
 
 /* Connected garden finishing */
 .toolgrid a.tool{display:grid;grid-template-columns:30px minmax(0,1fr);align-content:start;column-gap:10px;row-gap:10px}.toolgrid a.tool>.icon{grid-column:1;grid-row:1;margin:0;align-self:center}.toolgrid a.tool>b{grid-column:2;grid-row:1;margin:0;align-self:center}.toolgrid a.tool>span:not(.icon){grid-column:1/-1}.phg-context-help{display:block;max-width:1200px;margin:18px auto;padding:0 22px;color:#3c613c;font:14px/1.6 Georgia,serif}.phg-course-photo{display:block;width:calc(100% + 48px);max-width:none;height:210px;object-fit:cover;margin:-24px -24px 22px;border-radius:18px 18px 0 0}.phg-course-caption{font-size:14px;color:#647455}.courseVisualCard{overflow:hidden}.phg-guide{max-width:1040px;margin:auto;padding:42px 22px 70px;font:17px/1.75 Georgia,serif;color:#2e402e}.phg-guide h1{font:500 clamp(38px,5vw,62px)/1.1 Georgia,serif;color:#213622}.phg-guide-search{display:grid;gap:8px;margin:24px 0}.phg-guide-search input{font:16px Georgia,serif;padding:13px;border:1px solid #becbb1;border-radius:10px}.phg-guide details{padding:18px 22px;border:1px solid #ced8c2;background:#fffdf6;border-radius:14px;margin:14px 0;scroll-margin-top:115px}.phg-guide summary{cursor:pointer;font-weight:700;color:#315936}.phg-guide a{color:#315936}.phg-guide .guide-intro{background:#edf1e3;border-radius:16px;padding:24px}.phg-guide video,.phg-guide iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}#ap .tanya-help{color:#446238;font:12px Georgia,serif;justify-self:end;margin:0 16px -5px} @media(max-width:520px){.phg-course-photo{height:185px}.phg-guide{padding:26px 17px 50px}.phg-guide details{padding:15px}}
+
+/* Compact previews and selected transition audio timing */
+.phg-home-app .b17PreviewInner,.phg-home-app [class$="-inner"]{align-items:start!important}
+.phg-home-app .phg-app-copy{height:auto!important}
+.phg-home-app .phg-app-launch{margin-top:0!important;padding-top:12px}
+.phg-home-app .b17AppIsland,.phg-home-app [class$="-preview"],.phg-home-app .phg-harvest-preview{align-self:start!important;height:auto!important;min-height:0!important}
+.phg-home-app .b17App{min-height:0!important}
+.phg-portal::before,.phg-portal::after{animation-duration:1.3s}
+#phgDictionary{scroll-margin-top:110px}
+@media(max-width:600px){.phg-home-app{padding-top:34px!important;padding-bottom:34px!important}}
