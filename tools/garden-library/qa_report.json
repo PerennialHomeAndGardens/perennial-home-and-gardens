@@ -4,10 +4,10 @@
   "counts": {
     "glossaryTerms": 270,
     "plantProfiles": 2703,
-    "resources": 56,
+    "resources": 156,
     "usdaEnrichedProfiles": 635,
     "extensionEnrichedProfiles": 838,
-    "searchableCoreRecords": 3029
+    "searchableCoreRecords": 3129
   },
   "duplicates": {
     "htmlIds": [],
@@ -145,7 +145,7 @@
     {
       "id": "resource-021",
       "url": "https://www.nal.usda.gov/all-collections",
-      "status": 200,
+      "status": 503,
       "error": null
     },
     {
@@ -253,7 +253,7 @@
     {
       "id": "resource-039",
       "url": "https://lod.nal.usda.gov/nalt/",
-      "status": 200,
+      "status": 503,
       "error": null
     },
     {
@@ -277,19 +277,19 @@
     {
       "id": "resource-043",
       "url": "https://www.nal.usda.gov/",
-      "status": 200,
+      "status": 503,
       "error": null
     },
     {
       "id": "resource-044",
       "url": "https://awaytogarden.com/podcast/",
-      "status": 200,
+      "status": 202,
       "error": null
     },
     {
       "id": "resource-045",
       "url": "https://joegardener.com/podcast/",
-      "status": 200,
+      "status": 202,
       "error": null
     },
     {
@@ -357,6 +357,606 @@
       "url": "https://www.nrcs.usda.gov/programs-initiatives/eqip-high-tunnel-initiative",
       "status": null,
       "error": "TimeoutError"
+    },
+    {
+      "id": "perennial-book-1",
+      "url": "/books/the-vegetable-gardener-s-bible-1.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-2",
+      "url": "/books/the-new-organic-grower-2.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-3",
+      "url": "/books/gaia-s-garden-3.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-4",
+      "url": "/books/nature-s-best-hope-4.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-5",
+      "url": "/books/bringing-nature-home-5.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-6",
+      "url": "/books/teaming-with-microbes-6.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-7",
+      "url": "/books/the-one-straw-revolution-7.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-8",
+      "url": "/books/the-well-tempered-garden-8.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-9",
+      "url": "/books/rhs-encyclopedia-of-gardening-9.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-10",
+      "url": "/books/all-new-square-foot-gardening-10.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-11",
+      "url": "/books/the-market-gardener-11.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-12",
+      "url": "/books/from-seed-to-skillet-12.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-13",
+      "url": "/books/the-well-tended-perennial-garden-13.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-14",
+      "url": "/books/planting-a-new-perspective-14.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-15",
+      "url": "/books/botany-for-gardeners-15.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-16",
+      "url": "/books/seed-to-seed-16.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-17",
+      "url": "/books/carrots-love-tomatoes-17.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-18",
+      "url": "/books/farming-while-black-18.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-19",
+      "url": "/books/the-complete-compost-gardening-guide-19.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-20",
+      "url": "/books/the-garden-primer-20.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-21",
+      "url": "/books/green-thoughts-21.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-22",
+      "url": "/books/onward-and-upward-in-the-garden-22.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-23",
+      "url": "/books/some-flowers-23.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-24",
+      "url": "/books/the-dry-garden-24.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-25",
+      "url": "/books/beth-chatto-s-gravel-garden-25.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-26",
+      "url": "/books/the-damp-garden-26.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-27",
+      "url": "/books/the-well-placed-weed-27.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-28",
+      "url": "/books/colour-schemes-for-the-flower-garden-28.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-29",
+      "url": "/books/the-wild-garden-29.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-30",
+      "url": "/books/the-english-flower-garden-30.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-31",
+      "url": "/books/the-education-of-a-gardener-31.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-32",
+      "url": "/books/the-garden-at-highgrove-32.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-33",
+      "url": "/books/the-complete-gardener-33.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-34",
+      "url": "/books/down-to-earth-34.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-35",
+      "url": "/books/a-garden-from-a-hundred-packets-of-seed-35.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-36",
+      "url": "/books/the-layered-garden-36.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-37",
+      "url": "/books/a-way-to-garden-37.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-38",
+      "url": "/books/the-american-meadow-garden-38.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-39",
+      "url": "/books/the-living-landscape-39.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-40",
+      "url": "/books/garden-revolution-40.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-41",
+      "url": "/books/the-flower-farmer-41.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-42",
+      "url": "/books/floret-farm-s-cut-flower-garden-42.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-43",
+      "url": "/books/floret-farm-s-discovering-dahlias-43.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-44",
+      "url": "/books/cool-flowers-44.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-45",
+      "url": "/books/vegetables-love-flowers-45.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-46",
+      "url": "/books/the-cut-flower-sourcebook-46.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-47",
+      "url": "/books/grow-your-own-cut-flowers-47.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-48",
+      "url": "/books/the-flower-gardener-s-bible-48.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-49",
+      "url": "/books/the-pruning-book-49.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-50",
+      "url": "/books/rhs-pruning-and-training-50.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-51",
+      "url": "/books/dirr-s-hardy-trees-and-shrubs-51.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-52",
+      "url": "/books/manual-of-woody-landscape-plants-52.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-53",
+      "url": "/books/the-reference-manual-of-woody-plant-propagation-53.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-54",
+      "url": "/books/the-new-sunset-western-garden-book-54.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-55",
+      "url": "/books/native-plants-of-the-southeast-55.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-56",
+      "url": "/books/native-plants-of-the-northeast-56.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-57",
+      "url": "/books/grow-native-57.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-58",
+      "url": "/books/planting-in-a-post-wild-world-58.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-59",
+      "url": "/books/the-know-maintenance-perennial-garden-59.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-60",
+      "url": "/books/the-american-woodland-garden-60.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-61",
+      "url": "/books/the-four-season-farm-gardener-s-cookbook-61.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-62",
+      "url": "/books/four-season-harvest-62.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-63",
+      "url": "/books/the-winter-harvest-handbook-63.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-64",
+      "url": "/books/the-year-round-vegetable-gardener-64.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-65",
+      "url": "/books/grow-more-food-65.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-66",
+      "url": "/books/the-vegetable-gardener-s-container-bible-66.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-67",
+      "url": "/books/mcgee-stuckey-s-bountiful-container-67.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-68",
+      "url": "/books/grow-great-vegetables-in-virginia-68.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-69",
+      "url": "/books/the-resilient-gardener-69.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-70",
+      "url": "/books/the-tao-of-vegetable-gardening-70.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-71",
+      "url": "/books/the-complete-guide-to-saving-seeds-71.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-72",
+      "url": "/books/breed-your-own-vegetable-varieties-72.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-73",
+      "url": "/books/how-to-grow-more-vegetables-73.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-74",
+      "url": "/books/the-self-sufficient-gardener-74.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-75",
+      "url": "/books/the-encyclopedia-of-country-living-75.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-76",
+      "url": "/books/the-essential-urban-farmer-76.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-77",
+      "url": "/books/the-urban-farmer-77.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-78",
+      "url": "/books/the-lean-farm-78.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-79",
+      "url": "/books/the-lean-farm-guide-to-growing-vegetables-79.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-80",
+      "url": "/books/the-organic-no-till-farming-revolution-80.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-81",
+      "url": "/books/rodale-s-ultimate-encyclopedia-of-organic-gardening-81.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-82",
+      "url": "/books/the-organic-gardener-s-handbook-of-natural-pest-and-disease-control-82.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-83",
+      "url": "/books/teaming-with-nutrients-83.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-84",
+      "url": "/books/teaming-with-fungi-84.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-85",
+      "url": "/books/teaming-with-bacteria-85.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-86",
+      "url": "/books/the-soul-of-soil-86.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-87",
+      "url": "/books/building-soils-for-better-crops-87.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-88",
+      "url": "/books/compost-everything-88.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-89",
+      "url": "/books/let-it-rot-89.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-90",
+      "url": "/books/worms-eat-my-garbage-90.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-91",
+      "url": "/books/the-complete-houseplant-survival-manual-91.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-92",
+      "url": "/books/the-new-plant-parent-92.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-93",
+      "url": "/books/the-house-plant-expert-93.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-94",
+      "url": "/books/plantopedia-94.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-95",
+      "url": "/books/the-fruit-gardener-s-bible-95.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-96",
+      "url": "/books/grow-fruit-naturally-96.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-97",
+      "url": "/books/uncommon-fruits-for-every-garden-97.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-98",
+      "url": "/books/the-holistic-orchard-98.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-99",
+      "url": "/books/the-apple-grower-99.html",
+      "status": null,
+      "error": "ValueError"
+    },
+    {
+      "id": "perennial-book-100",
+      "url": "/books/the-drunken-botanist-100.html",
+      "status": null,
+      "error": "ValueError"
     }
   ],
   "requiredMarkers": {
