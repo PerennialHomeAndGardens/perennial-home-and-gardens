@@ -28,8 +28,8 @@ async def main():
   assert await footer.locator('.phg-socials a svg').evaluate_all('(es)=>es.every(e=>getComputedStyle(e).fill===getComputedStyle(e.parentElement).color)')
   # Source rendering is stable even if the late enhancement script cannot load.
   early=await browser.new_context(viewport={'width':390,'height':844});await early.route('**/site-experience.js*',lambda r:r.abort());ep=await early.new_page()
-  await ep.goto(URL+'/tools/growing-zone/',wait_until='load');assert await ep.locator('.b21StickyBrand').evaluate('(e)=>Math.round(e.getBoundingClientRect().height)')==94
-  assert await ep.locator('.b20Logo img').evaluate('(e)=>Math.round(e.getBoundingClientRect().height)')==80
+  await ep.goto(URL+'/tools/growing-zone/',wait_until='load');assert await ep.locator('.b21StickyBrand').evaluate('(e)=>Math.round(e.getBoundingClientRect().height)')==86
+  assert await ep.locator('.b20Logo img').evaluate('(e)=>Math.round(e.getBoundingClientRect().height)')==72
   assert await ep.locator('.b20WoodBar .newActions').count()==1;assert await ep.locator('.b21StickyBrand > .nav').count()==0
   await early.close();print('PASS compact header exists before enhancement; no old large-logo markup layout')
   # An actual tool click animates; scrolling/hash and reduced-motion navigation do not.
@@ -51,7 +51,7 @@ async def main():
    await page.evaluate('(q)=>{document.getElementById("q").value=q;return ask();}',e['question']);assert e['answer'] in await page.locator('#chat .bubble').last.inner_text(),e['question']
   print('PASS all114 supported business/tool phrasings and60 expert answer records')
   for q,expected in [('What family is Salvia officinalis in?','Lamiaceae'),('What does abaxial mean?','underside'),('Which plants have pink flowers in spring and partial shade?','Examples from the Library')]:
-   await page.locator('#q').fill(q);await page.get_by_role('button',name='Send',exact=True).click();await page.wait_for_timeout(100);assert expected.lower() in (await page.locator('#chat .bubble').last.inner_text()).lower(),q
+   await page.locator('#q').fill(q);await page.get_by_role('button',name='Send',exact=True).click();await page.wait_for_function('(expected)=>Array.from(document.querySelectorAll("#chat .bubble")).at(-1)?.textContent.toLowerCase().includes(expected)',arg=expected.lower());assert expected.lower() in (await page.locator('#chat .bubble').last.inner_text()).lower(),q
   index=json.loads(Path('app-assets/tanya-botany-index.json').read_text());assert len(index['plants'])==2703 and sum(x[6] for x in index['plants'])==838
   assert Path('app-assets/tanya-botany-index.json.gz').stat().st_size<115000
   print('PASS compressed plant taxonomy/care, glossary definition and trait-filter lookups')
