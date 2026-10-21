@@ -24,15 +24,17 @@
       "year": 2000,
       "subtitle": "Discover Ed’s High-Yield W-O-R-D System for All North American Gardening Regions",
       "slug": "the-vegetable-gardener-s-bible-1",
-      "coverUrl": "https://covers.openlibrary.org/b/id/839333-L.jpg",
-      "coverSourceUrl": "https://openlibrary.org/works/OL5840575W",
-      "coverCredit": "Open Library",
+      "coverUrl": "/books/covers/publisher-1.jpg",
+      "coverSourceUrl": "https://www.hachettebookgroup.com/titles/edward-c-smith/the-vegetable-gardeners-bible-2nd-edition/9781603424752/",
+      "coverCredit": "Publisher-supplied book cover, linked source",
       "matchedTitle": "The vegetable gardener's bible",
       "matchedAuthors": [
         "Edward C. Smith"
       ],
       "matchNote": "Exact ISBN metadata match; cover image not fetched.",
-      "verified": true
+      "verified": true,
+      "originalCoverUrl": "https://covers.openlibrary.org/b/id/839333-L.jpg",
+      "remoteCoverUrl": "https://www.hachettebookgroup.com/wp-content/uploads/2025/12/9781603424752.jpg"
     },
     {
       "rank": 2,
@@ -86,15 +88,17 @@
       "year": 2001,
       "subtitle": "A Guide to Home-Scale Permaculture, Second Edition",
       "slug": "gaia-s-garden-3",
-      "coverUrl": "https://covers.openlibrary.org/b/id/938189-L.jpg",
-      "coverSourceUrl": "https://openlibrary.org/works/OL8908355W",
-      "coverCredit": "Open Library",
+      "coverUrl": "/books/covers/publisher-3.jpg",
+      "coverSourceUrl": "https://www.chelseagreen.com/product/gaias-garden/",
+      "coverCredit": "Publisher-supplied book cover, linked source",
       "matchedTitle": "Gaia's Garden",
       "matchedAuthors": [
         "Toby Hemenway"
       ],
       "matchNote": "Exact ISBN metadata match; cover image not fetched.",
-      "verified": true
+      "verified": true,
+      "originalCoverUrl": "https://covers.openlibrary.org/b/id/938189-L.jpg",
+      "remoteCoverUrl": "https://www.chelseagreen.com/wp-content/uploads/6836f227837dd.jpg"
     },
     {
       "rank": 4,
@@ -148,15 +152,17 @@
       "year": 2007,
       "subtitle": "How You Can Sustain Wildlife with Native Plants, Updated and Expanded",
       "slug": "bringing-nature-home-5",
-      "coverUrl": "https://covers.openlibrary.org/b/id/2676607-L.jpg",
-      "coverSourceUrl": "https://openlibrary.org/works/OL9571688W",
-      "coverCredit": "Open Library",
+      "coverUrl": "/books/covers/publisher-5.jpg",
+      "coverSourceUrl": "https://www.hachettebookgroup.com/titles/douglas-w-tallamy/bringing-nature-home/9780881929928/",
+      "coverCredit": "Publisher-supplied book cover, linked source",
       "matchedTitle": "Bringing Nature Home",
       "matchedAuthors": [
         "Douglas Tallamy"
       ],
       "matchNote": "Exact ISBN metadata match; cover image not fetched.",
-      "verified": true
+      "verified": true,
+      "originalCoverUrl": "https://covers.openlibrary.org/b/id/2676607-L.jpg",
+      "remoteCoverUrl": "https://www.hachettebookgroup.com/wp-content/uploads/2025/12/9780881929928.jpg"
     },
     {
       "rank": 6,
