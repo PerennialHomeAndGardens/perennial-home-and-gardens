@@ -145,7 +145,7 @@
     {
       "id": "resource-021",
       "url": "https://www.nal.usda.gov/all-collections",
-      "status": 503,
+      "status": 200,
       "error": null
     },
     {
@@ -253,7 +253,7 @@
     {
       "id": "resource-039",
       "url": "https://lod.nal.usda.gov/nalt/",
-      "status": 503,
+      "status": 200,
       "error": null
     },
     {
@@ -277,7 +277,7 @@
     {
       "id": "resource-043",
       "url": "https://www.nal.usda.gov/",
-      "status": 503,
+      "status": 200,
       "error": null
     },
     {
