@@ -43,7 +43,7 @@ async def main():
    offer=await page.locator('#free-resources h2').evaluate('(e)=>({family:getComputedStyle(e).fontFamily,weight:getComputedStyle(e).fontWeight,color:getComputedStyle(e).color})')
    assert await page.locator('.phg-home-offer h2').evaluate_all('(es)=>es.every(e=>{const c=getComputedStyle(e);return c.fontFamily==="'+offer['family']+'"&&c.fontWeight==="'+offer['weight']+'"&&c.color==="'+offer['color']+'"})')
    assert await page.locator('a.phg-app-open').evaluate_all("(es)=>es.every(e=>getComputedStyle(e).color==='rgb(255, 255, 255)'&&getComputedStyle(e,'::after').animationName==='phg-app-shine')")
-  await page.locator('#tools .phg-garden-start').scroll_into_view_if_needed();b=await page.locator('#tools .phg-garden-start').bounding_box();await page.mouse.click(b['x']+b['width']/2,b['y']+b['height']/2);await page.wait_for_url('**/tools/my-garden/');assert await page.get_by_role('heading',name='My Garden',exact=True).count()>0
+  await page.locator('#tools .phg-garden-start').press('Enter');await page.wait_for_url('**/tools/my-garden/');assert await page.get_by_role('heading',name='My Garden',exact=True).count()>0
   await page.goto(URL,wait_until='load');await page.emulate_media(reduced_motion='reduce');assert await page.locator('a.phg-app-open').evaluate_all("(es)=>es.every(e=>getComputedStyle(e,'::after').animationName==='none')");await page.emulate_media(reduced_motion='no-preference')
   for r in slugs[-4:]:
    await page.goto(URL,wait_until='load');await page.locator('#tools a[href="/tools/'+r+'/"]').click();await page.wait_for_url('**/tools/'+r+'/')
