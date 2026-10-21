@@ -44,7 +44,7 @@ async def main():
   assert float(await p.evaluate("sessionStorage.getItem('sound-ended')"))>1.29
   assert await p.locator('.phg-portal').count()==0
   print('PASS actual click starts quiet Soft Whirl, completes playback before navigation, and opens Garden Library')
-  await p.locator('.phg-library-launches a[href="#phgDictionary"]').click();assert p.url.endswith('#phgDictionary')
+  await p.locator('.phg-library-launches a[href="#phgDictionary"]').press('Enter');assert p.url.endswith('#phgDictionary')
   await p.locator('#search').fill('rhizome');await p.locator('#searchBtn').click()
   await p.wait_for_timeout(350)
   assert 'rhizome' in (await p.locator('section.glossary').inner_text()).lower()
