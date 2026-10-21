@@ -12,4 +12,4 @@ body.phg-legacy-books{color-scheme:light;background:#faf8ef;color:#2c412d}.phg-l
 
 .phg-cover-unavailable{display:grid;place-items:center;text-align:center;font:14px/1.6 Georgia,serif;color:#66715d;padding:20px}
 
-.phg-book-heritage{padding:22px;border-left:3px solid #9aab85;background:#f0f2e7;border-radius:0 12px 12px 0}.phg-book-story-sources{font-size:13px!important;line-height:1.65!important}.phg-book-family-credit{font:12px/1.7 Georgia,serif!important;font-variant-caps:small-caps;letter-spacing:.05em;color:#62705b;margin:28px 0 0}
+.phg-book-heritage{padding:22px;border-left:3px solid #9aab85;background:#f0f2e7;border-radius:0 12px 12px 0}.phg-book-story-sources{font-size:13px!important;line-height:1.65!important}.phg-book-family-credit{font:12px/1.7 Georgia,serif!important;font-variant-caps:small-caps!important;letter-spacing:.05em;color:#62705b;margin:28px 0 0}
