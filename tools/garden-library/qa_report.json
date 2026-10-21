@@ -301,7 +301,7 @@
     {
       "id": "resource-047",
       "url": "https://www.cultivatingplace.com/",
-      "status": 200,
+      "status": 429,
       "error": null
     },
     {
