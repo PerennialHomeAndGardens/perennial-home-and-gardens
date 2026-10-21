@@ -16,7 +16,7 @@ async def main():
   page=await context.new_page();errors=[];
   async def open_assistant():
    b=await page.locator('.assistantAvatar').bounding_box();await page.mouse.click(b['x']+b['width']/2,b['y']+b['height']/2)
-  page.on('pageerror',lambda e:errors.append(str(e)))
+  page.on('pageerror',lambda e:errors.append(page.url+' '+str(e)))
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced] ',state='attached')
   # Every local navigation destination exists, including all retained apps.
   routes=await page.locator('#tools .creamTool').evaluate_all('(els)=>els.map(e=>e.getAttribute("href"))');assert len(routes)==8

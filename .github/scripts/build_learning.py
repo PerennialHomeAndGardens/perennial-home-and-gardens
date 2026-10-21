@@ -133,7 +133,12 @@ for a in articles:b+='<article class="phg-article-card" data-id="'+str(a['id'])+
 (ROOT/'legal').mkdir(exist_ok=True)
 for name,copy in policies.items():(ROOT/'legal'/(name+'.html')).write_text(shell(name.title(),'<main class="phg-article-shell"><article class="phg-article-content">'+copy+'</article></main>'))
 for page in (ROOT/'tools').glob('*/index.html'):
- d=fragment(original(page.relative_to(ROOT)));old=d.select_one('.b21StickyBrand')
+ source=original(page.relative_to(ROOT))
+ # Repair three pre-existing syntax errors exposed by the app regression checks.
+ if page.parent.name=='my-garden':source=source.replace(');\\nconst',');\nconst').replace(';\\n const',';\n const').replace('}\\n if','}\n if').replace(');\\n if',');\n if')
+ if page.parent.name=='garden-library':source=source.replace('JSON.parse(localStorage.getItem(shelfKey)||"{}")}catch(e){}','JSON.parse(localStorage.getItem(shelfKey)||"{}")}}catch(e){}')
+ if page.parent.name=='garden-planner':source=source.replace('Use paths and hose/drip routes to minimize traffic through beds and avoid wetting foliage unnecessarily.</div>\';','Use paths and hose/drip routes to minimize traffic through beds and avoid wetting foliage unnecessarily.</div>";')
+ d=fragment(source);old=d.select_one('.b21StickyBrand')
  if old:old.replace_with(fragment(header_html))
  else:d.body.insert(0,fragment(header_html))
  set_footer(d)

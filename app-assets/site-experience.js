@@ -180,7 +180,7 @@ function gardenAssistant(){
 
 
 function gardenRefinements(){
- if(location.pathname.includes('/tools/')){
+ if(/^\/(tools|articles|legal)\//.test(location.pathname)){
   window.toggleShare=async()=>{const data={title:'Perennial Home & Gardens',url:location.origin+'/'};try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard){await navigator.clipboard.writeText(data.url);alert('Website link copied.');}else prompt('Copy this website link:',data.url);}catch{}};
   window.openJoin=()=>location.assign('/?join=1');
  }else if(new URLSearchParams(location.search).get('join')==='1')window.openJoin?.();
