@@ -12,6 +12,9 @@ s=Soup(Path('index.html').read_text(),'html.parser')
 sections=s.main.select(':scope > section');assert 'hero' in sections[0].get('class',[]);assert sections[1]['id']=='tools'
 assert [n['id'] for n in sections[-3:]]==['blog','about','contact']
 assert not s.select('body > section')
+assert not s.select('.phg-dashboard-link')
+assert len(s.select('.phg-home-app'))==13
+assert s.select_one('#tools .phg-garden-start')['href']=='/tools/my-garden/'
 assert s.main.find_next_sibling().name=='footer'
 links=[a['href'] for a in s.select('#tools .creamTool')];assert links==['/tools/'+x+'/' for x in slugs]
 ads=[]
@@ -33,6 +36,15 @@ async def main():
    assert await page.locator('#tools .creamTool').evaluate_all('(es)=>es.every(e=>e.scrollWidth<=e.clientWidth+1)'),w
    assert await page.locator('body').evaluate('(e)=>e.scrollWidth<=innerWidth+1'),w
    assert await page.locator('#tools .creamTool h3').evaluate_all('(es)=>es.every(e=>e.scrollWidth<=e.clientWidth+1)'),w
+   heading=await page.locator('#tools .head > div').first.bounding_box();intro=await page.locator('#tools .phg-tools-start').bounding_box()
+   if w>800:assert intro['x']>=heading['x']+heading['width']-1,(w,heading,intro)
+   else:assert intro['y']>=heading['y']+heading['height']-1,(w,heading,intro)
+   assert await page.locator('.phg-home-app h2').evaluate_all("(es)=>es.every(e=>{const c=getComputedStyle(e);return c.fontFamily.startsWith('Georgia')&&c.fontWeight==='500'&&c.color==='rgb(33, 54, 34)'})")
+   offer=await page.locator('#free-resources h2').evaluate('(e)=>({family:getComputedStyle(e).fontFamily,weight:getComputedStyle(e).fontWeight,color:getComputedStyle(e).color})')
+   assert await page.locator('.phg-home-offer h2').evaluate_all('(es)=>es.every(e=>{const c=getComputedStyle(e);return c.fontFamily==="'+offer['family']+'"&&c.fontWeight==="'+offer['weight']+'"&&c.color==="'+offer['color']+'"})')
+   assert await page.locator('a.phg-app-open').evaluate_all("(es)=>es.every(e=>getComputedStyle(e).color==='rgb(255, 255, 255)'&&getComputedStyle(e,'::after').animationName==='phg-app-shine')")
+  await page.locator('#tools .phg-garden-start').click();await page.wait_for_url('**/tools/my-garden/');assert await page.get_by_role('heading',name='My Garden',exact=True).count()>0
+  await page.goto(URL,wait_until='load');await page.emulate_media(reduced_motion='reduce');assert await page.locator('a.phg-app-open').evaluate_all("(es)=>es.every(e=>getComputedStyle(e,'::after').animationName==='none')");await page.emulate_media(reduced_motion='no-preference')
   for r in slugs[-4:]:
    await page.goto(URL,wait_until='load');await page.locator('#tools a[href="/tools/'+r+'/"]').click();await page.wait_for_url('**/tools/'+r+'/')
   await page.goto(URL,wait_until='load');await page.set_viewport_size({'width':390,'height':844})
@@ -41,8 +53,11 @@ async def main():
   # Returning from app pages keeps the real closing sections in the same DOM order.
   assert await page.locator('main > section').evaluate_all('(es)=>es.slice(-3).map(e=>e.id)')==['blog','about','contact']
   Path('qa').mkdir(exist_ok=True)
+  await page.set_viewport_size({'width':1440,'height':1000});await page.goto(URL+'/#tools',wait_until='load');await page.wait_for_function("document.querySelector('#tools').getBoundingClientRect().top<200");await page.screenshot(path='qa/my-garden-entry-desktop.png')
+  await page.set_viewport_size({'width':390,'height':844})
   await page.goto(URL+'/#tools',wait_until='load');await page.wait_for_function("document.querySelector('#tools').getBoundingClientRect().top<200");await page.screenshot(path='qa/home-directory-mobile.png')
   await page.goto(URL+'/#contact',wait_until='load');await page.wait_for_function("document.querySelector('#contact').getBoundingClientRect().top<200");await page.screenshot(path='qa/home-contact-footer-mobile.png')
+  print('PASS My Garden entry opens dashboard; desktop/mobile layout, uniform app/offer headings, white app CTAs with shimmer and reduced motion')
   print('PASS12 directory routes match12 advertisements, no duplicate ads, closing order and four responsive widths')
   # Fresh article visitor: neither prompt fires early, both contain distinct offers.
   article=await browser.new_context(viewport={'width':390,'height':844});ap=await article.new_page();ap.on('pageerror',lambda e:errors.append(str(e)))

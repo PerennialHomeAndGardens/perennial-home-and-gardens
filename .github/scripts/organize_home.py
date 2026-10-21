@@ -8,8 +8,10 @@ new=[('seed-starting','◌','Seed Starting & Tray Tracker','Organize seeds, tray
 for slug,icon,title,desc in new:
  if not cards.select_one('a[href="/tools/'+slug+'/"]'):
   cards.append(Soup('<a class="card creamTool pad" href="/tools/'+slug+'/"><div class="toolTitleRow"><span class="toolMiniIcon" aria-hidden="true">'+icon+'</span><h3>'+title+'</h3></div><p>'+desc+'</p></a>','html.parser'))
-if not d.select_one('.phg-dashboard-link'):
- cards.insert_after(Soup('<p class="phg-dashboard-link">Your garden, together. <a href="/tools/my-garden/">Open My Garden →</a></p>','html.parser'))
+for old in d.select('.phg-dashboard-link'):old.decompose()
+head=d.select_one('#tools .head')
+for old in head.select(':scope > p,.phg-tools-start'):old.decompose()
+head.append(Soup('<div class="phg-tools-start"><p>Explore planning tools designed to help you understand your space, make confident garden decisions and move from idea to action. Start with My Garden to save your garden profile and bring your saved plans, plants and records together.</p><a class="phg-app-open phg-garden-start" href="/tools/my-garden/">Open My Garden →</a><small>No account needed. Saved in this browser.</small></div>','html.parser'))
 # Keep the newer, accurate advertisements; preserve their old bookmark anchors.
 for old,new_id in [('tool-map','garden-planner'),('tool-identifier','plant-identifier')]:
  old_section=d.select_one('section#'+old)
@@ -26,6 +28,19 @@ for item in order:
  assert n is not None,str(item)
  main.append(n.extract())
 main.insert_after(d.footer.extract())
+app_ids=['tool-zone','garden-planner','tool-calc','tool-companion','tool-calendar','plant-identifier','tool-harvest','garden-library','seed-starting','garden-journal','harvest-records','garden-inventory','my-garden']
+for app_id in app_ids:
+ section=d.select_one('#'+app_id)
+ section['class']=list(dict.fromkeys(section.get('class',[])+['phg-home-app']))
+ for a in section.select('a[href]'):
+  if '/tools/' in '/'+a['href'].lstrip('/') or a['href'].startswith('tools/'):
+   a['class']=list(dict.fromkeys(a.get('class',[])+['phg-app-open']))
+ for kicker in section.select('.kicker,[class$="-kicker"]'):
+  kicker['class']=list(dict.fromkeys(kicker.get('class',[])+['phg-app-kicker']))
+for section_id in ['free-resources','services','shop','products','courses','statuary']:
+ section=d.select_one('#'+section_id);section['class']=list(dict.fromkeys(section.get('class',[])+['phg-home-offer']))
+# Refresh only the homepage stylesheet URL when its presentation changes.
+for link in d.select('link[href*="app-navigation.css"]'):link['href']='/app-assets/app-navigation.css?v=20261021-garden-start'
 # Give the directory the exact same tool order as the advertisement sequence.
 slugs=['growing-zone','garden-planner','garden-calculator','plant-companions','seasonal-calendar','plant-identifier','harvest-checker','garden-library','seed-starting','garden-journal','harvest-records','garden-inventory']
 for slug in slugs:
