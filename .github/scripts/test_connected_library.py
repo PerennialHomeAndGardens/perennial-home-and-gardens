@@ -41,7 +41,7 @@ async def main():
   assert await p.locator('#services article img[src*="approved-home"]').count()==3;assert await p.locator('#shop article img[src*="approved-home"]').count()==3;
   for image in await p.locator('#services article img,#shop article img').all():
    response=await ctx.request.get(URL+await image.get_attribute('src'));assert response.status==200;assert (await response.body()).startswith(b'RIFF')
- assert await p.locator('#courses .courseStrip').count()==0;assert await p.locator('#courses .phg-course-photo').count()==3
+  assert await p.locator('#courses .courseStrip').count()==0;assert await p.locator('#courses .phg-course-photo').count()==3
   assert not errors,errors
   await browser.close()
   print('PASS 100 real catalog records and guide routes;25→50→75→100;search;private reading list;notes persist;silver SVG microphone and mocked start/stop;unfinished search preserved;5 columns desktop;mobile/tablet layout;13 searchable guides;12 dashboard tool routes;profile persistence;help entry points;course title placement. Real speech permission/dictation and every remote cover image are not claimed tested.')
