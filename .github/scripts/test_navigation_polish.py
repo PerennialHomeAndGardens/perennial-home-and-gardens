@@ -50,7 +50,7 @@ async def main():
   for e in experts:
    await page.evaluate('(q)=>{document.getElementById("q").value=q;return ask();}',e['question']);assert e['answer'] in await page.locator('#chat .bubble').last.inner_text(),e['question']
   print('PASS all114 supported business/tool phrasings and60 expert answer records')
-  for q,expected in [('What family is Salvia officinalis in?','Lamiaceae'),('What does abaxial mean?','underside'),('Which plants have pink flowers in spring and partial shade?','Examples from the Library')]:
+  for q,expected in [('What family is Salvia officinalis in?','Lamiaceae'),('What does abaxial mean?','underside'),('Which plants have pink flowers in spring and partial shade?','Examples from the Library'),('Which plants grow in zone7b in partial shade?','Examples from the Library'),('Which native plants grow in shade?','Native status depends on your region')]:
    await page.locator('#q').fill(q);await page.get_by_role('button',name='Send',exact=True).click();await page.wait_for_function('(expected)=>Array.from(document.querySelectorAll("#chat .bubble")).at(-1)?.textContent.toLowerCase().includes(expected)',arg=expected.lower());assert expected.lower() in (await page.locator('#chat .bubble').last.inner_text()).lower(),q
   index=json.loads(Path('app-assets/tanya-botany-index.json').read_text());assert len(index['plants'])==2703 and sum(x[6] for x in index['plants'])==838
   assert Path('app-assets/tanya-botany-index.json.gz').stat().st_size<115000
