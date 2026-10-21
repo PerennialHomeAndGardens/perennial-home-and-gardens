@@ -21,6 +21,8 @@ for page in pages:
   for n in list(d.find_all(string=True)):
    if n.parent.name not in ['script','style'] and re.search(r'\bfree\b',str(n),re.I):
     n.replace_with(re.sub(r'\bfree(?:[- ]+)?','',str(n),flags=re.I).strip())
+ for badge in list(d.select('.badge')):
+  if badge.get_text(strip=True).lower() in ['to use','free to use']:badge.decompose()
  if page==ROOT/'index.html':
   for n in d.find_all(string=re.compile(r'^garden tools$',re.I)):n.replace_with('Garden Apps')
  if page.parent.name=='plant-identifier':
