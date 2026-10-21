@@ -42,8 +42,7 @@ async def main():
   assert await page.locator('main > section').evaluate_all('(es)=>es.slice(-3).map(e=>e.id)')==['blog','about','contact']
   Path('qa').mkdir(exist_ok=True)
   await page.goto(URL,wait_until='load');await page.screenshot(path='qa/home-directory-mobile.png')
-  await page.locator('#cm').press('End');await page.locator('footer .phg-footer-brand').count()
-  await page.goto(URL+'/#contact',wait_until='load');await page.screenshot(path='qa/home-contact-footer-mobile.png')
+  await page.goto(URL+'/#contact',wait_until='load');await page.wait_for_function("document.querySelector('#contact').getBoundingClientRect().top<200");await page.screenshot(path='qa/home-contact-footer-mobile.png')
   print('PASS12 directory routes match12 advertisements, no duplicate ads, closing order and four responsive widths')
   # Fresh article visitor: neither prompt fires early, both contain distinct offers.
   article=await browser.new_context(viewport={'width':390,'height':844});ap=await article.new_page();ap.on('pageerror',lambda e:errors.append(str(e)))
