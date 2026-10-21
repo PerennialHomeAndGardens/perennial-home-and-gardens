@@ -81,3 +81,7 @@ if 'phg-legacy-books' not in d.body.get('class',[]):
  for script in frag(scripts).select('script[src]'):
   if 'garden-books.js' not in script['src']:d.body.append(script)
 p.write_text(str(d));print('Built 100 book guides and integrated the existing Garden Library; preliminary catalog preserved.')
+
+# Preserve the final navigation, dictionary access and compact preview treatment.
+import runpy
+runpy.run_path(str(Path(__file__).resolve().parent/"finish_navigation_details.py"),run_name="__main__")

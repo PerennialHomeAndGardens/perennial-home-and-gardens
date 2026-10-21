@@ -1,0 +1,34 @@
+name: Verify library access, compact previews and selected transition sound
+on:
+  push:
+    branches: [finish-navigation-details-20261021]
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4 playwright
+      - run: python -m playwright install chromium --with-deps
+      - run: |
+          python .github/scripts/finish_navigation_details.py
+          node --check app-assets/app-navigation.js
+          python .github/scripts/test_navigation_details.py
+          python .github/scripts/test_home_organization.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: navigation-details-qa
+          path: qa/navigation-details-*.png
+      - name: Save verified retained pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html tools articles legal books help garden-books.html app-assets
+          git diff --cached --quiet || git commit -m 'Restore direct Garden Library access and finish compact previews with Soft Whirl transitions'
+          git push

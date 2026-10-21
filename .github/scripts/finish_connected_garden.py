@@ -71,3 +71,7 @@ p=R/'app-assets/tanya-assistant.js';s=p.read_text();s=s.replace("panel.replaceCh
 s=s.replace("back.append(help);panel.replaceChildren", "categories.append(help);panel.replaceChildren")
 p.write_text(s)
 print('Preserved About photography, refined connected cards and course layout; shared help links installed.')
+
+# Preserve the final navigation, dictionary access and compact preview treatment.
+import runpy
+runpy.run_path(str(Path(__file__).resolve().parent/"finish_navigation_details.py"),run_name="__main__")

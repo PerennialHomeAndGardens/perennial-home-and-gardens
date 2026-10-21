@@ -67,3 +67,7 @@ for icon in cards.select('.toolMiniIcon'):icon['aria-hidden']='true'
 # Keep the directory count explicit.
 assert len(cards.select('a'))==12
 p.write_text(str(d));print('Organized twelve tool advertisements plus My Garden; final sections are Articles, About, Contact.')
+
+# Preserve the final navigation, dictionary access and compact preview treatment.
+import runpy
+runpy.run_path(str(Path(__file__).resolve().parent/"finish_navigation_details.py"),run_name="__main__")
