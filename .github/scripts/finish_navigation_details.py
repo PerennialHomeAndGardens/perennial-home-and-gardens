@@ -14,6 +14,7 @@ for p in pages:
    else:nav.append(a)
  for n in d.select('link[href*="app-navigation.css"],script[src*="app-navigation.js"]'):
   key='href' if n.name=='link' else 'src';n[key]='/app-assets/'+('app-navigation.css' if key=='href' else 'app-navigation.js')+'?v='+VERSION
+ for n in d.select('link[href*="garden-books.css"]'):n['href']='/app-assets/garden-books.css?v=20261021-books-heritage'
  if p==R/'index.html':
   for h,title in zip(d.select('#services article h3'),['Coaching','Design Templates','Garden Installation']):h.string=title
  if p==R/'tools/garden-library/index.html':

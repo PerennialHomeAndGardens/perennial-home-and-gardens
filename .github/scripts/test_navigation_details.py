@@ -54,6 +54,10 @@ async def main():
   await p.goto(URL,wait_until='load');await p.emulate_media(reduced_motion='reduce')
   await p.locator('#tools a[href="/tools/growing-zone/"]').click();await p.wait_for_url('**/tools/growing-zone/')
   assert await p.locator('.phg-portal').count()==0
+  await p.goto(URL+'/books/from-seed-to-skillet-12.html',wait_until='load')
+  assert await p.locator('.phg-book-family-credit').evaluate('(e)=>getComputedStyle(e).fontSize')=='12px'
+  assert await p.locator('.phg-book-family-credit').evaluate('(e)=>getComputedStyle(e).fontVariantCaps')=='small-caps'
+  assert await p.locator('#phgBookNotes').count()==1
   assert not errors,errors
   print('PASS reduced-motion navigation and no uncaught browser errors')
   await browser.close()
