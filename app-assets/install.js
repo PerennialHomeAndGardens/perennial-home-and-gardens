@@ -65,7 +65,7 @@
   }
   window.siteInstallApp=install;
   window.__siteExperienceConfig=brand;
-  const experience=document.createElement("script");experience.src=new URL("site-experience.js?v=20261020-polish",document.currentScript.src).href;document.head.append(experience);
+  const experience=document.createElement("script");experience.src=new URL("site-experience.js?v=20261021-organized",document.currentScript.src).href;document.head.append(experience);
   function init() {
     const mobileHost = document.querySelector(brand.mobile);
     const menuInstall = makeButton('Install App','site-app-menu');

@@ -18,7 +18,7 @@ async def main():
    for item in await page.locator('.b17PreviewInner').all():
     boxes=await item.evaluate('(e)=>Array.from(e.children).map(n=>{const r=n.getBoundingClientRect();return{x:r.x,y:r.y,r:r.right,b:r.bottom}})')
     a,b=boxes;assert a['r']<=b['x']+2 or a['b']<=b['y']+2 or b['r']<=a['x']+2 or b['b']<=a['y']+2,(width,boxes)
-  print('PASS six preview layouts have two children and no overlapping columns at four widths')
+  print('PASS retained preview layouts have two children and no overlapping columns at four widths')
   await page.set_viewport_size({'width':390,'height':844})
   footer=page.locator('footer');assert await footer.locator('.phg-footer-bottom').evaluate('(e)=>getComputedStyle(e).borderTopWidth')=='0px'
   assert await footer.locator('.phg-footer-bottom').evaluate('(e)=>getComputedStyle(e).backgroundImage')=='none'

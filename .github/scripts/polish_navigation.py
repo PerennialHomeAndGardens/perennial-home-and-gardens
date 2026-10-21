@@ -3,7 +3,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup as Soup
 import re,json,urllib.request
 ROOT=Path(__file__).resolve().parents[2]
-VERSION='20261020-polish'
+VERSION='20261021-organized'
 icons={}
 for name in ['pinterest','etsy','redbubble']:
  p=ROOT/'app-assets'/('social-'+name+'.svg')
@@ -70,3 +70,6 @@ for page in pages:
 print('Polished',len(pages),'pages; removed third-grid captions and redundant badges; static compact header retained.')
 
 (ROOT/'app-assets/footer.html').write_text(str(Soup((ROOT/'index.html').read_text(),'html.parser').footer))
+
+import runpy
+runpy.run_path(str(ROOT/".github/scripts/organize_home.py"),run_name="__main__")

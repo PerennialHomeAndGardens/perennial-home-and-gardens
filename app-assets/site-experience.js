@@ -142,7 +142,7 @@ function gardenNavigation(){
 }
 function gardenAssistant(){
  const baseQuestion=$('#q'),chat=$('#chat');if(!baseQuestion||!chat)return;
- const get=(name,fallback)=>fetch(asset(name+'?v=20261020-polish')).then(r=>{if(!r.ok)throw Error();return r.json();}).catch(()=>fallback);
+ const get=(name,fallback)=>fetch(asset(name+'?v=20261021-organized')).then(r=>{if(!r.ok)throw Error();return r.json();}).catch(()=>fallback);
  const promise=Promise.all([get('tanya-knowledge.json',{entries:[]}),get('tanya-expert-knowledge.json',[]),get('tanya-business-aliases.json',[])]).then(([kb,extra,aliases])=>{const entries=[...kb.entries,...(Array.isArray(extra)?extra:extra.entries||[])];for(const a of aliases){const e=entries.find(e=>e.id===a.answerId);if(e)(e.aliases||(e.aliases=[])).push(a.question);}return{entries};});
  let last=null,busy=false;
  const normalize=s=>s.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
@@ -216,11 +216,14 @@ function gardenPrompts(){
  const busy=()=>document.hidden||!!$('dialog[open],.modal.on,#ap.on,#navlinks.open')||!!document.activeElement?.closest('form')||all('.b17Preview').some(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4;});
  let start=Date.now();try{const previous=Number(sessionStorage.getItem('phg-visit-start'));if(previous>0)start=previous;else sessionStorage.setItem('phg-visit-start',String(start));}catch{}
  if(typeof window.openFreebie!=='function')window.openFreebie=()=>{
-  const d=dialog('x-jukebox','Garden worksheets');d.id='phg-resource-prompt';d.append(el('p','','Start with practical worksheets for your next garden idea.'));
-  const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.required=true;input.autocomplete='email';label.append(input);const b=action('Open resources',()=>{});b.type='submit';form.append(label,b);
-  form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;try{localStorage.setItem('phg_freebie_claimed','1');localStorage.setItem('phg_freebie_lead',JSON.stringify({email:input.value.trim(),time:new Date().toISOString()}));}catch{}window.open('https://drive.google.com/drive/folders/1Z8FywZpky3tPu-j7M_tYHOgGP5ZXG8bc?usp=drive_link','_blank','noopener');d.close();};d.append(form);d.showModal();
+  const existing=document.getElementById('phg-resource-prompt');if(existing){existing.showModal();return;}
+  const d=dialog('x-jukebox','Two worksheets for your next garden idea');d.id='phg-resource-prompt';d.append(el('p','','Choose a printable to start with. Both worksheets are available in our download folder.'));
+  const choices=el('fieldset','phg-resource-choices');choices.append(el('legend','','Choose your worksheet'));
+  for(const [i,title,description] of [[0,'Plant Profile Sheet','Plan and record the plants you grow.'],[1,'Houseplant Care Worksheet','Organize your indoor plant care.']]){const label=el('label','phg-resource-choice'),radio=el('input');radio.type='radio';radio.name='phg-worksheet';radio.value=title;radio.checked=i===0;const copy=el('span');copy.append(el('strong','',title),el('small','',description));label.append(radio,copy);choices.append(label);}d.append(choices);
+  const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.required=true;input.autocomplete='email';label.append(input);const b=action('Open download folder',()=>{});b.type='submit';form.append(label,b);
+  form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;try{localStorage.setItem('phg_freebie_claimed','1');localStorage.setItem('phg_freebie_lead',JSON.stringify({email:input.value.trim(),worksheet:d.querySelector('input[name=phg-worksheet]:checked')?.value,time:new Date().toISOString()}));}catch{}window.open('https://drive.google.com/drive/folders/1Z8FywZpky3tPu-j7M_tYHOgGP5ZXG8bc?usp=drive_link','_blank','noopener');d.close();};d.append(form);d.showModal();
  };
- const tick=setInterval(()=>{
+ let tick;const check=()=>{
   const elapsed=Date.now()-start;
   if(elapsed>=25000&&!read('phg-b3-resource-offer')){
    if(claimed()){save('phg-b3-resource-offer');}
@@ -228,25 +231,27 @@ function gardenPrompts(){
   }
   if(elapsed>=120000&&!read('phg-b3-tool-offer')&&!busy()){
    save('phg-b3-tool-offer');
-   const d=dialog('x-jukebox','A little garden inspiration, once a month');d.id='phg-newsletter-prompt';
-   d.append(el('p','','Monthly garden ideas, gifts and coupons. Subscribe by sending your request to Perennial.'));
+   const d=dialog('x-jukebox','Perennial Garden Magazine');d.id='phg-newsletter-prompt';
+   d.append(el('p','','Monthly garden ideas, gifts and coupons. A seasonal newsletter from Perennial Home & Gardens. Subscribe by sending your request to Perennial.'));
    const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.name='email';input.required=true;input.autocomplete='email';input.id='phg-newsletter-email';label.htmlFor=input.id;label.append(input);
    const submit=action('Subscribe by email',()=>{});submit.type='submit';form.append(label,submit,el('small','','Opens your email app. Send the message to request a subscription.'));
-   form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;location.href='mailto:perennialhomeandgardens@gmail.com?subject='+encodeURIComponent('Perennial monthly newsletter signup')+'&body='+encodeURIComponent('Please subscribe this address to the Perennial monthly newsletter, including garden ideas, gifts and coupons. Email: '+input.value.trim());};
+   form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;location.href='mailto:perennialhomeandgardens@gmail.com?subject='+encodeURIComponent('Perennial Garden Magazine newsletter signup')+'&body='+encodeURIComponent('Please subscribe this address to Perennial Garden Magazine, the monthly newsletter with garden ideas, gifts and coupons. Email: '+input.value.trim());};
    d.append(form);d.showModal();
   }
   if(read('phg-b3-resource-offer')&&read('phg-b3-tool-offer'))clearInterval(tick);
- },1000);
- addEventListener('pagehide',()=>clearInterval(tick),{once:true});
+ };
+ const resume=()=>{clearInterval(tick);tick=setInterval(check,1000);};resume();
+ addEventListener('pagehide',()=>clearInterval(tick));
+ addEventListener('pageshow',e=>{if(e.persisted)resume();});
 }
 
 function init(){
  const body=document.body;body.dataset.siteSlug=cfg.slug;for(const [key,value] of Object.entries({high:cfg.high,mid:cfg.mid,low:cfg.low,ink:cfg.ink}))body.style.setProperty('--x-'+key,value);
- if(!document.querySelector('link[href*="site-experience.css"]')){const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261020-polish');document.head.append(link);}
+ if(!document.querySelector('link[href*="site-experience.css"]')){const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261021-organized');document.head.append(link);}
  function syncTheme(){const m=getComputedStyle(document.body).color.match(/[\d.]+/g)||[240,240,240];const light=cfg.slug!=='ie'&&(+m[0]*.2126 + +m[1]*.7152 + +m[2]*.0722)<145;body.style.setProperty('--x-panel',light?'#f1eee7':'#0c100f');body.style.setProperty('--x-text',light?'#262923':'#eee');}
  syncTheme();for(const n of [document.body,document.documentElement])new MutationObserver(syncTheme).observe(n,{attributes:true,attributeFilter:['class','data-theme']});
  gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();gardenRefinements();
- if(document.getElementById("ap")){const t=el("script");t.src=asset("tanya-assistant.js?v=20261020-polish");document.body.append(t);}
+ if(document.getElementById("ap")){const t=el("script");t.src=asset("tanya-assistant.js?v=20261021-organized");document.body.append(t);}
  // ETP creates its jukebox on demand, so apply the same branding when it appears.
  if(cfg.slug==='examine-the-past-home')new MutationObserver(()=>{if($('.etp-jukebox-card:not(.x-native-panel)'))brandNative();}).observe(document.body,{childList:true,subtree:true});
 }
