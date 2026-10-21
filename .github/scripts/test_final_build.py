@@ -26,7 +26,7 @@ async def main():
    await page.locator('#tools .creamTool[href="'+r+'"]').click();await page.wait_for_url('**'+r)
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached')
   harvest=page.get_by_role('link',name='OPEN HARVEST RECORDS →',exact=True);assert 'harvest-records/' in await harvest.get_attribute('href')
-  await harvest.click();assert '/tools/harvest-records/' in page.url
+  await harvest.click();await page.wait_for_url('**/tools/harvest-records/');assert '/tools/harvest-records/' in page.url
   for path in sorted(Path('tools').glob('*/index.html')):
    await page.goto(URL+'/'+str(path),wait_until='load');assert await page.locator('.b21StickyBrand').count()==1;assert await page.locator('footer.phg-footer').count()==1
   await page.goto(URL+'/tools/garden-planner/',wait_until='load')

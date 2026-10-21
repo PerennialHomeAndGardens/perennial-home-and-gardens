@@ -22,6 +22,7 @@ async def main():
   await page.set_viewport_size({'width':390,'height':844})
   footer=page.locator('footer');assert await footer.locator('.phg-footer-bottom').evaluate('(e)=>getComputedStyle(e).borderTopWidth')=='0px'
   assert await footer.locator('.phg-footer-bottom').evaluate('(e)=>getComputedStyle(e).backgroundImage')=='none'
+  assert await footer.locator('.footerLegal').evaluate('(e)=>getComputedStyle(e).borderTopWidth')=='0px'
   for name in ['Pinterest','Etsy','Redbubble']:
    a=footer.get_by_role('link',name=name,exact=True);assert await a.locator('svg').count()==1;assert await a.inner_text()==''
   assert await footer.locator('.phg-socials a svg').evaluate_all('(es)=>es.every(e=>getComputedStyle(e).fill===getComputedStyle(e.parentElement).color)')
@@ -65,6 +66,6 @@ async def main():
   Path('qa').mkdir(exist_ok=True)
   await page.goto(URL+'/tools/garden-planner/',wait_until='load');await page.screenshot(path='qa/polish-app-mobile.png')
   await page.goto(URL+'/#tool-map',wait_until='load');await page.screenshot(path='qa/polish-map-preview-mobile.png')
-  await page.locator('.phg-socials a').first.focus();await page.screenshot(path='qa/polish-footer-mobile.png')
+  await page.locator('footer').scroll_into_view_if_needed();await page.locator('.phg-footer-copy').click();await page.screenshot(path='qa/polish-footer-mobile.png')
   await browser.close();print('PASS no uncaught browser errors')
 asyncio.run(main());server.shutdown()

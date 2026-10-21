@@ -8,3 +8,4 @@ footer.phg-footer .phg-footer-bottom{background:none!important;border:0!importan
 html.phg-arriving::after{content:'';position:fixed;inset:0;z-index:50001;background:#f8f3e7;pointer-events:none;animation:phg-open .65s ease-out both}@keyframes phg-open{0%,18%{opacity:1;clip-path:circle(150% at 50% 48%)}100%{opacity:0;clip-path:circle(0 at 50% 48%)}}
 @media(max-width:600px){.phg-back{left:6px;width:30px;height:34px}}
 @media(prefers-reduced-motion:reduce){.phg-portal::before,.phg-portal::after,html.phg-arriving::after{animation:none!important}.phg-portal{display:none!important}}
+footer.phg-footer .footerLegal{border:0!important;margin:0!important;padding:0!important;box-shadow:none!important;background:none!important}
