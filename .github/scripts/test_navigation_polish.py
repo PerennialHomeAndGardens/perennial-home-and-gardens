@@ -43,7 +43,7 @@ async def main():
   direct=await ctx.new_page();await direct.goto(URL+'/tools/plant-companions/',wait_until='load');await direct.locator('.phg-back').click();await direct.wait_for_url('**/#tools');await direct.close();print('PASS direct-entry back-arrow fallback')
   await page.goto(URL,wait_until='load');await page.wait_for_selector('#ap[data-enhanced]',state='attached');await page.get_by_role('button',name='Open Tanya garden guide',exact=True).press('Enter')
   assert await page.locator('.tanya-categories button').count()==2;assert await page.locator('.tanya-question').count()==5
-  base=json.loads(Path('app-assets/tanya-knowledge.json').read_text());aliases=json.loads(Path('app-assets/tanya-business-aliases.json').read_text());experts=json.loads(Path('app-assets/tanya-expert-knowledge.json').read_text());answers={e['id']:e['answer'] for e in base['entries']}
+  base=json.loads(Path('app-assets/tanya-knowledge.json').read_text());aliases=json.loads(Path('app-assets/tanya-business-aliases.json').read_text());expert_data=json.loads(Path('app-assets/tanya-expert-knowledge.json').read_text());experts=expert_data['entries'] if isinstance(expert_data,dict) else expert_data;answers={e['id']:e['answer'] for e in base['entries']}
   assert len(aliases)>=100 and len(experts)==60
   for e in aliases:
    await page.evaluate('(q)=>{document.getElementById("q").value=q;return ask();}',e['question']);assert answers[e['answerId']] in await page.locator('#chat .bubble').last.inner_text(),e['question']
