@@ -23,6 +23,7 @@ for p in pages:
   if not jumps.select_one('a[href="#phgDictionary"]'):
    a=d.new_tag('a',href='#phgDictionary');a['class']='phg-app-open';a.string='Aa Dictionary'
    search=jumps.select_one('a');search.insert_after(a)
+  jumps.select_one('a[href="#phgDictionary"]')['data-library-mode']='terms'
  p.write_text(str(d))
 p=R/'app-assets/app-navigation.css';css=p.read_text();marker='/* Compact previews and selected transition audio timing */'
 css=css.split(marker)[0].rstrip()+'\n\n'+marker+'''
