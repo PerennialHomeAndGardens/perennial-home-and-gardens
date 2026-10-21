@@ -9,7 +9,7 @@ server=socketserver.TCPServer(('127.0.0.1',8771),Handler);threading.Thread(targe
 books=json.loads(Path('books/catalog.json').read_text())['books'];assert len(books)==100
 assert books[11]['title']=='From Seed to Skillet' and 'Jimmy Williams' in books[11]['authors']
 for b in books:
- assert Path('books/'+b['slug']+'.html').exists() and b['coverUrl'].startswith('https://') and b['verified']
+ assert Path('books/'+b['slug']+'.html').exists() and b['coverUrl'].startswith(('https://','/books/covers/')) and b['verified']
  d=Soup(Path('books/'+b['slug']+'.html').read_text(),'html.parser');assert d.select_one('.phg-book-amazon')['href']==b['amazonUrl'];assert d.select_one('.phg-book-cover')['src']==b['coverUrl']
 assert 'phg-integrated-library-link' in Path('garden-books.html').read_text()
 async def main():
@@ -17,8 +17,9 @@ async def main():
   browser=await pw.chromium.launch();ctx=await browser.new_context();await ctx.add_init_script("sessionStorage.setItem('phg-b3-resource-offer','1');sessionStorage.setItem('phg-b3-tool-offer','1');window.SpeechRecognition=class{start(){this.onstart?.()}stop(){this.onend?.()}abort(){this.onend?.()}};")
   p=await ctx.new_page();errors=[];p.on('pageerror',lambda x:errors.append(str(x)))
   await p.goto(URL+'/tools/garden-library/',wait_until='load');await p.wait_for_selector('.phg-book-card');assert await p.locator('.phg-book-card').count()==25
+  first_cover=await p.locator('.phg-book-card img').first.element_handle()
   for total in [50,75,100]:
-   await p.locator('#phgBooksMore').click();assert await p.locator('.phg-book-card').count()==total
+   await p.locator('#phgBooksMore').click();assert await p.locator('.phg-book-card').count()==total;assert await first_cover.evaluate('(e)=>e.isConnected')
   assert not await p.locator('#phgBooksMore').is_visible()
   await p.locator('#phgBookSearch').fill('Jimmy Williams');assert await p.locator('.phg-book-card').count()==1;assert 'From Seed to Skillet' in await p.locator('.phg-book-card').inner_text()
   await p.locator('.phg-book-card .phg-book-save').click();assert await p.locator('.phg-book-card .phg-book-save').get_attribute('aria-pressed')=='true'

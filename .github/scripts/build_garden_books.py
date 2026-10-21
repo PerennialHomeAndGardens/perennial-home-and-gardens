@@ -1,7 +1,7 @@
 """Integrate the researched editorial collection without replacing the existing library."""
 from pathlib import Path
 from bs4 import BeautifulSoup as Soup
-import json,re,html,subprocess
+import json,re,html,subprocess,urllib.request
 R=Path(__file__).resolve().parents[2]
 def e(x):return html.escape(str(x),quote=True)
 def frag(s):return Soup(s,'html.parser')
@@ -19,11 +19,20 @@ resources=[x for x in json.loads(resourcepath.read_text()) if not x.get('id','')
 for b in books:
  resources.append({'id':'perennial-book-'+str(b['rank']),'title':b['title'],'category':'Gardening Books','description':'By '+', '.join(b['authors'])+'. '+b['bestFor']+'. '+b['summary'],'url':'/books/'+b['slug']+'.html','tags':b['authors']+[b['category'],'Perennial book guide']})
 resourcepath.write_text(json.dumps(resources,ensure_ascii=False,indent=2))
+# Retain externally supplied covers; cache three publisher replacements for observed failures.
+for override in json.loads((R/'.github/data/publisher-cover-overrides.json').read_text()):
+ b=next(x for x in books if x['rank']==override['rank']);assert b['isbn13']==override['isbn13']
+ target=out/'covers'/('publisher-'+str(b['rank'])+'.jpg');target.parent.mkdir(exist_ok=True)
+ if not target.exists():
+  with urllib.request.urlopen(override['coverUrl'],timeout=30) as response:data=response.read()
+  assert data.startswith(b'\xff\xd8') or data.startswith(b'\x89PNG'),('Invalid publisher image',b['rank'])
+  target.write_bytes(data)
+ b['originalCoverUrl']=b['coverUrl'];b['remoteCoverUrl']=override['coverUrl'];b['coverUrl']='/'+str(target.relative_to(R));b['coverSourceUrl']=override['sourceUrl'];b['coverCredit']='Publisher-supplied book cover, linked source'
 (out/'catalog.json').write_text(json.dumps({'title':'100 Notable and Influential Gardening Books','editorial':True,'affiliateEnabled':False,'books':books},ensure_ascii=False,indent=2))
 base=Soup((R/'articles/index.html').read_text(),'html.parser')
 header=str(base.select_one('.b21StickyBrand'));footer=str(base.footer)
-styles=''.join(str(x) for x in base.head.select('link[rel=stylesheet]'))+'<link rel="stylesheet" href="/app-assets/garden-books.css?v=20261021-books">'
-scripts=''.join(str(x) for x in base.select('script[src]') if any(v in x.get('src','') for v in ['site-experience','app-navigation','install.js']))+'<script src="/app-assets/garden-books.js?v=20261021-books" defer></script>'
+styles=''.join(str(x) for x in base.head.select('link[rel=stylesheet]'))+'<link rel="stylesheet" href="/app-assets/garden-books.css?v=20261021-books-final">'
+scripts=''.join(str(x) for x in base.select('script[src]') if any(v in x.get('src','') for v in ['site-experience','app-navigation','install.js']))+'<script src="/app-assets/garden-books.js?v=20261021-books-final" defer></script>'
 def shell(title,body):return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+e(title)+' | Perennial Home &amp; Gardens</title>'+styles+'</head><body>'+header+body+footer+scripts+'</body></html>'
 shelf='''<section class="phg-books" id="phgBooks"><header><span class="phg-books-kicker">Perennial Garden Library · Books worth growing with</span><h2>100 Notable and Influential Gardening Books</h2><p class="phg-books-intro">A reading companion for the garden you want to grow. Explore practical guides, enduring classics and new ways to understand soil, food, flowers and habitat. Begin with 25 selections, then reveal more at your own pace.</p></header><details class="phg-books-method"><summary>How we chose and ordered the collection</summary><p>This is Perennial’s editorial collection, not a bestseller list or an objective historical ranking. We weigh practical usefulness, influence, distinctive ideas and relevance to home gardeners. Older works are read in their historical context; local extension guidance and current safety advice take priority.</p><p>Jimmy Williams and Susan Heeger’s <em>From Seed to Skillet</em> appears at #12. Jimmy is Wayne’s uncle. We disclose that personal connection and also value the book’s link between family history, growing food and cooking it.</p><p>Each guide identifies a particular edition, gives our original summary and selection rationale, and links to bibliographic sources. Covers come from Open Library or publishers, with credits on each guide.</p></details><div class="phg-book-controls"><label>Search books<input id="phgBookSearch" type="search" placeholder="Title, author or subject"></label><label>Category<select id="phgBookCategory"><option value="">All categories</option></select></label><label>Reading shelf<select id="phgBookShelf"><option value="">All books</option><option value="saved">My reading list</option></select></label><label>Sort<select id="phgBookSort"><option value="rank">Editorial order</option><option value="title">Title A–Z</option><option value="year">Original publication year</option></select></label></div><p id="phgBooksStatus" class="phg-books-status" role="status">Loading the collection…</p><div id="phgBooksGrid" class="phg-books-grid"></div><div class="phg-books-pagination"><button id="phgBooksMore" type="button">See More · 25 more books</button><button class="phg-book-export" type="button" data-book-export>Export my reading notes</button></div><p class="phg-book-link-note">“View on Amazon” opens a retailer listing. Links currently contain no affiliate tracking. Prices, stock and editions may change; check the retailer’s details. Reading lists and notes stay in this browser. Clearing browser data removes them; export a backup to keep them.</p><noscript><p>JavaScript enables filtering and private notes. Browse all 100 book guides below.</p>STATIC_LIST</noscript></section>'''
 shelf=shelf.replace('STATIC_LIST','<ol>'+''.join('<li><a href="/books/'+b['slug']+'.html">'+e(b['title'])+'</a> — '+e(' · '.join(b['authors']))+'</li>' for b in books)+'</ol>')
@@ -43,13 +52,15 @@ d.select_one('.hero').insert_after(frag('<nav class="phg-library-launches" aria-
 d.main.append(frag(shelf))
 for name,tag,attr in [('garden-books.css','link','href'),('garden-books.js','script','src'),('library-voice.js','script','src')]:
  if not d.select_one(tag+'['+attr+'*="'+name+'"]'):
-  n=d.new_tag(tag);n[attr]='/app-assets/'+name+'?v=20261021-books'
+  n=d.new_tag(tag);n[attr]='/app-assets/'+name+'?v=20261021-books-final'
   if tag=='link':n['rel']='stylesheet';d.head.append(n)
   else:n['defer']='';d.body.append(n)
 for id in ['phgUnifiedMic','mic']:
  button=d.find(id=id);button.clear();button['aria-label']='Start voice search';button['aria-pressed']='false'
  button.append(frag('<svg viewBox="0 0 32 40" aria-hidden="true"><rect x="10" y="2" width="12" height="23" rx="6" fill="currentColor"/><path d="M6 18v3a10 10 0 0 0 20 0v-3M16 31v6M10 37h12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M13 7h6m-6 5h6m-6 5h6" stroke="#edf2f4" stroke-width="1.6"/></svg>'))
 for x in d.select('link[href*="app-navigation.css"]'):x['href']='/app-assets/app-navigation.css?v=20261021-garden-start'
+for link in d.select('link[href*="garden-books.css"]'):link['href']='/app-assets/garden-books.css?v=20261021-books-final'
+for script in d.select('script[src*="garden-books.js"]'):script['src']='/app-assets/garden-books.js?v=20261021-books-final'
 p.write_text(str(d))
 # Keep the separately created page and its private notes intact; provide the integrated destination.
 p=R/'garden-books.html'
