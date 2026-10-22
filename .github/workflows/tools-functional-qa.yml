@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add tools qa
+          git add tools books qa .github/scripts/build_garden_books.py
           git diff --cached --quiet || git commit -m 'Correct tool QA findings and save all-app functional test results'
           git push

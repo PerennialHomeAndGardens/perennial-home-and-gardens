@@ -29,6 +29,11 @@ function reportLines(matches)''')
 s=s.replace('<span class="badge">Secure-AI Ready</span>','<span class="badge">Guided screening · no automatic photo diagnosis</span>')
 s=s.replace('Photos stay in this browser session; saved reports store observations rather than full images.', 'JPG, PNG and WebP photos up to 15 MB are supported. Photos stay in this tab until refresh or Clear; saved reports keep observations, not the photo files.')
 s=s.replace('capture="environment"','') # Allow album selection and the browser\'s camera option.
+s=s.replace('<label for="photo-', '<label role="button" tabindex="0" for="photo-')
+if 'phgPhotoKeyboard' not in s:
+ s=s.replace('function buildPhotos(){', '''function phgPhotoKeyboard(e){if((e.key==='Enter'||e.key===' ')&&e.target.matches('label[for^="photo-"]')){e.preventDefault();document.getElementById(e.target.htmlFor)?.click();}}
+document.addEventListener('keydown',phgPhotoKeyboard);
+function buildPhotos(){''')
 s=s.replace('$("saveReport").onclick=()=>{const key=', '$("saveReport").onclick=()=>{identify();const key=')
 s=s.replace('$("tryAI").onclick=async()=>{', '$("tryAI").onclick=async()=>{')
 ai_start=s.index('$("tryAI").onclick=');ai_end=s.index('\nfetch("../garden-library/plant_profiles.json")',ai_start)
@@ -54,5 +59,13 @@ for slug in ['garden-inventory','harvest-records','seed-starting','garden-planne
  for n in d.select('#phg-qa-number-validation'):n.decompose()
  n=d.new_tag('script',id='phg-qa-number-validation');n.string=validation;d.body.append(n);p.write_text(str(d))
 p=R/'tools/garden-inventory/index.html';s=p.read_text();s=s.replace('if(cost===null)return;state.purchases', 'if(cost===null)return;if(!Number.isFinite(Number(cost))||Number(cost)<0){alert("Enter a purchase cost of zero or greater.");return}state.purchases');p.write_text(s)
-p=R/'tools/garden-library/index.html';s=p.read_text().replace('>Cloud Sync Ready<','>About Saved Data<').replace('Cloud sync needs a dedicated Perennial Supabase project. The database schema and secure row-level policies are already prepared.', 'Your data is saved in this browser on this device. Cloud sync and cross-device accounts are not connected. Export backups where available.');p.write_text(s)
+p=R/'tools/garden-library/index.html';s=p.read_text().replace('>Cloud Sync Ready<','>About Saved Data<').replace('Cloud sync needs a dedicated Perennial Supabase project. The database schema and secure row-level policies are already prepared.', 'Your data is saved in this browser on this device. Cloud sync and cross-device accounts are not connected. Export backups where available.')
+if 'phg:recordselected' not in s:
+ for needle in ['history.replaceState(null,"","#"+slug(g.term));','history.replaceState(null,"","#plant-"+x.id);']:
+  s=s.replace(needle,needle+'document.dispatchEvent(new Event("phg:recordselected"));')
+ s=s.replace('document.addEventListener("phg:shelfchanged",render);','document.addEventListener("phg:shelfchanged",render);document.addEventListener("phg:recordselected",syncButtons);')
+ s=s.replace('tb=$8("phgSaveTerm");','tb=$8("phgSaveTerm");if(pb)pb.disabled=!p;if(tb)tb.disabled=!t;')
+p.write_text(s)
+for p in [R/'tools/garden-library/index.html',R/'books/index.html',R/'.github/scripts/build_garden_books.py']:
+ s=p.read_text().replace('Jimmy is Wayne’s uncle. We disclose that personal connection and also value','We value');p.write_text(s)
 print('Applied identifier upload/error/race/text fixes, positive calculator validation and saved planner ID correction.')

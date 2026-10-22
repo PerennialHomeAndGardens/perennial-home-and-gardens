@@ -22,12 +22,16 @@ async def download(p,selector):
  async with p.expect_download() as event:await p.locator(selector).click()
  return json.loads(Path(await (await event.value).path()).read_text())
 async def identifier(p):
- await go(p,'plant-identifier');assert await p.locator('input[type=file]').count()==4
+ await go(p,'plant-identifier');assert await p.locator('#photoGrid input[type=file]').count()==4
  uploads=[]
  p.on('request',lambda r:uploads.append(r.url) if r.method=='POST' else None)
  for slot,color in [('whole',(25,130,40)),('close',(180,145,30)),('under',(210,210,205)),('context',(100,70,35))]:
   fmt,mime,ext=('JPEG','image/jpeg','jpg') if slot=='whole' else ('WEBP','image/webp','webp') if slot=='under' else ('PNG','image/png','png')
-  await p.locator('#photo-'+slot).set_input_files({'name':slot+'.'+ext,'mimeType':mime,'buffer':png(color,format=fmt)})
+  payload={'name':slot+'.'+ext,'mimeType':mime,'buffer':png(color,format=fmt)}
+  if slot=='whole':
+   async with p.expect_file_chooser() as chooser:await p.locator('label[for=photo-whole]').press('Enter')
+   await (await chooser.value).set_files(payload)
+  else:await p.locator('#photo-'+slot).set_input_files(payload)
   await p.wait_for_function('(s)=>document.querySelector("#photo-status-"+s)?.textContent.includes("ready")',arg=slot)
   assert await p.locator('#img-'+slot).is_visible()
  assert await p.locator('#qualityList .qualityItem').count()==4
@@ -66,7 +70,7 @@ async def zone(p):
  await go(p,'growing-zone');await fill(p,{'zip':'123'});await p.locator('#find').click();assert 'valid 5-digit' in await p.locator('#message').inner_text()
  await fill(p,{'zip':'20603'});await p.locator('#find').click();await p.wait_for_selector('#result.show')
  expected=json.loads((ROOT/'tools/growing-zone/phzm_zip_2023.json').read_text())['20603'];assert (await p.locator('#zoneText').inner_text()).lower()==expected.lower()
- await p.locator('#manualZone').select_option('7b');await p.locator('#manualBtn').click();await p.reload();assert (await saved(p,'phg-growing-zone'))['zone']=='7b'
+ await p.locator('details.manual summary').click();await p.locator('#manualZone').select_option('7b');await p.locator('#manualBtn').click();await p.reload();assert (await saved(p,'phg-growing-zone'))['zone']=='7b'
  return ['Invalid ZIP feedback','20603 lookup against bundled USDA dataset','Manual zone selection survives refresh']
 async def calculator(p):
  await go(p,'garden-calculator');await fill(p,{'soilL':8,'soilW':4,'soilD':12});await p.locator('#soilDU').select_option('12');await p.get_by_role('button',name='Calculate Soil',exact=True).click();assert '32.0 cubic feet' in await p.locator('#soilR').inner_text()
@@ -86,7 +90,7 @@ async def planner(p):
  await p.locator('#deleteObj').click();assert await p.locator('#objectLayer .obj').count()==2
  await p.locator('#togShade').click();assert 'on' not in (await p.locator('#togShade').get_attribute('class'))
  await p.locator('#helpBtn').click();assert await p.locator('#helpModal').is_visible();await p.locator('#closeHelp').click()
- await p.locator('#plantSearch').fill('Achillea');await p.wait_for_function('document.querySelector("#palette").textContent.toLowerCase().includes("achillea")')
+ await p.locator('#plantSearch').fill('Achillea');await p.wait_for_function('document.querySelector("#plantSearchCount").textContent.includes("matching Library plants")');assert await p.locator('#palette .tool').count()>0
  return ['Add objects, resize, zoom and center','Save/reopen and add another object without duplicate IDs','Plan export, library search and help dialog']
 async def companions(p):
  await go(p,'plant-companions');await fill(p,{'search':'Tomato'});await p.locator('#searchBtn').click();assert 'Basil' in await p.locator('#content').inner_text();await p.locator('#saveBtn').click();await p.reload();assert 'Tomato' in await saved(p,'phg-companion-saved')
