@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-22",
+  "environment": "Chromium browser, isolated test profile",
+  "baseUrl": "http://127.0.0.1:8772",
+  "tools": [
+    {
+      "tool": "plant-identifier",
+      "checks": [
+        "Four photo slots upload/preview/quality checks",
+        "Remove, replace and invalid/corrupt/oversized/HEIC handling",
+        "Disease/pest/plant screening and safe report text",
+        "Save report without photo bytes, refresh persistence, print action, clear",
+        "No image POSTs; automatic-AI status is truthful"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "growing-zone",
+      "checks": [
+        "Invalid ZIP feedback",
+        "20603 lookup against bundled USDA dataset",
+        "Manual zone selection survives refresh"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "garden-calculator",
+      "checks": [
+        "All five calculator tabs and known-volume/count examples",
+        "Negative dimensions rejected"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "garden-planner",
+      "checks": [
+        "Add objects, resize, zoom and center",
+        "Save/reopen and add another object without duplicate IDs",
+        "Plan export, library search and help dialog"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "plant-companions",
+      "checks": [
+        "Companion search and related guidance",
+        "Saved favorites survive refresh",
+        "Unknown plant feedback"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "seasonal-calendar",
+      "checks": [
+        "Zone/month/focus updates",
+        "Task completion persists",
+        "Reset checked tasks"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "harvest-checker",
+      "checks": [
+        "Crop and selected readiness guidance",
+        "Save and reload favorites",
+        "Stage changes update guidance"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "seed-starting",
+      "checks": [
+        "Add seed inventory",
+        "Create tray and cycle cells/advance stage",
+        "Build three dated succession rounds",
+        "Save persistence"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "garden-journal",
+      "checks": [
+        "Identifier reports import once",
+        "Add journal entry/follow-up and reload",
+        "Search, JSON export and delete test entry"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "harvest-records",
+      "checks": [
+        "Save harvest with kg-to-lb conversion",
+        "Reload and JSON export",
+        "Negative harvest weight blocked"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "garden-inventory",
+      "checks": [
+        "Seed inventory imports automatically",
+        "Low stock, shopping list and mark purchased",
+        "Budget spending/remaining calculation",
+        "JSON export and reload"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "garden-library",
+      "checks": [
+        "Dictionary search/open/save term",
+        "Plant record search/open/save",
+        "Book search and private reading list"
+      ],
+      "status": "pass"
+    },
+    {
+      "tool": "my-garden",
+      "checks": [
+        "Profile save/reload",
+        "Saved plans, plants and health reports visible",
+        "Seed, journal, harvest and inventory summaries connected",
+        "12 tool links retained"
+      ],
+      "status": "pass"
+    }
+  ],
+  "limitations": [
+    "No automatic AI photo identification backend is connected.",
+    "Photo pixels are used for quality/color cues; screening matches use visitor-selected observations.",
+    "Uploaded photos are not retained in saved reports or after refresh.",
+    "Physical phone camera, HEIC conversion, microphone permissions and native print dialogs need device testing.",
+    "Browser-local saves do not provide cross-device accounts or cloud backups."
+  ],
+  "uncaughtErrors": [],
+  "status": "pass"
+}
