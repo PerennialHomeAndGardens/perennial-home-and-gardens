@@ -12,8 +12,8 @@ server=None
 if 'PHG_QA_BASE' not in os.environ:
  server=socketserver.TCPServer(('127.0.0.1',8772),Handler);threading.Thread(target=server.serve_forever,daemon=True).start()
 report={'date':'2026-10-22','environment':'Chromium browser, isolated test profile','baseUrl':BASE,'tools':[],'limitations':['No automatic AI photo identification backend is connected.','Photo pixels are used for quality/color cues; screening matches use visitor-selected observations.','Uploaded photos are not retained in saved reports or after refresh.','Physical phone camera, HEIC conversion, microphone permissions and native print dialogs need device testing.','Browser-local saves do not provide cross-device accounts or cloud backups.']}
-def png(color=(40,130,45),size=(1000,800)):
- b=BytesIO();Image.new('RGB',size,color).save(b,format='PNG');return b.getvalue()
+def png(color=(40,130,45),size=(1000,800),format='PNG'):
+ b=BytesIO();Image.new('RGB',size,color).save(b,format=format);return b.getvalue()
 async def fill(p,values):
  for k,v in values.items():await p.locator('#'+k).fill(str(v))
 async def go(p,slug):await p.goto(BASE+'/tools/'+slug+'/',wait_until='load')
@@ -26,7 +26,8 @@ async def identifier(p):
  uploads=[]
  p.on('request',lambda r:uploads.append(r.url) if r.method=='POST' else None)
  for slot,color in [('whole',(25,130,40)),('close',(180,145,30)),('under',(210,210,205)),('context',(100,70,35))]:
-  await p.locator('#photo-'+slot).set_input_files({'name':slot+'.png','mimeType':'image/png','buffer':png(color)})
+  fmt,mime,ext=('JPEG','image/jpeg','jpg') if slot=='whole' else ('WEBP','image/webp','webp') if slot=='under' else ('PNG','image/png','png')
+  await p.locator('#photo-'+slot).set_input_files({'name':slot+'.'+ext,'mimeType':mime,'buffer':png(color,format=fmt)})
   await p.wait_for_function('(s)=>document.querySelector("#photo-status-"+s)?.textContent.includes("ready")',arg=slot)
   assert await p.locator('#img-'+slot).is_visible()
  assert await p.locator('#qualityList .qualityItem').count()==4
@@ -82,6 +83,8 @@ async def planner(p):
  await p.locator('#palette .tool').first.click();ids=await p.locator('#objectLayer .obj').evaluate_all('(es)=>es.map(e=>e.dataset.id)');assert len(set(ids))==3,ids
  assert await p.locator('#savedList b b').count()==0
  data=await download(p,'#exportPlan');assert len(data['garden']['objects'])==3
+ await p.locator('#deleteObj').click();assert await p.locator('#objectLayer .obj').count()==2
+ await p.locator('#togShade').click();assert 'on' not in (await p.locator('#togShade').get_attribute('class'))
  await p.locator('#helpBtn').click();assert await p.locator('#helpModal').is_visible();await p.locator('#closeHelp').click()
  await p.locator('#plantSearch').fill('Achillea');await p.wait_for_function('document.querySelector("#palette").textContent.toLowerCase().includes("achillea")')
  return ['Add objects, resize, zoom and center','Save/reopen and add another object without duplicate IDs','Plan export, library search and help dialog']
@@ -131,6 +134,7 @@ async def library(p):
  await p.locator('.phg-library-launches a[data-library-mode=plants]').press('Enter');await p.locator('#phgPlantSearch').fill('Achillea');await p.locator('#phgPlantSearchBtn').click();await p.wait_for_function('document.querySelector("#phgPlantResults").textContent.toLowerCase().includes("achillea")');await p.locator('#phgPlantResults .phg-plant-card').first.click();await p.locator('#phgSavePlant').click()
  await p.locator('#phgBookSearch').fill('From Seed to Skillet');await p.wait_for_function('document.querySelectorAll(".phg-book-card").length===1');assert 'Jimmy Williams' in await p.locator('.phg-book-card').inner_text()
  await p.locator('.phg-book-save').click();assert await p.locator('.phg-book-save').get_attribute('aria-pressed')=='true'
+ await p.locator('.phg-book-detail-link').click();await p.locator('#phgBookNotes').fill('QA seed-saving idea');await p.locator('#phgSaveBookNotes').click();await p.reload();assert await p.locator('#phgBookNotes').input_value()=='QA seed-saving idea'
  return ['Dictionary search/open/save term','Plant record search/open/save','Book search and private reading list']
 async def dashboard(p):
  await go(p,'my-garden');await fill(p,{'gardenName':'QA Garden','profileZone':'7b','profileLocation':'QA test location'});await p.locator('#saveProfile').click();await p.reload();assert await p.locator('#gardenName').input_value()=='QA Garden'
@@ -141,7 +145,7 @@ async def dashboard(p):
  return ['Profile save/reload','Saved plans, plants and health reports visible','Seed, journal, harvest and inventory summaries connected','12 tool links retained']
 async def main():
  async with async_playwright() as pw:
-  browser=await pw.chromium.launch();ctx=await browser.new_context(accept_downloads=True);await ctx.add_init_script("sessionStorage.setItem('phg-b3-resource-offer','1');sessionStorage.setItem('phg-b3-tool-offer','1');")
+  browser=await pw.chromium.launch(channel=os.environ.get('PHG_QA_BROWSER_CHANNEL'));ctx=await browser.new_context(accept_downloads=True);await ctx.add_init_script("sessionStorage.setItem('phg-b3-resource-offer','1');sessionStorage.setItem('phg-b3-tool-offer','1');")
   p=await ctx.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.set_default_timeout(12000)
   for slug,fn in [('plant-identifier',identifier),('growing-zone',zone),('garden-calculator',calculator),('garden-planner',planner),('plant-companions',companions),('seasonal-calendar',calendar),('harvest-checker',harvest_checker),('seed-starting',seeds),('garden-journal',journal),('harvest-records',harvest_records),('garden-inventory',inventory),('garden-library',library),('my-garden',dashboard)]:
    item={'tool':slug};start_errors=len(errors)

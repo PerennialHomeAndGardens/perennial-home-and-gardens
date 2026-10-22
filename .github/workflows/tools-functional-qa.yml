@@ -14,7 +14,14 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install beautifulsoup4 playwright pillow
-      - run: python -m playwright install chromium --with-deps
+      - name: Choose an available Chromium browser
+        run: |
+          if command -v google-chrome >/dev/null; then
+            echo 'PHG_QA_BROWSER_CHANNEL=chrome' >> "$GITHUB_ENV"
+            google-chrome --version
+          else
+            python -m playwright install chromium --with-deps
+          fi
       - run: |
           python .github/scripts/fix_tool_qa_findings.py
           python .github/scripts/test_all_garden_tools.py

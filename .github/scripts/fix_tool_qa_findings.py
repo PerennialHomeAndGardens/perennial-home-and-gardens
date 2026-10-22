@@ -53,4 +53,6 @@ for slug in ['garden-inventory','harvest-records','seed-starting','garden-planne
  p=R/'tools'/slug/'index.html';d=Soup(p.read_text(),'html.parser')
  for n in d.select('#phg-qa-number-validation'):n.decompose()
  n=d.new_tag('script',id='phg-qa-number-validation');n.string=validation;d.body.append(n);p.write_text(str(d))
+p=R/'tools/garden-inventory/index.html';s=p.read_text();s=s.replace('if(cost===null)return;state.purchases', 'if(cost===null)return;if(!Number.isFinite(Number(cost))||Number(cost)<0){alert("Enter a purchase cost of zero or greater.");return}state.purchases');p.write_text(s)
+p=R/'tools/garden-library/index.html';s=p.read_text().replace('>Cloud Sync Ready<','>About Saved Data<').replace('Cloud sync needs a dedicated Perennial Supabase project. The database schema and secure row-level policies are already prepared.', 'Your data is saved in this browser on this device. Cloud sync and cross-device accounts are not connected. Export backups where available.');p.write_text(s)
 print('Applied identifier upload/error/race/text fixes, positive calculator validation and saved planner ID correction.')
