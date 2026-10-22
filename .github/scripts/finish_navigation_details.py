@@ -40,3 +40,6 @@ css=css.split(marker)[0].rstrip()+'\n\n'+marker+'''
 p.write_text(css)
 (R/'app-assets/footer.html').write_text(str(Soup((R/'index.html').read_text(),'html.parser').footer))
 print('Restored Garden Library navigation on',len(pages),'pages; Dictionary shortcut, compact previews and service titles ready.')
+# Keep the tested tool corrections when shared-page builders run again.
+import runpy
+runpy.run_path(str(R/'.github/scripts/fix_tool_qa_findings.py'),run_name='__main__')
