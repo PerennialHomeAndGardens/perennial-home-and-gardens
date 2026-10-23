@@ -10,7 +10,7 @@
         "Remove, replace and invalid/corrupt/oversized/HEIC handling",
         "Disease/pest/plant screening and safe report text",
         "Save report without photo bytes, refresh persistence, print action, clear",
-        "No image POSTs; automatic-AI status is truthful"
+        "No image POSTs; local model scope is truthful"
       ],
       "status": "pass"
     },
@@ -126,7 +126,7 @@
     }
   ],
   "limitations": [
-    "No automatic AI photo identification backend is connected.",
+    "An experimental local leaf model covers 38 classes; broad species recognition is not provided.",
     "Photo pixels are used for quality/color cues; screening matches use visitor-selected observations.",
     "Uploaded photos are not retained in saved reports or after refresh.",
     "Physical phone camera, HEIC conversion, microphone permissions and native print dialogs need device testing.",

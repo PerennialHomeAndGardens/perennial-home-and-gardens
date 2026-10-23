@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "date": "2026-10-22",
+  "checks": [
+    "Actual model download/inference UI, saved model results, crop-change invalidation, no photo POST and camera file-chooser path passed",
+    "50 companion and 51 harvest entries render; new Lavender/Asparagus guides work",
+    "Full backup export, preview/confirmation, new-browser restore, seed trays/journal/book notes, existing-data protection, replace mode and invalid-file rejection passed",
+    "Chrome print-media report visibility and actual Letter PDF generation passed; physical printing remains untested",
+    "Backup dialog fits four viewport widths; no uncaught browser errors"
+  ],
+  "limits": [
+    "No physical iPhone/Android hardware available.",
+    "Native OS print dialogs and physical printers are not exercised.",
+    "Field-photo sample results do not establish diagnostic accuracy for all garden photos."
+  ],
+  "leafMetrics": {
+    "cases": 46,
+    "correctTop1": 20,
+    "correctTop3": 34,
+    "thresholdAccepted": 18,
+    "thresholdAcceptedCorrect": 12
+  }
+}

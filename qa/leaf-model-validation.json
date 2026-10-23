@@ -1,0 +1,1215 @@
+{
+  "modelRevision": "b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235",
+  "dataset": "pratikkayal/PlantDoc-Dataset",
+  "datasetRevision": "5467f6012d78d1c446145d5f582da6096f852ae8",
+  "method": "First two lexicographically sorted test files per mapped class; no selection based on predictions. Crop supplied from the dataset label. This small sample is not a deployment-wide accuracy guarantee.",
+  "metrics": {
+    "cases": 46,
+    "correctTop1": 20,
+    "correctTop3": 34,
+    "thresholdAccepted": 18,
+    "thresholdAcceptedCorrect": 12
+  },
+  "cases": [
+    {
+      "group": "Apple Scab Leaf",
+      "expectedIndex": 0,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Apple%20Scab%20Leaf/052609%2520Hartman%2520Crabapple%2520scab%2520single%2520leaf.JPG.jpg",
+      "sourceSha256": "13cfeac779b23fa433e92498086f19b1768b84cab23bc9d25e5b33cbe7ca17db",
+      "expectedLabel": "Apple___Apple_scab",
+      "predictions": [
+        {
+          "index": 0,
+          "label": "Apple___Apple_scab",
+          "score": 0.99982750415802
+        },
+        {
+          "index": 2,
+          "label": "Apple___Cedar_apple_rust",
+          "score": 3.1156592740444466e-05
+        },
+        {
+          "index": 3,
+          "label": "Apple___healthy",
+          "score": 1.1500251275720075e-06
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Apple Scab Leaf",
+      "expectedIndex": 0,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Apple%20Scab%20Leaf/1b321015-6e33-4f18-aade-888f4383fe92.jpeg.jpg",
+      "sourceSha256": "7af1a2678a7114632f0274947888e29794321fc9e5edc25dd78d16d42017d685",
+      "expectedLabel": "Apple___Apple_scab",
+      "predictions": [
+        {
+          "index": 2,
+          "label": "Apple___Cedar_apple_rust",
+          "score": 0.668432354927063
+        },
+        {
+          "index": 0,
+          "label": "Apple___Apple_scab",
+          "score": 0.0014313808642327785
+        },
+        {
+          "index": 1,
+          "label": "Apple___Black_rot",
+          "score": 0.0005254859570413828
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Apple leaf",
+      "expectedIndex": 3,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Apple%20leaf/20180511_090912-14gtw8a-e1526047952754.jpg",
+      "sourceSha256": "93eaedfb1c29ec24e347500fa9e1e5556ba94af539254caac79c8b471d11b8df",
+      "expectedLabel": "Apple___healthy",
+      "predictions": [
+        {
+          "index": 1,
+          "label": "Apple___Black_rot",
+          "score": 0.27124443650245667
+        },
+        {
+          "index": 0,
+          "label": "Apple___Apple_scab",
+          "score": 0.005906155798584223
+        },
+        {
+          "index": 2,
+          "label": "Apple___Cedar_apple_rust",
+          "score": 2.4139824745361693e-05
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Apple leaf",
+      "expectedIndex": 3,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Apple%20leaf/20180511_091133-24l1vhg-e1526047988236.jpg",
+      "sourceSha256": "646de55f7314f6994e453a8b5306fdf63e7b8f66a28b29fa9274be3b4d763883",
+      "expectedLabel": "Apple___healthy",
+      "predictions": [
+        {
+          "index": 1,
+          "label": "Apple___Black_rot",
+          "score": 0.18621423840522766
+        },
+        {
+          "index": 2,
+          "label": "Apple___Cedar_apple_rust",
+          "score": 0.053582001477479935
+        },
+        {
+          "index": 3,
+          "label": "Apple___healthy",
+          "score": 0.012140302918851376
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Apple rust leaf",
+      "expectedIndex": 2,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Apple%20rust%20leaf/02.-Rust-2017-207u24s.jpg",
+      "sourceSha256": "f1b4f0ef38724290a0f896de850871f302aa12eac89625705233f77b0bd52797",
+      "expectedLabel": "Apple___Cedar_apple_rust",
+      "predictions": [
+        {
+          "index": 1,
+          "label": "Apple___Black_rot",
+          "score": 0.4255182445049286
+        },
+        {
+          "index": 0,
+          "label": "Apple___Apple_scab",
+          "score": 0.03307320177555084
+        },
+        {
+          "index": 2,
+          "label": "Apple___Cedar_apple_rust",
+          "score": 7.662249845452607e-05
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Apple rust leaf",
+      "expectedIndex": 2,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Apple%20rust%20leaf/0605_Rust-induced_leafspot.jpg",
+      "sourceSha256": "9773123c2caf06b5b574c406894ed37fff53638d2b826343603504b1d69595b1",
+      "expectedLabel": "Apple___Cedar_apple_rust",
+      "predictions": [
+        {
+          "index": 0,
+          "label": "Apple___Apple_scab",
+          "score": 0.2832282483577728
+        },
+        {
+          "index": 2,
+          "label": "Apple___Cedar_apple_rust",
+          "score": 0.06505917757749557
+        },
+        {
+          "index": 1,
+          "label": "Apple___Black_rot",
+          "score": 0.004199232906103134
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Bell_pepper leaf spot",
+      "expectedIndex": 18,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Bell_pepper%20leaf%20spot/00.jpg",
+      "sourceSha256": "092fd6fa8208f5c46f10899a8c58543949ad3ee3c7621a4e760d685bfd9f610a",
+      "expectedLabel": "Pepper_bell___Bacterial_spot",
+      "predictions": [
+        {
+          "index": 18,
+          "label": "Pepper_bell___Bacterial_spot",
+          "score": 0.9978355765342712
+        },
+        {
+          "index": 19,
+          "label": "Pepper_bell___healthy",
+          "score": 0.00039840894169174135
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Bell_pepper leaf spot",
+      "expectedIndex": 18,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Bell_pepper%20leaf%20spot/000.jpg",
+      "sourceSha256": "428e8aa1e9ea0e344c1fc50c26734079f7d4eb0d76c5709a9b4a3cf6d1f559cb",
+      "expectedLabel": "Pepper_bell___Bacterial_spot",
+      "predictions": [
+        {
+          "index": 18,
+          "label": "Pepper_bell___Bacterial_spot",
+          "score": 0.012363783083856106
+        },
+        {
+          "index": 19,
+          "label": "Pepper_bell___healthy",
+          "score": 2.3075797344063176e-06
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Bell_pepper leaf",
+      "expectedIndex": 19,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Bell_pepper%20leaf/10148582-green-leaf-of-pepper.jpg",
+      "sourceSha256": "18d27a2f69525db1028494ad8d3a54871f431133017ebcc2fa432da18bb50205",
+      "expectedLabel": "Pepper_bell___healthy",
+      "predictions": [
+        {
+          "index": 19,
+          "label": "Pepper_bell___healthy",
+          "score": 0.9974658489227295
+        },
+        {
+          "index": 18,
+          "label": "Pepper_bell___Bacterial_spot",
+          "score": 3.870282307616435e-05
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Bell_pepper leaf",
+      "expectedIndex": 19,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Bell_pepper%20leaf/4825902504_5fa80b65b8_z.jpg",
+      "sourceSha256": "31bf779ab58fdb35b249d94105c47a57f372302b7158f9c26bbfb2d3c1e580de",
+      "expectedLabel": "Pepper_bell___healthy",
+      "predictions": [
+        {
+          "index": 18,
+          "label": "Pepper_bell___Bacterial_spot",
+          "score": 0.12410323321819305
+        },
+        {
+          "index": 19,
+          "label": "Pepper_bell___healthy",
+          "score": 0.017351608723402023
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Cherry leaf",
+      "expectedIndex": 6,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Cherry%20leaf/d7b79dbc0bca0eb3e63fbe5dfb256ccd53d90a4eb1413_1260x1260.jpg",
+      "sourceSha256": "c8558de1281f269c91d394fbaf4fd06fb2c0a04dd3125cad4d5fcec2be3a5891",
+      "expectedLabel": "Cherry_(including_sour)___healthy",
+      "predictions": [
+        {
+          "index": 6,
+          "label": "Cherry_(including_sour)___healthy",
+          "score": 0.05280912294983864
+        },
+        {
+          "index": 5,
+          "label": "Cherry_(including_sour)___Powdery_mildew",
+          "score": 0.00031721004052087665
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Cherry leaf",
+      "expectedIndex": 6,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Cherry%20leaf/e52bbb9a08ede2948ba0c006f02fe7b053ad7831d1df6_1260x1260.jpg",
+      "sourceSha256": "58b9ab22b87542a82c76f4ccdc24c7a2a7979a26b59d2a1ed051edfd036760b6",
+      "expectedLabel": "Cherry_(including_sour)___healthy",
+      "predictions": [
+        {
+          "index": 6,
+          "label": "Cherry_(including_sour)___healthy",
+          "score": 0.003257209900766611
+        },
+        {
+          "index": 5,
+          "label": "Cherry_(including_sour)___Powdery_mildew",
+          "score": 7.93605504441075e-05
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Corn Gray leaf spot",
+      "expectedIndex": 7,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20Gray%20leaf%20spot/IMG_42231.jpg",
+      "sourceSha256": "ee3838e2249e671b7b4510b0d3831f30882e2bcbf20c9c8c42ee8f4e1b95fcce",
+      "expectedLabel": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "predictions": [
+        {
+          "index": 7,
+          "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "score": 0.6395285129547119
+        },
+        {
+          "index": 10,
+          "label": "Corn_(maize)___healthy",
+          "score": 0.14459913969039917
+        },
+        {
+          "index": 9,
+          "label": "Corn_(maize)___Northern_Leaf_Blight",
+          "score": 0.023538576439023018
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Corn Gray leaf spot",
+      "expectedIndex": 7,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20Gray%20leaf%20spot/rsz0803Figure6.jpg",
+      "sourceSha256": "723b0d272e745f3d81f205fc60dcfc989cb7698e3d48087aa63f904001ff9101",
+      "expectedLabel": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "predictions": [
+        {
+          "index": 7,
+          "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "score": 0.9986936450004578
+        },
+        {
+          "index": 9,
+          "label": "Corn_(maize)___Northern_Leaf_Blight",
+          "score": 0.001027359045110643
+        },
+        {
+          "index": 10,
+          "label": "Corn_(maize)___healthy",
+          "score": 1.2052213605784345e-05
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Corn leaf blight",
+      "expectedIndex": 9,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20leaf%20blight/02c.jpg",
+      "sourceSha256": "0a7d472d5da53b9436775feb479598e0c8067eae96dfd06c7ebdaecee79af473",
+      "expectedLabel": "Corn_(maize)___Northern_Leaf_Blight",
+      "predictions": [
+        {
+          "index": 7,
+          "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "score": 0.9916700124740601
+        },
+        {
+          "index": 9,
+          "label": "Corn_(maize)___Northern_Leaf_Blight",
+          "score": 0.0022084307856857777
+        },
+        {
+          "index": 8,
+          "label": "Corn_(maize)___Common_rust_",
+          "score": 3.7718957173638046e-05
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Corn leaf blight",
+      "expectedIndex": 9,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20leaf%20blight/0796.20graylssymt.jpg",
+      "sourceSha256": "3b616d93a4aa72ad932f05dd2ff1a0392139ce355a1b9d24f0e78cf71405a62c",
+      "expectedLabel": "Corn_(maize)___Northern_Leaf_Blight",
+      "predictions": [
+        {
+          "index": 7,
+          "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "score": 0.9999659061431885
+        },
+        {
+          "index": 8,
+          "label": "Corn_(maize)___Common_rust_",
+          "score": 3.174802259309217e-05
+        },
+        {
+          "index": 10,
+          "label": "Corn_(maize)___healthy",
+          "score": 3.801616088594528e-08
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Corn rust leaf",
+      "expectedIndex": 8,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20rust%20leaf/0796.39maizerust.jpg",
+      "sourceSha256": "74f5150ebe2ad2efc2288e5d8764852c8616ae96b9cd0486b72e48c08fb3dc55",
+      "expectedLabel": "Corn_(maize)___Common_rust_",
+      "predictions": [
+        {
+          "index": 7,
+          "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "score": 0.6489636301994324
+        },
+        {
+          "index": 8,
+          "label": "Corn_(maize)___Common_rust_",
+          "score": 0.2739925682544708
+        },
+        {
+          "index": 9,
+          "label": "Corn_(maize)___Northern_Leaf_Blight",
+          "score": 0.07603784650564194
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Corn rust leaf",
+      "expectedIndex": 8,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20rust%20leaf/0796.40comrust.jpg",
+      "sourceSha256": "d81099827be9eea9fd64d18771a60680255ea1fa9a2d2dd9247d55c97df59556",
+      "expectedLabel": "Corn_(maize)___Common_rust_",
+      "predictions": [
+        {
+          "index": 7,
+          "label": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "score": 0.9982308745384216
+        },
+        {
+          "index": 9,
+          "label": "Corn_(maize)___Northern_Leaf_Blight",
+          "score": 0.0007257135584950447
+        },
+        {
+          "index": 8,
+          "label": "Corn_(maize)___Common_rust_",
+          "score": 5.415417945187073e-06
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Peach leaf",
+      "expectedIndex": 17,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Peach%20leaf/00pe.jpg",
+      "sourceSha256": "efe7103184ba7b526b7958d11ece9922d3a7110b20603860b3225e1dbeb4db82",
+      "expectedLabel": "Peach___healthy",
+      "predictions": [
+        {
+          "index": 16,
+          "label": "Peach___Bacterial_spot",
+          "score": 0.005553323309868574
+        },
+        {
+          "index": 17,
+          "label": "Peach___healthy",
+          "score": 0.0005588865024037659
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Peach leaf",
+      "expectedIndex": 17,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Peach%20leaf/7190f27ead55c0f6e3ff8b982972810a5446a9713a49d_1260x1260.jpg",
+      "sourceSha256": "2b42bfdb7b7422f0229cf8049232f8f38acf1e3df5070ef79b343ed1515c5ed1",
+      "expectedLabel": "Peach___healthy",
+      "predictions": [
+        {
+          "index": 17,
+          "label": "Peach___healthy",
+          "score": 0.9273310303688049
+        },
+        {
+          "index": 16,
+          "label": "Peach___Bacterial_spot",
+          "score": 0.005517194513231516
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Potato leaf early blight",
+      "expectedIndex": 20,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Potato%20leaf%20early%20blight/3023.jpg",
+      "sourceSha256": "4e8b82493c841d55dc0c3d43ae6dde79e03beaaf5cb1f425acaa44cffd8f1c99",
+      "expectedLabel": "Potato___Early_blight",
+      "predictions": [
+        {
+          "index": 21,
+          "label": "Potato___Late_blight",
+          "score": 9.937966387951747e-05
+        },
+        {
+          "index": 20,
+          "label": "Potato___Early_blight",
+          "score": 3.0109231374808587e-05
+        },
+        {
+          "index": 22,
+          "label": "Potato___healthy",
+          "score": 3.422696408961201e-06
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Potato leaf early blight",
+      "expectedIndex": 20,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Potato%20leaf%20early%20blight/backus-056-potato-blight.jpg",
+      "sourceSha256": "64c0f7b5701e815769bad881c0834ffb3b58018233fc3af42c3a1b7968f86973",
+      "expectedLabel": "Potato___Early_blight",
+      "predictions": [
+        {
+          "index": 21,
+          "label": "Potato___Late_blight",
+          "score": 0.11471447348594666
+        },
+        {
+          "index": 20,
+          "label": "Potato___Early_blight",
+          "score": 0.013703023083508015
+        },
+        {
+          "index": 22,
+          "label": "Potato___healthy",
+          "score": 0.0007732751546427608
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Potato leaf late blight",
+      "expectedIndex": 21,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Potato%20leaf%20late%20blight/1421_0.jpeg%3Fitok%3DFMtmgePj.jpg",
+      "sourceSha256": "c53ad8d40c38debfbc0b79a87d0f3649c20b933a65f5b78a6931f59d06aad498",
+      "expectedLabel": "Potato___Late_blight",
+      "predictions": [
+        {
+          "index": 21,
+          "label": "Potato___Late_blight",
+          "score": 0.9983373880386353
+        },
+        {
+          "index": 20,
+          "label": "Potato___Early_blight",
+          "score": 0.0005783109227195382
+        },
+        {
+          "index": 22,
+          "label": "Potato___healthy",
+          "score": 5.963601506664418e-05
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Potato leaf late blight",
+      "expectedIndex": 21,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Potato%20leaf%20late%20blight/20090710-lateblight.jpg",
+      "sourceSha256": "2f6afbd158df153a151b3b0e543d24268b902c541520c1c4fb0ee0b34fce0cce",
+      "expectedLabel": "Potato___Late_blight",
+      "predictions": [
+        {
+          "index": 21,
+          "label": "Potato___Late_blight",
+          "score": 0.003966513555496931
+        },
+        {
+          "index": 22,
+          "label": "Potato___healthy",
+          "score": 0.00022216123761609197
+        },
+        {
+          "index": 20,
+          "label": "Potato___Early_blight",
+          "score": 1.3548491324399947e-06
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Strawberry leaf",
+      "expectedIndex": 27,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Strawberry%20leaf/strawberry-leaf--stock-photo-1431216.jpg",
+      "sourceSha256": "2b1e04fb0167cda6984a1f168ec887d6898551642686e63935cc533069c0ab9e",
+      "expectedLabel": "Strawberry___healthy",
+      "predictions": [
+        {
+          "index": 26,
+          "label": "Strawberry___Leaf_scorch",
+          "score": 0.19808654487133026
+        },
+        {
+          "index": 27,
+          "label": "Strawberry___healthy",
+          "score": 0.019954288378357887
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Strawberry leaf",
+      "expectedIndex": 27,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Strawberry%20leaf/strawberry-leaf-22360816.jpg",
+      "sourceSha256": "cdef75f85823e13c782ab13417945edafd68f2253f13e1f35d7b86116cca3bcc",
+      "expectedLabel": "Strawberry___healthy",
+      "predictions": [
+        {
+          "index": 27,
+          "label": "Strawberry___healthy",
+          "score": 0.001770924311131239
+        },
+        {
+          "index": 26,
+          "label": "Strawberry___Leaf_scorch",
+          "score": 6.476656562881544e-05
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato Early blight leaf",
+      "expectedIndex": 29,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20Early%20blight%20leaf/039b47d574bc4bb8a14259a1cd96a741.jpg",
+      "sourceSha256": "7d9c5c6947554d5fc6e98df5fbc1beb6363255128bd56446960e29a73242c02e",
+      "expectedLabel": "Tomato___Early_blight",
+      "predictions": [
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.0038628894835710526
+        },
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 4.491163053899072e-05
+        },
+        {
+          "index": 36,
+          "label": "Tomato___Tomato_mosaic_virus",
+          "score": 3.44164582202211e-05
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato Early blight leaf",
+      "expectedIndex": 29,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20Early%20blight%20leaf/100983448.jpg",
+      "sourceSha256": "98d52f733e1e23c5f5059f3ce57c762a1e0fc26028abf8750105d0250c29f670",
+      "expectedLabel": "Tomato___Early_blight",
+      "predictions": [
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.967570960521698
+        },
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.021847596392035484
+        },
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 0.0039458260871469975
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Tomato Septoria leaf spot",
+      "expectedIndex": 32,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20Septoria%20leaf%20spot/0.jpg",
+      "sourceSha256": "c7e82b8ce320acec30c35a89e73490618e425c76d3c80d2d88a3053d39e9709e",
+      "expectedLabel": "Tomato___Septoria_leaf_spot",
+      "predictions": [
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.03742019832134247
+        },
+        {
+          "index": 34,
+          "label": "Tomato___Target_Spot",
+          "score": 0.016173599287867546
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.013335872441530228
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato Septoria leaf spot",
+      "expectedIndex": 32,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20Septoria%20leaf%20spot/2STEM.jpg",
+      "sourceSha256": "a8844aed418d61e8db0e2ef68c9da1ede9c0e3800e0756b6fbf02e0247ad1b7c",
+      "expectedLabel": "Tomato___Septoria_leaf_spot",
+      "predictions": [
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 0.9690460562705994
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.01884576492011547
+        },
+        {
+          "index": 28,
+          "label": "Tomato___Bacterial_spot",
+          "score": 0.003185661043971777
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Tomato leaf bacterial spot",
+      "expectedIndex": 28,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20bacterial%20spot/%252320%2BBacterial%2BSpot%2Band%2BSpeck.jpg",
+      "sourceSha256": "b609929106ab0044de24717ceb091163e7630ec3460ec18c6d9c7bf2b996121c",
+      "expectedLabel": "Tomato___Bacterial_spot",
+      "predictions": [
+        {
+          "index": 35,
+          "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+          "score": 0.11731065064668655
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.0367407351732254
+        },
+        {
+          "index": 34,
+          "label": "Tomato___Target_Spot",
+          "score": 0.018604477867484093
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato leaf bacterial spot",
+      "expectedIndex": 28,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20bacterial%20spot/07.17.18-Common_Tomato_Diseases_Canker-258x300.jpg",
+      "sourceSha256": "d9e9aa3d8e0e58d5875c4b9bb17b19327a5b004e91e20942d7a528a8c52f4eeb",
+      "expectedLabel": "Tomato___Bacterial_spot",
+      "predictions": [
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.7843833565711975
+        },
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.20145346224308014
+        },
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 0.00034829226206056774
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Tomato leaf late blight",
+      "expectedIndex": 30,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20late%20blight/110822-206-Tomato-blight.jpg",
+      "sourceSha256": "fd87cea75ee543ab40c76fb94cbc40e42d1c848e5f5dd7756e56f44d0367c734",
+      "expectedLabel": "Tomato___Late_blight",
+      "predictions": [
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.9721089601516724
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.027207935228943825
+        },
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 7.470381387975067e-05
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Tomato leaf late blight",
+      "expectedIndex": 30,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20late%20blight/18c.jpg",
+      "sourceSha256": "1a33cccc63bbb630a1c07cc04a1caa2ee0bbfb8f855529328076b3e725950afc",
+      "expectedLabel": "Tomato___Late_blight",
+      "predictions": [
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.75766521692276
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.16258598864078522
+        },
+        {
+          "index": 34,
+          "label": "Tomato___Target_Spot",
+          "score": 0.001099049230106175
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Tomato leaf mosaic virus",
+      "expectedIndex": 36,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20mosaic%20virus/9511.img.jpg",
+      "sourceSha256": "114ad00502e682078ccbed196422c3092e017a3d11078ebd439f9825a57e1fa2",
+      "expectedLabel": "Tomato___Tomato_mosaic_virus",
+      "predictions": [
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.7674233317375183
+        },
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.06836245954036713
+        },
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 0.00010387087968410924
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Tomato leaf mosaic virus",
+      "expectedIndex": 36,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20mosaic%20virus/D%2529AlfMov.jpg",
+      "sourceSha256": "1dd06a9e3bd48713bb445a8588d8c38dec7643435e5c8b0652f584ac4eff64c1",
+      "expectedLabel": "Tomato___Tomato_mosaic_virus",
+      "predictions": [
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.7683594822883606
+        },
+        {
+          "index": 37,
+          "label": "Tomato___healthy",
+          "score": 0.10389114171266556
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.06722980737686157
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "Tomato leaf yellow virus",
+      "expectedIndex": 35,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20yellow%20virus/11-40580_5.jpg",
+      "sourceSha256": "1f62f0f3eabfd7d955f212d852f4143e8f0bb49077e9350f641696749f595d01",
+      "expectedLabel": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "predictions": [
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.008618037216365337
+        },
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.002821910660713911
+        },
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 0.0022308584302663803
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato leaf yellow virus",
+      "expectedIndex": 35,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20yellow%20virus/17fc47.jpg",
+      "sourceSha256": "e75892c6833fde9fddcf03d8d0529863c2827c91f971ac18b92d8dc2546a769d",
+      "expectedLabel": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "predictions": [
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.19215679168701172
+        },
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 0.0003576114249881357
+        },
+        {
+          "index": 34,
+          "label": "Tomato___Target_Spot",
+          "score": 0.00023873774625826627
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato leaf",
+      "expectedIndex": 37,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf/1684.jpg",
+      "sourceSha256": "bc0ec6abdabe070a8e98749360809fc8cca196e21661f93a038d75b45e13b18d",
+      "expectedLabel": "Tomato___healthy",
+      "predictions": [
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.4944903254508972
+        },
+        {
+          "index": 31,
+          "label": "Tomato___Leaf_Mold",
+          "score": 0.10094967484474182
+        },
+        {
+          "index": 35,
+          "label": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+          "score": 0.022009437903761864
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato leaf",
+      "expectedIndex": 37,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf/2013-08-20-06.jpg",
+      "sourceSha256": "f462b769606f79703c44a2c595f57269924bb41ea335b94cbff099bc5c2525a2",
+      "expectedLabel": "Tomato___healthy",
+      "predictions": [
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.5789636969566345
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.31115642189979553
+        },
+        {
+          "index": 32,
+          "label": "Tomato___Septoria_leaf_spot",
+          "score": 0.001297264825552702
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato mold leaf",
+      "expectedIndex": 31,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20mold%20leaf/49%2520Leafmold%2520Bottom.jpg",
+      "sourceSha256": "3c831e06fae662ff4a0351be082f516545b537c4df5fad003eeb1c623fd160d1",
+      "expectedLabel": "Tomato___Leaf_Mold",
+      "predictions": [
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.5113879442214966
+        },
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.18595343828201294
+        },
+        {
+          "index": 31,
+          "label": "Tomato___Leaf_Mold",
+          "score": 0.02164408005774021
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "Tomato mold leaf",
+      "expectedIndex": 31,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20mold%20leaf/50%2520Leafmold%2520Top.jpg",
+      "sourceSha256": "038898eee33130b1e02ecee95413923d4c51b9f81bd0277c29381a479bf53f2c",
+      "expectedLabel": "Tomato___Leaf_Mold",
+      "predictions": [
+        {
+          "index": 30,
+          "label": "Tomato___Late_blight",
+          "score": 0.4343591034412384
+        },
+        {
+          "index": 29,
+          "label": "Tomato___Early_blight",
+          "score": 0.2783569395542145
+        },
+        {
+          "index": 31,
+          "label": "Tomato___Leaf_Mold",
+          "score": 0.2182382345199585
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "grape leaf black rot",
+      "expectedIndex": 11,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/grape%20leaf%20black%20rot/03gb.jpg",
+      "sourceSha256": "e8468522aba52f73e8e919658fa833130602633a98aa3033dba6dd1595bc8718",
+      "expectedLabel": "Grape___Black_rot",
+      "predictions": [
+        {
+          "index": 11,
+          "label": "Grape___Black_rot",
+          "score": 0.061135098338127136
+        },
+        {
+          "index": 13,
+          "label": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+          "score": 0.0009923649486154318
+        },
+        {
+          "index": 12,
+          "label": "Grape___Esca_(Black_Measles)",
+          "score": 0.0002248213131679222
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "grape leaf black rot",
+      "expectedIndex": 11,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/grape%20leaf%20black%20rot/35589125035_662dd5b258_b.jpg",
+      "sourceSha256": "d20cc643fdfbb07db3616a50de0a2280383e134fa8f06ca5522e07c0cfc25aa9",
+      "expectedLabel": "Grape___Black_rot",
+      "predictions": [
+        {
+          "index": 13,
+          "label": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+          "score": 0.2772120237350464
+        },
+        {
+          "index": 12,
+          "label": "Grape___Esca_(Black_Measles)",
+          "score": 0.043052803725004196
+        },
+        {
+          "index": 14,
+          "label": "Grape___healthy",
+          "score": 0.019474221393465996
+        }
+      ],
+      "correctTop1": false,
+      "correctTop3": false,
+      "meetsDisplayThreshold": false
+    },
+    {
+      "group": "grape leaf",
+      "expectedIndex": 14,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/grape%20leaf/0000.jpg",
+      "sourceSha256": "420433aad07a69dbba27df1b1db4693058daef37698b93f0461724bb8767ba6d",
+      "expectedLabel": "Grape___healthy",
+      "predictions": [
+        {
+          "index": 14,
+          "label": "Grape___healthy",
+          "score": 0.9636296629905701
+        },
+        {
+          "index": 13,
+          "label": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+          "score": 0.012881133705377579
+        },
+        {
+          "index": 11,
+          "label": "Grape___Black_rot",
+          "score": 0.0048576947301626205
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    },
+    {
+      "group": "grape leaf",
+      "expectedIndex": 14,
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/grape%20leaf/730-grape-leaf-2560x1600-nature-wallpaper.jpg",
+      "sourceSha256": "468f656f6c89d8f241f07246300acb790a11f3e288e9c3750dac1b4da9405577",
+      "expectedLabel": "Grape___healthy",
+      "predictions": [
+        {
+          "index": 14,
+          "label": "Grape___healthy",
+          "score": 0.9301241040229797
+        },
+        {
+          "index": 11,
+          "label": "Grape___Black_rot",
+          "score": 0.03572947159409523
+        },
+        {
+          "index": 12,
+          "label": "Grape___Esca_(Black_Measles)",
+          "score": 0.0028289940673857927
+        }
+      ],
+      "correctTop1": true,
+      "correctTop3": true,
+      "meetsDisplayThreshold": true
+    }
+  ],
+  "limitations": [
+    "No physical iPhone/Android hardware available.",
+    "Native OS print dialogs and physical printers are not exercised.",
+    "Field-photo sample results do not establish diagnostic accuracy for all garden photos.",
+    "Known crop was supplied; this is not a species-identification test.",
+    "PlantDoc labels were not independently re-adjudicated by a plant pathologist.",
+    "Samples may contain mixed symptoms or domain differences from controlled training images."
+  ]
+}
