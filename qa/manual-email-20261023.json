@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "Contact draft includes typed fields, safely preserves literal markup, correct mailto, clipboard success/failure and unchanged original message.",
+    "Homepage resources work without email; direct folder link survives popup blockers; newsletter is an explicit manual request; no new local email-lead storage.",
+    "Service inquiry opens the same copyable email draft with the entered details.",
+    "Draft dialog fits desktop and 390/360-pixel mobile viewports with internal scrolling.",
+    "120-second newsletter prompt on an article page opens a copyable request; no subscription-success claim.",
+    "25-second resource prompt on an article page offers both worksheets without requiring an email.",
+    "No uncaught page errors or POST submissions in the exercised flows. No real email was sent."
+  ],
+  "not_tested": [
+    "Actual mail-app launch or email delivery",
+    "Physical mobile keyboard/camera/microphone",
+    "External download-folder access permissions"
+  ]
+}
