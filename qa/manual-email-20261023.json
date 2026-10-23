@@ -1,5 +1,6 @@
 {
   "passed": [
+    "All generated HTML loader references use the current code content version.",
     "Contact draft includes typed fields, safely preserves literal markup, correct mailto, clipboard success/failure and unchanged original message.",
     "Homepage resources work without email; direct folder link survives popup blockers; newsletter is an explicit manual request; no new local email-lead storage.",
     "Service inquiry opens the same copyable email draft with the entered details.",
