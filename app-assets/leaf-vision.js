@@ -31,6 +31,7 @@ function display(r){
  output.append(el('p','This model was trained on 38 crop/leaf-condition classes. Field photos can be confidently misclassified. These scores are model outputs, not the probability of a correct diagnosis. Confirm with the symptom checklist and Extension.'));
  for(const m of r.matches.slice(0,3)){const row=el('p');row.append(el('strong',m.label.split('___')[1].replaceAll('_',' ')+' · '+Math.round(m.score*100)+'% model score'));output.append(row);}
  if(r.matches[0]?.label.endsWith('___healthy'))output.append(el('p','A “healthy” model label does not rule out pests, root problems or an unsupported disease.'));
+ const save=el('button','Save comparison to My Garden');save.type='button';save.className='btn';save.id='phgSaveLeafComparison';save.onclick=()=>{document.getElementById('saveReport').click();status.textContent=document.getElementById('saveReport').textContent.includes('Saved')?'Comparison saved in your garden-health report.':'The report could not be saved. Review the report message.';};output.append(save);
  const a=el('a','Read the field-photo validation and model limits');a.href='/qa/leaf-model-validation.html';a.target='_blank';a.rel='noopener';output.append(a);
 }
 button.onclick=async()=>{

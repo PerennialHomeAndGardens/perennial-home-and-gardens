@@ -41,7 +41,7 @@ function validateValue(k,v){
  const fail=msg=>{throw Error(label(k)+': '+msg);};
  const str=(o,f,required=false)=>{if(required&&typeof o[f]!=='string')fail('missing '+f);if(f in o&&typeof o[f]!=='string')fail(f+' must be text');};
  const num=(o,f,required=false,min=0)=>{if(required&&typeof o[f]!=='number')fail('missing numeric '+f);if(f in o&&o[f]!==null&&(typeof o[f]!=='number'||!Number.isFinite(o[f])||o[f]<min))fail('invalid '+f);};
- const date=(o,f,required=false)=>{str(o,f,required);if(o[f]&&!/^\d{4}-\d{2}-\d{2}$/.test(o[f]))fail('invalid '+f+' date');};
+ const date=(o,f,required=false)=>{str(o,f,required);if(o[f]){const dt=new Date(o[f]+'T12:00:00Z');if(!/^\d{4}-\d{2}-\d{2}$/.test(o[f])||!Number.isFinite(dt.getTime())||dt.toISOString().slice(0,10)!==o[f])fail('invalid '+f+' date');}};
  const record=(o)=>{if(!object(o))fail('invalid record');if('id'in o&&!(typeof o.id==='number'&&Number.isFinite(o.id))&&!(typeof o.id==='string'&&/^[\w.:-]{1,160}$/.test(o.id)))fail('invalid record ID');};
  if(lists[k])for(const f of lists[k])if(k!=='phgGardenLibraryShelfV1')for(const o of v[f])record(o);
  if(k==='phgSeedSystemV1'){
@@ -59,6 +59,7 @@ function validateValue(k,v){
  }
  if(k==='phgGardenPlans')for(const p of v){record(p);str(p,'name',true);if(!object(p.garden)||!Array.isArray(p.garden.objects))fail('invalid garden layout');num(p.garden,'w',true,.01);num(p.garden,'h',true,.01);const ids=new Set();for(const o of p.garden.objects){record(o);str(o,'id',true);str(o,'name',true);str(o,'type',true);for(const f of ['x','y','rot'])num(o,f,true,-100000);num(o,'w',true,.01);num(o,'h',true,.01);if(ids.has(o.id))fail('duplicate layout object IDs');ids.add(o.id);}}
  if(k==='phgGardenHealthReports')for(const o of v){record(o);str(o,'plant',true);str(o,'date',true);for(const f of ['matches','symptoms','conditions','areas','photoTypes'])if(f in o&&(!Array.isArray(o[f])||o[f].some(x=>typeof x!=='string')))fail('invalid health report '+f);}
+ if(['phgMyGardenProfileV1','phgGardenLibraryProfileV1'].includes(k))for(const f of ['gardenName','zone','location','displayName','homeZone','locationLabel'])str(v,f);
  if(k==='phg-cal-prefs'){if(!Number.isInteger(v.month)||v.month<0||v.month>11||!['mixed','veg','per','edible'].includes(v.focus))fail('invalid calendar preference');}
  if(k==='phgGardenLibraryPlantNotesV1')for(const n of Object.values(v))if(typeof n!=='string')fail('invalid plant note');
 

@@ -27,7 +27,7 @@ async def main():
    await p.locator('#phgVisionRun').click();await p.wait_for_function('document.querySelector("#phgVisionStatus").textContent.includes("finished")',timeout=120000)
    assert await p.locator('#phgVisionResult p').count()>=2
    assert not any(method=='POST'for method,_ in requests)
-   await p.locator('#saveReport').click();saved=await p.evaluate('JSON.parse(localStorage.getItem("phgGardenHealthReports"))[0]');assert saved['photoModelResult']['crop']=='Tomato';assert len(saved['photoModelResult']['matches'])==3
+   await p.locator('#phgSaveLeafComparison').click();saved=await p.evaluate('JSON.parse(localStorage.getItem("phgGardenHealthReports"))[0]');assert saved['photoModelResult']['crop']=='Tomato';assert len(saved['photoModelResult']['matches'])==3
    await p.locator('#phgVisionCrop').select_option('Potato');assert await p.evaluate('PHGLeafVision.savedResult()')is None
    assert await p.locator('#phgCameraInput').get_attribute('capture')=='environment'
    async with p.expect_file_chooser()as chooser:await p.get_by_role('button',name='Take photo · Leaf Underside',exact=True).click()

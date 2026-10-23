@@ -27,6 +27,7 @@ jobs:
           python .github/scripts/complete_garden_tools.py
           python .github/scripts/prepare_leaf_vision.py
           python .github/scripts/prepare_leaf_cases.py
+      - run: node .github/scripts/test_backup_failure.cjs
       - name: Existing tool regression workflows
         run: python .github/scripts/test_all_garden_tools.py
       - name: Leaf inference, field samples, backup round trips and print PDF

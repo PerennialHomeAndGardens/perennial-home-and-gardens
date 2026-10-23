@@ -15,6 +15,8 @@ p=R/'tools/plant-identifier/index.html';s=p.read_text();s=re.sub(r'/\* PHG expan
 a=json.loads((R/'data/garden-tools/diagnostic-additions.json').read_text())
 s=s.replace('const AREAS=','/* PHG expanded diagnostics */\nDATA.push(...'+json.dumps(a,ensure_ascii=False)+');\n/* End expanded diagnostics */\nconst AREAS=')
 s=s.replace('let mode="disease",','SYM.push(...[...new Set(DATA.flatMap(x=>x.sym))].filter(x=>!SYM.includes(x)));\nCONDITIONS.push(...[...new Set(DATA.flatMap(x=>x.cond))].filter(x=>!CONDITIONS.includes(x)));\nlet mode="disease",') if 'SYM.push(' not in s else s
+if 'Leaf photo comparison (experimental)' not in s:
+ s=s.replace('$("reportBody").innerHTML=vals.map', 'const pv=window.PHGLeafVision?.savedResult();if(pv)vals.push(["Leaf photo comparison (experimental)",pv.matches.map(m=>m.label.replaceAll("_"," ")+" · "+Math.round(m.score*100)+"% model score").join("; ")]);$("reportBody").innerHTML=vals.map')
 s=s.replace('screeningVersion:"build6"','screeningVersion:"build7-local-vision",photoModelResult:window.PHGLeafVision?.savedResult()||null')
 s=s.replace('Guided screening · no automatic photo diagnosis','Guided screening + experimental leaf photo comparison')
 s=s.replace('$("tryAI").textContent="Photo Analysis Status";','$("tryAI").textContent="About photo comparison";')
