@@ -33,6 +33,7 @@ jobs:
       - name: Leaf inference, field samples, backup round trips and print PDF
         run: python .github/scripts/test_leaf_vision_backup.py
       - run: python .github/scripts/write_completion_report.py
+      - run: python .github/scripts/test_completion_report.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

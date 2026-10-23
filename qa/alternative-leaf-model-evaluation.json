@@ -1,0 +1,313 @@
+{
+  "model": "LeafMedic",
+  "revision": "124284604f48c406e4558d681688ae4fd4c8107d",
+  "cases": 16,
+  "correctTop1": 6,
+  "method": "Same deterministic PlantDoc samples as primary test, limited to labels supported by this alternative model; known crop supplied. PIL bilinear 300x300 RGB uint8 input. ONNX CPU inference. Not a clinical validation.",
+  "results": [
+    {
+      "expected": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20Gray%20leaf%20spot/IMG_42231.jpg",
+      "predictions": [
+        [
+          "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          1.0
+        ],
+        [
+          "Corn_(maize)___Common_rust_",
+          0.0
+        ],
+        [
+          "Corn_(maize)___healthy",
+          0.0
+        ]
+      ],
+      "correct": true
+    },
+    {
+      "expected": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20Gray%20leaf%20spot/rsz0803Figure6.jpg",
+      "predictions": [
+        [
+          "Corn_(maize)___Common_rust_",
+          0.803921568627451
+        ],
+        [
+          "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          0.13725490196078433
+        ],
+        [
+          "Corn_(maize)___Lethal_Necrosis",
+          0.00784313725490196
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Corn_(maize)___Common_rust_",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20rust%20leaf/0796.39maizerust.jpg",
+      "predictions": [
+        [
+          "Corn_(maize)___Common_rust_",
+          0.9058823529411765
+        ],
+        [
+          "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          0.09019607843137255
+        ],
+        [
+          "Corn_(maize)___Lethal_Necrosis",
+          0.00784313725490196
+        ]
+      ],
+      "correct": true
+    },
+    {
+      "expected": "Corn_(maize)___Common_rust_",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Corn%20rust%20leaf/0796.40comrust.jpg",
+      "predictions": [
+        [
+          "Corn_(maize)___Common_rust_",
+          1.0
+        ],
+        [
+          "Corn_(maize)___healthy",
+          0.0
+        ],
+        [
+          "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          0.0
+        ]
+      ],
+      "correct": true
+    },
+    {
+      "expected": "Tomato___Septoria_leaf_spot",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20Septoria%20leaf%20spot/0.jpg",
+      "predictions": [
+        [
+          "Tomato___Bacterial_spot",
+          0.13333333333333333
+        ],
+        [
+          "Tomato___Late_blight",
+          0.047058823529411764
+        ],
+        [
+          "Tomato___healthy",
+          0.03529411764705882
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___Septoria_leaf_spot",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20Septoria%20leaf%20spot/2STEM.jpg",
+      "predictions": [
+        [
+          "Tomato___Septoria_leaf_spot",
+          1.0
+        ],
+        [
+          "Tomato___Bacterial_spot",
+          0.00392156862745098
+        ],
+        [
+          "Tomato___healthy",
+          0.0
+        ]
+      ],
+      "correct": true
+    },
+    {
+      "expected": "Tomato___Bacterial_spot",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20bacterial%20spot/%252320%2BBacterial%2BSpot%2Band%2BSpeck.jpg",
+      "predictions": [
+        [
+          "Tomato___healthy",
+          0.12941176470588237
+        ],
+        [
+          "Tomato___Bacterial_spot",
+          0.023529411764705882
+        ],
+        [
+          "Tomato___Leaf_Mold",
+          0.01568627450980392
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___Bacterial_spot",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20bacterial%20spot/07.17.18-Common_Tomato_Diseases_Canker-258x300.jpg",
+      "predictions": [
+        [
+          "Tomato___Late_blight",
+          0.7058823529411765
+        ],
+        [
+          "Tomato___Leaf_Mold",
+          0.0196078431372549
+        ],
+        [
+          "Tomato___Bacterial_spot",
+          0.011764705882352941
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___Late_blight",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20late%20blight/110822-206-Tomato-blight.jpg",
+      "predictions": [
+        [
+          "Tomato___Late_blight",
+          0.6705882352941176
+        ],
+        [
+          "Tomato___Bacterial_spot",
+          0.21568627450980393
+        ],
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.03137254901960784
+        ]
+      ],
+      "correct": true
+    },
+    {
+      "expected": "Tomato___Late_blight",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20late%20blight/18c.jpg",
+      "predictions": [
+        [
+          "Tomato___Late_blight",
+          0.9921568627450981
+        ],
+        [
+          "Tomato___Bacterial_spot",
+          0.00784313725490196
+        ],
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.00392156862745098
+        ]
+      ],
+      "correct": true
+    },
+    {
+      "expected": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20yellow%20virus/11-40580_5.jpg",
+      "predictions": [
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.00784313725490196
+        ],
+        [
+          "Tomato___healthy",
+          0.0
+        ],
+        [
+          "Tomato___Bacterial_spot",
+          0.0
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf%20yellow%20virus/17fc47.jpg",
+      "predictions": [
+        [
+          "Tomato___healthy",
+          0.8862745098039215
+        ],
+        [
+          "Tomato___Late_blight",
+          0.023529411764705882
+        ],
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.00392156862745098
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___healthy",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf/1684.jpg",
+      "predictions": [
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.9607843137254902
+        ],
+        [
+          "Tomato___Leaf_Mold",
+          0.03137254901960784
+        ],
+        [
+          "Tomato___Late_blight",
+          0.00392156862745098
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___healthy",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20leaf/2013-08-20-06.jpg",
+      "predictions": [
+        [
+          "Tomato___Late_blight",
+          0.9764705882352941
+        ],
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.01568627450980392
+        ],
+        [
+          "Tomato___Bacterial_spot",
+          0.00392156862745098
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___Leaf_Mold",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20mold%20leaf/49%2520Leafmold%2520Bottom.jpg",
+      "predictions": [
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.7019607843137254
+        ],
+        [
+          "Tomato___Late_blight",
+          0.27450980392156865
+        ],
+        [
+          "Tomato___Spider_mites",
+          0.023529411764705882
+        ]
+      ],
+      "correct": false
+    },
+    {
+      "expected": "Tomato___Leaf_Mold",
+      "sourceUrl": "https://raw.githubusercontent.com/pratikkayal/PlantDoc-Dataset/5467f6012d78d1c446145d5f582da6096f852ae8/test/Tomato%20mold%20leaf/50%2520Leafmold%2520Top.jpg",
+      "predictions": [
+        [
+          "Tomato___Late_blight",
+          0.4980392156862745
+        ],
+        [
+          "Tomato___Leaf_Mold",
+          0.3137254901960784
+        ],
+        [
+          "Tomato___Septoria_leaf_spot",
+          0.18823529411764706
+        ]
+      ],
+      "correct": false
+    }
+  ]
+}

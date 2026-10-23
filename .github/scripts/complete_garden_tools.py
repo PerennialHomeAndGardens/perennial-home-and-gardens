@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup as Soup
 R=Path(__file__).resolve().parents[2]
 for slug,filename,marker in [('plant-companions','companions-additions.json','const names='),('harvest-checker','harvest-additions.json','const names=')]:
  p=R/'tools'/slug/'index.html';s=p.read_text();s=re.sub(r'/\* PHG expanded collection \*/.*?/\* End expanded collection \*/\s*','',s,flags=re.S)
+ if slug=='plant-companions':s=s.replace('function selectPlant(name){search.value=name;',"function selectPlant(name){if(!Object.hasOwn(DATA,name)){content.textContent='This saved plant has no guide in the current collection. Search for another plant.';return;}search.value=name;")
+ if slug=='harvest-checker':s=s.replace('function render(){let n=crop.value,d=DATA[n],',"function render(){if(!Object.hasOwn(DATA,crop.value)){content.textContent='Choose a crop from the current collection.';return;}let n=crop.value,d=DATA[n],")
  data=json.loads((R/'data/garden-tools'/filename).read_text());s=s.replace(marker,'/* PHG expanded collection */\nObject.assign(DATA,'+json.dumps(data,ensure_ascii=False)+');\n/* End expanded collection */\n'+marker)
  d=Soup(s,'html.parser');old=d.select_one('#phgCollectionInfo')
  if old:old.decompose()

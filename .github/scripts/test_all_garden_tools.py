@@ -95,6 +95,7 @@ async def planner(p):
 async def companions(p):
  await go(p,'plant-companions');await fill(p,{'search':'Tomato'});await p.locator('#searchBtn').click();assert 'Basil' in await p.locator('#content').inner_text();await p.locator('#saveBtn').click();await p.reload();assert 'Tomato' in await saved(p,'phg-companion-saved')
  await fill(p,{'search':'xyzqaunknown'});await p.locator('#searchBtn').click();assert 'No match yet' in await p.locator('#content').inner_text()
+ await p.evaluate("selectPlant('__proto__')");assert 'no guide' in await p.locator('#content').inner_text()
  return ['Companion search and related guidance','Saved favorites survive refresh','Unknown plant feedback']
 async def calendar(p):
  await go(p,'seasonal-calendar');await p.locator('#zone').select_option('7b');await p.locator('#month').select_option('9');await p.locator('#focus').select_option('veg');await p.locator('#update').click();assert 'October' in await p.locator('#title').inner_text()
@@ -103,6 +104,7 @@ async def calendar(p):
 async def harvest_checker(p):
  await go(p,'harvest-checker');await p.locator('#crop').select_option('Tomato');await p.locator('#stage').select_option('ready');await p.locator('#checkBtn').click();assert 'Looks Harvest-Ready' in await p.locator('#content').inner_text();await p.locator('#saveBtn').click();await p.reload();assert 'Tomato' in await saved(p,'phg-harvest-saved')
  await p.locator('#stage').select_option('wait');assert 'Give It More Time' in await p.locator('#content').inner_text()
+ await p.evaluate("()=>{document.querySelector('#crop').value='';render();}");assert 'Choose a crop' in await p.locator('#content').inner_text()
  return ['Crop and selected readiness guidance','Save and reload favorites','Stage changes update guidance']
 async def seeds(p):
  await go(p,'seed-starting');await fill(p,{'seedCrop':'QA Lettuce','seedVariety':'Test variety','seedDTM':45,'seedQty':'1 packet'});await p.locator('#addSeed').click();assert len((await saved(p,'phgSeedSystemV1'))['seeds'])==1
