@@ -186,6 +186,7 @@ function gardenRefinements(){
   window.openJoin=()=>location.assign('/?join=1');
  }else if(new URLSearchParams(location.search).get('join')==='1')window.openJoin?.();
  for(const [selector,label] of [['#music','Jukebox'],['.cleanMenu','Menu']]){const n=$(selector);if(n){n.removeAttribute('title');n.dataset.phgTooltip=label;}}
+ all('a[href="/tools/plant-identifier/"] p').forEach(p=>{if(p.textContent.includes('Scan, identify, diagnose'))p.textContent='Organize photos and symptoms, compare possible causes and find trusted next steps.';});
  const contact=$('#contact');
  if(contact){
   const intro=contact.querySelector('.contactGrid>div');
@@ -193,7 +194,13 @@ function gardenRefinements(){
   for(const id of ['reason','cn','ce','cm']){const input=document.getElementById(id);const label=input?.closest('.field')?.querySelector('label');if(label)label.htmlFor=id;}
   $('#cn')?.setAttribute('autocomplete','name');$('#ce')?.setAttribute('autocomplete','email');
   const reasonLabel=$('#reason')?.closest('.field')?.querySelector('label');if(reasonLabel)reasonLabel.textContent='Topic';
-  const button=contact.querySelector('[type=submit]');if(button)button.textContent='Send message';
+  const button=contact.querySelector('[type=submit]');if(button)button.textContent='Open email draft';
+  const form=contact.querySelector('form');
+  if(form&&!document.getElementById('phg-contact-delivery-note')){
+   const note=el('p','','Your email app opens a draft. Press Send there to deliver your message. If it does not open, email perennialhomeandgardens@gmail.com directly.');
+   note.id='phg-contact-delivery-note';note.style.cssText='font-size:.85rem;line-height:1.5;margin:12px 0 0';
+   const input=$('#cm');if(input)input.setAttribute('aria-describedby',note.id);form.append(note);
+  }
   const old=window.updateContactPrompt;
   if(old){window.updateContactPrompt=()=>{old();const m=$('#cm');if(m&&m.value===m.placeholder)m.value='';};window.updateContactPrompt();}
  }
