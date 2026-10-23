@@ -107,7 +107,7 @@ function statusText(){if(stage.value==="ready")return["ready","Looks Harvest-Rea
 function list(items){return items.map(x=>"<div class='signal'><b>"+x[0]+"</b><span>"+x[1]+"</span></div>").join("")}
 function bullets(items){return "<ul>"+items.map(x=>"<li>"+x+"</li>").join("")+"</ul>"}
 function renderSaved(){let e=document.getElementById("savedList");if(!e)return;e.innerHTML="";saved().forEach(n=>{let b=document.createElement("button");b.className="savedpill";b.textContent=n;b.onclick=()=>{crop.value=n;render()};e.appendChild(b)})}
-function render(){let n=crop.value,d=DATA[n],s=statusText(),isSaved=saved().includes(n);content.innerHTML=
+function render(){if(!Object.hasOwn(DATA,crop.value)){content.textContent='Choose a crop from the current collection.';return;}let n=crop.value,d=DATA[n],s=statusText(),isSaved=saved().includes(n);content.innerHTML=
 "<div class='crophead'><div><h2>"+n+"</h2><p>"+d.about+"</p></div><span class='type'>"+d.type+"</span></div>"+
 "<div class='statusbox'><section class='status "+s[0]+"'><h3>"+s[1]+"</h3><p>"+s[2]+"</p></section><section class='signals'><h3>What to look for</h3><p>Use several signs together rather than relying on only one.</p><div class='signal-list'>"+list(d.signals)+"</div></section></div>"+
 "<div class='two'><section class='info'><h3>How to harvest</h3>"+bullets(d.how)+"</section><section class='info'><h3>After harvest</h3>"+bullets(d.after)+"</section></div>"+

@@ -191,6 +191,7 @@ $("saveReport").onclick=()=>{identify();const key="phgGardenHealthReports";let a
 
 $("tryAI").textContent="About photo comparison";
 $("tryAI").textContent="About photo comparison";
+$("tryAI").textContent="About photo comparison";
 $("tryAI").onclick=()=>{$("aiStatus").textContent="Leaf comparison runs on this device for supported crops. It is experimental, is not general species identification, and can be wrong. No account or photo upload to a server is needed.";$("aiDot").classList.remove("ready");};
 
 fetch("../garden-library/plant_profiles.json").then(r=>r.json()).then(d=>{const list=$("plantList");d.slice(0,2703).forEach(p=>{const o=document.createElement("option");o.value=p.displayName&&p.displayName!==p.scientificName?p.displayName+" — "+p.scientificName:p.scientificName;list.appendChild(o)})}).catch(()=>{});

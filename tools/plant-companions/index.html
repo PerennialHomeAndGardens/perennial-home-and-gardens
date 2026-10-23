@@ -112,7 +112,7 @@ document.addEventListener("click",e=>{if(!e.target.closest(".searchwrap"))sug.cl
 function runSearch(){let q=search.value.trim().toLowerCase(),exact=names.find(n=>n.toLowerCase()===q),partial=names.find(n=>n.toLowerCase().includes(q));if(exact||partial)selectPlant(exact||partial);else content.innerHTML='<div class="empty"><b>No match yet</b>Try one of the quick choices above. More plants will be added as the Perennial plant library grows.</div>'}
 function list(items){return items.map(x=>'<div class="item"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join("")}
 function renderSaved(){let box=document.getElementById("savedList");if(!box)return;box.innerHTML="";saved().forEach(n=>{let b=document.createElement("button");b.className="savedpill";b.textContent=n;b.onclick=()=>selectPlant(n);box.appendChild(b)})}
-function selectPlant(name){search.value=name;sug.classList.remove("show");let d=DATA[name],isSaved=saved().includes(name);content.innerHTML=
+function selectPlant(name){if(!Object.hasOwn(DATA,name)){content.textContent='This saved plant has no guide in the current collection. Search for another plant.';return;}search.value=name;sug.classList.remove("show");let d=DATA[name],isSaved=saved().includes(name);content.innerHTML=
 '<div class="planthead"><div><h2>'+name+'</h2><p>'+d.about+'</p></div><span class="type">'+d.type+'</span></div>'+
 '<div class="columns"><section class="col good"><h3>Good Companions</h3><div class="sub">Generally practical neighbors with compatible space, timing or growing needs.</div>'+list(d.good)+'</section>'+
 '<section class="col neutral"><h3>Neutral Neighbors</h3><div class="sub">Usually fine together when light, water and spacing are managed.</div>'+list(d.neutral)+'</section>'+
