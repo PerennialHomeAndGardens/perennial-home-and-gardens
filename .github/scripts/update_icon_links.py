@@ -1,9 +1,12 @@
 """Use the same versioned app artwork on every HTML page; preserve app identity."""
 from pathlib import Path
-import os,re,json
+import os,re,json,hashlib
 ROOT=Path('.')
+# The loader and shared interactions must change URL together for returning visitors.
+version=hashlib.sha256((ROOT/'app-assets/install.js').read_bytes()+(ROOT/'app-assets/site-experience.js').read_bytes()).hexdigest()[:12]
 for page in ROOT.rglob('*.html'):
  value=page.read_text()
+ value=re.sub(r'(<script\b[^>]*\bsrc=["\'][^"\']*app-assets/install\.js)(?:\?[^"\']*)?(["\'])',lambda m:m[1]+'?v='+version+m[2],value,flags=re.I)
  def remove_icon(match):
   tag=match[0]
   rel=re.search(r'\brel\s*=\s*["\']([^"\']+)',tag,re.I)

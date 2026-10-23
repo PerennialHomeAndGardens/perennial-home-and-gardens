@@ -22,6 +22,8 @@ jobs:
             python -m playwright install chromium --with-deps
           fi
       - run: node --check app-assets/site-experience.js
+      - run: node --check app-assets/install.js
+      - run: python .github/scripts/update_icon_links.py
       - run: python .github/scripts/test_manual_email.py
       - run: python .github/scripts/test_all_garden_tools.py
       - uses: actions/upload-artifact@v4

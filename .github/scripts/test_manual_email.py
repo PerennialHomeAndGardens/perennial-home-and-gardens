@@ -1,5 +1,5 @@
 """Exercise manual email/download paths without sending mail or opening an external app."""
-import asyncio, http.server, threading, os, json
+import asyncio, http.server, threading, os, json, hashlib, re
 from pathlib import Path
 from playwright.async_api import async_playwright
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -8,6 +8,11 @@ server=http.server.ThreadingHTTPServer(('127.0.0.1',8784),Handler)
 threading.Thread(target=server.serve_forever,daemon=True).start()
 BASE='http://127.0.0.1:8784'
 results=[]
+version=hashlib.sha256(Path('app-assets/install.js').read_bytes()+Path('app-assets/site-experience.js').read_bytes()).hexdigest()[:12]
+for page in Path('.').rglob('*.html'):
+ for url in re.findall(r'<script\b[^>]*\bsrc=["\']([^"\']*app-assets/install\.js[^"\']*)',page.read_text(),re.I):
+  assert url.endswith('?v='+version),(str(page),url)
+results.append('All generated HTML loader references use the current code content version.')
 async def main():
  async with async_playwright() as pw:
   browser=await pw.chromium.launch(channel=os.environ.get('PHG_QA_BROWSER_CHANNEL'))
