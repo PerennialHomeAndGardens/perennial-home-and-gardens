@@ -25,10 +25,10 @@ async def main():
   assert href.startswith('mailto:perennialhomeandgardens@gmail.com?subject=') and '%3Cb%3E' in href
   assert await draft.locator('b').count()==0
   await draft.get_by_role('button',name='Copy message',exact=True).click()
-  assert 'Copied.' in await draft.get_by_role('status').inner_text()
+  await draft.get_by_role('status').get_by_text('Copied. Paste it into your email app.',exact=True).wait_for()
   clip=await p.evaluate('navigator.clipboard.readText()');assert 'visitor@example.com' in clip
   await p.evaluate("Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:()=>Promise.reject(Error('denied'))}})")
-  await draft.get_by_role('button',name='Copy message',exact=True).click();assert 'manually' in await draft.get_by_role('status').inner_text()
+  await draft.get_by_role('button',name='Copy message',exact=True).click();await draft.get_by_role('status').filter(has_text='manually').wait_for()
   await draft.get_by_role('button',name='Close Your email draft',exact=True).click();assert await p.locator('#cm').input_value()=='Please help with <b>my garden</b>.'
   results.append('Contact draft includes typed fields, safely preserves literal markup, correct mailto, clipboard success/failure and unchanged original message.')
   await p.locator('#free-resources button').click();ready=p.locator('#phg-resource-ready');assert await ready.is_visible()
