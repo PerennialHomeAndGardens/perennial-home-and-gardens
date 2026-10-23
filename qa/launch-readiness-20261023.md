@@ -26,11 +26,13 @@ This is the current status summary. The remaining-work lists in earlier dated re
 - Contact, service inquiry and newsletter requests share a draft-review dialog. The original contact message remains when the dialog closes. Literal markup stays text.
 - Worksheet access uses a persistent direct link, so a blocked programmatic popup no longer silently loses the download. Email is optional; newsletter enrollment requires an explicit request.
 - Current privacy copy explains manual delivery, browser-local records and temporary plant photos.
-- GitHub Actions run **39965707343**, job **120454909930**, passed the new email/download acceptance checks and all 12 tool workflows plus My Garden. The draft fits 1440×1000, 390×844 and 360×640; tool layouts also passed their existing responsive checks. No uncaught page errors occurred in the exercised flows.
-- The first test run read asynchronous clipboard feedback too early; the test was corrected to await completion. Resource and newsletter timing tests were also isolated into separate visits. The corrected run passed before publication.
+- GitHub Actions run **39966866129**, job **120458880497**, passed the new email/download acceptance checks and all 12 tool workflows plus My Garden. The draft fits 1440×1000, 390×844 and 360×640; tool layouts also passed their existing responsive checks. No uncaught page errors occurred in the exercised flows.
+- The first test run read asynchronous clipboard feedback too early; the test was corrected to await completion. Resource and newsletter timing tests were also isolated into separate visits. The corrected runs passed before publication, including a second full pass after versioned loading was added.
 - Public browser checks opened the Google Drive folder signed out and opened both Plant_Profile_Gardening_Sheet.pdf and Houseplant_Care_Sheet.pdf previews. Actual file saving and native printing were not exercised in that check.
-- Homepage HTML, wood-grain artwork, Tanya audio, jukebox and tool implementations were not edited by this build. Changes are in shared interaction code, privacy explanation, tests and reports.
+- The visible homepage, articles, books, wood-grain artwork, Tanya recording, jukebox and tool implementations were retained. Shared script URLs are stamped from the code content during deployment so returning visitors request the new interface code; page artwork and content are not replaced.
 - Evidence: manual-email-20261023.json, manual-email-{1440,390,360}.png and refreshed tools-functional-20261022.json. The date in the latter filename is retained for compatibility; use the workflow above for this rerun's time.
+
+- Follow-up correction: a live browser retained the previous shared JavaScript after successful deployment. The loader now carries its version into the shared script request; deployment stamps 166 HTML loader references using the loader plus shared-code hash. This directly addresses stale shared-interface code after updates.
 
 ## Prior verified software tests
 Completion workflow 39878858496 passed tool workflows, browser-local persistence, backup round trips and failure handling, photo upload/replace/remove/error paths, responsive widths 1440/768/390/360, model UI/inference and browser PDF output. See tools-completion-20261022.md and its JSON report.
