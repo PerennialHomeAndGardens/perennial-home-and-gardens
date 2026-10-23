@@ -197,7 +197,7 @@ function gardenRefinements(){
   const button=contact.querySelector('[type=submit]');if(button)button.textContent='Open email draft';
   const form=contact.querySelector('form');
   if(form&&!document.getElementById('phg-contact-delivery-note')){
-   const note=el('p','','Your email app opens a draft. Press Send there to deliver your message. If it does not open, email perennialhomeandgardens@gmail.com directly.');
+   const note=el('p','','Your email app opens a draft. You can review and copy your draft if your email app does not open. Press Send in your email app to deliver it.');
    note.id='phg-contact-delivery-note';note.style.cssText='font-size:.85rem;line-height:1.5;margin:12px 0 0';
    const input=$('#cm');if(input)input.setAttribute('aria-describedby',note.id);form.append(note);
   }
@@ -213,9 +213,49 @@ function gardenRefinements(){
   }
  }
  all('a[href="#blog"]').forEach(a=>{if(a.textContent.trim()==='Blog')a.textContent='Articles';});
+ gardenManualEmail();
  if(!location.pathname.includes('/tools/'))gardenPrompts();
  if(window.openFreebie&&!window.openFreebie.phgPolished){const previous=window.openFreebie;const polished=(...args)=>{previous(...args);const modal=document.getElementById('freebieModal')||document.getElementById('phg-resource-prompt');if(modal){const walker=document.createTreeWalker(modal,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode()){if(!['SCRIPT','STYLE'].includes(n.parentElement.tagName))n.textContent=n.textContent.replace(/\bfree(?:[- ]+)?/gi,'');}}};polished.phgPolished=true;window.openFreebie=polished;}
 }
+const gardenEmail='perennialhomeandgardens@gmail.com';
+const gardenDownloads='https://drive.google.com/drive/folders/1Z8FywZpky3tPu-j7M_tYHOgGP5ZXG8bc?usp=drive_link';
+function gardenEmailDraft(subject,body){
+ $('#phg-email-draft')?.remove();
+ const d=dialog('x-jukebox','Your email draft');d.id='phg-email-draft';
+ d.style.cssText='max-height:90dvh;overflow:auto;box-sizing:border-box';
+ d.append(el('p','','Nothing has been sent yet. Open your email app and press Send there, or copy this draft into your preferred email service.'));
+ const address=el('p','','To: '+gardenEmail),subjectLine=el('p','','Subject: '+subject),label=el('label','','Message'),text=el('textarea');
+ text.value=body;text.readOnly=true;text.rows=6;text.setAttribute('aria-label','Email message to copy');text.style.cssText='display:block;width:100%;box-sizing:border-box;resize:vertical;font:inherit';label.append(text);
+ const open=el('a','x-action','Open email app');open.href='mailto:'+gardenEmail+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ const status=el('p');status.setAttribute('role','status');
+ async function copy(value){try{if(!navigator.clipboard?.writeText)throw Error();await navigator.clipboard.writeText(value);status.textContent='Copied. Paste it into your email app.';}catch{text.focus();text.select();status.textContent='Copy is unavailable here. Select the message above and copy it manually; the address and subject are shown above.';}}
+ const row=el('div','phg-newsletter-form');row.append(open,action('Copy message',()=>copy('To: '+gardenEmail+'\nSubject: '+subject+'\n\n'+body)),action('Copy email address',()=>copy(gardenEmail)));
+ d.append(address,subjectLine,label,row,status);d.showModal();
+}
+function gardenResourcesReady(email='',name=''){
+ $('#freebieModal')?.classList.remove('on');$('#phg-resource-prompt')?.close();$('#phg-resource-ready')?.remove();
+ try{localStorage.setItem('phg_freebie_claimed','1');}catch{}
+ const d=dialog('x-jukebox','Your gardening worksheets');d.id='phg-resource-ready';
+ d.append(el('p','','Open the folder to choose the Plant Profile Sheet or Houseplant Care Worksheet. Both are available now.'));
+ const download=el('a','x-action x-wide','Open worksheet folder');download.href=gardenDownloads;download.target='_blank';download.rel='noopener noreferrer';
+ d.append(download,el('p','','Want Perennial Garden Magazine too? Newsletter signup is optional. Send your request by email; opening the worksheets does not subscribe you.'));
+ d.append(action('Request newsletter by email',()=>{d.close();gardenEmailDraft('Perennial Garden Magazine newsletter signup','Please subscribe me to Perennial Garden Magazine, the monthly newsletter with garden ideas, gifts and coupons.\nName: '+name+'\nEmail: '+email);}),el('small','','If the folder does not open, allow the new tab or copy the link address. No email has been sent.'));
+ d.showModal();
+}
+function gardenManualEmail(){
+ const value=id=>document.getElementById(id)?.value.trim()||'';
+ window.contact=e=>{e?.preventDefault();const f=$('#contact form');if(f&&!f.reportValidity())return;gardenEmailDraft('[Perennial Website] '+value('reason')+' — '+value('cn'),'Name: '+value('cn')+'\nEmail: '+value('ce')+'\n\n'+value('cm'));};
+ if(typeof window.sendInquiry==='function')window.sendInquiry=service=>{const email=$('#se');if(email&&!email.reportValidity())return;gardenEmailDraft('[Perennial Website] '+service+' — '+value('sn'),'Name: '+value('sn')+'\nEmail: '+value('se')+'\nZIP: '+value('sz')+'\n\n'+value('sm'));};
+ const claim=(emailId,nameId)=>{const email=document.getElementById(emailId);if(email&&!email.reportValidity())return;gardenResourcesReady(value(emailId),value(nameId));};
+ window.claimFreebie=()=>claim('freebieEmail','freebieName');
+ window.claimFreeResourceSection=()=>claim('resourceEmail','resourceName');
+ const section=$('#free-resources');
+ if(section){const copy=section.querySelector('p');if(copy)copy.textContent='Open practical worksheets and garden planning resources. You can also request our newsletter by email.';all('#free-resources p').filter(p=>p!==copy&&/valid email/.test(p.textContent)).forEach(p=>p.textContent='Email is optional. Newsletter requests use your email app.');}
+ for(const id of ['resourceEmail','freebieEmail']){const input=document.getElementById(id);if(input){input.required=false;input.placeholder='Email (optional for newsletter)';input.setAttribute('aria-label','Email (optional for newsletter request)');}}
+ const refine=()=>{const box=$('#freebieModal');if(!box)return;const intro=box.querySelector('.freebieIntro'),fine=box.querySelector('.freebieFine'),button=box.querySelector('button.btn');if(intro)intro.textContent='Choose from our gardening worksheets. The next screen has a direct download-folder link and an optional newsletter request.';if(fine)fine.textContent='Email is optional. Downloads do not automatically subscribe you.';if(button)button.textContent='View worksheets';};
+ const original=window.openFreebie;if(original)window.openFreebie=(...args)=>{original(...args);refine();};refine();
+}
+
 function gardenPrompts(){
  const read=k=>{try{return sessionStorage.getItem(k);}catch{return null;}};
  const save=k=>{try{sessionStorage.setItem(k,'1');}catch{}};
@@ -228,7 +268,7 @@ function gardenPrompts(){
   const choices=el('fieldset','phg-resource-choices');choices.append(el('legend','','Choose your worksheet'));
   for(const [i,title,description] of [[0,'Plant Profile Sheet','Plan and record the plants you grow.'],[1,'Houseplant Care Worksheet','Organize your indoor plant care.']]){const label=el('label','phg-resource-choice'),radio=el('input');radio.type='radio';radio.name='phg-worksheet';radio.value=title;radio.checked=i===0;const copy=el('span');copy.append(el('strong','',title),el('small','',description));label.append(radio,copy);choices.append(label);}d.append(choices);
   const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.required=true;input.autocomplete='email';label.append(input);const b=action('Open download folder',()=>{});b.type='submit';form.append(label,b);
-  form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;try{localStorage.setItem('phg_freebie_claimed','1');localStorage.setItem('phg_freebie_lead',JSON.stringify({email:input.value.trim(),worksheet:d.querySelector('input[name=phg-worksheet]:checked')?.value,time:new Date().toISOString()}));}catch{}window.open('https://drive.google.com/drive/folders/1Z8FywZpky3tPu-j7M_tYHOgGP5ZXG8bc?usp=drive_link','_blank','noopener');d.close();};d.append(form);d.showModal();
+  input.required=false;label.firstChild.textContent='Email address (optional for newsletter)';form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;gardenResourcesReady(input.value.trim());};d.append(form);d.showModal();
  };
  let tick;const check=()=>{
   const elapsed=Date.now()-start;
@@ -242,7 +282,7 @@ function gardenPrompts(){
    d.append(el('p','','Monthly garden ideas, gifts and coupons. A seasonal newsletter from Perennial Home & Gardens. Subscribe by sending your request to Perennial.'));
    const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.name='email';input.required=true;input.autocomplete='email';input.id='phg-newsletter-email';label.htmlFor=input.id;label.append(input);
    const submit=action('Subscribe by email',()=>{});submit.type='submit';form.append(label,submit,el('small','','Opens your email app. Send the message to request a subscription.'));
-   form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;location.href='mailto:perennialhomeandgardens@gmail.com?subject='+encodeURIComponent('Perennial Garden Magazine newsletter signup')+'&body='+encodeURIComponent('Please subscribe this address to Perennial Garden Magazine, the monthly newsletter with garden ideas, gifts and coupons. Email: '+input.value.trim());};
+   form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;d.close();gardenEmailDraft('Perennial Garden Magazine newsletter signup','Please subscribe this address to Perennial Garden Magazine, the monthly newsletter with garden ideas, gifts and coupons. Email: '+input.value.trim());};
    d.append(form);d.showModal();
   }
   if(read('phg-b3-resource-offer')&&read('phg-b3-tool-offer'))clearInterval(tick);
