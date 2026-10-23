@@ -33,7 +33,7 @@ footer{background:#1f3824;color:#dce8d8;padding:25px 15px;text-align:center;font
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="Perennial Gardens" name="apple-mobile-web-app-title"/>
-<script defer="" src="../../app-assets/install.js?v=20261021-organized"></script>
+<script defer="" src="../../app-assets/install.js?v=a95d7cf23467"></script>
 <link data-phg-polish="" href="/app-assets/site-experience.css?v=20261021-organized" rel="stylesheet"/><link data-phg-polish="" href="/app-assets/app-navigation.css?v=20261021-soft-whirl" rel="stylesheet"/><script data-phg-polish="">(()=>{try{const a=JSON.parse(sessionStorage.getItem('phg-app-arrival')||'null');sessionStorage.removeItem('phg-app-arrival');if(a&&a.path===location.pathname&&Date.now()-a.at<10000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('phg-arriving');setTimeout(()=>document.documentElement.classList.remove('phg-arriving'),1400)}}catch{}})();</script><script data-phg-polish="" defer="" src="/app-assets/app-navigation.js?v=20261021-soft-whirl"></script>
 
 
@@ -199,5 +199,5 @@ $("tryAI").onclick=()=>{$("aiStatus").textContent="Leaf comparison runs on this 
 
 fetch("../garden-library/plant_profiles.json").then(r=>r.json()).then(d=>{const list=$("plantList");d.slice(0,2703).forEach(p=>{const o=document.createElement("option");o.value=p.displayName&&p.displayName!==p.scientificName?p.displayName+" — "+p.scientificName:p.scientificName;list.appendChild(o)})}).catch(()=>{});
 </script>
-<script src="/app-assets/install.js?v=20261021-organized"></script><script id="phgVisionBridge">window.PHGIdentifier=Object.freeze({photos:()=>photos,readPhoto});</script><script src="/app-assets/leaf-vision.js?v=20261022-complete"></script><script src="/app-assets/garden-backup.js?v=20261022-complete"></script></body>
+<script src="/app-assets/install.js?v=a95d7cf23467"></script><script id="phgVisionBridge">window.PHGIdentifier=Object.freeze({photos:()=>photos,readPhoto});</script><script src="/app-assets/leaf-vision.js?v=20261022-complete"></script><script src="/app-assets/garden-backup.js?v=20261022-complete"></script></body>
 </html>
