@@ -1,0 +1,37 @@
+"""Retain the existing tools and add shared backups, larger curated sets and local vision."""
+from pathlib import Path
+import json,re
+from bs4 import BeautifulSoup as Soup
+R=Path(__file__).resolve().parents[2]
+for slug,filename,marker in [('plant-companions','companions-additions.json','const names='),('harvest-checker','harvest-additions.json','const names=')]:
+ p=R/'tools'/slug/'index.html';s=p.read_text();s=re.sub(r'/\* PHG expanded collection \*/.*?/\* End expanded collection \*/\s*','',s,flags=re.S)
+ data=json.loads((R/'data/garden-tools'/filename).read_text());s=s.replace(marker,'/* PHG expanded collection */\nObject.assign(DATA,'+json.dumps(data,ensure_ascii=False)+');\n/* End expanded collection */\n'+marker)
+ d=Soup(s,'html.parser');old=d.select_one('#phgCollectionInfo')
+ if old:old.decompose()
+ info=d.new_tag('details',id='phgCollectionInfo');su=d.new_tag('summary');su.string='Collection coverage & references';info.append(su)
+ pa=d.new_tag('p');pa.string=('50 companion planning entries. Match light, moisture, spacing and crop timing; a companion is not a guaranteed pest repellent.' if slug=='plant-companions' else '51 harvest guides. Use cultivar-specific maturity signs and local conditions; calendar days alone do not establish readiness.');info.append(pa)
+ a=d.new_tag('a',href='/data/garden-tools/sources.json');a.string='Extension references and editorial method';info.append(a);d.main.append(info);p.write_text(str(d))
+p=R/'tools/plant-identifier/index.html';s=p.read_text();s=re.sub(r'/\* PHG expanded diagnostics \*/.*?/\* End expanded diagnostics \*/\s*','',s,flags=re.S)
+a=json.loads((R/'data/garden-tools/diagnostic-additions.json').read_text())
+s=s.replace('const AREAS=','/* PHG expanded diagnostics */\nDATA.push(...'+json.dumps(a,ensure_ascii=False)+');\n/* End expanded diagnostics */\nconst AREAS=')
+s=s.replace('let mode="disease",','SYM.push(...[...new Set(DATA.flatMap(x=>x.sym))].filter(x=>!SYM.includes(x)));\nCONDITIONS.push(...[...new Set(DATA.flatMap(x=>x.cond))].filter(x=>!CONDITIONS.includes(x)));\nlet mode="disease",') if 'SYM.push(' not in s else s
+s=s.replace('screeningVersion:"build6"','screeningVersion:"build7-local-vision",photoModelResult:window.PHGLeafVision?.savedResult()||null')
+s=s.replace('Guided screening · no automatic photo diagnosis','Guided screening + experimental leaf photo comparison')
+s=s.replace('$("tryAI").textContent="Photo Analysis Status";','$("tryAI").textContent="About photo comparison";')
+s=s.replace('Automatic photo identification is not connected. Your uploads support quality checks and guided symptom screening.','Leaf comparison runs on this device for supported crops. It is experimental, is not general species identification, and can be wrong. No account or photo upload to a server is needed.')
+# Keep all analysis, observation chips, report controls and existing shared chrome.
+d=Soup(s,'html.parser');panel=d.select_one('.aiBox');panel.clear();panel.append(Soup('''<h4>Compare a leaf photo</h4><p>Experimental comparison for 9 supported crops. Choose a crop you already know and a clear single leaf. The model loads only when clicked; photos stay on this device. Use guided screening for other plants.</p><label for="phgVisionCrop">Known crop</label><select id="phgVisionCrop"><option value="">Choose a supported crop</option><option value="Apple">Apple</option><option value="Cherry_(including_sour)">Cherry</option><option value="Corn_(maize)">Corn</option><option value="Grape">Grape</option><option value="Peach">Peach</option><option value="Pepper_bell">Bell pepper</option><option value="Potato">Potato</option><option value="Strawberry">Strawberry</option><option value="Tomato">Tomato</option></select><label for="phgVisionView">Photo to compare</label><select id="phgVisionView"><option value="close">Close-up</option><option value="under">Leaf underside</option><option value="whole">Whole plant</option><option value="context">Stem / fruit / context</option></select><p>For comparison, the selected image should show one leaf filling most of the frame. Whole-plant, fruit, insect and unrelated photos can give misleading results.</p><div class="actions"><button class="btn" id="phgVisionRun" type="button">Compare leaf photo</button><button class="btn secondary" id="tryAI" type="button">About photo comparison</button></div><p id="phgVisionStatus" role="status">Select a crop and upload a leaf photo to start.</p><div id="phgVisionResult" aria-live="polite"></div><div class="statusLine"><span class="dot" id="aiDot"></span><span id="aiStatus">On-device model · experimental</span></div><p><a href="/qa/leaf-model-validation.html">Model scope &amp; field-photo test results</a></p>''','html.parser'))
+old=d.select_one('#phgVisionBridge')
+if old:old.decompose()
+b=d.new_tag('script',id='phgVisionBridge');b.string='window.PHGIdentifier=Object.freeze({photos:()=>photos,readPhoto});';d.body.append(b)
+old=d.select_one('#phgVisionStyle')
+if old:old.decompose()
+st=d.new_tag('style',id='phgVisionStyle');st.string='''#phgVisionCrop,#phgVisionView{display:block;max-width:100%;width:100%;margin:6px 0 12px;padding:10px;border:1px solid #9ba68b;border-radius:8px;background:#fffaf2;color:#2c251c;font:inherit}.phg-camera-button{display:block;margin-top:8px;padding:9px 12px;min-height:44px;border:1px solid #9ba68b;border-radius:8px;background:#f5f0e6;color:#294f30;font:700 13px Georgia,serif;cursor:pointer}#phgVisionResult p{overflow-wrap:anywhere}#symptoms,#conditions{max-height:220px;overflow:auto;padding:3px}#phgVisionStatus{overflow-wrap:anywhere}@media print{.phg-backup-launch,.phg-my-garden-link,.phgToolBack,.phg-camera-button{display:none!important}}''';d.head.append(st)
+for n in d.select('script[src*="leaf-vision.js"]'):n.decompose()
+x=d.new_tag('script',src='/app-assets/leaf-vision.js?v=20261022-complete');d.body.append(x)
+p.write_text(str(d))
+for p in [*R.glob('tools/*/index.html'),*R.glob('books/*.html')]:
+ s=p.read_text();s=re.sub(r'<script src="/app-assets/garden-backup\.js[^"]*"[^>]*></script>\s*','',s)
+ s=s.replace('</body>','<script src="/app-assets/garden-backup.js?v=20261022-complete"></script></body>');p.write_text(s)
+p=R/'tools/my-garden/index.html';s=p.read_text().replace('Use each tool’s Save control, and export backups where offered.','Use each tool’s Save control, then Backup &amp; Restore My Garden to keep a file or move your garden to another device.');p.write_text(s)
+print('Completed shared backup controls on 13 tool/dashboard pages; 50 companion, 51 harvest and 54 diagnostic/trait entries; local vision UI retained.')

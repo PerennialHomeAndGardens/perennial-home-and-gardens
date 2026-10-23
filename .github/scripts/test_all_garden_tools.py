@@ -11,7 +11,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 server=None
 if 'PHG_QA_BASE' not in os.environ:
  server=socketserver.TCPServer(('127.0.0.1',8772),Handler);threading.Thread(target=server.serve_forever,daemon=True).start()
-report={'date':'2026-10-22','environment':'Chromium browser, isolated test profile','baseUrl':BASE,'tools':[],'limitations':['No automatic AI photo identification backend is connected.','Photo pixels are used for quality/color cues; screening matches use visitor-selected observations.','Uploaded photos are not retained in saved reports or after refresh.','Physical phone camera, HEIC conversion, microphone permissions and native print dialogs need device testing.','Browser-local saves do not provide cross-device accounts or cloud backups.']}
+report={'date':'2026-10-22','environment':'Chromium browser, isolated test profile','baseUrl':BASE,'tools':[],'limitations':['An experimental local leaf model covers 38 classes; broad species recognition is not provided.','Photo pixels are used for quality/color cues; screening matches use visitor-selected observations.','Uploaded photos are not retained in saved reports or after refresh.','Physical phone camera, HEIC conversion, microphone permissions and native print dialogs need device testing.','Browser-local saves do not provide cross-device accounts or cloud backups.']}
 def png(color=(40,130,45),size=(1000,800),format='PNG'):
  b=BytesIO();Image.new('RGB',size,color).save(b,format=format);return b.getvalue()
 async def fill(p,values):
@@ -61,11 +61,11 @@ async def identifier(p):
  assert not any('data:image/' in str(v) for v in records[0].values())
  await p.locator('[data-mode=pest]').click();await p.locator('#symptoms [data-value=webbing]').click();await p.locator('#identify').click();assert 'Spider Mites' in await p.locator('#cards').inner_text()
  await p.locator('[data-mode=plant]').click();await p.locator('#identify').click();assert 'Trait Confirmation' in await p.locator('#cards').inner_text()
- await p.locator('#tryAI').click();assert 'not connected' in await p.locator('#aiStatus').inner_text()
+ await p.locator('#tryAI').click();assert 'on this device' in await p.locator('#aiStatus').inner_text()
  await p.evaluate('()=>{window.__printed=0;window.print=()=>{window.__printed++};}');await p.locator('#printReport').press('Enter');await p.wait_for_function('window.__printed===1');assert await p.locator('#report').is_visible()
  await p.reload();assert await p.locator('.photoSlot.has').count()==0;assert len(await saved(p,'phgGardenHealthReports'))==1
  await p.locator('#clear').click();await p.wait_for_load_state();assert await p.locator('.photoSlot.has').count()==0
- return ['Four photo slots upload/preview/quality checks','Remove, replace and invalid/corrupt/oversized/HEIC handling','Disease/pest/plant screening and safe report text','Save report without photo bytes, refresh persistence, print action, clear','No image POSTs; automatic-AI status is truthful']
+ return ['Four photo slots upload/preview/quality checks','Remove, replace and invalid/corrupt/oversized/HEIC handling','Disease/pest/plant screening and safe report text','Save report without photo bytes, refresh persistence, print action, clear','No image POSTs; local model scope is truthful']
 async def zone(p):
  await go(p,'growing-zone');await fill(p,{'zip':'123'});await p.locator('#find').click();assert 'valid 5-digit' in await p.locator('#message').inner_text()
  await fill(p,{'zip':'20603'});await p.locator('#find').click();await p.wait_for_selector('#result.show')

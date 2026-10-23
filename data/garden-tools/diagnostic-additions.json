@@ -1,0 +1,655 @@
+[
+  {
+    "id": "septoria",
+    "kind": "disease",
+    "name": "Septoria-type Leaf Spot",
+    "areas": [
+      "leaves"
+    ],
+    "sym": [
+      "small brown spots",
+      "pale centers",
+      "black specks",
+      "yellowing"
+    ],
+    "cond": [
+      "wet leaves",
+      "humid",
+      "splashing"
+    ],
+    "why": "Small circular leaf spots can develop pale centers with tiny dark structures; many other leaf spots look similar.",
+    "action": "Check lower leaves, reduce splashing and seek host-specific confirmation.",
+    "q": "Septoria-type Leaf Spot extension"
+  },
+  {
+    "id": "anthracnose",
+    "kind": "disease",
+    "name": "Anthracnose-type Damage",
+    "areas": [
+      "leaves",
+      "stems",
+      "fruit"
+    ],
+    "sym": [
+      "sunken lesions",
+      "brown spots",
+      "leaf drop"
+    ],
+    "cond": [
+      "wet leaves",
+      "humid",
+      "splashing"
+    ],
+    "why": "Sunken lesions on fruit or stems and irregular leaf lesions may fit anthracnose on susceptible hosts.",
+    "action": "Avoid handling wet plants, remove affected fruit and verify the host and pathogen.",
+    "q": "Anthracnose-type Damage extension"
+  },
+  {
+    "id": "botrytis",
+    "kind": "disease",
+    "name": "Botrytis / Gray Mold-type Symptoms",
+    "areas": [
+      "flowers",
+      "buds",
+      "fruit",
+      "stems"
+    ],
+    "sym": [
+      "gray fuzzy mold",
+      "brown flowers",
+      "soft rot"
+    ],
+    "cond": [
+      "cool",
+      "humid",
+      "crowded"
+    ],
+    "why": "Gray fuzzy growth on dying flowers or rotting tissue may indicate Botrytis.",
+    "action": "Remove dead flowers, reduce humidity and improve air circulation before considering crop-specific treatment.",
+    "q": "Botrytis / Gray Mold-type Symptoms extension"
+  },
+  {
+    "id": "damping",
+    "kind": "disease",
+    "name": "Damping-off of Seedlings",
+    "areas": [
+      "seedlings",
+      "roots",
+      "crown"
+    ],
+    "sym": [
+      "collapsed seedlings",
+      "pinched stem",
+      "soft roots"
+    ],
+    "cond": [
+      "soggy soil",
+      "crowded",
+      "cool"
+    ],
+    "why": "Seedlings collapsing at a narrowed or rotted soil line suggest damping-off or another seedling injury.",
+    "action": "Use clean containers and fresh seed-starting media; reduce saturation and improve airflow.",
+    "q": "Damping-off of Seedlings extension"
+  },
+  {
+    "id": "blossomend",
+    "kind": "disease",
+    "name": "Blossom-end Rot-type Injury",
+    "areas": [
+      "fruit"
+    ],
+    "sym": [
+      "sunken dark blossom end",
+      "black patches"
+    ],
+    "cond": [
+      "uneven watering",
+      "dry soil",
+      "heat"
+    ],
+    "why": "A dark sunken patch at the blossom end may reflect a localized calcium-transport problem, not a contagious rot.",
+    "action": "Stabilize soil moisture and use soil-test guidance; adding calcium without evidence may not help.",
+    "q": "Blossom-end Rot-type Injury extension"
+  },
+  {
+    "id": "blossomdrop",
+    "kind": "disease",
+    "name": "Blossom Drop / Pollination Stress",
+    "areas": [
+      "flowers",
+      "fruit"
+    ],
+    "sym": [
+      "flowers drop",
+      "small fruit shrivels"
+    ],
+    "cond": [
+      "heat",
+      "cold",
+      "poor pollination"
+    ],
+    "why": "Flower loss or young fruit failing to develop can follow temperature stress or incomplete pollination.",
+    "action": "Check the crop's temperature range, flowering pattern and pollinator access before treating for disease.",
+    "q": "Blossom Drop / Pollination Stress extension"
+  },
+  {
+    "id": "fruitcrack",
+    "kind": "disease",
+    "name": "Fruit Cracking",
+    "areas": [
+      "fruit"
+    ],
+    "sym": [
+      "split fruit",
+      "concentric cracks"
+    ],
+    "cond": [
+      "uneven watering",
+      "heavy rain"
+    ],
+    "why": "Rapid changes in water supply can split expanding fruit.",
+    "action": "Maintain steadier soil moisture and harvest ripe fruit promptly; discard fruit with decay.",
+    "q": "Fruit Cracking extension"
+  },
+  {
+    "id": "edema",
+    "kind": "disease",
+    "name": "Edema / Corky Blisters",
+    "areas": [
+      "leaves"
+    ],
+    "sym": [
+      "blisters",
+      "corky spots"
+    ],
+    "cond": [
+      "overwatering",
+      "cool",
+      "humid"
+    ],
+    "why": "Blisters that become corky can occur when water uptake exceeds leaf water loss.",
+    "action": "Check the leaf underside, improve ventilation and adjust watering; confirm before using a pesticide.",
+    "q": "Edema / Corky Blisters extension"
+  },
+  {
+    "id": "salts",
+    "kind": "disease",
+    "name": "Possible Fertilizer / Salt Injury",
+    "areas": [
+      "leaves",
+      "roots"
+    ],
+    "sym": [
+      "crispy edges",
+      "scorch",
+      "white crust",
+      "slow growth"
+    ],
+    "cond": [
+      "recent fertilizer",
+      "dry soil"
+    ],
+    "why": "Leaf-edge scorch with salt crust or recent heavy fertilizer may indicate soluble-salt stress.",
+    "action": "Review fertilizer rates and water quality; test soil or container media before corrective treatment.",
+    "q": "Possible Fertilizer / Salt Injury extension"
+  },
+  {
+    "id": "herbicide",
+    "kind": "disease",
+    "name": "Possible Herbicide Injury",
+    "areas": [
+      "leaves",
+      "new growth",
+      "whole plant"
+    ],
+    "sym": [
+      "twisted growth",
+      "straplike leaves",
+      "leaf curl"
+    ],
+    "cond": [
+      "nearby spraying",
+      "wind"
+    ],
+    "why": "Distorted new growth after nearby spraying can suggest herbicide exposure, though viruses and pests can look similar.",
+    "action": "Record timing and products used nearby, avoid additional stress and seek Extension assessment.",
+    "q": "Possible Herbicide Injury extension"
+  },
+  {
+    "id": "transplant",
+    "kind": "disease",
+    "name": "Transplant Shock / Root Disturbance",
+    "areas": [
+      "whole plant",
+      "leaves",
+      "roots"
+    ],
+    "sym": [
+      "wilting",
+      "leaf drop",
+      "slow growth"
+    ],
+    "cond": [
+      "recent transplant",
+      "heat",
+      "wind"
+    ],
+    "why": "Recently moved plants may wilt or pause growth while roots re-establish.",
+    "action": "Check root-zone moisture, avoid overfertilizing and provide temporary protection suited to the crop.",
+    "q": "Transplant Shock / Root Disturbance extension"
+  },
+  {
+    "id": "verticillium",
+    "kind": "disease",
+    "name": "Vascular Wilt-type Symptoms",
+    "areas": [
+      "whole plant",
+      "stems",
+      "leaves"
+    ],
+    "sym": [
+      "one-sided wilt",
+      "lower leaf yellowing",
+      "brown vascular tissue"
+    ],
+    "cond": [
+      "warm",
+      "poor drainage"
+    ],
+    "why": "One-sided wilt and discolored internal stem tissue can occur with vascular wilt pathogens and other injuries.",
+    "action": "Confirm with a diagnostic service; rotation and resistant varieties depend on the identified cause.",
+    "q": "Vascular Wilt-type Symptoms extension"
+  },
+  {
+    "id": "mosaic",
+    "kind": "disease",
+    "name": "Mosaic / Virus-like Symptoms",
+    "areas": [
+      "leaves",
+      "new growth",
+      "fruit"
+    ],
+    "sym": [
+      "mottled leaves",
+      "distorted growth",
+      "stunted growth"
+    ],
+    "cond": [
+      "insect feeding",
+      "warm"
+    ],
+    "why": "Mottled light-and-dark patterns with distortion may indicate a virus, nutrient injury or chemical damage.",
+    "action": "Inspect for vectors, avoid moving suspect propagation material and obtain confirmation.",
+    "q": "Mosaic / Virus-like Symptoms extension"
+  },
+  {
+    "id": "fireblight",
+    "kind": "disease",
+    "name": "Fire Blight-type Symptoms",
+    "areas": [
+      "new growth",
+      "flowers",
+      "stems"
+    ],
+    "sym": [
+      "blackened shoots",
+      "shepherds crook",
+      "ooze"
+    ],
+    "cond": [
+      "warm",
+      "wet leaves"
+    ],
+    "why": "Darkened shoots curled at their tips can fit fire blight on susceptible rose-family hosts such as apple and pear.",
+    "action": "Check the host first and ask Extension about pruning timing; avoid cutting wet infected growth.",
+    "q": "Fire Blight-type Symptoms extension"
+  },
+  {
+    "id": "leafmold",
+    "kind": "disease",
+    "name": "Tomato Leaf Mold-type Symptoms",
+    "areas": [
+      "leaves"
+    ],
+    "sym": [
+      "yellow patches",
+      "olive fuzzy underside"
+    ],
+    "cond": [
+      "humid",
+      "crowded",
+      "protected"
+    ],
+    "why": "Yellow patches above olive-brown growth beneath tomato leaves can indicate leaf mold.",
+    "action": "Improve ventilation, reduce sustained humidity and confirm before treatment.",
+    "q": "Tomato Leaf Mold-type Symptoms extension"
+  },
+  {
+    "id": "blackspot",
+    "kind": "disease",
+    "name": "Rose Black Spot-type Symptoms",
+    "areas": [
+      "leaves"
+    ],
+    "sym": [
+      "fringed black spots",
+      "yellowing",
+      "leaf drop"
+    ],
+    "cond": [
+      "wet leaves",
+      "humid"
+    ],
+    "why": "Black fringed spots and yellowing on roses may indicate black spot.",
+    "action": "Remove fallen infected leaves, water at soil level and choose resistant varieties where practical.",
+    "q": "Rose Black Spot-type Symptoms extension"
+  },
+  {
+    "id": "clubroot",
+    "kind": "disease",
+    "name": "Clubroot-type Symptoms",
+    "areas": [
+      "roots",
+      "whole plant"
+    ],
+    "sym": [
+      "swollen roots",
+      "stunted growth",
+      "wilting"
+    ],
+    "cond": [
+      "wet soil",
+      "acidic soil"
+    ],
+    "why": "Club-like root swellings on brassicas can fit clubroot, but root-knot nematodes and other problems differ.",
+    "action": "Confirm the cause before changing pH or moving soil; rotation and sanitation need host-specific guidance.",
+    "q": "Clubroot-type Symptoms extension"
+  },
+  {
+    "id": "sootymold",
+    "kind": "disease",
+    "name": "Sooty Mold on Honeydew",
+    "areas": [
+      "leaves",
+      "stems"
+    ],
+    "sym": [
+      "sooty mold",
+      "sticky residue",
+      "ants"
+    ],
+    "cond": [
+      "insect feeding",
+      "protected"
+    ],
+    "why": "A dark surface coating on sticky foliage often grows on honeydew from sap-feeding insects.",
+    "action": "Inspect for scale, aphids or whiteflies; address the insect source instead of treating the coating alone.",
+    "q": "Sooty Mold on Honeydew extension"
+  },
+  {
+    "id": "japanesebeetle",
+    "kind": "pest",
+    "name": "Japanese Beetles",
+    "areas": [
+      "leaves",
+      "flowers"
+    ],
+    "sym": [
+      "skeletonized leaves",
+      "metallic beetles",
+      "chewed flowers"
+    ],
+    "cond": [
+      "warm",
+      "full sun"
+    ],
+    "why": "Metallic green-and-copper beetles can skeletonize leaves and feed on flowers.",
+    "action": "Confirm the beetle and hand-pick small numbers; avoid traps beside susceptible plants.",
+    "q": "Japanese Beetles extension"
+  },
+  {
+    "id": "fleabeetle",
+    "kind": "pest",
+    "name": "Flea Beetles",
+    "areas": [
+      "leaves",
+      "seedlings"
+    ],
+    "sym": [
+      "shot holes",
+      "tiny jumping beetles"
+    ],
+    "cond": [
+      "warm",
+      "dry"
+    ],
+    "why": "Tiny jumping beetles and many small holes can be characteristic.",
+    "action": "Protect vulnerable young crops with suitable covers and check crop-specific thresholds.",
+    "q": "Flea Beetles extension"
+  },
+  {
+    "id": "cucumberbeetle",
+    "kind": "pest",
+    "name": "Cucumber Beetles",
+    "areas": [
+      "leaves",
+      "flowers",
+      "seedlings"
+    ],
+    "sym": [
+      "striped beetles",
+      "spotted beetles",
+      "holes",
+      "wilting"
+    ],
+    "cond": [
+      "warm"
+    ],
+    "why": "Striped or spotted beetles on cucurbits can feed and may spread bacterial wilt.",
+    "action": "Identify the beetle, scout young plants and remove covers when pollination is needed.",
+    "q": "Cucumber Beetles extension"
+  },
+  {
+    "id": "squashbug",
+    "kind": "pest",
+    "name": "Squash Bugs",
+    "areas": [
+      "leaves",
+      "whole plant"
+    ],
+    "sym": [
+      "bronze egg clusters",
+      "flat gray insects",
+      "wilting"
+    ],
+    "cond": [
+      "warm"
+    ],
+    "why": "Bronze egg clusters and flat gray squash bugs can occur beneath cucurbit leaves.",
+    "action": "Inspect leaf undersides, remove eggs and use crop-appropriate integrated management.",
+    "q": "Squash Bugs extension"
+  },
+  {
+    "id": "vineborer",
+    "kind": "pest",
+    "name": "Squash Vine Borer",
+    "areas": [
+      "stems",
+      "crown",
+      "whole plant"
+    ],
+    "sym": [
+      "stem hole",
+      "sawdust-like frass",
+      "wilting"
+    ],
+    "cond": [
+      "warm"
+    ],
+    "why": "A wilted squash vine with a hole and moist frass near its base may contain a borer.",
+    "action": "Inspect the stem base, confirm the larva and plan prevention before larvae enter stems.",
+    "q": "Squash Vine Borer extension"
+  },
+  {
+    "id": "leafminer",
+    "kind": "pest",
+    "name": "Leafminers",
+    "areas": [
+      "leaves"
+    ],
+    "sym": [
+      "winding tunnels",
+      "blotch mines"
+    ],
+    "cond": [
+      "warm"
+    ],
+    "why": "Pale winding tunnels or blotches within a leaf can indicate mining larvae.",
+    "action": "Confirm active mines and the host; remove limited affected leaves when appropriate and avoid harming natural enemies.",
+    "q": "Leafminers extension"
+  },
+  {
+    "id": "mealybug",
+    "kind": "pest",
+    "name": "Mealybugs",
+    "areas": [
+      "leaves",
+      "stems",
+      "new growth"
+    ],
+    "sym": [
+      "cottony insects",
+      "sticky residue",
+      "ants"
+    ],
+    "cond": [
+      "protected",
+      "warm"
+    ],
+    "why": "White cottony insects often gather at leaf joints and protected stems.",
+    "action": "Isolate affected container plants, inspect crevices and verify species before choosing controls.",
+    "q": "Mealybugs extension"
+  },
+  {
+    "id": "stinkbug",
+    "kind": "pest",
+    "name": "Stink Bugs / Fruit-feeding Bugs",
+    "areas": [
+      "fruit",
+      "leaves"
+    ],
+    "sym": [
+      "shield-shaped insects",
+      "corky fruit scars",
+      "cloudy spots"
+    ],
+    "cond": [
+      "warm"
+    ],
+    "why": "Shield-shaped bugs and pale corky spots on fruit may indicate feeding injury.",
+    "action": "Confirm the insect because predatory bugs can look similar; scout and use exclusion where suitable.",
+    "q": "Stink Bugs / Fruit-feeding Bugs extension"
+  },
+  {
+    "id": "cutworm",
+    "kind": "pest",
+    "name": "Cutworms",
+    "areas": [
+      "seedlings",
+      "stems"
+    ],
+    "sym": [
+      "cut seedlings",
+      "curled caterpillar"
+    ],
+    "cond": [
+      "warm",
+      "mulch"
+    ],
+    "why": "Young stems cut near the soil line can indicate nocturnal cutworm feeding.",
+    "action": "Inspect soil around fresh damage after dusk and consider seedling collars.",
+    "q": "Cutworms extension"
+  },
+  {
+    "id": "leafhopper",
+    "kind": "pest",
+    "name": "Leafhoppers",
+    "areas": [
+      "leaves",
+      "new growth"
+    ],
+    "sym": [
+      "wedge-shaped insects",
+      "stippling",
+      "crispy edges"
+    ],
+    "cond": [
+      "hot",
+      "dry"
+    ],
+    "why": "Small wedge-shaped jumping insects may cause stippling or leaf-edge hopperburn.",
+    "action": "Confirm the insect and host; drought and mites can cause similar injury.",
+    "q": "Leafhoppers extension"
+  },
+  {
+    "id": "coloradobeetle",
+    "kind": "pest",
+    "name": "Colorado Potato Beetles",
+    "areas": [
+      "leaves"
+    ],
+    "sym": [
+      "striped rounded beetles",
+      "orange larvae",
+      "ragged chewing"
+    ],
+    "cond": [
+      "warm"
+    ],
+    "why": "Yellow-and-black striped rounded adults or orange-red larvae can defoliate solanaceous crops.",
+    "action": "Inspect leaf undersides for eggs, hand-remove small populations and rotate crop locations.",
+    "q": "Colorado Potato Beetles extension"
+  },
+  {
+    "id": "rootknot",
+    "kind": "pest",
+    "name": "Possible Root-knot Nematodes",
+    "areas": [
+      "roots",
+      "whole plant"
+    ],
+    "sym": [
+      "root galls",
+      "stunted growth",
+      "wilting"
+    ],
+    "cond": [
+      "warm",
+      "poor soil"
+    ],
+    "why": "Root galls with poor growth may suggest root-knot nematodes; legume nodules and other swellings differ.",
+    "action": "Use a diagnostic soil/root sample to confirm before deciding on resistant crops or rotation.",
+    "q": "Possible Root-knot Nematodes extension"
+  },
+  {
+    "id": "earwig",
+    "kind": "pest",
+    "name": "Earwig Feeding \u2014 Confirm First",
+    "areas": [
+      "flowers",
+      "leaves",
+      "seedlings"
+    ],
+    "sym": [
+      "ragged chewing",
+      "pincer-tailed insects"
+    ],
+    "cond": [
+      "mulch",
+      "humid"
+    ],
+    "why": "Pincer-tailed earwigs may chew tender tissue, but also consume other insects and decaying material.",
+    "action": "Inspect after dark and confirm active feeding before controlling a potentially helpful insect.",
+    "q": "Earwig Feeding \u2014 Confirm First extension"
+  }
+]

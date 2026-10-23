@@ -1,0 +1,741 @@
+{
+  "Asparagus": {
+    "type": "Vegetable",
+    "about": "Harvest established beds only; skip heavy cutting while young crowns establish.",
+    "signals": [
+      [
+        "Spears",
+        "Spears are tender with tight, closed tips."
+      ],
+      [
+        "Bed age",
+        "Plants are established and vigorous, not in their first growing season."
+      ],
+      [
+        "Season",
+        "Stop when spears become thin and let ferns grow."
+      ]
+    ],
+    "how": [
+      "Cut or snap spears near ground level without damaging emerging spears.",
+      "Leave later growth to feed the crown."
+    ],
+    "after": [
+      "Cool promptly and keep cut ends from drying.",
+      "Do not harvest red berries",
+      " they are not edible."
+    ]
+  },
+  "Kale": {
+    "type": "Vegetable",
+    "about": "Pick tender leaves as plants grow, keeping the growing center intact.",
+    "signals": [
+      [
+        "Leaves",
+        "Outer leaves are useful size and still tender."
+      ],
+      [
+        "Center",
+        "The growing point is healthy and intact."
+      ],
+      [
+        "Condition",
+        "Avoid badly damaged or yellow leaves."
+      ]
+    ],
+    "how": [
+      "Pick lower outer leaves first.",
+      "Leave enough foliage for continued growth."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Wash just before preparing or dry well before storage."
+    ]
+  },
+  "Swiss Chard": {
+    "type": "Vegetable",
+    "about": "Harvest outer leaves and stalks before they become coarse.",
+    "signals": [
+      [
+        "Leaves",
+        "Blades are expanded, crisp and not tough."
+      ],
+      [
+        "Stalks",
+        "Petiole size suits the planned use."
+      ],
+      [
+        "Center",
+        "Enough young leaves remain to continue growing."
+      ]
+    ],
+    "how": [
+      "Cut outer stalks near the base without injuring the crown.",
+      "Take modest amounts from small plants."
+    ],
+    "after": [
+      "Cool leaves promptly.",
+      "Use tender leaves first."
+    ]
+  },
+  "Cabbage": {
+    "type": "Vegetable",
+    "about": "A full head should feel dense and firm before harvest.",
+    "signals": [
+      [
+        "Head",
+        "The head feels firm under gentle pressure."
+      ],
+      [
+        "Size",
+        "It has reached the expected size for the cultivar."
+      ],
+      [
+        "Surface",
+        "Harvest promptly if splitting begins."
+      ]
+    ],
+    "how": [
+      "Cut below the head with a clean knife.",
+      "Remove damaged outer leaves."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Keep only sound heads for longer storage."
+    ]
+  },
+  "Cauliflower": {
+    "type": "Vegetable",
+    "about": "Cut heads while curds remain compact, before loosening or flowering.",
+    "signals": [
+      [
+        "Curd",
+        "The head is tight and compact."
+      ],
+      [
+        "Surface",
+        "Individual flower structures are not spreading apart."
+      ],
+      [
+        "Color",
+        "Color matches the cultivar, without browning."
+      ]
+    ],
+    "how": [
+      "Cut the head with a short stem and protective wrapper leaves.",
+      "Check frequently as maturity approaches."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Use soon for the best texture."
+    ]
+  },
+  "Brussels Sprouts": {
+    "type": "Vegetable",
+    "about": "Pick firm sprouts from the lower stem upward as they mature.",
+    "signals": [
+      [
+        "Sprouts",
+        "Lower sprouts feel firm and well formed."
+      ],
+      [
+        "Leaves",
+        "Sprouts are tight, not loose or yellowing."
+      ],
+      [
+        "Sequence",
+        "Upper sprouts can remain to enlarge."
+      ]
+    ],
+    "how": [
+      "Twist or cut individual sprouts from the stem.",
+      "Avoid damaging sprouts that will be picked later."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Trim damaged outer leaves before use."
+    ]
+  },
+  "Turnip": {
+    "type": "Vegetable",
+    "about": "Young roots and greens are usually more tender than oversized plants.",
+    "signals": [
+      [
+        "Root",
+        "Root shoulders are near the cultivar's expected size."
+      ],
+      [
+        "Leaves",
+        "Greens are fresh and tender."
+      ],
+      [
+        "Texture",
+        "A test root is crisp, not pithy or woody."
+      ]
+    ],
+    "how": [
+      "Loosen soil before pulling roots.",
+      "Cut greens above the crown if keeping the plant for more growth."
+    ],
+    "after": [
+      "Separate greens from roots.",
+      "Refrigerate promptly."
+    ]
+  },
+  "Parsnip": {
+    "type": "Vegetable",
+    "about": "Dig mature roots after a cool growing season; soil must remain workable.",
+    "signals": [
+      [
+        "Root",
+        "A test root has useful diameter and length."
+      ],
+      [
+        "Season",
+        "The cultivar's long growing period has elapsed."
+      ],
+      [
+        "Soil",
+        "Soil can be worked without breaking roots."
+      ]
+    ],
+    "how": [
+      "Loosen soil deeply beside the row.",
+      "Handle foliage carefully",
+      " sap can irritate skin in sunlight."
+    ],
+    "after": [
+      "Remove tops and cool roots.",
+      "Use gloves and avoid skin contact with sap."
+    ]
+  },
+  "Eggplant": {
+    "type": "Vegetable",
+    "about": "Harvest glossy, firm fruit before seeds harden and skin becomes dull.",
+    "signals": [
+      [
+        "Skin",
+        "The surface is glossy for the variety."
+      ],
+      [
+        "Feel",
+        "Fruit is firm with slight give."
+      ],
+      [
+        "Seeds",
+        "A sample fruit has soft, pale seeds rather than hard brown ones."
+      ]
+    ],
+    "how": [
+      "Cut with pruners, leaving a short stem.",
+      "Watch for prickles on stems and calyx."
+    ],
+    "after": [
+      "Cool and use soon.",
+      "Avoid bruising tender skin."
+    ]
+  },
+  "Okra": {
+    "type": "Vegetable",
+    "about": "Small tender pods are preferable; pods become fibrous quickly.",
+    "signals": [
+      [
+        "Pod",
+        "Pods are young and near the cultivar's tender picking size."
+      ],
+      [
+        "Feel",
+        "Pods are tender rather than woody."
+      ],
+      [
+        "Frequency",
+        "New pods are checked often during hot weather."
+      ]
+    ],
+    "how": [
+      "Snip pods with a short stem.",
+      "Wear gloves if stems irritate your skin."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Remove tough oversized pods so picking remains manageable."
+    ]
+  },
+  "Winter Squash": {
+    "type": "Vegetable",
+    "about": "Harvest fully mature fruit before a damaging freeze.",
+    "signals": [
+      [
+        "Rind",
+        "The rind is hard and resists a light thumbnail impression."
+      ],
+      [
+        "Stem",
+        "The stem is becoming corky and dry."
+      ],
+      [
+        "Color",
+        "Skin color matches mature fruit for the cultivar."
+      ]
+    ],
+    "how": [
+      "Cut with a length of stem attached.",
+      "Handle by the fruit, not the stem."
+    ],
+    "after": [
+      "Cure only varieties suited to curing.",
+      "Store sound fruit cool and dry, following cultivar guidance."
+    ]
+  },
+  "Pumpkin": {
+    "type": "Vegetable",
+    "about": "Select fully colored, hard-rinded fruit before severe frost.",
+    "signals": [
+      [
+        "Color",
+        "The fruit has developed mature cultivar color."
+      ],
+      [
+        "Rind",
+        "Skin is firm and hardened."
+      ],
+      [
+        "Stem",
+        "The stem is drying and firm."
+      ]
+    ],
+    "how": [
+      "Cut with a sturdy stem handle attached.",
+      "Do not carry fruit by the stem."
+    ],
+    "after": [
+      "Keep dry and protect from freezing.",
+      "Check stored fruit for soft spots."
+    ]
+  },
+  "Sweet Potato": {
+    "type": "Vegetable",
+    "about": "Harvest after roots size up and before cold soil or frost damages them.",
+    "signals": [
+      [
+        "Roots",
+        "A test dig shows useful storage-root size."
+      ],
+      [
+        "Weather",
+        "Harvest is planned before frost and chilling."
+      ],
+      [
+        "Skin",
+        "Roots are handled gently because fresh skins bruise easily."
+      ]
+    ],
+    "how": [
+      "Loosen soil well outside the crown.",
+      "Lift without cutting or throwing roots."
+    ],
+    "after": [
+      "Cure in warm, humid, ventilated conditions using Extension guidance.",
+      "Store above chilling temperatures",
+      " do not treat them like white potatoes."
+    ]
+  },
+  "Sweet Corn": {
+    "type": "Vegetable",
+    "about": "Eat sweet corn soon after picking for the best quality.",
+    "signals": [
+      [
+        "Silks",
+        "Silks are brown and drying."
+      ],
+      [
+        "Ear",
+        "The ear feels filled to the tip."
+      ],
+      [
+        "Kernel",
+        "A test kernel releases milky liquid, not clear liquid or thick dough."
+      ]
+    ],
+    "how": [
+      "Hold the stalk and twist the ear downward.",
+      "Check a sample rather than relying on silk color alone."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Use as soon as practical after picking."
+    ]
+  },
+  "Peas": {
+    "type": "Vegetable",
+    "about": "Harvest stage depends on whether you grow shelling, snap or snow peas.",
+    "signals": [
+      [
+        "Type",
+        "Snow peas are picked flat"
+      ],
+      [
+        " snap peas plump"
+      ],
+      [
+        " shelling peas filled."
+      ],
+      [
+        "Pod",
+        "Pods remain tender and fresh green."
+      ],
+      [
+        "Seeds",
+        "Peas have not turned hard or starchy."
+      ]
+    ],
+    "how": [
+      "Hold the vine while picking.",
+      "Harvest frequently as pods mature."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Use quickly for the best sweetness."
+    ]
+  },
+  "Dry Beans": {
+    "type": "Vegetable",
+    "about": "Dry beans mature later than snap beans and need dry seed storage.",
+    "signals": [
+      [
+        "Pods",
+        "Pods are dry and papery."
+      ],
+      [
+        "Seeds",
+        "Beans are hard and fully colored."
+      ],
+      [
+        "Weather",
+        "Bring pods under cover if prolonged rain threatens."
+      ]
+    ],
+    "how": [
+      "Pick dry pods or pull mature plants for sheltered drying.",
+      "Keep batches labeled by variety."
+    ],
+    "after": [
+      "Dry thoroughly before sealing in containers.",
+      "Use crop-specific safe cooking guidance",
+      " never eat raw dry beans."
+    ]
+  },
+  "Fava Beans": {
+    "type": "Vegetable",
+    "about": "For fresh eating, pick filled pods while beans are still tender.",
+    "signals": [
+      [
+        "Pod",
+        "Pods are well filled and green."
+      ],
+      [
+        "Seed",
+        "A sample bean is full-sized but not hard or mealy."
+      ],
+      [
+        "Plant",
+        "Pods have not dried down unless saving dry seed."
+      ]
+    ],
+    "how": [
+      "Support the stem while picking.",
+      "Use snips if pods do not detach easily."
+    ],
+    "after": [
+      "Cool promptly.",
+      "People with G6PD deficiency should follow their clinician's advice about fava beans."
+    ]
+  },
+  "Leek": {
+    "type": "Vegetable",
+    "about": "Leeks can be lifted when their blanched shanks reach a useful size.",
+    "signals": [
+      [
+        "Shank",
+        "The white stem is the desired thickness."
+      ],
+      [
+        "Leaves",
+        "Plants remain sound and upright."
+      ],
+      [
+        "Soil",
+        "Soil is workable for lifting without tearing roots."
+      ]
+    ],
+    "how": [
+      "Loosen soil with a fork beside the row.",
+      "Lift instead of pulling hard."
+    ],
+    "after": [
+      "Remove loose soil and cool.",
+      "Wash layers carefully before cooking."
+    ]
+  },
+  "Green Onion": {
+    "type": "Vegetable",
+    "about": "Harvest slender immature onions for tender leaves and stems.",
+    "signals": [
+      [
+        "Stem",
+        "Stems have reached the thickness needed for use."
+      ],
+      [
+        "Leaves",
+        "Leaves are green and crisp."
+      ],
+      [
+        "Bulb",
+        "A large storage bulb is not required."
+      ]
+    ],
+    "how": [
+      "Loosen soil before lifting whole plants.",
+      "Take a few at a time for fresh use."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Trim damaged tips and wash before preparing."
+    ]
+  },
+  "Raspberry": {
+    "type": "Fruit",
+    "about": "Pick fully colored berries that release easily from the receptacle.",
+    "signals": [
+      [
+        "Color",
+        "Fruit matches mature color for the cultivar."
+      ],
+      [
+        "Release",
+        "The berry slips off with a gentle pull."
+      ],
+      [
+        "Texture",
+        "Berries are soft but intact, not leaking."
+      ]
+    ],
+    "how": [
+      "Use shallow containers.",
+      "Pick frequently and keep fruit shaded."
+    ],
+    "after": [
+      "Refrigerate promptly.",
+      "Wash shortly before use."
+    ]
+  },
+  "Blueberry": {
+    "type": "Fruit",
+    "about": "Blue color alone may precede the sweetest picking stage.",
+    "signals": [
+      [
+        "Color",
+        "The entire berry is blue without a red stem end."
+      ],
+      [
+        "Release",
+        "A ripe berry rolls gently from the cluster."
+      ],
+      [
+        "Flavor",
+        "A sample is sweet enough for the intended use."
+      ]
+    ],
+    "how": [
+      "Roll ripe berries into your hand without squeezing.",
+      "Leave tight, tart berries to finish."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Keep berries dry until washing before use."
+    ]
+  },
+  "Blackberry": {
+    "type": "Fruit",
+    "about": "Pick glossy-to-dull black berries only when they release readily.",
+    "signals": [
+      [
+        "Color",
+        "Fruit is fully black for the cultivar."
+      ],
+      [
+        "Release",
+        "The berry releases without tugging."
+      ],
+      [
+        "Taste",
+        "A sample has ripe flavor rather than strong tartness."
+      ]
+    ],
+    "how": [
+      "Handle gently and use shallow containers.",
+      "Wear protection near thorny canes."
+    ],
+    "after": [
+      "Refrigerate promptly.",
+      "Use or preserve soon."
+    ]
+  },
+  "Apple": {
+    "type": "Fruit",
+    "about": "Ripeness depends strongly on cultivar and intended storage.",
+    "signals": [
+      [
+        "Background",
+        "Background color changes as expected for the cultivar."
+      ],
+      [
+        "Flavor",
+        "A sample has developed the expected flavor and texture."
+      ],
+      [
+        "Release",
+        "Fruit detaches with a gentle lift and twist."
+      ]
+    ],
+    "how": [
+      "Lift and twist without pulling spur wood.",
+      "Keep bruised fruit separate."
+    ],
+    "after": [
+      "Cool sound fruit promptly.",
+      "Use damaged fruit first",
+      " seed color alone is not a reliable maturity test."
+    ]
+  },
+  "Grape": {
+    "type": "Fruit",
+    "about": "Grapes do not become sweeter after picking; sample before cutting.",
+    "signals": [
+      [
+        "Color",
+        "Fruit has full cultivar color."
+      ],
+      [
+        "Taste",
+        "Berries from different parts of the bunch taste mature."
+      ],
+      [
+        "Texture",
+        "Berries are filled and not shriveled."
+      ]
+    ],
+    "how": [
+      "Snip bunches from the vine.",
+      "Handle bunches without squeezing berries."
+    ],
+    "after": [
+      "Cool promptly.",
+      "Remove damaged berries before storage."
+    ]
+  },
+  "Cilantro": {
+    "type": "Herb",
+    "about": "Pick leafy stems before bolting for leaf use; mature seed is coriander.",
+    "signals": [
+      [
+        "Leaves",
+        "There is enough fresh leafy growth to cut lightly."
+      ],
+      [
+        "Stems",
+        "Leaf stems remain tender."
+      ],
+      [
+        "Flowers",
+        "Heavy flowering signals declining leaf production."
+      ]
+    ],
+    "how": [
+      "Snip outer stems while leaving young growth.",
+      "Sow small successive batches for continued leaves."
+    ],
+    "after": [
+      "Cool fresh leaves.",
+      "For coriander, dry mature seed heads separately."
+    ]
+  },
+  "Dill": {
+    "type": "Herb",
+    "about": "Leaf, flower-head and seed harvests happen at different stages.",
+    "signals": [
+      [
+        "Leaves",
+        "Feathery foliage is fresh and aromatic."
+      ],
+      [
+        "Heads",
+        "Flowering heads suit pickling before seeds harden."
+      ],
+      [
+        "Seeds",
+        "Seed heads turn brown for dry spice harvest."
+      ]
+    ],
+    "how": [
+      "Snip leaves lightly without stripping young plants.",
+      "Collect seed heads into a bag before seeds scatter."
+    ],
+    "after": [
+      "Use leaves fresh or freeze.",
+      "Dry seed thoroughly before storing."
+    ]
+  },
+  "Parsley": {
+    "type": "Herb",
+    "about": "Take outer stems so the center can continue growing.",
+    "signals": [
+      [
+        "Leaves",
+        "Outer leaves are full-sized and fresh."
+      ],
+      [
+        "Center",
+        "Young center growth remains intact."
+      ],
+      [
+        "Condition",
+        "Avoid yellowed or spotted leaves."
+      ]
+    ],
+    "how": [
+      "Cut outer stems near the base.",
+      "Leave the center growing point intact."
+    ],
+    "after": [
+      "Cool or preserve promptly.",
+      "Wash thoroughly before preparing."
+    ]
+  },
+  "Lavender": {
+    "type": "Cut Flower",
+    "about": "Cut flowering stems at a stage suited to fresh use or drying.",
+    "signals": [
+      [
+        "Spike",
+        "For drying, many growers cut when lower florets begin opening."
+      ],
+      [
+        "Condition",
+        "Spikes are dry, fresh and free from browning."
+      ],
+      [
+        "Stems",
+        "Enough leafy growth remains below the cut."
+      ]
+    ],
+    "how": [
+      "Cut above the woody base without stripping the plant.",
+      "Gather small bundles after dew dries."
+    ],
+    "after": [
+      "Dry with airflow out of direct sun.",
+      "Use only known culinary lavender grown for edible use if cooking with it."
+    ]
+  }
+}

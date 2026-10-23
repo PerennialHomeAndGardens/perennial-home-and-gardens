@@ -1,0 +1,56 @@
+[
+  {
+    "path": "app-assets/plant-vision/model.json",
+    "url": "https://raw.githubusercontent.com/Rishit-dagli/Greenathon-Plant-AI/b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235/models/plant_disease_tfjs/model.json",
+    "sha256": "e1fa55e084169e081635c82e89b1dd43c9721c1b4381fed19ae2ba1e48f09402",
+    "bytes": 54460
+  },
+  {
+    "path": "app-assets/plant-vision/class_indices.json",
+    "url": "https://raw.githubusercontent.com/Rishit-dagli/Greenathon-Plant-AI/b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235/models/plant_disease_tfjs/class_indices.json",
+    "sha256": "8b2c0f2bede73a4e58736de325a3a8b2ebdf4d4a7a73183c358a5e4ef7b70d20",
+    "bytes": 1468
+  },
+  {
+    "path": "app-assets/plant-vision/group1-shard1of4.bin",
+    "url": "https://raw.githubusercontent.com/Rishit-dagli/Greenathon-Plant-AI/b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235/models/plant_disease_tfjs/group1-shard1of4.bin",
+    "sha256": "438d09f1505483429b9195f75d14e845712531978ef9a137e447cffeeb9d8477",
+    "bytes": 4194304
+  },
+  {
+    "path": "app-assets/plant-vision/group1-shard2of4.bin",
+    "url": "https://raw.githubusercontent.com/Rishit-dagli/Greenathon-Plant-AI/b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235/models/plant_disease_tfjs/group1-shard2of4.bin",
+    "sha256": "80ffd40a2afa018267da4bb2f0fb2bbb37736229679e24fb9e5fd267a0f64ad5",
+    "bytes": 4194304
+  },
+  {
+    "path": "app-assets/plant-vision/group1-shard3of4.bin",
+    "url": "https://raw.githubusercontent.com/Rishit-dagli/Greenathon-Plant-AI/b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235/models/plant_disease_tfjs/group1-shard3of4.bin",
+    "sha256": "e3798c0f56c62ce40d0e7d7e2a3709a795ff45b6aeeb1a5486cb8c550c1f1aff",
+    "bytes": 4194304
+  },
+  {
+    "path": "app-assets/plant-vision/group1-shard4of4.bin",
+    "url": "https://raw.githubusercontent.com/Rishit-dagli/Greenathon-Plant-AI/b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235/models/plant_disease_tfjs/group1-shard4of4.bin",
+    "sha256": "de59127790d932bb2daaf7377618f7502b1cd364f444e9cfa9197a81c0f914a8",
+    "bytes": 488344
+  },
+  {
+    "path": "app-assets/plant-vision/LICENSE-Greenathon.txt",
+    "url": "https://raw.githubusercontent.com/Rishit-dagli/Greenathon-Plant-AI/b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  {
+    "path": "app-assets/plant-vision/tf.min.js",
+    "url": "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js",
+    "sha256": "300dfae273d20b4046f46a06d735688f03675a807561e9bcb5f664eb2f3d2831",
+    "bytes": 1469843
+  },
+  {
+    "path": "app-assets/plant-vision/LICENSE-TensorFlow.txt",
+    "url": "https://raw.githubusercontent.com/tensorflow/tfjs/tfjs-v4.22.0/LICENSE",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "bytes": 11358
+  }
+]

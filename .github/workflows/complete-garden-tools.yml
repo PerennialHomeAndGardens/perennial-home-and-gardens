@@ -1,0 +1,46 @@
+name: Complete garden tools - local vision and backup QA
+on:
+  push:
+    branches: [tools-completion-20261022]
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4 playwright pillow
+      - name: Use Chrome on the test runner
+        run: |
+          if command -v google-chrome >/dev/null; then
+            echo 'PHG_QA_BROWSER_CHANNEL=chrome' >> "$GITHUB_ENV"
+          else
+            python -m playwright install chromium --with-deps
+          fi
+      - name: Prepare retained tools and verified model assets
+        run: |
+          python .github/scripts/fix_tool_qa_findings.py
+          python .github/scripts/complete_garden_tools.py
+          python .github/scripts/prepare_leaf_vision.py
+          python .github/scripts/prepare_leaf_cases.py
+      - name: Existing tool regression workflows
+        run: python .github/scripts/test_all_garden_tools.py
+      - name: Leaf inference, field samples, backup round trips and print PDF
+        run: python .github/scripts/test_leaf_vision_backup.py
+      - run: python .github/scripts/write_completion_report.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: garden-tools-completion-qa
+          path: qa/
+      - name: Save only verified pages, assets and reports
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tools books app-assets/plant-vision qa .github/scripts/build_garden_books.py
+          git diff --cached --quiet || git commit -m 'Complete verified garden backups, expanded collections and experimental local leaf comparison'
+          git push

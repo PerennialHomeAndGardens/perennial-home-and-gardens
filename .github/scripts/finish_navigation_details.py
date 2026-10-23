@@ -43,3 +43,4 @@ print('Restored Garden Library navigation on',len(pages),'pages; Dictionary shor
 # Keep the tested tool corrections when shared-page builders run again.
 import runpy
 runpy.run_path(str(R/'.github/scripts/fix_tool_qa_findings.py'),run_name='__main__')
+runpy.run_path(str(R/'.github/scripts/complete_garden_tools.py'),run_name='__main__')

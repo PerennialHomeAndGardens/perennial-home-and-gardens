@@ -1,0 +1,789 @@
+{
+  "Asparagus": {
+    "type": "Vegetable",
+    "about": "A long-lived perennial crop; reserve its bed so annual digging does not damage crowns.",
+    "good": [
+      [
+        "Parsley",
+        "A shallow-rooted border can occupy space beyond the crown row."
+      ],
+      [
+        "Marigold",
+        "Place annual flowers at the bed edge without crowding fern growth."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Potato",
+        "Digging and hilling can damage asparagus roots."
+      ]
+    ]
+  },
+  "Beet": {
+    "type": "Vegetable",
+    "about": "A cool-season root and leaf crop needing steady moisture and room for roots to swell.",
+    "good": [
+      [
+        "Lettuce",
+        "Quick leaves occupy gaps before beets fill out."
+      ],
+      [
+        "Onion",
+        "Upright foliage leaves light for neighboring beet leaves."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Corn",
+        "Tall mature corn can shade this sun-loving root crop."
+      ]
+    ]
+  },
+  "Broccoli": {
+    "type": "Vegetable",
+    "about": "A cool-season brassica with a broad canopy and substantial nutrient needs.",
+    "good": [
+      [
+        "Lettuce",
+        "Fast spring greens can finish before broccoli shades them."
+      ],
+      [
+        "Radish",
+        "Early roots can be harvested before canopy closure."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Cabbage",
+        "Shares brassica pests"
+      ],
+      [
+        " avoid putting every susceptible crop in one dense patch."
+      ]
+    ]
+  },
+  "Cauliflower": {
+    "type": "Vegetable",
+    "about": "A cool-season brassica needing consistent moisture and room around the head.",
+    "good": [
+      [
+        "Spinach",
+        "Can finish early beside young cauliflower."
+      ],
+      [
+        "Onion",
+        "A narrow border uses space without a sprawling canopy."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Broccoli",
+        "Shares brassica pests and disease risks"
+      ],
+      [
+        " spacing and rotation still matter."
+      ]
+    ]
+  },
+  "Kale": {
+    "type": "Vegetable",
+    "about": "A leafy brassica for repeated harvests in cool weather.",
+    "good": [
+      [
+        "Lettuce",
+        "Works in early-season gaps with adequate spacing."
+      ],
+      [
+        "Dill",
+        "Allow a few flowers at the edge for insect habitat, without promising pest control."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Cabbage",
+        "Shares common brassica pests"
+      ],
+      [
+        " scout both crops."
+      ]
+    ]
+  },
+  "Swiss Chard": {
+    "type": "Vegetable",
+    "about": "A leafy crop that needs even moisture and room for large leaves.",
+    "good": [
+      [
+        "Radish",
+        "Quick roots can finish before chard expands."
+      ],
+      [
+        "Onion",
+        "Narrow foliage fits around the outer bed margin."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Beet",
+        "Close relatives share some leaf diseases"
+      ],
+      [
+        " rotate and monitor together."
+      ]
+    ]
+  },
+  "Turnip": {
+    "type": "Vegetable",
+    "about": "A cool-season root and greens crop suited to succession sowing.",
+    "good": [
+      [
+        "Peas",
+        "Early peas and turnips share cool weather"
+      ],
+      [
+        " keep roots outside the trellis shade."
+      ],
+      [
+        "Lettuce",
+        "Short-season greens fit along the row edge."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Cabbage",
+        "Shared brassica pests make mixed planting a monitoring task, not protection."
+      ]
+    ]
+  },
+  "Eggplant": {
+    "type": "Vegetable",
+    "about": "A warm-season, sun-loving crop that needs space for a broad canopy.",
+    "good": [
+      [
+        "Basil",
+        "Shares warm weather and moderate moisture."
+      ],
+      [
+        "Marigold",
+        "A separate border adds flower diversity."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Potato",
+        "Both are solanaceous crops and share pests"
+      ],
+      [
+        " separate and rotate where feasible."
+      ]
+    ]
+  },
+  "Sweet Potato": {
+    "type": "Vegetable",
+    "about": "A heat-loving vine grown for storage roots; allow ample ground cover.",
+    "good": [
+      [
+        "Marigold",
+        "Keep flowers outside the vine footprint."
+      ],
+      [
+        "Basil",
+        "Can occupy a separate sunny border, beyond spreading vines."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Lettuce",
+        "Vigorous vines can shade and overrun small greens."
+      ]
+    ]
+  },
+  "Okra": {
+    "type": "Vegetable",
+    "about": "An upright warm-season crop that can become tall and cast substantial shade.",
+    "good": [
+      [
+        "Basil",
+        "Place on the sunny side of okra rows."
+      ],
+      [
+        "Pepper",
+        "Can share warm growing conditions if tall okra does not shade peppers."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Lettuce",
+        "Mature okra may shade it heavily"
+      ],
+      [
+        " use timing rather than assuming compatibility."
+      ]
+    ]
+  },
+  "Zucchini": {
+    "type": "Vegetable",
+    "about": "A warm-season summer squash with large leaves and high space needs.",
+    "good": [
+      [
+        "Radish",
+        "Harvest early roots before squash leaves spread."
+      ],
+      [
+        "Marigold",
+        "Use a separate border so flower stems are not smothered."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Cucumber",
+        "Both are cucurbits and may share pests"
+      ],
+      [
+        " avoid a cramped combined canopy."
+      ]
+    ]
+  },
+  "Winter Squash": {
+    "type": "Vegetable",
+    "about": "A vigorous warm-season vine; plan paths and room for fruit and foliage.",
+    "good": [
+      [
+        "Corn",
+        "Possible in a large traditional interplanting only when light, fertility and spacing are sufficient."
+      ],
+      [
+        "Marigold",
+        "Flowering edges remain outside the vine run."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Lettuce",
+        "Vines can smother small greens as the season advances."
+      ]
+    ]
+  },
+  "Pumpkin": {
+    "type": "Vegetable",
+    "about": "A sprawling cucurbit that requires generous space and pollinator access.",
+    "good": [
+      [
+        "Marigold",
+        "Keep flowering borders clear of sprawling vines."
+      ],
+      [
+        "Beans",
+        "Bush beans can occupy a separate sunny edge, outside the pumpkin canopy."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Cucumber",
+        "Shared cucurbit pest pressure and tangled vines can complicate scouting."
+      ]
+    ]
+  },
+  "Corn": {
+    "type": "Vegetable",
+    "about": "A tall, wind-pollinated crop best grown in blocks rather than a single isolated row.",
+    "good": [
+      [
+        "Beans",
+        "Traditional interplanting requires strong corn and careful timing"
+      ],
+      [
+        " a separate bean trellis is safer for small gardens."
+      ],
+      [
+        "Winter Squash",
+        "Ground-cover vines can fit in a spacious layout, with access maintained."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Tomato",
+        "Both need sun and fertility"
+      ],
+      [
+        " tall corn can shade tomatoes and obstruct airflow."
+      ]
+    ]
+  },
+  "Lavender": {
+    "type": "Herb",
+    "about": "A sun-loving perennial requiring excellent drainage; avoid constantly wet roots.",
+    "good": [
+      [
+        "Rosemary",
+        "Similar sun and drainage preferences suit neighboring well-drained beds."
+      ],
+      [
+        "Thyme",
+        "Low growth fits sunny edges with drainage and airflow."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Mint",
+        "Mint usually prefers more moisture and can spread aggressively."
+      ]
+    ]
+  },
+  "Rosemary": {
+    "type": "Herb",
+    "about": "A woody herb for sun and well-drained soil; cold tolerance depends on cultivar and climate.",
+    "good": [
+      [
+        "Thyme",
+        "Shares sunny, well-drained conditions."
+      ],
+      [
+        "Lavender",
+        "Similar drainage needs support practical grouping."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Mint",
+        "Spreading mint and consistently moist soil conflict with this planting approach."
+      ]
+    ]
+  },
+  "Thyme": {
+    "type": "Herb",
+    "about": "A low-growing herb that prefers sun and well-drained soil.",
+    "good": [
+      [
+        "Rosemary",
+        "Useful below an open canopy without crowding woody stems."
+      ],
+      [
+        "Lavender",
+        "Fits sunny edges if soil drains freely."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Watercress",
+        "Very wet conditions suit watercress but not thyme."
+      ]
+    ]
+  },
+  "Sage": {
+    "type": "Herb",
+    "about": "A sun-loving culinary perennial that dislikes prolonged wet roots.",
+    "good": [
+      [
+        "Thyme",
+        "Similar drainage needs make bed planning easier."
+      ],
+      [
+        "Rosemary",
+        "An appropriate neighbor in a sunny, drained herb bed."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Mint",
+        "Different moisture needs and spreading roots call for separate containers."
+      ]
+    ]
+  },
+  "Oregano": {
+    "type": "Herb",
+    "about": "A spreading perennial culinary herb; keep its growth inside the planned footprint.",
+    "good": [
+      [
+        "Thyme",
+        "Can share a sunny, well-drained herb border."
+      ],
+      [
+        "Sage",
+        "Compatible drainage needs with room between plants."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Lettuce",
+        "Vigorous oregano can crowd small salad plants if not contained."
+      ]
+    ]
+  },
+  "Cilantro": {
+    "type": "Herb",
+    "about": "A cool-season herb that bolts in heat; sow successive small crops.",
+    "good": [
+      [
+        "Lettuce",
+        "Shares cool-season timing and regular moisture."
+      ],
+      [
+        "Peas",
+        "Works on a sunny trellis edge while weather is cool."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Rosemary",
+        "Separate irrigation zones if rosemary needs drier soil."
+      ]
+    ]
+  },
+  "Chamomile": {
+    "type": "Herb",
+    "about": "A flowering herb suited to sunny borders; leave access for frequent flower picking.",
+    "good": [
+      [
+        "Dill",
+        "Flowering herbs can provide varied insect habitat."
+      ],
+      [
+        "Lettuce",
+        "Can share early-season open ground before flowering plants fill out."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Mint",
+        "Contain mint so it does not overrun small chamomile seedlings."
+      ]
+    ]
+  },
+  "Nasturtium": {
+    "type": "Flower",
+    "about": "An edible-flowered annual with bush and trailing forms; give vines a defined edge.",
+    "good": [
+      [
+        "Cabbage",
+        "Can occupy a separate border, but inspect both for aphids and caterpillars."
+      ],
+      [
+        "Radish",
+        "Early roots can finish before trailing stems fill the edge."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Lettuce",
+        "Trailing forms can smother small greens in tight spaces."
+      ]
+    ]
+  },
+  "Calendula": {
+    "type": "Flower",
+    "about": "A cool-weather flowering annual useful along accessible garden borders.",
+    "good": [
+      [
+        "Lettuce",
+        "Similar cool-season timing with room for flower stems."
+      ],
+      [
+        "Carrot",
+        "Use a separate border to avoid shading emerging seedlings."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Corn",
+        "Dense mature corn can shade a small flower border."
+      ]
+    ]
+  },
+  "Sunflower": {
+    "type": "Flower",
+    "about": "A tall annual with cultivar-dependent size; position it where its shade is planned.",
+    "good": [
+      [
+        "Zinnia",
+        "A separate sunny flower row can share access for cutting."
+      ],
+      [
+        "Marigold",
+        "Compact flowers fit the outer edge beyond the sunflower root zone."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Lettuce",
+        "Large sunflowers may create too much shade and root competition."
+      ]
+    ]
+  },
+  "Zinnia": {
+    "type": "Flower",
+    "about": "A warm-season cut flower that needs sun, airflow and room for repeated cutting.",
+    "good": [
+      [
+        "Marigold",
+        "Different flower sizes can share a sunny border."
+      ],
+      [
+        "Basil",
+        "Similar summer timing works in a well-spaced mixed cutting bed."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Mint",
+        "Aggressive mint roots can crowd annual flowers"
+      ],
+      [
+        " use a container."
+      ]
+    ]
+  },
+  "Yarrow": {
+    "type": "Flower",
+    "about": "A perennial cut flower for sun and drainage; vigorous forms may spread.",
+    "good": [
+      [
+        "Salvia",
+        "Similar sun and drainage requirements suit a perennial border."
+      ],
+      [
+        "Lavender",
+        "Can share a dry border if the yarrow cultivar suits the same conditions."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Watercress",
+        "Waterlogged conditions are unsuitable for this combination."
+      ]
+    ]
+  },
+  "Salvia": {
+    "type": "Flower",
+    "about": "Ornamental salvias vary; choose a hardy, sun-loving type with needs matching its neighbors.",
+    "good": [
+      [
+        "Yarrow",
+        "Upright flower spikes and flat heads offer complementary border structure."
+      ],
+      [
+        "Echinacea",
+        "Many hardy types share sunny, well-drained conditions."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Mint",
+        "Keep invasive roots out of perennial crowns."
+      ]
+    ]
+  },
+  "Echinacea": {
+    "type": "Flower",
+    "about": "A sun-loving perennial for well-drained borders; leave access for deadheading or seed heads.",
+    "good": [
+      [
+        "Yarrow",
+        "Can share an open sunny border with adequate crown spacing."
+      ],
+      [
+        "Salvia",
+        "Different flower forms fit the same sunny planting area."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Mint",
+        "A separate container prevents spreading roots from competing with perennial crowns."
+      ]
+    ]
+  },
+  "Catmint": {
+    "type": "Flower",
+    "about": "A sunny-border perennial with a spreading canopy; allow room for mature width.",
+    "good": [
+      [
+        "Salvia",
+        "Similar sun and drainage preferences suit repeated flower groupings."
+      ],
+      [
+        "Yarrow",
+        "Keep plants separated enough for airflow and crown access."
+      ]
+    ],
+    "neutral": [
+      [
+        "Other plants",
+        "Match mature size, sunlight, moisture and harvest access before combining crops."
+      ]
+    ],
+    "avoid": [
+      [
+        "Lettuce",
+        "A mature catmint mound can overwhelm a narrow salad row."
+      ]
+    ]
+  }
+}
