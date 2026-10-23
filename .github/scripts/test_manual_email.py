@@ -66,8 +66,10 @@ async def main():
   assert 'newsletter@example.com' in await p.locator('#phg-email-draft textarea').input_value()
   results.append('120-second newsletter prompt on an article page opens a copyable request; no subscription-success claim.')
   await p.locator('#phg-email-draft').get_by_role('button',name='Close Your email draft',exact=True).click()
-  await p.evaluate("sessionStorage.removeItem('phg-b3-resource-offer');sessionStorage.setItem('phg-visit-start',String(Date.now()-26000))")
-  await p.reload();await p.locator('#phg-resource-prompt').wait_for();await p.locator('#phg-resource-prompt input[type=email]').fill('')
+  await context.close();context=await browser.new_context()
+  await context.add_init_script("sessionStorage.setItem('phg-b3-tool-offer','1');sessionStorage.setItem('phg-visit-start',String(Date.now()-26000));")
+  p=await context.new_page();p.on('pageerror',lambda e:errors.append(str(e)))
+  await p.goto(BASE+'/articles/');await p.locator('#phg-resource-prompt').wait_for();await p.locator('#phg-resource-prompt input[type=email]').fill('')
   await p.get_by_role('button',name='Open download folder',exact=True).click();assert await p.locator('#phg-resource-ready').is_visible()
   results.append('25-second resource prompt on an article page offers both worksheets without requiring an email.')
   assert not errors,errors;assert not posts,posts
