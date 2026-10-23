@@ -61,7 +61,7 @@ async def identifier(p):
  assert not any('data:image/' in str(v) for v in records[0].values())
  await p.locator('[data-mode=pest]').click();await p.locator('#symptoms [data-value=webbing]').click();await p.locator('#identify').click();assert 'Spider Mites' in await p.locator('#cards').inner_text()
  await p.locator('[data-mode=plant]').click();await p.locator('#identify').click();assert 'Trait Confirmation' in await p.locator('#cards').inner_text()
- await p.locator('#tryAI').click();assert 'on this device' in await p.locator('#aiStatus').inner_text()
+ await p.locator('#phgVisionPanel summary').click();await p.locator('#tryAI').click();assert 'on this device' in await p.locator('#aiStatus').inner_text()
  await p.evaluate('()=>{window.__printed=0;window.print=()=>{window.__printed++};}');await p.locator('#printReport').press('Enter');await p.wait_for_function('window.__printed===1');assert await p.locator('#report').is_visible()
  await p.reload();assert await p.locator('.photoSlot.has').count()==0;assert len(await saved(p,'phgGardenHealthReports'))==1
  await p.locator('#clear').click();await p.wait_for_load_state();assert await p.locator('.photoSlot.has').count()==0

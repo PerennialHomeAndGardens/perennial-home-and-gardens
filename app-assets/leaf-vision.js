@@ -27,7 +27,7 @@ async function infer(image,cropName){
 }
 function display(r){
  output.replaceChildren();const strong=r.matches[0]?.score>=.70&&(r.matches.length===1||r.matches[0].score-r.matches[1].score>=.15);
- output.append(el('h4',strong?'Leaf patterns to compare — experimental':'No reliable photo suggestion'));
+ output.append(el('h4',strong?'Unverified leaf comparison — experimental':'No reliable photo suggestion'));
  output.append(el('p','This model was trained on 38 crop/leaf-condition classes. Field photos can be confidently misclassified. These scores are model outputs, not the probability of a correct diagnosis. Confirm with the symptom checklist and Extension.'));
  for(const m of r.matches.slice(0,3)){const row=el('p');row.append(el('strong',m.label.split('___')[1].replaceAll('_',' ')+' · '+Math.round(m.score*100)+'% model score'));output.append(row);}
  if(r.matches[0]?.label.endsWith('___healthy'))output.append(el('p','A “healthy” model label does not rule out pests, root problems or an unsupported disease.'));

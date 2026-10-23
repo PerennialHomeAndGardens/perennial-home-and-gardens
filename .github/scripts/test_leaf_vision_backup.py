@@ -1,12 +1,14 @@
 """Browser checks of local inference, all-garden backup round trips and print output."""
 import asyncio,json,threading,http.server,socketserver,os,traceback
 from pathlib import Path
+from io import BytesIO
+from pypdf import PdfReader
 from playwright.async_api import async_playwright
 R=Path('.');BASE='http://127.0.0.1:8773'
 class Handler(http.server.SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 socketserver.TCPServer.allow_reuse_address=True
-server=socketserver.TCPServer(('127.0.0.1',8773),Handler);threading.Thread(target=server.serve_forever,daemon=True).start()
+server=http.server.ThreadingHTTPServer(('127.0.0.1',8773),Handler);threading.Thread(target=server.serve_forever,daemon=True).start()
 report={'status':'running','date':'2026-10-22','checks':[],'limits':['No physical iPhone/Android hardware available.','Native OS print dialogs and physical printers are not exercised.','Field-photo sample results do not establish diagnostic accuracy for all garden photos.']}
 async def getfile(p,selector):
  async with p.expect_download()as d:await p.locator(selector).click()
@@ -16,8 +18,8 @@ async def main():
   browser=await pw.chromium.launch(channel=os.environ.get('PHG_QA_BROWSER_CHANNEL'))
   ctx=await browser.new_context(accept_downloads=True);p=await ctx.new_page();p.set_default_timeout(20000);errs=[];p.on('pageerror',lambda e:errs.append(str(e)))
   try:
-   await p.goto(BASE+'/tools/plant-identifier/');requests=[];p.on('request',lambda r:requests.append((r.method,r.url)))
-   assert not any('tf.min.js'in u or '.bin'in u for _,u in requests)
+   await p.goto(BASE+'/tools/plant-identifier/');await p.locator('#phgVisionPanel summary').click();requests=[];p.on('request',lambda r:requests.append((r.method,r.url)))
+   assert not await p.evaluate('Boolean(window.tf)')
    await p.locator('#phgVisionRun').click();assert 'Choose the crop' in await p.locator('#phgVisionStatus').inner_text()
    await p.locator('#phgVisionCrop').select_option('Tomato');await p.locator('#phgVisionRun').click();assert 'Upload a leaf photo' in await p.locator('#phgVisionStatus').inner_text()
    casefile=json.loads((R/'.qa-leaf-cases/cases.json').read_text());labels=json.loads((R/'app-assets/plant-vision/class_indices.json').read_text())
@@ -34,14 +36,14 @@ async def main():
    await(await chooser.value).set_files(str(R/sample['fixtureUrl'].lstrip('/')));await p.wait_for_function('document.querySelector("#photo-status-under").textContent.includes("ready")')
    report['checks'].append('Actual model download/inference UI, saved model results, crop-change invalidation, no photo POST and camera file-chooser path passed')
    # Deterministic labeled real-image sample; evaluate every selected case, including failures.
-   results=[]
+   tensor_before=await p.evaluate('tf.memory().numTensors');results=[]
    for case in casefile['cases']:
     crop=labels[str(case['expectedIndex'])].split('___')[0]
     matches=await p.evaluate('''async ({url,crop})=>{const image=new Image();image.src=url;await image.decode();return PHGLeafVision.infer(image,crop);}''',{'url':case['fixtureUrl'],'crop':crop})
     top=matches[0];accepted=top['score']>=.70 and(len(matches)==1 or top['score']-matches[1]['score']>=.15)
     results.append({**{k:v for k,v in case.items()if k!='fixtureUrl'},'expectedLabel':labels[str(case['expectedIndex'])],'predictions':matches[:3],'correctTop1':top['index']==case['expectedIndex'],'correctTop3':case['expectedIndex']in[m['index']for m in matches[:3]],'meetsDisplayThreshold':accepted})
     print('LEAF_CASE',case['group'],top['label'],top['score'],'correct',results[-1]['correctTop1'],flush=True)
-   n=len(results);accepted=[r for r in results if r['meetsDisplayThreshold']];metrics={'cases':n,'correctTop1':sum(r['correctTop1']for r in results),'correctTop3':sum(r['correctTop3']for r in results),'thresholdAccepted':len(accepted),'thresholdAcceptedCorrect':sum(r['correctTop1']for r in accepted)}
+   assert await p.evaluate('tf.memory().numTensors')==tensor_before,'Inference leaked tensors';n=len(results);accepted=[r for r in results if r['meetsDisplayThreshold']];metrics={'cases':n,'correctTop1':sum(r['correctTop1']for r in results),'correctTop3':sum(r['correctTop3']for r in results),'thresholdAccepted':len(accepted),'thresholdAcceptedCorrect':sum(r['correctTop1']for r in accepted)}
    validation={'modelRevision':'b7e8c6f5a1b3e1b7847f3e78f41a65a8a9110235','dataset':casefile['dataset'],'datasetRevision':casefile['revision'],'method':casefile['method'],'metrics':metrics,'cases':results,'limitations':report['limits']+['Known crop was supplied; this is not a species-identification test.','PlantDoc labels were not independently re-adjudicated by a plant pathologist.','Samples may contain mixed symptoms or domain differences from controlled training images.']}
    Path('qa/leaf-model-validation.json').write_text(json.dumps(validation,indent=2));report['leafMetrics']=metrics
    # Check all categories and expanded datasets are present in the actual running pages.
@@ -53,6 +55,11 @@ async def main():
    await p.goto(BASE+'/tools/my-garden/');await p.locator('#gardenName').fill('Backup round-trip garden');await p.locator('#profileZone').fill('7b');await p.locator('#saveProfile').click()
    seed={'seeds':[{'id':'seed-qa','crop':'Lettuce','variety':'Test','year':'2026','qty':'1 packet','dtm':45,'spacing':6,'method':'Direct sow','source':'QA','notes':'Saved seed','created':'2026-10-22'}],'trays':[{'id':'tray-qa','seedId':'seed-qa','name':'Tray A','cells':6,'sow':'2026-10-22','transplant':'2026-11-10','germDays':7,'cellStates':['germ','planted','failed','empty','planted','planted'],'stage':'Sown','location':'Shelf'}],'successions':[{'id':'succ-qa','seedId':'seed-qa','count':1,'method':'Direct sow','rounds':[{'n':1,'sow':'2026-10-22','harvest':'2026-12-06','status':'Planned'}]}]}
    entries={'phgSeedSystemV1':seed,'phgGardenInventoryV1':{'inventory':[],'shopping':[],'purchases':[],'budget':{'total':100}},'phgGardenJournalV1':{'entries':[{'id':'entry-qa','date':'2026-10-22','type':'observation','target':'Lettuce','notes':'Keep this note','tags':[]}]},'phgHarvestRecordsV1':{'records':[]},'phgGardenBooksV1':{'from-seed-to-skillet-12':{'saved':True,'notes':'Seed memories','status':'want'}},'phgGardenLibraryShelfV1':{'plants':[],'terms':[],'resources':[]},'phg-cal-7b-per-9':['task-qa'],'phgGardenLibraryPlantNotesV1':{'plant-qa':'A saved plant note'}}
+   plant_id=json.loads((R/'tools/garden-library/plant_profiles.json').read_text())[0]['id'];term_id=json.loads((R/'tools/garden-library/glossary.json').read_text())[0]['id']
+   entries.update({'phgGardenPlans':[{'id':12345,'name':'Saved trial layout','date':'2026-10-22T12:00:00Z','version':2,'garden':{'w':40,'h':30,'objects':[{'id':'o1','name':'Bed','type':'bed','kind':'raised','icon':'Bed','x':2,'y':2,'w':8,'h':4,'rot':0}]},'settings':{'season':'summer','orientation':'0','layers':{}}}],'phg-companion-saved':['Lavender'],'phg-harvest-saved':['Asparagus'],'phg-cal-prefs':{'zone':'7b','month':9,'focus':'per'},'phg-growing-zone':{'zone':'7b','zip':'20603'},'phgGardenLibraryProfileV1':{'displayName':'Backup garden','homeZone':'7b','locationLabel':''},'phgGardenLibraryCollectionsV1':{'favorites':[plant_id]},'phg-reader:v1:journal:/articles/asparagus-is-a-long-game.html':'Article garden notes'})
+   entries['phgGardenLibraryShelfV1']['plants']=[plant_id];entries['phgGardenLibraryShelfV1']['terms']=[term_id]
+   entries['phgGardenInventoryV1']['inventory']=[{'id':'inv-qa','name':'Compost','category':'Soil','qty':2,'min':1,'unit':'bags','location':'Shed'}]
+   entries['phgHarvestRecordsV1']['records']=[{'id':'harvest-qa','crop':'Tomato','date':'2026-10-22','weight':2,'weightUnit':'lb','count':4,'countUnit':'pieces','notes':'Backup harvest'}]
    await p.evaluate('(entries)=>{for(const[k,v]of Object.entries(entries))localStorage.setItem(k,JSON.stringify(v));}',entries)
    await p.locator('#phgBackupOpen').click();text=await getfile(p,'#phgBackupExport');backup=json.loads(text);assert 'phg-cal-7b-per-9'in backup['entries'];assert backup['entries']['phgSeedSystemV1']==seed
    fresh=await browser.new_context(accept_downloads=True);q=await fresh.new_page();await q.goto(BASE+'/tools/my-garden/');await q.locator('#phgBackupOpen').click()
@@ -79,8 +86,10 @@ async def main():
    report['checks'].append('Full backup export, preview/confirmation, new-browser restore, seed trays/journal/book notes, existing-data protection, replace mode and invalid-file rejection passed')
    # Actual print media + PDF output in Chrome; not an operating-system print dialog.
    await p.goto(BASE+'/tools/plant-identifier/');await p.locator('#plantName').fill('QA print tomato');await p.locator('#identify').click();await p.locator('#saveReport').click();await p.emulate_media(media='print')
-   assert not await p.locator('header').is_visible();assert await p.locator('#report').is_visible();pdf=await p.pdf(format='Letter');assert pdf.startswith(b'%PDF')and len(pdf)>3000
+   assert not await p.locator('header').is_visible();assert await p.locator('#report').is_visible();pdf=await p.pdf(format='Letter');assert pdf.startswith(b'%PDF')and len(pdf)>3000;pdf_text='\n'.join(page.extract_text()for page in PdfReader(BytesIO(pdf)).pages);assert 'QA print tomato'in pdf_text and 'Garden Health Report'in pdf_text
    Path('qa/identifier-print-check.pdf').write_bytes(pdf);await p.emulate_media(media='screen');report['checks'].append('Chrome print-media report visibility and actual Letter PDF generation passed; physical printing remains untested')
+   for slug in ['growing-zone','garden-calculator','garden-planner','plant-companions','seasonal-calendar','plant-identifier','harvest-checker','seed-starting','garden-journal','harvest-records','garden-inventory','garden-library','my-garden']:
+    await q.goto(BASE+'/tools/'+slug+'/');await q.locator('#phgBackupOpen').click();assert await q.locator('#phgBackupDialog').is_visible();await q.get_by_role('button',name='Close',exact=True).click()
    for w in [1440,768,390,360]:
     await q.set_viewport_size({'width':w,'height':780});await q.goto(BASE+'/tools/my-garden/');await q.locator('#phgBackupOpen').click();assert await q.locator('#phgBackupDialog').evaluate('(e)=>e.getBoundingClientRect().width<=innerWidth&&e.getBoundingClientRect().height<=innerHeight');await q.get_by_role('button',name='Close',exact=True).click()
    assert not errs,errs;report['checks'].append('Backup dialog fits four viewport widths; no uncaught browser errors');report['status']='pass'

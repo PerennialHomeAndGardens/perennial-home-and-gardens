@@ -7,3 +7,15 @@ const bad=[JSON.stringify({...payload,version:2}),'{"format":"perennial-garden-b
 const before=storage.getItem('phgMyGardenProfileV1'),original=storage.setItem.bind(storage);let calls=0;storage.setItem=(k,v)=>{if(++calls===2)throw Error('quota');original(k,v)};
 assert.throws(()=>api.restore({format:'perennial-garden-backup',version:1,entries:{phgMyGardenProfileV1:{gardenName:'After'},phgGardenBooksV1:{}}},true));assert.equal(storage.getItem('phgMyGardenProfileV1'),before);assert.equal(storage.getItem('phgGardenBooksV1'),null);
 console.log('PASS backup invalid formats, key scope, restore and partial-write rollback');
+const wrap=entries=>({format:'perennial-garden-backup',version:1,entries});
+for(const input of [
+ {version:1,exportedAt:'2026-10-22',entries:[]},
+ {version:1,records:[]},
+ {exported:'2026-10-22',books:{'test-book':{notes:'Remember this',saved:true}}},
+ {version:1,inventory:[],shopping:[],purchases:[],budget:{}},
+ {version:1,profile:{},plantNotes:{},collections:{favorites:[]}},
+ {version:2,garden:{w:40,h:30,objects:[]},settings:{}}
+])assert.equal(api.parse(JSON.stringify(input)).format,'perennial-garden-backup');
+assert.throws(()=>api.parse(JSON.stringify(wrap({phgGardenJournalV1:{entries:[{id:'ok',date:'2026-99-99'}]}}))));
+assert.throws(()=>api.parse(JSON.stringify(wrap({phgGardenInventoryV1:{inventory:[],shopping:[{id:'ok',name:'Test',qty:1,targetPrice:'25'}],purchases:[],budget:{}}}))));
+console.log('PASS all supported older exports; impossible dates and string prices rejected');
