@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "Homepage requires name and valid email, retains the entered details on server rejection, and does not unlock the gift folder on failure.",
+    "An acknowledged gift submission unlocks the folder and carries a gifts-only classification with no newsletter offer in its confirmation.",
+    "The first gift popup separately requires name/email, shows visitor-facing gift wording and contains no newsletter promotion.",
+    "The retained gift artwork/layout has no horizontal overflow at desktop and 390/360-pixel mobile widths.",
+    "The second advertisement submits an explicit magazine signup separately and does not unlock gift downloads.",
+    "The 25-second article-page gift popup also requires both fields and is independent of newsletter signup.",
+    "No uncaught page errors; all external submissions were intercepted, so these tests sent no emails and establish no real delivery result."
+  ],
+  "live_delivery_verified": false,
+  "activation_request_confirmed": false
+}
