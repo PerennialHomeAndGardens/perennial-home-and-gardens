@@ -298,6 +298,7 @@ function init(){
  function syncTheme(){const m=getComputedStyle(document.body).color.match(/[\d.]+/g)||[240,240,240];const light=cfg.slug!=='ie'&&(+m[0]*.2126 + +m[1]*.7152 + +m[2]*.0722)<145;body.style.setProperty('--x-panel',light?'#f1eee7':'#0c100f');body.style.setProperty('--x-text',light?'#262923':'#eee');}
  syncTheme();for(const n of [document.body,document.documentElement])new MutationObserver(syncTheme).observe(n,{attributes:true,attributeFilter:['class','data-theme']});
  gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();gardenRefinements();
+ if(cfg.slug==='perennial-home-and-gardens'){const capture=el('script');capture.src=asset('gift-capture.js?v=20261023-required-gifts');document.body.append(capture);}
  if(document.getElementById("ap")){const t=el("script");t.src=asset("tanya-assistant.js?v=20261021-organized");document.body.append(t);}
  // ETP creates its jukebox on demand, so apply the same branding when it appears.
  if(cfg.slug==='examine-the-past-home')new MutationObserver(()=>{if($('.etp-jukebox-card:not(.x-native-panel)'))brandNative();}).observe(document.body,{childList:true,subtree:true});
