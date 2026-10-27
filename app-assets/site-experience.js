@@ -238,8 +238,8 @@ function gardenResourcesReady(email='',name=''){
  const d=dialog('x-jukebox','Your gardening worksheets');d.id='phg-resource-ready';
  d.append(el('p','','Open the folder to choose the Plant Profile Sheet or Houseplant Care Worksheet. Both are available now.'));
  const download=el('a','x-action x-wide','Open worksheet folder');download.href=gardenDownloads;download.target='_blank';download.rel='noopener noreferrer';
- d.append(download,el('p','','Want Perennial Garden Magazine too? Newsletter signup is optional. Send your request by email; opening the worksheets does not subscribe you.'));
- d.append(action('Request newsletter by email',()=>{d.close();gardenEmailDraft('Perennial Garden Magazine newsletter signup','Please subscribe me to Perennial Garden Magazine, the monthly newsletter with garden ideas, gifts and coupons.\nName: '+name+'\nEmail: '+email);}),el('small','','If the folder does not open, allow the new tab or copy the link address. No email has been sent.'));
+ d.append(download,el('p','','Want Perennial Living Magazine too? Newsletter signup is optional. Send your request by email; opening the worksheets does not subscribe you.'));
+ d.append(action('Request newsletter by email',()=>{d.close();gardenEmailDraft('Perennial Living Magazine newsletter signup','Please subscribe me to Perennial Living Magazine, the monthly newsletter with garden ideas, gifts and coupons.\nName: '+name+'\nEmail: '+email);}),el('small','','If the folder does not open, allow the new tab or copy the link address. No email has been sent.'));
  d.showModal();
 }
 function gardenManualEmail(){
@@ -261,7 +261,7 @@ function gardenPrompts(){
  const save=k=>{try{sessionStorage.setItem(k,'1');}catch{}};
  const claimed=()=>{try{return localStorage.getItem('phg_freebie_claimed')==='1';}catch{return false;}};
  const busy=()=>document.hidden||!!$('dialog[open],.modal.on,#ap.on,#navlinks.open')||!!document.activeElement?.closest('form')||all('.b17Preview').some(n=>{const r=n.getBoundingClientRect();return r.top<120&&r.bottom>innerHeight*.4;});
- let start=Date.now();try{const previous=Number(sessionStorage.getItem('phg-visit-start'));if(previous>0)start=previous;else sessionStorage.setItem('phg-visit-start',String(start));}catch{}
+ let elapsed=Number(read('phg-active-ms'))||0,lastTick=Date.now(),lastDismiss=Number(read('phg-last-dismiss'))||0,wasOpen=false;
  if(typeof window.openFreebie!=='function')window.openFreebie=()=>{
   const existing=document.getElementById('phg-resource-prompt');if(existing){existing.showModal();return;}
   const d=dialog('x-jukebox','Two worksheets for your next garden idea');d.id='phg-resource-prompt';d.append(el('p','','Choose a printable to start with. Both worksheets are available in our download folder.'));
@@ -271,18 +271,19 @@ function gardenPrompts(){
   input.required=false;label.firstChild.textContent='Email address (optional for newsletter)';form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;gardenResourcesReady(input.value.trim());};d.append(form);d.showModal();
  };
  let tick;const check=()=>{
-  const elapsed=Date.now()-start;
+  const now=Date.now();if(!document.hidden)elapsed+=Math.min(now-lastTick,1500);lastTick=now;try{sessionStorage.setItem('phg-active-ms',String(elapsed));}catch{}
+  const open=!!$('dialog[open],.modal.on');if(wasOpen&&!open){lastDismiss=now;try{sessionStorage.setItem('phg-last-dismiss',String(now));}catch{}}wasOpen=open;if(now-lastDismiss<60000)return;
   if(elapsed>=25000&&!read('phg-b3-resource-offer')){
    if(claimed()){save('phg-b3-resource-offer');}
    else if(!busy()){save('phg-b3-resource-offer');window.openFreebie?.('welcome');}
   }
-  if(elapsed>=120000&&!read('phg-b3-tool-offer')&&!busy()){
+  if(elapsed>=120000&&!read('phg-b3-tool-offer')&&!localStorage.getItem('phg_magazine_signed')&&!busy()){
    save('phg-b3-tool-offer');
-   const d=dialog('x-jukebox','Perennial Garden Magazine');d.id='phg-newsletter-prompt';
+   const d=dialog('x-jukebox','Perennial Living Magazine');d.id='phg-newsletter-prompt';
    d.append(el('p','','Monthly garden ideas, gifts and coupons. A seasonal newsletter from Perennial Home & Gardens. Subscribe by sending your request to Perennial.'));
    const form=el('form','phg-newsletter-form'),label=el('label','','Email address'),input=el('input');input.type='email';input.name='email';input.required=true;input.autocomplete='email';input.id='phg-newsletter-email';label.htmlFor=input.id;label.append(input);
    const submit=action('Subscribe by email',()=>{});submit.type='submit';form.append(label,submit,el('small','','Opens your email app. Send the message to request a subscription.'));
-   form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;d.close();gardenEmailDraft('Perennial Garden Magazine newsletter signup','Please subscribe this address to Perennial Garden Magazine, the monthly newsletter with garden ideas, gifts and coupons. Email: '+input.value.trim());};
+   form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;d.close();gardenEmailDraft('Perennial Living Magazine newsletter signup','Please subscribe this address to Perennial Living Magazine, the monthly newsletter with garden ideas, gifts and coupons. Email: '+input.value.trim());};
    d.append(form);d.showModal();
   }
   if(read('phg-b3-resource-offer')&&read('phg-b3-tool-offer'))clearInterval(tick);
@@ -298,6 +299,7 @@ function init(){
  function syncTheme(){const m=getComputedStyle(document.body).color.match(/[\d.]+/g)||[240,240,240];const light=cfg.slug!=='ie'&&(+m[0]*.2126 + +m[1]*.7152 + +m[2]*.0722)<145;body.style.setProperty('--x-panel',light?'#f1eee7':'#0c100f');body.style.setProperty('--x-text',light?'#262923':'#eee');}
  syncTheme();for(const n of [document.body,document.documentElement])new MutationObserver(syncTheme).observe(n,{attributes:true,attributeFilter:['class','data-theme']});
  gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();gardenRefinements();
+ const capture=el('script');capture.src=asset('gift-capture.js?v=20261027');document.body.append(capture);
  if(document.getElementById("ap")){const t=el("script");t.src=asset("tanya-assistant.js?v=20261021-organized");document.body.append(t);}
  // ETP creates its jukebox on demand, so apply the same branding when it appears.
  if(cfg.slug==='examine-the-past-home')new MutationObserver(()=>{if($('.etp-jukebox-card:not(.x-native-panel)'))brandNative();}).observe(document.body,{childList:true,subtree:true});
