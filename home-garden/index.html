@@ -111,20 +111,40 @@ header{height:60px;gap:8px}#mobileToolsBtn{display:inline-flex;align-items:cente
 .shell.rightClosed #inspector.show{width:min(340px,95vw)!important}
 }
 @media(max-width:1050px) and (orientation:landscape){#inspector.show{top:60px!important;bottom:35px;max-height:none;width:min(350px,48vw)!important}}
+
+/* Simpler earthy garden studio */
+.shell{grid-template-rows:60px minmax(0,1fr)}.status,.bottomInfo,#newImgsBtn,#centerBtn,#unlockGroupBtn,#lockGroupBtn,#clearSelectBtn,#selectedCount,#detailsBtn,#assetCount,#count,#library>.stat,#library>.emptyNote,#multiEditing>.row,#multiEditing>p{display:none!important}
+.toolbar{justify-content:flex-end;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
+.toolbar button{flex:0 0 auto;padding:7px 9px}
+.sceneItem.selected,.sceneItem.groupSelected{outline:4px dashed #fff!important;outline-offset:6px;filter:drop-shadow(0 0 5px #fff9)}
+.sceneItem{cursor:move}
+.tabrow button{transition:transform .18s ease,box-shadow .18s ease;background:#456247;border-color:#7b946e}
+.tabrow button:nth-child(4n+2){background:#69583f;border-color:#ad9271}
+.tabrow button:nth-child(4n+3){background:#676846;border-color:#a8ac76}
+.tabrow button:nth-child(4n){background:#4b626d;border-color:#7e9aa7}
+.tabrow button:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 5px 14px #0006}
+.tabrow button.active{background:#e9deb9;color:#1b3020}
+.conditions>div:nth-child(1){background:#435f40;border-color:#829b68}
+.conditions>div:nth-child(2){background:#69563f;border-color:#a88d6c}
+.conditions>div:nth-child(3){background:#405a65;border-color:#7d9bac}
+.conditions>div b,.conditions>div p{color:#fff!important}
+.gardenFacts h4{color:#e4deb8;margin:15px 0 5px}.gardenFacts p{font-size:12px;line-height:1.65;margin:0}
+#search{margin-top:12px}
+@media(max-width:1050px){.shell{grid-template-rows:60px minmax(0,1fr)}.sidebar.left,.sidebar.right{bottom:0}#inspector.show{bottom:0}.toolbar{flex-wrap:wrap;overflow-y:auto;max-height:70dvh}}
 </style></head><body>
 <div class="shell leftClosed rightClosed">
 <header><div><div class="logo">🌿 Perennial <span>Home &amp; Gardens</span></div><div class="tag">Personal garden planner • experimental orchard</div></div>
-<button id="mobileToolsBtn" aria-label="Open garden tools" aria-expanded="false">☰ Tools</button><div class="toolbar"><button id="allPanelsBtn" title="Open or collapse both side panels">☰ Show panels</button><button id="openLib">🌱 Library</button><button id="jukeboxBtn" title="Play original garden ambience">♫ Garden Jukebox</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="fitBtn" title="Fit the garden vertically to your screen">⛶ Fit height</button><button id="fitAllBtn" title="Display the entire garden panorama without scrolling">▣ Show whole garden</button><button id="multiBtn" title="Select several objects: turn on then tap or Shift-click items">▦ Select multiple</button><button id="unlockGroupBtn" title="Unlock selected objects">🔓 Unlock selection</button><button id="lockGroupBtn" title="Lock selected objects">🔒 Lock selection</button><button id="clearSelectBtn" title="Deselect all selected garden items">✕ Deselect</button><span id="selectedCount" class="pill">0 selected</span><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
-<aside class="sidebar left" id="library"><button class="collapsePanel" id="collapseLeft" title="Collapse plant library" aria-label="Collapse plant library">❮</button><div style="display:flex;align-items:center;justify-content:space-between"><b>Garden asset library</b><span class="pill" id="assetCount">Loading</span></div><p class="stat">Select any image to place it onto the landscape. You can add several copies of the same plant.</p>
+<button id="mobileToolsBtn" aria-label="Open garden tools" aria-expanded="false">☰ Tools</button><div class="toolbar"><button id="allPanelsBtn" title="Open or collapse both side panels">☰ Show panels</button><button id="openLib">🌱 Library</button><button id="jukeboxBtn" title="Play original garden ambience">♫ Garden Jukebox</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="fitBtn" title="Fit the garden vertically to your screen">⛶ Fit height</button><button id="fitAllBtn" title="Display the entire garden panorama without scrolling">▣ Show whole garden</button><button id="multiBtn" title="Select several objects: turn on then tap or Shift-click items">▦ Select multiple</button><button id="unlockGroupBtn" title="Unlock selected objects">🔓 Unlock selection</button><button id="lockGroupBtn" title="Lock selected objects">🔒 Lock selection</button><button id="clearSelectBtn" title="Deselect all selected garden items">✕ Deselect</button><span id="selectedCount" class="pill">0 selected</span><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="redoBtn" title="Redo last undone change">↷ Redo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
+<aside class="sidebar left" id="library"><button class="collapsePanel" id="collapseLeft" title="Collapse plant library" aria-label="Collapse plant library">❮</button><div style="display:flex;align-items:center;justify-content:space-between"><b>Garden Library</b><span class="pill" id="assetCount">Loading</span></div><p class="stat">Select any image to place it onto the landscape. You can add several copies of the same plant.</p>
 <input id="search" class="search" placeholder="Find a tree, crop or bed..." aria-label="Search garden items">
-<div class="tabrow"><button data-tab="all" class="active">All</button><button data-tab="extras">✨ New (10)</button><button data-tab="trees">Trees</button><button data-tab="flowers">Flowers</button><button data-tab="vegetables">Vegetables</button><button data-tab="beds">Raised beds</button><button data-tab="shrubs">Shrubs</button></div>
+<div class="tabrow"><button data-tab="all" class="active">All</button><button data-tab="fruit">Fruit</button><button data-tab="trees">Trees</button><button data-tab="flowers">Flowers</button><button data-tab="vegetables">Vegetables</button><button data-tab="beds">Raised beds</button><button data-tab="shrubs">Shrubs</button><button data-tab="herbs">Herbs</button></div>
 <div class="assets" id="assets"></div>
 <div class="sectionTitle">Your garden</div><div id="count" class="stat"></div><div class="emptyNote">All changes save automatically in this browser. Export a JSON backup before switching browsers or devices. The garden positions are yours to arrange.</div>
 </aside>
-<main class="center"><div class="floatBar"><button id="zoomOut">−</button><span class="tiny" id="zoomPct">100%</span><button id="zoomIn">+</button><button id="showGrid">Grid</button><button id="showNames">Labels</button><button id="viewBtn">Angled view</button><button id="setResetBtn" title="Store your exact current layout as your personal reset point">★ Save current as reset</button><button id="resetBtn" title="Restore the last layout you explicitly saved as the reset point">↺ Restore saved reset</button></div>
+<main class="center"><div class="floatBar"><button id="zoomOut">−</button><span class="tiny" id="zoomPct">100%</span><button id="zoomIn">+</button><button id="showGrid">Grid</button><button id="showNames">Labels</button><button id="viewBtn">Angled view</button><button id="setResetBtn" title="Save current layout as your restore point">★ Save</button><button id="resetBtn" title="Restore the last saved layout">↺ Restore</button></div>
 <div id="viewport"><div id="stage"><div id="canvas"><div class="gridOverlay"></div></div></div></div><div class="bottomInfo">Click an item • Drag handles to resize • Locked? Tap Unlock • Swipe sideways to explore</div></main>
 <aside class="sidebar right" id="inspector"><button class="collapsePanel" id="collapseRight" title="Collapse details panel" aria-label="Collapse details panel">❯</button><div style="display:flex;justify-content:space-between;align-items:center"><h2>Garden Details</h2><button id="closeInspector">✕</button></div>
-<div id="multiEditing" hidden><h3 id="multiSummary">Multiple objects selected</h3><p>Move the group together by dragging an unlocked selected item. Unlock the group above if necessary. Your plants will keep their relative positions.</p><div class="row"><button id="multiUnlock">🔓 Unlock selected</button><button id="multiLock">🔒 Lock selected</button></div><div class="row"><button id="multiClear">Deselect all</button></div></div><div id="nothing"><p>Choose any garden object to adjust its name, size, orientation, location, notes and future links.</p><div class="emptyNote">A draft starter layout is supplied. You can clear or reposition everything to match your real garden.</div></div>
+<div id="multiEditing" hidden><h3 id="multiSummary">Multiple objects selected</h3><p>Move the group together by dragging an unlocked selected item. Unlock the group above if necessary. Your plants will keep their relative positions.</p><div class="row"><button id="multiUnlock">🔓 Unlock selected</button><button id="multiLock">🔒 Lock selected</button></div><div class="row"><button id="multiClear">Deselect all</button></div></div><div id="nothing"><h3>Our Garden Details</h3><p>Waldorf, Maryland · Zone 7b · Approximately 7.5 acres, with landscaped beds and an orchard along roughly 150 feet of fence.</p><div class="gardenFacts"><h4>Our nine fruit trees</h4><p>Large plum · Molly apple · Liberty apple · Gala apple · Williams Pride apple · Crabapple · Peach · Dwarf peach · Dwarf pear</p><h4>Berries & edible garden</h4><p>Five blueberry plants including Pink Lemonade varieties; strawberries, mint, sage, rosemary, cucumbers and other seasonal vegetables.</p><h4>Flowers, herbs & perennials</h4><p>Roses (3), peonies (3), lavender (2), salvia, catnip, creeping thyme, comfrey (10–12), blue irises, yarrow, blue globe thistle, blue star sea holly, alliums and wildflowers.</p><h4>Beds & containers</h4><p>Raised beds including 12 × 4 ft, 3 × 14 ft and 3 × 6 ft beds, deeper beds, concrete-block borders and large growing containers.</p></div></div>
 <div id="editing" hidden><img id="preview" class="preview" alt="Selected plant preview"><label for="objectName">Display name</label><input id="objectName"><div id="guideArea" class="guideArea">
 <div class="guideTop"><span id="guideType" class="pill"></span><span class="dim">Maryland Zone 7b • General guidance</span></div>
 <div class="conditions"><div><b>☀ Sunlight</b><p id="guideSun"></p></div><div><b>🌱 Soil</b><p id="guideSoil"></p></div><div><b>💧 Water</b><p id="guideWater"></p></div></div>
@@ -156,8 +176,8 @@ const files=[
 {url:'home_garden_additional_assets.zip',category:'extras'}
 ];
 const prettify=n=>n.replace(/\.png$/i,'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()).replace('Crepe','Crape');
-const catalog=[],cache=new Map(), history=[];let items=[],seq=1,selected=null,selection=new Set(),multiMode=false,zoom=.8,showNames=false,grid=false,angled=false,tab='all',drag=null,pan=null;
-const groupFor=(file,name)=>file.category==='beds'?'beds':file.category==='vegetables'?'vegetables':/gate/.test(name)?'beds':/blueberry/.test(name)?'shrubs':/rose|peon|iris|thyme|salvia|lavender|echinacea|coneflower|rosemary|sage|mint|strawberr|catnip/.test(name)?'flowers':/shrub|juniper|euonymus/.test(name)?'shrubs':'trees';
+const catalog=[],cache=new Map(), history=[],redoHistory=[];let items=[],seq=1,selected=null,selection=new Set(),multiMode=false,zoom=.8,showNames=false,grid=false,angled=false,tab='all',drag=null,pan=null;
+const groupFor=(file,name)=>file.category==='beds'?'beds':file.category==='vegetables'?'vegetables':/gate/.test(name)?'beds':/blueberry|strawberr|raspberr|blackberr/.test(name)?'fruit':/rosemary|sage|mint|catnip|basil|parsley|chive|oregano|thyme/.test(name)?'herbs':/rose|peon|iris|salvia|lavender|echinacea|coneflower|allium|yarrow/.test(name)?'flowers':/shrub|juniper|euonymus/.test(name)?'shrubs':'trees';
 const status=s=>$('status').textContent=s;
 const escapeText=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function setZoom(z){zoom=Math.max(.15,Math.min(1.6,z));canvas.style.transform='scale('+zoom+')'+(angled?' perspective(1500px) rotateX(6deg)':'');canvas.style.setProperty('--handle-scale',String(1/zoom));stage.style.width=(4400*zoom)+'px';stage.style.height=(1500*zoom)+'px';$('zoomPct').textContent=Math.round(zoom*100)+'%';vp.scrollTop=0;}
@@ -170,13 +190,15 @@ $('allPanelsBtn').onclick=()=>{const sh=document.querySelector('.shell'),closed=
 $('collapseRight').onclick=()=>{document.querySelector('.shell').classList.toggle('rightClosed');applyPanelState()};
 $('fitBtn').onclick=fitScreen;
 function scrollCenter(){vp.scrollLeft=Math.max(0,(stage.offsetWidth-vp.clientWidth)/2);vp.scrollTop=0;}
-function snapshot(){history.push(JSON.stringify(items));if(history.length>35)history.shift();}
+function snapshot(){history.push(JSON.stringify(items));if(history.length>100)history.shift();redoHistory.length=0;updateHistoryButtons();}
+function updateHistoryButtons(){ $('undoBtn').disabled=!history.length;$('redoBtn').disabled=!redoHistory.length; }
 function save(){try{localStorage.setItem(keys.layout,JSON.stringify({version:2,items,seq}))}catch(e){status('Storage is unavailable: export your garden to preserve changes.');}}
 function startSample(){const a=[];function one(id,x,y,w,d,n){a.push({id:seq++,asset:id,x,y,w,d,rot:0,name:n||prettify(id.split('/').pop()),notes:'',url:'',locked:false})}
 one('garden/large_plum.png',2050,430,14,14,'Large plum');one('garden/crabapple.png',1590,420,9,9,'Crabapple');one('garden/molly_apple.png',2520,430,10,10,'Molly apple');one('garden/gala_apple.png',3000,420,10,10,'Gala apple');one('garden/liberty_apple.png',3440,420,10,10,'Liberty apple');one('garden/dwarf_pear.png',890,440,7,7,'Multi-graft pear');one('garden/dwarf_peach.png',1130,440,7,7,'Dwarf peach');one('garden/hot_pink_rose.png',480,850,7,7,'Hot pink rose');one('garden/white_peonies.png',670,830,5,5,'White peonies');
 one('beds/log_bed_overhead.png',2330,880,12,8,'Log garden bed');one('beds/metal_square_overhead.png',2880,865,4,4,'Square metal bed');one('beds/metal_oval_overhead.png',3230,860,3.5,2.5,'Oval metal bed');
 return a}
-try{let v=JSON.parse(localStorage.getItem(keys.layout));items=Array.isArray(v?.items)?v.items:startSample();seq=Math.max(v?.seq||1,...items.map(i=>(Number(i.id)||0)+1))}catch(e){items=startSample()}
+try{let v=JSON.parse(localStorage.getItem(keys.layout));items=Array.isArray(v?.items)?v.items:startSample();items.forEach(o=>o.locked=false);seq=Math.max(v?.seq||1,...items.map(i=>(Number(i.id)||0)+1))}catch(e){items=startSample()}
+save();
 function toPX(item){const px=13;return {w:Math.max(55,item.w*px),h:Math.max(55,item.d*px)}}
 function itemNode(o){
  const el=document.createElement('div');el.className='sceneItem'+(selection.has(o.id)?' groupSelected':'')+(o.id===selected && selection.size===1?' selected':'')+(o.locked?' locked':'');el.dataset.id=o.id;
@@ -218,7 +240,7 @@ function itemNode(o){
    else if(selection.size===1){selected=o.id;}
    const moving=items.filter(a=>selection.has(a.id)&&!a.locked);
    if(moving.length){
-     snapshot();drag={mode:'groupMove',pointerId:e.pointerId,sx:e.clientX,sy:e.clientY,originals:moving.map(a=>({id:a.id,x:a.x,y:a.y}))};
+     snapshot();drag={mode:'groupMove',id:o.id,pointerId:e.pointerId,sx:e.clientX,sy:e.clientY,originals:moving.map(a=>({id:a.id,x:a.x,y:a.y}))};
    }else{status('Selection is locked. Use Unlock selection to move or resize.');}
    render();inspector();updateSelectionBar();
  });
@@ -301,7 +323,7 @@ function setGroupLocked(locked){
  snapshot();for(const o of group)o.locked=locked;refresh();
 }
 function clearSelection(){selection.clear();selected=null;render();inspector();updateSelectionBar();}
-$('multiBtn').onclick=()=>{multiMode=!multiMode;updateSelectionBar();status(multiMode?'Tap items to select multiple. Tap again to finish selection.':'Multi-selection mode off. Shift-click still selects multiple.');};
+$('multiBtn').onclick=()=>{multiMode=!multiMode;updateSelectionBar();status('Garden ready');};
 $('lockGroupBtn').onclick=()=>setGroupLocked(true);
 $('unlockGroupBtn').onclick=()=>setGroupLocked(false);
 $('multiLock').onclick=()=>setGroupLocked(true);
@@ -311,7 +333,7 @@ $('clearSelectBtn').onclick=clearSelection;
 $('mobileToolsBtn').onclick=()=>{const tools=document.querySelector('.toolbar');const open=tools.classList.toggle('mobileOpen');$('mobileToolsBtn').setAttribute('aria-expanded',String(open));};
 function current(){return selection.size===1?items.find(i=>i.id===selected):null;}
 
-function refresh(){save();render();inspector()}
+function refresh(){save();render();inspector();updateHistoryButtons()}
 function update(k,v){const o=current();if(!o)return;o[k]=v;save();render()}
 for(const [id,key,num] of [['objectName','name',false],['objectNotes','notes',false],['objectUrl','url',false],['objectVideoUrl','videoUrl',false],['objectWidth','w',true],['objectDepth','d',true],['objectAngle','rot',true]])$(id).addEventListener('change',e=>{snapshot();update(key,num?Math.max(0.5,Number(e.target.value)||1):e.target.value);inspector()});
 $('rotateLeft').onclick=()=>{if(!current())return;snapshot();current().rot=(current().rot+270)%360;refresh()};
@@ -324,7 +346,7 @@ $('closeInspector').onclick=()=>$('inspector').classList.remove('show');
 document.addEventListener('pointermove',e=>{
  if(drag){
    if(e.pointerId!==drag.pointerId)return;
-   const o=items.find(i=>i.id===drag.id);if(!o)return;
+   const o=drag.mode==='groupMove'?items.find(i=>i.id===drag.originals[0]?.id):items.find(i=>i.id===drag.id);if(!o)return;
    const dx=(e.clientX-drag.sx)/zoom,dy=(e.clientY-drag.sy)/zoom;
    const n=canvas.querySelector('.sceneItem[data-id="'+o.id+'"]');
    if(drag.mode==='groupMove'){
@@ -372,22 +394,23 @@ vp.addEventListener('wheel',e=>{if(e.ctrlKey){e.preventDefault();setZoom(zoom+(e
 vp.addEventListener('dragover',e=>e.preventDefault());
 vp.addEventListener('drop',e=>{e.preventDefault();const id=e.dataTransfer?.getData('text/plain');if(!id||!cache.has(id))return;const rect=canvas.getBoundingClientRect();addItem(id,(e.clientX-rect.left)/zoom,(e.clientY-rect.top)/zoom)});
 function addItem(id,x,y){const kind=id.split('/')[0],file=id.split('/').pop();const bed=kind==='beds',tree=kind==='garden'&&/apple|pear|peach|plum|cherry|pine|dogwood|gum|myrtle/.test(file);const o={id:seq++,asset:id,x:x??(vp.scrollLeft+vp.clientWidth/2)/zoom,y:y??(vp.scrollTop+vp.clientHeight/2)/zoom,w:bed?(/log/.test(file)?12:/rectangle/.test(file)?5:4):tree?9:4,d:bed?(/log/.test(file)?8:4):tree?9:4,rot:0,name:prettify(file),notes:'',url:'',locked:false};snapshot();items.push(o);selected=o.id;selection=new Set([o.id]);refresh();status('Added '+o.name+' — drag it to the correct location.');}
-let lastTab='all';$('newImgsBtn').onclick=()=>{lastTab='extras';$('search').value='';document.querySelectorAll('[data-tab]').forEach(k=>k.classList.toggle('active',k.dataset.tab==='extras'));drawLibrary();$('library').classList.add('show');};document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{lastTab=b.dataset.tab;document.querySelectorAll('[data-tab]').forEach(k=>k.classList.toggle('active',k===b));drawLibrary()});
+let lastTab='all';document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{lastTab=b.dataset.tab;document.querySelectorAll('[data-tab]').forEach(k=>k.classList.toggle('active',k===b));drawLibrary()});
 $('search').addEventListener('input',drawLibrary);
-function drawLibrary(){const term=$('search').value.toLowerCase().trim();assetsEl.replaceChildren();const groupLabels={trees:'Fruit & landscape trees',flowers:'Flowers & groundcovers',shrubs:'Shrubs',vegetables:'Vegetables',beds:'Raised beds'};let shown=0;
-for(const group of ['trees','shrubs','flowers','vegetables','beds']){const list=catalog.filter(a=>a.group===group&&(lastTab==='all'||lastTab===group||(lastTab==='extras'&&a.source==='extras'))&&a.label.toLowerCase().includes(term));if(!list.length)continue;const head=document.createElement('div');head.className='catalog-group';head.textContent=groupLabels[group];assetsEl.append(head);
+function drawLibrary(){const term=$('search').value.toLowerCase().trim();assetsEl.replaceChildren();const groupLabels={trees:'Trees',fruit:'Fruit & berries',flowers:'Flowers & groundcovers',shrubs:'Shrubs',herbs:'Herbs',vegetables:'Vegetables',beds:'Raised beds'};let shown=0;
+for(const group of ['trees','fruit','shrubs','flowers','herbs','vegetables','beds']){const list=catalog.filter(a=>a.group===group&&(lastTab==='all'||lastTab===group||(lastTab==='extras'&&a.source==='extras'))&&a.label.toLowerCase().includes(term));if(!list.length)continue;const head=document.createElement('div');head.className='catalog-group';head.textContent=groupLabels[group];assetsEl.append(head);
 for(const a of list){shown++;const b=document.createElement('button');b.className='asset';b.title='Click to add • drag onto garden';b.draggable=true;const img=document.createElement('img');img.src=cache.get(a.id);img.loading='lazy';img.alt='';const t=document.createElement('small');t.textContent=a.label;b.append(img,t);b.onclick=()=>{addItem(a.id);if(matchMedia('(max-width:620px)').matches)$('library').classList.remove('show')};b.addEventListener('dragstart',e=>e.dataTransfer.setData('text/plain',a.id));assetsEl.append(b)}}
 if(!shown){const note=document.createElement('div');note.className='dim';note.textContent='No matching assets loaded.';assetsEl.append(note)}
 $('assetCount').textContent=catalog.length+' images'}
 async function loadAssets(){if(!window.JSZip){status('Image archive reader unavailable. Check your connection and reload.');return}
 let successes=0;const loadErrors=[];for(const source of files){try{status('Loading '+source.category+' collection…');const res=await fetch(source.url,{cache:'force-cache'});if(!res.ok)throw Error('HTTP '+res.status);const zip=await JSZip.loadAsync(await res.arrayBuffer());const entries=Object.keys(zip.files).filter(k=>/\.png$/i.test(k)&&!zip.files[k].dir);
 for(const path of entries){const name=path.split('/').pop(),id=source.category+'/'+name;if(cache.has(id))continue;const blob=await zip.files[path].async('blob');const url=URL.createObjectURL(new Blob([blob],{type:'image/png'}));cache.set(id,url);catalog.push({id,label:prettify(name),group:groupFor(source,name),source:source.category})}successes++}catch(e){loadErrors.push(source.url+': '+e.message);status('Could not load '+source.url+': '+e.message);}}
-catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();const extrasCount=catalog.filter(a=>a.source==='extras').length;$('newImgsBtn').textContent='✨ New images ('+extrasCount+')';if(extrasCount!==10){$('newImgsBtn').style.borderColor='#f4a87a';$('newImgsBtn').title='Only '+extrasCount+' of 10 expected images loaded';}status('Garden Studio Build 7 • '+catalog.length+' images • New images: '+extrasCount+'/10 • ZIP archives: '+successes+'/'+files.length+(loadErrors.length?' • Errors: '+loadErrors.join(' | '):' • Autosave ON'));}
+catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();status(loadErrors.length?'Some garden images did not load: '+loadErrors.join(' | '):'Garden ready');}
 $('zoomIn').onclick=()=>setZoom(zoom+.15);$('zoomOut').onclick=()=>setZoom(zoom-.15);$('centerBtn').onclick=scrollCenter;$('showGrid').onclick=()=>{grid=!grid;canvas.classList.toggle('grid',grid);$('showGrid').classList.toggle('active',grid)};$('showNames').onclick=()=>{showNames=!showNames;$('showNames').classList.toggle('active',showNames);render()};
 $('viewBtn').onclick=()=>{angled=!angled;$('viewBtn').classList.toggle('active',angled);$('viewBtn').textContent=angled?'Overhead view':'Angled view';setZoom(zoom)};
 $('setResetBtn').onclick=()=>{if(!confirm('Save your exact CURRENT garden positions as the reset layout? This will replace your previous saved reset, but will NOT move anything now.'))return;try{localStorage.setItem(keys.reset,JSON.stringify({version:2,items:JSON.parse(JSON.stringify(items)),seq,saved:new Date().toISOString()}));status('Current garden saved as your personal reset layout • '+items.length+' items. Keep a JSON export too.');}catch(e){alert('Could not save reset point: '+e.message)}};
 $('resetBtn').onclick=()=>{const v=localStorage.getItem(keys.reset);if(!v){alert('No personal reset has been saved yet. Click "Save current as reset" first. Nothing has been moved.');return;}if(!confirm('Restore the layout you last saved as your personal reset point? Your current arrangement will be replaced. Export a backup first if needed.'))return;try{const saved=JSON.parse(v);if(!Array.isArray(saved.items))throw Error('Invalid reset layout');snapshot();items=JSON.parse(JSON.stringify(saved.items));seq=Math.max(saved.seq||1,...items.map(i=>(Number(i.id)||0)+1));selected=null;selection.clear();refresh();scrollCenter();status('Restored your saved personal reset layout.');}catch(e){alert('Unable to restore reset: '+e.message)}};
-$('undoBtn').onclick=()=>{if(!history.length)return;items=JSON.parse(history.pop());selected=null;refresh()};
+$('undoBtn').onclick=()=>{if(!history.length)return;redoHistory.push(JSON.stringify(items));items=JSON.parse(history.pop());selected=null;selection.clear();refresh()};
+$('redoBtn').onclick=()=>{if(!redoHistory.length)return;history.push(JSON.stringify(items));items=JSON.parse(redoHistory.pop());selected=null;selection.clear();refresh()};
 
 async function downloadGardenImage(){
  const button=$('imageExportBtn');button.disabled=true;button.textContent='⏳ Rendering...';
@@ -437,7 +460,7 @@ $('imageExportBtn').onclick=downloadGardenImage;
 
 $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({version:2,items,seq,created:new Date().toISOString()},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='home-garden-layout-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)};
 $('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{try{const f=e.target.files?.[0];if(!f)return;const v=JSON.parse(await f.text());if(!Array.isArray(v.items))throw Error('Not a garden layout');snapshot();items=v.items;seq=Math.max(...items.map(o=>Number(o.id)||0),0)+1;selected=null;selection.clear();refresh();status('Garden layout imported successfully.')}catch(e){alert('Cannot import file: '+e.message)}finally{e.target.value=''}};
-$('openLib').onclick=()=>$('library').classList.toggle('show');$('detailsBtn').onclick=()=>$('inspector').classList.toggle('show');document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if((e.key==='Delete'||e.key==='Backspace')&&current()&&!current().locked){snapshot();items=items.filter(o=>o.id!==selected);selected=null;refresh()}if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();$('undoBtn').click()}});
-setZoom(zoom);render();applyPanelState();setTimeout(()=>{fitScreen();scrollCenter()},100);window.addEventListener('load',loadAssets);
+$('openLib').onclick=()=>$('library').classList.toggle('show');$('detailsBtn').onclick=()=>$('inspector').classList.toggle('show');document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if((e.key==='Delete'||e.key==='Backspace')&&current()&&!current().locked){snapshot();items=items.filter(o=>o.id!==selected);selected=null;refresh()}if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();(e.shiftKey?$('redoBtn'):$('undoBtn')).click()}else if((e.ctrlKey||e.metaKey)&&e.key==='y'){e.preventDefault();$('redoBtn').click()}});
+document.querySelector('.toolbar').append(...document.querySelector('.floatBar').children);document.querySelector('.floatBar').remove();updateHistoryButtons();setZoom(zoom);render();inspector();applyPanelState();setTimeout(()=>{fitScreen();scrollCenter()},100);window.addEventListener('load',loadAssets);
 })();
 </script></body></html>
