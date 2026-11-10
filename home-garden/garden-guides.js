@@ -112,7 +112,8 @@ window.PHG_GUIDES={
   const v=entries[key]||entries.tree;
   const specific=filename.replace(/\b\w/g,c=>c.toUpperCase());
   const query=key==='beds'?'raised bed vegetable gardening':key==='fence'?'chain link garden gate installation':specific+' growing care university extension';
-  return {key,title:specific,type:v[0],overview:v[1],spring:v[3],summer:v[4],fall:v[5],winter:v[2],pests:v[6],source:v[7],verifiedVideoId:v[8]||'',videoQuery:query,searchUrl:'https://www.youtube.com/results?search_query='+encodeURIComponent(query)};
+  const specialistSources={blueberry:'https://extension.umd.edu/resource/growing-blueberries-home-garden',echinacea:'https://www.extension.umd.edu/resource/aster-yellows-disease-flowers'};
+  return {key,title:specific,type:v[0],overview:v[1],spring:v[3],summer:v[4],fall:v[5],winter:v[2],pests:v[6],source:specialistSources[key]||v[7],verifiedVideoId:v[8]||'',videoQuery:query,searchUrl:'https://www.youtube.com/results?search_query='+encodeURIComponent(query)};
  },
  references:{fruit,veg,fruitCare,vegetableCare,flowering}
 };
