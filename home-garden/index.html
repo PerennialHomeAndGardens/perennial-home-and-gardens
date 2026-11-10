@@ -39,7 +39,7 @@ header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c
 </style></head><body>
 <div class="shell">
 <header><div><div class="logo">🌿 Perennial <span>Home Garden</span></div><div class="tag">Personal garden planner • experimental orchard</div></div>
-<div class="toolbar"><button id="openLib">🌱 Library</button><button id="centerBtn">⌖ Center</button><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="exportBtn">⇩ Export</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
+<div class="toolbar"><button id="openLib">🌱 Library</button><button id="centerBtn">⌖ Center</button><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
 <aside class="sidebar left" id="library"><div style="display:flex;align-items:center;justify-content:space-between"><b>Garden asset library</b><span class="pill" id="assetCount">Loading</span></div><p class="stat">Select any image to place it onto the landscape. You can add several copies of the same plant.</p>
 <input id="search" class="search" placeholder="Find a tree, crop or bed..." aria-label="Search garden items">
 <div class="tabrow"><button data-tab="all" class="active">All</button><button data-tab="trees">Trees</button><button data-tab="flowers">Flowers</button><button data-tab="vegetables">Vegetables</button><button data-tab="beds">Raised beds</button><button data-tab="shrubs">Shrubs</button></div>
@@ -121,6 +121,53 @@ $('zoomIn').onclick=()=>setZoom(zoom+.15);$('zoomOut').onclick=()=>setZoom(zoom-
 $('viewBtn').onclick=()=>{angled=!angled;$('viewBtn').classList.toggle('active',angled);$('viewBtn').textContent=angled?'Overhead view':'Angled view';setZoom(zoom)};
 $('resetBtn').onclick=()=>{if(!confirm('Replace the current arrangement with the rough starter layout? Export a backup first if needed.'))return;snapshot();items=startSample();selected=null;refresh();scrollCenter()};
 $('undoBtn').onclick=()=>{if(!history.length)return;items=JSON.parse(history.pop());selected=null;refresh()};
+
+async function downloadGardenImage(){
+ const button=$('imageExportBtn');button.disabled=true;button.textContent='⏳ Rendering...';
+ try{
+   const width=4400,height=1500;
+   const result=document.createElement('canvas');result.width=width;result.height=height;
+   const ctx=result.getContext('2d');if(!ctx)throw Error('Image canvas is not available');
+   ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+   const bg=new Image();bg.decoding='async';bg.src='./home_garden_panorama_6k.webp';
+   await bg.decode();
+   ctx.fillStyle='#789b67';ctx.fillRect(0,0,width,height);
+   ctx.drawImage(bg,0,0,width,height);
+   const load=(url)=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=url;});
+   const unique=[...new Set(items.map(o=>o.asset))].filter(id=>cache.has(id));
+   const resolved=await Promise.all(unique.map(async id=>{try{return [id,await load(cache.get(id))]}catch(e){return [id,null]}}));
+   const images=new Map(resolved);
+   // Draw images in the same stacking order as the on-screen objects. No layout changes.
+   for(const o of items){
+     const pic=images.get(o.asset),px=13,ow=Math.max(55,o.w*px),oh=Math.max(55,o.d*px);
+     const midX=o.x+ow/2,midY=o.y+oh/2;
+     ctx.save();ctx.translate(midX,midY);ctx.rotate((Number(o.rot)||0)*Math.PI/180);
+     if(pic && pic.naturalWidth){
+       const factor=Math.min(ow/pic.naturalWidth,oh/pic.naturalHeight);
+       const dw=pic.naturalWidth*factor,dh=pic.naturalHeight*factor;
+       ctx.drawImage(pic,-dw/2,-dh/2,dw,dh);
+     } else {
+       ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='48px sans-serif';ctx.fillText('🌿',0,0);
+     }
+     if(showNames){
+       ctx.save();ctx.font='bold 15px system-ui,sans-serif';
+       const label=String(o.name||'Garden item');
+       const lw=Math.min(ctx.measureText(label).width,220);
+       ctx.fillStyle='#103120e8';ctx.fillRect(-lw/2-9,oh/2+6,lw+18,24);
+       ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(label,0,oh/2+18,220);ctx.restore();
+     }
+     ctx.restore();
+   }
+   const blob=await new Promise((resolve,reject)=>result.toBlob(b=>b?resolve(b):reject(Error('PNG export failed')),'image/png'));
+   const url=URL.createObjectURL(blob),a=document.createElement('a');
+   a.href=url;a.download='perennial-home-garden-'+new Date().toISOString().slice(0,10)+'.png';
+   document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+   status('Complete garden image downloaded as a '+width+' × '+height+' PNG. Your editable layout remains unchanged.');
+ }catch(error){status('Image download failed: '+error.message);alert('Could not create garden image: '+error.message);}
+ finally{button.disabled=false;button.textContent='📷 Download image';}
+}
+$('imageExportBtn').onclick=downloadGardenImage;
+
 $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({version:2,items,seq,created:new Date().toISOString()},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='home-garden-layout-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)};
 $('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{try{const f=e.target.files?.[0];if(!f)return;const v=JSON.parse(await f.text());if(!Array.isArray(v.items))throw Error('Not a garden layout');snapshot();items=v.items;seq=Math.max(...items.map(o=>Number(o.id)||0),0)+1;selected=null;refresh();status('Garden layout imported successfully.')}catch(e){alert('Cannot import file: '+e.message)}finally{e.target.value=''}};
 $('openLib').onclick=()=>$('library').classList.toggle('show');$('detailsBtn').onclick=()=>$('inspector').classList.toggle('show');document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if((e.key==='Delete'||e.key==='Backspace')&&current()&&!current().locked){snapshot();items=items.filter(o=>o.id!==selected);selected=null;refresh()}if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();$('undoBtn').click()}});
