@@ -131,17 +131,34 @@ header{height:60px;gap:8px}#mobileToolsBtn{display:inline-flex;align-items:cente
 .gardenFacts h4{color:#e4deb8;margin:15px 0 5px}.gardenFacts p{font-size:12px;line-height:1.65;margin:0}
 #search{margin-top:12px}
 @media(max-width:1050px){.shell{grid-template-rows:60px minmax(0,1fr)}.sidebar.left,.sidebar.right{bottom:0}#inspector.show{bottom:0}.toolbar{flex-wrap:wrap;overflow-y:auto;max-height:70dvh}}
+
+/* Final typography, controls and accessible light writing surfaces */
+:root,html,body,button,input,select,textarea,label,summary{font-family:Georgia,'Times New Roman',serif!important}
+#search,.right input,.right textarea,.right select,#jukeboxVolume{background:#f5eedf!important;color:#233324!important;border:1px solid #a99c7b!important}
+#search::placeholder,.right input::placeholder,.right textarea::placeholder{color:#726e5d!important;opacity:1}
+#search:focus-visible,.right input:focus-visible,.right textarea:focus-visible,.right select:focus-visible{outline:3px solid #d6ce9b;outline-offset:1px}
+.resizeHandle{width:11px;height:11px;background:#fff!important;border:1.5px solid #3e5d45!important;border-radius:3px;box-shadow:0 1px 5px #0006}
+@media(pointer:coarse){.resizeHandle{width:17px;height:17px}}
+.toolbar{gap:4px}.toolbar button{font-size:11px!important;padding:6px 7px!important;line-height:1.18;background:#426b4b;border:1px solid #7b9a7c;color:#f9f8ef;transition:transform .18s ease,background-color .18s ease,box-shadow .18s ease}
+.toolbar button:not(:disabled):hover{background:#628a66;animation:toolbarLift .38s ease-in-out;box-shadow:0 4px 9px #071b0c55}
+.toolbar button.active{background:#d8dfb8;color:#1c3724}
+@keyframes toolbarLift{0%{transform:translateY(0)}48%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+#canvas .gridOverlay{background-size:88px 88px;background-image:linear-gradient(#fff9 1.5px,transparent 1.5px),linear-gradient(90deg,#fff9 1.5px,transparent 1.5px);background-color:#172d1615}
+#canvas.grid .gridOverlay{opacity:1}
+#viewport{scrollbar-gutter:auto}
+#canvas{background-position:center;background-repeat:no-repeat;background-size:100% 100%}
+@media(max-width:1050px){.toolbar{padding:8px;gap:6px}.toolbar button{padding:9px 10px!important;font-size:12px!important}}
 </style></head><body>
 <div class="shell leftClosed rightClosed">
 <header><div><div class="logo">🌿 Perennial <span>Home &amp; Gardens</span></div><div class="tag">Personal garden planner • experimental orchard</div></div>
-<button id="mobileToolsBtn" aria-label="Open garden tools" aria-expanded="false">☰ Tools</button><div class="toolbar"><button id="allPanelsBtn" title="Open or collapse both side panels">☰ Show panels</button><button id="openLib">🌱 Library</button><button id="jukeboxBtn" title="Play original garden ambience">♫ Garden Jukebox</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="fitBtn" title="Fit the garden vertically to your screen">⛶ Fit height</button><button id="fitAllBtn" title="Display the entire garden panorama without scrolling">▣ Show whole garden</button><button id="multiBtn" title="Select several objects: turn on then tap or Shift-click items">▦ Select multiple</button><button id="unlockGroupBtn" title="Unlock selected objects">🔓 Unlock selection</button><button id="lockGroupBtn" title="Lock selected objects">🔒 Lock selection</button><button id="clearSelectBtn" title="Deselect all selected garden items">✕ Deselect</button><span id="selectedCount" class="pill">0 selected</span><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="redoBtn" title="Redo last undone change">↷ Redo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
+<button id="mobileToolsBtn" aria-label="Open garden tools" aria-expanded="false">☰ Tools</button><div class="toolbar"><button id="allPanelsBtn" title="Open or collapse both side panels">☰ Show panels</button><button id="openLib">🌱 Library</button><button id="jukeboxBtn" title="Play original garden ambience">♫ Garden Jukebox</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="fitBtn" title="Fit the garden vertically to your screen">⛶ Fit height</button><button id="fitAllBtn" title="Display the entire garden panorama without scrolling">▣ Show whole garden</button><button id="multiBtn" title="Select several objects: turn on then tap or Shift-click items">▦ Select multiple</button><button id="unlockGroupBtn" title="Unlock selected objects">🔓 Unlock selection</button><button id="lockGroupBtn" title="Lock selected objects">🔒 Lock selection</button><button id="clearSelectBtn" title="Deselect all selected garden items">✕ Deselect</button><span id="selectedCount" class="pill">0 selected</span><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="redoBtn" title="Redo last undone change">↷ Redo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn" title="Import an editable JSON garden layout">⇧ Import layout</button><input type="file" id="importFile" accept=".json" hidden><button id="backgroundBtn" title="Upload your own background photograph">▧ Background</button><input type="file" id="backgroundFile" accept="image/png,image/jpeg,image/webp" hidden><button id="backgroundResetBtn" title="Restore the original garden panorama">↺ Original scene</button><button id="detailsBtn">Details</button></div></header>
 <aside class="sidebar left" id="library"><button class="collapsePanel" id="collapseLeft" title="Collapse plant library" aria-label="Collapse plant library">❮</button><div style="display:flex;align-items:center;justify-content:space-between"><b>Garden Library</b><span class="pill" id="assetCount">Loading</span></div><p class="stat">Select any image to place it onto the landscape. You can add several copies of the same plant.</p>
 <input id="search" class="search" placeholder="Find a tree, crop or bed..." aria-label="Search garden items">
 <div class="tabrow"><button data-tab="all" class="active">All</button><button data-tab="fruit">Fruit</button><button data-tab="trees">Trees</button><button data-tab="flowers">Flowers</button><button data-tab="vegetables">Vegetables</button><button data-tab="beds">Raised beds</button><button data-tab="shrubs">Shrubs</button><button data-tab="herbs">Herbs</button></div>
 <div class="assets" id="assets"></div>
 <div class="sectionTitle">Your garden</div><div id="count" class="stat"></div><div class="emptyNote">All changes save automatically in this browser. Export a JSON backup before switching browsers or devices. The garden positions are yours to arrange.</div>
 </aside>
-<main class="center"><div class="floatBar"><button id="zoomOut">−</button><span class="tiny" id="zoomPct">100%</span><button id="zoomIn">+</button><button id="showGrid">Grid</button><button id="showNames">Labels</button><button id="viewBtn">Angled view</button><button id="setResetBtn" title="Save current layout as your restore point">★ Save</button><button id="resetBtn" title="Restore the last saved layout">↺ Restore</button></div>
+<main class="center"><div class="floatBar"><button id="zoomOut">−</button><span class="tiny" id="zoomPct">100%</span><button id="zoomIn">+</button><button id="showGrid">Grid</button><button id="showNames">Labels</button><button id="setResetBtn" title="Save current layout as your restore point">★ Save</button><button id="resetBtn" title="Restore the last saved layout">↺ Restore</button></div>
 <div id="viewport"><div id="stage"><div id="canvas"><div class="gridOverlay"></div></div></div></div><div class="bottomInfo">Click an item • Drag handles to resize • Locked? Tap Unlock • Swipe sideways to explore</div></main>
 <aside class="sidebar right" id="inspector"><button class="collapsePanel" id="collapseRight" title="Collapse details panel" aria-label="Collapse details panel">❯</button><div style="display:flex;justify-content:space-between;align-items:center"><h2>Garden Details</h2><button id="closeInspector">✕</button></div>
 <div id="multiEditing" hidden><h3 id="multiSummary">Multiple objects selected</h3><p>Move the group together by dragging an unlocked selected item. Unlock the group above if necessary. Your plants will keep their relative positions.</p><div class="row"><button id="multiUnlock">🔓 Unlock selected</button><button id="multiLock">🔒 Lock selected</button></div><div class="row"><button id="multiClear">Deselect all</button></div></div><div id="nothing"><h3>Our Garden Details</h3><p>Waldorf, Maryland · Zone 7b · Approximately 7.5 acres, with landscaped beds and an orchard along roughly 150 feet of fence.</p><div class="gardenFacts"><h4>Our nine fruit trees</h4><p>Large plum · Molly apple · Liberty apple · Gala apple · Williams Pride apple · Crabapple · Peach · Dwarf peach · Dwarf pear</p><h4>Berries & edible garden</h4><p>Five blueberry plants including Pink Lemonade varieties; strawberries, mint, sage, rosemary, cucumbers and other seasonal vegetables.</p><h4>Flowers, herbs & perennials</h4><p>Roses (3), peonies (3), lavender (2), salvia, catnip, creeping thyme, comfrey (10–12), blue irises, yarrow, blue globe thistle, blue star sea holly, alliums and wildflowers.</p><h4>Beds & containers</h4><p>Raised beds including 12 × 4 ft, 3 × 14 ft and 3 × 6 ft beds, deeper beds, concrete-block borders and large growing containers.</p></div></div>
@@ -176,13 +193,13 @@ const files=[
 {url:'home_garden_additional_assets.zip',category:'extras'}
 ];
 const prettify=n=>n.replace(/\.png$/i,'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()).replace('Crepe','Crape');
-const catalog=[],cache=new Map(), history=[],redoHistory=[];let items=[],seq=1,selected=null,selection=new Set(),multiMode=false,zoom=.8,showNames=false,grid=false,angled=false,tab='all',drag=null,pan=null;
+const catalog=[],cache=new Map(), history=[],redoHistory=[];let items=[],seq=1,selected=null,selection=new Set(),multiMode=false,zoom=.8,showNames=false,grid=false,tab='all',drag=null,pan=null,customBackgroundUrl=null;
 const groupFor=(file,name)=>file.category==='beds'?'beds':file.category==='vegetables'?'vegetables':/gate/.test(name)?'beds':/blueberry|strawberr|raspberr|blackberr/.test(name)?'fruit':/rosemary|sage|mint|catnip|basil|parsley|chive|oregano|thyme/.test(name)?'herbs':/rose|peon|iris|salvia|lavender|echinacea|coneflower|allium|yarrow/.test(name)?'flowers':/shrub|juniper|euonymus/.test(name)?'shrubs':'trees';
 const status=s=>$('status').textContent=s;
 const escapeText=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function setZoom(z){zoom=Math.max(.15,Math.min(1.6,z));canvas.style.transform='scale('+zoom+')'+(angled?' perspective(1500px) rotateX(6deg)':'');canvas.style.setProperty('--handle-scale',String(1/zoom));stage.style.width=(4400*zoom)+'px';stage.style.height=(1500*zoom)+'px';$('zoomPct').textContent=Math.round(zoom*100)+'%';vp.scrollTop=0;}
-function fitScreen(){const safeH=Math.max(250,vp.clientHeight-8);setZoom(Math.max(.15,safeH/1500));vp.scrollTop=0;vp.scrollLeft=Math.max(0,(stage.offsetWidth-vp.clientWidth)/2);}
-function fitWholeGarden(){const availableW=Math.max(200,vp.clientWidth-6),availableH=Math.max(200,vp.clientHeight-6);setZoom(Math.max(.15,Math.min(availableW/4400,availableH/1500)));vp.scrollLeft=0;vp.scrollTop=0;}
+function setZoom(z){zoom=Math.max(.04,Math.min(1.6,z));canvas.style.transform='scale('+zoom+')';canvas.style.setProperty('--handle-scale',String(1/zoom));stage.style.width=(4400*zoom)+'px';stage.style.height=(1500*zoom)+'px';$('zoomPct').textContent=Math.round(zoom*100)+'%';vp.scrollTop=0;}
+function fitScreen(){const safeH=Math.max(100,vp.clientHeight-3);setZoom(safeH/1500);vp.scrollTop=0;vp.scrollLeft=Math.max(0,(stage.offsetWidth-vp.clientWidth)/2);}
+function fitWholeGarden(){const availableW=Math.max(200,vp.clientWidth-6),availableH=Math.max(200,vp.clientHeight-6);setZoom(Math.max(.04,Math.min(availableW/4400,availableH/1500)));vp.scrollLeft=0;vp.scrollTop=0;}
 $('fitAllBtn').onclick=fitWholeGarden;
 function applyPanelState(){const shell=document.querySelector('.shell'),left=shell.classList.contains('leftClosed'),right=shell.classList.contains('rightClosed');$('collapseLeft').textContent=left?'❯':'❮';$('collapseRight').textContent=right?'❮':'❯';$('collapseLeft').title=left?'Open plant library':'Collapse plant library';$('collapseRight').title=right?'Open details panel':'Collapse details panel';const closedBoth=left&&right;$('allPanelsBtn').textContent=closedBoth?'☰ Show panels':'☰ Hide panels';requestAnimationFrame(()=>{vp.scrollTop=0;vp.scrollLeft=Math.min(vp.scrollLeft,Math.max(0,stage.offsetWidth-vp.clientWidth))});}
 $('collapseLeft').onclick=()=>{document.querySelector('.shell').classList.toggle('leftClosed');applyPanelState()};
@@ -240,7 +257,7 @@ function itemNode(o){
    else if(selection.size===1){selected=o.id;}
    const moving=items.filter(a=>selection.has(a.id)&&!a.locked);
    if(moving.length){
-     snapshot();drag={mode:'groupMove',id:o.id,pointerId:e.pointerId,sx:e.clientX,sy:e.clientY,originals:moving.map(a=>({id:a.id,x:a.x,y:a.y}))};
+     drag={mode:'groupMove',started:false,id:o.id,pointerId:e.pointerId,sx:e.clientX,sy:e.clientY,originals:moving.map(a=>({id:a.id,x:a.x,y:a.y}))};
    }else{status('Selection is locked. Use Unlock selection to move or resize.');}
    render();inspector();updateSelectionBar();
  });
@@ -350,6 +367,7 @@ document.addEventListener('pointermove',e=>{
    const dx=(e.clientX-drag.sx)/zoom,dy=(e.clientY-drag.sy)/zoom;
    const n=canvas.querySelector('.sceneItem[data-id="'+o.id+'"]');
    if(drag.mode==='groupMove'){
+     if(!drag.started){if(Math.abs(dx)+Math.abs(dy)<2)return;snapshot();drag.started=true;}
      for(const origin of drag.originals){
        const member=items.find(i=>i.id===origin.id);if(!member)continue;
        member.x=Math.max(0,Math.min(4400-toPX(member).w,origin.x+dx));
@@ -384,7 +402,7 @@ document.addEventListener('pointermove',e=>{
  }
 },{passive:false});
 function finishPointer(e){
- if(drag && (!e||e.pointerId===drag.pointerId)){drag=null;save();render();inspector();}
+ if(drag && (!e||e.pointerId===drag.pointerId)){drag=null;save();render();inspector();updateHistoryButtons();}
  pan=null;vp.classList.remove('panning');
 }
 document.addEventListener('pointerup',finishPointer);
@@ -406,7 +424,7 @@ let successes=0;const loadErrors=[];for(const source of files){try{status('Loadi
 for(const path of entries){const name=path.split('/').pop(),id=source.category+'/'+name;if(cache.has(id))continue;const blob=await zip.files[path].async('blob');const url=URL.createObjectURL(new Blob([blob],{type:'image/png'}));cache.set(id,url);catalog.push({id,label:prettify(name),group:groupFor(source,name),source:source.category})}successes++}catch(e){loadErrors.push(source.url+': '+e.message);status('Could not load '+source.url+': '+e.message);}}
 catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();status(loadErrors.length?'Some garden images did not load: '+loadErrors.join(' | '):'Garden ready');}
 $('zoomIn').onclick=()=>setZoom(zoom+.15);$('zoomOut').onclick=()=>setZoom(zoom-.15);$('centerBtn').onclick=scrollCenter;$('showGrid').onclick=()=>{grid=!grid;canvas.classList.toggle('grid',grid);$('showGrid').classList.toggle('active',grid)};$('showNames').onclick=()=>{showNames=!showNames;$('showNames').classList.toggle('active',showNames);render()};
-$('viewBtn').onclick=()=>{angled=!angled;$('viewBtn').classList.toggle('active',angled);$('viewBtn').textContent=angled?'Overhead view':'Angled view';setZoom(zoom)};
+
 $('setResetBtn').onclick=()=>{if(!confirm('Save your exact CURRENT garden positions as the reset layout? This will replace your previous saved reset, but will NOT move anything now.'))return;try{localStorage.setItem(keys.reset,JSON.stringify({version:2,items:JSON.parse(JSON.stringify(items)),seq,saved:new Date().toISOString()}));status('Current garden saved as your personal reset layout • '+items.length+' items. Keep a JSON export too.');}catch(e){alert('Could not save reset point: '+e.message)}};
 $('resetBtn').onclick=()=>{const v=localStorage.getItem(keys.reset);if(!v){alert('No personal reset has been saved yet. Click "Save current as reset" first. Nothing has been moved.');return;}if(!confirm('Restore the layout you last saved as your personal reset point? Your current arrangement will be replaced. Export a backup first if needed.'))return;try{const saved=JSON.parse(v);if(!Array.isArray(saved.items))throw Error('Invalid reset layout');snapshot();items=JSON.parse(JSON.stringify(saved.items));seq=Math.max(saved.seq||1,...items.map(i=>(Number(i.id)||0)+1));selected=null;selection.clear();refresh();scrollCenter();status('Restored your saved personal reset layout.');}catch(e){alert('Unable to restore reset: '+e.message)}};
 $('undoBtn').onclick=()=>{if(!history.length)return;redoHistory.push(JSON.stringify(items));items=JSON.parse(history.pop());selected=null;selection.clear();refresh()};
@@ -419,7 +437,7 @@ async function downloadGardenImage(){
    const result=document.createElement('canvas');result.width=width;result.height=height;
    const ctx=result.getContext('2d');if(!ctx)throw Error('Image canvas is not available');
    ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
-   const bg=new Image();bg.decoding='async';bg.src='./home_garden_panorama_6k.webp';
+   const bg=new Image();bg.decoding='async';bg.src=customBackgroundUrl||'./home_garden_panorama_6k.webp';
    await bg.decode();
    ctx.fillStyle='#789b67';ctx.fillRect(0,0,width,height);
    ctx.drawImage(bg,0,0,width,height);
@@ -460,6 +478,19 @@ $('imageExportBtn').onclick=downloadGardenImage;
 
 $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({version:2,items,seq,created:new Date().toISOString()},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='home-garden-layout-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)};
 $('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{try{const f=e.target.files?.[0];if(!f)return;const v=JSON.parse(await f.text());if(!Array.isArray(v.items))throw Error('Not a garden layout');snapshot();items=v.items;seq=Math.max(...items.map(o=>Number(o.id)||0),0)+1;selected=null;selection.clear();refresh();status('Garden layout imported successfully.')}catch(e){alert('Cannot import file: '+e.message)}finally{e.target.value=''}};
+
+/* Uploaded scenes are retained in IndexedDB, separate from the garden's editable JSON layout. */
+const bgDatabase='phg-garden-scene-v1';
+function openSceneStore(){return new Promise((resolve,reject)=>{const request=indexedDB.open(bgDatabase,1);request.onupgradeneeded=()=>request.result.createObjectStore('backgrounds');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)})}
+async function readScene(){const db=await openSceneStore();return new Promise((resolve,reject)=>{const request=db.transaction('backgrounds','readonly').objectStore('backgrounds').get('current');request.onsuccess=()=>{db.close();resolve(request.result)};request.onerror=()=>{db.close();reject(request.error)}})}
+async function writeScene(blob){const db=await openSceneStore();return new Promise((resolve,reject)=>{const tx=db.transaction('backgrounds','readwrite');tx.objectStore('backgrounds').put(blob,'current');tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>{db.close();reject(tx.error)}})}
+async function eraseScene(){const db=await openSceneStore();return new Promise((resolve,reject)=>{const tx=db.transaction('backgrounds','readwrite');tx.objectStore('backgrounds').delete('current');tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>{db.close();reject(tx.error)}})}
+function applyScene(blob){if(customBackgroundUrl)URL.revokeObjectURL(customBackgroundUrl);customBackgroundUrl=blob?URL.createObjectURL(blob):null;canvas.style.backgroundImage='url("'+(customBackgroundUrl||'./home_garden_panorama_6k.webp')+'")'}
+$('backgroundBtn').onclick=()=>$('backgroundFile').click();
+$('backgroundFile').onchange=async e=>{try{const file=e.target.files?.[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type))throw Error('Select a PNG, JPG or WebP picture');const test=new Image();const testUrl=URL.createObjectURL(file);try{test.src=testUrl;await test.decode()}finally{URL.revokeObjectURL(testUrl)}await writeScene(file);applyScene(file);status('Your garden background was saved in this browser.');}catch(error){alert('Could not import background: '+error.message)}finally{e.target.value=''}};
+$('backgroundResetBtn').onclick=async()=>{if(!confirm('Restore the original garden background? Placed garden objects will stay as they are.'))return;try{await eraseScene();applyScene(null)}catch(error){alert('Could not restore background: '+error.message)}};
+readScene().then(blob=>{if(blob)applyScene(blob)}).catch(()=>{});
+
 $('openLib').onclick=()=>$('library').classList.toggle('show');$('detailsBtn').onclick=()=>$('inspector').classList.toggle('show');document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if((e.key==='Delete'||e.key==='Backspace')&&current()&&!current().locked){snapshot();items=items.filter(o=>o.id!==selected);selected=null;refresh()}if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();(e.shiftKey?$('redoBtn'):$('undoBtn')).click()}else if((e.ctrlKey||e.metaKey)&&e.key==='y'){e.preventDefault();$('redoBtn').click()}});
 document.querySelector('.toolbar').append(...document.querySelector('.floatBar').children);document.querySelector('.floatBar').remove();updateHistoryButtons();setZoom(zoom);render();inspector();applyPanelState();setTimeout(()=>{fitScreen();scrollCenter()},100);window.addEventListener('load',loadAssets);
 })();
