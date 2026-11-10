@@ -2,6 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Home Garden Studio | Perennial Home & Gardens</title>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+<script src="./garden-guides.js" defer></script>
 <style>
 :root{color-scheme:dark;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#0e1d16;color:#e8f5e7}*{box-sizing:border-box}
 body{margin:0;overflow:hidden}button,input,select,textarea{font:inherit}button{cursor:pointer;background:#254635;border:1px solid #456950;border-radius:9px;color:#e9f8e9;padding:9px 11px}button:hover{background:#376448}button.active{background:#c6e7a8;color:#142619;border-color:#c6e7a8}button:disabled{opacity:.4;cursor:default}
@@ -69,10 +70,31 @@ header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c
 .shell.rightClosed .sidebar.right{display:block!important;width:34px}
 .sidebar.left:not(.forceShow),.sidebar.right:not(.forceShow){box-shadow:0 0 12px #0008}
 }
+
+.guideArea{margin-top:12px}.guideTop{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.guideArea h3{font-size:15px;margin:12px 0 4px}.guideCopy{font-size:12px;line-height:1.65;color:#d0dfca}
+.guideSection{border:1px solid #40654b;background:#1b3827;border-radius:10px;margin:10px 0;padding:9px}
+.guideSection summary,.preciseSizes summary{font-size:13px;color:#d5efc7;cursor:pointer;font-weight:800;line-height:1.4}
+.season{border-top:1px solid #456249;padding:8px 0 0;margin-top:8px}.season b{font-size:12px;color:#e6eab2}.season p{font-size:12px;line-height:1.6;color:#d7e7d5;margin:4px 0 7px}
+.refLink{font-size:12px;color:#c4e5a8;word-break:break-word;text-decoration:underline;line-height:1.5}
+.preciseSizes{padding:8px;border:1px solid #355944;border-radius:8px;margin-top:10px}
+#inspector{overflow-y:auto;scrollbar-color:#66896b #153122}#inspector p{line-height:1.65}
+.mediaOverlay{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;background:#04110bb3;padding:16px}
+.mediaOverlay[hidden],.jukeboxPanel[hidden]{display:none!important}
+.mediaPanel{width:min(720px,96vw);max-height:85vh;overflow:auto;background:#173224;border:1px solid #729575;border-radius:15px;padding:14px;box-shadow:0 16px 65px #000a}
+.mediaHead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.mediaBody{aspect-ratio:16/9;background:#09160f;border-radius:9px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.mediaBody iframe{border:0;width:100%;height:100%}
+.jukeboxPanel{position:fixed;top:70px;left:min(420px,35vw);z-index:85;background:#173623;color:#f0f9ed;border:1px solid #7ea06c;border-radius:14px;box-shadow:0 12px 45px #000a;padding:14px;max-width:330px}
+.jukeboxPanel p{line-height:1.5}
+#jukeboxBtn{background:#486534;border-color:#b4cb69;color:#ffffdc}
+#jukeboxBtn:hover{animation:jukeboxBop .65s ease-in-out infinite alternate;background:#607c3d}
+@keyframes jukeboxBop{from{transform:translateY(0) rotate(-2deg)}to{transform:translateY(-4px) rotate(2deg)}}
+@media(max-width:620px){.mediaPanel{width:98vw;padding:9px}.jukeboxPanel{left:12px;right:12px;max-width:none;top:70px}}
 </style></head><body>
 <div class="shell leftClosed rightClosed">
-<header><div><div class="logo">🌿 Perennial <span>Home Garden</span></div><div class="tag">Personal garden planner • experimental orchard</div></div>
-<div class="toolbar"><button id="allPanelsBtn" title="Open or collapse both side panels">☰ Show panels</button><button id="openLib">🌱 Library</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="fitBtn" title="Fit the garden vertically to your screen">⛶ Fit height</button><button id="fitAllBtn" title="Display the entire garden panorama without scrolling">▣ Show whole garden</button><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
+<header><div><div class="logo">🌿 Perennial <span>Home &amp; Gardens</span></div><div class="tag">Personal garden planner • experimental orchard</div></div>
+<div class="toolbar"><button id="allPanelsBtn" title="Open or collapse both side panels">☰ Show panels</button><button id="openLib">🌱 Library</button><button id="jukeboxBtn" title="Play original garden ambience">♫ Garden Jukebox</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="fitBtn" title="Fit the garden vertically to your screen">⛶ Fit height</button><button id="fitAllBtn" title="Display the entire garden panorama without scrolling">▣ Show whole garden</button><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
 <aside class="sidebar left" id="library"><button class="collapsePanel" id="collapseLeft" title="Collapse plant library" aria-label="Collapse plant library">❮</button><div style="display:flex;align-items:center;justify-content:space-between"><b>Garden asset library</b><span class="pill" id="assetCount">Loading</span></div><p class="stat">Select any image to place it onto the landscape. You can add several copies of the same plant.</p>
 <input id="search" class="search" placeholder="Find a tree, crop or bed..." aria-label="Search garden items">
 <div class="tabrow"><button data-tab="all" class="active">All</button><button data-tab="extras">✨ New (10)</button><button data-tab="trees">Trees</button><button data-tab="flowers">Flowers</button><button data-tab="vegetables">Vegetables</button><button data-tab="beds">Raised beds</button><button data-tab="shrubs">Shrubs</button></div>
@@ -83,10 +105,25 @@ header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c
 <div id="viewport"><div id="stage"><div id="canvas"><div class="gridOverlay"></div></div></div></div><div class="bottomInfo">Click an item • Drag handles to resize • Locked? Tap Unlock • Swipe sideways to explore</div></main>
 <aside class="sidebar right" id="inspector"><button class="collapsePanel" id="collapseRight" title="Collapse details panel" aria-label="Collapse details panel">❯</button><div style="display:flex;justify-content:space-between;align-items:center"><h2>Plant & bed details</h2><button id="closeInspector">✕</button></div>
 <div id="nothing"><p>Choose any garden object to adjust its name, size, orientation, location, notes and future links.</p><div class="emptyNote">A draft starter layout is supplied. You can clear or reposition everything to match your real garden.</div></div>
-<div id="editing" hidden><img id="preview" class="preview" alt="Selected plant preview"><label for="objectName">Display name</label><input id="objectName"><label for="objectNotes">What grows here / care notes</label><textarea id="objectNotes" placeholder="Plants, varieties, soil, pruning, condition, tasks..."></textarea><label for="objectUrl">Related webpage (optional)</label><input id="objectUrl" placeholder="https://..."><div class="row"><div><label for="objectWidth">Width (ft)</label><input id="objectWidth" type="number" min=".5" step=".5"></div><div><label for="objectDepth">Depth (ft)</label><input id="objectDepth" type="number" min=".5" step=".5"></div></div><label for="objectAngle">Rotation (degrees)</label><input id="objectAngle" type="range" min="0" max="360" step="5" value="0">
+<div id="editing" hidden><img id="preview" class="preview" alt="Selected plant preview"><label for="objectName">Display name</label><input id="objectName"><div id="guideArea" class="guideArea">
+<div class="guideTop"><span id="guideType" class="pill"></span><span class="dim">Maryland Zone 7b • General guidance</span></div>
+<h3 id="guideTitle">Item information</h3><p id="guideOverview" class="guideCopy"></p>
+<details class="guideSection" open><summary>🌱 Seasonal care — all four seasons</summary>
+<div class="season"><b>Spring</b><p id="careSpring"></p></div><div class="season"><b>Summer</b><p id="careSummer"></p></div><div class="season"><b>Fall</b><p id="careFall"></p></div><div class="season"><b>Winter</b><p id="careWinter"></p></div></details>
+<details class="guideSection" open><summary>🐛 Possible pests &amp; treatments</summary><p id="carePests" class="guideCopy"></p><p class="dim">Identify the problem before treating. Follow Maryland labels and avoid spraying pollinators.</p></details>
+<details class="guideSection" open><summary>📚 Trusted references &amp; videos</summary>
+<div class="actionrow"><a id="referenceLink" class="refLink" target="_blank" rel="noopener noreferrer">Extension care guide ↗</a><a id="videoSearchLink" class="refLink" target="_blank" rel="noopener noreferrer">Find a YouTube tutorial ↗</a></div>
+<div class="row"><button id="playGuideVideo">▶ Watch video</button></div>
+<label for="objectVideoUrl">Your preferred YouTube video (optional)</label><input id="objectVideoUrl" type="url" placeholder="https://www.youtube.com/watch?v=...">
+<p class="dim" id="videoDisclaimer">A verified instructional video plays here when available; otherwise select a relevant video from YouTube and paste its link above.</p></details>
+</div>
+<label for="objectNotes"><b>📝 Your personal notes</b></label><textarea id="objectNotes" placeholder="Your observations, varieties, soil, dates, treatments and tasks…"></textarea>
+<label for="objectUrl">Your related webpage (optional)</label><input id="objectUrl" placeholder="https://..."><details class="preciseSizes"><summary>⚙ Precision size (optional)</summary><div class="row"><div><label for="objectWidth">Width (ft)</label><input id="objectWidth" type="number" min=".5" step=".5"></div><div><label for="objectDepth">Depth (ft)</label><input id="objectDepth" type="number" min=".5" step=".5"></div></div></details><label for="objectAngle">Rotation (degrees)</label><input id="objectAngle" type="range" min="0" max="360" step="5" value="0">
 <div class="row"><button id="rotateLeft">↶ 90°</button><button id="rotateRight">90° ↷</button></div><div class="row"><button id="lockBtn">Lock</button><button id="duplicateBtn">Duplicate</button></div><div class="row"><button id="visitBtn">Open link</button><button id="removeBtn" style="background:#71322f">Delete</button></div></div>
 </aside>
-<footer class="status" id="status">Home Garden Studio · Build 5 (resize handles) · Preparing your garden library…</footer></div>
+<div id="videoOverlay" class="mediaOverlay" hidden><div class="mediaPanel"><div class="mediaHead"><b id="videoHeading">Garden tutorial</b><button id="closeVideo" aria-label="Close video">✕ Close</button></div><div class="mediaBody" id="mediaBody"></div><p class="dim" id="mediaNotice"></p></div></div>
+<div id="jukeboxPanel" class="jukeboxPanel" hidden><b>♫ Garden Jukebox</b><p class="dim">Original gentle instrumental tones. Audio plays only when you press Play.</p><div class="actionrow"><button id="playJukebox">▶ Play</button><button id="stopJukebox">■ Stop</button><button id="closeJukebox">✕ Close</button></div><label class="dim" for="jukeboxVolume">Volume</label><input id="jukeboxVolume" type="range" min="0" max="100" value="24"></div>
+<footer class="status" id="status">Home Garden Studio · Build 6 (garden reference cards) · Preparing your garden library…</footer></div>
 <script>
 (()=>{'use strict';
 const base='phg-home-garden-v2',keys={layout:base+'-layout',prefs:base+'-prefs',reset:base+'-custom-reset'};
@@ -159,13 +196,75 @@ function itemNode(o){
 }
 function render(){canvas.querySelectorAll('.sceneItem').forEach(e=>e.remove());const f=document.createDocumentFragment();for(const o of items)f.append(itemNode(o));canvas.append(f);$('count').textContent=items.length+' placed items • '+items.filter(i=>i.locked).length+' locked';}
 function inspector(force){const o=items.find(i=>i.id===selected);$('editing').hidden=!o;$('nothing').hidden=!!o;if(!o)return;
-for(const [field,v] of [['objectName',o.name],['objectNotes',o.notes],['objectUrl',o.url],['objectWidth',o.w],['objectDepth',o.d],['objectAngle',o.rot]])$(field).value=v;
+for(const [field,v] of [['objectName',o.name],['objectNotes',o.notes],['objectUrl',o.url],['objectVideoUrl',o.videoUrl||''],['objectWidth',o.w],['objectDepth',o.d],['objectAngle',o.rot]])$(field).value=v;
+showGuide(o);
 const url=cache.get(o.asset);$('preview').src=url||'';$('lockBtn').textContent=o.locked?'🔒 Unlock':'🔓 Lock';$('visitBtn').disabled=!o.url;
 if(force)$('inspector').classList.add('show')}
+
+function showGuide(o){
+ const helper=window.PHG_GUIDES;
+ const guide=helper?.forAsset?.(o.asset,o.name);
+ if(!guide){$('guideTitle').textContent='General garden information';$('guideOverview').textContent='Care references are unavailable; please reload the site.';return;}
+ $('guideType').textContent=guide.type;
+ $('guideTitle').textContent=guide.title;
+ for(const [id,key] of [['guideOverview','overview'],['careSpring','spring'],['careSummer','summer'],['careFall','fall'],['careWinter','winter'],['carePests','pests']])$(id).textContent=guide[key];
+ $('referenceLink').href=guide.source;
+ $('videoSearchLink').href=guide.searchUrl;
+ $('playGuideVideo').textContent=o.videoUrl||guide.verifiedVideoId?'▶ Watch video':'▶ Find a video';
+ $('videoDisclaimer').textContent=(o.videoUrl||guide.verifiedVideoId)?'Video opens in a small player without leaving the garden.':'A verified item-specific video has not been selected yet. Search YouTube, choose one, then paste its link above to watch it here.';
+}
+function youtubeId(input){
+ if(!input)return null;
+ try{const u=new URL(input);if(!/(^|\.)youtube\.com$|(^|\.)youtu\.be$/.test(u.hostname))return null;
+ const val=u.hostname.includes('youtu.be')?u.pathname.slice(1):u.searchParams.get('v')||(/^\/(shorts|embed)\//.test(u.pathname)?u.pathname.split('/')[2]:'');
+ return /^[a-zA-Z0-9_-]{11}$/.test(val)?val:null}catch(e){return null}
+}
+function closeVideo(){ $('videoOverlay').hidden=true;$('mediaBody').replaceChildren(); }
+$('closeVideo').onclick=closeVideo;
+$('videoOverlay').addEventListener('click',e=>{if(e.target===$('videoOverlay'))closeVideo()});
+$('playGuideVideo').onclick=()=>{
+ const o=current();if(!o)return;
+ const guide=window.PHG_GUIDES?.forAsset?.(o.asset,o.name);
+ const video=youtubeId(o.videoUrl)||guide?.verifiedVideoId;
+ if(!video){window.open(guide?.searchUrl||'https://www.youtube.com/','_blank','noopener');return;}
+ $('videoHeading').textContent='Garden tutorial • '+o.name;
+ const frame=document.createElement('iframe');frame.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(video)+'?rel=0';frame.title='Garden tutorial: '+o.name;frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allowFullscreen=true;
+ $('mediaBody').replaceChildren(frame);$('mediaNotice').textContent='YouTube content is provided by its publisher. If playback is blocked, use the YouTube search link in Details.';$('videoOverlay').hidden=false;
+};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();$('jukeboxPanel').hidden=true;}});
+let soundContext=null,soundTimer=null,gainNode=null,noteNumber=0;
+const tune=[[196,261.63],[220,293.66],[246.94,329.63],[196,293.66],[174.61,261.63],[196,246.94],[220,329.63],[164.81,261.63]];
+function playNote(){
+ if(!soundContext||!gainNode)return;
+ const notes=tune[noteNumber++%tune.length],now=soundContext.currentTime;
+ for(const [idx,freq] of notes.entries()){
+   const osc=soundContext.createOscillator(),amp=soundContext.createGain();
+   osc.type=idx?'sine':'triangle';osc.frequency.value=freq;osc.connect(amp);amp.connect(gainNode);
+   amp.gain.setValueAtTime(0,now);amp.gain.linearRampToValueAtTime(idx?.12:.24,now+.06);
+   amp.gain.exponentialRampToValueAtTime(.001,now+1.12);osc.start(now);osc.stop(now+1.15);
+ }
+}
+function stopJukebox(){
+ if(soundTimer){clearInterval(soundTimer);soundTimer=null;}
+ if(soundContext){soundContext.close();soundContext=null;gainNode=null;}
+ $('playJukebox').textContent='▶ Play';$('jukeboxBtn').classList.remove('active');
+}
+$('jukeboxBtn').onclick=()=>{$('jukeboxPanel').hidden=!$('jukeboxPanel').hidden};
+$('closeJukebox').onclick=()=>{$('jukeboxPanel').hidden=true};
+$('stopJukebox').onclick=stopJukebox;
+$('playJukebox').onclick=async()=>{
+ if(soundTimer){stopJukebox();return;}
+ try{soundContext=new (window.AudioContext||window.webkitAudioContext)();await soundContext.resume();
+ gainNode=soundContext.createGain();gainNode.gain.value=Number($('jukeboxVolume').value)/100;gainNode.connect(soundContext.destination);
+ playNote();soundTimer=setInterval(playNote,1200);$('playJukebox').textContent='Ⅱ Pause';$('jukeboxBtn').classList.add('active');
+ }catch(e){stopJukebox();alert('Your browser could not start the jukebox: '+e.message)}
+};
+$('jukeboxVolume').oninput=e=>{if(gainNode)gainNode.gain.value=Number(e.target.value)/100};
+
 function current(){return items.find(i=>i.id===selected)}
 function refresh(){save();render();inspector()}
 function update(k,v){const o=current();if(!o)return;o[k]=v;save();render()}
-for(const [id,key,num] of [['objectName','name',false],['objectNotes','notes',false],['objectUrl','url',false],['objectWidth','w',true],['objectDepth','d',true],['objectAngle','rot',true]])$(id).addEventListener('change',e=>{snapshot();update(key,num?Math.max(0.5,Number(e.target.value)||1):e.target.value);inspector()});
+for(const [id,key,num] of [['objectName','name',false],['objectNotes','notes',false],['objectUrl','url',false],['objectVideoUrl','videoUrl',false],['objectWidth','w',true],['objectDepth','d',true],['objectAngle','rot',true]])$(id).addEventListener('change',e=>{snapshot();update(key,num?Math.max(0.5,Number(e.target.value)||1):e.target.value);inspector()});
 $('rotateLeft').onclick=()=>{if(!current())return;snapshot();current().rot=(current().rot+270)%360;refresh()};
 $('rotateRight').onclick=()=>{if(!current())return;snapshot();current().rot=(current().rot+90)%360;refresh()};
 $('lockBtn').onclick=()=>{if(!current())return;snapshot();current().locked=!current().locked;refresh()};
@@ -226,7 +325,7 @@ $('assetCount').textContent=catalog.length+' images'}
 async function loadAssets(){if(!window.JSZip){status('Image archive reader unavailable. Check your connection and reload.');return}
 let successes=0;const loadErrors=[];for(const source of files){try{status('Loading '+source.category+' collection…');const res=await fetch(source.url,{cache:'force-cache'});if(!res.ok)throw Error('HTTP '+res.status);const zip=await JSZip.loadAsync(await res.arrayBuffer());const entries=Object.keys(zip.files).filter(k=>/\.png$/i.test(k)&&!zip.files[k].dir);
 for(const path of entries){const name=path.split('/').pop(),id=source.category+'/'+name;if(cache.has(id))continue;const blob=await zip.files[path].async('blob');const url=URL.createObjectURL(new Blob([blob],{type:'image/png'}));cache.set(id,url);catalog.push({id,label:prettify(name),group:groupFor(source,name),source:source.category})}successes++}catch(e){loadErrors.push(source.url+': '+e.message);status('Could not load '+source.url+': '+e.message);}}
-catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();const extrasCount=catalog.filter(a=>a.source==='extras').length;$('newImgsBtn').textContent='✨ New images ('+extrasCount+')';if(extrasCount!==10){$('newImgsBtn').style.borderColor='#f4a87a';$('newImgsBtn').title='Only '+extrasCount+' of 10 expected images loaded';}status('Garden Studio Build 5 • '+catalog.length+' images • New images: '+extrasCount+'/10 • ZIP archives: '+successes+'/'+files.length+(loadErrors.length?' • Errors: '+loadErrors.join(' | '):' • Autosave ON'));}
+catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();const extrasCount=catalog.filter(a=>a.source==='extras').length;$('newImgsBtn').textContent='✨ New images ('+extrasCount+')';if(extrasCount!==10){$('newImgsBtn').style.borderColor='#f4a87a';$('newImgsBtn').title='Only '+extrasCount+' of 10 expected images loaded';}status('Garden Studio Build 6 • '+catalog.length+' images • New images: '+extrasCount+'/10 • ZIP archives: '+successes+'/'+files.length+(loadErrors.length?' • Errors: '+loadErrors.join(' | '):' • Autosave ON'));}
 $('zoomIn').onclick=()=>setZoom(zoom+.15);$('zoomOut').onclick=()=>setZoom(zoom-.15);$('centerBtn').onclick=scrollCenter;$('showGrid').onclick=()=>{grid=!grid;canvas.classList.toggle('grid',grid);$('showGrid').classList.toggle('active',grid)};$('showNames').onclick=()=>{showNames=!showNames;$('showNames').classList.toggle('active',showNames);render()};
 $('viewBtn').onclick=()=>{angled=!angled;$('viewBtn').classList.toggle('active',angled);$('viewBtn').textContent=angled?'Overhead view':'Angled view';setZoom(zoom)};
 $('setResetBtn').onclick=()=>{if(!confirm('Save your exact CURRENT garden positions as the reset layout? This will replace your previous saved reset, but will NOT move anything now.'))return;try{localStorage.setItem(keys.reset,JSON.stringify({version:2,items:JSON.parse(JSON.stringify(items)),seq,saved:new Date().toISOString()}));status('Current garden saved as your personal reset layout • '+items.length+' items. Keep a JSON export too.');}catch(e){alert('Could not save reset point: '+e.message)}};
