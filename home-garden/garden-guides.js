@@ -55,6 +55,56 @@ const entries={
   fence:['Garden gate / fence','Check post stability, hinge movement and gate clearances.','Inspect freeze-thaw shifts and hardware.','Tighten fittings and remove encroaching growth.','Check sagging, latch fit and climbing weeds.','Clear leaves and inspect corrosion or damage.','Not a plant; look for rust, damaged mesh, leaning posts and gaps that admit wildlife.',veg],
   tree:['Landscape tree','Check species-specific site needs, soil drainage, mulch and root flare.','Inspect broken branches and identify correct pruning window.','Watch emerging leaves and flower buds.','Water during drought; monitor canopy and trunk.','Clear competing vegetation around roots and remove diseased debris.','Species-specific leaf spots, borers, aphids and scale; identify issue before treatment.',flowering]
 };
+
+const conditions={
+apple:['Full sun (6–8+ hours)','Fertile, well-drained loam; test soil before adding amendments','Deeply during drought; do not keep roots waterlogged'],
+pear:['Full sun (6–8+ hours)','Well-drained loam, slightly acidic to near neutral; test before changing pH','Water young trees consistently; established trees in drought'],
+peach:['Full sun (6–8+ hours)','Well-drained moderately fertile soil; avoid wet roots','Deeply in dry weather, especially while fruit develops'],
+plum:['Full sun (6–8+ hours)','Well-drained loam with good air circulation','Deep watering during prolonged dry spells'],
+cherry:['Full sun (6–8+ hours)','Well-drained soil; avoid standing water','Water young trees and during prolonged dry conditions'],
+crabapple:['Full sun (6+ hours)','Moderately fertile well-drained soil','Provide deep water during drought'],
+blueberry:['Full sun (8+ hours preferred)','Acidic pH 4.5–5.5, well drained and high in organic matter; test soil','Consistently moist but never saturated; mulch around shallow roots'],
+strawberry:['Full sun (6–8 hours)','Well-drained loam rich in organic matter','Steady moisture especially flowering and fruiting; avoid overhead soaking'],
+tomato:['Full sun (6–8+ hours)','Compost-enriched soil with good drainage; avoid excess nitrogen','Water deeply and evenly at base; mulch to conserve moisture'],
+cucumber:['Full sun (6–8+ hours)','Fertile well-drained soil with good organic matter','Consistent moisture during flowering and fruit production'],
+squash:['Full sun (6–8+ hours)','Rich well-drained soil, room for spreading','Deep water near roots, especially fruit set'],
+watermelon:['Full sun (8+ hours)','Warm fertile, well-drained soil','Consistent during fruit growth, less irrigation near harvest as appropriate'],
+pumpkin:['Full sun (6–8+ hours)','Fertile soil with good drainage and ample space','Water at root zone during vine and fruit growth'],
+asparagus:['Full sun (6–8 hours)','Deep well-drained soil; weed-free permanent bed','Moderate, steady moisture during establishment; water ferns in drought'],
+garlic:['Full sun (6+ hours)','Loose fertile soil with excellent drainage','Water during active growth, taper when bulbs mature'],
+onion:['Full sun (6+ hours)','Fertile loose soil and weed-free bed','Regular shallow-root irrigation, taper for curing'],
+potato:['Full sun (6+ hours)','Loose, drained and slightly acidic soil','Consistent while forming tubers; avoid oversaturation'],
+sweetpotato:['Full sun (6–8+ hours)','Loose drained soil that warms well','Regular during establishment; mature vines fairly drought-tolerant'],
+beans:['Full sun (6+ hours)','Well-drained, moderate fertility; little added nitrogen','Even moisture during flowering and pod set'],
+peas:['Full sun in cool weather','Cool, well-drained soil','Regular moisture while flowering and podding'],
+lentil:['Full sun','Well-drained moderate-fertility soil','Moderate water, especially establishment; avoid wet roots'],
+carrot:['Full sun to light shade','Deep loose stone-free soil; do not overfertilize','Keep surface moist through germination then evenly moist'],
+lettuce:['Full sun in cool seasons; afternoon shade when hot','Loose fertile moisture-retaining soil','Frequent light watering; keep leaves reasonably dry'],
+cabbage:['Full sun (6+ hours)','Fertile well-drained soil with adequate organic matter','Regular deep watering for steady head development'],
+kale:['Full sun to part sun','Rich well-drained soil','Steady moisture through leaf harvest'],
+collards:['Full sun to part sun','Fertile drained soil','Regular water for tender leaves'],
+corn:['Full sun (8+ hours)','Fertile soil; sufficient space for pollination blocks','Extra attention when tasseling and silking'],
+turnip:['Full sun to part shade','Loose fertile well-drained soil','Even moisture to prevent woody roots'],
+rosemary:['Full sun (6–8 hours)','Very sharply drained, lean or sandy soil; dislikes wet winter roots','Let surface dry between watering; protect from winter saturation'],
+sage:['Full sun (6+ hours)','Well-drained soil; avoid rich wet ground','Water newly planted; established plants tolerate moderate drought'],
+lavender:['Full sun (6–8+ hours)','Excellent drainage; lean soil; avoid wet mulch on crowns','Sparse once established; do not overwater'],
+mint:['Sun to part shade','Moist but drained soil; contain spreading runners','Regular watering, especially pots and summer heat'],
+thyme:['Full sun','Gritty well-drained soil, low fertility','Low water once established; avoid soggy crowns'],
+salvia:['Full sun to part sun','Well-drained garden soil','Deeply in extended dry spells'],
+echinacea:['Full sun to light shade','Well-drained soil; tolerant of average to lean conditions','Regular while establishing; drought tolerant after'],
+iris:['Full sun (6+ hours)','Well-drained soil; rhizomes near surface','Moderate while actively growing, less once established'],
+peony:['Full sun (6+ hours)','Fertile well-drained soil, shallow planting depth','Water deeply during establishment and bloom'],
+rose:['Full sun (6+ hours)','Organic well-drained soil with air movement','Deeply at soil level during dry weather'],
+dogwood:['Morning sun / dappled afternoon shade','Moist, well-drained soil; protect shallow roots','Deeply in drought; maintain mulch ring'],
+crape:['Full sun (6+ hours)','Well-drained average soil','Water while establishing, later in prolonged drought'],
+evergreen:['Varies by species; generally sun to part sun','Well-drained soil; avoid root disturbance','During establishment and before winter freezes if very dry'],
+shrubs:['Sun or shade according to species','Well-drained soil, organic mulch outside stem base','Water deeply as established, then during drought'],
+beds:['Place for intended crops, typically 6+ hours sun','Drainage and a soil mix appropriate to the crop; test if growing food','Plan accessible drip/soaker irrigation; do not let boxes dry out'],
+fence:['Not applicable','Firm posts and properly set gate hardware','Not applicable'],
+tree:['Species dependent; identify tree before changing care','Well-drained soil, keep root flare visible','Deep watering for young trees and during prolonged drought'],
+herbs:['Often full sun; verify by species','Drained soil; avoid saturated crowns','As needed by species and establishment stage']
+};
+
 const classify=(name,group)=>{
  const n=(name||'').toLowerCase();
  if(group==='beds')return 'beds';
@@ -111,9 +161,14 @@ window.PHG_GUIDES={
   const key=classify(filename,String(asset||'').split('/')[0]);
   const v=entries[key]||entries.tree;
   const specific=filename.replace(/\b\w/g,c=>c.toUpperCase());
+  const conditionsFor=conditions[key]||conditions.tree;
+  const isMultiGraft=/multi.?graft/.test(String(displayName||'').toLowerCase())||/multi.?graft/.test(filename);
+  const graftHint=isMultiGraft?' A multi-graft tree has two or more cultivars grafted onto one rootstock. Preserve each cultivar-bearing branch, inspect graft unions, and prune so one vigorous graft does not dominate the others. Confirm whether a compatible pollinator is needed.':'';
+  const detailsHint=/pink lemonade/.test(filename)?' Pink Lemonade is a pink-fruited blueberry cultivar; it still needs acidic blueberry soil and appropriate pollination conditions.':'';
+  
   const query=key==='beds'?'raised bed vegetable gardening':key==='fence'?'chain link garden gate installation':specific+' growing care university extension';
-  const specialistSources={blueberry:'https://extension.umd.edu/resource/growing-blueberries-home-garden',echinacea:'https://www.extension.umd.edu/resource/aster-yellows-disease-flowers'};
-  return {key,title:specific,type:v[0],overview:v[1],spring:v[3],summer:v[4],fall:v[5],winter:v[2],pests:v[6],source:specialistSources[key]||v[7],verifiedVideoId:v[8]||'',videoQuery:query,searchUrl:'https://www.youtube.com/results?search_query='+encodeURIComponent(query)};
+  const specialistSources={blueberry:'https://extension.umd.edu/resource/growing-blueberries-home-garden',echinacea:'https://www.extension.umd.edu/resource/aster-yellows-disease-flowers',apple:'https://extension.umd.edu/resource/growing-apple-and-pear-trees-home-garden',pear:'https://extension.umd.edu/resource/growing-apple-and-pear-trees-home-garden'};
+  return {key,title:specific,type:v[0],overview:v[1]+graftHint+detailsHint,sun:conditionsFor[0],soil:conditionsFor[1],water:conditionsFor[2],spring:v[3],summer:v[4],fall:v[5],winter:v[2],pests:v[6],source:specialistSources[key]||v[7],verifiedVideoId:v[8]||'',videoQuery:query,searchUrl:'https://www.youtube.com/results?search_query='+encodeURIComponent(query)};
  },
  references:{fruit,veg,fruitCare,vegetableCare,flowering}
 };
