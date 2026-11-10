@@ -37,7 +37,13 @@ header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c
 .gridOverlay{position:absolute;inset:0;pointer-events:none;opacity:0;background-image:linear-gradient(#f5ffe92b 1px,transparent 1px),linear-gradient(90deg,#f5ffe92b 1px,transparent 1px);background-size:88px 88px}#canvas.grid .gridOverlay{opacity:1}
 .sceneItem{position:absolute;touch-action:none;cursor:grab;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;user-select:none;transform-origin:center center}
 .sceneItem img{height:100%;width:100%;object-fit:contain;pointer-events:none;filter:drop-shadow(0 5px 4px #2637256b)}
-.sceneItem.selected{outline:3px dashed #ffe37d;outline-offset:5px;border-radius:5px}.sceneItem.locked{cursor:not-allowed}.sceneItem .fallback{font-size:46px;text-shadow:0 3px 3px #152c19}
+.sceneItem.selected{outline:2px dashed #ffde76;outline-offset:5px;border-radius:5px;z-index:8}.sceneItem.locked{cursor:pointer}
+.resizeHandle{position:absolute;width:15px;height:15px;border:2px solid #203b29;border-radius:4px;background:#f9e189;box-shadow:0 1px 7px #0018;z-index:12;touch-action:none;transform:translate(-50%,-50%) scale(var(--handle-scale,1))}
+.resizeHandle[data-h="nw"]{left:0;top:0;cursor:nwse-resize}.resizeHandle[data-h="ne"]{left:100%;top:0;cursor:nesw-resize}.resizeHandle[data-h="sw"]{left:0;top:100%;cursor:nesw-resize}.resizeHandle[data-h="se"]{left:100%;top:100%;cursor:nwse-resize}
+.resizeHandle[data-h="n"]{left:50%;top:0;cursor:ns-resize}.resizeHandle[data-h="s"]{left:50%;top:100%;cursor:ns-resize}.resizeHandle[data-h="e"]{left:100%;top:50%;cursor:ew-resize}.resizeHandle[data-h="w"]{left:0;top:50%;cursor:ew-resize}
+.unlockOnCanvas{position:absolute;left:50%;top:-33px;transform:translateX(-50%);z-index:13;white-space:nowrap;font-size:12px!important;background:#fee29d!important;color:#223320!important;border:1px solid #5c6c4c!important;padding:6px 9px!important;touch-action:manipulation}
+@media(pointer:coarse){.resizeHandle{width:23px;height:23px;border-radius:6px}}
+.sceneItem.locked{cursor:pointer}.sceneItem .fallback{font-size:46px;text-shadow:0 3px 3px #152c19}
 .sceneLabel{position:absolute;bottom:-22px;background:#103120e0;color:#fff;font-size:13px;font-weight:700;white-space:nowrap;border-radius:8px;padding:3px 8px;max-width:160%;overflow:hidden;text-overflow:ellipsis}
 .floatBar{position:absolute;left:16px;top:14px;display:flex;gap:6px;align-items:center;z-index:5;max-width:calc(100% - 32px);flex-wrap:wrap;pointer-events:none}.floatBar>*{pointer-events:auto}
 .floatBar button{background:#152b22ed;box-shadow:0 3px 12px #0003;font-size:12px}
@@ -74,13 +80,13 @@ header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c
 <div class="sectionTitle">Your garden</div><div id="count" class="stat"></div><div class="emptyNote">All changes save automatically in this browser. Export a JSON backup before switching browsers or devices. The garden positions are yours to arrange.</div>
 </aside>
 <main class="center"><div class="floatBar"><button id="zoomOut">−</button><span class="tiny" id="zoomPct">100%</span><button id="zoomIn">+</button><button id="showGrid">Grid</button><button id="showNames">Labels</button><button id="viewBtn">Angled view</button><button id="setResetBtn" title="Store your exact current layout as your personal reset point">★ Save current as reset</button><button id="resetBtn" title="Restore the last layout you explicitly saved as the reset point">↺ Restore saved reset</button></div>
-<div id="viewport"><div id="stage"><div id="canvas"><div class="gridOverlay"></div></div></div></div><div class="bottomInfo">Drag items to move • Scroll horizontally • Click an item for details</div></main>
+<div id="viewport"><div id="stage"><div id="canvas"><div class="gridOverlay"></div></div></div></div><div class="bottomInfo">Click an item • Drag handles to resize • Locked? Tap Unlock • Swipe sideways to explore</div></main>
 <aside class="sidebar right" id="inspector"><button class="collapsePanel" id="collapseRight" title="Collapse details panel" aria-label="Collapse details panel">❯</button><div style="display:flex;justify-content:space-between;align-items:center"><h2>Plant & bed details</h2><button id="closeInspector">✕</button></div>
 <div id="nothing"><p>Choose any garden object to adjust its name, size, orientation, location, notes and future links.</p><div class="emptyNote">A draft starter layout is supplied. You can clear or reposition everything to match your real garden.</div></div>
 <div id="editing" hidden><img id="preview" class="preview" alt="Selected plant preview"><label for="objectName">Display name</label><input id="objectName"><label for="objectNotes">What grows here / care notes</label><textarea id="objectNotes" placeholder="Plants, varieties, soil, pruning, condition, tasks..."></textarea><label for="objectUrl">Related webpage (optional)</label><input id="objectUrl" placeholder="https://..."><div class="row"><div><label for="objectWidth">Width (ft)</label><input id="objectWidth" type="number" min=".5" step=".5"></div><div><label for="objectDepth">Depth (ft)</label><input id="objectDepth" type="number" min=".5" step=".5"></div></div><label for="objectAngle">Rotation (degrees)</label><input id="objectAngle" type="range" min="0" max="360" step="5" value="0">
 <div class="row"><button id="rotateLeft">↶ 90°</button><button id="rotateRight">90° ↷</button></div><div class="row"><button id="lockBtn">Lock</button><button id="duplicateBtn">Duplicate</button></div><div class="row"><button id="visitBtn">Open link</button><button id="removeBtn" style="background:#71322f">Delete</button></div></div>
 </aside>
-<footer class="status" id="status">Home Garden Studio · Build 4 (layout-preserving) · Preparing your garden library…</footer></div>
+<footer class="status" id="status">Home Garden Studio · Build 5 (resize handles) · Preparing your garden library…</footer></div>
 <script>
 (()=>{'use strict';
 const base='phg-home-garden-v2',keys={layout:base+'-layout',prefs:base+'-prefs',reset:base+'-custom-reset'};
@@ -96,7 +102,7 @@ const catalog=[],cache=new Map(), history=[];let items=[],seq=1,selected=null,zo
 const groupFor=(file,name)=>file.category==='beds'?'beds':file.category==='vegetables'?'vegetables':/gate/.test(name)?'beds':/blueberry/.test(name)?'shrubs':/rose|peon|iris|thyme|salvia|lavender|echinacea|coneflower|rosemary|sage|mint|strawberr|catnip/.test(name)?'flowers':/shrub|juniper|euonymus/.test(name)?'shrubs':'trees';
 const status=s=>$('status').textContent=s;
 const escapeText=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function setZoom(z){zoom=Math.max(.15,Math.min(1.6,z));canvas.style.transform='scale('+zoom+')'+(angled?' perspective(1500px) rotateX(6deg)':'');stage.style.width=(4400*zoom)+'px';stage.style.height=(1500*zoom)+'px';$('zoomPct').textContent=Math.round(zoom*100)+'%';vp.scrollTop=0;}
+function setZoom(z){zoom=Math.max(.15,Math.min(1.6,z));canvas.style.transform='scale('+zoom+')'+(angled?' perspective(1500px) rotateX(6deg)':'');canvas.style.setProperty('--handle-scale',String(1/zoom));stage.style.width=(4400*zoom)+'px';stage.style.height=(1500*zoom)+'px';$('zoomPct').textContent=Math.round(zoom*100)+'%';vp.scrollTop=0;}
 function fitScreen(){const safeH=Math.max(250,vp.clientHeight-8);setZoom(Math.max(.15,safeH/1500));vp.scrollTop=0;vp.scrollLeft=Math.max(0,(stage.offsetWidth-vp.clientWidth)/2);}
 function fitWholeGarden(){const availableW=Math.max(200,vp.clientWidth-6),availableH=Math.max(200,vp.clientHeight-6);setZoom(Math.max(.15,Math.min(availableW/4400,availableH/1500)));vp.scrollLeft=0;vp.scrollTop=0;}
 $('fitAllBtn').onclick=fitWholeGarden;
@@ -114,16 +120,48 @@ one('beds/log_bed_overhead.png',2330,880,12,8,'Log garden bed');one('beds/metal_
 return a}
 try{let v=JSON.parse(localStorage.getItem(keys.layout));items=Array.isArray(v?.items)?v.items:startSample();seq=Math.max(v?.seq||1,...items.map(i=>(Number(i.id)||0)+1))}catch(e){items=startSample()}
 function toPX(item){const px=13;return {w:Math.max(55,item.w*px),h:Math.max(55,item.d*px)}}
-function itemNode(o){const el=document.createElement('div');el.className='sceneItem'+(o.id===selected?' selected':'')+(o.locked?' locked':'');el.dataset.id=o.id;const sz=toPX(o);el.style.left=o.x+'px';el.style.top=o.y+'px';el.style.width=sz.w+'px';el.style.height=sz.h+'px';el.style.transform='rotate('+o.rot+'deg)';
-const url=cache.get(o.asset);if(url){const img=document.createElement('img');img.src=url;img.alt=o.name;img.draggable=false;el.append(img)}else{const f=document.createElement('span');f.className='fallback';f.textContent='🌿';el.append(f)}
-if(showNames){const label=document.createElement('span');label.className='sceneLabel';label.textContent=o.name;el.append(label)}
-el.addEventListener('pointerdown',e=>{if(e.button!==0)return;e.preventDefault();e.stopPropagation();selected=o.id;render();inspector();if(o.locked)return;snapshot();drag={id:o.id,sx:e.clientX,sy:e.clientY,x:o.x,y:o.y};el.setPointerCapture?.(e.pointerId)});
-el.addEventListener('dblclick',e=>{e.preventDefault();selected=o.id;inspector(true)});return el}
+function itemNode(o){
+ const el=document.createElement('div');el.className='sceneItem'+(o.id===selected?' selected':'')+(o.locked?' locked':'');el.dataset.id=o.id;
+ const sz=toPX(o);el.style.left=o.x+'px';el.style.top=o.y+'px';el.style.width=sz.w+'px';el.style.height=sz.h+'px';el.style.transform='rotate('+o.rot+'deg)';
+ const url=cache.get(o.asset);
+ if(url){const img=document.createElement('img');img.src=url;img.alt=o.name;img.draggable=false;el.append(img)}
+ else{const f=document.createElement('span');f.className='fallback';f.textContent='🌿';el.append(f)}
+ if(showNames){const label=document.createElement('span');label.className='sceneLabel';label.textContent=o.name;el.append(label)}
+ if(o.id===selected){
+   if(o.locked){
+     const unlock=document.createElement('button');unlock.className='unlockOnCanvas';unlock.textContent='🔒 Unlock to resize';unlock.title='Unlock only this garden item';
+     unlock.addEventListener('pointerdown',e=>e.stopPropagation());
+     unlock.addEventListener('click',e=>{e.stopPropagation();snapshot();o.locked=false;refresh();});
+     el.append(unlock);
+   } else {
+     for(const h of ['nw','n','ne','w','e','sw','s','se']){
+       const handle=document.createElement('span');handle.className='resizeHandle';handle.dataset.h=h;handle.setAttribute('role','button');
+       handle.setAttribute('aria-label','Resize '+o.name+' from '+h);
+       handle.title=(h.length===2?'Drag corner to resize':'Drag edge to stretch')+' • '+o.name;
+       handle.addEventListener('pointerdown',e=>{
+         if(e.button!==0)return;e.preventDefault();e.stopPropagation();snapshot();
+         const initial=toPX(o);
+         drag={mode:'resize',id:o.id,handle:h,sx:e.clientX,sy:e.clientY,x:o.x,y:o.y,
+           width:initial.w,height:initial.h,rot:(Number(o.rot)||0)*Math.PI/180,pointerId:e.pointerId};
+       });
+       el.append(handle);
+     }
+   }
+ }
+ el.addEventListener('pointerdown',e=>{
+   if(e.button!==0)return;e.preventDefault();e.stopPropagation();
+   if(selected!==o.id){selected=o.id;render();inspector();}
+   if(o.locked)return;
+   snapshot();drag={mode:'move',id:o.id,sx:e.clientX,sy:e.clientY,x:o.x,y:o.y,pointerId:e.pointerId};
+ });
+ el.addEventListener('dblclick',e=>{e.preventDefault();selected=o.id;inspector(true)});
+ return el;
+}
 function render(){canvas.querySelectorAll('.sceneItem').forEach(e=>e.remove());const f=document.createDocumentFragment();for(const o of items)f.append(itemNode(o));canvas.append(f);$('count').textContent=items.length+' placed items • '+items.filter(i=>i.locked).length+' locked';}
 function inspector(force){const o=items.find(i=>i.id===selected);$('editing').hidden=!o;$('nothing').hidden=!!o;if(!o)return;
 for(const [field,v] of [['objectName',o.name],['objectNotes',o.notes],['objectUrl',o.url],['objectWidth',o.w],['objectDepth',o.d],['objectAngle',o.rot]])$(field).value=v;
 const url=cache.get(o.asset);$('preview').src=url||'';$('lockBtn').textContent=o.locked?'🔒 Unlock':'🔓 Lock';$('visitBtn').disabled=!o.url;
-if(force||matchMedia('(max-width:1050px)').matches)$('inspector').classList.add('show')}
+if(force)$('inspector').classList.add('show')}
 function current(){return items.find(i=>i.id===selected)}
 function refresh(){save();render();inspector()}
 function update(k,v){const o=current();if(!o)return;o[k]=v;save();render()}
@@ -135,8 +173,44 @@ $('duplicateBtn').onclick=()=>{if(!current())return;snapshot();const o=current()
 $('removeBtn').onclick=()=>{if(!current())return;snapshot();items=items.filter(o=>o.id!==selected);selected=null;refresh()};
 $('visitBtn').onclick=()=>{const url=current()?.url;if(!url)return;try{const u=new URL(url);if(['https:','http:'].includes(u.protocol))window.open(u.href,'_blank','noopener')}catch(e){alert('Enter a complete https:// URL first.')}};
 $('closeInspector').onclick=()=>$('inspector').classList.remove('show');
-document.addEventListener('pointermove',e=>{if(drag){const o=items.find(i=>i.id===drag.id);if(!o)return;o.x=Math.max(0,Math.min(4200,drag.x+(e.clientX-drag.sx)/zoom));o.y=Math.max(10,Math.min(1410,drag.y+(e.clientY-drag.sy)/zoom));const n=canvas.querySelector('.sceneItem[data-id="'+o.id+'"]');if(n){n.style.left=o.x+'px';n.style.top=o.y+'px'}}else if(pan){vp.scrollLeft=pan.left-(e.clientX-pan.x);vp.scrollTop=pan.top-(e.clientY-pan.y)}});
-document.addEventListener('pointerup',()=>{if(drag){drag=null;save();render()}pan=null;vp.classList.remove('panning')});
+document.addEventListener('pointermove',e=>{
+ if(drag){
+   if(e.pointerId!==drag.pointerId)return;
+   const o=items.find(i=>i.id===drag.id);if(!o)return;
+   const dx=(e.clientX-drag.sx)/zoom,dy=(e.clientY-drag.sy)/zoom;
+   const n=canvas.querySelector('.sceneItem[data-id="'+o.id+'"]');
+   if(drag.mode==='move'){
+     o.x=Math.max(0,Math.min(4400-toPX(o).w,drag.x+dx));
+     o.y=Math.max(0,Math.min(1500-toPX(o).h,drag.y+dy));
+     if(n){n.style.left=o.x+'px';n.style.top=o.y+'px'}
+   }else if(drag.mode==='resize'){
+     // Rotate screen movement back into the object's own width/height axes.
+     const c=Math.cos(drag.rot),si=Math.sin(drag.rot);
+     const localX=dx*c+dy*si,localY=-dx*si+dy*c;
+     const sx=drag.handle.includes('e')?1:drag.handle.includes('w')?-1:0;
+     const sy=drag.handle.includes('s')?1:drag.handle.includes('n')?-1:0;
+     const newW=sx?Math.max(55,drag.width+sx*localX):drag.width;
+     const newH=sy?Math.max(55,drag.height+sy*localY):drag.height;
+     const changeX=sx*(newW-drag.width)/2,changeY=sy*(newH-drag.height)/2;
+     const midX=drag.x+drag.width/2+changeX*c-changeY*si;
+     const midY=drag.y+drag.height/2+changeX*si+changeY*c;
+     o.w=Number((newW/13).toFixed(2));o.d=Number((newH/13).toFixed(2));
+     o.x=midX-newW/2;o.y=midY-newH/2;
+     if(n){n.style.left=o.x+'px';n.style.top=o.y+'px';n.style.width=newW+'px';n.style.height=newH+'px'}
+     $('objectWidth').value=o.w;$('objectDepth').value=o.d;
+   }
+   if(e.cancelable)e.preventDefault();
+ }else if(pan){
+   vp.scrollLeft=pan.left-(e.clientX-pan.x);
+   vp.scrollTop=0;
+ }
+},{passive:false});
+function finishPointer(e){
+ if(drag && (!e||e.pointerId===drag.pointerId)){drag=null;save();render();inspector();}
+ pan=null;vp.classList.remove('panning');
+}
+document.addEventListener('pointerup',finishPointer);
+document.addEventListener('pointercancel',finishPointer);
 vp.addEventListener('pointerdown',e=>{if(e.target.closest('.sceneItem'))return;selected=null;render();inspector();if(e.button===0||e.button===1){pan={x:e.clientX,y:e.clientY,left:vp.scrollLeft,top:vp.scrollTop};vp.classList.add('panning')}});
 vp.addEventListener('wheel',e=>{if(e.ctrlKey){e.preventDefault();setZoom(zoom+(e.deltaY<0?.08:-.08))}else if(e.shiftKey){e.preventDefault();vp.scrollLeft+=e.deltaY}},{passive:false});
 vp.addEventListener('dragover',e=>e.preventDefault());
@@ -152,7 +226,7 @@ $('assetCount').textContent=catalog.length+' images'}
 async function loadAssets(){if(!window.JSZip){status('Image archive reader unavailable. Check your connection and reload.');return}
 let successes=0;const loadErrors=[];for(const source of files){try{status('Loading '+source.category+' collection…');const res=await fetch(source.url,{cache:'force-cache'});if(!res.ok)throw Error('HTTP '+res.status);const zip=await JSZip.loadAsync(await res.arrayBuffer());const entries=Object.keys(zip.files).filter(k=>/\.png$/i.test(k)&&!zip.files[k].dir);
 for(const path of entries){const name=path.split('/').pop(),id=source.category+'/'+name;if(cache.has(id))continue;const blob=await zip.files[path].async('blob');const url=URL.createObjectURL(new Blob([blob],{type:'image/png'}));cache.set(id,url);catalog.push({id,label:prettify(name),group:groupFor(source,name),source:source.category})}successes++}catch(e){loadErrors.push(source.url+': '+e.message);status('Could not load '+source.url+': '+e.message);}}
-catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();const extrasCount=catalog.filter(a=>a.source==='extras').length;$('newImgsBtn').textContent='✨ New images ('+extrasCount+')';if(extrasCount!==10){$('newImgsBtn').style.borderColor='#f4a87a';$('newImgsBtn').title='Only '+extrasCount+' of 10 expected images loaded';}status('Garden Studio Build 4 • '+catalog.length+' images • New images: '+extrasCount+'/10 • ZIP archives: '+successes+'/'+files.length+(loadErrors.length?' • Errors: '+loadErrors.join(' | '):' • Autosave ON'));}
+catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();const extrasCount=catalog.filter(a=>a.source==='extras').length;$('newImgsBtn').textContent='✨ New images ('+extrasCount+')';if(extrasCount!==10){$('newImgsBtn').style.borderColor='#f4a87a';$('newImgsBtn').title='Only '+extrasCount+' of 10 expected images loaded';}status('Garden Studio Build 5 • '+catalog.length+' images • New images: '+extrasCount+'/10 • ZIP archives: '+successes+'/'+files.length+(loadErrors.length?' • Errors: '+loadErrors.join(' | '):' • Autosave ON'));}
 $('zoomIn').onclick=()=>setZoom(zoom+.15);$('zoomOut').onclick=()=>setZoom(zoom-.15);$('centerBtn').onclick=scrollCenter;$('showGrid').onclick=()=>{grid=!grid;canvas.classList.toggle('grid',grid);$('showGrid').classList.toggle('active',grid)};$('showNames').onclick=()=>{showNames=!showNames;$('showNames').classList.toggle('active',showNames);render()};
 $('viewBtn').onclick=()=>{angled=!angled;$('viewBtn').classList.toggle('active',angled);$('viewBtn').textContent=angled?'Overhead view':'Angled view';setZoom(zoom)};
 $('setResetBtn').onclick=()=>{if(!confirm('Save your exact CURRENT garden positions as the reset layout? This will replace your previous saved reset, but will NOT move anything now.'))return;try{localStorage.setItem(keys.reset,JSON.stringify({version:2,items:JSON.parse(JSON.stringify(items)),seq,saved:new Date().toISOString()}));status('Current garden saved as your personal reset layout • '+items.length+' items. Keep a JSON export too.');}catch(e){alert('Could not save reset point: '+e.message)}};
