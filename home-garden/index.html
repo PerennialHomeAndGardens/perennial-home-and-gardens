@@ -5,7 +5,21 @@
 <style>
 :root{color-scheme:dark;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#0e1d16;color:#e8f5e7}*{box-sizing:border-box}
 body{margin:0;overflow:hidden}button,input,select,textarea{font:inherit}button{cursor:pointer;background:#254635;border:1px solid #456950;border-radius:9px;color:#e9f8e9;padding:9px 11px}button:hover{background:#376448}button.active{background:#c6e7a8;color:#142619;border-color:#c6e7a8}button:disabled{opacity:.4;cursor:default}
-.shell{height:100dvh;display:grid;grid-template-columns:288px minmax(0,1fr) 296px;grid-template-rows:60px minmax(0,1fr) 36px}
+.shell{height:100dvh;display:grid;grid-template-columns:288px minmax(0,1fr) 296px;grid-template-rows:60px minmax(0,1fr) 36px;--left-width:288px;--right-width:296px}
+.shell.leftClosed{grid-template-columns:34px minmax(0,1fr) 296px}
+.shell.rightClosed{grid-template-columns:288px minmax(0,1fr) 34px}
+.shell.leftClosed.rightClosed{grid-template-columns:34px minmax(0,1fr) 34px}
+.sidebar{position:relative}
+.sidebar.left .collapsePanel{position:sticky;top:0;float:right;z-index:4}
+.sidebar.right .collapsePanel{position:sticky;top:0;float:left;z-index:4}
+.shell.leftClosed .sidebar.left,.shell.rightClosed .sidebar.right{overflow:hidden;padding:3px 2px;display:block}
+.shell.leftClosed .sidebar.left>*:not(.collapsePanel),.shell.rightClosed .sidebar.right>*:not(.collapsePanel){display:none}
+.collapsePanel{font-size:16px;width:27px;padding:7px 2px;border-radius:6px;line-height:1.3}
+#stage{position:relative;width:3520px;height:1200px;flex:none}
+#viewport{overflow-x:auto;overflow-y:hidden!important}
+#canvas{position:absolute;top:0;left:0;box-shadow:none}
+.floatBar{max-height:90px;overflow:auto}
+@media(min-width:1051px){.sidebar.right.show{display:block}}
 header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c20;border-bottom:1px solid #31533c;padding:8px 15px;min-width:0}
 .logo{font-weight:800;font-size:19px;letter-spacing:-.5px;white-space:nowrap}.logo span{color:#bdea97}.tag{font-size:11px;color:#a9c5ae;white-space:nowrap}
 .toolbar{display:flex;align-items:center;gap:6px;flex:1;justify-content:end;min-width:0}.toolbar button{white-space:nowrap;font-size:12px}.toolbar .scrollLabel{font-size:11px;color:#a1c5a5}.sidebar{background:#152c20;overflow:auto;padding:16px 13px;border-right:1px solid #31513e}.sidebar.right{border-right:none;border-left:1px solid #31513e}
@@ -34,21 +48,21 @@ header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c
 .right .row{display:flex;gap:7px;margin-top:9px}.right .row button{flex:1;font-size:12px}.right .preview{height:130px;width:100%;object-fit:contain;border:1px solid #385b42;border-radius:10px;background:#254332}
 .status{grid-column:1/4;background:#102519;border-top:1px solid #31513e;padding:9px 16px;font-size:12px;color:#b8cdb7;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .dim{font-size:11px;color:#acc2af}.pill{background:#2a4732;border-radius:100px;padding:4px 8px;font-size:10px;color:#dcefc8}.actionrow{display:flex;gap:7px;flex-wrap:wrap}.actionrow button{font-size:11px}
-@media(max-width:1050px){.shell{grid-template-columns:205px minmax(0,1fr);grid-template-rows:60px minmax(0,1fr) 38px}.sidebar.right{position:absolute;right:0;top:60px;bottom:38px;width:min(290px,90vw);z-index:20;box-shadow:0 0 20px #0007;display:none}.sidebar.right.show{display:block}.toolbar{overflow:auto}.logo{font-size:15px}.tag{display:none}}
-@media(max-width:620px){.shell{grid-template-columns:1fr;grid-template-rows:60px 1fr 35px}.sidebar.left{position:absolute;left:0;top:60px;bottom:35px;width:min(260px,88vw);z-index:21;box-shadow:0 0 20px #0007;display:none}.sidebar.left.show{display:block}.center{grid-column:1}.logo{font-size:14px}.toolbar button{font-size:11px;padding:7px}.status{grid-column:1}.bottomInfo{white-space:normal;text-align:center;width:85%}}
+@media(max-width:1050px){.shell{grid-template-columns:205px minmax(0,1fr);grid-template-rows:60px minmax(0,1fr) 38px}.sidebar.right{position:absolute;right:0;top:60px;bottom:38px;width:min(290px,90vw);z-index:20;box-shadow:0 0 20px #0007;display:none}.shell.rightClosed .sidebar.right{width:34px;display:block}.shell.leftClosed .sidebar.left{width:34px}.sidebar.right.show{display:block}.toolbar{overflow:auto}.logo{font-size:15px}.tag{display:none}}
+@media(max-width:620px){.shell{grid-template-columns:1fr;grid-template-rows:60px 1fr 35px}.sidebar.left{position:absolute;left:0;top:60px;bottom:35px;width:min(260px,88vw);z-index:21;box-shadow:0 0 20px #0007;display:none}.shell.leftClosed .sidebar.left{display:block;width:34px}.sidebar.left.show{display:block}.center{grid-column:1}.logo{font-size:14px}.toolbar button{font-size:11px;padding:7px}.status{grid-column:1}.bottomInfo{white-space:normal;text-align:center;width:85%}}
 </style></head><body>
 <div class="shell">
 <header><div><div class="logo">🌿 Perennial <span>Home Garden</span></div><div class="tag">Personal garden planner • experimental orchard</div></div>
-<div class="toolbar"><button id="openLib">🌱 Library</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
-<aside class="sidebar left" id="library"><div style="display:flex;align-items:center;justify-content:space-between"><b>Garden asset library</b><span class="pill" id="assetCount">Loading</span></div><p class="stat">Select any image to place it onto the landscape. You can add several copies of the same plant.</p>
+<div class="toolbar"><button id="openLib">🌱 Library</button><button id="newImgsBtn" title="Show the ten newly added plants and gate">✨ New images</button><button id="centerBtn">⌖ Center</button><button id="fitBtn" title="Fit garden height to available screen">⛶ Fit screen</button><button id="undoBtn" title="Undo last change">↶ Undo</button><button id="imageExportBtn" title="Save the complete garden design, including the panoramic landscape, as a PNG image">📷 Download image</button><button id="exportBtn" title="Save an editable layout backup (JSON)">⇩ Backup layout</button><button id="importBtn">⇧ Import</button><input type="file" id="importFile" accept=".json" hidden><button id="detailsBtn">Details</button></div></header>
+<aside class="sidebar left" id="library"><button class="collapsePanel" id="collapseLeft" title="Collapse plant library" aria-label="Collapse plant library">❮</button><div style="display:flex;align-items:center;justify-content:space-between"><b>Garden asset library</b><span class="pill" id="assetCount">Loading</span></div><p class="stat">Select any image to place it onto the landscape. You can add several copies of the same plant.</p>
 <input id="search" class="search" placeholder="Find a tree, crop or bed..." aria-label="Search garden items">
 <div class="tabrow"><button data-tab="all" class="active">All</button><button data-tab="extras">✨ New (10)</button><button data-tab="trees">Trees</button><button data-tab="flowers">Flowers</button><button data-tab="vegetables">Vegetables</button><button data-tab="beds">Raised beds</button><button data-tab="shrubs">Shrubs</button></div>
 <div class="assets" id="assets"></div>
 <div class="sectionTitle">Your garden</div><div id="count" class="stat"></div><div class="emptyNote">All changes save automatically in this browser. Export a JSON backup before switching browsers or devices. The garden positions are yours to arrange.</div>
 </aside>
-<main class="center"><div class="floatBar"><button id="zoomOut">−</button><span class="tiny" id="zoomPct">100%</span><button id="zoomIn">+</button><button id="showGrid">Grid</button><button id="showNames">Labels</button><button id="viewBtn">Angled view</button><button id="resetBtn">Reset starter layout</button></div>
-<div id="viewport"><div id="canvas"><div class="gridOverlay"></div></div></div><div class="bottomInfo">Drag items to move • Scroll horizontally • Click an item for details</div></main>
-<aside class="sidebar right" id="inspector"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Plant & bed details</h2><button id="closeInspector">✕</button></div>
+<main class="center"><div class="floatBar"><button id="zoomOut">−</button><span class="tiny" id="zoomPct">100%</span><button id="zoomIn">+</button><button id="showGrid">Grid</button><button id="showNames">Labels</button><button id="viewBtn">Angled view</button><button id="setResetBtn" title="Store your exact current layout as your personal reset point">★ Save current as reset</button><button id="resetBtn" title="Restore the last layout you explicitly saved as the reset point">↺ Restore saved reset</button></div>
+<div id="viewport"><div id="stage"><div id="canvas"><div class="gridOverlay"></div></div></div></div><div class="bottomInfo">Drag items to move • Scroll horizontally • Click an item for details</div></main>
+<aside class="sidebar right" id="inspector"><button class="collapsePanel" id="collapseRight" title="Collapse details panel" aria-label="Collapse details panel">❯</button><div style="display:flex;justify-content:space-between;align-items:center"><h2>Plant & bed details</h2><button id="closeInspector">✕</button></div>
 <div id="nothing"><p>Choose any garden object to adjust its name, size, orientation, location, notes and future links.</p><div class="emptyNote">A draft starter layout is supplied. You can clear or reposition everything to match your real garden.</div></div>
 <div id="editing" hidden><img id="preview" class="preview" alt="Selected plant preview"><label for="objectName">Display name</label><input id="objectName"><label for="objectNotes">What grows here / care notes</label><textarea id="objectNotes" placeholder="Plants, varieties, soil, pruning, condition, tasks..."></textarea><label for="objectUrl">Related webpage (optional)</label><input id="objectUrl" placeholder="https://..."><div class="row"><div><label for="objectWidth">Width (ft)</label><input id="objectWidth" type="number" min=".5" step=".5"></div><div><label for="objectDepth">Depth (ft)</label><input id="objectDepth" type="number" min=".5" step=".5"></div></div><label for="objectAngle">Rotation (degrees)</label><input id="objectAngle" type="range" min="0" max="360" step="5" value="0">
 <div class="row"><button id="rotateLeft">↶ 90°</button><button id="rotateRight">90° ↷</button></div><div class="row"><button id="lockBtn">Lock</button><button id="duplicateBtn">Duplicate</button></div><div class="row"><button id="visitBtn">Open link</button><button id="removeBtn" style="background:#71322f">Delete</button></div></div>
@@ -56,8 +70,8 @@ header{grid-column:1/4;display:flex;align-items:center;gap:12px;background:#142c
 <footer class="status" id="status">Preparing your garden library…</footer></div>
 <script>
 (()=>{'use strict';
-const base='phg-home-garden-v2',keys={layout:base+'-layout',prefs:base+'-prefs'};
-const $=id=>document.getElementById(id), canvas=$('canvas'),vp=$('viewport'), assetsEl=$('assets');
+const base='phg-home-garden-v2',keys={layout:base+'-layout',prefs:base+'-prefs',reset:base+'-custom-reset'};
+const $=id=>document.getElementById(id), canvas=$('canvas'),stage=$('stage'),vp=$('viewport'), assetsEl=$('assets');
 const files=[
 {url:'../home_garden_master_assets.zip',category:'garden'},
 {url:'../home_garden_raised_beds.zip',category:'beds'},
@@ -69,8 +83,13 @@ const catalog=[],cache=new Map(), history=[];let items=[],seq=1,selected=null,zo
 const groupFor=(file,name)=>file.category==='beds'?'beds':file.category==='vegetables'?'vegetables':/gate/.test(name)?'beds':/blueberry/.test(name)?'shrubs':/rose|peon|iris|thyme|salvia|lavender|echinacea|coneflower|rosemary|sage|mint|strawberr|catnip/.test(name)?'flowers':/shrub|juniper|euonymus/.test(name)?'shrubs':'trees';
 const status=s=>$('status').textContent=s;
 const escapeText=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function setZoom(z){zoom=Math.max(.35,Math.min(1.6,z));canvas.style.transform='scale('+zoom+')'+(angled?' perspective(1500px) rotateX(6deg)':'');$('zoomPct').textContent=Math.round(zoom*100)+'%';}
-function scrollCenter(){vp.scrollLeft=(canvas.offsetWidth*zoom-vp.clientWidth)/2;vp.scrollTop=(canvas.offsetHeight*zoom-vp.clientHeight)/2;}
+function setZoom(z){zoom=Math.max(.15,Math.min(1.6,z));canvas.style.transform='scale('+zoom+')'+(angled?' perspective(1500px) rotateX(6deg)':'');stage.style.width=(4400*zoom)+'px';stage.style.height=(1500*zoom)+'px';$('zoomPct').textContent=Math.round(zoom*100)+'%';vp.scrollTop=0;}
+function fitScreen(){setZoom(Math.max(.15,(vp.clientHeight-6)/1500));vp.scrollTop=0;vp.scrollLeft=Math.max(0,(stage.offsetWidth-vp.clientWidth)/2);}
+function applyPanelState(){const shell=document.querySelector('.shell'),left=shell.classList.contains('leftClosed'),right=shell.classList.contains('rightClosed');$('collapseLeft').textContent=left?'❯':'❮';$('collapseRight').textContent=right?'❮':'❯';$('collapseLeft').title=left?'Open plant library':'Collapse plant library';$('collapseRight').title=right?'Open details panel':'Collapse details panel';requestAnimationFrame(()=>{vp.scrollTop=0;vp.scrollLeft=Math.min(vp.scrollLeft,Math.max(0,stage.offsetWidth-vp.clientWidth))});}
+$('collapseLeft').onclick=()=>{document.querySelector('.shell').classList.toggle('leftClosed');applyPanelState()};
+$('collapseRight').onclick=()=>{document.querySelector('.shell').classList.toggle('rightClosed');applyPanelState()};
+$('fitBtn').onclick=fitScreen;
+function scrollCenter(){vp.scrollLeft=Math.max(0,(stage.offsetWidth-vp.clientWidth)/2);vp.scrollTop=0;}
 function snapshot(){history.push(JSON.stringify(items));if(history.length>35)history.shift();}
 function save(){try{localStorage.setItem(keys.layout,JSON.stringify({version:2,items,seq}))}catch(e){status('Storage is unavailable: export your garden to preserve changes.');}}
 function startSample(){const a=[];function one(id,x,y,w,d,n){a.push({id:seq++,asset:id,x,y,w,d,rot:0,name:n||prettify(id.split('/').pop()),notes:'',url:'',locked:false})}
@@ -120,7 +139,8 @@ for(const path of entries){const name=path.split('/').pop(),id=source.category+'
 catalog.sort((a,b)=>a.label.localeCompare(b.label));drawLibrary();render();const extrasCount=catalog.filter(a=>a.source==='extras').length;$('newImgsBtn').textContent='✨ New images ('+extrasCount+')';if(extrasCount!==10){$('newImgsBtn').style.borderColor='#f4a87a';$('newImgsBtn').title='Only '+extrasCount+' of 10 expected images loaded';}status('Garden Studio v3 • '+catalog.length+' images • New images: '+extrasCount+'/10 • ZIP archives: '+successes+'/'+files.length+(loadErrors.length?' • Errors: '+loadErrors.join(' | '):' • Autosave ON'));}
 $('zoomIn').onclick=()=>setZoom(zoom+.15);$('zoomOut').onclick=()=>setZoom(zoom-.15);$('centerBtn').onclick=scrollCenter;$('showGrid').onclick=()=>{grid=!grid;canvas.classList.toggle('grid',grid);$('showGrid').classList.toggle('active',grid)};$('showNames').onclick=()=>{showNames=!showNames;$('showNames').classList.toggle('active',showNames);render()};
 $('viewBtn').onclick=()=>{angled=!angled;$('viewBtn').classList.toggle('active',angled);$('viewBtn').textContent=angled?'Overhead view':'Angled view';setZoom(zoom)};
-$('resetBtn').onclick=()=>{if(!confirm('Replace the current arrangement with the rough starter layout? Export a backup first if needed.'))return;snapshot();items=startSample();selected=null;refresh();scrollCenter()};
+$('setResetBtn').onclick=()=>{if(!confirm('Save your exact CURRENT garden positions as the reset layout? This will replace your previous saved reset, but will NOT move anything now.'))return;try{localStorage.setItem(keys.reset,JSON.stringify({version:2,items:JSON.parse(JSON.stringify(items)),seq,saved:new Date().toISOString()}));status('Current garden saved as your personal reset layout • '+items.length+' items. Keep a JSON export too.');}catch(e){alert('Could not save reset point: '+e.message)}};
+$('resetBtn').onclick=()=>{const v=localStorage.getItem(keys.reset);if(!v){alert('No personal reset has been saved yet. Click "Save current as reset" first. Nothing has been moved.');return;}if(!confirm('Restore the layout you last saved as your personal reset point? Your current arrangement will be replaced. Export a backup first if needed.'))return;try{const saved=JSON.parse(v);if(!Array.isArray(saved.items))throw Error('Invalid reset layout');snapshot();items=JSON.parse(JSON.stringify(saved.items));seq=Math.max(saved.seq||1,...items.map(i=>(Number(i.id)||0)+1));selected=null;refresh();scrollCenter();status('Restored your saved personal reset layout.');}catch(e){alert('Unable to restore reset: '+e.message)}};
 $('undoBtn').onclick=()=>{if(!history.length)return;items=JSON.parse(history.pop());selected=null;refresh()};
 
 async function downloadGardenImage(){
@@ -172,6 +192,6 @@ $('imageExportBtn').onclick=downloadGardenImage;
 $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({version:2,items,seq,created:new Date().toISOString()},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='home-garden-layout-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)};
 $('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{try{const f=e.target.files?.[0];if(!f)return;const v=JSON.parse(await f.text());if(!Array.isArray(v.items))throw Error('Not a garden layout');snapshot();items=v.items;seq=Math.max(...items.map(o=>Number(o.id)||0),0)+1;selected=null;refresh();status('Garden layout imported successfully.')}catch(e){alert('Cannot import file: '+e.message)}finally{e.target.value=''}};
 $('openLib').onclick=()=>$('library').classList.toggle('show');$('detailsBtn').onclick=()=>$('inspector').classList.toggle('show');document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea'))return;if((e.key==='Delete'||e.key==='Backspace')&&current()&&!current().locked){snapshot();items=items.filter(o=>o.id!==selected);selected=null;refresh()}if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();$('undoBtn').click()}});
-setZoom(zoom);render();setTimeout(scrollCenter,100);window.addEventListener('load',loadAssets);
+setZoom(zoom);render();setTimeout(()=>{fitScreen();scrollCenter()},100);window.addEventListener('load',loadAssets);
 })();
 </script></body></html>
