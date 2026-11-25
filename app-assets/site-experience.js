@@ -125,6 +125,13 @@ function gardenNavigation(){
  if(!nav||!host||!music||!menu)return;
  const desktop=nav.cloneNode(true);desktop.id='phg-desktop-links';desktop.setAttribute('aria-label','Main navigation');
  desktop.querySelectorAll('button').forEach(n=>n.remove());nav.before(desktop);
+ const emergencyPath='/emergency-preparation/';
+ if(!nav.querySelector(`a[href="${emergencyPath}"]`)){
+  const emergency=el('a','','Emergency Preparation');
+  emergency.href=emergencyPath;
+  const resources=nav.querySelector('.navCenterFree');
+  if(resources)resources.after(emergency);else nav.append(emergency);
+ }
  host.querySelectorAll('.desktopShare,.desktopJoin,.site-app-desktop').forEach(n=>n.remove());
  music.innerHTML='<span class="phg-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>';
  music.setAttribute('aria-label','Open Perennial Home and Gardens jukebox');music.removeAttribute('onclick');
@@ -298,7 +305,9 @@ function init(){
  if(!document.querySelector('link[href*="site-experience.css"]')){const link=el('link');link.rel='stylesheet';link.href=asset('site-experience.css?v=20261021-organized');document.head.append(link);}
  function syncTheme(){const m=getComputedStyle(document.body).color.match(/[\d.]+/g)||[240,240,240];const light=cfg.slug!=='ie'&&(+m[0]*.2126 + +m[1]*.7152 + +m[2]*.0722)<145;body.style.setProperty('--x-panel',light?'#f1eee7':'#0c100f');body.style.setProperty('--x-text',light?'#262923':'#eee');}
  syncTheme();for(const n of [document.body,document.documentElement])new MutationObserver(syncTheme).observe(n,{attributes:true,attributeFilter:['class','data-theme']});
- gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();gardenRefinements();
+ gardenNavigation();gardenAssistant();addMenu();brandNative();genericPlayer();
+ if(body.hasAttribute('data-emergency-preparation'))return;
+ gardenRefinements();
  const capture=el('script');capture.src=asset('gift-capture.js?v=20261027');document.body.append(capture);
  if(document.getElementById("ap")){const t=el("script");t.src=asset("tanya-assistant.js?v=20261021-organized");document.body.append(t);}
  // ETP creates its jukebox on demand, so apply the same branding when it appears.
