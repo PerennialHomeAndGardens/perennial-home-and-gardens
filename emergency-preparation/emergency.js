@@ -62,48 +62,39 @@ for (const button of document.querySelectorAll('[data-print]')) {
 }
 
 const listen = document.querySelector('[data-listen]');
-if (listen && window.speechSynthesis && window.SpeechSynthesisUtterance) {
+if (listen) {
   const status = document.getElementById('ep-audio-status');
-  const steps = document.getElementById(listen.dataset.listen);
-  let reading = null;
+  const audio = new Audio('/emergency-preparation/first-moves.mp3');
+  audio.preload = 'none';
 
-  function finish() {
-    reading = null;
-    listen.textContent = 'Listen';
-    listen.setAttribute('aria-pressed', 'false');
+  function showPlayback(playing) {
+    listen.textContent = playing ? 'Stop audio' : 'Listen';
+    listen.setAttribute('aria-pressed', String(playing));
   }
 
   listen.hidden = false;
-  listen.addEventListener('click', () => {
-    if (reading) {
-      finish();
-      window.speechSynthesis.cancel();
+  audio.addEventListener('ended', () => showPlayback(false));
+  listen.addEventListener('click', async () => {
+    if (!audio.paused) {
+      audio.pause();
+      audio.currentTime = 0;
+      showPlayback(false);
       return;
     }
 
-    const urgent = document.querySelector('.ep-urgent');
-    const spokenText = [
-      `${urgent.querySelector('a').textContent.replace('911', 'nine one one')} ${urgent.querySelector('span').textContent}.`,
-      ...Array.from(steps.children, (step, index) => `Step ${index + 1}. ${step.textContent.trim()}`),
-    ].join(' ');
-    const utterance = new SpeechSynthesisUtterance(spokenText);
-    utterance.lang = 'en-US';
-    utterance.onend = () => { if (reading === utterance) finish(); };
-    utterance.onerror = () => {
-      if (reading !== utterance) return;
-      finish();
-      status.textContent = 'Audio playback is unavailable. The first moves are listed below.';
-    };
-    reading = utterance;
     status.textContent = '';
-    listen.textContent = 'Stop audio';
-    listen.setAttribute('aria-pressed', 'true');
-    window.speechSynthesis.speak(utterance);
+    try {
+      await audio.play();
+      showPlayback(!audio.paused);
+    } catch (error) {
+      showPlayback(false);
+      if (error.name !== 'AbortError') {
+        status.textContent = 'Audio playback is unavailable. The first moves are listed below.';
+      }
+    }
   });
   window.addEventListener('pagehide', () => {
-    if (reading) {
-      finish();
-      window.speechSynthesis.cancel();
-    }
+    audio.pause();
+    showPlayback(false);
   });
 }
