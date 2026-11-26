@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="/app-assets/articles.css">
   <link rel="stylesheet" href="/app-assets/site-experience.css?v=20261021-organized">
   <link rel="stylesheet" href="/app-assets/app-navigation.css?v=20261021-soft-whirl">
-  <link rel="stylesheet" href="/emergency-preparation/emergency.css">
-  <script defer src="/emergency-preparation/emergency.js?v=2"></script>
+  <link rel="stylesheet" href="/emergency-preparation/emergency.css?v=3">
+  <script defer src="/emergency-preparation/emergency.js?v=3"></script>
   <script defer src="/app-assets/install.js?v=6f6457c2e17d"></script>
   <script defer src="/app-assets/app-navigation.js?v=20261021-soft-whirl"></script>
 </head>
@@ -57,11 +57,11 @@
         <p class="ep-lead">An emergency can happen before you have a plan. Start with the steps that protect you and the people around you.</p>
         <div class="ep-actions">
           <a class="ep-button ep-button-primary" href="#situations">Find my situation</a>
-          <a class="ep-button ep-button-secondary" href="#alerts">Official alerts</a>
+          <a class="ep-button ep-button-secondary" href="/emergency-preparation/long-outage/">Power and water are out</a>
+          <a class="ep-hero-alerts" href="#alerts">Official alerts</a>
         </div>
       </div>
       <div class="ep-first">
-        <div class="ep-urgent"><a href="tel:911">Call 911</a><span>If someone needs immediate police, fire, or medical help in the U.S.</span></div>
         <div class="ep-first-body">
           <div class="ep-first-heading">
             <h2>Your first moves</h2>
@@ -84,6 +84,10 @@
       <p>Choose a situation to see what to do first and what to check once you’re safe.</p>
     </div>
     <nav class="ep-scenarios" aria-label="Emergency situations">
+      <a class="ep-scenario ep-scenario-extended" href="/emergency-preparation/long-outage/">
+        <span class="ep-icon ep-icon-house" aria-hidden="true"></span>
+        <span><strong>Long outage or major disruption</strong><span>Several services are down.</span></span>
+      </a>
       <a class="ep-scenario" href="/emergency-preparation/situations/#fire">
         <span class="ep-icon ep-icon-flame" aria-hidden="true"></span>
         <span><strong>Home fire</strong><span>Get out. Stay out.</span></span>
@@ -122,6 +126,7 @@
         <p>Choose a meeting place near home and another outside your neighborhood. Pick a contact outside your area and share the plan with everyone in your household.</p>
         <p>Plan how to move or shelter with children, pets, and anyone who needs mobility assistance, medication, or powered medical equipment.</p>
         <p>Start with a three-day supply of food and water for evacuation. For home, the Red Cross recommends building toward two weeks. Budget one gallon of water per person per day and extra for pets.</p>
+        <p><a class="ep-text-link" href="/emergency-preparation/long-outage/#build-a-reserve">Build a reserve for a longer disruption</a></p>
         <a class="ep-text-link" href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/make-a-plan.html">Red Cross household plan</a>
       </div>
       <div class="ep-kit">
@@ -150,12 +155,14 @@
   <section id="alerts" class="ep-section ep-wrap" aria-labelledby="ep-alerts-title">
     <div class="ep-section-heading">
       <h2 id="ep-alerts-title">Official alerts and shelter info</h2>
-      <p>Use local emergency notices for evacuation orders, shelter instructions and updates.</p>
+      <p>Look for weather watches and warnings, evacuation or shelter-in-place orders, drinking-water advisories, and notices about aid or supply distribution.</p>
     </div>
-    <div class="ep-resource-grid">
+    <p class="ep-alert-tip"><strong>For weather alerts, a watch means get ready and a warning means act.</strong> Read the full alert for the area, the time, and the action to take. Check your water utility or health department for tap-water notices.</p>
+    <div class="ep-resource-grid ep-alert-resources">
       <a class="ep-resource" href="https://www.weather.gov/alerts"><span class="ep-kicker">U.S. weather</span><strong>National Weather Service alerts</strong><span>Look up active watches, warnings and advisories.</span></a>
       <a class="ep-resource" href="https://www.redcross.org/get-help/disaster-relief-and-recovery-services/find-an-open-shelter.html"><span class="ep-kicker">U.S. shelters</span><strong>Red Cross shelter finder</strong><span>See open Red Cross shelters. Check local notices for other options.</span></a>
       <a class="ep-resource" href="https://www.charlescountymd.gov/services/alerts/citizen-notification-system"><span class="ep-kicker">Local to Perennial</span><strong>Charles County, Maryland alerts</strong><span>Sign up for county emergency notifications.</span></a>
+      <a class="ep-resource" href="https://www.weather.gov/riw/WEA_Info"><span class="ep-kicker">Phone alerts</span><strong>Wireless Emergency Alerts</strong><span>Learn how official alerts reach compatible phones in affected areas.</span></a>
     </div>
   </section>
 
@@ -164,7 +171,7 @@
       <div>
         <h2>About Emergency Preparation</h2>
         <p>Perennial Home &amp; Gardens brings household emergency guidance into one place. Start here when something happens, or use the checklist to get ready on a quiet day.</p>
-        <p>First steps draw on <a href="https://www.911.gov/calling-911/">911.gov</a>, the <a href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/home-fire-escape-plans/">U.S. Fire Administration</a>, <a href="https://www.cdc.gov/floods/safety/">CDC</a>, the <a href="https://www.weather.gov/otx/Tornadoes">National Weather Service</a>, and the <a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/make-a-plan.html">American Red Cross</a>.</p>
+        <p>First steps draw on the <a href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/home-fire-escape-plans/">U.S. Fire Administration</a>, <a href="https://www.cdc.gov/floods/safety/">CDC</a>, the <a href="https://www.weather.gov/otx/Tornadoes">National Weather Service</a>, and the <a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/make-a-plan.html">American Red Cross</a>.</p>
       </div>
       <img src="/app-assets/approved-home/garden-design.webp" alt="" width="320" height="174" loading="lazy" decoding="async">
     </div>

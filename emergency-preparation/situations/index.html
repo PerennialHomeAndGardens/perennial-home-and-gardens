@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="/app-assets/articles.css">
   <link rel="stylesheet" href="/app-assets/site-experience.css?v=20261021-organized">
   <link rel="stylesheet" href="/app-assets/app-navigation.css?v=20261021-soft-whirl">
-  <link rel="stylesheet" href="/emergency-preparation/emergency.css">
-  <script defer src="/emergency-preparation/emergency.js?v=2"></script>
+  <link rel="stylesheet" href="/emergency-preparation/emergency.css?v=3">
+  <script defer src="/emergency-preparation/emergency.js?v=3"></script>
   <script defer src="/app-assets/install.js?v=6f6457c2e17d"></script>
   <script defer src="/app-assets/app-navigation.js?v=20261021-soft-whirl"></script>
 </head>
@@ -54,8 +54,11 @@
       <p class="ep-kicker">Emergency Preparation</p>
       <h1>Emergency situations</h1>
       <p class="ep-lead">Start with the first action for your situation. Follow local emergency instructions as they are issued.</p>
-      <p class="ep-guide-call"><a href="tel:911">Call 911</a> if someone needs immediate police, fire, or medical help in the U.S.</p>
       <nav class="ep-scenarios" aria-label="Emergency situations">
+      <a class="ep-scenario ep-scenario-extended" href="/emergency-preparation/long-outage/">
+        <span class="ep-icon ep-icon-house" aria-hidden="true"></span>
+        <span><strong>Long outage or major disruption</strong><span>Several services are down.</span></span>
+      </a>
       <a class="ep-scenario" href="#fire">
         <span class="ep-icon ep-icon-flame" aria-hidden="true"></span>
         <span><strong>Home fire</strong><span>Get out. Stay out.</span></span>
@@ -90,11 +93,11 @@
   <div class="ep-wrap ep-guide-list">
     <section class="ep-guide" id="fire" aria-labelledby="fire-title">
       <h2 id="fire-title">Home fire</h2>
-      <p class="ep-do-first"><strong>First action</strong> Get out, stay out, and call 911 from outside.</p>
+      <p class="ep-do-first"><strong>First action</strong> Get out, stay out, and call the fire department from outside.</p>
       <ol>
         <li>Use your nearest safe exit. If there is smoke, get low and move under it. If a door feels warm or smoke is coming through, use another exit.</li>
         <li>Go to your outside meeting place. Tell firefighters immediately if anyone or any pets may still be inside.</li>
-        <li>If you can’t escape, close the door between you and the fire. Call 911 and tell the dispatcher where you are. Signal from a window if you can.</li>
+        <li>If you can’t escape, close the door between you and the fire. Call emergency services and tell the dispatcher where you are. Signal from a window if you can.</li>
       </ol>
       <a class="ep-text-link" href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/home-fire-escape-plans/">U.S. Fire Administration fire escape guidance</a>
     </section>
@@ -104,7 +107,7 @@
       <p class="ep-do-first"><strong>First action</strong> Move to higher ground immediately if you can get there safely.</p>
       <ol>
         <li>Keep out of floodwater on foot and in a vehicle. Turn around at a flooded road or barricade.</li>
-        <li>If trapped by rising water in a building, move to the highest level. Avoid a closed attic where you could become trapped. Call 911 if you need rescue.</li>
+        <li>If trapped by rising water in a building, move to the highest level. Avoid a closed attic where you could become trapped. Call for emergency rescue if you are trapped.</li>
         <li>Return only when local officials say it’s safe. Stay clear of damaged electrical equipment and downed lines.</li>
       </ol>
       <a class="ep-text-link" href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/flood.html">Red Cross flood guidance</a>
@@ -123,12 +126,13 @@
 
     <section class="ep-guide" id="outage" aria-labelledby="outage-title">
       <h2 id="outage-title">Power outage</h2>
-      <p class="ep-do-first"><strong>First action</strong> Check anyone who relies on powered medical equipment. Use backup power or move to a powered location if safe. Call 911 for an immediate medical emergency.</p>
+      <p class="ep-do-first"><strong>First action</strong> Check anyone who relies on powered medical equipment. Use backup power or move to a powered location if safe. Get emergency medical help if needed.</p>
       <ol>
         <li>Use flashlights, keep your refrigerator and freezer doors closed, and report the outage to your utility. Stay away from downed power lines.</li>
         <li>Run portable generators outdoors, more than 20 feet from windows, doors and vents. Keep grills and camp stoves outdoors too.</li>
         <li>Discard refrigerated perishables after four hours without power unless they were kept at 40°F (4°C) or colder. Seek a safe place with heating or cooling if the temperature at home becomes unsafe.</li>
       </ol>
+      <p>If power, water, or other services are down together, see <a href="/emergency-preparation/long-outage/">the long-outage guide</a>.</p>
       <div class="ep-source-links">
         <a class="ep-text-link" href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/power-outage.html">Red Cross outage guidance</a>
         <a class="ep-text-link" href="https://www.cdc.gov/carbon-monoxide/about/index.html">CDC generator safety</a>

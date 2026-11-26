@@ -64,7 +64,7 @@ for (const button of document.querySelectorAll('[data-print]')) {
 const listen = document.querySelector('[data-listen]');
 if (listen) {
   const status = document.getElementById('ep-audio-status');
-  const audio = new Audio('/emergency-preparation/first-moves.mp3');
+  const audio = new Audio('/emergency-preparation/first-moves.mp3?v=3');
   audio.preload = 'none';
 
   function showPlayback(playing) {
@@ -97,4 +97,24 @@ if (listen) {
     audio.pause();
     showPlayback(false);
   });
+}
+
+const waterCalculator = document.querySelector('[data-water-calculator]');
+if (waterCalculator) {
+  const { people, days, total } = waterCalculator.elements;
+  const gallons = new Intl.NumberFormat('en-US');
+
+  function updateWater() {
+    if (!people.validity.valid || !days.validity.valid) {
+      total.value = 'Enter 1–100 people and 1–365 days.';
+      return;
+    }
+    const minimum = people.valueAsNumber * days.valueAsNumber;
+    total.value = `${gallons.format(minimum)} ${minimum === 1 ? 'gallon' : 'gallons'} minimum`;
+  }
+
+  waterCalculator.addEventListener('input', updateWater);
+  waterCalculator.addEventListener('submit', event => event.preventDefault());
+  updateWater();
+  waterCalculator.hidden = false;
 }
