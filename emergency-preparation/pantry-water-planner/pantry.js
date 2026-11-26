@@ -4,6 +4,7 @@
   const calculator = document.querySelector('#pantry-calculator');
   const refillForm = document.querySelector('#refill-plan');
   const rotateForm = document.querySelector('#rotation-form');
+  const itemInput = rotateForm.elements.namedItem('item');
   const rotationBody = document.querySelector('#rotation-items');
   const cancelEdit = document.querySelector('#cancel-edit');
   const storageMessage = document.querySelector('#pantry-storage');
@@ -116,11 +117,11 @@
       row.insertCell().append(
         action('Edit', entry, () => {
           editing = entry.id;
-          rotateForm.elements.item.value = entry.name;
+          itemInput.value = entry.name;
           rotateForm.elements.review.value = entry.review;
           rotateForm.querySelector('[type="submit"]').textContent = 'Save item';
           cancelEdit.hidden = false;
-          rotateForm.elements.item.focus();
+          itemInput.focus();
         }),
         action('Remove', entry, () => {
           items = items.filter(current => current.id !== entry.id);
@@ -128,7 +129,7 @@
           renderItems();
           save();
           logStatus.textContent = entry.name + ' removed.';
-          rotateForm.elements.item.focus();
+          itemInput.focus();
         })
       );
     }
@@ -161,11 +162,11 @@
 
   rotateForm.addEventListener('submit', event => {
     event.preventDefault();
-    const name = rotateForm.elements.item.value.trim();
+    const name = itemInput.value.trim();
     const review = rotateForm.elements.review.value;
     if (!name) {
       logStatus.textContent = 'Enter an item name.';
-      rotateForm.elements.item.focus();
+      itemInput.focus();
       return;
     }
 
@@ -180,12 +181,12 @@
     resetEditor();
     renderItems();
     save();
-    rotateForm.elements.item.focus();
+    itemInput.focus();
   });
 
   cancelEdit.addEventListener('click', () => {
     resetEditor();
-    rotateForm.elements.item.focus();
+    itemInput.focus();
   });
 
   estimate();
