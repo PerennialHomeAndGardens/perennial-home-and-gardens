@@ -81,3 +81,5 @@
   }
   .plan-reminder { margin-top: 7px; font-size: 9pt; }
 }
+
+@media print { .plan-power-link { display: none; } }

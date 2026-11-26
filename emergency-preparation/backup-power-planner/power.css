@@ -1,0 +1,34 @@
+.power-main [hidden] { display: none; }
+.power-main .plan-hero button { background: transparent; }
+.power-station, .power-devices { margin: 20px 0 0; min-width: 0; padding: 13px 16px; border: 1px solid var(--ep-line); border-radius: 12px; }
+.power-station legend, .power-devices legend { padding-inline: 6px; font-weight: 700; }
+.power-station-fields, .power-row, .power-results-grid, .power-reading-grid { display: grid; gap: 12px; }
+.power-station-fields { grid-template-columns: repeat(5,minmax(0,1fr)); }
+.power-row { grid-template-columns: minmax(0,1.55fr) repeat(3,minmax(0,1fr)) auto; align-items: end; margin-bottom: 12px; }
+.power-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.power-tools button, .power-row button { min-height: 44px; }
+.power-results-grid { grid-template-columns: repeat(4,minmax(0,1fr)); margin-top: 16px; }
+.power-results-grid > div, .power-reading-grid article, .power-output-check { padding: 14px; border: 1px solid var(--ep-line); border-radius: 12px; background: #fffdf7; }
+.power-results-grid output { display: block; margin-top: 5px; color: #284b35; font: 700 clamp(1.2rem,2.6vw,1.75rem)/1.2 Georgia,serif; }
+.power-output-check { margin-top: 10px; background: #edf1e7; }
+.power-output-check p { margin: 6px 0 0; }
+.power-reading-grid { grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 17px; }
+.power-reading-grid p { margin: 7px 0 0; }
+.power-safety { border-inline-start: 4px solid #789875; padding-inline-start: 13px; }
+#power-input-message { color: #654329; }
+.power-print-value { display: none; }
+@media (max-width: 860px) {
+  .power-station-fields, .power-results-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .power-reading-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 630px) {
+  .power-row { grid-template-columns: repeat(2,minmax(0,1fr)); border-bottom: 1px solid var(--ep-line); padding-bottom: 12px; }
+}
+@media print {
+  .plan-hero h1 { font-size: 24pt; }
+  .power-main .power-tools, .power-row button, #power-storage, #power-form input { display: none; }
+  .power-print-value { display: block; min-height: 1em; overflow-wrap: anywhere; }
+  .power-row { grid-template-columns: repeat(4,minmax(0,1fr)); break-inside: avoid; }
+  .power-reading-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .power-reading-grid article, .power-results-grid > div { break-inside: avoid; }
+}
