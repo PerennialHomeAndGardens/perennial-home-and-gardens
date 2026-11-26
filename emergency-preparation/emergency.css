@@ -390,3 +390,10 @@ html:has(body[data-emergency-preparation]) { scroll-behavior: auto; }
   .ep-outage-topic h2 { break-after: avoid; }
   .ep-outage-stages > div { break-inside: avoid; }
 }
+
+.plan-entry-button {
+  width: fit-content;
+  background: var(--ep-forest);
+  color: #fffaf0;
+}
+.plan-entry-button:hover { background: #325540; }
