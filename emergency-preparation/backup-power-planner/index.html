@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estimate portable power station runtime and compare device loads with its AC power ratings.">
+  <meta name="description" content="Estimate portable power station runtime, check AC power ratings, and compare daily solar recharge with your device needs.">
   <meta name="theme-color" content="#283e2d">
   <title>Backup Power Planner | Perennial Home &amp; Gardens</title>
   <link rel="canonical" href="https://perennialhomeandgardens.com/emergency-preparation/backup-power-planner/">
@@ -16,8 +16,8 @@
   <script defer src="/app-assets/install.js?v=6f6457c2e17d"></script>
   <script defer src="/app-assets/app-navigation.js?v=20261021-soft-whirl"></script>
   <link rel="stylesheet" href="../pantry-water-planner/pantry.css">
-  <link rel="stylesheet" href="power.css">
-  <script defer src="power.js"></script>
+  <link rel="stylesheet" href="power.css?v=2">
+  <script defer src="power.js?v=2"></script>
 </head>
 <body data-site-slug="perennial-home-and-gardens" data-emergency-preparation>
   <a class="ep-skip" href="#main">Skip to emergency guidance</a>
@@ -59,7 +59,8 @@
       <p>Estimate how long a portable power station can run your essentials. Use the example below or enter the numbers from your own equipment.</p>
       <div class="ep-actions">
         <a class="ep-button ep-button-primary" href="#power-estimate">Estimate my runtime</a>
-        <a class="ep-button ep-button-secondary" href="#power-labels">Where to find the numbers</a>
+        <a class="ep-button ep-button-secondary" href="#solar-recharge">Estimate solar recharge</a>
+        <a class="ep-hero-alerts" href="#power-labels">Where to find the numbers</a>
         <button class="ep-button ep-button-secondary" type="button" data-print hidden>Print plan</button>
       </div>
     </div>
@@ -104,8 +105,52 @@
           <p id="power-startup"></p>
         </div>
       </div>
-      <p id="power-storage" class="pantry-note">Your plan is saved in this browser when storage is available. Estimates assume no recharging.</p>
+      <p id="power-storage" class="pantry-note">Your plan is saved in this browser when storage is available. Runtime above assumes no recharging.</p>
     </form>
+  </section>
+
+  <section id="solar-recharge" class="pantry-tint" aria-labelledby="solar-title">
+    <div class="ep-wrap ep-section pantry-section">
+      <h2 id="solar-title">Solar recharge planner</h2>
+      <p>Estimate what portable solar could put back in the battery on a typical day and a lower-sun day. The planner compares both with the device schedule above.</p>
+      <noscript><p>Use the lower of the panel array watts and your station’s solar input limit. Multiply by peak-sun hours and your solar charging allowance to estimate watt-hours of potential recharge.</p></noscript>
+      <form id="solar-form" hidden autocomplete="off">
+        <fieldset class="power-station">
+          <legend>Your solar setup</legend>
+          <div class="power-station-fields">
+            <label>Total panel rating (W)<input name="panel" type="number" min="0" max="100000" step="any" value="200" required></label>
+            <label>Station solar input limit (W)<input name="limit" type="number" min="1" max="100000" step="any" value="150" required></label>
+            <label>Solar charging allowance (%)<input name="solarAllowance" type="number" min="1" max="100" step="any" value="75" required></label>
+            <label>Typical peak-sun hours<input name="typical" type="number" min="0" max="24" step="any" value="4" required></label>
+            <label>Lower-sun peak-sun hours<input name="low" type="number" min="0" max="24" step="any" value="1.5" required></label>
+          </div>
+          <p class="pantry-note">These starting values are examples. Peak-sun hours describe the day’s sunlight as equivalent hours at full solar intensity. Use local seasonal estimates or your own measurements. Adjust the 75% example allowance for panel placement, conditions, and charging losses.</p>
+        </fieldset>
+        <p id="solar-input-message" role="status" hidden></p>
+        <div id="solar-results" aria-live="polite">
+          <p id="solar-cap" class="pantry-note"></p>
+          <div class="solar-scenarios">
+            <article>
+              <h3>Typical day</h3>
+              <p>Potential battery recharge <output id="solar-typical-wh"></output></p>
+              <p id="solar-typical-offset"></p>
+            </article>
+            <article>
+              <h3>Lower-sun day</h3>
+              <p>Potential battery recharge <output id="solar-low-wh"></output></p>
+              <p id="solar-low-offset"></p>
+            </article>
+          </div>
+          <p id="solar-headroom" class="pantry-note"></p>
+          <p class="pantry-note">The comparison applies your usable-energy allowance from above to the estimated recharge. It compares daily energy totals. Actual charging can slow as the battery fills, and daytime timing and equipment limits still matter.</p>
+        </div>
+      </form>
+      <p class="power-safety"><strong>Confirm panel and station compatibility before connecting.</strong> Check the station manual for the allowed voltage range, current, wattage, connectors, and whether it supports charging while powering devices. The wattage estimate alone cannot check those requirements.</p>
+      <div class="ep-source-links">
+        <a class="ep-text-link" href="https://pvwatts.nlr.gov/">PVWatts solar resource estimates</a>
+        <a class="ep-text-link" href="https://manuals.ecoflow.com/us/product/110w-lightweight-portable-solar-panel?lang=en_US">Example manufacturer instructions for portable solar</a>
+      </div>
+    </div>
   </section>
 
   <section id="power-labels" class="pantry-tint" aria-labelledby="power-labels-title">

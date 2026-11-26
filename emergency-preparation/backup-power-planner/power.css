@@ -32,3 +32,14 @@
   .power-reading-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
   .power-reading-grid article, .power-results-grid > div { break-inside: avoid; }
 }
+
+.solar-scenarios { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.solar-scenarios article { padding: 14px; border: 1px solid var(--ep-line); border-radius: 12px; background: #fffdf7; }
+.solar-scenarios p { margin: 7px 0 0; }
+.solar-scenarios output { display: block; color: #284b35; font: 700 clamp(1.25rem, 3vw, 1.65rem)/1.2 Georgia, serif; }
+#solar-input-message { color: #654329; }
+@media (max-width: 570px) { .solar-scenarios { grid-template-columns: 1fr; } }
+@media print {
+  #solar-form input { display: none; }
+  .solar-scenarios article { break-inside: avoid; }
+}
