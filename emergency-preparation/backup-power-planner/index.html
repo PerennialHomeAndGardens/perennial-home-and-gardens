@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estimate portable power station runtime, check AC power ratings, and compare daily solar recharge with your device needs.">
+  <meta name="description" content="Estimate portable power station runtime, check AC power ratings, estimate solar recharge, and forecast three days of battery use.">
   <meta name="theme-color" content="#283e2d">
   <title>Backup Power Planner | Perennial Home &amp; Gardens</title>
   <link rel="canonical" href="https://perennialhomeandgardens.com/emergency-preparation/backup-power-planner/">
@@ -16,8 +16,8 @@
   <script defer src="/app-assets/install.js?v=6f6457c2e17d"></script>
   <script defer src="/app-assets/app-navigation.js?v=20261021-soft-whirl"></script>
   <link rel="stylesheet" href="../pantry-water-planner/pantry.css">
-  <link rel="stylesheet" href="power.css?v=2">
-  <script defer src="power.js?v=2"></script>
+  <link rel="stylesheet" href="power.css?v=3">
+  <script defer src="power.js?v=3"></script>
 </head>
 <body data-site-slug="perennial-home-and-gardens" data-emergency-preparation>
   <a class="ep-skip" href="#main">Skip to emergency guidance</a>
@@ -60,6 +60,7 @@
       <div class="ep-actions">
         <a class="ep-button ep-button-primary" href="#power-estimate">Estimate my runtime</a>
         <a class="ep-button ep-button-secondary" href="#solar-recharge">Estimate solar recharge</a>
+        <a class="ep-hero-alerts" href="#battery-forecast">See the three-day forecast</a>
         <a class="ep-hero-alerts" href="#power-labels">Where to find the numbers</a>
         <button class="ep-button ep-button-secondary" type="button" data-print hidden>Print plan</button>
       </div>
@@ -151,6 +152,36 @@
         <a class="ep-text-link" href="https://manuals.ecoflow.com/us/product/110w-lightweight-portable-solar-panel?lang=en_US">Example manufacturer instructions for portable solar</a>
       </div>
     </div>
+  </section>
+
+  <section id="battery-forecast" class="ep-wrap ep-section pantry-section" aria-labelledby="forecast-title">
+    <h2 id="forecast-title">Three-day battery forecast</h2>
+    <p>Choose the sunlight for each day. The forecast uses your starting charge, daily device use, and solar settings above. It carries the remaining charge into the next day.</p>
+    <noscript><p>Enable JavaScript to compare the three days interactively.</p></noscript>
+    <form id="forecast-form" hidden autocomplete="off">
+      <fieldset class="power-station">
+        <legend>Pick your three days</legend>
+        <div class="forecast-fields">
+          <label>Day 1 sunlight<select name="day1"><option value="typical">Typical sun</option><option value="low">Lower sun</option><option value="none">No solar</option></select></label>
+          <label>Day 2 sunlight<select name="day2"><option value="typical">Typical sun</option><option value="low" selected>Lower sun</option><option value="none">No solar</option></select></label>
+          <label>Day 3 sunlight<select name="day3"><option value="typical">Typical sun</option><option value="low" selected>Lower sun</option><option value="none">No solar</option></select></label>
+          <label>Daily timing<select name="timing"><option value="load-first">Use power before charging</option><option value="solar-first">Charge before using power</option></select></label>
+        </div>
+        <p class="pantry-note">Use power before charging to see what happens if the day’s demand comes before the sun. Try both orders if you expect to use power throughout the day.</p>
+      </fieldset>
+      <p id="forecast-message" role="status" hidden></p>
+      <div id="forecast-results" aria-live="polite">
+        <p id="forecast-summary"></p>
+        <div class="forecast-table" role="region" aria-label="Scrollable battery forecast table" tabindex="0">
+          <table>
+            <caption>Projected energy in usable watt-hours (Wh)</caption>
+            <thead><tr><th scope="col">Day</th><th scope="col">Start</th><th scope="col">Solar stored</th><th scope="col">Use covered</th><th scope="col">Shortfall</th><th scope="col">End charge</th></tr></thead>
+            <tbody id="forecast-days"></tbody>
+          </table>
+        </div>
+        <p class="pantry-note">Solar stored counts only the recharge that fits in the battery in the selected order. End charge is a share of your estimated usable capacity. This estimate uses the same device schedule each day. Check running and startup watts above, and allow for changes in sunlight and the timing of your loads.</p>
+      </div>
+    </form>
   </section>
 
   <section id="power-labels" class="pantry-tint" aria-labelledby="power-labels-title">

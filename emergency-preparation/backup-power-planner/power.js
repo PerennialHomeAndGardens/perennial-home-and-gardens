@@ -3,6 +3,8 @@
 
   const form = document.querySelector('#power-form');
   const solarForm = document.querySelector('#solar-form');
+  const forecastForm = document.querySelector('#forecast-form');
+  const forecastFields = [...forecastForm.querySelectorAll('select')];
   const rows = document.querySelector('#power-rows');
   const add = document.querySelector('#power-add');
   const inputMessage = document.querySelector('#power-input-message');
@@ -92,6 +94,7 @@
       localStorage.setItem(storageKey, JSON.stringify({
         station: station.map(field => field.value),
         solar: solar.map(field => field.value),
+        forecast: forecastFields.map(field => field.value),
         devices: deviceFields.map(fields => fields.map(field => field.value)),
       }));
     } catch {
@@ -167,7 +170,7 @@
     document.querySelector('#power-hours').value = overload
       ? 'Combined load exceeds a rating'
       : estimateText(available / running, 'hours');
-    return daily;
+    return { daily, available, usableCapacity: capacity * (allowance / 100), overload };
   }
 
   function showSolarScenario(id, recharge, dailyLoad, usableAllowance) {
@@ -208,8 +211,9 @@
     document.querySelector('#solar-cap').textContent = panel > limit
       ? 'The estimate caps panel output at your station’s ' + number.format(limit) + ' W solar limit.'
       : 'The estimate starts with ' + number.format(chargingWatts) + ' W of rated panel power.';
-    showSolarScenario('typical', dailyFactor * typical, dailyLoad, usableAllowance);
-    showSolarScenario('low', dailyFactor * low, dailyLoad, usableAllowance);
+    const recharge = { typical: dailyFactor * typical, low: dailyFactor * low, none: 0 };
+    showSolarScenario('typical', recharge.typical, dailyLoad, usableAllowance);
+    showSolarScenario('low', recharge.low, dailyLoad, usableAllowance);
 
     const headroom = document.querySelector('#solar-headroom');
     headroom.hidden = !capacityField.validity.valid || !chargeField.validity.valid;
@@ -220,12 +224,79 @@
         : 'At your starting charge, the battery has room for ' + number.format(room) +
           ' Wh before it fills, assuming no devices are running.';
     }
+
+    return recharge;
+  }
+
+  function forecastDay(start, capacity, use, solarAvailable, chargeFirst) {
+    const chargeAt = chargeFirst ? start : Math.max(0, start - use);
+    const stored = Math.min(solarAvailable, Math.max(0, capacity - chargeAt));
+    const availableForUse = chargeFirst ? start + stored : start;
+    const covered = Math.min(use, availableForUse);
+    return {
+      stored,
+      covered,
+      shortfall: Math.max(0, use - covered),
+      end: Math.max(0, start + stored - covered),
+    };
+  }
+
+  function updateForecast(runtime, recharge) {
+    const message = document.querySelector('#forecast-message');
+    const result = document.querySelector('#forecast-results');
+    message.hidden = Boolean(runtime && recharge);
+    result.hidden = !message.hidden;
+    if (result.hidden) {
+      message.textContent = 'Complete the device schedule and solar settings above to see the forecast.';
+      return;
+    }
+
+    const daily = runtime.daily;
+    const capacity = runtime.usableCapacity;
+    const allowance = station[2].valueAsNumber / 100;
+    const [first, second, third, timing] = forecastFields;
+    const chargeFirst = timing.value === 'solar-first';
+    const rows = document.querySelector('#forecast-days');
+    const wattHours = value => value > 0 && value < 0.01
+      ? '<0.01 Wh' : number.format(value) + ' Wh';
+    let remaining = runtime.available;
+    let firstShortfall = 0;
+    rows.replaceChildren();
+
+    [first, second, third].forEach((field, index) => {
+      const start = remaining;
+      const day = forecastDay(start, capacity, daily, recharge[field.value] * allowance, chargeFirst);
+      remaining = day.end;
+      const hasShortfall = day.shortfall > 1e-8;
+      if (hasShortfall && !firstShortfall) firstShortfall = index + 1;
+
+      const row = rows.insertRow();
+      const heading = factory('th', 'Day ' + (index + 1));
+      heading.scope = 'row';
+      row.append(heading);
+      row.insertCell().textContent = wattHours(start);
+      row.insertCell().textContent = wattHours(day.stored);
+      row.insertCell().textContent = wattHours(day.covered);
+      const shortfall = row.insertCell();
+      shortfall.textContent = hasShortfall ? wattHours(day.shortfall) : 'None estimated';
+      shortfall.classList.toggle('forecast-shortfall', hasShortfall);
+      row.insertCell().textContent = number.format(100 * day.end / capacity) +
+        '% · ' + wattHours(day.end);
+    });
+
+    let summary = firstShortfall
+      ? 'The first estimated shortfall is on Day ' + firstShortfall + '.'
+      : 'The model covers the planned energy use on all three days.';
+    if (runtime.overload) summary += ' A combined load still exceeds a rating you entered above.';
+    document.querySelector('#forecast-summary').textContent = summary;
   }
 
   function update() {
     const deviceFields = readRows();
     savePlan(deviceFields);
-    updateSolar(updateRuntime(deviceFields));
+    const runtime = updateRuntime(deviceFields);
+    const recharge = updateSolar(runtime?.daily);
+    updateForecast(runtime, recharge);
   }
 
   add.addEventListener('click', () => {
@@ -240,10 +311,12 @@
   form.addEventListener('submit', event => event.preventDefault());
   solarForm.addEventListener('input', update);
   solarForm.addEventListener('submit', event => event.preventDefault());
+  forecastForm.addEventListener('change', update);
+  forecastForm.addEventListener('submit', event => event.preventDefault());
   window.addEventListener('beforeprint', () => {
     document.querySelectorAll('.power-print-value').forEach(node => node.remove());
-    for (const input of [...form.querySelectorAll('input'), ...solar]) {
-      const value = factory('span', input.value || '—');
+    for (const input of [...form.querySelectorAll('input'), ...solar, ...forecastFields]) {
+      const value = factory('span', input.selectedOptions?.[0]?.textContent || input.value || '—');
       value.className = 'power-print-value';
       input.after(value);
     }
@@ -261,7 +334,12 @@
     const remembered = saved?.solar?.[index];
     if (typeof remembered === 'string') input.value = remembered;
   }
+  for (const [index, field] of forecastFields.entries()) {
+    const remembered = saved?.forecast?.[index];
+    if ([...field.options].some(option => option.value === remembered)) field.value = remembered;
+  }
   form.hidden = false;
   solarForm.hidden = false;
+  forecastForm.hidden = false;
   update();
 })();

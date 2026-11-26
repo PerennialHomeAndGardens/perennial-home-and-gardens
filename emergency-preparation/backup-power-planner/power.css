@@ -43,3 +43,21 @@
   #solar-form input { display: none; }
   .solar-scenarios article { break-inside: avoid; }
 }
+
+.forecast-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.4fr); gap: 12px; }
+.forecast-table { overflow-x: auto; }
+.forecast-table table { width: 100%; border-collapse: collapse; font-size: .94rem; font-variant-numeric: tabular-nums; }
+.forecast-table caption { text-align: start; padding-bottom: 7px; }
+.forecast-table :is(th, td) { padding: 9px 10px; text-align: start; border-bottom: 1px solid var(--ep-line); }
+.forecast-table thead { background: #edf1e7; }
+.forecast-table tbody { background: #fffdf7; }
+.forecast-table th[scope="row"] { white-space: nowrap; }
+.forecast-shortfall, #forecast-message { color: #654329; }
+.forecast-shortfall { font-weight: bold; }
+#forecast-summary { font-weight: 700; }
+@media (max-width: 700px) { .forecast-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media print {
+  #forecast-form select { display: none; }
+  .forecast-table { overflow: visible; }
+  .forecast-table tr { break-inside: avoid; }
+}
