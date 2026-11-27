@@ -1,0 +1,35 @@
+.outage-hero { background: var(--ep-forest); color: #faf6e9; padding-block: clamp(24px, 5vw, 52px); }
+.outage-hero .ep-kicker { color: #e2cf9e; }
+.outage-hero h1 { font: 500 clamp(2.55rem, 6vw, 4.8rem)/1.06 Georgia, serif; letter-spacing: -.035em; margin: 0; }
+.outage-hero p { max-width: 70ch; }
+.outage-hero button { background: transparent; }
+.outage-hero button[hidden] { display: none; }
+.outage-hero :is(a, button):focus-visible { outline-color: #e9d19b; }
+.outage-content { max-width: 850px; padding-block: clamp(20px, 4vw, 42px); }
+.outage-priority { padding: 12px 15px; background: #edf1e7; border-inline-start: 4px solid #789875; margin-top: 0; }
+.outage-group { border: 1px solid var(--ep-line); border-radius: 12px; background: #fffdf7; margin: 14px 0; padding: 15px; }
+.outage-group h2, .outage-notes h2, .outage-sources h2 { font: 500 clamp(1.25rem, 3vw, 1.65rem)/1.2 Georgia, serif; margin: 0 0 8px; }
+.outage-group ul, .outage-notes ul { list-style: none; padding: 0; margin: 0; }
+.outage-group li { display: grid; grid-template-columns: 16px minmax(0,1fr); gap: 9px; }
+.outage-group li + li { margin-top: 8px; }
+.outage-box { width: 13px; height: 13px; border: 1px solid #60765e; margin-top: .38em; }
+.outage-notes, .outage-sources, .outage-related { margin-top: 19px; }
+.outage-notes ul { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.outage-notes li { display: grid; font-weight: bold; }
+.outage-notes li span { display: block; height: 27px; border-bottom: 1px solid #879c84; }
+@media (max-width: 560px) { .outage-notes ul { grid-template-columns: 1fr; } }
+@page { size: letter; margin: .4in; }
+@media print {
+  .outage-hero { background: white; color: #111; padding-block: 0; }
+  .outage-hero .ep-kicker { color: #111; }
+  .outage-hero h1 { font-size: 24pt; }
+  .outage-hero p, .outage-priority, .outage-group, .outage-notes, .outage-sources { font-size: 9.5pt; line-height: 1.32; }
+  .outage-content { padding: 0; }
+  .outage-group { margin: 7px 0; padding: 7px; break-inside: avoid; }
+  .outage-group h2, .outage-notes h2, .outage-sources h2 { font-size: 12pt; margin: 0 0 4px; }
+  .outage-group li + li { margin-top: 4px; }
+  .outage-notes, .outage-sources { margin-top: 8px; }
+  .outage-notes ul { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .outage-related { display: none; }
+  .outage-notes li span { height: 16px; }
+}
