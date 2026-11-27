@@ -83,3 +83,14 @@
 }
 
 @media print { .plan-power-link { display: none; } }
+
+.contact-card .plan-sheet { max-width: 850px; }
+.contact-card .plan-groups { grid-template-columns: 1fr; }
+.contact-card .plan-related { margin-top: 18px; }
+@media (max-width: 440px) {
+  .contact-card .plan-meta { grid-template-columns: 1fr; }
+}
+@media print {
+  .contact-card .plan-meta { grid-template-columns: 2fr 1fr; }
+  .contact-card .plan-related { display: none; }
+}
