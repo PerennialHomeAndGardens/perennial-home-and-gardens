@@ -1,0 +1,65 @@
+.quick-hero {
+  background: var(--ep-forest);
+  color: #faf6e9;
+  padding-block: clamp(28px, 5vw, 58px);
+}
+.quick-hero .ep-kicker { color: #e2cf9e; }
+.quick-hero h1 {
+  margin: 0;
+  font: 500 clamp(2.55rem, 6vw, 4.85rem)/1.04 Georgia, serif;
+  letter-spacing: -.035em;
+}
+.quick-hero p { max-width: 68ch; }
+.quick-paths, .quick-guides { display: grid; gap: 13px; }
+.quick-paths {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 20px;
+}
+.quick-paths a {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  min-height: 91px;
+  padding: 10px 13px;
+  color: #253c2c;
+  background: #e6ebdf;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.quick-paths a:first-child { background: #ead9ad; }
+.quick-paths a:hover { background: #fffaf0; text-decoration: underline; text-underline-offset: 3px; }
+.quick-paths a:focus-visible { outline-color: #e9d19b; }
+.quick-paths strong { line-height: 1.25; }
+.quick-paths span { color: #495d4d; font-size: .91rem; }
+.quick-guides {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  padding-block: clamp(22px, 4vw, 44px);
+}
+.quick-guide {
+  padding: clamp(14px, 2.3vw, 24px);
+  border: 1px solid var(--ep-line);
+  border-radius: 14px;
+  background: #fffdf7;
+}
+.quick-guide h2 { margin: 0; font: 500 clamp(1.32rem, 3vw, 1.82rem)/1.16 Georgia, serif; }
+.quick-guide p { margin: 6px 0; }
+.quick-links { padding-left: 22px; margin: 10px 0 0; }
+.quick-links li + li { margin-top: 9px; }
+.quick-links a { color: #2d5639; text-underline-offset: 3px; font-weight: 700; }
+.quick-links span { display: block; color: var(--ep-muted); font-size: .95rem; }
+.quick-return { grid-column: 1/-1; justify-self: start; display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 950px) { .quick-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .quick-guides { grid-template-columns: 1fr; } }
+@media (max-width: 390px) {
+  .quick-paths { grid-template-columns: 1fr; }
+  .quick-paths a { min-height: 58px; }
+}
+@media print {
+  .quick-hero { color: #111; background: white; padding-block: 0 12px; }
+  .quick-hero .ep-kicker { color: #111; }
+  .quick-hero h1 { font-size: 25pt; }
+  .quick-paths, .quick-return { display: none; }
+  .quick-guide { break-inside: avoid; }
+}
