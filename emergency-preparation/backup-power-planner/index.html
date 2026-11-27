@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estimate portable power station runtime, check AC power ratings, estimate solar recharge, and forecast three days of battery use.">
+  <meta name="description" content="Estimate portable power station runtime, check AC power ratings, estimate solar recharge, and compare your full schedule with an essentials-only plan over three days.">
   <meta name="theme-color" content="#283e2d">
   <title>Backup Power Planner | Perennial Home &amp; Gardens</title>
   <link rel="canonical" href="https://perennialhomeandgardens.com/emergency-preparation/backup-power-planner/">
@@ -16,8 +16,8 @@
   <script defer src="/app-assets/install.js?v=6f6457c2e17d"></script>
   <script defer src="/app-assets/app-navigation.js?v=20261021-soft-whirl"></script>
   <link rel="stylesheet" href="../pantry-water-planner/pantry.css">
-  <link rel="stylesheet" href="power.css?v=3">
-  <script defer src="power.js?v=3"></script>
+  <link rel="stylesheet" href="power.css?v=4">
+  <script defer src="power.js?v=4"></script>
 </head>
 <body data-site-slug="perennial-home-and-gardens" data-emergency-preparation>
   <a class="ep-skip" href="#main">Skip to emergency guidance</a>
@@ -61,6 +61,7 @@
         <a class="ep-button ep-button-primary" href="#power-estimate">Estimate my runtime</a>
         <a class="ep-button ep-button-secondary" href="#solar-recharge">Estimate solar recharge</a>
         <a class="ep-hero-alerts" href="#battery-forecast">See the three-day forecast</a>
+        <a class="ep-hero-alerts" href="#essentials-comparison">Compare essentials only</a>
         <a class="ep-hero-alerts" href="#power-labels">Where to find the numbers</a>
         <button class="ep-button ep-button-secondary" type="button" data-print hidden>Print plan</button>
       </div>
@@ -82,9 +83,10 @@
         </div>
         <p class="pantry-note">The 80% starting allowance leaves room for losses and reserve. Adjust it for your station and setup. Actual runtime can also change with temperature, battery age, and inverter idle draw.</p>
       </fieldset>
-      <fieldset class="power-devices">
+      <fieldset class="power-devices" id="power-devices">
         <legend>2. Devices you want to run</legend>
         <p class="pantry-note">The examples use AC outlets and illustrative wattages. Combine devices of the same kind into one row only if they run for the same number of hours. Leave startup watts blank if you don’t know them.</p>
+        <p class="pantry-note">Leave <strong>Keep on</strong> checked for devices you need in the essentials plan. Uncheck devices you could pause.</p>
         <div id="power-rows"></div>
         <div class="power-tools">
           <button type="button" class="ep-plain-button" id="power-add">Add a device</button>
@@ -182,6 +184,32 @@
         <p class="pantry-note">Solar stored counts only the recharge that fits in the battery in the selected order. End charge is a share of your estimated usable capacity. This estimate uses the same device schedule each day. Check running and startup watts above, and allow for changes in sunlight and the timing of your loads.</p>
       </div>
     </form>
+  </section>
+
+  <section id="essentials-comparison" class="pantry-tint" aria-labelledby="essentials-title">
+    <div class="ep-wrap ep-section pantry-section">
+      <h2 id="essentials-title">Essentials-only comparison</h2>
+      <p>Use the <a class="ep-text-link" href="#power-devices">Keep on</a> checkboxes next to your devices to choose what stays in the essentials plan. Compare it with your full schedule using the same battery and sunlight settings.</p>
+      <noscript><p>Enable JavaScript to compare the two schedules.</p></noscript>
+      <p id="essentials-message" role="status" hidden></p>
+      <div id="essentials-results" aria-live="polite" hidden>
+        <div class="power-results-grid essentials-results">
+          <div><h3>Full schedule</h3><output id="essentials-full-runtime"></output><p id="essentials-full-daily"></p></div>
+          <div><h3>Essentials only</h3><output id="essentials-runtime"></output><p id="essentials-daily"></p></div>
+        </div>
+        <p id="essentials-savings"></p>
+        <p id="essentials-ratings" class="pantry-note" hidden></p>
+        <p class="pantry-note">The runtime above assumes no recharge. The table below includes the sunlight and daily timing you chose in the three-day forecast.</p>
+        <p id="essentials-forecast-message" class="pantry-note" hidden>Complete the solar settings above to compare the three days.</p>
+        <div id="essentials-forecast-table" class="forecast-table" role="region" aria-label="Scrollable schedule comparison table" tabindex="0">
+          <table>
+            <caption>Three-day comparison in usable watt-hours (Wh)</caption>
+            <thead><tr><th scope="col">Day</th><th scope="col">Full end charge</th><th scope="col">Full shortfall</th><th scope="col">Essentials end charge</th><th scope="col">Essentials shortfall</th></tr></thead>
+            <tbody id="essentials-days"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="power-labels" class="pantry-tint" aria-labelledby="power-labels-title">

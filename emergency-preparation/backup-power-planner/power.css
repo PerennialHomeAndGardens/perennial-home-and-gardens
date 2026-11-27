@@ -61,3 +61,19 @@
   .forecast-table { overflow: visible; }
   .forecast-table tr { break-inside: avoid; }
 }
+
+.power-row { grid-template-columns: minmax(0,1.55fr) repeat(3,minmax(0,1fr)) auto auto; }
+.power-row .power-priority { grid-template-rows: auto; grid-auto-flow: column; align-items: center; gap: 5px; min-height: 44px; white-space: nowrap; cursor: pointer; }
+.power-row .power-priority input { inline-size: 20px; min-block-size: 20px; padding: 0; accent-color: #284b35; }
+.essentials-results { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.essentials-results p { margin: 5px 0 0; }
+#essentials-savings { font-weight: 700; }
+#essentials-message, #essentials-ratings { color: #654329; }
+@media (max-width: 740px) {
+  .power-row { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .power-row .power-priority { justify-content: start; }
+}
+@media print {
+  .power-row { grid-template-columns: repeat(5,minmax(0,1fr)); }
+  .power-row .power-priority { grid-auto-flow: row; gap: 3px; }
+}

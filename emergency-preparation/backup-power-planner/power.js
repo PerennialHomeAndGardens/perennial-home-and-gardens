@@ -19,7 +19,7 @@
   const exampleDevices = [
     ['LED lamp', '8', '5', ''],
     ['Phone charger', '12', '2', ''],
-    ['Wi-Fi router', '12', '8', ''],
+    ['Wi-Fi router', '12', '8', '', false],
   ];
   const specs = [
     { label: 'Device', type: 'text', maxLength: 55 },
@@ -52,13 +52,24 @@
       return input;
     });
 
+    const priority = factory('label', 'Keep on');
+    priority.className = 'power-priority';
+    const keep = factory('input');
+    keep.type = 'checkbox';
+    keep.checked = values[4] !== false;
+    priority.append(keep);
+    row.append(priority);
+
     const remove = factory('button', 'Remove');
     remove.className = 'ep-plain-button';
     remove.type = 'button';
-    remove.setAttribute('aria-label', 'Remove ' + (fields[0].value || 'device'));
-    fields[0].addEventListener('input', () => {
-      remove.setAttribute('aria-label', 'Remove ' + (fields[0].value.trim() || 'device'));
-    });
+    function labelControls() {
+      const name = fields[0].value.trim() || 'device';
+      remove.setAttribute('aria-label', 'Remove ' + name);
+      keep.setAttribute('aria-label', 'Keep on ' + name);
+    }
+    labelControls();
+    fields[0].addEventListener('input', labelControls);
     remove.addEventListener('click', () => {
       row.remove();
       updateAddButton();
@@ -95,7 +106,7 @@
         station: station.map(field => field.value),
         solar: solar.map(field => field.value),
         forecast: forecastFields.map(field => field.value),
-        devices: deviceFields.map(fields => fields.map(field => field.value)),
+        devices: deviceFields.map(fields => fields.map(field => field.type === 'checkbox' ? field.checked : field.value)),
       }));
     } catch {
       useTemporaryStorageMessage();
@@ -112,12 +123,17 @@
     results.hidden = Boolean(message);
   }
 
-  function showRatings(active, running, continuous, surge) {
+  function getRatings(active, running, continuous, surge) {
     const knownPeak = active.reduce((total, device) => total + (device.peak ?? device.watts), 0);
     const unknownPeaks = active.some(device => device.peak === null);
     const exceedsContinuous = Number.isFinite(continuous) && running > continuous;
     const exceedsSurge = Number.isFinite(surge) && knownPeak > surge;
+    return { knownPeak, unknownPeaks, exceedsContinuous, exceedsSurge };
+  }
 
+  function showRatings(active, running, continuous, surge) {
+    const { knownPeak, unknownPeaks, exceedsContinuous, exceedsSurge } =
+      getRatings(active, running, continuous, surge);
     const continuousText = Number.isFinite(continuous)
       ? (exceedsContinuous ? ' This exceeds the continuous rating of ' : ' This is within the stated continuous rating of ') +
         number.format(continuous) + ' W.'
@@ -142,7 +158,8 @@
       return;
     }
 
-    const devices = deviceFields.map(([, watts, hours, peak]) => ({
+    const devices = deviceFields.map(([, watts, hours, peak, keep]) => ({
+      keep: keep.checked,
       watts: watts.valueAsNumber,
       hours: hours.valueAsNumber,
       peak: peak.value === '' ? null : peak.valueAsNumber,
@@ -170,7 +187,12 @@
     document.querySelector('#power-hours').value = overload
       ? 'Combined load exceeds a rating'
       : estimateText(available / running, 'hours');
-    return { daily, available, usableCapacity: capacity * (allowance / 100), overload };
+    const essentials = active.filter(device => device.keep);
+    const essentialDaily = essentials.reduce((total, device) => total + device.watts * device.hours, 0);
+    const essentialRunning = essentials.reduce((total, device) => total + device.watts, 0);
+    const essentialRatings = getRatings(essentials, essentialRunning, continuous, surge);
+    const essentialOverload = essentialRatings.exceedsContinuous || essentialRatings.exceedsSurge;
+    return { daily, available, usableCapacity: capacity * (allowance / 100), overload, essentialDaily, essentialOverload };
   }
 
   function showSolarScenario(id, recharge, dailyLoad, usableAllowance) {
@@ -241,47 +263,57 @@
     };
   }
 
-  function updateForecast(runtime, recharge) {
+  function forecastSequence(runtime, recharge, daily) {
+    const allowance = station[2].valueAsNumber / 100;
+    const [first, second, third, timing] = forecastFields;
+    const chargeFirst = timing.value === 'solar-first';
+    let start = runtime.available;
+    return [first, second, third].map(field => {
+      const day = forecastDay(start, runtime.usableCapacity, daily, recharge[field.value] * allowance, chargeFirst);
+      const entry = { start, ...day };
+      start = day.end;
+      return entry;
+    });
+  }
+
+  function wattHours(value) {
+    return value > 0 && value < 0.01 ? '<0.01 Wh' : number.format(value) + ' Wh';
+  }
+
+  function endCharge(value, capacity) {
+    return number.format(100 * value / capacity) + '% · ' + wattHours(value);
+  }
+
+  function showShortfall(cell, value) {
+    const hasShortfall = value > 1e-8;
+    cell.textContent = hasShortfall ? wattHours(value) : 'None estimated';
+    cell.classList.toggle('forecast-shortfall', hasShortfall);
+  }
+
+  function updateForecast(runtime, days) {
     const message = document.querySelector('#forecast-message');
     const result = document.querySelector('#forecast-results');
-    message.hidden = Boolean(runtime && recharge);
+    message.hidden = Boolean(days);
     result.hidden = !message.hidden;
     if (result.hidden) {
       message.textContent = 'Complete the device schedule and solar settings above to see the forecast.';
       return;
     }
 
-    const daily = runtime.daily;
-    const capacity = runtime.usableCapacity;
-    const allowance = station[2].valueAsNumber / 100;
-    const [first, second, third, timing] = forecastFields;
-    const chargeFirst = timing.value === 'solar-first';
     const rows = document.querySelector('#forecast-days');
-    const wattHours = value => value > 0 && value < 0.01
-      ? '<0.01 Wh' : number.format(value) + ' Wh';
-    let remaining = runtime.available;
-    let firstShortfall = 0;
+    const firstShortfall = days.findIndex(day => day.shortfall > 1e-8) + 1;
     rows.replaceChildren();
 
-    [first, second, third].forEach((field, index) => {
-      const start = remaining;
-      const day = forecastDay(start, capacity, daily, recharge[field.value] * allowance, chargeFirst);
-      remaining = day.end;
-      const hasShortfall = day.shortfall > 1e-8;
-      if (hasShortfall && !firstShortfall) firstShortfall = index + 1;
-
+    days.forEach((day, index) => {
       const row = rows.insertRow();
       const heading = factory('th', 'Day ' + (index + 1));
       heading.scope = 'row';
       row.append(heading);
-      row.insertCell().textContent = wattHours(start);
+      row.insertCell().textContent = wattHours(day.start);
       row.insertCell().textContent = wattHours(day.stored);
       row.insertCell().textContent = wattHours(day.covered);
-      const shortfall = row.insertCell();
-      shortfall.textContent = hasShortfall ? wattHours(day.shortfall) : 'None estimated';
-      shortfall.classList.toggle('forecast-shortfall', hasShortfall);
-      row.insertCell().textContent = number.format(100 * day.end / capacity) +
-        '% · ' + wattHours(day.end);
+      showShortfall(row.insertCell(), day.shortfall);
+      row.insertCell().textContent = endCharge(day.end, runtime.usableCapacity);
     });
 
     let summary = firstShortfall
@@ -291,12 +323,66 @@
     document.querySelector('#forecast-summary').textContent = summary;
   }
 
+  function updateEssentials(runtime, recharge, fullDays) {
+    const message = document.querySelector('#essentials-message');
+    const result = document.querySelector('#essentials-results');
+    message.hidden = Boolean(runtime?.essentialDaily);
+    result.hidden = !message.hidden;
+    if (result.hidden) {
+      message.textContent = runtime
+        ? 'Mark at least one device with daily use to keep on in the essentials plan.'
+        : 'Complete the battery and device schedule above to compare the two plans.';
+      return;
+    }
+
+    const fullRuntime = runtime.available / runtime.daily;
+    const essentialRuntime = runtime.available / runtime.essentialDaily;
+    const savings = runtime.daily - runtime.essentialDaily;
+    document.querySelector('#essentials-full-runtime').value = estimateText(fullRuntime, 'days');
+    document.querySelector('#essentials-runtime').value = estimateText(essentialRuntime, 'days');
+    document.querySelector('#essentials-full-daily').textContent = wattHours(runtime.daily) + ' per day';
+    document.querySelector('#essentials-daily').textContent = wattHours(runtime.essentialDaily) + ' per day';
+    const extraRuntime = runtime.available > 0
+      ? ' and adds ' + estimateText(essentialRuntime - fullRuntime, 'days').toLowerCase() + ' on the starting charge'
+      : '';
+    document.querySelector('#essentials-savings').textContent = savings > 1e-8
+      ? 'Pausing the other devices saves ' + wattHours(savings) + ' per day' + extraRuntime + '.'
+      : 'Both plans currently use the same amount of energy.';
+    const notices = [];
+    if (runtime.overload) notices.push('The full schedule exceeds a combined power rating.');
+    if (runtime.essentialOverload) notices.push('Essentials only also exceeds a combined power rating.');
+    const ratings = document.querySelector('#essentials-ratings');
+    ratings.hidden = notices.length === 0;
+    ratings.textContent = notices.join(' ');
+
+    const table = document.querySelector('#essentials-forecast-table');
+    const forecastMessage = document.querySelector('#essentials-forecast-message');
+    table.hidden = !recharge;
+    forecastMessage.hidden = Boolean(recharge);
+    if (!recharge) return;
+
+    const body = document.querySelector('#essentials-days');
+    body.replaceChildren();
+    forecastSequence(runtime, recharge, runtime.essentialDaily).forEach((day, index) => {
+      const row = body.insertRow();
+      const heading = factory('th', 'Day ' + (index + 1));
+      heading.scope = 'row';
+      row.append(heading);
+      row.insertCell().textContent = endCharge(fullDays[index].end, runtime.usableCapacity);
+      showShortfall(row.insertCell(), fullDays[index].shortfall);
+      row.insertCell().textContent = endCharge(day.end, runtime.usableCapacity);
+      showShortfall(row.insertCell(), day.shortfall);
+    });
+  }
+
   function update() {
     const deviceFields = readRows();
     savePlan(deviceFields);
     const runtime = updateRuntime(deviceFields);
     const recharge = updateSolar(runtime?.daily);
-    updateForecast(runtime, recharge);
+    const days = runtime && recharge ? forecastSequence(runtime, recharge, runtime.daily) : null;
+    updateForecast(runtime, days);
+    updateEssentials(runtime, recharge, days);
   }
 
   add.addEventListener('click', () => {
@@ -316,7 +402,10 @@
   window.addEventListener('beforeprint', () => {
     document.querySelectorAll('.power-print-value').forEach(node => node.remove());
     for (const input of [...form.querySelectorAll('input'), ...solar, ...forecastFields]) {
-      const value = factory('span', input.selectedOptions?.[0]?.textContent || input.value || '—');
+      const printable = input.type === 'checkbox'
+        ? (input.checked ? 'Yes' : 'No')
+        : input.selectedOptions?.[0]?.textContent || input.value || '—';
+      const value = factory('span', printable);
       value.className = 'power-print-value';
       input.after(value);
     }
